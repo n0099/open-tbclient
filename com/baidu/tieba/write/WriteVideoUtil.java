@@ -49,7 +49,7 @@ public class WriteVideoUtil {
     }
 
     /* loaded from: classes8.dex */
-    public class a implements PermissionJudgePolicy.OnPermissionsGrantedListener {
+    public static class a implements PermissionJudgePolicy.OnPermissionsGrantedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -86,7 +86,7 @@ public class WriteVideoUtil {
     }
 
     /* loaded from: classes8.dex */
-    public class b implements j05.f {
+    public static class b implements j05.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -145,7 +145,7 @@ public class WriteVideoUtil {
     }
 
     /* loaded from: classes8.dex */
-    public class c implements j05.c {
+    public static class c implements j05.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ h05 a;

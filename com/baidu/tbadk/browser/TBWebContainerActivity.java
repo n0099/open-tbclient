@@ -41,6 +41,7 @@ import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
@@ -1587,6 +1588,7 @@ public class TBWebContainerActivity extends BaseWebViewActivity implements Lifec
                 this.a.setWebChromeClient(new t(this));
                 this.a.setDownloadListener(new lu4(this));
                 this.a.r(this.createdTime);
+                this.a.setInterceptParentCls(SwipeBackLayout.class);
                 o1();
                 this.a.F(new xf6() { // from class: com.baidu.tieba.or4
                     public static /* synthetic */ Interceptable $ic;
@@ -1596,7 +1598,7 @@ public class TBWebContainerActivity extends BaseWebViewActivity implements Lifec
                     public final void call(Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                            TBWebContainerActivity.this.r1((WebView) obj);
+                            TBWebContainerActivity.this.q1((WebView) obj);
                         }
                     }
                 });
@@ -1887,7 +1889,7 @@ public class TBWebContainerActivity extends BaseWebViewActivity implements Lifec
         }
     }
 
-    public /* synthetic */ boolean q1(WebView webView, View view2) {
+    public /* synthetic */ boolean r1(WebView webView, View view2) {
         if (!TextUtils.isEmpty(this.mUrl) && this.mUrl.contains("haokan.baidu.com/activity/")) {
             return false;
         }
@@ -2548,7 +2550,7 @@ public class TBWebContainerActivity extends BaseWebViewActivity implements Lifec
         }
     }
 
-    public /* synthetic */ void r1(final WebView webView) {
+    public /* synthetic */ void q1(final WebView webView) {
         webView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.qr4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -2557,7 +2559,7 @@ public class TBWebContainerActivity extends BaseWebViewActivity implements Lifec
             public final boolean onLongClick(View view2) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? TBWebContainerActivity.this.q1(webView, view2) : invokeL.booleanValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? TBWebContainerActivity.this.r1(webView, view2) : invokeL.booleanValue;
             }
         });
         this.a.setOnScrollChangeListener(new wr4(this));

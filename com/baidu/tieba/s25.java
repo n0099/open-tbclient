@@ -22,7 +22,6 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.Direction;
-import com.baidu.tbadk.core.elementsMaven.EMDrawable;
 import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -460,7 +459,7 @@ public class s25 extends Drawable implements Cloneable {
         return (s25) invokeI.objValue;
     }
 
-    public s25 N(@EMDrawable.ShadowSide int i) {
+    public s25 N(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
@@ -473,7 +472,7 @@ public class s25 extends Drawable implements Cloneable {
         return (s25) invokeI.objValue;
     }
 
-    public s25 O(@EMDrawable.Shape int i) {
+    public s25 O(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {

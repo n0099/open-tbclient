@@ -56,7 +56,7 @@ public interface hk5 {
     void r(@NonNull Context context, long j, @NonNull pk5 pk5Var);
 
     /* loaded from: classes6.dex */
-    public class a implements Comparator<ChatMsg> {
+    public static class a implements Comparator<ChatMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

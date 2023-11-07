@@ -17,7 +17,7 @@ public class of8 extends l9a {
     public ThreadData Y0;
 
     @Override // com.baidu.tieba.n9a
-    public int h0() {
+    public int f0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -45,7 +45,7 @@ public class of8 extends l9a {
                 return;
             }
         }
-        u0(true);
+        s0(true);
     }
 
     @Override // com.baidu.tieba.n9a, com.baidu.tieba.k9a

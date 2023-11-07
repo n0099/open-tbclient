@@ -65,21 +65,21 @@ public class s4b extends n9a {
     }
 
     @Override // com.baidu.tieba.n9a
-    public void D0(int i) {
+    public void B0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
     @Override // com.baidu.tieba.n9a
-    public int g0() {
+    public int e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? R.layout.obfuscated_res_0x7f0d0773 : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.n9a
-    public boolean l0() {
+    public boolean j0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
@@ -149,7 +149,7 @@ public class s4b extends n9a {
         public void run() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.f1 && (this.a.S instanceof Activity)) {
-                this.a.P0();
+                this.a.N0();
             }
         }
     }
@@ -225,19 +225,19 @@ public class s4b extends n9a {
         this.Z0 = bdUniqueId;
         this.V = bdUniqueId;
         this.b1 = i;
-        V();
+        T();
         if (!TbSingleton.getInstance().isNotchScreen(tbPageContext.getPageActivity()) && !TbSingleton.getInstance().isCutoutScreen(tbPageContext.getPageActivity())) {
             z = false;
         } else {
             z = true;
         }
         this.e1 = z;
-        d0(true);
-        e0(true);
+        b0(true);
+        c0(true);
         this.g0 = false;
     }
 
-    public void R0(VideoItemData videoItemData) {
+    public void P0(VideoItemData videoItemData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048581, this, videoItemData) != null) || videoItemData == null) {
             return;
@@ -246,14 +246,14 @@ public class s4b extends n9a {
         setData(videoItemData.threadData);
     }
 
-    public void S0(d dVar) {
+    public void Q0(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
             this.l1 = dVar;
         }
     }
 
-    public void T0(ds9 ds9Var) {
+    public void R0(ds9 ds9Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, ds9Var) == null) {
             this.i1 = ds9Var;
@@ -261,7 +261,7 @@ public class s4b extends n9a {
     }
 
     @Override // com.baidu.tieba.n9a
-    public boolean k0(MotionEvent motionEvent) {
+    public boolean i0(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, motionEvent)) == null) {
@@ -274,7 +274,7 @@ public class s4b extends n9a {
     }
 
     @Override // com.baidu.tieba.n9a
-    public void E0() {
+    public void C0() {
         f9a f9aVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (f9aVar = this.d0) != null) {
@@ -284,7 +284,7 @@ public class s4b extends n9a {
         }
     }
 
-    public ds9 O0() {
+    public ds9 M0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -297,20 +297,20 @@ public class s4b extends n9a {
         return (ds9) invokeV.objValue;
     }
 
-    public final void P0() {
+    public final void N0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            U0();
+            S0();
             UtilHelper.hideStatusBar((Activity) this.S, this.c1);
             this.f1 = false;
         }
     }
 
-    public void Q0() {
+    public void O0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            d0(false);
-            e0(false);
+            b0(false);
+            c0(false);
             this.l1 = null;
             VideoDanmuController videoDanmuController = this.j1;
             if (videoDanmuController != null) {
@@ -324,10 +324,10 @@ public class s4b extends n9a {
     }
 
     @Override // com.baidu.tieba.n9a
-    public void i0() {
+    public void g0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            super.i0();
+            super.g0();
             this.u.clearCornerFlag();
             this.u.setDrawCorner(false);
             this.U0 = BdUtilHelper.getEquipmentWidth(this.S) / 10;
@@ -336,14 +336,14 @@ public class s4b extends n9a {
     }
 
     @Override // com.baidu.tieba.n9a
-    public void j0() {
+    public void h0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             this.t.getControl().setVolume(1.0f, 1.0f);
         }
     }
 
-    public final void U0() {
+    public final void S0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (this.h1 == null) {
@@ -355,7 +355,7 @@ public class s4b extends n9a {
         }
     }
 
-    public final void V0() {
+    public final void T0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             if (this.g1 == null) {
@@ -385,7 +385,7 @@ public class s4b extends n9a {
     }
 
     @Override // com.baidu.tieba.n9a
-    public void V() {
+    public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             int i = this.b & (-33);
@@ -431,7 +431,7 @@ public class s4b extends n9a {
     }
 
     @Override // com.baidu.tieba.n9a
-    public void W() {
+    public void U() {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -457,17 +457,17 @@ public class s4b extends n9a {
     }
 
     @Override // com.baidu.tieba.n9a
-    public void b0(boolean z) {
+    public void Z(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             Context context = this.S;
             if (context instanceof BaseFragmentActivity) {
                 ((BaseFragmentActivity) context).setSwipeBackEnabled(this.c0);
             }
-            super.b0(z);
+            super.Z(z);
             if (this.c0) {
                 this.U.setVisibility(0);
-                z0();
+                x0();
             } else {
                 this.U.setVisibility(8);
                 this.U.removeView(this.t);
@@ -555,11 +555,11 @@ public class s4b extends n9a {
                 z = false;
             }
             if (z2 != z) {
-                a0();
+                Y();
             }
         }
         super.setData(threadData);
-        d0(!this.X);
+        b0(!this.X);
         if (threadData.getAuthor() != null) {
             threadData.getAuthor().setIsLike(threadData.getAuthor().hadConcerned());
         }
@@ -600,7 +600,7 @@ public class s4b extends n9a {
     }
 
     @Override // com.baidu.tieba.n9a
-    public void x0(int i) {
+    public void v0(int i) {
         View findViewById;
         int i2;
         boolean z;
@@ -618,7 +618,7 @@ public class s4b extends n9a {
                 }
                 this.k = i;
             }
-            super.x0(i);
+            super.v0(i);
             int i6 = 8;
             if (!this.c0) {
                 this.I.setVisibility(8);
@@ -650,14 +650,14 @@ public class s4b extends n9a {
             if (!this.c0 && !this.e1 && (this.S instanceof Activity)) {
                 if ((i & 128) > 0) {
                     if (!this.f1) {
-                        V0();
+                        T0();
                         UtilHelper.showStatusBar((Activity) this.S, this.c1);
                         this.f1 = true;
                         SafeHandler.getInst().removeCallbacks(this.n1);
                         SafeHandler.getInst().postDelayed(this.n1, 3000L);
                     }
                 } else if (this.f1) {
-                    P0();
+                    N0();
                 }
             }
             VideoDanmuController videoDanmuController = this.j1;

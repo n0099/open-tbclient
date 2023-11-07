@@ -323,7 +323,7 @@ public class nv5 implements pv5 {
                     dragSortItemView2 = dragSortItemView;
                 }
                 nv5 nv5Var = this.b;
-                nv5Var.N(i + nv5Var.g0.getHeaderViewsCount(), dragSortItemView2, true);
+                nv5Var.M(i + nv5Var.g0.getHeaderViewsCount(), dragSortItemView2, true);
                 return dragSortItemView2;
             }
             return (View) invokeILL.objValue;
@@ -392,7 +392,7 @@ public class nv5 implements pv5 {
         public final void a() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.t == 4) {
-                this.a.S();
+                this.a.R();
             }
         }
 
@@ -553,7 +553,7 @@ public class nv5 implements pv5 {
                 this.j.a();
                 this.j.g0.invalidate();
                 this.j.Y = false;
-                this.j.X(lastVisiblePosition, childAt3, false);
+                this.j.W(lastVisiblePosition, childAt3, false);
                 this.b = this.c;
                 this.j.g0.post(this);
             }
@@ -640,9 +640,9 @@ public class nv5 implements pv5 {
             StringBuilder sb5 = this.a;
             sb5.append("    <FirstExpBlankHeight>");
             nv5 nv5Var = this.f;
-            int f0 = nv5Var.f0(nv5Var.j);
+            int e0 = nv5Var.e0(nv5Var.j);
             nv5 nv5Var2 = this.f;
-            sb5.append(f0 - nv5Var2.d0(nv5Var2.j));
+            sb5.append(e0 - nv5Var2.c0(nv5Var2.j));
             sb5.append("</FirstExpBlankHeight>\n");
             StringBuilder sb6 = this.a;
             sb6.append("    <SecondExpPos>");
@@ -651,9 +651,9 @@ public class nv5 implements pv5 {
             StringBuilder sb7 = this.a;
             sb7.append("    <SecondExpBlankHeight>");
             nv5 nv5Var3 = this.f;
-            int f02 = nv5Var3.f0(nv5Var3.k);
+            int e02 = nv5Var3.e0(nv5Var3.k);
             nv5 nv5Var4 = this.f;
-            sb7.append(f02 - nv5Var4.d0(nv5Var4.k));
+            sb7.append(e02 - nv5Var4.c0(nv5Var4.k));
             sb7.append("</SecondExpBlankHeight>\n");
             StringBuilder sb8 = this.a;
             sb8.append("    <SrcPos>");
@@ -679,7 +679,7 @@ public class nv5 implements pv5 {
             for (int i4 = 0; i4 < childCount; i4++) {
                 StringBuilder sb13 = this.a;
                 nv5 nv5Var5 = this.f;
-                sb13.append(nv5Var5.g0(firstVisiblePosition + i4, nv5Var5.g0.getChildAt(i4).getTop()));
+                sb13.append(nv5Var5.f0(firstVisiblePosition + i4, nv5Var5.g0.getChildAt(i4).getTop()));
                 sb13.append(",");
             }
             this.a.append("</ShuffleEdges>\n");
@@ -809,7 +809,7 @@ public class nv5 implements pv5 {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.n.c0();
+                this.n.b0();
             }
         }
 
@@ -823,7 +823,7 @@ public class nv5 implements pv5 {
                 if (f4 < Math.abs((this.n.b.y - f3) / this.l) || f4 < Math.abs(paddingLeft / this.m)) {
                     this.n.b.y = f3 + ((int) (this.l * f4));
                     this.n.b.x = this.n.g0.getPaddingLeft() + ((int) (this.m * f4));
-                    this.n.Y(true);
+                    this.n.X(true);
                 }
             }
         }
@@ -941,7 +941,7 @@ public class nv5 implements pv5 {
                 this.q.t = 1;
                 this.j = this.q.b.x;
                 if (!this.q.e0) {
-                    this.q.V();
+                    this.q.U();
                     return;
                 }
                 float width = this.q.g0.getWidth() * 2.0f;
@@ -972,7 +972,7 @@ public class nv5 implements pv5 {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.q.Z();
+                this.q.Y();
             }
         }
 
@@ -993,27 +993,28 @@ public class nv5 implements pv5 {
                     float f4 = this.q.f0 * uptimeMillis;
                     int width = this.q.g0.getWidth();
                     nv5 nv5Var = this.q;
-                    if (nv5Var.f0 > 0.0f) {
+                    float f5 = nv5Var.f0;
+                    if (this.q.f0 > 0.0f) {
                         i = 1;
                     } else {
                         i = -1;
                     }
-                    float f5 = i * uptimeMillis;
-                    float f6 = width;
-                    nv5.m(nv5Var, f5 * f6);
+                    float f6 = i * uptimeMillis;
+                    float f7 = width;
+                    nv5Var.f0 = f5 + (f6 * f7);
                     this.j += f4;
                     Point point = this.q.b;
-                    float f7 = this.j;
-                    point.x = (int) f7;
-                    if (f7 < f6 && f7 > (-width)) {
+                    float f8 = this.j;
+                    point.x = (int) f8;
+                    if (f8 < f7 && f8 > (-width)) {
                         this.a = SystemClock.uptimeMillis();
-                        this.q.Y(true);
+                        this.q.X(true);
                         return;
                     }
                 }
                 if (childAt2 != null) {
                     if (this.m == -1) {
-                        this.m = this.q.e0(this.o, childAt2, false);
+                        this.m = this.q.d0(this.o, childAt2, false);
                         this.k = childAt2.getHeight() - this.m;
                     }
                     int max = Math.max((int) (this.k * f3), 1);
@@ -1023,7 +1024,7 @@ public class nv5 implements pv5 {
                 }
                 if (this.p != this.o && (childAt = this.q.g0.getChildAt(this.p - firstVisiblePosition)) != null) {
                     if (this.n == -1) {
-                        this.n = this.q.e0(this.p, childAt, false);
+                        this.n = this.q.d0(this.p, childAt, false);
                         this.l = childAt.getHeight() - this.n;
                     }
                     int max2 = Math.max((int) (f3 * this.l), 1);
@@ -1178,13 +1179,13 @@ public class nv5 implements pv5 {
         this.g0 = listView;
     }
 
-    public final void U(int i2, int i3) {
+    public final void T(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048589, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) {
             Point point = this.b;
             point.x = i2 - this.n;
             point.y = i3 - this.o;
-            Y(true);
+            X(true);
             int min = Math.min(i3, this.d + this.w);
             int max = Math.max(i3, this.d - this.w);
             int a2 = this.z.a();
@@ -1204,11 +1205,11 @@ public class nv5 implements pv5 {
         }
     }
 
-    public final void b0(int i2, Canvas canvas) {
+    public final void a0(int i2, Canvas canvas) {
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048598, this, i2, canvas) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048596, this, i2, canvas) == null) {
             Drawable divider = this.g0.getDivider();
             int dividerHeight = this.g0.getDividerHeight();
             if (divider != null && dividerHeight != 0) {
@@ -1243,26 +1244,26 @@ public class nv5 implements pv5 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final int g0(int i2, int i3) {
+    public final int f0(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048604, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048603, this, i2, i3)) == null) {
             int headerViewsCount = this.g0.getHeaderViewsCount();
             int footerViewsCount = this.g0.getFooterViewsCount();
             if (i2 > headerViewsCount && i2 < this.g0.getCount() - footerViewsCount) {
                 int dividerHeight = this.g0.getDividerHeight();
                 int i4 = this.v - this.u;
-                int d0 = d0(i2);
-                int f0 = f0(i2);
+                int c0 = c0(i2);
+                int e0 = e0(i2);
                 int i5 = this.k;
                 int i6 = this.m;
                 if (i5 <= i6) {
                     if (i2 == i5 && this.j != i5) {
                         if (i2 == i6) {
-                            i3 += f0;
+                            i3 += e0;
                             i4 = this.v;
                         } else {
-                            i3 += f0 - d0;
+                            i3 += e0 - c0;
                         }
                     } else if (i2 > this.k) {
                     }
@@ -1272,22 +1273,22 @@ public class nv5 implements pv5 {
                 } else {
                     int i7 = this.k;
                     if (i2 == i7 && this.j != i7) {
-                        i3 += f0 - d0;
+                        i3 += e0 - c0;
                     }
                 }
                 if (i2 <= this.m) {
-                    return i3 + (((this.v - dividerHeight) - d0(i2 - 1)) / 2);
+                    return i3 + (((this.v - dividerHeight) - c0(i2 - 1)) / 2);
                 }
-                return i3 + (((d0 - dividerHeight) - this.v) / 2);
+                return i3 + (((c0 - dividerHeight) - this.v) / 2);
             }
             return i3;
         }
         return invokeII.intValue;
     }
 
-    public void n0(int i2, float f2) {
+    public void m0(int i2, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
             int i3 = this.t;
             if (i3 == 0 || i3 == 4) {
                 if (this.t == 0) {
@@ -1318,36 +1319,36 @@ public class nv5 implements pv5 {
                 if (mVar != null) {
                     mVar.d();
                 } else {
-                    a0(i2);
+                    Z(i2);
                 }
             }
         }
     }
 
-    public final void Y(boolean z) {
+    public final void X(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
             int firstVisiblePosition = this.g0.getFirstVisiblePosition() + (this.g0.getChildCount() / 2);
             ListView listView = this.g0;
             View childAt = listView.getChildAt(listView.getChildCount() / 2);
             if (childAt == null) {
                 return;
             }
-            X(firstVisiblePosition, childAt, z);
+            W(firstVisiblePosition, childAt, z);
         }
     }
 
-    public final void a0(int i2) {
+    public final void Z(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
             this.t = 1;
             n nVar = this.r;
             if (nVar != null) {
                 nVar.remove(i2);
             }
-            V();
-            O();
-            T();
+            U();
+            N();
+            S();
             if (this.P) {
                 this.t = 3;
             } else {
@@ -1356,25 +1357,32 @@ public class nv5 implements pv5 {
         }
     }
 
-    public final int f0(int i2) {
+    public final int e0(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) {
             ListView listView = this.g0;
             View childAt = listView.getChildAt(i2 - listView.getFirstVisiblePosition());
             if (childAt != null) {
                 return childAt.getHeight();
             }
-            return Q(i2, d0(i2));
+            return P(i2, c0(i2));
         }
         return invokeI.intValue;
     }
 
-    public void m0(int i2) {
+    public void l0(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
             this.e0 = false;
-            n0(i2, 0.0f);
+            m0(i2, 0.0f);
+        }
+    }
+
+    public void o0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
+            this.s = z;
         }
     }
 
@@ -1389,62 +1397,55 @@ public class nv5 implements pv5 {
         }
     }
 
-    public void p0(boolean z) {
+    public void p0(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
-            this.s = z;
-        }
-    }
-
-    public void q0(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, dVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048618, this, dVar) == null) {
             this.p = dVar;
         }
     }
 
-    public void r0(float f2) {
+    public void q0(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048620, this, f2) == null) {
-            s0(f2, f2);
+        if (interceptable == null || interceptable.invokeF(1048619, this, f2) == null) {
+            r0(f2, f2);
         }
     }
 
-    public void t0(ov5 ov5Var) {
+    public void s0(ov5 ov5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, ov5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048622, this, ov5Var) == null) {
             this.i0 = ov5Var;
             this.g0.setOnTouchListener(ov5Var);
         }
     }
 
-    public void u0(i iVar) {
+    public void t0(i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, iVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048624, this, iVar) == null) {
             this.q = iVar;
         }
     }
 
-    public void v0(j jVar) {
+    public void u0(j jVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048626, this, jVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048625, this, jVar) == null) {
             this.Q = jVar;
         }
     }
 
-    public void w0(n nVar) {
+    public void v0(n nVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, nVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048626, this, nVar) == null) {
             this.r = nVar;
         }
     }
 
-    public boolean z0(boolean z) {
+    public boolean y0(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048630, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048629, this, z)) == null) {
             this.e0 = false;
-            return A0(z, 0.0f);
+            return z0(z, 0.0f);
         }
         return invokeZ.booleanValue;
     }
@@ -1454,36 +1455,30 @@ public class nv5 implements pv5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048616, this, i2, i3, i4, i5) == null) {
             this.h0.onSizeChanged(i2, i3, i4, i5);
-            E0();
+            D0();
         }
     }
 
-    public boolean x0(int i2, int i3, int i4, int i5) {
+    public boolean w0(int i2, int i3, int i4, int i5) {
         InterceptResult invokeIIII;
         j jVar;
         View b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048628, this, i2, i3, i4, i5)) == null) {
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048627, this, i2, i3, i4, i5)) == null) {
             if (!this.P || (jVar = this.Q) == null || (b2 = jVar.b(i2)) == null) {
                 return false;
             }
-            return y0(i2, b2, i3, i4, i5);
+            return x0(i2, b2, i3, i4, i5);
         }
         return invokeIIII.booleanValue;
     }
 
-    public static /* synthetic */ float m(nv5 nv5Var, float f2) {
-        float f3 = nv5Var.f0 + f2;
-        nv5Var.f0 = f3;
-        return f3;
-    }
-
-    public boolean B0(boolean z, float f2) {
+    public boolean A0(boolean z, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Float.valueOf(f2)})) == null) {
             this.e0 = true;
-            return A0(z, f2);
+            return z0(z, f2);
         }
         return invokeCommon.booleanValue;
     }
@@ -1496,7 +1491,7 @@ public class nv5 implements pv5 {
             View view2 = this.a;
             if (view2 != null) {
                 if (view2.isLayoutRequested()) {
-                    j0();
+                    i0();
                 }
                 this.e = true;
             }
@@ -1504,87 +1499,20 @@ public class nv5 implements pv5 {
         }
     }
 
-    public final int R(int i2, View view2, boolean z) {
+    public final int Q(int i2, View view2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), view2, Boolean.valueOf(z)})) == null) {
-            return Q(i2, e0(i2, view2, z));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), view2, Boolean.valueOf(z)})) == null) {
+            return P(i2, d0(i2, view2, z));
         }
         return invokeCommon.intValue;
     }
 
-    public boolean A0(boolean z, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Float.valueOf(f2)})) == null) {
-            if (this.a != null) {
-                this.z.d(true);
-                if (z) {
-                    n0(this.m - this.g0.getHeaderViewsCount(), f2);
-                } else {
-                    h hVar = this.d0;
-                    if (hVar != null) {
-                        hVar.d();
-                    } else {
-                        c0();
-                    }
-                }
-                if (this.W) {
-                    this.X.d();
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final int Q(int i2, int i3) {
-        InterceptResult invokeII;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i2, i3)) == null) {
-            this.g0.getDividerHeight();
-            if (this.l && this.j != this.k) {
-                z = true;
-            } else {
-                z = false;
-            }
-            int i4 = this.v;
-            int i5 = this.u;
-            int i6 = i4 - i5;
-            int i7 = (int) (this.U * i6);
-            int i8 = this.m;
-            if (i2 == i8) {
-                if (i8 == this.j) {
-                    if (z) {
-                        return i7 + i5;
-                    }
-                    return i4;
-                } else if (i8 == this.k) {
-                    return i4 - i7;
-                } else {
-                    return i5;
-                }
-            } else if (i2 == this.j) {
-                if (z) {
-                    return i3 + i7;
-                }
-                return i3 + i6;
-            } else if (i2 == this.k) {
-                return (i3 + i6) - i7;
-            } else {
-                return i3;
-            }
-        }
-        return invokeII.intValue;
-    }
-
-    public final void C0() {
+    public final void B0() {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.Q != null) {
                 this.c.set(this.K, this.L);
                 this.Q.c(this.a, this.b, this.c);
@@ -1629,12 +1557,12 @@ public class nv5 implements pv5 {
         }
     }
 
-    public final boolean D0() {
+    public final boolean C0() {
         InterceptResult invokeV;
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             int firstVisiblePosition = this.g0.getFirstVisiblePosition();
             int i4 = this.j;
             View childAt = this.g0.getChildAt(i4 - firstVisiblePosition);
@@ -1644,53 +1572,53 @@ public class nv5 implements pv5 {
             }
             int top = childAt.getTop();
             int height = childAt.getHeight();
-            int g0 = g0(i4, top);
+            int f0 = f0(i4, top);
             int dividerHeight = this.g0.getDividerHeight();
-            if (this.d < g0) {
+            if (this.d < f0) {
                 while (i4 >= 0) {
                     i4--;
-                    int f0 = f0(i4);
+                    int e0 = e0(i4);
                     if (i4 == 0) {
-                        i2 = (top - dividerHeight) - f0;
-                        int i5 = g0;
-                        g0 = i2;
+                        i2 = (top - dividerHeight) - e0;
+                        int i5 = f0;
+                        f0 = i2;
                         i3 = i5;
                         break;
                     }
-                    top -= f0 + dividerHeight;
-                    int g02 = g0(i4, top);
-                    if (this.d >= g02) {
-                        i3 = g0;
-                        g0 = g02;
+                    top -= e0 + dividerHeight;
+                    int f02 = f0(i4, top);
+                    if (this.d >= f02) {
+                        i3 = f0;
+                        f0 = f02;
                         break;
                     }
-                    g0 = g02;
+                    f0 = f02;
                 }
-                i3 = g0;
+                i3 = f0;
             } else {
                 int count = this.g0.getCount();
                 while (i4 < count) {
                     if (i4 == count - 1) {
                         i2 = top + dividerHeight + height;
-                        int i52 = g0;
-                        g0 = i2;
+                        int i52 = f0;
+                        f0 = i2;
                         i3 = i52;
                         break;
                     }
                     top += height + dividerHeight;
                     int i6 = i4 + 1;
-                    int f02 = f0(i6);
-                    int g03 = g0(i6, top);
-                    if (this.d < g03) {
-                        i3 = g0;
-                        g0 = g03;
+                    int e02 = e0(i6);
+                    int f03 = f0(i6, top);
+                    if (this.d < f03) {
+                        i3 = f0;
+                        f0 = f03;
                         break;
                     }
                     i4 = i6;
-                    height = f02;
-                    g0 = g03;
+                    height = e02;
+                    f0 = f03;
                 }
-                i3 = g0;
+                i3 = f0;
             }
             int headerViewsCount = this.g0.getHeaderViewsCount();
             int footerViewsCount = this.g0.getFooterViewsCount();
@@ -1699,15 +1627,15 @@ public class nv5 implements pv5 {
             int i8 = this.k;
             float f2 = this.U;
             if (this.l) {
-                int abs = Math.abs(g0 - i3);
-                if (this.d < g0) {
-                    int i9 = g0;
-                    g0 = i3;
+                int abs = Math.abs(f0 - i3);
+                if (this.d < f0) {
+                    int i9 = f0;
+                    f0 = i3;
                     i3 = i9;
                 }
                 int i10 = (int) (this.f1139T * 0.5f * abs);
                 float f3 = i10;
-                int i11 = g0 + i10;
+                int i11 = f0 + i10;
                 int i12 = i3 - i10;
                 int i13 = this.d;
                 if (i13 < i11) {
@@ -1750,10 +1678,10 @@ public class nv5 implements pv5 {
         return invokeV.booleanValue;
     }
 
-    public final void E0() {
+    public final void D0() {
         int height;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             int paddingTop = this.g0.getPaddingTop();
             float height2 = (this.g0.getHeight() - paddingTop) - this.g0.getPaddingBottom();
             float f2 = paddingTop;
@@ -1768,10 +1696,10 @@ public class nv5 implements pv5 {
         }
     }
 
-    public final void O() {
+    public final void N() {
         int firstVisiblePosition;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.m < (firstVisiblePosition = this.g0.getFirstVisiblePosition())) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.m < (firstVisiblePosition = this.g0.getFirstVisiblePosition())) {
             int i2 = 0;
             View childAt = this.g0.getChildAt(0);
             if (childAt != null) {
@@ -1790,7 +1718,7 @@ public class nv5 implements pv5 {
             View view2 = this.a;
             if (view2 != null) {
                 if (view2.isLayoutRequested() && !this.e) {
-                    j0();
+                    i0();
                 }
                 View view3 = this.a;
                 view3.layout(0, 0, view3.getMeasuredWidth(), this.a.getMeasuredHeight());
@@ -1799,34 +1727,34 @@ public class nv5 implements pv5 {
         }
     }
 
-    public final void M() {
+    public final void L() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             int firstVisiblePosition = this.g0.getFirstVisiblePosition();
             int lastVisiblePosition = this.g0.getLastVisiblePosition();
             int min = Math.min(lastVisiblePosition - firstVisiblePosition, ((this.g0.getCount() - 1) - this.g0.getFooterViewsCount()) - firstVisiblePosition);
             for (int max = Math.max(0, this.g0.getHeaderViewsCount() - firstVisiblePosition); max <= min; max++) {
                 View childAt = this.g0.getChildAt(max);
                 if (childAt != null) {
-                    N(firstVisiblePosition + max, childAt, false);
+                    M(firstVisiblePosition + max, childAt, false);
                 }
             }
         }
     }
 
-    public final void c0() {
+    public final void b0() {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             this.t = 2;
             if (this.q != null && (i2 = this.i) >= 0 && i2 < this.g0.getCount()) {
                 int headerViewsCount = this.g0.getHeaderViewsCount();
                 this.q.a(this.m - headerViewsCount, this.i - headerViewsCount);
             }
-            V();
-            O();
-            T();
-            M();
+            U();
+            N();
+            S();
+            L();
             if (this.P) {
                 this.t = 3;
             } else {
@@ -1835,18 +1763,18 @@ public class nv5 implements pv5 {
         }
     }
 
-    public final void N(int i2, View view2, boolean z) {
-        int R;
+    public final void M(int i2, View view2, boolean z) {
+        int Q;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), view2, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), view2, Boolean.valueOf(z)}) == null) {
             ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
             if (i2 != this.m && i2 != this.j && i2 != this.k) {
-                R = -2;
+                Q = -2;
             } else {
-                R = R(i2, view2, z);
+                Q = Q(i2, view2, z);
             }
-            if (R != layoutParams.height) {
-                layoutParams.height = R;
+            if (Q != layoutParams.height) {
+                layoutParams.height = Q;
                 view2.setLayoutParams(layoutParams);
             }
             if (i2 == this.j || i2 == this.k) {
@@ -1868,11 +1796,11 @@ public class nv5 implements pv5 {
         }
     }
 
-    public final int e0(int i2, View view2, boolean z) {
+    public final int d0(int i2, View view2, boolean z) {
         InterceptResult invokeCommon;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i2), view2, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i2), view2, Boolean.valueOf(z)})) == null) {
             if (i2 == this.m) {
                 return 0;
             }
@@ -1885,7 +1813,7 @@ public class nv5 implements pv5 {
             }
             int height = view2.getHeight();
             if (height == 0 || z) {
-                k0(view2);
+                j0(view2);
                 return view2.getMeasuredHeight();
             }
             return height;
@@ -1893,21 +1821,21 @@ public class nv5 implements pv5 {
         return invokeCommon.intValue;
     }
 
-    public final int P(int i2, View view2, int i3, int i4) {
+    public final int O(int i2, View view2, int i3, int i4) {
         InterceptResult invokeCommon;
         int i5;
         int i6;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), view2, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            int d0 = d0(i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), view2, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+            int c0 = c0(i2);
             int height = view2.getHeight();
-            int Q = Q(i2, d0);
+            int P = P(i2, c0);
             if (i2 != this.m) {
-                i5 = height - d0;
-                i6 = Q - d0;
+                i5 = height - c0;
+                i6 = P - c0;
             } else {
                 i5 = height;
-                i6 = Q;
+                i6 = P;
             }
             int i7 = this.v;
             int i8 = this.m;
@@ -1923,7 +1851,7 @@ public class nv5 implements pv5 {
                 if (i2 <= this.j) {
                     i5 -= i7;
                 } else if (i2 == this.k) {
-                    return 0 + (height - Q);
+                    return 0 + (height - P);
                 }
                 return 0 + i5;
             } else if (i2 <= this.j) {
@@ -1938,13 +1866,80 @@ public class nv5 implements pv5 {
         return invokeCommon.intValue;
     }
 
-    public void S() {
+    public final int P(int i2, int i3) {
+        InterceptResult invokeII;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.t == 4) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3)) == null) {
+            this.g0.getDividerHeight();
+            if (this.l && this.j != this.k) {
+                z = true;
+            } else {
+                z = false;
+            }
+            int i4 = this.v;
+            int i5 = this.u;
+            int i6 = i4 - i5;
+            int i7 = (int) (this.U * i6);
+            int i8 = this.m;
+            if (i2 == i8) {
+                if (i8 == this.j) {
+                    if (z) {
+                        return i7 + i5;
+                    }
+                    return i4;
+                } else if (i8 == this.k) {
+                    return i4 - i7;
+                } else {
+                    return i5;
+                }
+            } else if (i2 == this.j) {
+                if (z) {
+                    return i3 + i7;
+                }
+                return i3 + i6;
+            } else if (i2 == this.k) {
+                return (i3 + i6) - i7;
+            } else {
+                return i3;
+            }
+        }
+        return invokeII.intValue;
+    }
+
+    public boolean z0(boolean z, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048630, this, new Object[]{Boolean.valueOf(z), Float.valueOf(f2)})) == null) {
+            if (this.a != null) {
+                this.z.d(true);
+                if (z) {
+                    m0(this.m - this.g0.getHeaderViewsCount(), f2);
+                } else {
+                    h hVar = this.d0;
+                    if (hVar != null) {
+                        hVar.d();
+                    } else {
+                        b0();
+                    }
+                }
+                if (this.W) {
+                    this.X.d();
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public void R() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.t == 4) {
             this.z.d(true);
-            V();
-            T();
-            M();
+            U();
+            S();
+            L();
             if (this.P) {
                 this.t = 3;
             } else {
@@ -1953,9 +1948,9 @@ public class nv5 implements pv5 {
         }
     }
 
-    public final void T() {
+    public final void S() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.m = -1;
             this.j = -1;
             this.k = -1;
@@ -1963,10 +1958,10 @@ public class nv5 implements pv5 {
         }
     }
 
-    public final void V() {
+    public final void U() {
         View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (view2 = this.a) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (view2 = this.a) != null) {
             view2.setVisibility(8);
             j jVar = this.Q;
             if (jVar != null) {
@@ -1977,9 +1972,9 @@ public class nv5 implements pv5 {
         }
     }
 
-    public final void W() {
+    public final void V() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             this.S = 0;
             this.P = false;
             if (this.t == 3) {
@@ -1991,36 +1986,36 @@ public class nv5 implements pv5 {
         }
     }
 
-    public final void Z() {
+    public final void Y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            a0(this.m - this.g0.getHeaderViewsCount());
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            Z(this.m - this.g0.getHeaderViewsCount());
         }
+    }
+
+    public boolean g0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.s;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean h0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            return this.s;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean i0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             return this.j0;
         }
         return invokeV.booleanValue;
     }
 
-    public final void j0() {
+    public final void i0() {
         View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && (view2 = this.a) != null) {
-            k0(view2);
+        if ((interceptable == null || interceptable.invokeV(1048606, this) == null) && (view2 = this.a) != null) {
+            j0(view2);
             int measuredHeight = this.a.getMeasuredHeight();
             this.v = measuredHeight;
             this.w = measuredHeight / 2;
@@ -2035,20 +2030,20 @@ public class nv5 implements pv5 {
         }
     }
 
-    public final void X(int i2, View view2, boolean z) {
+    public final void W(int i2, View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i2), view2, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i2), view2, Boolean.valueOf(z)}) == null) {
             this.Y = true;
-            C0();
+            B0();
             int i3 = this.j;
             int i4 = this.k;
-            boolean D0 = D0();
-            if (D0) {
-                M();
-                this.g0.setSelectionFromTop(i2, (view2.getTop() + P(i2, view2, i3, i4)) - this.g0.getPaddingTop());
+            boolean C0 = C0();
+            if (C0) {
+                L();
+                this.g0.setSelectionFromTop(i2, (view2.getTop() + O(i2, view2, i3, i4)) - this.g0.getPaddingTop());
                 a();
             }
-            if (D0 || z) {
+            if (C0 || z) {
                 this.g0.invalidate();
             }
             this.Y = false;
@@ -2064,11 +2059,11 @@ public class nv5 implements pv5 {
             if (this.t != 0) {
                 int i2 = this.j;
                 if (i2 != this.m) {
-                    b0(i2, canvas);
+                    a0(i2, canvas);
                 }
                 int i3 = this.k;
                 if (i3 != this.j && i3 != this.m) {
-                    b0(i3, canvas);
+                    a0(i3, canvas);
                 }
             }
             View view2 = this.a;
@@ -2098,18 +2093,18 @@ public class nv5 implements pv5 {
         }
     }
 
-    public final int d0(int i2) {
+    public final int c0(int i2) {
         InterceptResult invokeI;
         View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
             if (i2 == this.m) {
                 return 0;
             }
             ListView listView = this.g0;
             View childAt = listView.getChildAt(i2 - listView.getFirstVisiblePosition());
             if (childAt != null) {
-                return e0(i2, childAt, false);
+                return d0(i2, childAt, false);
             }
             int c2 = this.a0.c(i2);
             if (c2 != -1) {
@@ -2132,9 +2127,9 @@ public class nv5 implements pv5 {
             } else {
                 view2 = adapter.getView(i2, null, this.g0);
             }
-            int e0 = e0(i2, view2, true);
-            this.a0.a(i2, e0);
-            return e0;
+            int d0 = d0(i2, view2, true);
+            this.a0.a(i2, d0);
+            return d0;
         }
         return invokeI.intValue;
     }
@@ -2152,7 +2147,7 @@ public class nv5 implements pv5 {
             if (ov5Var != null) {
                 ov5Var.p().onTouchEvent(motionEvent);
             }
-            o0(motionEvent);
+            n0(motionEvent);
             this.O = true;
             int action = motionEvent.getAction() & 255;
             if (action == 0) {
@@ -2178,7 +2173,7 @@ public class nv5 implements pv5 {
                         this.S = 2;
                     }
                 } else {
-                    W();
+                    V();
                 }
             }
             if (action == 1 || action == 3) {
@@ -2217,7 +2212,7 @@ public class nv5 implements pv5 {
                     z = false;
                 }
                 this.l = z;
-                r0(obtainStyledAttributes.getFloat(4, this.A));
+                q0(obtainStyledAttributes.getFloat(4, this.A));
                 this.I = obtainStyledAttributes.getFloat(9, this.I);
                 int i5 = obtainStyledAttributes.getInt(10, 150);
                 i2 = obtainStyledAttributes.getInt(5, 150);
@@ -2235,7 +2230,7 @@ public class nv5 implements pv5 {
                     ov5Var.t(z4);
                     ov5Var.d(color);
                     this.Q = ov5Var;
-                    t0(ov5Var);
+                    s0(ov5Var);
                 } else {
                     i3 = i5;
                 }
@@ -2256,10 +2251,10 @@ public class nv5 implements pv5 {
         }
     }
 
-    public final void k0(View view2) {
+    public final void j0(View view2) {
         int makeMeasureSpec;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048607, this, view2) == null) {
             ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = new AbsListView.LayoutParams(-1, -2);
@@ -2276,28 +2271,28 @@ public class nv5 implements pv5 {
         }
     }
 
-    public boolean l0(MotionEvent motionEvent) {
+    public boolean k0(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, motionEvent)) == null) {
             motionEvent.getAction();
             int action = motionEvent.getAction() & 255;
             if (action != 1) {
                 if (action != 2) {
                     if (action == 3) {
                         if (this.t == 4) {
-                            S();
+                            R();
                         }
-                        W();
+                        V();
                     }
                 } else {
-                    U((int) motionEvent.getX(), (int) motionEvent.getY());
+                    T((int) motionEvent.getX(), (int) motionEvent.getY());
                 }
             } else {
                 if (this.t == 4) {
-                    z0(false);
+                    y0(false);
                 }
-                W();
+                V();
             }
             return true;
         }
@@ -2319,11 +2314,11 @@ public class nv5 implements pv5 {
                 boolean z2 = this.O;
                 this.O = false;
                 if (!z2) {
-                    o0(motionEvent);
+                    n0(motionEvent);
                 }
                 int i2 = this.t;
                 if (i2 == 4) {
-                    l0(motionEvent);
+                    k0(motionEvent);
                     return true;
                 }
                 if (i2 == 0 && this.h0.onTouchEvent(motionEvent)) {
@@ -2335,7 +2330,7 @@ public class nv5 implements pv5 {
                         this.S = 1;
                     }
                 } else {
-                    W();
+                    V();
                 }
                 return z;
             }
@@ -2343,9 +2338,9 @@ public class nv5 implements pv5 {
         return invokeL.booleanValue;
     }
 
-    public final void o0(MotionEvent motionEvent) {
+    public final void n0(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, motionEvent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048611, this, motionEvent) == null) {
             int action = motionEvent.getAction() & 255;
             if (action != 0) {
                 this.M = this.L;
@@ -2369,13 +2364,13 @@ public class nv5 implements pv5 {
                 this.V = new c(this, listAdapter);
                 listAdapter.registerDataSetObserver(this.f);
                 if (listAdapter instanceof i) {
-                    u0((i) listAdapter);
+                    t0((i) listAdapter);
                 }
                 if (listAdapter instanceof d) {
-                    q0((d) listAdapter);
+                    p0((d) listAdapter);
                 }
                 if (listAdapter instanceof n) {
-                    w0((n) listAdapter);
+                    v0((n) listAdapter);
                 }
             } else {
                 this.V = null;
@@ -2384,9 +2379,9 @@ public class nv5 implements pv5 {
         }
     }
 
-    public void s0(float f2, float f3) {
+    public void r0(float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             if (f3 > 0.5f) {
                 this.B = 0.5f;
             } else {
@@ -2398,15 +2393,15 @@ public class nv5 implements pv5 {
                 this.A = f2;
             }
             if (this.g0.getHeight() != 0) {
-                E0();
+                D0();
             }
         }
     }
 
-    public boolean y0(int i2, View view2, int i3, int i4, int i5) {
+    public boolean x0(int i2, View view2, int i3, int i4, int i5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048629, this, new Object[]{Integer.valueOf(i2), view2, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048628, this, new Object[]{Integer.valueOf(i2), view2, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
             if (this.t != 0 || !this.P || this.a != null || view2 == null || !this.s) {
                 return false;
             }
@@ -2422,7 +2417,7 @@ public class nv5 implements pv5 {
             this.N = 0;
             this.N = i3 | 0;
             this.a = view2;
-            j0();
+            i0();
             this.n = i4;
             this.o = i5;
             int i6 = this.L;

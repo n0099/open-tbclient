@@ -56,7 +56,7 @@ public class ImEmojiUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements Animator.AnimatorListener {
+    public static class a implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageView a;
@@ -138,7 +138,7 @@ public class ImEmojiUtil {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements kp8 {
+    public static class b implements kp8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbRichTextView a;
@@ -184,7 +184,7 @@ public class ImEmojiUtil {
     }
 
     /* loaded from: classes6.dex */
-    public class c extends CountDownTimer {
+    public static class c extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ kp8 a;

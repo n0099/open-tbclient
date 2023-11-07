@@ -44,7 +44,7 @@ public class l07 {
     }
 
     /* loaded from: classes7.dex */
-    public class a extends BdResourceCallback<BdImage> {
+    public static class a extends BdResourceCallback<BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditText a;
@@ -84,7 +84,7 @@ public class l07 {
     }
 
     /* loaded from: classes7.dex */
-    public class b extends BdResourceCallback<BdImage> {
+    public static class b extends BdResourceCallback<BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditText a;
@@ -129,7 +129,7 @@ public class l07 {
     }
 
     /* loaded from: classes7.dex */
-    public class c extends BdResourceCallback<BdImage> {
+    public static class c extends BdResourceCallback<BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpannableStringBuilder a;
@@ -194,7 +194,7 @@ public class l07 {
     }
 
     /* loaded from: classes7.dex */
-    public class d extends BdResourceCallback<BdImage> {
+    public static class d extends BdResourceCallback<BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -260,7 +260,7 @@ public class l07 {
     }
 
     /* loaded from: classes7.dex */
-    public class e extends BdResourceCallback<BdImage> {
+    public static class e extends BdResourceCallback<BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpannableStringBuilder a;
@@ -327,7 +327,7 @@ public class l07 {
     }
 
     /* loaded from: classes7.dex */
-    public class f extends BdResourceCallback<BdImage> {
+    public static class f extends BdResourceCallback<BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpannableStringBuilder a;
@@ -398,7 +398,7 @@ public class l07 {
     }
 
     /* loaded from: classes7.dex */
-    public class g extends BdResourceCallback<BdImage> {
+    public static class g extends BdResourceCallback<BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpannableStringBuilder a;
@@ -469,7 +469,7 @@ public class l07 {
     }
 
     /* loaded from: classes7.dex */
-    public class h extends BdResourceCallback<BdImage> {
+    public static class h extends BdResourceCallback<BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpannableStringBuilder a;

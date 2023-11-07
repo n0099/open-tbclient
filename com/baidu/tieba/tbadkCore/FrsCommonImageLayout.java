@@ -146,7 +146,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     }
 
     /* loaded from: classes8.dex */
-    public class b implements pb<TbImageView> {
+    public static class b implements pb<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;

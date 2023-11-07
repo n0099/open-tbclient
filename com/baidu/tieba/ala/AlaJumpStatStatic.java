@@ -25,7 +25,7 @@ public class AlaJumpStatStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a extends CustomRule {
+    public static class a extends CustomRule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -74,7 +74,7 @@ public class AlaJumpStatStatic {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends CustomRule {
+    public static class b extends CustomRule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

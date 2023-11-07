@@ -113,7 +113,7 @@ public class pf8 implements k9a {
             this.a.setJumpToPbClickListener(this.l);
             this.a.setAfterClickListener(this.m);
             this.a.setStatistic(this.n);
-            this.a.I0(this.p);
+            this.a.G0(this.p);
             this.g = true;
         }
     }
@@ -136,7 +136,7 @@ public class pf8 implements k9a {
         of8 of8Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (of8Var = this.a) != null) {
-            of8Var.G0();
+            of8Var.E0();
         }
     }
 
@@ -308,7 +308,7 @@ public class pf8 implements k9a {
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.p = aVar;
             if (this.g && (of8Var = this.a) != null) {
-                of8Var.I0(aVar);
+                of8Var.G0(aVar);
             }
         }
     }

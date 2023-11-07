@@ -313,7 +313,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         this.n.add(this.d);
         this.g = view2.findViewById(R.id.obfuscated_res_0x7f090953);
         this.h = view2.findViewById(R.id.divider_bottom);
-        this.e.w(2);
+        this.e.v(2);
         o(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -503,7 +503,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
                 }
                 SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
                 this.f.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_gob_reply_jump), (Drawable) null);
-                this.e.I();
+                this.e.H();
                 SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
                 if (this.v) {
                     SkinManager.setBackgroundColor(this.h, R.color.CAM_X0203);

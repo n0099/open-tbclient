@@ -68,7 +68,7 @@ public class zca {
     }
 
     /* loaded from: classes9.dex */
-    public class a implements TbImageView.f {
+    public static class a implements TbImageView.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbImageView a;

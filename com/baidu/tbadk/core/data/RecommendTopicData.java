@@ -55,7 +55,7 @@ public class RecommendTopicData {
         }
 
         /* loaded from: classes4.dex */
-        public class a implements Parcelable.Creator<RecommendTopicListData> {
+        public static class a implements Parcelable.Creator<RecommendTopicListData> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

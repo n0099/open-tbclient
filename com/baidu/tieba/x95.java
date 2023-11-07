@@ -124,7 +124,7 @@ public class x95 {
     }
 
     /* loaded from: classes9.dex */
-    public class a extends Handler {
+    public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

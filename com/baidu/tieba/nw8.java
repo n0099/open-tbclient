@@ -25,7 +25,7 @@ public class nw8 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ThreadData a;
@@ -68,7 +68,7 @@ public class nw8 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements Runnable {
+    public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumData a;
@@ -111,7 +111,7 @@ public class nw8 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements Runnable {
+    public static class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GroupInfoData a;
@@ -154,7 +154,7 @@ public class nw8 {
     }
 
     /* loaded from: classes7.dex */
-    public class d implements Runnable {
+    public static class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ShareIMCommonCardData a;

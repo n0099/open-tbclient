@@ -530,7 +530,7 @@ public class TiebaSyncService extends BdBaseService {
     }
 
     /* loaded from: classes8.dex */
-    public class b implements Runnable {
+    public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

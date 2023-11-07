@@ -29,7 +29,7 @@ public class x06 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
-    public class a implements c16.i {
+    public static class a implements c16.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -70,7 +70,7 @@ public class x06 {
     }
 
     /* loaded from: classes9.dex */
-    public class b implements z06.h {
+    public static class b implements z06.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;

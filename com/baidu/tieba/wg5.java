@@ -31,7 +31,7 @@ public class wg5 {
     }
 
     /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
@@ -70,7 +70,7 @@ public class wg5 {
     }
 
     /* loaded from: classes8.dex */
-    public class b implements View.OnClickListener {
+    public static class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TBAlertBuilder a;

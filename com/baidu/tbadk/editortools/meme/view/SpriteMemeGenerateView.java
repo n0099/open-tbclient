@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
@@ -16,7 +17,6 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.editortools.meme.list.GeneratedErrorData;
 import com.baidu.tbadk.editortools.meme.list.GeneratedLoadingData;
 import com.baidu.tbadk.editortools.meme.list.MemeData;
-import com.baidu.tbadk.editortools.meme.view.SpriteMemeGenerateView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkcore.databinding.SpriteMemeGenerateViewLayoutBinding;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -30,18 +30,20 @@ import java.lang.ref.WeakReference;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
+import kotlin.Unit;
 import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000D\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u0000 !2\u00020\u0001:\u0002!\"B\u001b\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0006J\u000e\u0010\u0014\u001a\u00020\u00152\u0006\u0010\u0016\u001a\u00020\u0017J\u0006\u0010\u0018\u001a\u00020\u0015J\b\u0010\u0019\u001a\u00020\u0015H\u0002J\u0006\u0010\u001a\u001a\u00020\u0015J \u0010\u001b\u001a\u00020\u00152\n\b\u0002\u0010\u001c\u001a\u0004\u0018\u00010\u001d2\n\b\u0002\u0010\u001e\u001a\u0004\u0018\u00010\u001dH\u0007J\b\u0010\u001f\u001a\u00020\u0015H\u0002J\b\u0010 \u001a\u00020\u0015H\u0002R\u001b\u0010\u0007\u001a\u00020\b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000b\u0010\f\u001a\u0004\b\t\u0010\nR\u001b\u0010\r\u001a\u00020\u000e8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0011\u0010\f\u001a\u0004\b\u000f\u0010\u0010R\u000e\u0010\u0012\u001a\u00020\u0013X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006#"}, d2 = {"Lcom/baidu/tbadk/editortools/meme/view/SpriteMemeGenerateView;", "Landroidx/constraintlayout/widget/ConstraintLayout;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "binding", "Lcom/baidu/tieba/tbadkcore/databinding/SpriteMemeGenerateViewLayoutBinding;", "getBinding", "()Lcom/baidu/tieba/tbadkcore/databinding/SpriteMemeGenerateViewLayoutBinding;", "binding$delegate", "Lkotlin/Lazy;", "countDownTimer", "Lcom/baidu/tbadk/editortools/meme/view/SpriteMemeGenerateView$SafeCountDownTimer;", "getCountDownTimer", "()Lcom/baidu/tbadk/editortools/meme/view/SpriteMemeGenerateView$SafeCountDownTimer;", "countDownTimer$delegate", "progress", "", "bindData", "", "memeData", "Lcom/baidu/tbadk/editortools/meme/list/MemeData;", "changeSkin", "initDesc", "initRootView", "setClickListener", "loadingClickListener", "Landroid/view/View$OnClickListener;", "imageClickListener", "showErrorStatus", "showLoadingStatus", "Companion", "SafeCountDownTimer", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000R\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\t\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u0000 )2\u00020\u0001:\u0002)*B\u001b\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0006J\u000e\u0010\u0018\u001a\u00020\u00112\u0006\u0010\u0019\u001a\u00020\u001aJ\u0006\u0010\u001b\u001a\u00020\u0011J\b\u0010\u001c\u001a\u00020\u0011H\u0002J\b\u0010\u001d\u001a\u00020\u0011H\u0002J\u001e\u0010\u001e\u001a\u00020\u00112\u0006\u0010\u001f\u001a\u00020 2\u0006\u0010!\u001a\u00020 2\u0006\u0010\"\u001a\u00020\u0017J \u0010#\u001a\u00020\u00112\n\b\u0002\u0010$\u001a\u0004\u0018\u00010%2\n\b\u0002\u0010&\u001a\u0004\u0018\u00010%H\u0007J\b\u0010'\u001a\u00020\u0011H\u0002J\b\u0010(\u001a\u00020\u0011H\u0002R\u001b\u0010\u0007\u001a\u00020\b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000b\u0010\f\u001a\u0004\b\t\u0010\nR\u000e\u0010\r\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\"\u0010\u000f\u001a\n\u0012\u0004\u0012\u00020\u0011\u0018\u00010\u0010X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0012\u0010\u0013\"\u0004\b\u0014\u0010\u0015R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006+"}, d2 = {"Lcom/baidu/tbadk/editortools/meme/view/SpriteMemeGenerateView;", "Landroidx/constraintlayout/widget/ConstraintLayout;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "binding", "Lcom/baidu/tieba/tbadkcore/databinding/SpriteMemeGenerateViewLayoutBinding;", "getBinding", "()Lcom/baidu/tieba/tbadkcore/databinding/SpriteMemeGenerateViewLayoutBinding;", "binding$delegate", "Lkotlin/Lazy;", "countDownTimer", "Lcom/baidu/tbadk/editortools/meme/view/SpriteMemeGenerateView$SafeCountDownTimer;", "onLoadingFinish", "Lkotlin/Function0;", "", "getOnLoadingFinish", "()Lkotlin/jvm/functions/Function0;", "setOnLoadingFinish", "(Lkotlin/jvm/functions/Function0;)V", "progress", "", "bindData", "memeData", "Lcom/baidu/tbadk/editortools/meme/list/MemeData;", "changeSkin", "initDesc", "initRootView", "resetCountDownTimer", "millisInFuture", "", "countDownInterval", "finishProgress", "setClickListener", "loadingClickListener", "Landroid/view/View$OnClickListener;", "imageClickListener", "showErrorStatus", "showLoadingStatus", "Companion", "SafeCountDownTimer", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
 public final class SpriteMemeGenerateView extends ConstraintLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public final Lazy b;
+    public Function0<Unit> b;
     public final Lazy c;
+    public a d;
 
     static {
         InterceptResult invokeClinit;
@@ -84,7 +86,7 @@ public final class SpriteMemeGenerateView extends ConstraintLayout {
     @JvmOverloads
     public final void setClickListener() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             setClickListener$default(this, null, null, 3, null);
         }
     }
@@ -92,7 +94,7 @@ public final class SpriteMemeGenerateView extends ConstraintLayout {
     @JvmOverloads
     public final void setClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, onClickListener) == null) {
             setClickListener$default(this, onClickListener, null, 2, null);
         }
     }
@@ -130,12 +132,19 @@ public final class SpriteMemeGenerateView extends ConstraintLayout {
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
-            SpriteMemeGenerateView spriteMemeGenerateView;
+            Function0<Unit> onLoadingFinish;
             SpriteMemeGenerateViewLayoutBinding binding;
             TbCircleProgressBar tbCircleProgressBar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (spriteMemeGenerateView = this.b.get()) != null && (binding = spriteMemeGenerateView.getBinding()) != null && (tbCircleProgressBar = binding.d) != null) {
-                tbCircleProgressBar.setProgress(this.a);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                SpriteMemeGenerateView spriteMemeGenerateView = this.b.get();
+                if (spriteMemeGenerateView != null && (binding = spriteMemeGenerateView.getBinding()) != null && (tbCircleProgressBar = binding.d) != null) {
+                    tbCircleProgressBar.setProgress(this.a);
+                }
+                SpriteMemeGenerateView spriteMemeGenerateView2 = this.b.get();
+                if (spriteMemeGenerateView2 != null && (onLoadingFinish = spriteMemeGenerateView2.getOnLoadingFinish()) != null) {
+                    onLoadingFinish.invoke();
+                }
             }
         }
 
@@ -200,7 +209,7 @@ public final class SpriteMemeGenerateView extends ConstraintLayout {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.b = LazyKt__LazyJVMKt.lazy(new Function0<SpriteMemeGenerateViewLayoutBinding>(context, this) { // from class: com.baidu.tbadk.editortools.meme.view.SpriteMemeGenerateView$binding$2
+        this.c = LazyKt__LazyJVMKt.lazy(new Function0<SpriteMemeGenerateViewLayoutBinding>(context, this) { // from class: com.baidu.tbadk.editortools.meme.view.SpriteMemeGenerateView$binding$2
             public static /* synthetic */ Interceptable $ic;
             public final /* synthetic */ Context $context;
             public transient /* synthetic */ FieldHolder $fh;
@@ -240,46 +249,9 @@ public final class SpriteMemeGenerateView extends ConstraintLayout {
                 return (SpriteMemeGenerateViewLayoutBinding) invokeV.objValue;
             }
         });
-        this.c = LazyKt__LazyJVMKt.lazy(new Function0<a>(this) { // from class: com.baidu.tbadk.editortools.meme.view.SpriteMemeGenerateView$countDownTimer$2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ SpriteMemeGenerateView this$0;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(0);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr3 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        super(((Integer) newInitContext2.callArgs[0]).intValue());
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // kotlin.jvm.functions.Function0
-            public final SpriteMemeGenerateView.a invoke() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return new SpriteMemeGenerateView.a(this.this$0, 3000L, 33L, 90);
-                }
-                return (SpriteMemeGenerateView.a) invokeV.objValue;
-            }
-        });
+        this.d = new a(this, 3000L, 33L, 90);
+        h();
         f();
-        e();
     }
 
     public /* synthetic */ SpriteMemeGenerateView(Context context, AttributeSet attributeSet, int i, DefaultConstructorMarker defaultConstructorMarker) {
@@ -291,9 +263,9 @@ public final class SpriteMemeGenerateView extends ConstraintLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, memeData) == null) {
             Intrinsics.checkNotNullParameter(memeData, "memeData");
             if (memeData instanceof GeneratedLoadingData) {
-                i();
+                l();
             } else if (memeData instanceof GeneratedErrorData) {
-                h();
+                k();
             } else if (!GlobalBuildConfig.isDebug()) {
             } else {
                 throw new RuntimeException("Wrong Data Type");
@@ -301,10 +273,17 @@ public final class SpriteMemeGenerateView extends ConstraintLayout {
         }
     }
 
+    public final void setOnLoadingFinish(Function0<Unit> function0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, function0) == null) {
+            this.b = function0;
+        }
+    }
+
     @JvmOverloads
     public final void setClickListener(View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, onClickListener, onClickListener2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048586, this, onClickListener, onClickListener2) == null) {
             getBinding().d.setOnClickListener(onClickListener);
             getBinding().c.setOnClickListener(onClickListener2);
         }
@@ -315,23 +294,23 @@ public final class SpriteMemeGenerateView extends ConstraintLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            return (SpriteMemeGenerateViewLayoutBinding) this.b.getValue();
+            return (SpriteMemeGenerateViewLayoutBinding) this.c.getValue();
         }
         return (SpriteMemeGenerateViewLayoutBinding) invokeV.objValue;
     }
 
-    private final a getCountDownTimer() {
+    public final Function0<Unit> getOnLoadingFinish() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            return (a) this.c.getValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
-        return (a) invokeV.objValue;
+        return (Function0) invokeV.objValue;
     }
 
-    public final void f() {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             EMManager.from(this).setBackGroundColor(R.color.CAM_X0209);
             setClipToOutline(true);
             setOutlineProvider(new b());
@@ -351,32 +330,56 @@ public final class SpriteMemeGenerateView extends ConstraintLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            EMManager.from(this).setBackGroundColor(R.color.CAM_X0209);
+            if (getBinding().d.getVisibility() == 0) {
+                getBinding().d.a();
+            }
+            if (getBinding().c.getVisibility() == 0) {
+                getBinding().c.setImageDrawable(SkinManager.getDrawable(R.drawable.meme_pic_fail));
+            }
+            if (getBinding().b.getVisibility() == 0) {
+                EMManager.from(getBinding().b).setTextColor(R.color.CAM_X0110);
+            }
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             getBinding().b.setText(getContext().getString(R.string.generate_desc));
             EMManager.from(getBinding().b).setTextSize(R.dimen.T_X10).setTextColor(R.color.CAM_X0110);
         }
     }
 
-    public final void i() {
+    public final void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            getBinding().d.setVisibility(8);
+            getBinding().c.setVisibility(0);
+            getBinding().b.setVisibility(8);
+            this.d.cancel();
+            this.a = 0;
+            getBinding().c.setImageDrawable(SkinManager.getDrawable(R.drawable.meme_pic_fail));
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             getBinding().d.setVisibility(0);
             getBinding().b.setVisibility(0);
             getBinding().c.setVisibility(8);
             this.a = 0;
             getBinding().d.setProgress(0);
-            getCountDownTimer().start();
+            this.d.start();
         }
     }
 
-    public final void h() {
+    public final void i(long j, long j2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            getBinding().d.setVisibility(8);
-            getBinding().c.setVisibility(0);
-            getBinding().b.setVisibility(8);
-            getCountDownTimer().cancel();
-            this.a = 0;
-            getBinding().c.setImageDrawable(SkinManager.getDrawable(R.drawable.meme_pic_fail));
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
+            this.d.cancel();
+            this.d = new a(this, j, j2, i);
         }
     }
 }

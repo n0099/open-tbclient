@@ -95,7 +95,7 @@ public class PushOpenUtil {
     }
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ mb5 a;
@@ -128,7 +128,7 @@ public class PushOpenUtil {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
+    public static class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ru4 a;
@@ -170,7 +170,7 @@ public class PushOpenUtil {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements View.OnClickListener {
+    public static class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ru4 a;

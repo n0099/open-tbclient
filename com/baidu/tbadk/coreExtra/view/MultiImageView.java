@@ -106,14 +106,14 @@ public class MultiImageView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (view2 != this.a.b) {
                     if (view2 == this.a.c && (currentImageView = this.a.getCurrentImageView()) != null) {
-                        currentImageView.v0();
+                        currentImageView.u0();
                         return;
                     }
                     return;
                 }
                 DragImageView currentImageView2 = this.a.getCurrentImageView();
                 if (currentImageView2 != null) {
-                    currentImageView2.u0();
+                    currentImageView2.t0();
                 }
             }
         }
@@ -256,7 +256,7 @@ public class MultiImageView extends RelativeLayout {
                         }
                     }
                 }
-                dragImageView.i0();
+                dragImageView.h0();
             }
         }
     }
@@ -293,7 +293,7 @@ public class MultiImageView extends RelativeLayout {
                     UrlDragImageView urlDragImageView = (UrlDragImageView) obj;
                     DragImageView imageView = urlDragImageView.getImageView();
                     if (imageView != null) {
-                        imageView.q0();
+                        imageView.p0();
                         if (this.a.e != null) {
                             this.a.e.setCurrentView(imageView);
                         }
@@ -882,7 +882,7 @@ public class MultiImageView extends RelativeLayout {
         GalleryViewPager galleryViewPager;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (galleryViewPager = this.e) != null && galleryViewPager.getCurrentView() != null) {
-            this.e.getCurrentView().h0();
+            this.e.getCurrentView().g0();
         }
     }
 
@@ -1192,7 +1192,7 @@ public class MultiImageView extends RelativeLayout {
                 }
             }
             if (this.e.getCurrentView() != null) {
-                this.e.getCurrentView().i0();
+                this.e.getCurrentView().h0();
             }
         }
     }
@@ -1291,12 +1291,12 @@ public class MultiImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048637, this, dragImageView) == null) {
             if (dragImageView != null) {
-                if (dragImageView.R()) {
+                if (dragImageView.Q()) {
                     this.b.setEnabled(true);
                 } else {
                     this.b.setEnabled(false);
                 }
-                if (dragImageView.S()) {
+                if (dragImageView.R()) {
                     this.c.setEnabled(true);
                     return;
                 } else {

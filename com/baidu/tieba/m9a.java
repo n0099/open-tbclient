@@ -27,7 +27,7 @@ public class m9a extends n9a {
     public ThreadData W0;
 
     @Override // com.baidu.tieba.n9a
-    public void W() {
+    public void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
@@ -62,11 +62,11 @@ public class m9a extends n9a {
                 return;
             }
         }
-        u0(false);
+        s0(false);
         setStageType(null);
     }
 
-    public final void H0(String str, String str2) {
+    public final void F0(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             PbActivityConfig pbActivityConfig = new PbActivityConfig(this.S);
@@ -84,26 +84,26 @@ public class m9a extends n9a {
         }
     }
 
-    public void I0() {
+    public void G0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            x0(this.f);
+            v0(this.f);
         }
     }
 
     @Override // com.baidu.tieba.n9a
-    public void U() {
+    public void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             int i = this.p;
             if (i == this.e || i == this.n) {
-                I0();
+                G0();
             }
         }
     }
 
     @Override // com.baidu.tieba.n9a
-    public void V() {
+    public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.f = 32;
@@ -111,10 +111,10 @@ public class m9a extends n9a {
     }
 
     @Override // com.baidu.tieba.n9a
-    public void i0() {
+    public void g0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.i0();
+            super.g0();
             this.U.setOnTouchListener(null);
             this.U.setOnClickListener(this);
         }
@@ -135,18 +135,18 @@ public class m9a extends n9a {
             return;
         }
         if (view2.getId() == R.id.video_mute) {
-            c0();
+            a0();
         } else if (!BdNetTypeUtil.isNetWorkAvailable()) {
             BdUtilHelper.showToast(this.S, (int) R.string.no_network_guide);
         } else if (this.X) {
             VideoItemData videoItemData = this.U0;
             if (videoItemData != null) {
-                H0(videoItemData.forum_id, videoItemData.thread_id);
+                F0(videoItemData.forum_id, videoItemData.thread_id);
             }
         } else {
             VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = this.V0;
             if (videoSerializeVideoThreadInfo != null) {
-                H0(videoSerializeVideoThreadInfo.forumId, videoSerializeVideoThreadInfo.threadId);
+                F0(videoSerializeVideoThreadInfo.forumId, videoSerializeVideoThreadInfo.threadId);
             }
         }
     }

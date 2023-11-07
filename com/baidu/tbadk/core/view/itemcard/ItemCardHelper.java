@@ -146,7 +146,7 @@ public class ItemCardHelper {
     }
 
     /* loaded from: classes5.dex */
-    public class a extends HttpMessageListener {
+    public static class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -195,7 +195,7 @@ public class ItemCardHelper {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
+    public static class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;

@@ -30,7 +30,7 @@ public class ReportPrivateMsgData implements Parcelable {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements Parcelable.Creator<ReportPrivateMsgData> {
+    public static class a implements Parcelable.Creator<ReportPrivateMsgData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

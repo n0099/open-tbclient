@@ -59,7 +59,7 @@ public class VideoHolyCardModel extends BdBaseModel {
     }
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

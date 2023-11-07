@@ -714,7 +714,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                     }
                     boolean z2 = false;
                     if (dragImageView != null) {
-                        z = dragImageView.e0();
+                        z = dragImageView.d0();
                     } else {
                         z = false;
                     }
@@ -1407,7 +1407,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 if (this.a.e.getState() != this.a.f1118T && TextUtils.isEmpty(str)) {
                     this.a.showToast(R.string.image_view_change_img_error);
                 }
-                this.a.e.w(this.a.f1118T ? 1 : 0);
+                this.a.e.v(this.a.f1118T ? 1 : 0);
                 this.a.e.setEnabled(true);
             }
             this.a.hideProgressBar();
@@ -1604,7 +1604,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             this.d.setText(str);
             if (this.S && !this.U && (sortSwitchButton = this.e) != null) {
-                sortSwitchButton.w(this.f1118T ? 1 : 0);
+                sortSwitchButton.v(this.f1118T ? 1 : 0);
             }
             EMManager.from(this.d).setTextShadow(R.array.S_O_X001);
         }

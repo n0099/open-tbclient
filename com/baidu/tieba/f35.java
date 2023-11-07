@@ -19,7 +19,7 @@ public class f35 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a extends q6 {
+    public static class a extends q6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,7 +60,7 @@ public class f35 {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends p6 {
+    public static class b extends p6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -107,7 +107,7 @@ public class f35 {
     }
 
     /* loaded from: classes5.dex */
-    public class c extends CustomMessageListener {
+    public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

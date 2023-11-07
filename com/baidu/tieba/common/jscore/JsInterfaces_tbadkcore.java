@@ -34,8 +34,8 @@ public final class JsInterfaces_tbadkcore {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             fj6.a().c("_TieBa_Native_Invoke", st4.class);
-            fj6.a().c(BaseWebView.TB_NA_CHANNEL, rt4.class);
             fj6.a().c("local_obj", qt4.class);
+            fj6.a().c(BaseWebView.TB_NA_CHANNEL, rt4.class);
         }
     }
 }

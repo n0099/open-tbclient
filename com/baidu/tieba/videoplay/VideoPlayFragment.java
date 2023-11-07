@@ -1657,7 +1657,7 @@ public class VideoPlayFragment extends BaseFragment implements oz5.b, q4b, OnSta
                     this.a.j.V();
                 }
             }
-            this.a.b1.d0(true);
+            this.a.b1.b0(true);
         }
     }
 
@@ -2830,7 +2830,7 @@ public class VideoPlayFragment extends BaseFragment implements oz5.b, q4b, OnSta
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.h.removeView(this.a.i);
-                this.a.b1.a0();
+                this.a.b1.Y();
                 VideoPlayFragment videoPlayFragment = this.a;
                 VideoItemData videoItemData = videoPlayFragment.b0;
                 if (videoItemData == null) {
@@ -3352,7 +3352,7 @@ public class VideoPlayFragment extends BaseFragment implements oz5.b, q4b, OnSta
                     this.c.startPlay();
                     VideoDanmuController videoDanmuController = this.b;
                     if (videoDanmuController != null) {
-                        videoDanmuController.c0(this.a.O0());
+                        videoDanmuController.c0(this.a.M0());
                         return;
                     }
                     return;
@@ -3361,10 +3361,10 @@ public class VideoPlayFragment extends BaseFragment implements oz5.b, q4b, OnSta
                 if (s4bVar != null) {
                     VideoDanmuController videoDanmuController2 = this.b;
                     if (videoDanmuController2 != null) {
-                        s4bVar.T0(videoDanmuController2.G());
+                        s4bVar.R0(videoDanmuController2.G());
                     }
                     this.c.r5();
-                    this.a.v0(true);
+                    this.a.t0(true);
                     this.a.startPlay();
                     VideoDanmuController videoDanmuController3 = this.b;
                     if (videoDanmuController3 != null) {
@@ -4263,7 +4263,7 @@ public class VideoPlayFragment extends BaseFragment implements oz5.b, q4b, OnSta
             }
             s4b s4bVar = this.b1;
             if (s4bVar != null) {
-                s4bVar.Q0();
+                s4bVar.O0();
             }
             r3b r3bVar = this.Y0;
             if (r3bVar != null) {
@@ -6163,7 +6163,7 @@ public class VideoPlayFragment extends BaseFragment implements oz5.b, q4b, OnSta
         boolean z2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048610, this, videoItemData, s4bVar, videoDanmuController) == null) && s4bVar != null && s4bVar.getMainView() != null) {
-            s4bVar.R0(videoItemData);
+            s4bVar.P0(videoItemData);
             boolean z3 = false;
             if (JavaTypesHelper.toInt(videoItemData.video_height, 0) <= JavaTypesHelper.toInt(videoItemData.video_width, 0)) {
                 z2 = true;
@@ -6173,8 +6173,8 @@ public class VideoPlayFragment extends BaseFragment implements oz5.b, q4b, OnSta
             if (this.f0 && z2) {
                 z3 = true;
             }
-            s4bVar.d0(z3);
-            s4bVar.S0(new v(this, s4bVar, videoDanmuController));
+            s4bVar.b0(z3);
+            s4bVar.Q0(new v(this, s4bVar, videoDanmuController));
             s4bVar.getMainView().setVisibility(8);
         }
     }
@@ -6240,7 +6240,7 @@ public class VideoPlayFragment extends BaseFragment implements oz5.b, q4b, OnSta
             this.j.I();
         }
         j6();
-        this.b1.d0(!this.T0);
+        this.b1.b0(!this.T0);
         b6();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921665, Boolean.TRUE));
     }
@@ -6765,7 +6765,7 @@ public class VideoPlayFragment extends BaseFragment implements oz5.b, q4b, OnSta
                 } else {
                     z4 = false;
                 }
-                s4bVar.d0(z4);
+                s4bVar.b0(z4);
             }
             if (!isResumed() && this.f0 && o5()) {
                 this.f1 = true;
@@ -6829,7 +6829,7 @@ public class VideoPlayFragment extends BaseFragment implements oz5.b, q4b, OnSta
                 if (s4bVar != null && z2) {
                     if ((s4bVar.isFullScreen() && configuration.orientation == 1) || (!this.b1.isFullScreen() && configuration.orientation == 2)) {
                         this.h.removeView(this.i);
-                        this.b1.b0(false);
+                        this.b1.Z(false);
                     }
                 }
             }

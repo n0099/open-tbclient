@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.editortools.meme.SpriteMemeShowStrategy;
 import com.baidu.tbadk.editortools.meme.list.MemeListAdapter;
-import com.baidu.tbadk.editortools.meme.view.SpriteMemeGenerateView;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.editortools.meme.view.AigcGenerateImageView;
+import com.baidu.tbadk.editortools.meme.view.AigcImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
 import com.baidu.tieba.mq6;
@@ -99,12 +99,12 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             Intrinsics.checkNotNullParameter(holder, "$holder");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(memeData, "$memeData");
-            MemeStaticViewHolder memeStaticViewHolder = (MemeStaticViewHolder) holder;
-            Context context = memeStaticViewHolder.a().getContext();
+            MemeViewHolder memeViewHolder = (MemeViewHolder) holder;
+            Context context = memeViewHolder.a().getContext();
             if (!(context instanceof Activity)) {
                 return;
             }
-            BdImage bdImage = memeStaticViewHolder.a().getBdImage();
+            BdImage bdImage = memeViewHolder.a().getBdImage();
             if (bdImage != null && (rawBitmap = bdImage.getRawBitmap()) != null) {
                 this$0.l().clearRequestPermissionList();
                 Activity activity = (Activity) context;
@@ -190,10 +190,11 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, holder, i) == null) {
             Intrinsics.checkNotNullParameter(holder, "holder");
-            if (holder instanceof MemeGenerateViewHolder) {
-                MemeGenerateViewHolder memeGenerateViewHolder = (MemeGenerateViewHolder) holder;
-                memeGenerateViewHolder.a().d(this.b.get(i));
-                memeGenerateViewHolder.a().setClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.uf5
+            if (holder instanceof MemeViewHolder) {
+                final MemeData memeData = this.b.get(i);
+                MemeViewHolder memeViewHolder = (MemeViewHolder) holder;
+                memeViewHolder.a().h(memeData);
+                memeViewHolder.a().setOnLoadingClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.uf5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -216,12 +217,7 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                         }
                     }
                 });
-                t(1, this.b.get(i));
-            } else if (holder instanceof MemeStaticViewHolder) {
-                final MemeData memeData = this.b.get(i);
-                MemeStaticViewHolder memeStaticViewHolder = (MemeStaticViewHolder) holder;
-                memeStaticViewHolder.a().startLoad(memeData.getImgUrl());
-                memeStaticViewHolder.a().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sf5
+                memeViewHolder.a().setOnImageClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sf5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -233,7 +229,7 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                         }
                     }
                 });
-                t(1, this.b.get(i));
+                t(1, memeData);
             } else if (!GlobalBuildConfig.isDebug()) {
             } else {
                 throw new RuntimeException("MemeListAdapter has unknown view holder");
@@ -244,7 +240,7 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int i) {
         InterceptResult invokeLI;
-        RecyclerView.ViewHolder memeStaticViewHolder;
+        RecyclerView.ViewHolder memeViewHolder;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, parent, i)) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
@@ -281,11 +277,13 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 }
                 Context context = parent.getContext();
                 Intrinsics.checkNotNullExpressionValue(context, "parent.context");
-                memeStaticViewHolder = new MemeGenerateViewHolder(new SpriteMemeGenerateView(context, null, 2, null));
+                memeViewHolder = new MemeGenerateViewHolder(new AigcGenerateImageView(context, null, 2, null));
             } else {
-                memeStaticViewHolder = new MemeStaticViewHolder(new TbImageView(parent.getContext()));
+                Context context2 = parent.getContext();
+                Intrinsics.checkNotNullExpressionValue(context2, "parent.context");
+                memeViewHolder = new MemeViewHolder(new AigcImageView(context2, null, 2, null));
             }
-            return memeStaticViewHolder;
+            return memeViewHolder;
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }

@@ -1997,7 +1997,10 @@ public class ura implements PreLoadImageProvider, oi {
                 if (post.signature.content != null && post.signature.content.size() != 0) {
                     this.p.content = new ArrayList();
                     for (SignatureContent signatureContent : post.signature.content) {
-                        this.p.content.add(new SmallTailInfo.SmallTailInfoContent(new SmallTailInfo(), signatureContent.text, signatureContent.type.intValue()));
+                        List<SmallTailInfo.SmallTailInfoContent> list3 = this.p.content;
+                        SmallTailInfo smallTailInfo2 = new SmallTailInfo();
+                        smallTailInfo2.getClass();
+                        list3.add(new SmallTailInfo.SmallTailInfoContent(smallTailInfo2, signatureContent.text, signatureContent.type.intValue()));
                     }
                 }
                 this.p.updateShowInfo();
@@ -2063,7 +2066,7 @@ public class ura implements PreLoadImageProvider, oi {
             String str2 = post.bot_reply_content;
             post.is_bot_reply.intValue();
             this.R0 = post.bot_reply_content_list;
-            List<RobotSkill> list3 = post.robot_skill;
+            List<RobotSkill> list4 = post.robot_skill;
             this.S0 = post.aigc_feedback_info;
             if (post.aigc_feedback_info != null) {
                 if (post.aigc_feedback_info.feedback_fold.intValue() == 1) {

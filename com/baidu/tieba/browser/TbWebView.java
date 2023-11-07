@@ -553,9 +553,12 @@ public class TbWebView extends FrameLayout implements ag6, WebViewLifeCycle, oj6
         return Boolean.valueOf(z);
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: F */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: S */
+    /* JADX WARN: Multi-variable type inference failed */
     public /* synthetic */ void O(Pair pair) {
         pj6.b("newHybrid", "webView内容高度发生变化:height=" + pair.second);
-        this.k.a((Integer) pair.first, (Double) pair.second);
+        this.k.a(pair.first, pair.second);
     }
 
     public final void Z(int i) {
@@ -778,7 +781,9 @@ public class TbWebView extends FrameLayout implements ag6, WebViewLifeCycle, oj6
             if (context instanceof AppCompatActivity) {
                 ((AppCompatActivity) context).getLifecycle().addObserver(simpleWebViewLifeCycle);
             } else {
-                this.q.H(new wjc() { // from class: com.baidu.tieba.vf6
+                goc<Lifecycle.Event> gocVar = this.q;
+                simpleWebViewLifeCycle.getClass();
+                gocVar.H(new wjc() { // from class: com.baidu.tieba.vf6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

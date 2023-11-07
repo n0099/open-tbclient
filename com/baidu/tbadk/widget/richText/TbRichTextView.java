@@ -1036,7 +1036,7 @@ public class TbRichTextView extends LinearLayout implements xf {
     }
 
     /* loaded from: classes5.dex */
-    public class m implements pb<TextView> {
+    public static class m implements pb<TextView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -1141,7 +1141,7 @@ public class TbRichTextView extends LinearLayout implements xf {
     }
 
     /* loaded from: classes5.dex */
-    public class n implements pb<FestivalTipView> {
+    public static class n implements pb<FestivalTipView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;

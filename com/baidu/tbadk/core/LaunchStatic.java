@@ -74,7 +74,7 @@ public class LaunchStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public class a implements CustomMessageTask.CustomRunnable<HashMap<String, String>> {
+    public static class a implements CustomMessageTask.CustomRunnable<HashMap<String, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -116,7 +116,7 @@ public class LaunchStatic {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends CustomMessageListener {
+    public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -151,7 +151,7 @@ public class LaunchStatic {
     }
 
     /* loaded from: classes4.dex */
-    public class c extends CustomMessageListener {
+    public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -186,7 +186,7 @@ public class LaunchStatic {
     }
 
     /* loaded from: classes4.dex */
-    public class d extends BroadcastReceiver {
+    public static class d extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbadkCoreApplication val$application;

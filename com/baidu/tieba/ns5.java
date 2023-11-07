@@ -35,7 +35,7 @@ public class ns5 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements wjc<String> {
+    public static class a implements wjc<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -82,7 +82,7 @@ public class ns5 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements wjc<String> {
+    public static class b implements wjc<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;

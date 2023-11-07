@@ -260,7 +260,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public void a(DragImageView dragImageView, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dragImageView, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.a.g != null && this.a.g.getVisibility() == 0) {
-                this.a.f.setImageBitmap(this.a.c.w0(false));
+                this.a.f.setImageBitmap(this.a.c.v0(false));
             }
         }
     }
@@ -293,7 +293,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public void a(DragImageView dragImageView, int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLII(1048576, this, dragImageView, i, i2) == null) && this.a.g != null && this.a.g.getVisibility() == 0) {
-                this.a.f.setImageBitmap(this.a.c.w0(false));
+                this.a.f.setImageBitmap(this.a.c.v0(false));
             }
         }
     }
@@ -455,8 +455,8 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 } else {
                     z = true;
                 }
-                Bitmap w0 = editHeadsImageView.w0(z);
-                if (w0 == null || !this.a.y1(str, w0)) {
+                Bitmap v0 = editHeadsImageView.v0(z);
+                if (v0 == null || !this.a.y1(str, v0)) {
                     return;
                 }
                 if (this.a.i == 0 && !EditHeadActivityConfig.FROM_FORUM_BACKGROUND.equals(this.a.b)) {
@@ -625,7 +625,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 this.e.k.setEnabled(true);
                 if (bitmap != null && !bitmap.isRecycled()) {
                     if (!this.c.booleanValue() && !this.d.booleanValue()) {
-                        this.e.c.n0(bitmap);
+                        this.e.c.m0(bitmap);
                     } else {
                         this.e.c.setImageBitmap(bitmap);
                         if (this.e.h.getWidth() > 1800 || this.e.h.getHeight() > 1800) {
@@ -1147,7 +1147,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             releaseResouce();
             super.onDestroy();
-            this.c.d0();
+            this.c.c0();
             Bitmap bitmap = this.h;
             if (bitmap != null && !bitmap.isRecycled()) {
                 this.h.recycle();

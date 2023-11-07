@@ -49,7 +49,7 @@ public class DialogUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -88,7 +88,7 @@ public class DialogUtil {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
+    public static class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int[] a;
@@ -124,7 +124,7 @@ public class DialogUtil {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements DialogInterface.OnDismissListener {
+    public static class c implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;

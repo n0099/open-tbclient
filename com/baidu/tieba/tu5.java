@@ -39,7 +39,7 @@ public class tu5 {
     }
 
     /* loaded from: classes8.dex */
-    public class a implements dob {
+    public static class a implements dob {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;

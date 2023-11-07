@@ -24,7 +24,7 @@ public class CookieHelper {
 
     /* renamed from: com.baidu.tbadk.util.CookieHelper$1  reason: invalid class name */
     /* loaded from: classes5.dex */
-    public class AnonymousClass1 extends HashMap<String, String> {
+    public final class AnonymousClass1 extends HashMap<String, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Pair val$pair;
@@ -46,7 +46,7 @@ public class CookieHelper {
             }
             this.val$pair = pair;
             Pair pair2 = this.val$pair;
-            put((String) pair2.first, (String) pair2.second);
+            put(pair2.first, pair2.second);
         }
     }
 
@@ -108,7 +108,7 @@ public class CookieHelper {
                     this.val$pair = r6;
                     Pair pair = this.val$pair;
                     if (pair != null) {
-                        put((String) pair.first, (String) pair.second);
+                        put(pair.first, pair.second);
                     }
                 }
             };

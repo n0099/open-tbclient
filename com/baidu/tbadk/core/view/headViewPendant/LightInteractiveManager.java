@@ -51,7 +51,7 @@ public class LightInteractiveManager {
     }
 
     /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
+    public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WeakReference a;
@@ -101,7 +101,7 @@ public class LightInteractiveManager {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements DialogInterface.OnDismissListener {
+    public static class b implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CustomMessageListener a;
@@ -141,7 +141,7 @@ public class LightInteractiveManager {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements z55 {
+    public static class c implements z55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Dialog a;
@@ -174,7 +174,7 @@ public class LightInteractiveManager {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements DialogInterface.OnShowListener {
+    public static class d implements DialogInterface.OnShowListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

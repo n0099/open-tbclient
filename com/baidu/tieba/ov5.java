@@ -136,7 +136,7 @@ public class ov5 extends rv5 implements View.OnTouchListener, GestureDetector.On
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-                if (this.a.C.h0() && !this.a.C.i0()) {
+                if (this.a.C.g0() && !this.a.C.h0()) {
                     this.a.onDown(motionEvent);
                     this.a.t = (int) motionEvent.getX();
                     this.a.u = (int) motionEvent.getY();
@@ -181,10 +181,10 @@ public class ov5 extends rv5 implements View.OnTouchListener, GestureDetector.On
                     int width = this.a.B.getWidth() / 5;
                     if (f > this.a.w) {
                         if (this.a.D > (-width)) {
-                            this.a.C.B0(true, f);
+                            this.a.C.A0(true, f);
                         }
                     } else if (f < (-this.a.w) && this.a.D < width) {
-                        this.a.C.B0(true, f);
+                        this.a.C.A0(true, f);
                     }
                     this.a.i = false;
                 }
@@ -314,7 +314,7 @@ public class ov5 extends rv5 implements View.OnTouchListener, GestureDetector.On
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
             if (this.h && this.g == 0 && (i = this.p) != -1) {
-                this.C.m0(i - this.B.getHeaderViewsCount());
+                this.C.l0(i - this.B.getHeaderViewsCount());
                 return true;
             }
             return true;
@@ -441,7 +441,7 @@ public class ov5 extends rv5 implements View.OnTouchListener, GestureDetector.On
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, view2, motionEvent)) == null) {
-            if (this.C.h0() && !this.C.i0()) {
+            if (this.C.g0() && !this.C.h0()) {
                 this.j.onTouchEvent(motionEvent);
                 if (this.h && this.v && this.g == 1) {
                     this.l.onTouchEvent(motionEvent);
@@ -460,7 +460,7 @@ public class ov5 extends rv5 implements View.OnTouchListener, GestureDetector.On
                                 i = -i;
                             }
                             if (i > this.B.getWidth() / 2) {
-                                this.C.B0(true, 0.0f);
+                                this.C.A0(true, 0.0f);
                             }
                         }
                         this.i = false;
@@ -532,9 +532,9 @@ public class ov5 extends rv5 implements View.OnTouchListener, GestureDetector.On
             if (this.h && this.i) {
                 i4 = i4 | 1 | 2;
             }
-            boolean x0 = this.C.x0(i - this.B.getHeaderViewsCount(), i4, i2, i3);
-            this.v = x0;
-            return x0;
+            boolean w0 = this.C.w0(i - this.B.getHeaderViewsCount(), i4, i2, i3);
+            this.v = w0;
+            return w0;
         }
         return invokeIII.booleanValue;
     }

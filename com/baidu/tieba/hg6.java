@@ -38,7 +38,7 @@ public class hg6 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements vh6 {
+    public static class a implements vh6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -68,7 +68,7 @@ public class hg6 {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends CustomRule {
+    public static class b extends CustomRule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

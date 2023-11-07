@@ -48,7 +48,7 @@ public class jb5 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -81,7 +81,7 @@ public class jb5 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements Function0<Unit> {
+    public static class b implements Function0<Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dq6.e a;
@@ -121,7 +121,7 @@ public class jb5 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements SpriteBottomTipView.b {
+    public static class c implements SpriteBottomTipView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotEventData a;
@@ -178,7 +178,7 @@ public class jb5 {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements db5.j {
+    public static class d implements db5.j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dq6.e a;
@@ -215,7 +215,7 @@ public class jb5 {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements db5.h {
+    public static class e implements db5.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotEventData a;
@@ -249,7 +249,7 @@ public class jb5 {
     }
 
     /* loaded from: classes6.dex */
-    public class f implements db5.i {
+    public static class f implements db5.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotEventData a;

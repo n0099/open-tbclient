@@ -82,7 +82,7 @@ public class f65 {
                             e65.a(downloadData, 600);
                             return;
                         } else if (this.a.a.containsKey(str)) {
-                            this.a.b.put(str, (DownloadData) this.a.a.get(str));
+                            this.a.b.put(str, this.a.a.get(str));
                             this.a.a.remove(str);
                             e65.a(downloadData, 700);
                             return;

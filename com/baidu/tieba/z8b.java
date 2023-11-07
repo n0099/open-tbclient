@@ -101,7 +101,7 @@ public class z8b {
     }
 
     /* loaded from: classes9.dex */
-    public class b implements PermissionJudgePolicy.OnPermissionsGrantedListener {
+    public static class b implements PermissionJudgePolicy.OnPermissionsGrantedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ IntentConfig a;

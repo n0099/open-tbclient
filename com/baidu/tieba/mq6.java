@@ -35,7 +35,7 @@ public class mq6 {
     }
 
     /* loaded from: classes7.dex */
-    public class a implements oq6 {
+    public static class a implements oq6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

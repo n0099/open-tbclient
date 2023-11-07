@@ -265,7 +265,7 @@ public class al9 {
     }
 
     /* loaded from: classes5.dex */
-    public class a implements pv4.b {
+    public static class a implements pv4.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;

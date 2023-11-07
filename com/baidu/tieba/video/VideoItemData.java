@@ -146,7 +146,7 @@ public class VideoItemData implements Serializable, Parcelable {
     }
 
     /* loaded from: classes8.dex */
-    public class a implements Parcelable.Creator<VideoItemData> {
+    public static class a implements Parcelable.Creator<VideoItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -33,7 +33,7 @@ public class ti5 {
     }
 
     /* loaded from: classes8.dex */
-    public class a extends au5<Boolean> {
+    public static class a extends au5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,7 +65,7 @@ public class ti5 {
     }
 
     /* loaded from: classes8.dex */
-    public class b implements ft5<Boolean> {
+    public static class b implements ft5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

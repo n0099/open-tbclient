@@ -28,7 +28,7 @@ public class csa {
     }
 
     /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
+    public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

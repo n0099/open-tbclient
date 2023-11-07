@@ -41,7 +41,7 @@ public class TransmitForumData implements oi, Parcelable {
     }
 
     /* loaded from: classes4.dex */
-    public class a implements Parcelable.Creator<TransmitForumData> {
+    public static class a implements Parcelable.Creator<TransmitForumData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

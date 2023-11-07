@@ -120,7 +120,6 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextSupport, IPageStayDuration, IVideoNeedPreload, xo4, Object, no5 {
@@ -2499,10 +2498,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             TbSingleton.getInstance().setLastResumeTime(System.currentTimeMillis());
             setCurrentActivityTid();
             startScreenShotListen();
-            Objects.requireNonNull(TbSingleton.getInstance());
+            TbSingleton.getInstance().getClass();
             if (!"BaseActivity".equals(TbSingleton.getInstance().isSwitchActivity)) {
                 TbSingleton tbSingleton = TbSingleton.getInstance();
-                Objects.requireNonNull(TbSingleton.getInstance());
+                TbSingleton.getInstance().getClass();
                 tbSingleton.isSwitchActivity = "BaseActivity";
                 flog = 0;
             }

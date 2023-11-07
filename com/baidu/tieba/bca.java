@@ -29,7 +29,7 @@ public class bca {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements Comparator<tx4> {
+    public static class a implements Comparator<tx4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -38,7 +38,7 @@ public class ActivityItemData implements Serializable, Parcelable {
     }
 
     /* loaded from: classes8.dex */
-    public class a implements Parcelable.Creator<ActivityItemData> {
+    public static class a implements Parcelable.Creator<ActivityItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

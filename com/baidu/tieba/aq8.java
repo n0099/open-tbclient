@@ -24,7 +24,7 @@ public class aq8 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements xp8.c {
+    public static class a implements xp8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -59,7 +59,7 @@ public class aq8 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements xp8.a {
+    public static class b implements xp8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

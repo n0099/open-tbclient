@@ -74,7 +74,7 @@ public class ou9 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements BdUniDispatchSchemeController.OnSchemeParsedCallback {
+    public static class a implements BdUniDispatchSchemeController.OnSchemeParsedCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -117,7 +117,7 @@ public class ou9 {
     }
 
     /* loaded from: classes7.dex */
-    public class b extends NetMessageListener {
+    public static class b extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

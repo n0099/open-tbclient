@@ -28,7 +28,7 @@ public class bta {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements zz4.e {
+    public static class a implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zz4 a;
@@ -64,7 +64,7 @@ public class bta {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements zz4.e {
+    public static class b implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zz4 a;

@@ -37,7 +37,7 @@ public class WorksInfoData implements Serializable, Parcelable {
     }
 
     /* loaded from: classes8.dex */
-    public class a implements Parcelable.Creator<WorksInfoData> {
+    public static class a implements Parcelable.Creator<WorksInfoData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

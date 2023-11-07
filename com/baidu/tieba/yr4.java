@@ -60,7 +60,7 @@ public class yr4 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
-    public class a extends CustomMessageListener {
+    public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -96,7 +96,7 @@ public class yr4 {
     }
 
     /* loaded from: classes9.dex */
-    public class b implements UrlManager.UrlWebDealListener {
+    public static class b implements UrlManager.UrlWebDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -128,7 +128,7 @@ public class yr4 {
     }
 
     /* loaded from: classes9.dex */
-    public class c implements UrlManager.UrlDealListener {
+    public static class c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -318,7 +318,7 @@ public class yr4 {
     }
 
     /* loaded from: classes9.dex */
-    public class d implements zz4.e {
+    public static class d implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -358,7 +358,7 @@ public class yr4 {
     }
 
     /* loaded from: classes9.dex */
-    public class e implements zz4.e {
+    public static class e implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -386,7 +386,7 @@ public class yr4 {
     }
 
     /* loaded from: classes9.dex */
-    public class f implements UrlManager.UrlDealListener {
+    public static class f implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -479,7 +479,7 @@ public class yr4 {
     }
 
     /* loaded from: classes9.dex */
-    public class g implements UrlManager.UrlDealListener {
+    public static class g implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

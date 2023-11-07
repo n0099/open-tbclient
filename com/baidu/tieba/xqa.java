@@ -30,7 +30,7 @@ public class xqa {
     }
 
     /* loaded from: classes9.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
+    public static class a extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteData a;
@@ -76,7 +76,7 @@ public class xqa {
     }
 
     /* loaded from: classes9.dex */
-    public class b extends BdAsyncTask<Void, Void, Void> {
+    public static class b extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteData a;
@@ -135,7 +135,7 @@ public class xqa {
     }
 
     /* loaded from: classes9.dex */
-    public class c extends BdAsyncTask<Void, Void, Void> {
+    public static class c extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteData a;
@@ -194,7 +194,7 @@ public class xqa {
     }
 
     /* loaded from: classes9.dex */
-    public class d extends BdAsyncTask<Void, Void, Void> {
+    public static class d extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -239,7 +239,7 @@ public class xqa {
     }
 
     /* loaded from: classes9.dex */
-    public class e extends BdAsyncTask<Void, Void, Void> {
+    public static class e extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteData a;
@@ -285,7 +285,7 @@ public class xqa {
     }
 
     /* loaded from: classes9.dex */
-    public class f extends BdAsyncTask<Void, Void, Void> {
+    public static class f extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -329,7 +329,7 @@ public class xqa {
     }
 
     /* loaded from: classes9.dex */
-    public class g extends BdAsyncTask<Void, Void, Void> {
+    public static class g extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteData a;

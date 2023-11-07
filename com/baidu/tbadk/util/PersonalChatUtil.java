@@ -20,7 +20,7 @@ public class PersonalChatUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a extends au5<Boolean> {
+    public static class a extends au5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -60,7 +60,7 @@ public class PersonalChatUtil {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements ft5<Boolean> {
+    public static class b implements ft5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;

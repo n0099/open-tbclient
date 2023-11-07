@@ -38,17 +38,17 @@ public class o9a extends n9a {
                 return;
             }
         }
-        u0(false);
+        s0(false);
         this.U0 = BdUtilHelper.getEquipmentWidth(this.S) / 10;
     }
 
-    public void H0(String str, String str2) {
+    public void F0(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             this.Y = str2;
-            V();
-            W();
-            x0(this.b);
+            T();
+            U();
+            v0(this.b);
             this.F.setPlayer(this.t.getControl());
             this.B.setVisibility(8);
             this.u.setPlaceHolder(3);
@@ -58,7 +58,7 @@ public class o9a extends n9a {
     }
 
     @Override // com.baidu.tieba.n9a
-    public void b0(boolean z) {
+    public void Z(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             Context context = this.S;
@@ -67,7 +67,7 @@ public class o9a extends n9a {
             } else if (context instanceof BaseActivity) {
                 ((BaseActivity) context).setSwipeBackEnabled(this.c0);
             }
-            super.b0(z);
+            super.Z(z);
             if (this.c0) {
                 this.U.getLayoutParams().height = -1;
                 return;
@@ -77,7 +77,7 @@ public class o9a extends n9a {
     }
 
     @Override // com.baidu.tieba.n9a
-    public void j0() {
+    public void h0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.t.getControl().setVolume(1.0f, 1.0f);
@@ -85,7 +85,7 @@ public class o9a extends n9a {
     }
 
     @Override // com.baidu.tieba.n9a
-    public boolean k0(MotionEvent motionEvent) {
+    public boolean i0(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
@@ -98,10 +98,10 @@ public class o9a extends n9a {
     }
 
     @Override // com.baidu.tieba.n9a
-    public void x0(int i) {
+    public void v0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            super.x0(i);
+            super.v0(i);
             this.J.setVisibility(8);
             this.D.setVisibility(8);
         }

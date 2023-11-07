@@ -33,7 +33,7 @@ public class l9a extends n9a {
     }
 
     @Override // com.baidu.tieba.n9a
-    public void W() {
+    public void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
@@ -90,10 +90,10 @@ public class l9a extends n9a {
                 return;
             }
         }
-        u0(z);
+        s0(z);
     }
 
-    public final void H0(Rect rect) {
+    public final void F0(Rect rect) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, rect) != null) || this.W0 == null) {
             return;
@@ -125,9 +125,9 @@ public class l9a extends n9a {
         }
         int id = view2.getId();
         if (id == R.id.video_mute) {
-            c0();
+            a0();
         } else if (id == R.id.obfuscated_res_0x7f091f6a) {
-            x0(this.b);
+            v0(this.b);
             startPlay();
         } else {
             a aVar = this.X0;
@@ -138,7 +138,7 @@ public class l9a extends n9a {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
                 BdUtilHelper.showToast(this.S, (int) R.string.no_network_guide);
             } else {
-                H0(ThreadCardUtils.computeViewArea(this.U));
+                F0(ThreadCardUtils.computeViewArea(this.U));
                 TbSingleton.getInstance().setIsNeedReuseVideoPlayer(isPlaying());
             }
             View.OnClickListener onClickListener = this.F0;
@@ -148,33 +148,33 @@ public class l9a extends n9a {
         }
     }
 
-    public void I0(a aVar) {
+    public void G0(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             this.X0 = aVar;
         }
     }
 
-    public void J0() {
+    public void H0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            x0(this.f);
+            v0(this.f);
         }
     }
 
     @Override // com.baidu.tieba.n9a
-    public void U() {
+    public void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             int i = this.p;
             if (i == this.e || i == this.n) {
-                J0();
+                H0();
             }
         }
     }
 
     @Override // com.baidu.tieba.n9a
-    public void V() {
+    public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.f = 32;
@@ -182,10 +182,10 @@ public class l9a extends n9a {
     }
 
     @Override // com.baidu.tieba.n9a
-    public void i0() {
+    public void g0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.i0();
+            super.g0();
             this.U.setOnTouchListener(null);
             this.U.setOnClickListener(this);
         }

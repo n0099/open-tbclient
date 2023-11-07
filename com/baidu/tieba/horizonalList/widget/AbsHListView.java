@@ -279,7 +279,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         public int width;
 
         /* loaded from: classes6.dex */
-        public class a implements Parcelable.Creator<SavedState> {
+        public static class a implements Parcelable.Creator<SavedState> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1137,45 +1137,44 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         @Override // java.lang.Runnable
         public void run() {
             int i;
-            int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 int width = this.h.getWidth();
                 AbsHListView absHListView = this.h;
-                int i3 = absHListView.mFirstPosition;
-                int i4 = this.a;
-                if (i4 != 1) {
-                    int i5 = 0;
-                    if (i4 != 2) {
-                        if (i4 != 3) {
-                            if (i4 != 4) {
-                                if (i4 == 5) {
-                                    if (this.d == i3) {
+                int i2 = absHListView.mFirstPosition;
+                int i3 = this.a;
+                if (i3 != 1) {
+                    int i4 = 0;
+                    if (i3 != 2) {
+                        if (i3 != 3) {
+                            if (i3 != 4) {
+                                if (i3 == 5) {
+                                    if (this.d == i2) {
                                         absHListView.mViewHelper.b(this);
                                         return;
                                     }
-                                    this.d = i3;
+                                    this.d = i2;
                                     int childCount = absHListView.getChildCount();
-                                    int i6 = this.b;
-                                    int i7 = (i3 + childCount) - 1;
-                                    if (i6 < i3) {
-                                        i5 = (i3 - i6) + 1;
-                                    } else if (i6 > i7) {
-                                        i5 = i6 - i7;
+                                    int i5 = this.b;
+                                    int i6 = (i2 + childCount) - 1;
+                                    if (i5 < i2) {
+                                        i4 = (i2 - i5) + 1;
+                                    } else if (i5 > i6) {
+                                        i4 = i5 - i6;
                                     }
-                                    float min = Math.min(Math.abs(i5 / childCount), 1.0f);
-                                    if (i6 < i3) {
-                                        int i8 = (int) (this.e * min);
-                                        this.h.smoothScrollBy((int) ((-this.h.getWidth()) * min), i8, true);
+                                    float min = Math.min(Math.abs(i4 / childCount), 1.0f);
+                                    if (i5 < i2) {
+                                        int i7 = (int) (this.e * min);
+                                        this.h.smoothScrollBy((int) ((-this.h.getWidth()) * min), i7, true);
                                         this.h.mViewHelper.b(this);
                                         return;
-                                    } else if (i6 > i7) {
-                                        int i9 = (int) (this.e * min);
-                                        this.h.smoothScrollBy((int) (this.h.getWidth() * min), i9, true);
+                                    } else if (i5 > i6) {
+                                        int i8 = (int) (this.e * min);
+                                        this.h.smoothScrollBy((int) (this.h.getWidth() * min), i8, true);
                                         this.h.mViewHelper.b(this);
                                         return;
                                     } else {
-                                        int left = this.h.getChildAt(i6 - i3).getLeft() - this.g;
+                                        int left = this.h.getChildAt(i5 - i2).getLeft() - this.g;
                                         this.h.smoothScrollBy(left, (int) (this.e * (Math.abs(left) / this.h.getWidth())), true);
                                         return;
                                     }
@@ -1186,37 +1185,37 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                             if (childCount2 < 0) {
                                 return;
                             }
-                            int i10 = i3 + childCount2;
-                            if (i10 == this.d) {
+                            int i9 = i2 + childCount2;
+                            if (i9 == this.d) {
                                 this.h.mViewHelper.b(this);
                                 return;
                             }
                             View childAt = this.h.getChildAt(childCount2);
                             int width2 = childAt.getWidth();
                             int left2 = childAt.getLeft();
-                            int i11 = width - left2;
+                            int i10 = width - left2;
                             int max = Math.max(this.h.mListPadding.left, this.f);
-                            this.d = i10;
-                            if (i10 > this.c) {
-                                this.h.smoothScrollBy(-(i11 - max), this.e, true);
+                            this.d = i9;
+                            if (i9 > this.c) {
+                                this.h.smoothScrollBy(-(i10 - max), this.e, true);
                                 this.h.mViewHelper.b(this);
                                 return;
                             }
-                            int i12 = width - max;
-                            int i13 = left2 + width2;
-                            if (i12 > i13) {
-                                this.h.smoothScrollBy(-(i12 - i13), this.e, true);
+                            int i11 = width - max;
+                            int i12 = left2 + width2;
+                            if (i11 > i12) {
+                                this.h.smoothScrollBy(-(i11 - i12), this.e, true);
                                 return;
                             }
                             return;
                         }
                         int childCount3 = absHListView.getChildCount();
-                        if (i3 != this.c && childCount3 > 1) {
-                            int i14 = childCount3 + i3;
+                        if (i2 != this.c && childCount3 > 1) {
+                            int i13 = childCount3 + i2;
                             AbsHListView absHListView2 = this.h;
-                            if (i14 < absHListView2.mItemCount) {
-                                int i15 = i3 + 1;
-                                if (i15 == this.d) {
+                            if (i13 < absHListView2.mItemCount) {
+                                int i14 = i2 + 1;
+                                if (i14 == this.d) {
                                     absHListView2.mViewHelper.b(this);
                                     return;
                                 }
@@ -1224,9 +1223,9 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                                 int width3 = childAt2.getWidth();
                                 int left3 = childAt2.getLeft();
                                 int max2 = Math.max(this.h.mListPadding.right, this.f);
-                                if (i15 < this.c) {
+                                if (i14 < this.c) {
                                     this.h.smoothScrollBy(Math.max(0, (width3 + left3) - max2), this.e, true);
-                                    this.d = i15;
+                                    this.d = i14;
                                     this.h.mViewHelper.b(this);
                                     return;
                                 } else if (left3 > max2) {
@@ -1239,7 +1238,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                             return;
                         }
                         return;
-                    } else if (i3 == this.d) {
+                    } else if (i2 == this.d) {
                         absHListView.mViewHelper.b(this);
                         return;
                     } else {
@@ -1248,14 +1247,14 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                             return;
                         }
                         int left4 = childAt3.getLeft();
-                        if (i3 > 0) {
-                            i2 = Math.max(this.f, this.h.mListPadding.left);
+                        if (i2 > 0) {
+                            i = Math.max(this.f, this.h.mListPadding.left);
                         } else {
-                            i2 = this.h.mListPadding.left;
+                            i = this.h.mListPadding.left;
                         }
-                        this.h.smoothScrollBy(left4 - i2, this.e, true);
-                        this.d = i3;
-                        if (i3 > this.b) {
+                        this.h.smoothScrollBy(left4 - i, this.e, true);
+                        this.d = i2;
+                        if (i2 > this.b) {
                             this.h.mViewHelper.b(this);
                             return;
                         }
@@ -1266,19 +1265,19 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                 if (childCount4 < 0) {
                     return;
                 }
-                int i16 = i3 + childCount4;
+                int i15 = i2 + childCount4;
                 View childAt4 = this.h.getChildAt(childCount4);
                 int width4 = childAt4.getWidth();
                 int left5 = width - childAt4.getLeft();
                 AbsHListView absHListView3 = this.h;
-                if (i16 < absHListView3.mItemCount - 1) {
-                    i = Math.max(absHListView3.mListPadding.right, this.f);
-                } else {
-                    i = absHListView3.mListPadding.right;
+                int i16 = absHListView3.mItemCount - 1;
+                int i17 = absHListView3.mListPadding.right;
+                if (i15 < i16) {
+                    i17 = Math.max(i17, this.f);
                 }
-                this.h.smoothScrollBy((width4 - left5) + i, this.e, true);
-                this.d = i16;
-                if (i16 < this.b) {
+                this.h.smoothScrollBy((width4 - left5) + i17, this.e, true);
+                this.d = i15;
+                if (i15 < this.b) {
                     this.h.mViewHelper.b(this);
                 }
             }

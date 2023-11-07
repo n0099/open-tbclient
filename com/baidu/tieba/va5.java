@@ -25,7 +25,7 @@ public class va5 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a implements zz4.e {
+    public static class a implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -67,7 +67,7 @@ public class va5 {
     }
 
     /* loaded from: classes8.dex */
-    public class b implements zz4.e {
+    public static class b implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DialogInterface.OnCancelListener a;

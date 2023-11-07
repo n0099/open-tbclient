@@ -42,7 +42,7 @@ public class QmFilterItem extends OrmObject implements Serializable, Parcelable 
     }
 
     /* loaded from: classes5.dex */
-    public class a implements Parcelable.Creator<QmFilterItem> {
+    public static class a implements Parcelable.Creator<QmFilterItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

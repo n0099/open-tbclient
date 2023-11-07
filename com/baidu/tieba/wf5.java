@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.editortools.meme.list.GeneratedLoadedData;
 import com.baidu.tbadk.editortools.meme.list.MemeData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -64,6 +65,7 @@ public final class wf5 {
 
         public final wf5 a(JSONObject jsonObject) {
             InterceptResult invokeL;
+            JSONArray jSONArray;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsonObject)) == null) {
                 Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
@@ -82,13 +84,18 @@ public final class wf5 {
                                 int optInt2 = optJSONObject.optInt("type");
                                 String src = optJSONObject.optString("src");
                                 int optInt3 = optJSONObject.optInt("obj_source");
+                                GeneratedLoadedData generatedLoadedData = new GeneratedLoadedData();
                                 Intrinsics.checkNotNullExpressionValue(src, "src");
-                                arrayList.add(new MemeData(optLong, optInt2, src, optInt3, null, 16, null));
+                                jSONArray = optJSONArray;
+                                arrayList.add(generatedLoadedData.copyWithoutType(new MemeData(optLong, optInt2, src, optInt3, null, 16, null)));
+                            } else {
+                                jSONArray = optJSONArray;
                             }
                             if (i == length) {
                                 break;
                             }
                             i++;
+                            optJSONArray = jSONArray;
                         }
                     }
                 }

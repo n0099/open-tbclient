@@ -66,37 +66,35 @@ public class i75 {
             this.f = str3;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:44:0x00f8 A[SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:46:0x0113 A[SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:44:0x00f6 A[SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:46:0x0111 A[SYNTHETIC] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public g85 a() throws IOException {
             InterceptResult invokeV;
-            long j;
             int i;
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 g85 g85Var = new g85();
                 long c = this.c.c();
-                long j2 = 30720;
-                if (c % 30720 == 0) {
-                    j = c / 30720;
-                } else {
-                    j = (c / 30720) + 1;
+                long j = 30720;
+                long j2 = c / 30720;
+                if (c % 30720 != 0) {
+                    j2++;
                 }
                 int a = this.c.a();
-                if (a < j) {
+                if (a < j2) {
                     RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.a), "r");
                     int i2 = a * TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
                     if (randomAccessFile.skipBytes(i2) >= i2) {
                         while (true) {
                             long j3 = a;
-                            if (j3 < j) {
-                                long j4 = j - 1;
+                            if (j3 < j2) {
+                                long j4 = j2 - 1;
                                 if (j3 == j4) {
-                                    i = (int) (c - (j4 * j2));
+                                    i = (int) (c - (j4 * j));
                                 } else {
                                     i = TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
                                 }
@@ -111,7 +109,7 @@ public class i75 {
                                     this.d.addPostData("offset", String.valueOf(a * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
                                     this.d.addPostData("total_length", String.valueOf(c));
                                     this.d.addPostData("chunk_no", String.valueOf(a + 1));
-                                    this.d.addPostData("total_num", String.valueOf(j));
+                                    this.d.addPostData("total_num", String.valueOf(j2));
                                     this.d.addPostData("voice_md5", this.f);
                                     if (!this.e) {
                                         if (this.d.postMultiNetData() != null && this.d.getNetContext().getResponse().isRequestSuccess()) {
@@ -134,7 +132,7 @@ public class i75 {
                                     }
                                 }
                                 a++;
-                                j2 = 30720;
+                                j = 30720;
                             } else {
                                 randomAccessFile.close();
                                 break;
@@ -229,10 +227,12 @@ public class i75 {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            if (j % 30720 == 0) {
-                return j / 30720;
+            int i = ((j % 30720) > 0L ? 1 : ((j % 30720) == 0L ? 0 : -1));
+            long j2 = j / 30720;
+            if (i != 0) {
+                return j2 + 1;
             }
-            return (j / 30720) + 1;
+            return j2;
         }
         return invokeJ.longValue;
     }

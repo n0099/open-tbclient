@@ -85,6 +85,10 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
     public @interface GradientOrientation {
     }
 
+    /* loaded from: classes4.dex */
+    public @interface Shape {
+    }
+
     public DrawableSelector() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

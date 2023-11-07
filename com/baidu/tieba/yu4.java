@@ -38,7 +38,7 @@ public class yu4 {
     }
 
     /* loaded from: classes9.dex */
-    public class a extends CustomMessageListener {
+    public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

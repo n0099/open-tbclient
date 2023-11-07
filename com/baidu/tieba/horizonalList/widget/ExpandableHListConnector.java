@@ -55,7 +55,7 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
         }
 
         /* loaded from: classes6.dex */
-        public class a implements Parcelable.Creator<GroupMetadata> {
+        public static class a implements Parcelable.Creator<GroupMetadata> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

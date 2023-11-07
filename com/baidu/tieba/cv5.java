@@ -27,7 +27,7 @@ public class cv5 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements av5.b {
+    public static class a implements av5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -61,7 +61,7 @@ public class cv5 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements MessageQueue.IdleHandler {
+    public static class b implements MessageQueue.IdleHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;

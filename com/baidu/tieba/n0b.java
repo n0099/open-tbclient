@@ -17,7 +17,7 @@ public class n0b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements Animation.AnimationListener {
+    public static class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Animation.AnimationListener a;
@@ -78,7 +78,7 @@ public class n0b {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements Animation.AnimationListener {
+    public static class b implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Animation.AnimationListener a;
@@ -139,7 +139,7 @@ public class n0b {
     }
 
     /* loaded from: classes7.dex */
-    public class c extends AnimatorListenerAdapter {
+    public static class c extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View a;

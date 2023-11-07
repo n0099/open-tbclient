@@ -50,6 +50,14 @@ public class ShadowDrawable extends Drawable {
     public int mShape;
     public int mShapeRadius;
 
+    /* loaded from: classes4.dex */
+    public @interface ShadowSide {
+    }
+
+    /* loaded from: classes4.dex */
+    public @interface Shape {
+    }
+
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
         InterceptResult invokeV;

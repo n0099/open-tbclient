@@ -125,10 +125,19 @@ public final class TbCircleProgressBar extends View {
         return (Paint) invokeV.objValue;
     }
 
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = SkinManager.getColor(this.c);
+            this.f = SkinManager.getColor(this.e);
+            invalidate();
+        }
+    }
+
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             Intrinsics.checkNotNullParameter(canvas, "canvas");
             super.onDraw(canvas);
             float f = this.g / 2;
@@ -145,7 +154,7 @@ public final class TbCircleProgressBar extends View {
 
     public final void setCircleBackgroundColorId(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             this.c = i;
             this.d = SkinManager.getColor(i);
             invalidate();
@@ -154,14 +163,14 @@ public final class TbCircleProgressBar extends View {
 
     public final void setMaxProgress(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.b = i;
         }
     }
 
     public final void setProgress(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             if (i < 0) {
                 i = 0;
             } else {
@@ -177,7 +186,7 @@ public final class TbCircleProgressBar extends View {
 
     public final void setProgressBarColor(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             this.e = i;
             this.f = SkinManager.getColor(i);
             invalidate();
@@ -186,7 +195,7 @@ public final class TbCircleProgressBar extends View {
 
     public final void setProgressWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             this.g = UtilHelper.getDimenPixelSize(i);
             invalidate();
         }

@@ -40,7 +40,7 @@ public abstract class he6<T extends he6<T>> implements ge6.b {
     public final ArrayList<j> l;
 
     /* loaded from: classes6.dex */
-    public class b extends k {
+    public static class b extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -58,7 +58,7 @@ public abstract class he6<T extends he6<T>> implements ge6.b {
     public abstract boolean j(long j2);
 
     /* loaded from: classes6.dex */
-    public class a extends k {
+    public static class a extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -107,7 +107,7 @@ public abstract class he6<T extends he6<T>> implements ge6.b {
     }
 
     /* loaded from: classes6.dex */
-    public class c extends k {
+    public static class c extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -156,7 +156,7 @@ public abstract class he6<T extends he6<T>> implements ge6.b {
     }
 
     /* loaded from: classes6.dex */
-    public class d extends k {
+    public static class d extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -205,7 +205,7 @@ public abstract class he6<T extends he6<T>> implements ge6.b {
     }
 
     /* loaded from: classes6.dex */
-    public class e extends k {
+    public static class e extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -254,7 +254,7 @@ public abstract class he6<T extends he6<T>> implements ge6.b {
     }
 
     /* loaded from: classes6.dex */
-    public class f extends k {
+    public static class f extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -303,7 +303,7 @@ public abstract class he6<T extends he6<T>> implements ge6.b {
     }
 
     /* loaded from: classes6.dex */
-    public class g extends k {
+    public static class g extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

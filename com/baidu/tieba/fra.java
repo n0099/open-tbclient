@@ -44,7 +44,7 @@ public class fra {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements ra {
+    public static class c implements ra {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -191,7 +191,7 @@ public class fra {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements zz4.e {
+    public static class a implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -225,7 +225,7 @@ public class fra {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements zz4.e {
+    public static class b implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -254,7 +254,7 @@ public class fra {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements Runnable {
+    public static class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -289,7 +289,7 @@ public class fra {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements Runnable {
+    public static class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -85,7 +85,7 @@ public class LargeImageView extends DragImageView {
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
-    public void U() {
+    public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.w0.Q(getImageBitmap(), getImageData());
@@ -120,7 +120,7 @@ public class LargeImageView extends DragImageView {
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
-    public float V(Bitmap bitmap) {
+    public float U(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
@@ -130,7 +130,7 @@ public class LargeImageView extends DragImageView {
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
-    public float k0(Bitmap bitmap) {
+    public float j0(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bitmap)) == null) {

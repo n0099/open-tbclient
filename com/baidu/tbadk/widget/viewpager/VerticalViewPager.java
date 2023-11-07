@@ -143,7 +143,7 @@ public class VerticalViewPager extends ViewGroup {
         public int position;
 
         /* loaded from: classes5.dex */
-        public class a implements ParcelableCompatCreatorCallbacks<SavedState> {
+        public static class a implements ParcelableCompatCreatorCallbacks<SavedState> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -324,7 +324,7 @@ public class VerticalViewPager extends ViewGroup {
     }
 
     /* loaded from: classes5.dex */
-    public class a implements Comparator<d> {
+    public static class a implements Comparator<d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -356,7 +356,7 @@ public class VerticalViewPager extends ViewGroup {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements Interpolator {
+    public static class b implements Interpolator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -2572,10 +2572,12 @@ public class VerticalViewPager extends ViewGroup {
                                 this.x = true;
                                 H(true);
                                 setScrollState(1);
+                                float f5 = this.F;
+                                float f6 = this.B;
                                 if (i2 > 0) {
-                                    f3 = this.F + this.B;
+                                    f3 = f5 + f6;
                                 } else {
-                                    f3 = this.F - this.B;
+                                    f3 = f5 - f6;
                                 }
                                 this.D = f3;
                                 this.C = x;

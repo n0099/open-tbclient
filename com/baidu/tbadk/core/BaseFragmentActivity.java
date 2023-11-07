@@ -129,7 +129,6 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFragmentActivity> implements TbPageContextSupport, IPageStayDuration, xo4, Object, no5, IVideoNeedPreload {
@@ -2430,10 +2429,10 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             if (PermissionUtil.isAgreePrivacyPolicy()) {
                 TbSingleton.getInstance().setLastResumeTime(System.currentTimeMillis());
                 setCurrentActivityTid();
-                Objects.requireNonNull(TbSingleton.getInstance());
+                TbSingleton.getInstance().getClass();
                 if (!TAG.equals(TbSingleton.getInstance().isSwitchActivity)) {
                     TbSingleton tbSingleton = TbSingleton.getInstance();
-                    Objects.requireNonNull(TbSingleton.getInstance());
+                    TbSingleton.getInstance().getClass();
                     tbSingleton.isSwitchActivity = TAG;
                     flog = 0;
                 }

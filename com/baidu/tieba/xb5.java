@@ -136,7 +136,7 @@ public class xb5 {
                                     Collections.sort(arrayList, new a(this));
                                     StringBuilder sb = new StringBuilder(50);
                                     for (Map.Entry entry : arrayList) {
-                                        this.c.b.add((String) entry.getKey());
+                                        this.c.b.add(entry.getKey());
                                         if (i != 0) {
                                             sb.append(",");
                                         }

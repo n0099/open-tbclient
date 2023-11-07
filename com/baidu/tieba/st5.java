@@ -180,8 +180,8 @@ public class st5 {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (ApkDownloadInfoData apkDownloadInfoData : hashMap.values()) {
-                arrayList.add(apkDownloadInfoData);
+            for (Object obj : hashMap.values()) {
+                arrayList.add(obj);
             }
             Collections.sort(arrayList);
             if (i2 > 0 && arrayList.size() > i2) {

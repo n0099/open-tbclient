@@ -73,7 +73,7 @@ public class GroupInfoData extends AbstractImageProvider implements oi, Parcelab
     }
 
     /* loaded from: classes6.dex */
-    public class a implements Parcelable.Creator<GroupInfoData> {
+    public static class a implements Parcelable.Creator<GroupInfoData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

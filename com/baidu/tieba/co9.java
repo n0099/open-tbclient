@@ -136,22 +136,22 @@ public class co9 {
         a aVar = new a(this.c, simpleDragSortListView);
         this.b = aVar;
         aVar.d(-1);
-        this.c.t0(this.b);
-        this.c.v0(this.b);
+        this.c.s0(this.b);
+        this.c.u0(this.b);
         simpleDragSortListView.setOnTouchListener(this.b);
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.c.p0(z);
+            this.c.o0(z);
         }
     }
 
     public void c(nv5.i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) {
-            this.c.u0(iVar);
+            this.c.t0(iVar);
         }
     }
 

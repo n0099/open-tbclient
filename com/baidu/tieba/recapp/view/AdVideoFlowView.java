@@ -1056,7 +1056,7 @@ public class AdVideoFlowView extends RelativeLayout implements mca, View.OnClick
                 this.R = true;
                 xs5 xs5Var = new xs5(10000L, 1000L);
                 this.L = xs5Var;
-                xs5Var.o(new xs5.b(this) { // from class: com.baidu.tieba.recapp.view.AdVideoFlowView.7
+                xs5Var.n(new xs5.b(this) { // from class: com.baidu.tieba.recapp.view.AdVideoFlowView.7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AdVideoFlowView a;
@@ -1094,13 +1094,13 @@ public class AdVideoFlowView extends RelativeLayout implements mca, View.OnClick
                         }
                     }
                 });
-                this.L.p();
+                this.L.o();
                 this.s.t(0);
                 return;
             }
             xs5 xs5Var2 = this.L;
             if (xs5Var2 != null) {
-                xs5Var2.q();
+                xs5Var2.p();
             }
             this.s.r();
             this.s.i(this.A);

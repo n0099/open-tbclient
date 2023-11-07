@@ -64,12 +64,11 @@ public class xs5 {
                     xs5Var2.g = xs5Var2.f;
                 }
                 long j = currentTimeMillis - this.a.f;
-                xs5 xs5Var3 = this.a;
-                xs5.h(xs5Var3, xs5Var3.d);
+                this.a.c += this.a.d;
                 if (this.a.c >= this.a.b) {
-                    xs5 xs5Var4 = this.a;
-                    xs5Var4.c = xs5Var4.b;
-                    this.a.n();
+                    xs5 xs5Var3 = this.a;
+                    xs5Var3.c = xs5Var3.b;
+                    this.a.m();
                 } else {
                     this.a.a.postDelayed(this.a.i, (this.a.d * 2) - j);
                     if (this.a.h != null) {
@@ -102,20 +101,14 @@ public class xs5 {
         this.d = j2;
     }
 
-    public void o(b bVar) {
+    public void n(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.h = bVar;
         }
     }
 
-    public static /* synthetic */ long h(xs5 xs5Var, long j) {
-        long j2 = xs5Var.c + j;
-        xs5Var.c = j2;
-        return j2;
-    }
-
-    public final void n() {
+    public final void m() {
         b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.h) != null) {
@@ -123,7 +116,7 @@ public class xs5 {
         }
     }
 
-    public void p() {
+    public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
@@ -138,7 +131,7 @@ public class xs5 {
         }
     }
 
-    public void q() {
+    public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             long j = this.e;

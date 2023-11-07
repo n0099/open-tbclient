@@ -35,7 +35,7 @@ public class Voice implements Parcelable {
     }
 
     /* loaded from: classes5.dex */
-    public class a implements Parcelable.Creator<Voice> {
+    public static class a implements Parcelable.Creator<Voice> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

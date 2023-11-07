@@ -133,7 +133,7 @@ public class ExpandableHListView extends HListView {
         public ArrayList<ExpandableHListConnector.GroupMetadata> expandedGroupMetadataList;
 
         /* loaded from: classes6.dex */
-        public class a implements Parcelable.Creator<SavedState> {
+        public static class a implements Parcelable.Creator<SavedState> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

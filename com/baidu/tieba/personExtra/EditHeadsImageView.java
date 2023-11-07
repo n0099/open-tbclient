@@ -47,10 +47,10 @@ public class EditHeadsImageView extends DragImageView {
         this.y0 = 0.42857143f;
         this.z0 = 0;
         this.A0 = 1.0f;
-        x0();
+        w0();
     }
 
-    public Bitmap w0(boolean z) {
+    public Bitmap v0(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
@@ -100,7 +100,7 @@ public class EditHeadsImageView extends DragImageView {
         this.y0 = 0.42857143f;
         this.z0 = 0;
         this.A0 = 1.0f;
-        x0();
+        w0();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -127,7 +127,7 @@ public class EditHeadsImageView extends DragImageView {
         this.y0 = 0.42857143f;
         this.z0 = 0;
         this.A0 = 1.0f;
-        x0();
+        w0();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView, android.view.View
@@ -176,7 +176,7 @@ public class EditHeadsImageView extends DragImageView {
         }
     }
 
-    public final void x0() {
+    public final void w0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.z0 = getResources().getColor(R.color.common_color_10226);

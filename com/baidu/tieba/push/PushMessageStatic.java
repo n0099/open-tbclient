@@ -40,7 +40,7 @@ public class PushMessageStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a extends CustomMessageListener {
+    public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -251,7 +251,7 @@ public class PushMessageStatic {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements UrlManager.UrlDealListener {
+    public static class b implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

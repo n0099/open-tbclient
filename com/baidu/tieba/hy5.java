@@ -74,7 +74,7 @@ public class hy5 {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends RichTextMaker<ll5> {
+    public static class a extends RichTextMaker<ll5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -141,7 +141,7 @@ public class hy5 {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends RichTextMaker<py5> {
+    public static class b extends RichTextMaker<py5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -179,7 +179,7 @@ public class hy5 {
     }
 
     /* loaded from: classes6.dex */
-    public class c extends iy5 {
+    public static class c extends iy5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String n;
@@ -217,7 +217,7 @@ public class hy5 {
     }
 
     /* loaded from: classes6.dex */
-    public class d extends iy5 {
+    public static class d extends iy5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -252,7 +252,7 @@ public class hy5 {
     }
 
     /* loaded from: classes6.dex */
-    public class e extends iy5 {
+    public static class e extends iy5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String n;
@@ -298,7 +298,7 @@ public class hy5 {
     }
 
     /* loaded from: classes6.dex */
-    public class f extends iy5 {
+    public static class f extends iy5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String n;
@@ -344,7 +344,7 @@ public class hy5 {
     }
 
     /* loaded from: classes6.dex */
-    public class g extends iy5 {
+    public static class g extends iy5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int n;

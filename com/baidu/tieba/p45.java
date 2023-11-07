@@ -89,7 +89,7 @@ public class p45 {
     }
 
     /* loaded from: classes7.dex */
-    public class b extends CustomMessageListener {
+    public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
