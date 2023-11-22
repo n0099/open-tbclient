@@ -21,10 +21,10 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.core.widget.titletags.TitleTagsView;
-import com.baidu.tieba.ir6;
+import com.baidu.tieba.jr6;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.wx7;
 import com.baidu.tieba.xx7;
+import com.baidu.tieba.yx7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 import tbclient.TagLabelInfo;
 /* loaded from: classes6.dex */
-public class HeaderComponentSingleView extends FrameLayout implements xx7 {
+public class HeaderComponentSingleView extends FrameLayout implements yx7 {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static final int o;
@@ -52,12 +52,12 @@ public class HeaderComponentSingleView extends FrameLayout implements xx7 {
     public HeadImageView g;
     public TbImageAutoSwitch h;
     public List<String> i;
-    public wx7 j;
+    public xx7 j;
     public LiveFuseForumData k;
     public boolean l;
     public TbImageAutoSwitch.b m;
 
-    @Override // com.baidu.tieba.xx7
+    @Override // com.baidu.tieba.yx7
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -79,13 +79,13 @@ public class HeaderComponentSingleView extends FrameLayout implements xx7 {
 
         /* renamed from: com.baidu.tieba.frs.headercomponent.HeaderComponentSingleView$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0297a implements View.OnClickListener {
+        public class View$OnClickListenerC0295a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0297a(a aVar, int i) {
+            public View$OnClickListenerC0295a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,7 +137,7 @@ public class HeaderComponentSingleView extends FrameLayout implements xx7 {
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
                 HeadImageView headImageView = (HeadImageView) view2;
                 headImageView.startLoad((String) this.a.i.get(i), 12, false);
-                headImageView.setOnClickListener(new View$OnClickListenerC0297a(this, i));
+                headImageView.setOnClickListener(new View$OnClickListenerC0295a(this, i));
             }
         }
 
@@ -328,16 +328,16 @@ public class HeaderComponentSingleView extends FrameLayout implements xx7 {
         }
     }
 
-    @Override // com.baidu.tieba.xx7
-    public void a(List<LiveFuseForumData> list, wx7 wx7Var) {
+    @Override // com.baidu.tieba.yx7
+    public void a(List<LiveFuseForumData> list, xx7 xx7Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, wx7Var) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, xx7Var) != null) || ListUtils.isEmpty(list)) {
             return;
         }
         LiveFuseForumData liveFuseForumData = list.get(0);
         this.k = liveFuseForumData;
-        this.j = wx7Var;
+        this.j = xx7Var;
         Integer num = liveFuseForumData.head_img_style;
         if (num != null && num.intValue() != 0) {
             z = false;
@@ -372,9 +372,9 @@ public class HeaderComponentSingleView extends FrameLayout implements xx7 {
         }
         r();
         setOnClickListener(new b(this));
-        wx7 wx7Var2 = this.j;
-        if (wx7Var2 != null) {
-            wx7Var2.a(1, this.k);
+        xx7 xx7Var2 = this.j;
+        if (xx7Var2 != null) {
+            xx7Var2.a(1, this.k);
         }
     }
 
@@ -392,7 +392,7 @@ public class HeaderComponentSingleView extends FrameLayout implements xx7 {
                     if (tagLabelInfo != null && !ListUtils.isEmpty(tagLabelInfo.labels)) {
                         arrayList = tagLabelInfo.labels;
                     }
-                    titleTagsView.c(new ir6(str, arrayList, true));
+                    titleTagsView.c(new jr6(str, arrayList, true));
                     this.d.addView(titleTagsView, new ViewGroup.LayoutParams(-2, -1));
                 }
                 if (size > 1) {
@@ -404,7 +404,7 @@ public class HeaderComponentSingleView extends FrameLayout implements xx7 {
         }
     }
 
-    @Override // com.baidu.tieba.xx7
+    @Override // com.baidu.tieba.yx7
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {

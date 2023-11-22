@@ -27,7 +27,7 @@ import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.R;
 import com.baidu.tieba.j7;
-import com.baidu.tieba.jt5;
+import com.baidu.tieba.kt5;
 import com.baidu.tieba.lv4;
 import com.baidu.tieba.mb;
 import com.baidu.tieba.n7;
@@ -383,8 +383,8 @@ public abstract class AbstractImageLoaderProc implements sb<BdImage> {
             } else {
                 urlbyClientServerAddr = getUrlbyClientServerAddr(str, i9, i10);
             }
-            jt5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = jt5.d(urlbyClientServerAddr);
+            kt5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = kt5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 str3 = (String) d.second;
                 z = true;
@@ -497,7 +497,7 @@ public abstract class AbstractImageLoaderProc implements sb<BdImage> {
                 rawBitmap = decodeToResourceWithWH(bArr3, i7, i6).getRawBitmap();
             }
             if (z && rawBitmap == null) {
-                jt5.b(str4);
+                kt5.b(str4);
                 byte[] downloadImageBytes2 = webClient.downloadImageBytes(str5, !z5);
                 boolean needCache2 = webClient.needCache();
                 if (downloadImageBytes2 != null && webClient.IsRequestSuccess()) {

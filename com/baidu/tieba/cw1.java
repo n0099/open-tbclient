@@ -45,14 +45,14 @@ public class cw1 extends yv1 {
 
         /* renamed from: com.baidu.tieba.cw1$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0254a implements v93.e {
+        public class C0253a implements v93.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
             public final /* synthetic */ g63 b;
             public final /* synthetic */ a c;
 
-            public C0254a(a aVar, Activity activity, g63 g63Var) {
+            public C0253a(a aVar, Activity activity, g63 g63Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,7 +138,7 @@ public class cw1 extends yv1 {
                         return;
                     }
                     this.a.a();
-                    v93.g(M, this.c, "", new C0254a(this, activity, M), this.d);
+                    v93.g(M, this.c, "", new C0253a(this, activity, M), this.d);
                     return;
                 }
                 this.f.d(this.b, new hy1(1001, "swan activity is null"));

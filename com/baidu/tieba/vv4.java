@@ -251,7 +251,7 @@ public class vv4 {
         }
         this.f = false;
         this.g = new a(this, CmdConfigHttp.CMD_GET_BIGDAY_INFO, 309609);
-        cra.c(309609, CmdConfigHttp.CMD_GET_BIGDAY_INFO, "c/s/getBigday", GetBigdayInfoHttpResMessage.class, false, false, true, false);
+        dra.c(309609, CmdConfigHttp.CMD_GET_BIGDAY_INFO, "c/s/getBigday", GetBigdayInfoHttpResMessage.class, false, false, true, false);
         MessageManager.getInstance().registerListener(this.g);
         this.c = new SparseArray<>();
     }

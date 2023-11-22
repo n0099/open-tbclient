@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kn7;
 import com.baidu.tieba.ln7;
+import com.baidu.tieba.mn7;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,7 +26,7 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isNeedUpdateCache;
-    public kn7 mComplaintBarlordData;
+    public ln7 mComplaintBarlordData;
     public boolean mIsBawuShow;
     public boolean mIsPrivateForum;
     public ManagerApplyInfo mManagerApplyInfo;
@@ -66,8 +66,8 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
             forumMemberRequestMessage = (ForumMemberRequestMessage) getOrginalMessage().getExtra();
         }
         if (forumMemberRequestMessage != null) {
-            ln7 ln7Var = new ln7();
-            ln7Var.c(forumMemberRequestMessage.getForumName() + "", bArr);
+            mn7 mn7Var = new mn7();
+            mn7Var.c(forumMemberRequestMessage.getForumName() + "", bArr);
         }
     }
 
@@ -117,9 +117,9 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
                     DataRes dataRes3 = getMemberInfoResIdl.data;
                     this.mPrivateMgrApplyInfo = dataRes3.primanager_apply_info;
                     if (dataRes3.manager_complain_info != null) {
-                        kn7 kn7Var = new kn7();
-                        this.mComplaintBarlordData = kn7Var;
-                        kn7Var.c(getMemberInfoResIdl.data.manager_complain_info);
+                        ln7 ln7Var = new ln7();
+                        this.mComplaintBarlordData = ln7Var;
+                        ln7Var.c(getMemberInfoResIdl.data.manager_complain_info);
                     } else {
                         this.mComplaintBarlordData = null;
                     }
@@ -133,13 +133,13 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public kn7 getComplaintBarlordData() {
+    public ln7 getComplaintBarlordData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mComplaintBarlordData;
         }
-        return (kn7) invokeV.objValue;
+        return (ln7) invokeV.objValue;
     }
 
     public ManagerApplyInfo getManagerApplyInfo() {
@@ -205,10 +205,10 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
         return invokeV.booleanValue;
     }
 
-    public void setComplaintBarlordData(kn7 kn7Var) {
+    public void setComplaintBarlordData(ln7 ln7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, kn7Var) == null) {
-            this.mComplaintBarlordData = kn7Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, ln7Var) == null) {
+            this.mComplaintBarlordData = ln7Var;
         }
     }
 

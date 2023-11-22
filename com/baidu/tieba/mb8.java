@@ -1,82 +1,139 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.NoDataItemViewHolder;
+import com.baidu.adp.widget.ListView.LoadingViewAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class mb8 extends bi<xi, NoDataItemViewHolder> {
+public class mb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public TbPageContext a;
+    public List<bi> b;
+    public ui c;
+    public kb8 d;
+    public pb8 e;
+    public fb8 f;
+    public hb8 g;
+    public gb8 h;
+    public ib8 i;
+    public jb8 j;
+    public lb8 k;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mb8(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), xi.c);
+    public mb8(TbPageContext tbPageContext, ui uiVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, uiVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 3;
+        this.a = tbPageContext;
+        this.c = uiVar;
+        b();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bi
-    /* renamed from: t */
-    public NoDataItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public List<oi> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.adapter_no_data_item_layout, viewGroup, false);
-            inflate.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
-            return new NoDataItemViewHolder(inflate);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c.getData();
         }
-        return (NoDataItemViewHolder) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.bi
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, xi xiVar, NoDataItemViewHolder noDataItemViewHolder) {
-        u(i, view2, viewGroup, xiVar, noDataItemViewHolder);
-        return view2;
-    }
-
-    public View u(int i, View view2, ViewGroup viewGroup, xi xiVar, NoDataItemViewHolder noDataItemViewHolder) {
-        InterceptResult invokeCommon;
+    public void c() {
+        ui uiVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xiVar, noDataItemViewHolder})) == null) {
-            noDataItemViewHolder.a.setText(xiVar.a);
-            if (this.a != TbadkCoreApplication.getInst().getSkinType()) {
-                SkinManager.setImageResource(noDataItemViewHolder.b, xiVar.b);
-                SkinManager.setViewTextColor(noDataItemViewHolder.a, (int) R.color.CAM_X0109);
-                this.a = TbadkCoreApplication.getInst().getSkinType();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (uiVar = this.c) != null) {
+            uiVar.getListAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ArrayList arrayList = new ArrayList();
+            this.b = arrayList;
+            arrayList.add(new ob8(this.a));
+            this.b.add(new nb8(this.a));
+            this.b.add(new LoadingViewAdapter(this.a));
+            kb8 kb8Var = new kb8(this.a);
+            this.d = kb8Var;
+            kb8Var.y(this.c);
+            this.b.add(this.d);
+            pb8 pb8Var = new pb8(this.a);
+            this.e = pb8Var;
+            pb8Var.y(this.c);
+            this.b.add(this.e);
+            fb8 fb8Var = new fb8(this.a);
+            this.f = fb8Var;
+            fb8Var.y(this.c);
+            this.b.add(this.f);
+            hb8 hb8Var = new hb8(this.a);
+            this.g = hb8Var;
+            hb8Var.y(this.c);
+            this.b.add(this.g);
+            gb8 gb8Var = new gb8(this.a);
+            this.h = gb8Var;
+            gb8Var.y(this.c);
+            this.b.add(this.h);
+            ib8 ib8Var = new ib8(this.a);
+            this.i = ib8Var;
+            ib8Var.y(this.c);
+            this.b.add(this.i);
+            jb8 jb8Var = new jb8(this.a);
+            this.j = jb8Var;
+            jb8Var.y(this.c);
+            this.b.add(this.j);
+            TbPageContext tbPageContext = this.a;
+            lb8 lb8Var = new lb8(tbPageContext, ThreadData.TYPE_RECOMMEND_INFO, tbPageContext.getUniqueId());
+            this.k = lb8Var;
+            lb8Var.y(this.c);
+            this.b.add(this.k);
+            this.c.addAdapters(this.b);
+        }
+    }
+
+    public void d(List<oi> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.c.setData(list);
+        }
+    }
+
+    public void e(vu4 vu4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, vu4Var) == null) {
+            for (bi biVar : this.b) {
+                if (biVar instanceof eb8) {
+                    ((eb8) biVar).x(vu4Var);
+                }
             }
-            return view2;
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void f(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            for (bi biVar : this.b) {
+                biVar.setPageId(bdUniqueId);
+            }
+        }
     }
 }

@@ -6,15 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.HeadCardCover;
-import tbclient.ThemeColorInfo;
+import tbclient.FrsPage.CardFreq;
 /* loaded from: classes7.dex */
 public final class m6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l6b a;
-    public ThemeColorInfo b;
-    public p6b c;
+    public Long a;
+    public Long b;
+    public Long c;
 
     public m6b() {
         Interceptable interceptable = $ic;
@@ -26,68 +25,54 @@ public final class m6b {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new l6b();
     }
 
-    public final ThemeColorInfo a() {
+    public final Long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
-        return (ThemeColorInfo) invokeV.objValue;
+        return (Long) invokeV.objValue;
     }
 
-    public final l6b b() {
+    public final Long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.c;
         }
-        return (l6b) invokeV.objValue;
+        return (Long) invokeV.objValue;
     }
 
-    public final p6b c() {
+    public final Long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            return this.a;
         }
-        return (p6b) invokeV.objValue;
+        return (Long) invokeV.objValue;
     }
 
-    public final void d(HeadCardCover headCardCover) {
+    public final void d(CardFreq cardFreq) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, headCardCover) != null) || headCardCover == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, cardFreq) != null) || cardFreq == null) {
             return;
         }
-        l6b l6bVar = new l6b();
-        this.a = l6bVar;
-        l6bVar.d(headCardCover.freq);
-        this.b = headCardCover.card_background;
-        p6b p6bVar = new p6b();
-        this.c = p6bVar;
-        if (p6bVar != null) {
-            p6bVar.q(headCardCover.match_info);
-        }
+        this.a = cardFreq.start_time;
+        this.b = cardFreq.end_time;
+        this.c = cardFreq.show_times;
     }
 
-    public final void e(tbclient.Personalized.HeadCardCover headCardCover) {
+    public final void e(tbclient.Personalized.CardFreq cardFreq) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, headCardCover) != null) || headCardCover == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, cardFreq) != null) || cardFreq == null) {
             return;
         }
-        l6b l6bVar = new l6b();
-        this.a = l6bVar;
-        l6bVar.e(headCardCover.freq);
-        this.b = headCardCover.card_background;
-        p6b p6bVar = new p6b();
-        this.c = p6bVar;
-        if (p6bVar != null) {
-            p6bVar.r(headCardCover.match_info);
-        }
+        this.a = cardFreq.start_time;
+        this.b = cardFreq.end_time;
+        this.c = cardFreq.show_times;
     }
 }

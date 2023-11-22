@@ -8,14 +8,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.u55;
-import com.baidu.tieba.v65;
+import com.baidu.tieba.v55;
+import com.baidu.tieba.w65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class UserLikeInAttentionButton extends TBSpecificationBtn implements v65 {
+public class UserLikeInAttentionButton extends TBSpecificationBtn implements w65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a o;
@@ -25,7 +25,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements v65
         void a(View view2);
     }
 
-    @Override // com.baidu.tieba.v65
+    @Override // com.baidu.tieba.w65
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -93,13 +93,13 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements v65
                 return;
             }
         }
-        u55 u55Var = new u55();
-        u55Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
-        setConfig(u55Var);
+        v55 v55Var = new v55();
+        v55Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
+        setConfig(v55Var);
         setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ec));
     }
 
-    @Override // com.baidu.tieba.v65
+    @Override // com.baidu.tieba.w65
     public void a(View view2) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements v65
         }
     }
 
-    @Override // com.baidu.tieba.v65
+    @Override // com.baidu.tieba.w65
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
@@ -130,7 +130,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements v65
         }
     }
 
-    @Override // com.baidu.tieba.v65
+    @Override // com.baidu.tieba.w65
     public void b(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -138,7 +138,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements v65
         }
     }
 
-    @Override // com.baidu.tieba.v65
+    @Override // com.baidu.tieba.w65
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -154,15 +154,15 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements v65
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (z) {
-                u55 u55Var = new u55();
-                u55Var.s(R.color.CAM_X0613, R.color.CAM_X0103);
-                setConfig(u55Var);
+                v55 v55Var = new v55();
+                v55Var.s(R.color.CAM_X0613, R.color.CAM_X0103);
+                setConfig(v55Var);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
-                u55 u55Var2 = new u55();
-                u55Var2.s(R.color.CAM_X0302, R.color.CAM_X0101);
-                setConfig(u55Var2);
+                v55 v55Var2 = new v55();
+                v55Var2.s(R.color.CAM_X0302, R.color.CAM_X0101);
+                setConfig(v55Var2);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ec));
             }

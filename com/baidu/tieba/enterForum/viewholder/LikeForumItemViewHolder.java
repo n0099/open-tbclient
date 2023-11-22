@@ -26,10 +26,10 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bx4;
-import com.baidu.tieba.cx6;
+import com.baidu.tieba.dx6;
 import com.baidu.tieba.enterForum.adapter.LikeForumItemAdapter;
-import com.baidu.tieba.rn5;
 import com.baidu.tieba.ry4;
+import com.baidu.tieba.sn5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -82,9 +82,9 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("info_forum_image_rect", this.b.f());
                 bundle.putParcelable("info_forum_name_rect", this.b.g());
-                rn5 rn5Var = new rn5(1, this.a, null, null);
-                rn5Var.g(bundle);
-                this.b.h.dispatchMvcEvent(rn5Var);
+                sn5 sn5Var = new sn5(1, this.a, null, null);
+                sn5Var.g(bundle);
+                this.b.h.dispatchMvcEvent(sn5Var);
             }
         }
     }
@@ -200,12 +200,12 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
         this.f.setStrokeColorResId(R.color.CAM_X0201);
     }
 
-    public void e(cx6 cx6Var) {
+    public void e(dx6 dx6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, cx6Var) != null) || cx6Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dx6Var) != null) || dx6Var == null) {
             return;
         }
-        l(cx6Var);
+        l(dx6Var);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.icon_pure_ba_checkedin16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
     }
@@ -256,31 +256,31 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
         this.b.setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
         this.b.setVisibility(0);
         this.c.setVisibility(0);
-        if (bx4Var instanceof cx6) {
-            cx6 cx6Var = (cx6) bx4Var;
-            this.c.setText(cx6Var.i());
+        if (bx4Var instanceof dx6) {
+            dx6 dx6Var = (dx6) bx4Var;
+            this.c.setText(dx6Var.i());
             ImageView imageView = this.d;
-            if (cx6Var.u() == 0) {
+            if (dx6Var.u() == 0) {
                 i = 8;
             } else {
                 i = 0;
             }
             imageView.setVisibility(i);
-            if (cx6Var.h() == 0) {
+            if (dx6Var.h() == 0) {
                 this.e.setVisibility(8);
             } else {
                 this.e.setVisibility(0);
-                SkinManager.setImageResource(this.e, BitmapHelper.getGradeResourceIdInEnterForum(cx6Var.h()));
+                SkinManager.setImageResource(this.e, BitmapHelper.getGradeResourceIdInEnterForum(dx6Var.h()));
             }
             this.f.setShowOval(true);
-            this.f.startLoad(cx6Var.e(), 10, false);
+            this.f.startLoad(dx6Var.e(), 10, false);
             this.f.setShowOuterBorder(false);
             this.f.setShowInnerBorder(true);
             this.f.setStrokeWith(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.f.setStrokeColorResId(R.color.CAM_X0401);
-            this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0a3a), StringHelper.numberUniformFormatExtraWithRoundInt(cx6Var.o())));
+            this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0a3a), StringHelper.numberUniformFormatExtraWithRoundInt(dx6Var.o())));
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
-            if (YYLiveUtil.isLiveRoom(cx6Var.i())) {
+            if (YYLiveUtil.isLiveRoom(dx6Var.i())) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
                 TiebaStaticHelper.addYYParam(statisticItem);
                 TiebaStatic.log(statisticItem);

@@ -1,54 +1,90 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class s76 {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<Integer, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public Context b;
+    public BdTypeRecyclerView c;
+    public List<bi> d;
+    public z76 e;
+    public z76 f;
+    public y76 g;
+    public x76 h;
+    public n96 i;
+    public w76 j;
+    public int k;
+    public int l;
+    public String m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948104375, "Lcom/baidu/tieba/s76;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948104375, "Lcom/baidu/tieba/s76;");
+    public s76(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView, Integer.valueOf(i), Integer.valueOf(i2), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new HashMap<>();
+        this.m = "0";
+        this.a = tbPageContext;
+        this.b = tbPageContext.getPageActivity();
+        this.c = bdTypeRecyclerView;
+        this.k = i;
+        this.l = i2;
+        this.m = str;
+        a();
     }
 
-    public static void a(int i) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
-            if (a.containsKey(Integer.valueOf(i))) {
-                a.put(Integer.valueOf(i), Integer.valueOf(a.get(Integer.valueOf(i)).intValue() + 1));
-            } else {
-                a.put(Integer.valueOf(i), 2);
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = new ArrayList();
+            this.e = new z76(this.a, this.k, false);
+            this.f = new z76(this.a, this.k, true);
+            this.g = new y76(this.a);
+            this.h = new x76(this.a);
+            this.i = new n96(this.a, this.l, this.m);
+            this.j = new w76(this.a);
+            this.d.add(this.e);
+            this.d.add(this.f);
+            this.d.add(this.g);
+            this.d.add(this.h);
+            this.d.add(this.i);
+            this.d.add(this.j);
+            this.c.addAdapters(this.d);
         }
     }
 
-    public static int b(int i) {
-        InterceptResult invokeI;
+    public void b() {
+        BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (a.containsKey(Integer.valueOf(i))) {
-                return a.get(Integer.valueOf(i)).intValue();
-            }
-            a.put(Integer.valueOf(i), 1);
-            return 1;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeRecyclerView = this.c) != null) {
+            bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
         }
-        return invokeI.intValue;
+    }
+
+    public void c(List<oi> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.c.setData(list);
+        }
     }
 }

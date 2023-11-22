@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.il6;
+import com.baidu.tieba.jl6;
 import com.baidu.tieba.qd;
 import com.baidu.tieba.wx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -145,9 +145,9 @@ public class ThreadLinkView extends RelativeLayout {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            il6.l(this.c, str, R.color.CAM_X0107, R.color.CAM_X0109);
-            il6.l(this.e, str, R.color.CAM_X0107, R.color.CAM_X0109);
-            il6.l(this.d, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            jl6.l(this.c, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            jl6.l(this.e, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            jl6.l(this.d, str, R.color.CAM_X0107, R.color.CAM_X0109);
         }
     }
 

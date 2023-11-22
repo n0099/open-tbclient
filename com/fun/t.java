@@ -9,15 +9,15 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ixb;
-import com.baidu.tieba.owb;
-import com.baidu.tieba.p2c;
+import com.baidu.tieba.jxb;
 import com.baidu.tieba.pwb;
+import com.baidu.tieba.q2c;
 import com.baidu.tieba.qwb;
-import com.baidu.tieba.u2c;
+import com.baidu.tieba.rwb;
 import com.baidu.tieba.v2c;
-import com.baidu.tieba.vwb;
-import com.baidu.tieba.x2c;
+import com.baidu.tieba.w2c;
+import com.baidu.tieba.wwb;
+import com.baidu.tieba.y2c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,26 +52,26 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 /* loaded from: classes9.dex */
-public class t extends ixb<b> {
+public class t extends jxb<b> {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ int d = 0;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vwb e;
+    public final wwb e;
     public final Map<Ssp.Pid, PidLoader> f;
     public final Random g;
     public FunAdInteractionListener h;
     public final boolean i;
     public final List<PidLoader> j;
     public final List<PidLoader> k;
-    public final List<vwb.a> l;
+    public final List<wwb.a> l;
     public final Handler m;
 
-    public t(vwb vwbVar, v2c v2cVar) {
+    public t(wwb wwbVar, w2c w2cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vwbVar, v2cVar};
+            Object[] objArr = {wwbVar, w2cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -83,15 +83,15 @@ public class t extends ixb<b> {
         }
         this.g = new Random();
         this.m = new a(this, Looper.getMainLooper());
-        this.e = vwbVar;
+        this.e = wwbVar;
         HashMap hashMap = new HashMap();
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         ArrayList arrayList3 = new ArrayList();
         HashMap hashMap2 = new HashMap();
-        for (vwb.b bVar : vwbVar.b) {
-            for (vwb.a aVar : bVar.b) {
-                PidLoader a2 = v2cVar.a(aVar.c);
+        for (wwb.b bVar : wwbVar.b) {
+            for (wwb.a aVar : bVar.b) {
+                PidLoader a2 = w2cVar.a(aVar.c);
                 if (a2 != null) {
                     if (aVar.c.isBidding) {
                         arrayList2.add(a2);
@@ -116,35 +116,35 @@ public class t extends ixb<b> {
         Collections.unmodifiableMap(hashMap2);
     }
 
-    public static /* synthetic */ Object a(qwb qwbVar, PidLoader pidLoader, String str) {
-        Object a2 = qwbVar.a(pidLoader);
-        if (a2 == null || !qwbVar.a((qwb) a2)) {
+    public static /* synthetic */ Object a(rwb rwbVar, PidLoader pidLoader, String str) {
+        Object a2 = rwbVar.a(pidLoader);
+        if (a2 == null || !rwbVar.a((rwb) a2)) {
             return null;
         }
         return a2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ boolean a(List list, vwb.a aVar) {
+    public /* synthetic */ boolean a(List list, wwb.a aVar) {
         PidLoader pidLoader = this.f.get(aVar.c);
         return (list == null || !list.contains(pidLoader)) && pidLoader != null && pidLoader.isLoaded();
     }
 
-    public final PidLoader a(vwb.b bVar, final List<PidLoader> list) {
+    public final PidLoader a(wwb.b bVar, final List<PidLoader> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, list)) == null) {
-            vwb.a aVar = (vwb.a) owb.a(this.g, bVar.b, new pwb() { // from class: com.baidu.tieba.iwb
+            wwb.a aVar = (wwb.a) pwb.a(this.g, bVar.b, new qwb() { // from class: com.baidu.tieba.jwb
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.pwb
+                @Override // com.baidu.tieba.qwb
                 public final boolean a(Object obj) {
                     InterceptResult invokeL;
                     boolean a2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) {
-                        a2 = com.fun.t.this.a(list, (vwb.a) obj);
+                        a2 = com.fun.t.this.a(list, (wwb.a) obj);
                         return a2;
                     }
                     return invokeL.booleanValue;
@@ -158,20 +158,20 @@ public class t extends ixb<b> {
         return (PidLoader) invokeLL.objValue;
     }
 
-    public final <Result> Result a(FunAdInteractionListener funAdInteractionListener, final qwb<Result> qwbVar) {
+    public final <Result> Result a(FunAdInteractionListener funAdInteractionListener, final rwb<Result> rwbVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, funAdInteractionListener, qwbVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, funAdInteractionListener, rwbVar)) == null) {
             this.h = funAdInteractionListener;
-            if (a(new x2c() { // from class: com.baidu.tieba.svb
+            if (a(new y2c() { // from class: com.baidu.tieba.tvb
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.x2c
+                @Override // com.baidu.tieba.y2c
                 public final Object a(PidLoader pidLoader, String str) {
                     InterceptResult invokeLL2;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, pidLoader, str)) == null) ? com.fun.t.a(qwb.this, pidLoader, str) : invokeLL2.objValue;
+                    return (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, pidLoader, str)) == null) ? com.fun.t.a(rwb.this, pidLoader, str) : invokeLL2.objValue;
                 }
             }) == null) {
                 funAdInteractionListener.onAdError(this.e.a);
@@ -183,7 +183,7 @@ public class t extends ixb<b> {
         return (Result) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ixb, com.fun.ad.sdk.FunAdLoader
+    @Override // com.baidu.tieba.jxb, com.fun.ad.sdk.FunAdLoader
     public synchronized void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -192,8 +192,8 @@ public class t extends ixb<b> {
                 this.m.removeMessages(100);
                 super.destroy();
                 this.h = null;
-                for (vwb.b bVar : this.e.b) {
-                    for (vwb.a aVar : bVar.b) {
+                for (wwb.b bVar : this.e.b) {
+                    for (wwb.a aVar : bVar.b) {
                         PidLoader pidLoader = this.f.get(aVar.c);
                         if (pidLoader != null) {
                             pidLoader.destroy();
@@ -220,8 +220,8 @@ public class t extends ixb<b> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             synchronized (this) {
                 arrayList = new ArrayList();
-                for (vwb.b bVar : this.e.b) {
-                    for (vwb.a aVar : bVar.b) {
+                for (wwb.b bVar : this.e.b) {
+                    for (wwb.a aVar : bVar.b) {
                         if (aVar != null && (pidLoader = this.f.get(aVar.c)) != null && pidLoader.isLoaded()) {
                             arrayList.add(new CacheStatistic(pidLoader.getAdType(), pidLoader.getPid().pid, pidLoader.getAdCount(), pidLoader.getBiddingOrBasePrices()));
                         }
@@ -238,11 +238,11 @@ public class t extends ixb<b> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
-            FunNativeAd2 funNativeAd2 = (FunNativeAd2) a(new x2c() { // from class: com.baidu.tieba.wvb
+            FunNativeAd2 funNativeAd2 = (FunNativeAd2) a(new y2c() { // from class: com.baidu.tieba.xvb
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.x2c
+                @Override // com.baidu.tieba.y2c
                 public final Object a(PidLoader pidLoader, String str) {
                     InterceptResult invokeLL;
                     FunNativeAd2 nativeAd2;
@@ -269,13 +269,13 @@ public class t extends ixb<b> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             synchronized (this) {
-                Iterator<vwb.b> it = this.e.b.iterator();
+                Iterator<wwb.b> it = this.e.b.iterator();
                 loop0: while (true) {
                     if (!it.hasNext()) {
                         z = false;
                         break;
                     }
-                    for (vwb.a aVar : it.next().b) {
+                    for (wwb.a aVar : it.next().b) {
                         PidLoader pidLoader = this.f.get(aVar.c);
                         if (pidLoader != null && pidLoader.isLoaded()) {
                             z = true;
@@ -289,7 +289,7 @@ public class t extends ixb<b> {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ixb, com.fun.ad.sdk.FunAdLoader
+    @Override // com.baidu.tieba.jxb, com.fun.ad.sdk.FunAdLoader
     public void recycleListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -299,14 +299,14 @@ public class t extends ixb<b> {
     }
 
     /* loaded from: classes9.dex */
-    public class b extends ixb.a {
+    public class b extends jxb.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context d;
         public FunAdSlot e;
-        public Iterator<vwb.b> f;
-        public final HashSet<vwb.a> g;
-        public final LinkedHashMap<vwb.a, Integer> h;
+        public Iterator<wwb.b> f;
+        public final HashSet<wwb.a> g;
+        public final LinkedHashMap<wwb.a, Integer> h;
         public final List<PidLoader> i;
         public boolean j;
         public boolean k;
@@ -373,7 +373,7 @@ public class t extends ixb<b> {
         }
 
         /* loaded from: classes9.dex */
-        public class a implements qwb<Boolean> {
+        public class a implements rwb<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
@@ -402,7 +402,7 @@ public class t extends ixb<b> {
 
             /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
             /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Boolean, java.lang.Object] */
-            @Override // com.baidu.tieba.qwb
+            @Override // com.baidu.tieba.rwb
             public Boolean a(PidLoader pidLoader) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
@@ -414,7 +414,7 @@ public class t extends ixb<b> {
             }
 
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-            @Override // com.baidu.tieba.qwb
+            @Override // com.baidu.tieba.rwb
             public boolean a(Boolean bool) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
@@ -427,7 +427,7 @@ public class t extends ixb<b> {
 
         /* renamed from: com.fun.t$b$b  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C0564b implements qwb<FunSplashAd> {
+        public class C0564b implements rwb<FunSplashAd> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
@@ -455,7 +455,7 @@ public class t extends ixb<b> {
             }
 
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-            @Override // com.baidu.tieba.qwb
+            @Override // com.baidu.tieba.rwb
             public boolean a(FunSplashAd funSplashAd) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
@@ -467,7 +467,7 @@ public class t extends ixb<b> {
 
             /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
             /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.FunSplashAd, java.lang.Object] */
-            @Override // com.baidu.tieba.qwb
+            @Override // com.baidu.tieba.rwb
             public FunSplashAd a(PidLoader pidLoader) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
@@ -479,7 +479,7 @@ public class t extends ixb<b> {
             }
         }
 
-        @Override // com.baidu.tieba.ixb.a
+        @Override // com.baidu.tieba.jxb.a
         public void a(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, context, funAdSlot, funAdLoadListener) == null) {
@@ -501,7 +501,7 @@ public class t extends ixb<b> {
                     long j = 0;
                     synchronized (tVar) {
                         ArrayList arrayList = new ArrayList();
-                        for (vwb.a aVar : this.p.l) {
+                        for (wwb.a aVar : this.p.l) {
                             long j2 = aVar.d.a;
                             if (j2 > j) {
                                 j = j2;
@@ -535,7 +535,7 @@ public class t extends ixb<b> {
             }
         }
 
-        public void a(vwb.a aVar) {
+        public void a(wwb.a aVar) {
             PidLoader pidLoader;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
@@ -587,7 +587,7 @@ public class t extends ixb<b> {
             }
         }
 
-        @Override // com.baidu.tieba.ixb.a
+        @Override // com.baidu.tieba.jxb.a
         public boolean a(Activity activity, ViewGroup viewGroup, FunAdInteractionListener funAdInteractionListener) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
@@ -601,7 +601,7 @@ public class t extends ixb<b> {
             return invokeLLL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ixb.a
+        @Override // com.baidu.tieba.jxb.a
         public FunSplashAd b(Activity activity, ViewGroup viewGroup, FunAdInteractionListener funAdInteractionListener) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
@@ -615,7 +615,7 @@ public class t extends ixb<b> {
             return (FunSplashAd) invokeLLL.objValue;
         }
 
-        @Override // com.baidu.tieba.ixb.a
+        @Override // com.baidu.tieba.jxb.a
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -639,7 +639,7 @@ public class t extends ixb<b> {
                 return;
             }
             PidLoader pidLoader = null;
-            Collections.sort(this.i, new Comparator() { // from class: com.baidu.tieba.yvb
+            Collections.sort(this.i, new Comparator() { // from class: com.baidu.tieba.zvb
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -666,7 +666,7 @@ public class t extends ixb<b> {
                 d = 0.0d;
                 d2 = 0.0d;
             }
-            for (Map.Entry<vwb.a, Integer> entry : this.h.entrySet()) {
+            for (Map.Entry<wwb.a, Integer> entry : this.h.entrySet()) {
                 entry.getValue().intValue();
                 PidLoader pidLoader2 = this.p.f.get(entry.getKey().c);
                 if (pidLoader2 != null && pidLoader2 != pidLoader) {
@@ -685,7 +685,7 @@ public class t extends ixb<b> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
                 if (!this.j) {
-                    Iterator<Map.Entry<vwb.a, Integer>> it = this.h.entrySet().iterator();
+                    Iterator<Map.Entry<wwb.a, Integer>> it = this.h.entrySet().iterator();
                     while (true) {
                         if (it.hasNext()) {
                             if (it.next().getValue().intValue() != -1) {
@@ -755,7 +755,7 @@ public class t extends ixb<b> {
                     } else if (!this.f.hasNext()) {
                         LogPrinter.d("All loader already started, just wait for the loader callback", new Object[0]);
                     } else {
-                        vwb.b next = this.f.next();
+                        wwb.b next = this.f.next();
                         this.n = true;
                         if (next.b.isEmpty()) {
                             LogPrinter.e("There is an empty group in SerialSid(%s)", this.p.e.a);
@@ -764,10 +764,10 @@ public class t extends ixb<b> {
                         }
                         double d = 0.0d;
                         boolean z = true;
-                        for (vwb.a aVar : next.b) {
+                        for (wwb.a aVar : next.b) {
                             Ssp.Pid pid = aVar.c;
                             if (!pid.isBidding) {
-                                double a2 = p2c.a(pid.pid) * 1000.0d;
+                                double a2 = q2c.a(pid.pid) * 1000.0d;
                                 if (d < a2) {
                                     d = a2;
                                 }
@@ -786,7 +786,7 @@ public class t extends ixb<b> {
                             }
                         }
                         ArrayList arrayList = new ArrayList();
-                        for (vwb.a aVar2 : next.b) {
+                        for (wwb.a aVar2 : next.b) {
                             Ssp.Pid pid2 = aVar2.c;
                             if (!pid2.isBidding && (pidLoader = this.p.f.get(pid2)) != null && ((shouldIntercept = Flavors.PLUGIN_RC.shouldIntercept(pidLoader.getPid().pid, pidLoader.getAdType())) == null || !shouldIntercept.shouldInterceptLoad())) {
                                 this.g.add(aVar2);
@@ -868,11 +868,11 @@ public class t extends ixb<b> {
     }
 
     /* loaded from: classes9.dex */
-    public class c implements u2c {
+    public class c implements v2c {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ boolean a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final vwb.a b;
+        public final wwb.a b;
         public final PidLoader c;
         public final /* synthetic */ t d;
 
@@ -892,7 +892,7 @@ public class t extends ixb<b> {
             a = !t.class.desiredAssertionStatus();
         }
 
-        public c(t tVar, vwb.a aVar, PidLoader pidLoader) {
+        public c(t tVar, wwb.a aVar, PidLoader pidLoader) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -912,14 +912,14 @@ public class t extends ixb<b> {
             this.c = pidLoader;
         }
 
-        @Override // com.baidu.tieba.u2c
+        @Override // com.baidu.tieba.v2c
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.u2c
+        @Override // com.baidu.tieba.v2c
         public void a() {
             b bVar;
             Interceptable interceptable = $ic;
@@ -928,12 +928,12 @@ public class t extends ixb<b> {
             }
         }
 
-        @Override // com.baidu.tieba.u2c
+        @Override // com.baidu.tieba.v2c
         public void a(int i, String str) {
             b bVar;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && (bVar = (b) this.d.c) != null) {
-                vwb.a aVar = this.b;
+                wwb.a aVar = this.b;
                 synchronized (bVar.p) {
                     if (bVar.g()) {
                         if (aVar.c.isBidding) {
@@ -964,7 +964,7 @@ public class t extends ixb<b> {
             }
         }
 
-        @Override // com.baidu.tieba.u2c
+        @Override // com.baidu.tieba.v2c
         public void a(RippedAd rippedAd, Map<String, String> map) {
             FunAdInteractionListener funAdInteractionListener;
             Interceptable interceptable = $ic;
@@ -983,7 +983,7 @@ public class t extends ixb<b> {
             }
         }
 
-        @Override // com.baidu.tieba.u2c
+        @Override // com.baidu.tieba.v2c
         public void b(RippedAd rippedAd, Map<String, String> map) {
             FunAdInteractionListener funAdInteractionListener;
             Interceptable interceptable = $ic;
@@ -1002,7 +1002,7 @@ public class t extends ixb<b> {
             }
         }
 
-        @Override // com.baidu.tieba.u2c
+        @Override // com.baidu.tieba.v2c
         public void a(Map<String, String> map) {
             t tVar;
             FunAdInteractionListener funAdInteractionListener;
@@ -1015,7 +1015,7 @@ public class t extends ixb<b> {
             }
         }
 
-        @Override // com.baidu.tieba.u2c
+        @Override // com.baidu.tieba.v2c
         public void a(boolean z, int i, Map<String, String> map) {
             t tVar;
             FunAdInteractionListener funAdInteractionListener;
@@ -1028,7 +1028,7 @@ public class t extends ixb<b> {
             }
         }
 
-        @Override // com.baidu.tieba.u2c
+        @Override // com.baidu.tieba.v2c
         public void b(int i, String str) {
             t tVar;
             FunAdInteractionListener funAdInteractionListener;
@@ -1039,19 +1039,19 @@ public class t extends ixb<b> {
         }
     }
 
-    public final <N> N a(x2c<N> x2cVar) {
+    public final <N> N a(y2c<N> y2cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x2cVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y2cVar)) == null) {
             if (this.i) {
-                return (N) a(this.k, this.j, x2cVar, this.e.a);
+                return (N) a(this.k, this.j, y2cVar, this.e.a);
             }
-            for (vwb.b bVar : this.e.b) {
+            for (wwb.b bVar : this.e.b) {
                 ArrayList arrayList = new ArrayList();
                 while (true) {
                     PidLoader a2 = a(bVar, arrayList);
                     if (a2 != null) {
-                        N a3 = x2cVar.a(a2, this.e.a);
+                        N a3 = y2cVar.a(a2, this.e.a);
                         if (a3 == null) {
                             arrayList.add(a2);
                         } else {
@@ -1065,12 +1065,12 @@ public class t extends ixb<b> {
         return (N) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ixb
+    @Override // com.baidu.tieba.jxb
     public void a(String str) {
         PidLoader pidLoader;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            for (vwb.a aVar : this.l) {
+            for (wwb.a aVar : this.l) {
                 if (!aVar.c.pid.equals(str) && (pidLoader = this.f.get(aVar.c)) != null && pidLoader.isLoaded()) {
                     LogPrinter.d("destroy bid : %s ", aVar.c.pid);
                     pidLoader.destroy(true);
@@ -1079,15 +1079,15 @@ public class t extends ixb<b> {
         }
     }
 
-    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.ixb$a' to match base method */
-    /* JADX WARN: Type inference failed for: r1v1, types: [com.baidu.tieba.ixb$a, com.fun.t$b] */
-    @Override // com.baidu.tieba.ixb
+    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.jxb$a' to match base method */
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.baidu.tieba.jxb$a, com.fun.t$b] */
+    @Override // com.baidu.tieba.jxb
     public b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return new b(this);
         }
-        return (ixb.a) invokeV.objValue;
+        return (jxb.a) invokeV.objValue;
     }
 }

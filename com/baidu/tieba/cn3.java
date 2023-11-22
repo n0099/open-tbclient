@@ -16,7 +16,7 @@ public class cn3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new u56();
+            return new v56();
         }
         return (jn3) invokeV.objValue;
     }

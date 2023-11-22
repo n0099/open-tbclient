@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class bu<T extends bw4> implements it, r16 {
+public class bu<T extends bw4> implements it, s16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ht<T> a;
@@ -52,7 +52,7 @@ public class bu<T extends bw4> implements it, r16 {
     public int p;
     public mu.a q;
 
-    @Override // com.baidu.tieba.r16
+    @Override // com.baidu.tieba.s16
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -308,25 +308,25 @@ public class bu<T extends bw4> implements it, r16 {
         }
     }
 
-    public void r(xl6<T> xl6Var) {
+    public void r(yl6<T> yl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, xl6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, yl6Var) == null) {
             ns<T> nsVar = this.g;
             if (nsVar != null) {
-                nsVar.n(xl6Var);
+                nsVar.n(yl6Var);
             }
             ns<T> nsVar2 = this.h;
             if (nsVar2 != null) {
-                nsVar2.n(xl6Var);
+                nsVar2.n(yl6Var);
             }
             for (us usVar : this.i) {
                 if (usVar != null) {
-                    usVar.n(xl6Var);
+                    usVar.n(yl6Var);
                 }
             }
             ns<T> nsVar3 = this.j;
             if (nsVar3 != null) {
-                nsVar3.n(xl6Var);
+                nsVar3.n(yl6Var);
             }
         }
     }
@@ -667,7 +667,7 @@ public class bu<T extends bw4> implements it, r16 {
                 this.d.setTag(R.id.virtual_image_user_head, null);
                 this.g.onBindDataToView(t);
                 ns<T> nsVar = this.g;
-                if (nsVar instanceof m8b) {
+                if (nsVar instanceof n8b) {
                     this.d.setTag(R.id.virtual_image_user_head, nsVar);
                 }
             }

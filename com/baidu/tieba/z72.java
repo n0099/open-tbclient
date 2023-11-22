@@ -43,11 +43,11 @@ public class z72 extends od2 {
 
         /* renamed from: com.baidu.tieba.z72$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class RunnableC0544a implements Runnable {
+        public class RunnableC0546a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0544a(a aVar) {
+            public RunnableC0546a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public class z72 extends od2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 g32.k("SwanAppV8DaemonEngine", "reload");
-                ak3.a0(new RunnableC0544a(this));
+                ak3.a0(new RunnableC0546a(this));
             }
         }
 

@@ -7,8 +7,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.net.FastRequest;
-import com.baidu.tieba.cn8;
-import com.baidu.tieba.gz8;
+import com.baidu.tieba.dn8;
 import com.baidu.tieba.hz8;
 import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
@@ -20,6 +19,7 @@ import com.baidu.tieba.iz8;
 import com.baidu.tieba.jz8;
 import com.baidu.tieba.kz8;
 import com.baidu.tieba.lz8;
+import com.baidu.tieba.mz8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,8 +30,8 @@ import java.util.Map;
 public class ResponsesPanelControllerImpl implements ResponsesPanelController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final jz8 a;
-    public final iz8 b;
+    public final kz8 a;
+    public final jz8 b;
     @NonNull
     public GroupChatFragment c;
 
@@ -51,8 +51,8 @@ public class ResponsesPanelControllerImpl implements ResponsesPanelController {
             }
         }
         this.c = groupChatFragment;
-        this.b = new kz8(groupChatFragment.getPageContext());
-        this.a = new lz8(groupChatFragment.getPageContext(), this);
+        this.b = new lz8(groupChatFragment.getPageContext());
+        this.a = new mz8(groupChatFragment.getPageContext(), this);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
@@ -100,10 +100,10 @@ public class ResponsesPanelControllerImpl implements ResponsesPanelController {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.ResponsesPanelController
-    public void a(@NonNull hz8 hz8Var) {
+    public void a(@NonNull iz8 iz8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hz8Var) == null) {
-            this.a.a(hz8Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, iz8Var) == null) {
+            this.a.a(iz8Var);
         }
     }
 
@@ -115,10 +115,10 @@ public class ResponsesPanelControllerImpl implements ResponsesPanelController {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.ResponsesPanelController
-    public void f(@NonNull cn8 cn8Var) {
+    public void f(@NonNull dn8 dn8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cn8Var) == null) {
-            this.a.f(cn8Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, dn8Var) == null) {
+            this.a.f(dn8Var);
         }
     }
 
@@ -129,17 +129,17 @@ public class ResponsesPanelControllerImpl implements ResponsesPanelController {
         }
     }
 
-    public void o(@Nullable FastRequest.b<lz8.e> bVar) {
+    public void o(@Nullable FastRequest.b<mz8.e> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
             this.a.d(bVar);
         }
     }
 
-    public void q(@NonNull gz8 gz8Var) {
+    public void q(@NonNull hz8 hz8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, gz8Var) == null) {
-            this.b.n(gz8Var);
+        if (interceptable == null || interceptable.invokeL(1048590, this, hz8Var) == null) {
+            this.b.n(hz8Var);
         }
     }
 

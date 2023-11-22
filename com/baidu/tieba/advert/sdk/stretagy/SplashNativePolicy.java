@@ -4,7 +4,7 @@ import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c56;
+import com.baidu.tieba.d56;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.od;
 import com.baidu.tieba.x35;
@@ -86,15 +86,15 @@ public class SplashNativePolicy {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 switch (this.a) {
                     case 128:
-                        c56.d().l(true);
+                        d56.d().l(true);
                         return;
                     case 129:
-                        c56.d().l(false);
+                        d56.d().l(false);
                         return;
                     case 130:
                     case 132:
                     case 133:
-                        c56.d().b();
+                        d56.d().b();
                         return;
                     case 131:
                     default:
@@ -135,11 +135,11 @@ public class SplashNativePolicy {
             defaultLog.i(TAG, "开屏广告：方法 eventCallback, eventCode is: " + i + " , plgAdType is: " + this.plgAdType);
             if (i != 128 && i != 129) {
                 if (i == 131) {
-                    c56.d().i(-1);
+                    d56.d().i(-1);
                 } else if (i == 132) {
-                    c56.d().i(-2);
+                    d56.d().i(-2);
                 } else if (i == 130) {
-                    c56.d().i(-3);
+                    d56.d().i(-3);
                 }
             } else {
                 int i3 = this.plgAdType;
@@ -150,20 +150,20 @@ public class SplashNativePolicy {
                 } else {
                     i2 = 3;
                 }
-                c56.d().i(i2);
+                d56.d().i(i2);
             }
             if (BdUtilHelper.isMainThread()) {
                 switch (i) {
                     case 128:
-                        c56.d().l(true);
+                        d56.d().l(true);
                         return;
                     case 129:
-                        c56.d().l(false);
+                        d56.d().l(false);
                         return;
                     case 130:
                     case 132:
                     case 133:
-                        c56.d().b();
+                        d56.d().b();
                         return;
                     case 131:
                     default:

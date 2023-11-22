@@ -7,8 +7,8 @@ import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ck5;
 import com.baidu.tieba.dk5;
+import com.baidu.tieba.ek5;
 import com.baidu.tieba.qd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,8 +28,8 @@ public class DynamicIconData {
     public boolean isNormalStateImgLoadingCompleted;
     public boolean isSelectedStateImgLoadingCompleted;
     public BdResourceCallback<BdImage> mCallback;
-    public ck5 mDynamicStyleData;
-    public dk5 mIconLoadedFinishCallback;
+    public dk5 mDynamicStyleData;
+    public ek5 mIconLoadedFinishCallback;
     public BdUniqueId mMainTabPageId;
     public String normalStateUrl;
     public String selectedStateUrl;
@@ -138,13 +138,13 @@ public class DynamicIconData {
         this.mCallback = new a(this);
     }
 
-    public ck5 getDynamicStyleData() {
+    public dk5 getDynamicStyleData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.mDynamicStyleData;
         }
-        return (ck5) invokeV.objValue;
+        return (dk5) invokeV.objValue;
     }
 
     public String getNormalStateUrl() {
@@ -179,23 +179,23 @@ public class DynamicIconData {
         if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
             this.normalStateUrl = jSONObject.optString("pic_before");
             this.selectedStateUrl = jSONObject.optString("pic_after");
-            ck5 ck5Var = new ck5();
-            this.mDynamicStyleData = ck5Var;
-            ck5Var.h(jSONObject);
+            dk5 dk5Var = new dk5();
+            this.mDynamicStyleData = dk5Var;
+            dk5Var.h(jSONObject);
         }
     }
 
-    public void setDynamicStyleData(ck5 ck5Var) {
+    public void setDynamicStyleData(dk5 dk5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ck5Var) == null) {
-            this.mDynamicStyleData = ck5Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, dk5Var) == null) {
+            this.mDynamicStyleData = dk5Var;
         }
     }
 
-    public void setIconLoadedFinishCallback(dk5 dk5Var) {
+    public void setIconLoadedFinishCallback(ek5 ek5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dk5Var) == null) {
-            this.mIconLoadedFinishCallback = dk5Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ek5Var) == null) {
+            this.mIconLoadedFinishCallback = ek5Var;
         }
     }
 
@@ -211,8 +211,8 @@ public class DynamicIconData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
-            ck5 ck5Var = this.mDynamicStyleData;
-            if (ck5Var != null && StringUtils.isNotNull(ck5Var.b()) && StringUtils.isNotNull(this.mDynamicStyleData.c()) && StringUtils.isNotNull(this.mDynamicStyleData.a())) {
+            dk5 dk5Var = this.mDynamicStyleData;
+            if (dk5Var != null && StringUtils.isNotNull(dk5Var.b()) && StringUtils.isNotNull(this.mDynamicStyleData.c()) && StringUtils.isNotNull(this.mDynamicStyleData.a())) {
                 return true;
             }
             return false;

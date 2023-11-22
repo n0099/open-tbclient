@@ -25,9 +25,9 @@ import com.baidu.tbadk.core.util.TBAlertBuilderHelper;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dt5;
+import com.baidu.tieba.et5;
 import com.baidu.tieba.im.base.core.slice.SliceActivity;
-import com.baidu.tieba.oc5;
+import com.baidu.tieba.pc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public class GroupChatActivity extends SliceActivity {
     public View b;
     public String c;
     public GroupChatFragment d;
-    public oc5 e;
+    public pc5 e;
     public boolean f;
     public CustomMessageListener g;
 
@@ -253,14 +253,14 @@ public class GroupChatActivity extends SliceActivity {
                 if (intent != null) {
                     this.d.setArguments(intent.getExtras());
                 }
-                dt5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090c7c, this.d);
+                et5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090c7c, this.d);
             } else {
-                this.d = (GroupChatFragment) dt5.b(getSupportFragmentManager(), GroupChatFragment.class);
+                this.d = (GroupChatFragment) et5.b(getSupportFragmentManager(), GroupChatFragment.class);
             }
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra(IntentConfig.BACK_SCHEME);
                 if (getIntent().getBooleanExtra("show_chat_list_after_finish", false)) {
-                    this.e = new oc5(getIntent().getLongExtra("roomId", 0L), true);
+                    this.e = new pc5(getIntent().getLongExtra("roomId", 0L), true);
                 }
             }
             registerListener(this.g);

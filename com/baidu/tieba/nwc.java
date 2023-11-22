@@ -4,37 +4,39 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.PushThreadInfo;
-import tbclient.ThreadInfo;
-import tbclient.User;
+import tbclient.FrsPage.HeadImgs;
+import tbclient.FrsPage.PrivateForumShareinfo;
+import tbclient.FrsPage.PrivateForumTotalInfo;
+import tbclient.PrivateForumInfo;
+import tbclient.PrivatePopInfo;
 /* loaded from: classes7.dex */
-public class nwc extends poc {
+public class nwc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PushThreadInfo pushThreadInfo) {
+    public static JSONObject b(@NonNull PrivateForumTotalInfo privateForumTotalInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pushThreadInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, privateForumTotalInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (pushThreadInfo.thread_list != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (ThreadInfo threadInfo : pushThreadInfo.thread_list) {
-                    jSONArray.put(u4d.b(threadInfo));
-                }
-                poc.a(jSONObject, "thread_list", jSONArray);
+            PrivateForumShareinfo privateForumShareinfo = privateForumTotalInfo.private_forum_shareinfo;
+            if (privateForumShareinfo != null) {
+                qoc.a(jSONObject, "private_forum_shareinfo", mwc.b(privateForumShareinfo));
             }
-            poc.a(jSONObject, "has_pushcard", pushThreadInfo.has_pushcard);
-            poc.a(jSONObject, "has_pushplace", pushThreadInfo.has_pushplace);
-            if (pushThreadInfo.user_list != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (User user : pushThreadInfo.user_list) {
-                    jSONArray2.put(m5d.b(user));
-                }
-                poc.a(jSONObject, "user_list", jSONArray2);
+            PrivatePopInfo privatePopInfo = privateForumTotalInfo.private_forum_popinfo;
+            if (privatePopInfo != null) {
+                qoc.a(jSONObject, "private_forum_popinfo", u1d.b(privatePopInfo));
+            }
+            PrivateForumInfo privateForumInfo = privateForumTotalInfo.private_forum_info;
+            if (privateForumInfo != null) {
+                qoc.a(jSONObject, "private_forum_info", t1d.b(privateForumInfo));
+            }
+            qoc.a(jSONObject, "private_forum_taskpercent", privateForumTotalInfo.private_forum_taskpercent);
+            HeadImgs headImgs = privateForumTotalInfo.head_imgs;
+            if (headImgs != null) {
+                qoc.a(jSONObject, "head_imgs", rvc.c(headImgs));
             }
             return jSONObject;
         }

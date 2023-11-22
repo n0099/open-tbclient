@@ -1,104 +1,151 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.cy8;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.ChatGroupSource;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class ky8 {
+public final class ky8 extends ey8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ky8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int m;
+    public long n;
+    public cy8.a o;
+    public final CustomMessageListener p;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947929535, "Lcom/baidu/tieba/ky8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public static final class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ky8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ky8 ky8Var) {
+            super(2921766);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ky8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947929535, "Lcom/baidu/tieba/ky8;");
-                return;
+            this.a = ky8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Object obj;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                if (customResponsedMessage != null) {
+                    obj = customResponsedMessage.getData();
+                } else {
+                    obj = null;
+                }
+                if (obj != null && !customResponsedMessage.hasError() && (customResponsedMessage.getData() instanceof Map)) {
+                    Object data = customResponsedMessage.getData();
+                    if (data != null) {
+                        Map<Long, ChatRoomInfo> map = (Map) data;
+                        cy8.a aVar = this.a.o;
+                        if (aVar != null) {
+                            aVar.a(this.a.k(map));
+                            return;
+                        }
+                        return;
+                    }
+                    throw new NullPointerException("null cannot be cast to non-null type kotlin.collections.Map<kotlin.Long, com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo>");
+                }
             }
         }
-        a = new ky8();
     }
 
-    public ky8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ky8(Context context, int i) {
+        super(context, ChatGroupSource.GROUP_CHAT_FLOAT);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (ChatGroupSource) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        Intrinsics.checkNotNullParameter(context, "context");
+        this.m = i;
+        this.p = new a(this);
+        MessageManager.getInstance().registerListener(this.p);
+    }
+
+    public final void A(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            this.n = j;
         }
     }
 
-    public final void a(List<?> data, String str) {
+    public final void z(cy8.a callback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, data, str) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            if (data.size() > 0 && data.get(0) != null && (data.get(0) instanceof ChatGroupInfo)) {
-                Object obj = data.get(0);
-                if (obj != null) {
-                    ChatGroupInfo chatGroupInfo = (ChatGroupInfo) obj;
-                    if (chatGroupInfo.getRoomInfoList() != null && chatGroupInfo.getRoomInfoList().get(0) != null) {
-                        chatGroupInfo.getRoomInfoList().get(0).setSingleListHotText(str);
-                        return;
-                    }
-                    return;
-                }
-                throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo");
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, callback) == null) {
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            this.o = callback;
         }
     }
 
-    public final boolean b(List<?> data) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ey8
+    public int l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data)) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            int size = data.size();
-            for (int i = 0; i < size; i++) {
-                if (data.get(i) instanceof ChatGroupInfo) {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.m;
         }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
     }
 
-    public final boolean c(List<?> data) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ey8
+    public long m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data)) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            int size = data.size();
-            int i = 0;
-            for (int i2 = 0; i2 < size; i2++) {
-                if ((data.get(i2) instanceof ChatGroupInfo) && (i = i + 1) > 1) {
-                    return false;
-                }
-            }
-            if (i != 1) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.n;
         }
-        return invokeL.booleanValue;
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.ey8
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.p);
+            this.o = null;
+            super.p();
+        }
     }
 }

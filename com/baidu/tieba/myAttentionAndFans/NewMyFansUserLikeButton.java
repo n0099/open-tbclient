@@ -47,13 +47,13 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
 
         /* renamed from: com.baidu.tieba.myAttentionAndFans.NewMyFansUserLikeButton$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0407a implements j05.e {
+        public class C0393a implements j05.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ View a;
             public final /* synthetic */ a b;
 
-            public C0407a(a aVar, View view2) {
+            public C0393a(a aVar, View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -173,7 +173,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                         j05Var.u(this.b.t.getString(R.string.confirm_unlike));
                         ArrayList arrayList = new ArrayList();
                         f05 f05Var = new f05(this.b.t.getString(R.string.obfuscated_res_0x7f0f04ca), j05Var);
-                        f05Var.n(new C0407a(this, view2));
+                        f05Var.n(new C0393a(this, view2));
                         arrayList.add(f05Var);
                         j05Var.p(new b(this));
                         j05Var.m(arrayList);
@@ -238,7 +238,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
         this.x = false;
     }
 
-    @Override // com.baidu.tbadk.core.view.FollowUserButton, com.baidu.tieba.v65
+    @Override // com.baidu.tbadk.core.view.FollowUserButton, com.baidu.tieba.w65
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -286,7 +286,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
         this.x = false;
     }
 
-    @Override // com.baidu.tbadk.core.view.FollowUserButton, com.baidu.tieba.v65
+    @Override // com.baidu.tbadk.core.view.FollowUserButton, com.baidu.tieba.w65
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {

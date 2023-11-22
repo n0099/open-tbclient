@@ -211,7 +211,7 @@ public class vs extends ns<bw4> {
         bw4 bw4Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) && (bw4Var = this.h) != null && bw4Var.getThreadData() != null) {
-            il6.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            jl6.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             this.i.c(i);
             this.i.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
         }

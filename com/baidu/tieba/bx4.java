@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bx4 extends bw4 implements ln5 {
+public class bx4 extends bw4 implements mn5 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public static final int[] c;

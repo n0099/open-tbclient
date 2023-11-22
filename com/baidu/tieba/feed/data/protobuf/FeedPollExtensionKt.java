@@ -1,16 +1,16 @@
 package com.baidu.tieba.feed.data.protobuf;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.a67;
 import com.baidu.tieba.ab7;
+import com.baidu.tieba.bb7;
 import com.baidu.tieba.common.JSONKt;
-import com.baidu.tieba.da7;
+import com.baidu.tieba.ea7;
 import com.baidu.tieba.fz4;
-import com.baidu.tieba.m47;
+import com.baidu.tieba.n47;
 import com.baidu.tieba.rz4;
-import com.baidu.tieba.w77;
 import com.baidu.tieba.x77;
-import com.baidu.tieba.z57;
-import com.baidu.tieba.za7;
+import com.baidu.tieba.y77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,7 +38,7 @@ public final class FeedPollExtensionKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final void a(PollInfo pollInfo, List<za7<?>> dataList, z57 feedExtraData, String schema) {
+    public static final void a(PollInfo pollInfo, List<ab7<?>> dataList, a67 feedExtraData, String schema) {
         long j;
         rz4 rz4Var;
         boolean z;
@@ -59,7 +59,7 @@ public final class FeedPollExtensionKt {
                 long longValue = l.longValue();
                 String str = pollOption.text;
                 Intrinsics.checkNotNullExpressionValue(str, "option.text");
-                arrayList.add(new x77(intValue, longValue, str));
+                arrayList.add(new y77(intValue, longValue, str));
             }
             String str2 = a.get("thread_id");
             if (str2 == null) {
@@ -97,8 +97,8 @@ public final class FeedPollExtensionKt {
             int intValue6 = last_time.intValue();
             Long total_poll = pollInfo.total_poll;
             Intrinsics.checkNotNullExpressionValue(total_poll, "total_poll");
-            w77 w77Var = new w77(str3, j2, title, intValue2, longValue2, intValue3, intValue4, polled_value, intValue5, intValue6, total_poll.longValue(), arrayList, schema);
-            String str5 = da7.a.a(pollInfo.business_info).get("task_info");
+            x77 x77Var = new x77(str3, j2, title, intValue2, longValue2, intValue3, intValue4, polled_value, intValue5, intValue6, total_poll.longValue(), arrayList, schema);
+            String str5 = ea7.a.a(pollInfo.business_info).get("task_info");
             final Ref.ObjectRef objectRef = new Ref.ObjectRef();
             boolean z2 = true;
             if (str5 != null) {
@@ -164,7 +164,7 @@ public final class FeedPollExtensionKt {
             } else {
                 rz4Var = null;
             }
-            dataList.add(new ab7(new m47(w77Var, rz4Var), "card_vote"));
+            dataList.add(new bb7(new n47(x77Var, rz4Var), "card_vote"));
         }
     }
 }

@@ -1,250 +1,380 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.Pair;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.UrlResponseInfo;
+import com.baidu.turbonet.net.ExperimentalUrlRequest;
+import com.baidu.turbonet.net.RequestFinishedInfo;
+import com.baidu.turbonet.net.UploadDataProvider;
+import com.baidu.turbonet.net.UrlRequest;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.Iterator;
+import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
-public final class pjb extends UrlResponseInfo {
-    public static /* synthetic */ Interceptable $ic;
+public class pjb extends ExperimentalUrlRequest.Builder {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String B = "pjb";
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<String> a;
-    public final int b;
-    public final String c;
-    public final boolean d;
-    public final String e;
-    public final String f;
-    public final AtomicLong g;
-    public final a h;
+    public String A;
+    public final rib a;
+    public final String b;
+    public final UrlRequest.Callback c;
+    public final Executor d;
+    public String e;
+    public final ArrayList<Pair<String, String>> f;
+    public boolean g;
+    public boolean h;
+    public int i;
+    public Collection<Object> j;
+    public UploadDataProvider k;
+    public Executor l;
+    public boolean m;
+    public boolean n;
+    public int o;
+    public boolean p;
+    public int q;
+    public RequestFinishedInfo.Listener r;
+    public int s;
+    public boolean t;
+    public int u;
+    public int v;
+    public int w;
+    public int x;
+    public Object y;
+    public String z;
 
-    /* loaded from: classes7.dex */
-    public static final class a extends UrlResponseInfo.HeaderBlock {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final List<Map.Entry<String, String>> a;
-        public Map<String, List<String>> b;
-
-        public a(List<Map.Entry<String, String>> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {list};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = list;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948065377, "Lcom/baidu/tieba/pjb;")) == null) {
+            return;
         }
-
-        public List<Map.Entry<String, String>> a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (List) invokeV.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        public Map<String, List<String>> b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Map<String, List<String>> map = this.b;
-                if (map != null) {
-                    return map;
-                }
-                TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-                for (Map.Entry<String, String> entry : this.a) {
-                    ArrayList arrayList = new ArrayList();
-                    if (treeMap.containsKey(entry.getKey())) {
-                        arrayList.addAll((Collection) treeMap.get(entry.getKey()));
-                    }
-                    arrayList.add(entry.getValue());
-                    treeMap.put(entry.getKey(), Collections.unmodifiableList(arrayList));
-                }
-                Map<String, List<String>> unmodifiableMap = Collections.unmodifiableMap(treeMap);
-                this.b = unmodifiableMap;
-                return unmodifiableMap;
-            }
-            return (Map) invokeV.objValue;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948065377, "Lcom/baidu/tieba/pjb;");
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @Deprecated
-    public pjb(List<String> list, int i, String str, List<Map.Entry<String, String>> list2, boolean z, String str2, String str3) {
-        this(list, i, str, list2, z, str2, str3, 0L);
+    public pjb(String str, UrlRequest.Callback callback, Executor executor, rib ribVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, Integer.valueOf(i), str, list2, Boolean.valueOf(z), str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((List) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2], (List) objArr2[3], ((Boolean) objArr2[4]).booleanValue(), (String) objArr2[5], (String) objArr2[6], ((Long) objArr2[7]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public pjb(List<String> list, int i, String str, List<Map.Entry<String, String>> list2, boolean z, String str2, String str3, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, Integer.valueOf(i), str, list2, Boolean.valueOf(z), str2, str3, Long.valueOf(j)};
+            Object[] objArr = {str, callback, executor, ribVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = Collections.unmodifiableList(list);
-        this.b = i;
-        this.c = str;
-        this.h = new a(Collections.unmodifiableList(list2));
-        this.d = z;
-        this.e = str2;
-        this.f = str3;
-        this.g = new AtomicLong(j);
+        this.f = new ArrayList<>();
+        this.i = 3;
+        this.s = 0;
+        if (str != null) {
+            if (callback != null) {
+                if (executor != null) {
+                    if (ribVar != null) {
+                        this.b = str;
+                        this.c = callback;
+                        this.d = executor;
+                        this.a = ribVar;
+                        this.t = false;
+                        this.u = 0;
+                        this.v = 0;
+                        this.w = 0;
+                        this.x = 0;
+                        this.y = null;
+                        this.z = null;
+                        this.A = null;
+                        return;
+                    }
+                    throw new NullPointerException("TurbonetEngine is required.");
+                }
+                throw new NullPointerException("Executor is required.");
+            }
+            throw new NullPointerException("Callback is required.");
+        }
+        throw new NullPointerException("URL is required.");
     }
 
-    @Override // com.baidu.turbonet.net.UrlResponseInfo
-    public List<Map.Entry<String, String>> a() {
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder a(String str, String str2) {
+        n(str, str2);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder m(UploadDataProvider uploadDataProvider, Executor executor) {
+        y(uploadDataProvider, executor);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder c() {
+        p();
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder d() {
+        q();
+        return this;
+    }
+
+    public pjb p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.h.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            this.g = true;
+            return this;
         }
-        return (List) invokeV.objValue;
+        return (pjb) invokeV.objValue;
     }
 
-    @Override // com.baidu.turbonet.net.UrlResponseInfo
-    public int b() {
+    public pjb q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            this.t = true;
+            return this;
         }
-        return invokeV.intValue;
+        return (pjb) invokeV.objValue;
     }
 
-    @Override // com.baidu.turbonet.net.UrlResponseInfo
-    public String c() {
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder e(String str) {
+        r(str);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public ExperimentalUrlRequest.Builder f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (str != null) {
+                this.e = str;
+                return this;
+            }
+            throw new NullPointerException("Method is required.");
+        }
+        return (ExperimentalUrlRequest.Builder) invokeL.objValue;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder g(String str) {
+        s(str);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder h(int i) {
+        t(i);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder i(int i) {
+        u(i);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder j(int i) {
+        v(i);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder k(int i) {
+        w(i);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder l(int i) {
+        x(i);
+        return this;
+    }
+
+    public pjb r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
+            this.z = str;
+            return this;
+        }
+        return (pjb) invokeL.objValue;
+    }
+
+    public pjb s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+            this.A = str;
+            return this;
+        }
+        return (pjb) invokeL.objValue;
+    }
+
+    public pjb t(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+            this.w = i;
+            return this;
+        }
+        return (pjb) invokeI.objValue;
+    }
+
+    public pjb u(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
+            this.v = i;
+            return this;
+        }
+        return (pjb) invokeI.objValue;
+    }
+
+    public pjb v(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+            this.u = i;
+            return this;
+        }
+        return (pjb) invokeI.objValue;
+    }
+
+    public pjb w(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
+            this.n = true;
+            this.o = i;
+            return this;
+        }
+        return (pjb) invokeI.objValue;
+    }
+
+    public pjb x(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
+            this.p = true;
+            this.q = i;
+            return this;
+        }
+        return (pjb) invokeI.objValue;
+    }
+
+    public pjb n(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
+            if (str != null) {
+                if (str2 != null) {
+                    if ("Accept-Encoding".equalsIgnoreCase(str)) {
+                        Log.w(B, "It's not necessary to set Accept-Encoding on requests - cronet will do this automatically for you, and setting it yourself has no effect. See https://crbug.com/581399 for details.", new Exception());
+                        return this;
+                    }
+                    this.f.add(Pair.create(str, str2));
+                    return this;
+                }
+                throw new NullPointerException("Invalid header value.");
+            }
+            throw new NullPointerException("Invalid header name.");
+        }
+        return (pjb) invokeLL.objValue;
+    }
+
+    public pjb y(UploadDataProvider uploadDataProvider, Executor executor) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, uploadDataProvider, executor)) == null) {
+            if (uploadDataProvider != null) {
+                if (executor != null) {
+                    if (this.e == null) {
+                        this.e = "POST";
+                    }
+                    this.k = uploadDataProvider;
+                    this.l = executor;
+                    return this;
+                }
+                throw new NullPointerException("Invalid UploadDataProvider Executor.");
+            }
+            throw new NullPointerException("Invalid UploadDataProvider.");
+        }
+        return (pjb) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    /* renamed from: o */
+    public ojb b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            ojb g = this.a.g(this.b, this.c, this.d, this.i, this.j, this.g, this.h, this.m, this.n, this.o, this.p, this.q, this.r, this.s);
+            String str = this.e;
+            if (str != null) {
+                g.p(str);
+            }
+            Iterator<Pair<String, String>> it = this.f.iterator();
+            while (it.hasNext()) {
+                Pair<String, String> next = it.next();
+                g.n((String) next.first, (String) next.second);
+            }
+            UploadDataProvider uploadDataProvider = this.k;
+            if (uploadDataProvider != null) {
+                g.q(uploadDataProvider, this.l);
+            }
+            if (this.t) {
+                g.b();
+            }
+            int i = this.u;
+            if (i > 0) {
+                g.l(i);
+            }
+            int i2 = this.v;
+            if (i2 > 0) {
+                g.j(i2);
+            }
+            int i3 = this.w;
+            if (i3 > 0) {
+                g.i(i3);
+            }
+            int i4 = this.x;
+            if (i4 > 0) {
+                g.h(i4);
+            }
+            Object obj = this.y;
+            if (obj != null) {
+                g.k(obj);
+            }
+            if (!TextUtils.isEmpty(this.z)) {
+                g.f(this.z);
+            }
+            if (!TextUtils.isEmpty(this.A)) {
+                g.g(this.A);
+            }
+            return g;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.turbonet.net.UrlResponseInfo
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.turbonet.net.UrlResponseInfo
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g.get();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.turbonet.net.UrlResponseInfo
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<String> list = this.a;
-            return list.get(list.size() - 1);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Map<String, List<String>> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.h.b();
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<String> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void j(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.g.set(j);
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedByteCount = %d", Integer.toHexString(System.identityHashCode(this)), f(), i().toString(), Integer.valueOf(b()), c(), a().toString(), Boolean.valueOf(k()), d(), h(), Long.valueOf(e()));
-        }
-        return (String) invokeV.objValue;
+        return (ojb) invokeV.objValue;
     }
 }

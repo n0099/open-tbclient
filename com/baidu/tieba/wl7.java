@@ -1,29 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public final class wl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final int a() {
-        InterceptResult invokeV;
+    public static final void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                return 1;
+        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && TbadkCoreApplication.getInst().isDebugMode()) {
+            if (str == null) {
+                str = "error param！！！";
             }
-            if (BdNetTypeUtil.isWifiNet()) {
-                return 2;
-            }
-            if (BdNetTypeUtil.isMobileNet()) {
-                return 3;
-            }
-            return 0;
+            throw new IllegalStateException(str);
         }
-        return invokeV.intValue;
+    }
+
+    public static /* synthetic */ void b(String str, int i, Object obj) {
+        if ((i & 1) != 0) {
+            str = null;
+        }
+        a(str);
     }
 }

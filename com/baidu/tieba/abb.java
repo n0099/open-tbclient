@@ -1,105 +1,154 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebResourceResponse;
-import android.webkit.WebView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.write.webwrite.ability.LocalFileInterceptorKt;
+import android.graphics.BitmapFactory;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.widget.ImageView.BdImage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.io.File;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
+import okio.BufferedSource;
+import okio.Okio;
 /* loaded from: classes5.dex */
-public final class abb implements hk6 {
+public final class abb {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, String> a;
-    public final WriteData b;
-    public bbb c;
 
-    public abb(HashMap<String, String> pathInfo, WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pathInfo, writeData};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947610824, "Lcom/baidu/tieba/abb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947610824, "Lcom/baidu/tieba/abb;");
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(pathInfo, "pathInfo");
-        Intrinsics.checkNotNullParameter(writeData, "writeData");
-        this.a = pathInfo;
-        this.b = writeData;
+        a = new a(null);
     }
 
-    @Override // com.baidu.tieba.hk6
-    public WebResourceResponse a(WebView view2, WebResourceRequest request) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, request)) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            Intrinsics.checkNotNullParameter(request, "request");
-            Uri u = request.getUrl();
-            String scheme = u.getScheme();
-            if (scheme != null) {
-                int hashCode = scheme.hashCode();
-                if (hashCode != -787290468) {
-                    if (hashCode != 1366925564) {
-                        if (hashCode == 1378998483 && scheme.equals("com.baidu.tieba.voice")) {
-                            Intrinsics.checkNotNullExpressionValue(u, "u");
-                            return LocalFileInterceptorKt.c(u, request);
-                        }
-                        return null;
-                    } else if (scheme.equals("com.baidu.tieba.image")) {
-                        HashMap<String, String> hashMap = this.a;
-                        WriteData writeData = this.b;
-                        bbb bbbVar = this.c;
-                        Intrinsics.checkNotNullExpressionValue(u, "u");
-                        return LocalFileInterceptorKt.b(hashMap, writeData, bbbVar, u, request);
-                    } else {
-                        return null;
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        /* renamed from: com.baidu.tieba.abb$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public static final class C0227a extends BdAsyncTask<Void, Void, Boolean> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ Function1<BdImage, Unit> b;
+            public final /* synthetic */ int c;
+            public final /* synthetic */ int d;
+
+            public C0227a(String str, Function1<? super BdImage, Unit> function1, int i, int i2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {str, function1, Integer.valueOf(i), Integer.valueOf(i2)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
-                } else if (scheme.equals("com.baidu.tieba.face")) {
-                    Intrinsics.checkNotNullExpressionValue(u, "u");
-                    return LocalFileInterceptorKt.a(u, request);
-                } else {
-                    return null;
+                }
+                this.a = str;
+                this.b = function1;
+                this.c = i;
+                this.d = i2;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public Boolean doInBackground(Void... params) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, params)) == null) {
+                    Intrinsics.checkNotNullParameter(params, "params");
+                    File file = new File(this.a);
+                    if (!file.exists()) {
+                        this.b.invoke(null);
+                        return Boolean.FALSE;
+                    }
+                    BitmapFactory.Options options = new BitmapFactory.Options();
+                    int i = 1;
+                    options.inJustDecodeBounds = true;
+                    BitmapFactory.decodeFile(this.a, options);
+                    options.inPreferredConfig = TbConfig.BitmapConfig;
+                    while (true) {
+                        int i2 = i * 2;
+                        if (options.outWidth / i2 <= this.c && options.outHeight / i2 <= this.d) {
+                            break;
+                        }
+                        i = i2;
+                    }
+                    options.inJustDecodeBounds = false;
+                    options.inSampleSize = i;
+                    BufferedSource buffer = Okio.buffer(Okio.source(file));
+                    this.b.invoke(new BdImage(BitmapFactory.decodeStream(buffer.inputStream(), null, options)));
+                    try {
+                        buffer.close();
+                    } catch (Exception unused) {
+                    }
+                    return Boolean.TRUE;
+                }
+                return (Boolean) invokeL.objValue;
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return null;
         }
-        return (WebResourceResponse) invokeLL.objValue;
-    }
 
-    public final void b(ImageFileInfo imageFileInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo) == null) && imageFileInfo != null) {
-            String b = x8b.b(imageFileInfo);
-            if (StringsKt__StringsKt.contains$default((CharSequence) b, (CharSequence) "?t=", false, 2, (Object) null)) {
-                b = b.substring(0, StringsKt__StringsKt.lastIndexOf$default((CharSequence) b, "?t=", 0, false, 6, (Object) null));
-                Intrinsics.checkNotNullExpressionValue(b, "this as java.lang.String…ing(startIndex, endIndex)");
+        public static /* synthetic */ void b(a aVar, String str, int i, int i2, Function1 function1, int i3, Object obj) {
+            if ((i3 & 2) != 0) {
+                i = 160;
             }
-            this.a.put(b, x8b.a(imageFileInfo));
+            if ((i3 & 4) != 0) {
+                i2 = 160;
+            }
+            aVar.a(str, i, i2, function1);
         }
-    }
 
-    public final void c(bbb bbbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bbbVar) == null) {
-            this.c = bbbVar;
+        public final void a(String localPath, int i, int i2, Function1<? super BdImage, Unit> callback) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{localPath, Integer.valueOf(i), Integer.valueOf(i2), callback}) == null) {
+                Intrinsics.checkNotNullParameter(localPath, "localPath");
+                Intrinsics.checkNotNullParameter(callback, "callback");
+                new C0227a(localPath, callback, i, i2).execute(new Void[0]);
+            }
         }
     }
 }

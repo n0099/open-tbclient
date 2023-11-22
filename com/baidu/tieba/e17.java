@@ -1,198 +1,238 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.d17;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
-import com.baidu.tieba.oe5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
+@Deprecated
 /* loaded from: classes5.dex */
-public class e17 extends oe5 {
+public class e17 extends se5 {
     public static /* synthetic */ Interceptable $ic;
-    public static e17 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<re5> a;
+    public final String e;
 
-    @Override // com.baidu.tieba.oe5
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(e17 e17Var);
+    }
+
+    @Override // com.baidu.tieba.se5
+    public String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.se5
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 2;
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e17 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(e17 e17Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e17Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e17Var;
+    @Override // com.baidu.tieba.se5
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
         }
+        return (String) invokeV.objValue;
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001444) {
-                Object data = customResponsedMessage.getData();
-                if (data == null || !(data instanceof SingleBarEmotionRecommendData)) {
-                    this.a.g(null);
-                    return;
-                }
-                SingleBarEmotionRecommendData singleBarEmotionRecommendData = (SingleBarEmotionRecommendData) data;
-                LinkedList linkedList = new LinkedList();
-                if (singleBarEmotionRecommendData == null || TextUtils.isEmpty(singleBarEmotionRecommendData.pkg_id) || TextUtils.isEmpty(singleBarEmotionRecommendData.cover)) {
-                    this.a.g(null);
-                    return;
-                }
-                linkedList.add(singleBarEmotionRecommendData);
-                this.a.g(linkedList);
-            }
+    @Override // com.baidu.tieba.se5
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 0;
         }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.se5
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.se5
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.se5
+    public boolean m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.se5
+    public BdImage n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            return null;
+        }
+        return (BdImage) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.se5
+    public BdImage o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            return null;
+        }
+        return (BdImage) invokeL.objValue;
     }
 
     /* loaded from: classes5.dex */
-    public class b implements d17.b {
+    public class a extends BdResourceCallback<BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ e17 b;
 
-        public b(e17 e17Var) {
+        public a(e17 e17Var, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {e17Var};
+                Object[] objArr = {e17Var, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = e17Var;
+            this.a = bVar;
         }
 
-        @Override // com.baidu.tieba.d17.b
-        public void a(d17 d17Var) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
+        public void onLoaded(BdImage bdImage, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d17Var) == null) {
-                MessageManager.getInstance().runTask(2004603, (Class) null);
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, bdImage, str, i) == null) {
+                super.onLoaded((a) bdImage, str, i);
+                if (bdImage != null) {
+                    this.b.r(bdImage);
+                    this.b.s(bdImage);
+                    if (this.b.u()) {
+                        this.a.a(this.b);
+                    }
+                }
             }
         }
     }
 
-    public e17() {
+    public e17(o07 o07Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {o07Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = o07Var.getGroupId();
+        t(1);
+        q(4);
     }
 
-    public static e17 f() {
+    @Override // com.baidu.tieba.se5
+    public BdImage e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (e17.class) {
-                    if (b == null) {
-                        b = new e17();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return super.d();
         }
-        return (e17) invokeV.objValue;
+        return (BdImage) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.oe5
-    public void d() {
+    @Override // com.baidu.tieba.se5
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(new a(this, 2001444));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.oe5
-    public void b(oe5.a aVar) {
+    @Override // com.baidu.tieba.se5
+    public EmotionGroupType h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD() && this.a != null) {
-            for (int i = 0; i < this.a.size(); i++) {
-                d17 d17Var = (d17) this.a.get(i);
-                if (d17Var.u() && mn9.i().g(d17Var.f()) == null && aVar != null) {
-                    aVar.a(d17Var);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return EmotionGroupType.SINGLE_FORUM;
         }
+        return (EmotionGroupType) invokeV.objValue;
     }
 
-    public final synchronized void g(List<n07> list) {
+    public boolean u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            synchronized (this) {
-                if (list != null) {
-                    if (!list.isEmpty()) {
-                        if (this.a != null) {
-                            this.a = null;
-                        }
-                        LinkedList<re5> linkedList = new LinkedList<>();
-                        boolean z = false;
-                        for (n07 n07Var : list) {
-                            if (n07Var != null && !StringUtils.isNull(n07Var.getGroupId()) && n07Var.IsValid()) {
-                                d17 d17Var = new d17(n07Var);
-                                linkedList.add(d17Var);
-                                z = d17Var.v(n07Var, new b(this));
-                            }
-                        }
-                        this.a = linkedList;
-                        if (z) {
-                            MessageManager.getInstance().runTask(2004603, (Class) null);
-                        }
-                    }
-                }
-                if (this.a != null) {
-                    this.a = null;
-                    MessageManager.getInstance().runTask(2004603, (Class) null);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (d() != null) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public boolean v(o07 o07Var, b bVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, o07Var, bVar)) == null) {
+            if (!(o07Var instanceof SingleBarEmotionRecommendData)) {
+                return false;
+            }
+            BdResourceLoader.getInstance().loadResource(((SingleBarEmotionRecommendData) o07Var).cover, 10, new a(this, bVar), null);
+            if (!u()) {
+                return false;
+            }
+            bVar.a(this);
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

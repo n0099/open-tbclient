@@ -36,7 +36,7 @@ public class cq4 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements wn {
+    public class a implements wn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -69,7 +69,7 @@ public class cq4 {
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements yn {
+    public class b implements yn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -97,7 +97,7 @@ public class cq4 {
     }
 
     /* loaded from: classes5.dex */
-    public static class c implements un {
+    public class c implements un {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -136,7 +136,7 @@ public class cq4 {
     }
 
     /* loaded from: classes5.dex */
-    public static class d extends BaseDataSubscriber<CloseableReference<CloseableImage>> {
+    public class d extends BaseDataSubscriber<CloseableReference<CloseableImage>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vn a;

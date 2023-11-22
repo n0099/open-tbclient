@@ -1,36 +1,31 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FeedHeadImg;
+import tbclient.FeedHeadIcon;
 /* loaded from: classes7.dex */
-public class psc extends poc {
+public class psc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedHeadImg feedHeadImg) {
+    public static JSONObject b(@NonNull FeedHeadIcon feedHeadIcon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedHeadImg)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedHeadIcon)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, BigdayActivityConfig.IMG_URL, feedHeadImg.img_url);
-            poc.a(jSONObject, "shape_type", feedHeadImg.shape_type);
-            poc.a(jSONObject, "pendant_url", feedHeadImg.pendant_url);
-            poc.a(jSONObject, "corner_url", feedHeadImg.corner_url);
-            poc.a(jSONObject, "schema", feedHeadImg.schema);
-            if (feedHeadImg.masks != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (String str : feedHeadImg.masks) {
-                    jSONArray.put(str);
-                }
-                poc.a(jSONObject, "masks", jSONArray);
-            }
+            qoc.a(jSONObject, "url", feedHeadIcon.url);
+            qoc.a(jSONObject, "width", feedHeadIcon.width);
+            qoc.a(jSONObject, "height", feedHeadIcon.height);
+            qoc.a(jSONObject, "priority", feedHeadIcon.priority);
+            qoc.a(jSONObject, "can_degrade", feedHeadIcon.can_degrade);
+            qoc.a(jSONObject, "degrade_url", feedHeadIcon.degrade_url);
+            qoc.a(jSONObject, "degrade_width", feedHeadIcon.degrade_width);
+            qoc.a(jSONObject, "degrade_height", feedHeadIcon.degrade_height);
+            qoc.a(jSONObject, "degrade_priority", feedHeadIcon.degrade_priority);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

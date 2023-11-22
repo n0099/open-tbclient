@@ -35,7 +35,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.TbSocketMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ca;
-import com.baidu.tieba.on5;
+import com.baidu.tieba.pn5;
 import com.baidu.tieba.yz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -660,11 +660,11 @@ public abstract class NetModel<T extends INetRequestData, D extends IResponseDat
             publishProgress(b);
             if (this.a.isNeedCache() && (httpNetContext = this.b) != null && httpNetContext.getResponse() != null && this.b.getResponse().isRequestSuccess() && b != null) {
                 T t = this.a.c;
-                if (t instanceof on5) {
-                    on5 on5Var = (on5) t;
-                    String cacheKey = on5Var.getCacheKey();
-                    String cacheTableName = on5Var.getCacheTableName();
-                    if (on5Var.isNeedUid()) {
+                if (t instanceof pn5) {
+                    pn5 pn5Var = (pn5) t;
+                    String cacheKey = pn5Var.getCacheKey();
+                    String cacheTableName = pn5Var.getCacheTableName();
+                    if (pn5Var.isNeedUid()) {
                         str = TbadkCoreApplication.getCurrentAccount();
                     } else {
                         str = null;

@@ -45,12 +45,12 @@ public class b83 extends d83 {
 
         /* renamed from: com.baidu.tieba.b83$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0239a implements Runnable {
+        public class RunnableC0237a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0239a(a aVar) {
+            public RunnableC0237a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public class b83 extends d83 {
                     eb3.q(jb3Var, this.a, this.b);
                     return;
                 }
-                aj3.k(new RunnableC0239a(this), "SaveImageAction");
+                aj3.k(new RunnableC0237a(this), "SaveImageAction");
             }
         }
     }

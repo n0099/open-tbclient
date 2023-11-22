@@ -1,13 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes6.dex */
 public interface hb9 {
-    void a(ICardInfo iCardInfo);
+    void a(int i, long j, String str, String str2);
 
-    hb9 b(String str, int i);
-
-    hb9 c(String str, long j);
-
-    hb9 d(String str, String str2);
+    void b(long j, String str);
 }

@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface m7a {
-    void d(p6a p6aVar);
+    void a(int i, int i2, String str, int i3, String str2);
 }

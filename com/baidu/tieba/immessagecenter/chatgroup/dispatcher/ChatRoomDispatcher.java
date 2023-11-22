@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
-import com.baidu.tieba.qha;
-import com.baidu.tieba.sl5;
+import com.baidu.tieba.rha;
+import com.baidu.tieba.tl5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.JsonSyntaxException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ChatRoomDispatcher implements qha {
+public class ChatRoomDispatcher implements rha {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OPEN_GROUPCHAT_SCHEME = "com.baidu.tieba://unidispatch/router/portal";
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class ChatRoomDispatcher implements qha {
 
     /* JADX WARN: Removed duplicated region for block: B:23:0x0088  */
     /* JADX WARN: Removed duplicated region for block: B:24:0x008a  */
-    @Override // com.baidu.tieba.qha
+    @Override // com.baidu.tieba.rha
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -92,7 +92,7 @@ public class ChatRoomDispatcher implements qha {
                         e.printStackTrace();
                         if (jSONObject.optInt(FrsActivityConfig.IS_SHOW_IM_GROUP_LIST) != 1) {
                         }
-                        sl5.a().b(context, optString, optLong, -1, optString2, bundle, z);
+                        tl5.a().b(context, optString, optLong, -1, optString2, bundle, z);
                     }
                 } catch (JsonSyntaxException e3) {
                     bundle = null;
@@ -106,7 +106,7 @@ public class ChatRoomDispatcher implements qha {
             } else {
                 z = false;
             }
-            sl5.a().b(context, optString, optLong, -1, optString2, bundle, z);
+            tl5.a().b(context, optString, optLong, -1, optString2, bundle, z);
         }
     }
 }

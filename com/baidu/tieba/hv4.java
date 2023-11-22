@@ -51,8 +51,8 @@ public class hv4 implements Application.ActivityLifecycleCallbacks {
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && mv6.a.a()) {
-            mv6.f();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && nv6.a.a()) {
+            nv6.f();
         }
     }
 

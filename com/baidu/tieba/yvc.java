@@ -4,35 +4,50 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
+import tbclient.FrsPage.MatchCardInfo;
 import tbclient.FrsPage.MatchPlayerInfo;
-import tbclient.Post;
+import tbclient.ThreadInfo;
 /* loaded from: classes9.dex */
-public class yvc extends poc {
+public class yvc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull MatchPlayerInfo matchPlayerInfo) {
+    public static JSONObject b(@NonNull MatchCardInfo matchCardInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, matchPlayerInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, matchCardInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "name", matchPlayerInfo.name);
-            poc.a(jSONObject, "avatar", matchPlayerInfo.avatar);
-            poc.a(jSONObject, "score", matchPlayerInfo.score);
-            poc.a(jSONObject, "score_cnt", matchPlayerInfo.score_cnt);
-            Post post = matchPlayerInfo.hot_post;
-            if (post != null) {
-                poc.a(jSONObject, "hot_post", p1d.b(post));
+            qoc.a(jSONObject, "name", matchCardInfo.name);
+            qoc.a(jSONObject, "status", matchCardInfo.status);
+            qoc.a(jSONObject, "card_title", matchCardInfo.card_title);
+            qoc.a(jSONObject, "topic_id", matchCardInfo.topic_id);
+            qoc.a(jSONObject, "team_name_a", matchCardInfo.team_name_a);
+            qoc.a(jSONObject, "team_name_b", matchCardInfo.team_name_b);
+            qoc.a(jSONObject, "team_icon_a", matchCardInfo.team_icon_a);
+            qoc.a(jSONObject, "team_icon_b", matchCardInfo.team_icon_b);
+            qoc.a(jSONObject, "start_desc", matchCardInfo.start_desc);
+            qoc.a(jSONObject, "team_score_a", matchCardInfo.team_score_a);
+            qoc.a(jSONObject, "team_score_b", matchCardInfo.team_score_b);
+            if (matchCardInfo.thread_list != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (ThreadInfo threadInfo : matchCardInfo.thread_list) {
+                    jSONArray.put(v4d.b(threadInfo));
+                }
+                qoc.a(jSONObject, "thread_list", jSONArray);
             }
-            poc.a(jSONObject, "sub_avatar", matchPlayerInfo.sub_avatar);
-            poc.a(jSONObject, "sub_text", matchPlayerInfo.sub_text);
-            poc.a(jSONObject, "score_self", matchPlayerInfo.score_self);
-            poc.a(jSONObject, "score_link", matchPlayerInfo.score_link);
-            poc.a(jSONObject, "match_id", matchPlayerInfo.match_id);
-            poc.a(jSONObject, "match_index", matchPlayerInfo.match_index);
-            poc.a(jSONObject, "player_id", matchPlayerInfo.player_id);
+            qoc.a(jSONObject, "icon_text", matchCardInfo.icon_text);
+            if (matchCardInfo.team_player_list != null) {
+                JSONArray jSONArray2 = new JSONArray();
+                for (MatchPlayerInfo matchPlayerInfo : matchCardInfo.team_player_list) {
+                    jSONArray2.put(zvc.b(matchPlayerInfo));
+                }
+                qoc.a(jSONObject, "team_player_list", jSONArray2);
+            }
+            qoc.a(jSONObject, "match_link", matchCardInfo.match_link);
+            qoc.a(jSONObject, "schedule_link", matchCardInfo.schedule_link);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

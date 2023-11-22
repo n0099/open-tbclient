@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkAction;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
 import com.baidu.tieba.cx;
-import com.baidu.tieba.rha;
+import com.baidu.tieba.sha;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -106,7 +106,7 @@ public class SchemeActionStatic {
                 public void deal(TbPageContext<?> tbPageContext, UriBuilder uriBuilder, Bundle bundle) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, tbPageContext, uriBuilder, bundle) == null) {
-                        rha.b(tbPageContext, new String[]{uriBuilder.getUriString()});
+                        sha.b(tbPageContext, new String[]{uriBuilder.getUriString()});
                     }
                 }
             });

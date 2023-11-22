@@ -1,89 +1,129 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.ChatRoomInfoData;
+import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfo;
+import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfoMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatNewMessage;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class e09 {
+public class e09 {
     public static /* synthetic */ Interceptable $ic;
-    public static final e09 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947680667, "Lcom/baidu/tieba/e09;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947680667, "Lcom/baidu/tieba/e09;");
-                return;
-            }
+    public static AtInfo a(@NonNull ChatRoomInfoData.AtInfoData atInfoData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, atInfoData)) == null) {
+            AtInfo atInfo = new AtInfo();
+            atInfo.setAtCountAll(atInfoData.getAtCountAll());
+            atInfo.setAtAllMsgCount(atInfoData.getAtAllMsgCount());
+            atInfo.setAtSingleMsgCount(atInfoData.getAtSingleMsgCount());
+            atInfo.setAllMsgList(b(atInfoData.getAllMsgList()));
+            atInfo.setSingleMsgList(b(atInfoData.getAllSingleList()));
+            return atInfo;
         }
-        a = new e09();
+        return (AtInfo) invokeL.objValue;
     }
 
-    public e09() {
+    public static List<AtInfoMsg> b(List<ChatRoomInfoData.AtMsgBaseData> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return Collections.emptyList();
+            }
+            ArrayList arrayList = new ArrayList();
+            for (ChatRoomInfoData.AtMsgBaseData atMsgBaseData : list) {
+                if (atMsgBaseData != null) {
+                    AtInfoMsg atInfoMsg = new AtInfoMsg();
+                    atInfoMsg.setMsgId(atMsgBaseData.getMsgId());
+                    atInfoMsg.setMsgKey(atMsgBaseData.getMsgKey());
+                    arrayList.add(atInfoMsg);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @NonNull
+    public static List<ChatRoomInfo> c(List<ChatRoomInfoData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return Collections.emptyList();
+            }
+            ArrayList arrayList = new ArrayList();
+            for (ChatRoomInfoData chatRoomInfoData : list) {
+                if (chatRoomInfoData != null) {
+                    ChatRoomInfo chatRoomInfo = new ChatRoomInfo();
+                    chatRoomInfo.setRoomId(chatRoomInfoData.getRoomId());
+                    ChatRoomInfoData.ChatroomInfoBasicData chatroomInfoBasicData = chatRoomInfoData.getChatroomInfoBasicData();
+                    if (chatroomInfoBasicData != null) {
+                        chatRoomInfo.setForumId(String.valueOf(chatroomInfoBasicData.getForumId()));
+                        chatRoomInfo.setForumName(chatroomInfoBasicData.getForumName());
+                        chatRoomInfo.setName(chatroomInfoBasicData.getName());
+                        chatRoomInfo.setAvatar(chatroomInfoBasicData.getAvatar());
+                        chatRoomInfo.setUnreadNum(JavaTypesHelper.toInt(chatroomInfoBasicData.getUnreadNum(), 0));
+                    }
+                    chatRoomInfo.setJumpUrl(chatRoomInfoData.getJumpUrl());
+                    if (chatRoomInfoData.getAtInfoData() != null) {
+                        chatRoomInfo.setAtInfo(a(chatRoomInfoData.getAtInfoData()));
+                    }
+                    arrayList.add(chatRoomInfo);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static void d(@NonNull ChatRoomInfo chatRoomInfo, @NonNull ChatRoomInfoData chatRoomInfoData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, chatRoomInfo, chatRoomInfoData) == null) {
+            ChatRoomInfoData.ChatroomInfoBasicData chatroomInfoBasicData = chatRoomInfoData.getChatroomInfoBasicData();
+            if (chatroomInfoBasicData != null) {
+                chatroomInfoBasicData.setUnreadNum(String.valueOf(chatRoomInfo.getUnreadNum()));
+            }
+            ChatRoomInfoData.ChatroomMEMsgInfoData chatroomMEMsgInfoData = chatRoomInfoData.getChatroomMEMsgInfoData();
+            ChatNewMessage newMessage = chatRoomInfo.getNewMessage();
+            if (chatroomMEMsgInfoData != null && newMessage != null) {
+                chatroomMEMsgInfoData.setFromUid(JavaTypesHelper.toLong(newMessage.getFromUid(), 0L));
+                chatroomMEMsgInfoData.setFromName(newMessage.getFromName());
+                chatroomMEMsgInfoData.setContent(newMessage.getContent());
+                chatroomMEMsgInfoData.setMsgId(newMessage.getMsgId());
+                chatroomMEMsgInfoData.setSpecialMsg(newMessage.getSpecialMsg());
+                chatroomMEMsgInfoData.setSpecialMsg(newMessage.getSpecialType());
             }
         }
     }
 
-    @JvmStatic
-    public static final void a(Runnable runnable) {
+    public static String e(@NonNull TbPageContext<?> tbPageContext, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, runnable) == null) && runnable != null) {
-            SafeHandler.getInst().removeCallbacks(runnable);
-            SafeHandler.getInst().post(runnable);
-        }
-    }
-
-    @JvmStatic
-    public static final void d(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, runnable) == null) && runnable != null) {
-            SafeHandler.getInst().removeCallbacks(runnable);
-        }
-    }
-
-    @JvmStatic
-    public static final void b(Runnable runnable, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(65539, null, runnable, j) == null) && runnable != null) {
-            if (j <= 0) {
-                SafeHandler.getInst().post(runnable);
-            } else {
-                SafeHandler.getInst().postDelayed(runnable, j);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, str, str2)) == null) {
+            String str3 = "";
+            if (!StringUtils.isNull(str)) {
+                str3 = "" + str + tbPageContext.getString(R.string.obfuscated_res_0x7f0f0413);
             }
-        }
-    }
-
-    @JvmStatic
-    public static final void c(boolean z, Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(InputDeviceCompat.SOURCE_TRACKBALL, null, z, runnable) == null) {
-            if (z) {
-                a(runnable);
-            } else {
-                d(runnable);
+            if (!StringUtils.isNull(str2)) {
+                return str3 + str2;
             }
+            return str3;
         }
+        return (String) invokeLLL.objValue;
     }
 }

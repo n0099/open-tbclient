@@ -6,9 +6,9 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.h09;
 import com.baidu.tieba.i09;
 import com.baidu.tieba.im.lib.socket.msg.data.TopBubbleData;
+import com.baidu.tieba.j09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class PinnedModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final h09 a;
+    public final i09 a;
     public final String b;
     public final Lazy c;
     public final Lazy d;
@@ -68,7 +68,7 @@ public final class PinnedModel {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && !this.a.i().isEmpty()) {
-                i09.f(((TopBubbleData) this.a.i().get(0)).getVersionKey(), true);
+                j09.f(((TopBubbleData) this.a.i().get(0)).getVersionKey(), true);
                 this.a.i().clear();
                 this.a.q();
             }
@@ -111,7 +111,7 @@ public final class PinnedModel {
                 if (data != null) {
                     TopBubbleData topBubbleData = (TopBubbleData) data;
                     if (topBubbleData.isExcellent()) {
-                        if (!i09.a(topBubbleData.getVersionKey(), this.a.b)) {
+                        if (!j09.a(topBubbleData.getVersionKey(), this.a.b)) {
                             return;
                         }
                         if (!topBubbleData.isSetExcellent()) {
@@ -137,7 +137,7 @@ public final class PinnedModel {
         }
     }
 
-    public PinnedModel(h09 wrapper, String roomId) {
+    public PinnedModel(i09 wrapper, String roomId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -173,7 +173,7 @@ public final class PinnedModel {
             int hashCode = pinnedType.hashCode();
             if (hashCode != -1655966961) {
                 if (hashCode != -1420194824) {
-                    if (hashCode == -1039690024 && pinnedType.equals("notice") && !i09.b(topBubbleData.getVersionKey())) {
+                    if (hashCode == -1039690024 && pinnedType.equals("notice") && !j09.b(topBubbleData.getVersionKey())) {
                         i().clear();
                         i().add(topBubbleData);
                     }
@@ -184,7 +184,7 @@ public final class PinnedModel {
                         h().add(topBubbleData);
                     }
                 }
-            } else if (pinnedType.equals("activity") && i09.c(topBubbleData)) {
+            } else if (pinnedType.equals("activity") && j09.c(topBubbleData)) {
                 g().add(topBubbleData);
             }
         }
@@ -275,7 +275,7 @@ public final class PinnedModel {
         if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || h().isEmpty()) {
             return;
         }
-        i09.e(h().get(0).getVersionKey(), this.b);
+        j09.e(h().get(0).getVersionKey(), this.b);
         q();
     }
 
@@ -297,7 +297,7 @@ public final class PinnedModel {
     public final void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            if (!h().isEmpty() && !i09.a(h().getFirst().getVersionKey(), this.b)) {
+            if (!h().isEmpty() && !j09.a(h().getFirst().getVersionKey(), this.b)) {
                 return;
             }
             if (!z) {
@@ -358,7 +358,7 @@ public final class PinnedModel {
                         if (hashCode == -1039690024) {
                         }
                     } else if (pinnedType.equals(TopBubbleData.EXCELLENT)) {
-                        topBubbleData2.setStatusType(!i09.b(topBubbleData2.getVersionKey()) ? 1 : 0);
+                        topBubbleData2.setStatusType(!j09.b(topBubbleData2.getVersionKey()) ? 1 : 0);
                     }
                 }
             }
@@ -370,7 +370,7 @@ public final class PinnedModel {
                 if (Intrinsics.areEqual(pinnedType2, "notice")) {
                     topBubbleData4.setStatusType(2);
                 } else if (Intrinsics.areEqual(pinnedType2, TopBubbleData.EXCELLENT)) {
-                    topBubbleData4.setStatusType(!i09.b(topBubbleData2.getVersionKey()) ? 1 : 0);
+                    topBubbleData4.setStatusType(!j09.b(topBubbleData2.getVersionKey()) ? 1 : 0);
                 }
             }
             if (j().size() > 3) {
@@ -379,7 +379,7 @@ public final class PinnedModel {
                     TopBubbleData topBubbleData5 = j().get(i);
                     Intrinsics.checkNotNullExpressionValue(topBubbleData5, "pinnedList[index]");
                     TopBubbleData topBubbleData6 = topBubbleData5;
-                    topBubbleData6.setStatusType(!i09.b(topBubbleData6.getVersionKey()) ? 1 : 0);
+                    topBubbleData6.setStatusType(!j09.b(topBubbleData6.getVersionKey()) ? 1 : 0);
                 }
             }
         }

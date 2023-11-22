@@ -41,7 +41,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class kv4 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nv6 a;
+    public ov6 a;
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
@@ -96,7 +96,7 @@ public class kv4 implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.a = new nv6();
+        this.a = new ov6();
     }
 
     public final void a(Activity activity) {
@@ -214,23 +214,23 @@ public class kv4 implements Application.ActivityLifecycleCallbacks {
     public void onActivityDestroyed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-            if (jb5.i() != null && activity == jb5.i().p()) {
-                jb5.i().n();
+            if (kb5.i() != null && activity == kb5.i().p()) {
+                kb5.i().n();
             }
-            if (jb5.k() != null && activity == jb5.k().k()) {
-                jb5.l();
+            if (kb5.k() != null && activity == kb5.k().k()) {
+                kb5.l();
             }
-            if (t95.b() != null && activity == t95.b().v()) {
-                t95.b().t();
+            if (u95.b() != null && activity == u95.b().v()) {
+                u95.b().t();
             }
             c(activity, Lifecycle.Event.ON_DESTROY);
-            d36.L().K(activity);
+            e36.L().K(activity);
             if (activity instanceof TbPageContextSupport) {
                 TbPageContext pageContext = ((TbPageContextSupport) activity).getPageContext();
-                mq6.b().a(pageContext);
+                nq6.b().a(pageContext);
                 BdUniqueId uniqueId = pageContext.getUniqueId();
                 if (uniqueId != null) {
-                    mq6.a(uniqueId);
+                    nq6.a(uniqueId);
                 }
             }
         }
@@ -247,7 +247,7 @@ public class kv4 implements Application.ActivityLifecycleCallbacks {
             b(activity);
             a(activity);
             c(activity, Lifecycle.Event.ON_RESUME);
-            d36.L().d0(activity);
+            e36.L().d0(activity);
             TbadkCoreApplication.getInst().setCurGlobalActivity(activity);
             this.a.b(activity);
             if (!TbadkCoreApplication.getInst().isMainProcess(false) && activity != null && activity.getClass().getName().equals("com.bdgame.assist.SplashActivity")) {

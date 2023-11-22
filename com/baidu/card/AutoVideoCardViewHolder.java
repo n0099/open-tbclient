@@ -5,16 +5,16 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.bu;
 import com.baidu.tieba.bw4;
-import com.baidu.tieba.f9a;
+import com.baidu.tieba.g9a;
 import com.baidu.tieba.ju;
-import com.baidu.tieba.o8a;
+import com.baidu.tieba.p8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AutoVideoCardViewHolder<T extends bw4> extends ThreadCardViewHolder<T> implements o8a {
+public class AutoVideoCardViewHolder<T extends bw4> extends ThreadCardViewHolder<T> implements p8a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ju k;
@@ -43,7 +43,7 @@ public class AutoVideoCardViewHolder<T extends bw4> extends ThreadCardViewHolder
         }
     }
 
-    @Override // com.baidu.tieba.o8a
+    @Override // com.baidu.tieba.p8a
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class AutoVideoCardViewHolder<T extends bw4> extends ThreadCardViewHolder
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.o8a
+    @Override // com.baidu.tieba.p8a
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class AutoVideoCardViewHolder<T extends bw4> extends ThreadCardViewHolder
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.o8a
+    @Override // com.baidu.tieba.p8a
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public class AutoVideoCardViewHolder<T extends bw4> extends ThreadCardViewHolder
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.o8a
+    @Override // com.baidu.tieba.p8a
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class AutoVideoCardViewHolder<T extends bw4> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.o8a
+    @Override // com.baidu.tieba.p8a
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class AutoVideoCardViewHolder<T extends bw4> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.o8a
+    @Override // com.baidu.tieba.p8a
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class AutoVideoCardViewHolder<T extends bw4> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.o8a
+    @Override // com.baidu.tieba.p8a
     public void startPlay() {
         ju juVar;
         Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class AutoVideoCardViewHolder<T extends bw4> extends ThreadCardViewHolder
         }
     }
 
-    @Override // com.baidu.tieba.o8a
+    @Override // com.baidu.tieba.p8a
     public void stopPlay() {
         ju juVar;
         Interceptable interceptable = $ic;
@@ -154,11 +154,11 @@ public class AutoVideoCardViewHolder<T extends bw4> extends ThreadCardViewHolder
         return (ju) invokeV.objValue;
     }
 
-    public void z(f9a f9aVar) {
+    public void z(g9a g9aVar) {
         ju juVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, f9aVar) == null) && (juVar = this.k) != null) {
-            juVar.B(f9aVar);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, g9aVar) == null) && (juVar = this.k) != null) {
+            juVar.B(g9aVar);
         }
     }
 }

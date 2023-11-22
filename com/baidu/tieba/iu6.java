@@ -1,91 +1,75 @@
 package com.baidu.tieba;
 
 import android.database.Cursor;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.sweetsqlite.IntegerColumn;
-import com.baidu.nadcore.sweetsqlite.LongColumn;
-import com.baidu.nadcore.sweetsqlite.StringColumn;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.database.sqlite.SQLiteDatabase;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.ju6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class iu6 {
+public class iu6 extends lz0 implements ju6.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final iu6 a;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final SQLiteDatabase c;
+    @NonNull
+    public final SQLiteDatabase d;
 
-    /* loaded from: classes6.dex */
-    public interface a extends mz0 {
-        Cursor g(String str, String... strArr);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947866047, "Lcom/baidu/tieba/iu6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947866047, "Lcom/baidu/tieba/iu6;");
-                return;
-            }
-        }
-        a = new iu6();
-    }
-
-    public iu6() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public iu6(@NonNull SQLiteDatabase sQLiteDatabase) {
+        this(sQLiteDatabase, sQLiteDatabase);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sQLiteDatabase};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((SQLiteDatabase) objArr2[0], (SQLiteDatabase) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public iu6(@NonNull SQLiteDatabase sQLiteDatabase, @NonNull SQLiteDatabase sQLiteDatabase2) {
+        super(sQLiteDatabase, sQLiteDatabase2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sQLiteDatabase, sQLiteDatabase2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((SQLiteDatabase) objArr2[0], (SQLiteDatabase) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.c = sQLiteDatabase;
+        this.d = sQLiteDatabase2;
     }
 
-    public final kz0 a(int i, int i2) {
-        InterceptResult invokeII;
+    @Override // com.baidu.tieba.ju6.a
+    @NonNull
+    public Cursor g(@NonNull String str, @NonNull String... strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            return new kz0(i, "", "", i2, 0);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) {
+            return new zz0(this.d.rawQuery(str, strArr));
         }
-        return (kz0) invokeII.objValue;
-    }
-
-    public final IntegerColumn b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return new IntegerColumn(a(2, i));
-        }
-        return (IntegerColumn) invokeI.objValue;
-    }
-
-    public final LongColumn c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return new LongColumn(a(3, i));
-        }
-        return (LongColumn) invokeI.objValue;
-    }
-
-    public final StringColumn d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return new StringColumn(a(4, i));
-        }
-        return (StringColumn) invokeI.objValue;
+        return (Cursor) invokeLL.objValue;
     }
 }

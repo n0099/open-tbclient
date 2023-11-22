@@ -87,8 +87,8 @@ public class kx4 {
                 return;
             }
             this.c = jSONObject.optString("text");
-            this.a = c1b.j(jSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
-            this.b = c1b.j(jSONObject.optJSONObject("bg_color"));
+            this.a = d1b.j(jSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
+            this.b = d1b.j(jSONObject.optJSONObject("bg_color"));
         }
     }
 

@@ -6,7 +6,7 @@ import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.op5;
+import com.baidu.tieba.pp5;
 /* loaded from: classes4.dex */
 public class InitSdkNpsPluginTask extends LaunchTask {
     public static final String TAG = "InitSdkNpsPluginTask";
@@ -18,12 +18,12 @@ public class InitSdkNpsPluginTask extends LaunchTask {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void initSdkCodePlugin() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921823, new op5() { // from class: com.baidu.searchbox.task.sync.appcreate.InitSdkNpsPluginTask.2
-            @Override // com.baidu.tieba.op5
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921823, new pp5() { // from class: com.baidu.searchbox.task.sync.appcreate.InitSdkNpsPluginTask.2
+            @Override // com.baidu.tieba.pp5
             public void onFail() {
             }
 
-            @Override // com.baidu.tieba.op5
+            @Override // com.baidu.tieba.pp5
             public void onSuccess() {
             }
         }));

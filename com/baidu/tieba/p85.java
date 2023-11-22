@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class p85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<q85> a;
+    public int a;
+    public int b;
+    public int c;
 
     public p85() {
         Interceptable interceptable = $ic;
@@ -25,44 +25,53 @@ public class p85 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 1;
+        this.b = 1;
+        this.c = 30;
     }
 
-    public void a(JSONArray jSONArray) {
-        boolean z;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-            this.a = new ArrayList();
-            try {
-                if (jSONArray == null) {
-                    SharedPrefHelper.getInstance().putString("key_index_tab_info_list", "[]");
-                    return;
-                }
-                JSONArray jSONArray2 = new JSONArray(SharedPrefHelper.getInstance().getString("key_index_tab_info_list", "[]"));
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    q85 q85Var = new q85();
-                    q85 q85Var2 = new q85();
-                    q85Var.i(jSONArray.getJSONObject(i));
-                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                        q85Var2.i(jSONArray2.getJSONObject(i2));
-                        if (q85Var.c != null && q85Var.c.equals(q85Var2.c)) {
-                            if (!TextUtils.isEmpty(q85Var2.e) && q85Var2.e.equals(q85Var.e)) {
-                                z = false;
-                                q85Var.f = z;
-                            }
-                            z = true;
-                            q85Var.f = z;
-                        }
-                    }
-                    if (!q85Var.f()) {
-                        this.a.add(q85Var);
-                    }
-                }
-                SharedPrefHelper.getInstance().putString("key_index_tab_info_list", jSONArray.toString());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public void d(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.a = jSONObject.optInt("home_screen_user_info");
+            this.b = jSONObject.optInt("expose_count");
+            jSONObject.optInt("click_range");
+            this.c = jSONObject.optInt("time_interval");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

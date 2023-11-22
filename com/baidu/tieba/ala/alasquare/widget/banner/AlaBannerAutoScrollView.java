@@ -17,10 +17,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qa6;
 import com.baidu.tieba.ra6;
 import com.baidu.tieba.sa6;
-import com.baidu.tieba.x96;
+import com.baidu.tieba.ta6;
+import com.baidu.tieba.y96;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,20 +38,20 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
     public int f;
     public long g;
     public boolean h;
-    public sa6 i;
-    public ra6 j;
-    public qa6 k;
+    public ta6 i;
+    public sa6 j;
+    public ra6 k;
     public Runnable l;
     public RecyclerView.OnScrollListener m;
 
     /* loaded from: classes5.dex */
-    public class c implements qa6 {
+    public class c implements ra6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaBannerAutoScrollView a;
 
         /* loaded from: classes5.dex */
-        public class a extends AlaBannerViewHolder<x96> {
+        public class a extends AlaBannerViewHolder<y96> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public TbImageView a;
@@ -86,10 +86,10 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
             /* renamed from: d */
-            public void a(int i, x96 x96Var) {
+            public void a(int i, y96 y96Var) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeIL(1048579, this, i, x96Var) == null) && x96Var != null && this.a != null && !StringUtils.isNull(x96Var.a)) {
-                    this.a.startLoad(x96Var.a, 10, false);
+                if ((interceptable == null || interceptable.invokeIL(1048579, this, i, y96Var) == null) && y96Var != null && this.a != null && !StringUtils.isNull(y96Var.a)) {
+                    this.a.startLoad(y96Var.a, 10, false);
                 }
             }
 
@@ -120,7 +120,7 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             this.a = alaBannerAutoScrollView;
         }
 
-        @Override // com.baidu.tieba.qa6
+        @Override // com.baidu.tieba.ra6
         public AlaBannerViewHolder a(ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
@@ -415,28 +415,28 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
         }
     }
 
-    public void setOnBannerClickListener(ra6 ra6Var) {
+    public void setOnBannerClickListener(sa6 sa6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ra6Var) == null) {
-            this.j = ra6Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sa6Var) == null) {
+            this.j = sa6Var;
             AlaBannerRecyclerAdapter alaBannerRecyclerAdapter = this.d;
             if (alaBannerRecyclerAdapter != null) {
-                alaBannerRecyclerAdapter.q(ra6Var);
+                alaBannerRecyclerAdapter.q(sa6Var);
             }
         }
     }
 
-    public void setOnBannerScrollListener(sa6 sa6Var) {
+    public void setOnBannerScrollListener(ta6 ta6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, sa6Var) == null) {
-            this.i = sa6Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, ta6Var) == null) {
+            this.i = ta6Var;
         }
     }
 
-    public void setViewHolderAdapter(qa6 qa6Var) {
+    public void setViewHolderAdapter(ra6 ra6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, qa6Var) == null) {
-            this.d.s(qa6Var);
+        if (interceptable == null || interceptable.invokeL(1048586, this, ra6Var) == null) {
+            this.d.s(ra6Var);
         }
     }
 

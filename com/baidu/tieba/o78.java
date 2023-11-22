@@ -1,25 +1,18 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
-import android.text.TextUtils;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.MtjConfig;
-import com.baidu.mobstat.StatService;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.jxa;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class o78 implements jxa.a {
+public class o78 extends vf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public wc9 c;
 
     public o78() {
         Interceptable interceptable = $ic;
@@ -31,49 +24,37 @@ public class o78 implements jxa.a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        String version = TbConfig.getVersion();
-        if (!TextUtils.isEmpty(version)) {
-            StatService.setAppVersionName(TbadkCoreApplication.getInst(), version);
-        }
-        String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-        if (!TextUtils.isEmpty(lastCachedOid)) {
-            StatService.setOaid(TbadkCoreApplication.getInst(), lastCachedOid);
+    }
+
+    public final void a() {
+        List<Object> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.a) != null) {
+            vqa.e(list, 2);
         }
     }
 
-    @Override // com.baidu.tieba.jxa.a
-    public void a(Application application) {
+    public void b(wc9 wc9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
-            StatService.enableAppList(application, false);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wc9Var) == null) {
+            this.c = wc9Var;
+            c();
+            a();
         }
     }
 
-    @Override // com.baidu.tieba.jxa.a
-    public void b(Context context) {
+    public final void c() {
+        wc9 wc9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            StatService.setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_NONE);
-            StatService.autoTrace(context);
-        }
-    }
-
-    @Override // com.baidu.tieba.jxa.a
-    public void c(Context context, WebView webView, WebChromeClient webChromeClient) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, webView, webChromeClient) == null) {
-            StatService.trackWebView(context, webView, webChromeClient);
-        }
-    }
-
-    @Override // com.baidu.tieba.jxa.a
-    public void d(Context context, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048579, this, context, str, z) == null) {
-            StatService.setAppChannel(context, str, z);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (wc9Var = this.c) != null && wc9Var.d()) {
+            List<ICardInfo> c = this.c.c();
+            ArrayList arrayList = new ArrayList();
+            this.a = arrayList;
+            arrayList.addAll(c);
+            this.c.hasMore();
+            this.c.a();
         }
     }
 }

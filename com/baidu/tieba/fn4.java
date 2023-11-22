@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.swan.videoplayer.SwanVideoView;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface fn4 {
     void a();
 

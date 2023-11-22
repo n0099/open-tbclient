@@ -5,22 +5,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class ks6 extends gs6 {
+public final class ks6 extends hs6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ks6(boolean z) {
-        super(64);
+    public ks6() {
+        super(4096);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,26 +28,28 @@ public final class ks6 extends gs6 {
                 return;
             }
         }
-        this.b = z;
     }
 
-    public /* synthetic */ ks6(boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? false : z);
-    }
-
-    @Override // com.baidu.tieba.gs6
-    public boolean b(pr6 item, st6 timer, jr6 config) {
+    @Override // com.baidu.tieba.hs6
+    public boolean b(qr6 item, tt6 timer, kr6 config) {
         InterceptResult invokeLLL;
-        Long p;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
             Intrinsics.checkNotNullParameter(timer, "timer");
             Intrinsics.checkNotNullParameter(config, "config");
-            if (this.b && (p = item.e().p()) != null && p.longValue() == 0) {
-                return true;
+            rr6 e = item.e();
+            if (e.i() == 0) {
+                return false;
             }
-            return false;
+            if (this.b) {
+                if (e.i() != 1) {
+                    return false;
+                }
+            } else if (e.i() != 2) {
+                return false;
+            }
+            return true;
         }
         return invokeLLL.booleanValue;
     }

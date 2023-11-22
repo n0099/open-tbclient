@@ -1,179 +1,107 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.forum.bubble.BubbleFrequencyData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class qe7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final qe7 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final oe7 b;
+    public final ue7 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948089030, "Lcom/baidu/tieba/qe7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948089030, "Lcom/baidu/tieba/qe7;");
-                return;
+            if (obj instanceof qe7) {
+                qe7 qe7Var = (qe7) obj;
+                return Intrinsics.areEqual(this.a, qe7Var.a) && Intrinsics.areEqual(this.b, qe7Var.b) && Intrinsics.areEqual(this.c, qe7Var.c);
             }
+            return false;
         }
-        a = new qe7();
+        return invokeL.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
-    public static final class a extends au5<BubbleFrequencyData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ String b;
-
-        public a(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = str;
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int hashCode = ((this.a.hashCode() * 31) + this.b.hashCode()) * 31;
+            ue7 ue7Var = this.c;
+            return hashCode + (ue7Var == null ? 0 : ue7Var.hashCode());
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.au5
-        /* renamed from: a */
-        public BubbleFrequencyData doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return BubbleFrequencyData.c.a(yz4.m("tb.forum_bubble_guide_cache").get(re7.a(this.a, this.b)));
-            }
-            return (BubbleFrequencyData) invokeV.objValue;
-        }
+        return invokeV.intValue;
     }
 
-    /* loaded from: classes7.dex */
-    public static final class b extends au5<Unit> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ String c;
-
-        public b(int i, int i2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = i2;
-            this.c = str;
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "BubbleData(content=" + this.a + ", config=" + this.b + ", stat=" + this.c + ')';
         }
-
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String date = qd.getDateStringDay(new Date());
-                Intrinsics.checkNotNullExpressionValue(date, "date");
-                yz4.m("tb.forum_bubble_guide_cache").g(re7.a(this.b, this.c), new BubbleFrequencyData(date, this.a).c());
-            }
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.au5
-        public /* bridge */ /* synthetic */ Unit doInBackground() {
-            a();
-            return Unit.INSTANCE;
-        }
+        return (String) invokeV.objValue;
     }
 
-    public qe7() {
+    public qe7(String content, oe7 config, ue7 ue7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {content, config, ue7Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static final void b(Function1 callback, BubbleFrequencyData bubbleFrequencyData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, callback, bubbleFrequencyData) == null) {
-            Intrinsics.checkNotNullParameter(callback, "$callback");
-            if (bubbleFrequencyData == null) {
-                callback.invoke(0);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            if (Intrinsics.areEqual(bubbleFrequencyData.b(), qd.getDateStringDay(new Date()))) {
-                callback.invoke(Integer.valueOf(bubbleFrequencyData.a()));
-            } else {
-                callback.invoke(0);
-            }
         }
+        Intrinsics.checkNotNullParameter(content, "content");
+        Intrinsics.checkNotNullParameter(config, "config");
+        this.a = content;
+        this.b = config;
+        this.c = ue7Var;
     }
 
-    public final void a(String fid, int i, final Function1<? super Integer, Unit> callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, fid, i, callback) == null) {
-            Intrinsics.checkNotNullParameter(fid, "fid");
-            Intrinsics.checkNotNullParameter(callback, "callback");
-            eu5.b(new a(i, fid), new ft5() { // from class: com.baidu.tieba.le7
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.ft5
-                public final void onReturnDataInUI(Object obj) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                        qe7.b(Function1.this, (BubbleFrequencyData) obj);
-                    }
-                }
-            });
-        }
+    public /* synthetic */ qe7(String str, oe7 oe7Var, ue7 ue7Var, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, oe7Var, (i & 4) != 0 ? null : ue7Var);
     }
 
-    public final void c(String fid, int i, int i2) {
+    public final oe7 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fid, i, i2) == null) {
-            Intrinsics.checkNotNullParameter(fid, "fid");
-            eu5.b(new b(i2, i, fid), null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (oe7) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final ue7 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (ue7) invokeV.objValue;
     }
 }

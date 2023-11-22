@@ -32,8 +32,8 @@ public class mq4 {
                 return;
             }
         }
-        cra.f(309711, AdBillingLogSocketResMsg.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_BILLING_LOG, cra.a(TbConfig.URL_AD_BILLING_LOG, 309711));
+        dra.f(309711, AdBillingLogSocketResMsg.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_BILLING_LOG, dra.a(TbConfig.URL_AD_BILLING_LOG, 309711));
         tbHttpMessageTask.setResponsedClass(AdBillingLogHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }

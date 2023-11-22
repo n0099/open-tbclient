@@ -33,7 +33,7 @@ public class nz implements jz {
 
         /* renamed from: com.baidu.tieba.nz$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0418a {
+        public static class C0416a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String a;
@@ -41,7 +41,7 @@ public class nz implements jz {
             public String c;
             public int d;
 
-            public C0418a(Context context) {
+            public C0416a(Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,9 +178,9 @@ public class nz implements jz {
             StringBuilder sb;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                C0418a c0418a = new C0418a(context);
-                String d = c0418a.d();
-                int c = c0418a.c();
+                C0416a c0416a = new C0416a(context);
+                String d = c0416a.d();
+                int c = c0416a.c();
                 if (TextUtils.isEmpty(d)) {
                     sb = new StringBuilder();
                 } else {

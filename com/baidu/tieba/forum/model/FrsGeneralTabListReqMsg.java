@@ -8,9 +8,9 @@ import com.baidu.pass.biometrics.base.http.HttpClientWrap;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.NetMessageHelper;
-import com.baidu.tieba.js5;
-import com.baidu.tieba.mb7;
-import com.baidu.tieba.w58;
+import com.baidu.tieba.ks5;
+import com.baidu.tieba.nb7;
+import com.baidu.tieba.x58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import tbclient.GeneralTabList.DataReq;
 import tbclient.GeneralTabList.GeneralTabListReqIdl;
 @Metadata(d1 = {"\u00008\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0010\t\n\u0002\b\b\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\u001f\n\u0002\u0010\u0000\n\u0002\b\u0003\u0018\u00002\u00020\u00012\u00020\u0002B\u0005¢\u0006\u0002\u0010\u0003J\u0010\u0010:\u001a\u00020;2\u0006\u0010<\u001a\u00020\u0014H\u0014J\b\u0010=\u001a\u00020\u001bH\u0016R\u001a\u0010\u0004\u001a\u00020\u0005X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0006\u0010\u0007\"\u0004\b\b\u0010\tR\u001a\u0010\n\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\f\u0010\r\"\u0004\b\u000e\u0010\u000fR\u001a\u0010\u0010\u001a\u00020\u0005X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0011\u0010\u0007\"\u0004\b\u0012\u0010\tR\u001a\u0010\u0013\u001a\u00020\u0014X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0013\u0010\u0015\"\u0004\b\u0016\u0010\u0017R\u001a\u0010\u0018\u001a\u00020\u0014X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0018\u0010\u0015\"\u0004\b\u0019\u0010\u0017R\u001a\u0010\u001a\u001a\u00020\u001bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001a\u0010\u001c\"\u0004\b\u001d\u0010\u001eR\u001a\u0010\u001f\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b \u0010\r\"\u0004\b!\u0010\u000fR\u001a\u0010\"\u001a\u00020\u001bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b#\u0010\u001c\"\u0004\b$\u0010\u001eR\u001a\u0010%\u001a\u00020\u001bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b&\u0010\u001c\"\u0004\b'\u0010\u001eR\u001a\u0010(\u001a\u00020\u001bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b)\u0010\u001c\"\u0004\b*\u0010\u001eR\u001a\u0010+\u001a\u00020\u001bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b,\u0010\u001c\"\u0004\b-\u0010\u001eR\u001a\u0010.\u001a\u00020\u001bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b/\u0010\u001c\"\u0004\b0\u0010\u001eR\u001a\u00101\u001a\u00020\u001bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b2\u0010\u001c\"\u0004\b3\u0010\u001eR\u001a\u00104\u001a\u00020\u0005X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b5\u0010\u0007\"\u0004\b6\u0010\tR\u001a\u00107\u001a\u00020\u001bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b8\u0010\u001c\"\u0004\b9\u0010\u001e¨\u0006>"}, d2 = {"Lcom/baidu/tieba/forum/model/FrsGeneralTabListReqMsg;", "Lcom/baidu/adp/framework/message/NetMessage;", "Lcom/baidu/tieba/feed/model/IGetFeedLoadType;", "()V", "adExtParams", "", "getAdExtParams", "()Ljava/lang/String;", "setAdExtParams", "(Ljava/lang/String;)V", "forumId", "", "getForumId", "()J", "setForumId", "(J)V", "frsCommonInfo", "getFrsCommonInfo", "setFrsCommonInfo", "isDefaultNavTab", "", "()Z", "setDefaultNavTab", "(Z)V", "isGeneralTab", "setGeneralTab", "isNewFrs", "", "()I", "setNewFrs", "(I)V", "lastThreadId", "getLastThreadId", "setLastThreadId", "loadType", "getLoadType", "setLoadType", "pn", "getPn", "setPn", "requestTimes", "getRequestTimes", "setRequestTimes", "rn", "getRn", "setRn", "sortType", "getSortType", "setSortType", "tabId", "getTabId", "setTabId", "tabName", "getTabName", "setTabName", "tabType", "getTabType", "setTabType", HttpClientWrap.c, "", "isShortConnection", "getFeedLoadType", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class FrsGeneralTabListReqMsg extends NetMessage implements mb7 {
+public final class FrsGeneralTabListReqMsg extends NetMessage implements nb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String adExtParams;
@@ -88,11 +88,11 @@ public final class FrsGeneralTabListReqMsg extends NetMessage implements mb7 {
             }
             builder.is_general_tab = num;
             builder.sort_type = Integer.valueOf(this.sortType);
-            String d = w58.e().d("frs_feed");
+            String d = x58.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = js5.f(d, js5.e());
-            builder.ad_bear_sid_price = Double.valueOf(js5.h());
-            if (js5.m(builder.ad_bear_sid)) {
+            builder.ad_bear_context = ks5.f(d, ks5.e());
+            builder.ad_bear_sid_price = Double.valueOf(ks5.h());
+            if (ks5.m(builder.ad_bear_sid)) {
                 num2 = num3;
             } else {
                 num2 = 0;
@@ -131,7 +131,7 @@ public final class FrsGeneralTabListReqMsg extends NetMessage implements mb7 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.mb7
+    @Override // com.baidu.tieba.nb7
     public int getFeedLoadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

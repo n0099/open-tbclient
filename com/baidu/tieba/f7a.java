@@ -1,54 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.GetRecommendGodList.DataRes;
-import tbclient.User;
 /* loaded from: classes5.dex */
-public class f7a {
+public class f7a extends q6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<User> b;
 
-    public f7a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f7a(boolean z) {
+        super(z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public wy4 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.q6a
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            wy4 wy4Var = new wy4();
-            wy4Var.d = false;
-            wy4Var.d(this.b);
-            return wy4Var;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.q.clear();
+            y6a y6aVar = this.o;
+            if (y6aVar != null) {
+                this.q.add(y6aVar);
+            }
+            if (!ListUtils.isEmpty(this.p)) {
+                this.q.addAll(this.p);
+            }
         }
-        return (wy4) invokeV.objValue;
-    }
-
-    public void b(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        this.b = dataRes.recom_user_list;
-        dataRes.has_more.intValue();
-        this.a = dataRes.current_page.intValue();
     }
 }

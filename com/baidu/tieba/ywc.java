@@ -1,39 +1,49 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.ChatroomSignInfo;
+import tbclient.FrsPage.Forum;
+import tbclient.FrsPage.RankInfo;
 import tbclient.FrsPage.SignForum;
-import tbclient.FrsPage.SignInfo;
-import tbclient.FrsPage.SignUser;
 /* loaded from: classes9.dex */
-public class ywc extends poc {
+public class ywc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SignInfo signInfo) {
+    public static JSONObject b(@NonNull SignForum signForum) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, signInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, signForum)) == null) {
             JSONObject jSONObject = new JSONObject();
-            SignUser signUser = signInfo.user_info;
-            if (signUser != null) {
-                poc.a(jSONObject, SourceConstant.SOURCE_USER_INFO, zwc.b(signUser));
+            qoc.a(jSONObject, "is_on", signForum.is_on);
+            qoc.a(jSONObject, "is_filter", signForum.is_filter);
+            Forum forum = signForum.forum_info;
+            if (forum != null) {
+                qoc.a(jSONObject, "forum_info", evc.b(forum));
             }
-            SignForum signForum = signInfo.forum_info;
-            if (signForum != null) {
-                poc.a(jSONObject, "forum_info", xwc.b(signForum));
+            RankInfo rankInfo = signForum.current_rank_info;
+            if (rankInfo != null) {
+                qoc.a(jSONObject, "current_rank_info", pwc.b(rankInfo));
             }
-            poc.a(jSONObject, "has_chatroom_sign", signInfo.has_chatroom_sign);
-            ChatroomSignInfo chatroomSignInfo = signInfo.chatroom_sign_info;
-            if (chatroomSignInfo != null) {
-                poc.a(jSONObject, "chatroom_sign_info", arc.b(chatroomSignInfo));
+            RankInfo rankInfo2 = signForum.yesterday_rank_info;
+            if (rankInfo2 != null) {
+                qoc.a(jSONObject, "yesterday_rank_info", pwc.b(rankInfo2));
             }
+            RankInfo rankInfo3 = signForum.weekly_rank_info;
+            if (rankInfo3 != null) {
+                qoc.a(jSONObject, "weekly_rank_info", pwc.b(rankInfo3));
+            }
+            qoc.a(jSONObject, "level1_dir_name", signForum.level1_dir_name);
+            qoc.a(jSONObject, "level2_dir_name", signForum.level2_dir_name);
+            RankInfo rankInfo4 = signForum.monthly_rank_info;
+            if (rankInfo4 != null) {
+                qoc.a(jSONObject, "monthly_rank_info", pwc.b(rankInfo4));
+            }
+            qoc.a(jSONObject, "forum_id", signForum.forum_id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

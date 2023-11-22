@@ -3,23 +3,21 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tbadk.editortools.sendtool.SendView;
-import com.baidu.tbadk.editortools.sendtool.SendViewBtnStyle;
+import com.baidu.tbadk.editortools.sendtool.SendNoLaunchView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bh5 extends ke5 {
+public class bh5 extends le5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final SendNoLaunchView t;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bh5(Context context, boolean z) {
-        super(context, (String) null, 4);
-        le5 sendView;
+        super(context, (String) null, 38);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -36,25 +34,23 @@ public class bh5 extends ke5 {
                 return;
             }
         }
-        this.o = false;
-        this.n = 2;
-        this.p = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
-        if (z) {
-            sendView = new SendViewBtnStyle(context);
-        } else {
-            sendView = new SendView(context);
-        }
-        this.m = sendView;
+        this.o = true;
+        this.n = 8;
+        SendNoLaunchView sendNoLaunchView = new SendNoLaunchView(context);
+        this.t = sendNoLaunchView;
+        sendNoLaunchView.setIsFriend(z);
+        this.m = this.t;
         RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, -2);
         ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
         ((View) this.m).setLayoutParams(layoutParams);
+        this.p = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
     }
 
-    public void i(int i) {
-        le5 le5Var;
+    public void i(boolean z) {
+        SendNoLaunchView sendNoLaunchView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (le5Var = this.m) != null && (le5Var instanceof TextView)) {
-            ((TextView) le5Var).setText(i);
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (sendNoLaunchView = this.t) != null) {
+            sendNoLaunchView.setIsFriend(z);
         }
     }
 }

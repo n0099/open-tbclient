@@ -78,7 +78,7 @@ public class lt extends ns<bw4> {
             this.g.b();
             bw4 bw4Var = this.i;
             if (bw4Var != null && bw4Var.getThreadData() != null) {
-                il6.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                jl6.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
         }
     }
@@ -92,7 +92,7 @@ public class lt extends ns<bw4> {
             if (bw4Var != null && bw4Var.getThreadData() != null) {
                 this.i = bw4Var;
                 ThreadData threadData = bw4Var.getThreadData();
-                il6.j(threadData, this.h);
+                jl6.j(threadData, this.h);
                 this.g.setData(threadData);
                 return;
             }

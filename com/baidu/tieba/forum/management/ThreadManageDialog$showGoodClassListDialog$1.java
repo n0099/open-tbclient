@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.BlueCheckRadioButton;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forum.management.ThreadManageDialog$showGoodClassListDialog$1;
-import com.baidu.tieba.j67;
+import com.baidu.tieba.k67;
 import com.baidu.tieba.rx4;
-import com.baidu.tieba.wp5;
 import com.baidu.tieba.xb;
+import com.baidu.tieba.xp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -74,15 +74,15 @@ public final class ThreadManageDialog$showGoodClassListDialog$1 extends Lambda i
     /* renamed from: invoke$lambda-1  reason: not valid java name */
     public static final void m138invoke$lambda1(Dialog mGoodClassListDialog, ThreadManageDialog this$0, View view2) {
         TbPageContext tbPageContext;
-        j67 j67Var;
+        k67 k67Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, mGoodClassListDialog, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(mGoodClassListDialog, "$mGoodClassListDialog");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             tbPageContext = this$0.l;
             xb.b(mGoodClassListDialog, tbPageContext);
-            j67Var = this$0.s;
-            this$0.V(j67Var, this$0.r, false);
+            k67Var = this$0.s;
+            this$0.V(k67Var, this$0.r, false);
         }
     }
 
@@ -125,7 +125,7 @@ public final class ThreadManageDialog$showGoodClassListDialog$1 extends Lambda i
             }
             View findViewById = inflate.findViewById(R.id.dialog_button_cancel);
             final ThreadManageDialog threadManageDialog = this.this$0;
-            findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aj7
+            findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bj7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -139,7 +139,7 @@ public final class ThreadManageDialog$showGoodClassListDialog$1 extends Lambda i
             });
             View findViewById2 = inflate.findViewById(R.id.dialog_button_ok);
             final ThreadManageDialog threadManageDialog2 = this.this$0;
-            findViewById2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ej7
+            findViewById2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.fj7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -153,7 +153,7 @@ public final class ThreadManageDialog$showGoodClassListDialog$1 extends Lambda i
             });
             View findViewById3 = dialog.findViewById(R.id.commit_good_layout);
             tbPageContext = this.this$0.l;
-            wp5.a(tbPageContext, findViewById3);
+            xp5.a(tbPageContext, findViewById3);
             View findViewById4 = dialog.findViewById(R.id.good_class_group);
             if (findViewById4 != null) {
                 LinearLayout linearLayout = (LinearLayout) findViewById4;

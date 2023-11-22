@@ -23,11 +23,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a39;
 import com.baidu.tieba.hw4;
 import com.baidu.tieba.qd;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.data.AgreeMessageData;
-import com.baidu.tieba.z29;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -290,23 +290,23 @@ public class MessageCardBottomView extends LinearLayout {
         }
     }
 
-    public final AgreeData f(z29 z29Var, int i) {
+    public final AgreeData f(a39 a39Var, int i) {
         InterceptResult invokeLI;
         Agree agree;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, z29Var, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, a39Var, i)) == null) {
             AgreeData agreeData = new AgreeData();
-            OriginalThreadInfo l = z29Var.l();
+            OriginalThreadInfo l = a39Var.l();
             if (l != null && (agree = l.z) != null) {
                 agreeData.parseProtobuf(agree);
             }
             this.f.getImgAgree().cancelAnimation();
             this.f.setNeedMatchStrategy(false);
             this.f.setUseDynamicLikeResImmediately();
-            agreeData.postId = z29Var.o();
-            agreeData.threadId = z29Var.v();
-            agreeData.forumId = String.valueOf(z29Var.e());
-            if (z29Var.f()) {
+            agreeData.postId = a39Var.o();
+            agreeData.threadId = a39Var.v();
+            agreeData.forumId = String.valueOf(a39Var.e());
+            if (a39Var.f()) {
                 agreeData.hasAgree = true;
                 agreeData.agreeType = 2;
             }
@@ -378,11 +378,11 @@ public class MessageCardBottomView extends LinearLayout {
         EMManager.from(this.g).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X08).setTextColor(R.color.CAM_X0107);
     }
 
-    public void setAgreeData(z29 z29Var, int i) {
+    public void setAgreeData(a39 a39Var, int i) {
         AgreeData agreeData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048586, this, z29Var, i) == null) {
-            this.h = f(z29Var, i);
+        if (interceptable == null || interceptable.invokeLI(1048586, this, a39Var, i) == null) {
+            this.h = f(a39Var, i);
             AgreeMessageData agreeMessageData = new AgreeMessageData();
             this.i = agreeMessageData;
             agreeMessageData.agreeData = this.h;

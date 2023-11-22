@@ -16,8 +16,8 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xp5;
 import com.baidu.tieba.yp5;
+import com.baidu.tieba.zp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class SusPendedView extends LinearLayout {
     public LinearLayout a;
     public TranView b;
     public LinearLayout c;
-    public yp5 d;
+    public zp5 d;
     public float e;
     public float f;
     public boolean g;
@@ -191,10 +191,10 @@ public class SusPendedView extends LinearLayout {
         }
     }
 
-    public void setContentViewTop(yp5 yp5Var) {
+    public void setContentViewTop(zp5 zp5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, yp5Var) == null) {
-            this.d = yp5Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, zp5Var) == null) {
+            this.d = zp5Var;
         }
     }
 
@@ -230,11 +230,11 @@ public class SusPendedView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            yp5 yp5Var = this.d;
-            if (yp5Var == null) {
+            zp5 zp5Var = this.d;
+            if (zp5Var == null) {
                 return false;
             }
-            return yp5Var.Q();
+            return zp5Var.Q();
         }
         return invokeV.booleanValue;
     }
@@ -403,9 +403,9 @@ public class SusPendedView extends LinearLayout {
                 float f = this.f;
                 float f2 = this.e;
                 if (f > f2 && this.g) {
-                    yp5 yp5Var = this.d;
-                    if (yp5Var instanceof xp5) {
-                        ((xp5) yp5Var).h0(f - f2);
+                    zp5 zp5Var = this.d;
+                    if (zp5Var instanceof yp5) {
+                        ((yp5) zp5Var).h0(f - f2);
                     }
                     LinearLayout linearLayout = this.a;
                     float f3 = this.f;

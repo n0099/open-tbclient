@@ -29,7 +29,7 @@ public class ou4 {
             if (webView == null) {
                 return BdActivityStack.getInst().currentActivity();
             }
-            Activity a = ri6.a(webView.getContext());
+            Activity a = si6.a(webView.getContext());
             if (a == null) {
                 a = TbadkCoreApplication.getInst().getCurrentActivity();
             }

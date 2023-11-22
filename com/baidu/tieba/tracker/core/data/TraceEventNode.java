@@ -2,7 +2,7 @@ package com.baidu.tieba.tracker.core.data;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tieba.gza;
+import com.baidu.tieba.hza;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ public final class TraceEventNode extends AbsEventNode {
     public final String page;
     public final String source;
     public final long timestamp;
-    public final gza traceType;
+    public final hza traceType;
 
     private final String component1() {
         InterceptResult invokeV;
@@ -33,13 +33,13 @@ public final class TraceEventNode extends AbsEventNode {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.source : (String) invokeV.objValue;
     }
 
-    private final gza component3() {
+    private final hza component3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.traceType : (gza) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.traceType : (hza) invokeV.objValue;
     }
 
-    public static /* synthetic */ TraceEventNode copy$default(TraceEventNode traceEventNode, String str, String str2, gza gzaVar, int i, Object obj) {
+    public static /* synthetic */ TraceEventNode copy$default(TraceEventNode traceEventNode, String str, String str2, hza hzaVar, int i, Object obj) {
         if ((i & 1) != 0) {
             str = traceEventNode.page;
         }
@@ -47,12 +47,12 @@ public final class TraceEventNode extends AbsEventNode {
             str2 = traceEventNode.source;
         }
         if ((i & 4) != 0) {
-            gzaVar = traceEventNode.traceType;
+            hzaVar = traceEventNode.traceType;
         }
-        return traceEventNode.copy(str, str2, gzaVar);
+        return traceEventNode.copy(str, str2, hzaVar);
     }
 
-    public final TraceEventNode copy(String page, String source, gza traceType) {
+    public final TraceEventNode copy(String page, String source, hza traceType) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, page, source, traceType)) == null) {
@@ -87,7 +87,7 @@ public final class TraceEventNode extends AbsEventNode {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TraceEventNode(String page, String source, gza traceType) {
+    public TraceEventNode(String page, String source, hza traceType) {
         super(null, 1, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

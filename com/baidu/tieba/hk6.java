@@ -1,12 +1,22 @@
 package com.baidu.tieba;
 
-import android.webkit.WebResourceRequest;
-import android.webkit.WebResourceResponse;
-import android.webkit.WebView;
+import android.app.Activity;
+import android.content.Context;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes6.dex */
 public interface hk6 {
-    @Nullable
-    WebResourceResponse a(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest);
+    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IPrerenderManager");
+
+    @UiThread
+    void a(@NonNull Activity activity, @NonNull String str, boolean z, boolean z2);
+
+    @NonNull
+    @UiThread
+    android.webkit.WebView b(Context context, @NonNull String str);
+
+    @UiThread
+    boolean c(@NonNull String str, android.webkit.WebView webView);
 }

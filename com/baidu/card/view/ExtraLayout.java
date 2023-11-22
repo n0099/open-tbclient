@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bw4;
-import com.baidu.tieba.u55;
+import com.baidu.tieba.v55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -148,9 +148,9 @@ public class ExtraLayout extends RelativeLayout {
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.extra_btn);
             this.a = tBSpecificationBtn;
             tBSpecificationBtn.setOnClickListener(this.e);
-            u55 u55Var = new u55();
-            u55Var.u(R.color.CAM_X0302);
-            this.a.setConfig(u55Var);
+            v55 v55Var = new v55();
+            v55Var.u(R.color.CAM_X0302);
+            this.a.setConfig(v55Var);
             this.a.setText(getResources().getString(R.string.download_just_now));
         }
     }

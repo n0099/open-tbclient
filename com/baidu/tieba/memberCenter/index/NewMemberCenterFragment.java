@@ -30,13 +30,13 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.dj6;
-import com.baidu.tieba.ij6;
+import com.baidu.tieba.ej6;
 import com.baidu.tieba.jj6;
-import com.baidu.tieba.ke9;
 import com.baidu.tieba.kj6;
+import com.baidu.tieba.le9;
 import com.baidu.tieba.lj6;
 import com.baidu.tieba.mj6;
+import com.baidu.tieba.nj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public class NewMemberCenterFragment extends BaseFragment {
     public boolean g;
 
     /* loaded from: classes7.dex */
-    public class a implements ij6 {
+    public class a implements jj6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewMemberCenterFragment a;
@@ -80,7 +80,7 @@ public class NewMemberCenterFragment extends BaseFragment {
             this.a = newMemberCenterFragment;
         }
 
-        @Override // com.baidu.tieba.ij6
+        @Override // com.baidu.tieba.jj6
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public class NewMemberCenterFragment extends BaseFragment {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements kj6 {
+    public class b implements lj6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewMemberCenterFragment a;
@@ -129,7 +129,7 @@ public class NewMemberCenterFragment extends BaseFragment {
             this.a = newMemberCenterFragment;
         }
 
-        @Override // com.baidu.tieba.kj6
+        @Override // com.baidu.tieba.lj6
         public void a(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
@@ -139,7 +139,7 @@ public class NewMemberCenterFragment extends BaseFragment {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements jj6 {
+    public class c implements kj6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewMemberCenterFragment a;
@@ -162,7 +162,7 @@ public class NewMemberCenterFragment extends BaseFragment {
             this.a = newMemberCenterFragment;
         }
 
-        @Override // com.baidu.tieba.jj6
+        @Override // com.baidu.tieba.kj6
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
@@ -176,7 +176,7 @@ public class NewMemberCenterFragment extends BaseFragment {
     }
 
     /* loaded from: classes7.dex */
-    public class d implements lj6 {
+    public class d implements mj6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewMemberCenterFragment a;
@@ -199,7 +199,7 @@ public class NewMemberCenterFragment extends BaseFragment {
             this.a = newMemberCenterFragment;
         }
 
-        @Override // com.baidu.tieba.lj6
+        @Override // com.baidu.tieba.mj6
         public void a(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLIL(1048576, this, webView, webResourceRequest, i, charSequence) == null) {
@@ -209,7 +209,7 @@ public class NewMemberCenterFragment extends BaseFragment {
     }
 
     /* loaded from: classes7.dex */
-    public class e implements mj6 {
+    public class e implements nj6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewMemberCenterFragment a;
@@ -232,7 +232,7 @@ public class NewMemberCenterFragment extends BaseFragment {
             this.a = newMemberCenterFragment;
         }
 
-        @Override // com.baidu.tieba.mj6
+        @Override // com.baidu.tieba.nj6
         public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, webView, sslErrorHandler, sslError) == null) {
@@ -341,7 +341,7 @@ public class NewMemberCenterFragment extends BaseFragment {
             if (arguments != null) {
                 this.f = arguments.getString("key_url", "");
             }
-            new ke9("my_tab_vip_banner_bubble").i();
+            new le9("my_tab_vip_banner_bubble").i();
         }
     }
 
@@ -373,7 +373,7 @@ public class NewMemberCenterFragment extends BaseFragment {
             HashMap<String, Object> hashMap = new HashMap<>();
             if (intent != null) {
                 hashMap.put(WalletPayResultActivityConfig.PAY_RESULT, intent.getStringExtra(WalletPayResultActivityConfig.PAY_RESULT));
-                dj6.a().d(this.e, "tbPayResult", hashMap);
+                ej6.a().d(this.e, "tbPayResult", hashMap);
             }
         }
     }

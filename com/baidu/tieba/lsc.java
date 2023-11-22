@@ -1,50 +1,31 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tbadk.core.atomData.WriteVoteActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.FeedHeadButton;
-import tbclient.FeedHeadComponent;
-import tbclient.FeedHeadImg;
-import tbclient.FeedHeadSymbol;
+import tbclient.FeedKV;
 /* loaded from: classes7.dex */
-public class lsc extends poc {
+public class lsc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedHeadComponent feedHeadComponent) {
+    public static JSONObject b(@NonNull FeedHeadButton feedHeadButton) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedHeadComponent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedHeadButton)) == null) {
             JSONObject jSONObject = new JSONObject();
-            FeedHeadImg feedHeadImg = feedHeadComponent.image_data;
-            if (feedHeadImg != null) {
-                poc.a(jSONObject, "image_data", psc.b(feedHeadImg));
-            }
-            if (feedHeadComponent.main_data != null) {
+            qoc.a(jSONObject, "type", feedHeadButton.type);
+            if (feedHeadButton.business_info != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (FeedHeadSymbol feedHeadSymbol : feedHeadComponent.main_data) {
-                    jSONArray.put(qsc.b(feedHeadSymbol));
+                for (FeedKV feedKV : feedHeadButton.business_info) {
+                    jSONArray.put(usc.b(feedKV));
                 }
-                poc.a(jSONObject, "main_data", jSONArray);
-            }
-            if (feedHeadComponent.extra_data != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (FeedHeadSymbol feedHeadSymbol2 : feedHeadComponent.extra_data) {
-                    jSONArray2.put(qsc.b(feedHeadSymbol2));
-                }
-                poc.a(jSONObject, WriteVoteActivityConfig.EXTRA_DATA_KEY, jSONArray2);
-            }
-            poc.a(jSONObject, "schema", feedHeadComponent.schema);
-            FeedHeadButton feedHeadButton = feedHeadComponent.button;
-            if (feedHeadButton != null) {
-                poc.a(jSONObject, NativeConstants.ID_BUTTON, ksc.b(feedHeadButton));
+                qoc.a(jSONObject, "business_info", jSONArray);
             }
             return jSONObject;
         }

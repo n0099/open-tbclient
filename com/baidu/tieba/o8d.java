@@ -1,109 +1,58 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
+import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dbd;
+import com.baidu.tieba.t7d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes7.dex */
-public class o8d implements IPayCallback {
+public class o8d implements obd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public IPayCallback<CurrencyChargeMessage> c;
-    public Activity d;
-    public Dialog e;
-    public wad f;
-    public y7d g;
-    public q9d h;
-    public dbd.b i;
-    public u7d j;
-    public m9d k;
+    public t7d.b a;
 
-    public o8d(int i, int i2, IPayCallback<CurrencyChargeMessage> iPayCallback, Activity activity, Dialog dialog, wad wadVar, y7d y7dVar, q9d q9dVar, dbd.b bVar, u7d u7dVar, m9d m9dVar) {
+    @Override // com.baidu.tieba.obd
+    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public o8d(t7d.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), iPayCallback, activity, dialog, wadVar, y7dVar, q9dVar, bVar, u7dVar, m9dVar};
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        RLog.info("PayInternalCallback", "create PayInternalCallback appId:" + i + " userChannel:" + i2);
-        this.a = i;
-        this.b = i2;
-        this.c = iPayCallback;
-        this.d = activity;
-        this.e = dialog;
-        this.f = wadVar;
-        this.g = y7dVar;
-        this.h = q9dVar;
-        this.i = bVar;
-        this.j = u7dVar;
-        this.k = m9dVar;
+        this.a = bVar;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-    public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
+    @Override // com.baidu.tieba.obd
+    public void a(CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, payCallBackBean) == null) {
-            RLog.info("PayInternalCallback", "requestPayInternal onFail code:" + i + " failReason:" + str + " payCallBackBean:" + payCallBackBean);
-            IPayCallback<CurrencyChargeMessage> iPayCallback = this.c;
-            if (iPayCallback != null) {
-                iPayCallback.onFail(i, str, payCallBackBean);
+        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
+            RLog.info("PayGiftDialogListener", "createPayGiftDialog cancel clickArea:" + cancelType);
+            t7d.b bVar = this.a;
+            if (bVar != null) {
+                bVar.a(cancelType);
             }
-            this.j.e(i, str, payCallBackBean);
-            u9d.b(this.a, this.b, i, str);
-            this.g.i(i, str, this.d, this.e, this.f, this.i, this.k, this.h, payCallBackBean, this.c);
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-    public void onPayStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            RLog.info("PayInternalCallback", "requestPayInternal onPayStart");
-            IPayCallback<CurrencyChargeMessage> iPayCallback = this.c;
-            if (iPayCallback != null) {
-                iPayCallback.onPayStart();
-            }
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-    public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, purchaseStatus, payCallBackBean) == null) {
-            RLog.info("PayInternalCallback", "requestPayInternal onPayStatus code " + purchaseStatus.getCode() + " msg: " + purchaseStatus.getMessage());
-            this.g.f(this.d, this.e, this.f, purchaseStatus);
-            IPayCallback<CurrencyChargeMessage> iPayCallback = this.c;
-            if (iPayCallback != null) {
-                iPayCallback.onPayStatus(purchaseStatus, payCallBackBean);
-            }
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-    public void onSuccess(Object obj, PayCallBackBean payCallBackBean) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, obj, payCallBackBean) == null) {
-            RLog.info("PayInternalCallback", "requestPayInternal onSuccess");
-            this.g.o(this.d, this.h, this.e, this.f);
         }
     }
 }

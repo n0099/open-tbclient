@@ -3,10 +3,10 @@ package com.baidu.tieba.h5power;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cj6;
-import com.baidu.tieba.lsa;
-import com.baidu.tieba.nsa;
-import com.baidu.tieba.psa;
+import com.baidu.tieba.dj6;
+import com.baidu.tieba.msa;
+import com.baidu.tieba.osa;
+import com.baidu.tieba.qsa;
 import com.baidu.tieba.ss4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class NavigationBarJsBridgePlugin_Proxy extends lsa {
+public class NavigationBarJsBridgePlugin_Proxy extends msa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ss4 mJsBridge;
@@ -44,44 +44,44 @@ public class NavigationBarJsBridgePlugin_Proxy extends lsa {
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // com.baidu.tieba.lsa
-    public nsa dispatch(WebView webView, psa psaVar, nsa nsaVar) {
+    @Override // com.baidu.tieba.msa
+    public osa dispatch(WebView webView, qsa qsaVar, osa osaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, psaVar, nsaVar)) == null) {
-            if (nsaVar == null) {
-                nsaVar = new nsa();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, qsaVar, osaVar)) == null) {
+            if (osaVar == null) {
+                osaVar = new osa();
             }
-            String b = psaVar.b();
-            psaVar.e();
+            String b = qsaVar.b();
+            qsaVar.e();
             if (b.equals("navigationBar/isDisableGoBack")) {
-                nsaVar.s(true);
-                nsa c = this.mJsBridge.c(webView);
+                osaVar.s(true);
+                osa c = this.mJsBridge.c(webView);
                 if (c != null) {
-                    nsaVar.y(c.f());
-                    nsaVar.u(c.b());
-                    nsaVar.o(c.a());
-                    nsaVar.x(c.e());
+                    osaVar.y(c.f());
+                    osaVar.u(c.b());
+                    osaVar.o(c.a());
+                    osaVar.x(c.e());
                 }
-                nsaVar.z(0);
+                osaVar.z(0);
             }
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeLLL.objValue;
+        return (osa) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.lsa
-    public cj6 getJsBridge() {
+    @Override // com.baidu.tieba.msa
+    public dj6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (cj6) invokeV.objValue;
+        return (dj6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lsa
-    public List<nsa> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.msa
+    public List<osa> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {

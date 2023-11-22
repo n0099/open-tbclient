@@ -1,130 +1,209 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ijc;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.jjc;
+import com.baidu.tieba.mjc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.util.UtilityFunctions;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public final class tkc<T, U> implements ijc.b<T, T>, ckc<U, U, Boolean> {
+public final class tkc<T> implements jjc.b<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bkc<? super T, ? extends U> a;
-    public final ckc<? super U, ? super U, Boolean> b;
+    public final long a;
+    public final TimeUnit b;
+    public final mjc c;
 
     /* loaded from: classes8.dex */
-    public class a extends ojc<T> {
+    public class a extends pjc<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public U e;
-        public boolean f;
-        public final /* synthetic */ ojc g;
+        public boolean e;
+        public final /* synthetic */ mjc.a f;
+        public final /* synthetic */ pjc g;
         public final /* synthetic */ tkc h;
 
+        /* renamed from: com.baidu.tieba.tkc$a$a  reason: collision with other inner class name */
+        /* loaded from: classes8.dex */
+        public class C0482a implements wjc {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0482a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // com.baidu.tieba.wjc
+            public void call() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    a aVar = this.a;
+                    if (!aVar.e) {
+                        aVar.e = true;
+                        aVar.g.onCompleted();
+                    }
+                }
+            }
+        }
+
+        /* loaded from: classes8.dex */
+        public class b implements wjc {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Throwable a;
+            public final /* synthetic */ a b;
+
+            public b(a aVar, Throwable th) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, th};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = th;
+            }
+
+            @Override // com.baidu.tieba.wjc
+            public void call() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    a aVar = this.b;
+                    if (!aVar.e) {
+                        aVar.e = true;
+                        aVar.g.onError(this.a);
+                        this.b.f.unsubscribe();
+                    }
+                }
+            }
+        }
+
+        /* loaded from: classes8.dex */
+        public class c implements wjc {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Object a;
+            public final /* synthetic */ a b;
+
+            public c(a aVar, Object obj) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, obj};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = obj;
+            }
+
+            /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidu.tieba.pjc */
+            /* JADX WARN: Multi-variable type inference failed */
+            @Override // com.baidu.tieba.wjc
+            public void call() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    a aVar = this.b;
+                    if (!aVar.e) {
+                        aVar.g.onNext(this.a);
+                    }
+                }
+            }
+        }
+
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(tkc tkcVar, ojc ojcVar, ojc ojcVar2) {
-            super(ojcVar);
+        public a(tkc tkcVar, pjc pjcVar, mjc.a aVar, pjc pjcVar2) {
+            super(pjcVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tkcVar, ojcVar, ojcVar2};
+                Object[] objArr = {tkcVar, pjcVar, aVar, pjcVar2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((ojc) newInitContext.callArgs[0]);
+                    super((pjc) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.h = tkcVar;
-            this.g = ojcVar2;
+            this.f = aVar;
+            this.g = pjcVar2;
         }
 
-        @Override // com.baidu.tieba.jjc
+        @Override // com.baidu.tieba.kjc
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.g.onCompleted();
+                mjc.a aVar = this.f;
+                C0482a c0482a = new C0482a(this);
+                tkc tkcVar = this.h;
+                aVar.c(c0482a, tkcVar.a, tkcVar.b);
             }
         }
 
-        @Override // com.baidu.tieba.jjc
+        @Override // com.baidu.tieba.kjc
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.g.onError(th);
+                this.f.b(new b(this, th));
             }
         }
 
-        @Override // com.baidu.tieba.jjc
+        @Override // com.baidu.tieba.kjc
         public void onNext(T t) {
-            Object obj;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                try {
-                    U call = this.h.a.call(t);
-                    U u = this.e;
-                    this.e = call;
-                    if (this.f) {
-                        try {
-                            if (!this.h.b.a(u, call).booleanValue()) {
-                                this.g.onNext(t);
-                                return;
-                            } else {
-                                e(1L);
-                                return;
-                            }
-                        } catch (Throwable th) {
-                            ujc.g(th, this.g, obj);
-                            return;
-                        }
-                    }
-                    this.f = true;
-                    this.g.onNext(t);
-                } catch (Throwable th2) {
-                    ujc.g(th2, this.g, t);
-                }
+                mjc.a aVar = this.f;
+                c cVar = new c(this, t);
+                tkc tkcVar = this.h;
+                aVar.c(cVar, tkcVar.a, tkcVar.b);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final tkc<?, ?> a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-399462849, "Lcom/baidu/tieba/tkc$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-399462849, "Lcom/baidu/tieba/tkc$b;");
-                    return;
-                }
-            }
-            a = new tkc<>(UtilityFunctions.b());
-        }
-    }
-
-    public tkc(bkc<? super T, ? extends U> bkcVar) {
+    public tkc(long j, TimeUnit timeUnit, mjc mjcVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bkcVar};
+            Object[] objArr = {Long.valueOf(j), timeUnit, mjcVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -134,65 +213,22 @@ public final class tkc<T, U> implements ijc.b<T, T>, ckc<U, U, Boolean> {
                 return;
             }
         }
-        this.a = bkcVar;
-        this.b = this;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bkc
-    /* renamed from: c */
-    public ojc<? super T> call(ojc<? super T> ojcVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ojcVar)) == null) {
-            return new a(this, ojcVar, ojcVar);
-        }
-        return (ojc) invokeL.objValue;
-    }
-
-    public tkc(ckc<? super U, ? super U, Boolean> ckcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ckcVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = UtilityFunctions.b();
-        this.b = ckcVar;
-    }
-
-    public static <T> tkc<T, T> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return (tkc<T, T>) b.a;
-        }
-        return (tkc) invokeV.objValue;
+        this.a = j;
+        this.b = timeUnit;
+        this.c = mjcVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ckc
-    /* renamed from: b */
-    public Boolean a(U u, U u2) {
-        InterceptResult invokeLL;
-        boolean z;
+    /* renamed from: a */
+    public pjc<? super T> call(pjc<? super T> pjcVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u, u2)) == null) {
-            if (u != u2 && (u == null || !u.equals(u2))) {
-                z = false;
-            } else {
-                z = true;
-            }
-            return Boolean.valueOf(z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pjcVar)) == null) {
+            mjc.a createWorker = this.c.createWorker();
+            pjcVar.b(createWorker);
+            return new a(this, pjcVar, createWorker, pjcVar);
         }
-        return (Boolean) invokeLL.objValue;
+        return (pjc) invokeL.objValue;
     }
 }

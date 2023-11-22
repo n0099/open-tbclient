@@ -33,11 +33,11 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.TbSocketMessageTask;
 import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.au5;
-import com.baidu.tieba.bq5;
-import com.baidu.tieba.cra;
-import com.baidu.tieba.eu5;
-import com.baidu.tieba.ft5;
+import com.baidu.tieba.bu5;
+import com.baidu.tieba.cq5;
+import com.baidu.tieba.dra;
+import com.baidu.tieba.fu5;
+import com.baidu.tieba.gt5;
 import com.baidu.tieba.im.chat.MsgActivityViewItemAdapter;
 import com.baidu.tieba.im.chat.MsgAdapterScanMessage;
 import com.baidu.tieba.im.chat.MsglistActivity;
@@ -70,19 +70,19 @@ import com.baidu.tieba.im.model.ValidateModel;
 import com.baidu.tieba.im.recommend.detail.RecommendDetailActivity;
 import com.baidu.tieba.im.recommend.detail.RecommendDetailHttpResponseMessage;
 import com.baidu.tieba.im.recommend.detail.RecommendDetailSocketResponseMessage;
-import com.baidu.tieba.it8;
-import com.baidu.tieba.ku8;
+import com.baidu.tieba.jt8;
 import com.baidu.tieba.lu8;
 import com.baidu.tieba.mu8;
 import com.baidu.tieba.nu8;
 import com.baidu.tieba.ou8;
 import com.baidu.tieba.pu8;
 import com.baidu.tieba.qu8;
+import com.baidu.tieba.ru8;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.tj8;
-import com.baidu.tieba.us8;
+import com.baidu.tieba.uj8;
 import com.baidu.tieba.vs8;
-import com.baidu.tieba.xq8;
+import com.baidu.tieba.ws8;
+import com.baidu.tieba.yq8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -104,7 +104,7 @@ public class TiebaIMActivityStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes6.dex */
-        public class a extends au5<Void> {
+        public class a extends bu5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ LinkedList a;
@@ -128,20 +128,20 @@ public class TiebaIMActivityStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.au5
+            @Override // com.baidu.tieba.bu5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    return xq8.w().a(this.a);
+                    return yq8.w().a(this.a);
                 }
                 return (Void) invokeV.objValue;
             }
         }
 
         /* loaded from: classes6.dex */
-        public class b implements ft5<Void> {
+        public class b implements gt5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomMessage a;
@@ -165,7 +165,7 @@ public class TiebaIMActivityStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ft5
+            @Override // com.baidu.tieba.gt5
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
@@ -201,7 +201,7 @@ public class TiebaIMActivityStatic {
                 }
                 LinkedList linkedList = new LinkedList();
                 linkedList.add(String.valueOf(userData.getUserId()));
-                eu5.c(new a(this, linkedList), new b(this, customMessage));
+                fu5.c(new a(this, linkedList), new b(this, customMessage));
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -777,7 +777,7 @@ public class TiebaIMActivityStatic {
         CustomMessageTask customMessageTask7 = new CustomMessageTask(2003004, new a());
         customMessageTask7.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask7);
-        CustomMessageTask customMessageTask8 = new CustomMessageTask(2001306, new it8());
+        CustomMessageTask customMessageTask8 = new CustomMessageTask(2001306, new jt8());
         customMessageTask8.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask8);
         CustomMessageTask customMessageTask9 = new CustomMessageTask(2001299, new b());
@@ -819,8 +819,8 @@ public class TiebaIMActivityStatic {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            MessageManager.getInstance().addResponsedMessageRule(new us8());
             MessageManager.getInstance().addResponsedMessageRule(new vs8());
+            MessageManager.getInstance().addResponsedMessageRule(new ws8());
             return true;
         }
         return invokeV.booleanValue;
@@ -830,13 +830,13 @@ public class TiebaIMActivityStatic {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            g(2001144, ku8.class);
-            g(2001147, qu8.class);
-            g(2001154, nu8.class);
-            g(2001150, lu8.class);
-            g(2001151, mu8.class);
-            g(2001152, ou8.class);
-            g(2001177, pu8.class);
+            g(2001144, lu8.class);
+            g(2001147, ru8.class);
+            g(2001154, ou8.class);
+            g(2001150, mu8.class);
+            g(2001151, nu8.class);
+            g(2001152, pu8.class);
+            g(2001177, qu8.class);
             return true;
         }
         return invokeV.booleanValue;
@@ -860,45 +860,45 @@ public class TiebaIMActivityStatic {
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, cra.a("c/u/user/bigvip", 303025));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, dra.a("c/u/user/bigvip", 303025));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
             tbHttpMessageTask.setIsUseCurrentBDUSS(false);
             tbHttpMessageTask.setResponsedClass(RecommendDetailHttpResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            cra.f(303025, RecommendDetailSocketResponseMessage.class, false);
+            dra.f(303025, RecommendDetailSocketResponseMessage.class, false);
         }
     }
 
     public static void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_FORUM_DETAIL_CMD, cra.a(TbConfig.GET_FORUM_DETAIL, 303021));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_FORUM_DETAIL_CMD, dra.a(TbConfig.GET_FORUM_DETAIL, 303021));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
             tbHttpMessageTask.setIsUseCurrentBDUSS(false);
             tbHttpMessageTask.setResponsedClass(ForumDetailHttpResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            cra.f(303021, ForumDetailSocketResponse.class, false);
+            dra.f(303021, ForumDetailSocketResponse.class, false);
         }
     }
 
-    public static bq5 g(int i2, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+    public static cq5 g(int i2, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i2, cls)) == null) {
-            return tj8.a(i2, cls);
+            return uj8.a(i2, cls);
         }
-        return (bq5) invokeIL.objValue;
+        return (cq5) invokeIL.objValue;
     }
 
     public static TbSocketMessageTask i(int i2, Class<? extends SocketResponsedMessage> cls, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i2), cls, Boolean.valueOf(z)})) == null) {
-            return tj8.b(i2, cls, z);
+            return uj8.b(i2, cls, z);
         }
         return (TbSocketMessageTask) invokeCommon.objValue;
     }

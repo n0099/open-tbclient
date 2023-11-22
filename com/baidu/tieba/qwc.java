@@ -5,23 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.RecmForumInfo;
+import tbclient.FrsPage.RealTime;
 /* loaded from: classes8.dex */
-public class qwc extends poc {
+public class qwc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RecmForumInfo recmForumInfo) {
+    public static JSONObject b(@NonNull RealTime realTime) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recmForumInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, realTime)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "forum_name", recmForumInfo.forum_name);
-            poc.a(jSONObject, "forum_id", recmForumInfo.forum_id);
-            poc.a(jSONObject, "member_count", recmForumInfo.member_count);
-            poc.a(jSONObject, "post_num", recmForumInfo.post_num);
-            poc.a(jSONObject, "avatar", recmForumInfo.avatar);
+            qoc.a(jSONObject, "task_id", realTime.task_id);
+            qoc.a(jSONObject, "icon", realTime.icon);
+            qoc.a(jSONObject, "url", realTime.url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

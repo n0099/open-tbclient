@@ -1,11 +1,7 @@
 package com.baidu.tieba;
+/* loaded from: classes8.dex */
+public interface qn5 extends on5 {
+    boolean initByString(String str);
 
-import com.baidu.adp.BdUniqueId;
-/* loaded from: classes7.dex */
-public interface qn5 {
-    BdUniqueId getUniqueId();
-
-    boolean j(rn5 rn5Var);
-
-    boolean o();
+    String toCacheString();
 }

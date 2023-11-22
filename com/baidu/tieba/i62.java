@@ -70,12 +70,12 @@ public final class i62 {
 
         /* renamed from: com.baidu.tieba.i62$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0330b implements zk3<String> {
+        public class C0328b implements zk3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ zk3 a;
 
-            public C0330b(b bVar, zk3 zk3Var) {
+            public C0328b(b bVar, zk3 zk3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -204,7 +204,7 @@ public final class i62 {
         public void e(@NonNull zk3<String> zk3Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zk3Var) == null) {
-                this.e.e(new C0330b(this, zk3Var));
+                this.e.e(new C0328b(this, zk3Var));
             }
         }
 

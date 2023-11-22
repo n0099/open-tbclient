@@ -39,9 +39,9 @@ import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.qd;
-import com.baidu.tieba.qt5;
+import com.baidu.tieba.rt5;
 import com.baidu.tieba.util.TopicListUtil;
-import com.baidu.tieba.vj5;
+import com.baidu.tieba.wj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,7 +61,7 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     public NavigationBar c;
     public ScrollBridgeWebview d;
     public LoadingView e;
-    public vj5 f;
+    public wj5 f;
     public boolean g;
     public String h;
     public int i;
@@ -626,7 +626,7 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
                     if (StringHelper.equals(matchStringFromURL3, "1")) {
                         new HotTopicActivityConfig(this.a.getActivity()).createNormalConfig(matchStringFromURL, matchStringFromURL2, matchStringFromURL3, null).start();
                     } else {
-                        qt5.f(this.a.getPageContext(), matchStringFromURL, matchStringFromURL2);
+                        rt5.f(this.a.getPageContext(), matchStringFromURL, matchStringFromURL2);
                     }
                 } else {
                     BrowserHelper.startWebActivity(this.a.getActivity(), matchStringFromURL2, str);
@@ -823,10 +823,10 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     }
 
     public void q() {
-        vj5 vj5Var;
+        wj5 wj5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && (vj5Var = this.f) != null) {
-            vj5Var.dettachView(this.b);
+        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && (wj5Var = this.f) != null) {
+            wj5Var.dettachView(this.b);
             this.f = null;
         }
     }
@@ -878,9 +878,9 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (baseFragment = this.a) != null && baseFragment.isAdded()) {
             String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e61);
             if (this.f == null) {
-                vj5 vj5Var = new vj5(this.a.getActivity(), new e(this));
-                this.f = vj5Var;
-                vj5Var.onChangeSkinType();
+                wj5 wj5Var = new wj5(this.a.getActivity(), new e(this));
+                this.f = wj5Var;
+                wj5Var.onChangeSkinType();
             }
             this.d.setVisibility(8);
             this.f.l(string);

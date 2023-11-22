@@ -13,14 +13,14 @@ import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.bo9;
-import com.baidu.tieba.do9;
+import com.baidu.tieba.co9;
+import com.baidu.tieba.eo9;
 import com.baidu.tieba.faceshop.EmotionPackageData;
-import com.baidu.tieba.go9;
-import com.baidu.tieba.jn9;
-import com.baidu.tieba.ko9;
-import com.baidu.tieba.mn9;
+import com.baidu.tieba.ho9;
+import com.baidu.tieba.kn9;
+import com.baidu.tieba.lo9;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel;
+import com.baidu.tieba.nn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,12 +29,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class MyEmotionManagerFragment extends BaseFragment implements go9<Pair<List<EmotionPackageData>, Integer>> {
+public class MyEmotionManagerFragment extends BaseFragment implements ho9<Pair<List<EmotionPackageData>, Integer>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ko9 a;
+    public lo9 a;
     public MyEmotionManagerModel b;
-    public do9 c;
+    public eo9 c;
     public CustomMessageListener d;
     public CustomMessageListener e;
     public CustomMessageListener f;
@@ -47,13 +47,13 @@ public class MyEmotionManagerFragment extends BaseFragment implements go9<Pair<L
 
         /* renamed from: com.baidu.tieba.newfaceshop.nativemotionmanager.MyEmotionManagerFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0412a implements Runnable {
+        public class RunnableC0410a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
             public final /* synthetic */ a b;
 
-            public RunnableC0412a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public RunnableC0410a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,7 +79,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements go9<Pair<L
                     String valueOf = String.valueOf(this.a.getData());
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(valueOf);
-                    if (mn9.i().c(arrayList, true) && BdNetTypeUtil.isNetWorkAvailable()) {
+                    if (nn9.i().c(arrayList, true) && BdNetTypeUtil.isNetWorkAvailable()) {
                         if (this.b.a.b != null) {
                             this.b.a.b.loadData();
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921314));
@@ -117,7 +117,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements go9<Pair<L
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                jn9.b().a(new RunnableC0412a(this, customResponsedMessage));
+                kn9.b().a(new RunnableC0410a(this, customResponsedMessage));
             }
         }
     }
@@ -323,10 +323,10 @@ public class MyEmotionManagerFragment extends BaseFragment implements go9<Pair<L
         }
     }
 
-    public void A2(do9 do9Var) {
+    public void A2(eo9 eo9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, do9Var) == null) && do9Var != null) {
-            this.c = do9Var;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, eo9Var) == null) && eo9Var != null) {
+            this.c = eo9Var;
         }
     }
 
@@ -335,23 +335,23 @@ public class MyEmotionManagerFragment extends BaseFragment implements go9<Pair<L
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            ko9 ko9Var = this.a;
-            if (ko9Var != null) {
-                ko9Var.f(i);
+            lo9 lo9Var = this.a;
+            if (lo9Var != null) {
+                lo9Var.f(i);
             }
         }
     }
 
     public void y2(boolean z) {
-        do9 do9Var;
+        eo9 eo9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (do9Var = this.c) != null) {
-            do9Var.onUpdate(Boolean.valueOf(z));
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (eo9Var = this.c) != null) {
+            eo9Var.onUpdate(Boolean.valueOf(z));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.go9
+    @Override // com.baidu.tieba.ho9
     /* renamed from: z2 */
     public void onSuccess(Pair<List<EmotionPackageData>, Integer> pair) {
         Interceptable interceptable = $ic;
@@ -365,11 +365,11 @@ public class MyEmotionManagerFragment extends BaseFragment implements go9<Pair<L
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
-            bo9.b().c();
+            co9.b().c();
             registerListener(this.e);
             registerListener(this.f);
             registerListener(this.d);
-            this.a = new ko9(getPageContext());
+            this.a = new lo9(getPageContext());
             MyEmotionManagerModel myEmotionManagerModel = new MyEmotionManagerModel(getPageContext());
             this.b = myEmotionManagerModel;
             myEmotionManagerModel.g0(this);
@@ -378,7 +378,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements go9<Pair<L
         return (View) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.go9
+    @Override // com.baidu.tieba.ho9
     public void onFail() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -402,12 +402,12 @@ public class MyEmotionManagerFragment extends BaseFragment implements go9<Pair<L
         }
     }
 
-    @Override // com.baidu.tieba.go9
+    @Override // com.baidu.tieba.ho9
     public void z1() {
-        ko9 ko9Var;
+        lo9 lo9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (ko9Var = this.a) != null) {
-            ko9Var.g();
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (lo9Var = this.a) != null) {
+            lo9Var.g();
         }
     }
 }

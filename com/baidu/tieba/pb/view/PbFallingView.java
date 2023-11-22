@@ -44,11 +44,11 @@ import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.data.AdverSegmentData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m0b;
-import com.baidu.tieba.q1a;
+import com.baidu.tieba.n0b;
 import com.baidu.tieba.qd;
+import com.baidu.tieba.r1a;
 import com.baidu.tieba.yr4;
-import com.baidu.tieba.yx5;
+import com.baidu.tieba.zx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,7 +79,7 @@ public class PbFallingView extends FrameLayout {
     public View c;
     public View d;
     public TextView e;
-    public final List<q1a> f;
+    public final List<r1a> f;
     public final Context g;
     public int h;
     public int i;
@@ -227,7 +227,7 @@ public class PbFallingView extends FrameLayout {
             StatisticItem param = new StatisticItem("c14125").param("obj_type", this.a).param("obj_locate", this.c.B).param("uid", TbadkCoreApplication.getCurrentAccount());
             AdverSegmentData adverSegmentData = this.b;
             if (adverSegmentData != null) {
-                yx5.a.b(param, adverSegmentData.activityId, adverSegmentData.mDisplayAdIcon, adverSegmentData.getViewStatisticsUrl());
+                zx5.a.b(param, adverSegmentData.activityId, adverSegmentData.mDisplayAdIcon, adverSegmentData.getViewStatisticsUrl());
             }
             TiebaStatic.log(param);
         }
@@ -388,7 +388,7 @@ public class PbFallingView extends FrameLayout {
     }
 
     /* loaded from: classes7.dex */
-    public class h implements q1a.c {
+    public class h implements r1a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Random a;
@@ -413,7 +413,7 @@ public class PbFallingView extends FrameLayout {
             this.a = random;
         }
 
-        @Override // com.baidu.tieba.q1a.c
+        @Override // com.baidu.tieba.r1a.c
         public float a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -462,12 +462,12 @@ public class PbFallingView extends FrameLayout {
                 String jumpExternalScheme = adverSegmentData.getJumpExternalScheme();
                 if (!UtilHelper.isMatchScheme(this.a.getPageActivity(), jumpExternalScheme, this.b.getJumpExternalPackageName())) {
                     TbPageContext tbPageContext = this.a;
-                    m0b.a(tbPageContext, yr4.a + qd.getUrlEncode(this.b.getJumpLink()));
+                    n0b.a(tbPageContext, yr4.a + qd.getUrlEncode(this.b.getJumpLink()));
                     jumpExternalScheme = this.b.getJumpLink();
                 }
                 String str = jumpExternalScheme;
                 StatisticItem param = new StatisticItem("c14126").param("obj_type", this.c).param("obj_locate", this.d.B).param("uid", TbadkCoreApplication.getCurrentAccount());
-                yx5.a aVar = yx5.a;
+                zx5.a aVar = zx5.a;
                 AdverSegmentData adverSegmentData2 = this.b;
                 aVar.a(param, adverSegmentData2.activityId, adverSegmentData2.mDisplayAdIcon, adverSegmentData2.getClickStatisticsUrl(), str);
                 TiebaStatic.log(param);
@@ -817,9 +817,9 @@ public class PbFallingView extends FrameLayout {
         }
     }
 
-    public final void o(q1a q1aVar, int i2) {
+    public final void o(r1a r1aVar, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, q1aVar, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048581, this, r1aVar, i2) == null) {
             if (this.h == 0) {
                 this.h = BdUtilHelper.getEquipmentWidth(this.g);
             }
@@ -828,9 +828,9 @@ public class PbFallingView extends FrameLayout {
             }
             this.f.clear();
             for (int i3 = 0; i3 < i2; i3++) {
-                q1a q1aVar2 = new q1a(q1aVar.i, this.h, this.i);
-                q1aVar2.e = (-i3) * 180;
-                this.f.add(q1aVar2);
+                r1a r1aVar2 = new r1a(r1aVar.i, this.h, this.i);
+                r1aVar2.e = (-i3) * 180;
+                this.f.add(r1aVar2);
             }
         }
     }
@@ -988,13 +988,13 @@ public class PbFallingView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, adverSegmentData, bitmap, i2) == null) {
             Random random = new Random();
-            q1a.b bVar = new q1a.b(bitmap);
+            r1a.b bVar = new r1a.b(bitmap);
             bVar.o(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds8), true);
             bVar.n(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds200), BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds200), true);
             bVar.l(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds100), BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds100));
             bVar.m(new h(this, random));
             bVar.p(true, true);
-            q1a k2 = bVar.k();
+            r1a k2 = bVar.k();
             this.A = i2;
             o(k2, 19);
             q qVar = this.y;
@@ -1004,7 +1004,7 @@ public class PbFallingView extends FrameLayout {
             invalidate();
             StatisticItem param = new StatisticItem("c14125").param("obj_type", i2).param("obj_locate", this.B).param("uid", TbadkCoreApplication.getCurrentAccount());
             if (adverSegmentData != null) {
-                yx5.a.b(param, adverSegmentData.activityId, adverSegmentData.mDisplayAdIcon, adverSegmentData.getViewStatisticsUrl());
+                zx5.a.b(param, adverSegmentData.activityId, adverSegmentData.mDisplayAdIcon, adverSegmentData.getViewStatisticsUrl());
             }
             TiebaStatic.log(param);
             ThirdStatisticHelper.sendReq(adverSegmentData.getViewStatisticsUrl());

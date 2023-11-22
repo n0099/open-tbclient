@@ -1,31 +1,55 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class q27 {
+public class q27 implements ra7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final String c;
+    public final String d;
 
-    public static String a() {
-        InterceptResult invokeV;
+    public q27(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return "fun_ad_card_" + AdvertAppInfo.J.getId();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, str4};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        this.d = str4;
     }
 
-    public static String b(@NonNull BdUniqueId bdUniqueId) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ra7
+    @NonNull
+    public List<za7<?, ?>> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bdUniqueId)) == null) {
-            return "fun_ad_card_" + bdUniqueId.getId();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new s27(AdvertAppInfo.J, this.a, this.b, this.c, this.d));
+            arrayList.add(new s27(AdvertAppInfo.I, this.a, this.b, this.c, this.d));
+            return arrayList;
         }
-        return (String) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 }

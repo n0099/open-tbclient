@@ -5,22 +5,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.UserStory;
+import tbclient.UserRankPresentInfo;
 /* loaded from: classes7.dex */
-public class q5d extends poc {
+public class q5d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull UserStory userStory) {
+    public static JSONObject b(@NonNull UserRankPresentInfo userRankPresentInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, userStory)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, userRankPresentInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "user_id", userStory.user_id);
-            poc.a(jSONObject, "user_name", userStory.user_name);
-            poc.a(jSONObject, "portrait", userStory.portrait);
-            poc.a(jSONObject, "has_read", userStory.has_read);
+            qoc.a(jSONObject, "user_id", userRankPresentInfo.user_id);
+            qoc.a(jSONObject, "user_name", userRankPresentInfo.user_name);
+            qoc.a(jSONObject, "present_num", userRankPresentInfo.present_num);
+            qoc.a(jSONObject, "present_scores", userRankPresentInfo.present_scores);
+            qoc.a(jSONObject, "portrait", userRankPresentInfo.portrait);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

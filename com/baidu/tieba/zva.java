@@ -2,8 +2,6 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,16 +12,17 @@ public class zva extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final lua b;
+    public final mua b;
+    public final ava c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zva(MainTabActivity mainTabActivity, lua luaVar) {
-        super(2010045);
+    public zva(MainTabActivity mainTabActivity, mua muaVar) {
+        super(2921491);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, luaVar};
+            Object[] objArr = {mainTabActivity, muaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,19 +34,21 @@ public class zva extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = luaVar;
-        setTag(mainTabActivity.getUniqueId());
+        this.b = muaVar;
+        this.c = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        mua muaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && this.b != null && TbadkCoreApplication.getInst().getCurrentActivity() == this.a) {
-            boolean z = false;
-            this.b.t = JavaTypesHelper.toBoolean(customResponsedMessage.getData().toString(), false);
-            lua luaVar = this.b;
-            this.b.G((luaVar.t || luaVar.u) ? true : true);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && (muaVar = this.b) != null && muaVar.A() != null && this.b.A().getCurrentTabType() != 21) {
+            String str = (String) customResponsedMessage.getData();
+            ava avaVar = this.c;
+            if (avaVar != null && avaVar.a() != null) {
+                this.c.a().e(str);
+            }
         }
     }
 }

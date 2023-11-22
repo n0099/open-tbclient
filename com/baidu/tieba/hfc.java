@@ -1,11 +1,21 @@
 package com.baidu.tieba;
-
-import android.graphics.SurfaceTexture;
 /* loaded from: classes6.dex */
 public interface hfc {
-    void c();
+    void a();
 
-    void d(SurfaceTexture surfaceTexture);
+    boolean available();
 
-    Object getWindow();
+    boolean b(int i, boolean z);
+
+    int c();
+
+    void d(boolean z);
+
+    boolean e(Object obj);
+
+    int f();
+
+    void release();
+
+    boolean swapBuffer();
 }

@@ -1,613 +1,176 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.ui.TaskUIData;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.tieba.vtb;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class wtb {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean n;
-    public static volatile wtb o;
     public transient /* synthetic */ FieldHolder $fh;
-    public File a;
-    public File b;
-    public boolean c;
-    public boolean d;
-    public long e;
-    public int f;
-    public int g;
-    public long h;
-    public long i;
-    public long j;
-    public int k;
-    public int l;
-    public HashMap<String, vtb> m;
+    public boolean a;
+    public long b;
+    public int c;
+    public long d;
+    public int e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948283524, "Lcom/baidu/tieba/wtb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948283524, "Lcom/baidu/tieba/wtb;");
-                return;
-            }
-        }
-        n = AppConfig.isDebug();
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public wtb() {
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public long c;
+        public int d;
+        public long e;
+        public int f;
+
+        public b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = ytb.a;
+            this.c = ytb.g;
+            this.d = ytb.j;
+            this.e = ytb.l;
+            this.f = ytb.m;
+        }
+
+        public wtb g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new wtb(this, null);
+            }
+            return (wtb) invokeV.objValue;
+        }
+    }
+
+    public wtb(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        n();
+        String unused = bVar.a;
+        this.a = bVar.b;
+        this.b = bVar.c;
+        this.c = bVar.d;
+        this.d = bVar.e;
+        this.e = bVar.f;
     }
 
-    public static wtb f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (o == null) {
-                synchronized (wtb.class) {
-                    if (o == null) {
-                        o = new wtb();
-                    }
-                }
-            }
-            return o;
-        }
-        return (wtb) invokeV.objValue;
+    public /* synthetic */ wtb(b bVar, a aVar) {
+        this(bVar);
     }
 
-    public int g() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
         return invokeV.longValue;
     }
 
-    public int i() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.l;
-        }
-        return invokeV.intValue;
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.h;
-        }
-        return invokeV.longValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public long l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.e;
         }
-        return invokeV.longValue;
+        return invokeV.intValue;
     }
 
-    public int m() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
         return invokeV.intValue;
     }
 
-    public boolean o() {
+    public long d() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void A(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (i > 0 && i <= xtb.k) {
-                this.f = i;
-            } else {
-                this.f = xtb.k;
-            }
-        }
-    }
-
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        vtb vtbVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.c;
-            }
-            HashMap<String, vtb> hashMap = this.m;
-            if (hashMap != null && (vtbVar = hashMap.get(str)) != null) {
-                return vtbVar.e();
-            }
-            return this.c;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public long b(String str) {
-        InterceptResult invokeL;
-        vtb vtbVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.i;
-            }
-            HashMap<String, vtb> hashMap = this.m;
-            if (hashMap != null && (vtbVar = hashMap.get(str)) != null) {
-                return vtbVar.a();
-            }
-            return this.i;
-        }
-        return invokeL.longValue;
-    }
-
-    public int c(String str) {
-        InterceptResult invokeL;
-        vtb vtbVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.l;
-            }
-            HashMap<String, vtb> hashMap = this.m;
-            if (hashMap != null && (vtbVar = hashMap.get(str)) != null) {
-                return vtbVar.b();
-            }
-            return this.l;
-        }
-        return invokeL.intValue;
-    }
-
-    public long d(String str) {
-        InterceptResult invokeL;
-        vtb vtbVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.h;
-            }
-            HashMap<String, vtb> hashMap = this.m;
-            if (hashMap != null && (vtbVar = hashMap.get(str)) != null) {
-                return vtbVar.d();
-            }
-            return this.h;
-        }
-        return invokeL.longValue;
-    }
-
-    public int e(String str) {
-        InterceptResult invokeL;
-        vtb vtbVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.g;
-            }
-            HashMap<String, vtb> hashMap = this.m;
-            if (hashMap != null && (vtbVar = hashMap.get(str)) != null) {
-                return vtbVar.c();
-            }
-            return this.g;
-        }
-        return invokeL.intValue;
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void u(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
-            if (j <= 0) {
-                this.i = xtb.g;
-            } else {
-                this.i = j;
-            }
-        }
-    }
-
-    public void v(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            if (i > 0 && i <= xtb.i) {
-                this.k = i;
-            } else {
-                this.k = xtb.i;
-            }
-        }
-    }
-
-    public void w(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
-            if (j > 0 && j <= xtb.h) {
-                this.j = j;
-            } else {
-                this.j = xtb.h;
-            }
-        }
-    }
-
-    public void x(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048602, this, j) == null) {
-            if (j > 0 && j <= 20971520) {
-                this.h = j;
-            } else {
-                this.h = 20971520L;
-            }
-        }
-    }
-
-    public void y(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
-            if (i > 0 && i <= xtb.j) {
-                this.g = i;
-            } else {
-                this.g = xtb.j;
-            }
-        }
-    }
-
-    public void z(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
-            if (j <= 0) {
-                this.e = xtb.e;
-            } else {
-                this.e = j;
-            }
-        }
-    }
-
-    public final boolean B(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            if (jSONObject == null || jSONObject.length() == 0) {
-                return false;
-            }
-            if (jSONObject.optInt("switch") != xtb.p) {
-                t(xtb.a);
-            } else {
-                t(xtb.b);
-            }
-            if (jSONObject.optInt(DownloadStatisticConstants.UBC_VALUE_CLEAR) != xtb.q) {
-                r(xtb.c);
-            } else {
-                r(xtb.d);
-            }
-            long j2 = 1000;
-            z(jSONObject.optInt("upload_interval") * 60 * 1000);
-            A(jSONObject.optInt("max_count_per_round"));
-            u(jSONObject.optInt("expired_time") * 24 * 60 * 60 * 1000);
-            v(jSONObject.optInt("total_max_count"));
-            w(jSONObject.optInt("total_max_size") * 1024 * 1024);
-            y(jSONObject.optInt("single_max_count"));
-            x(jSONObject.optInt("single_max_size") * 1024 * 1024);
-            JSONObject optJSONObject = jSONObject.optJSONObject("set");
-            if (optJSONObject != null && optJSONObject.length() > 0) {
-                Iterator<String> keys = optJSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
-                    if (optJSONObject2 != null && optJSONObject2.length() != 0) {
-                        vtb g = new vtb.b(next).g();
-                        if (optJSONObject2.optInt("switch") != xtb.p) {
-                            g.f(xtb.a);
-                        } else {
-                            g.f(xtb.b);
-                        }
-                        int optInt = optJSONObject2.optInt("expired_time", 0);
-                        if (optInt > 0) {
-                            g.g(optInt * 24 * 60 * 60 * j2);
-                        }
-                        int optInt2 = optJSONObject2.optInt("single_max_count", 0);
-                        if (optInt2 > 0) {
-                            g.i(optInt2);
-                        }
-                        int optInt3 = optJSONObject2.optInt("single_max_size", 0);
-                        if (optInt3 > 0) {
-                            j = 1024;
-                            g.j(optInt3 * 1024 * 1024);
-                        } else {
-                            j = 1024;
-                        }
-                        if (optJSONObject2.has("only_wifi")) {
-                            g.h(optJSONObject2.optInt("only_wifi"));
-                        }
-                        if (!g.e() || g.a() != this.i || g.c() != this.g || g.d() != this.h || g.b() != this.l) {
-                            if (this.m == null) {
-                                this.m = new HashMap<>();
-                            }
-                            this.m.put(next, g);
-                        }
-                        j2 = 1000;
-                    }
-                }
-                return true;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean C(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            if (jSONObject != null && jSONObject.length() != 0) {
-                if (n) {
-                    Log.d("VoyagerConfig", "update Config: " + jSONObject.toString());
-                }
-                if (B(jSONObject)) {
-                    boolean D = D();
-                    if (D && !this.c && this.d) {
-                        ((lub) ServiceManager.getService(lub.a)).f();
-                    }
-                    return D;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean D() {
-        InterceptResult invokeV;
-        vtb vtbVar;
-        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("en", this.c);
-                jSONObject.put("c", this.d);
-                jSONObject.put(TaskUIData.key, this.e);
-                jSONObject.put("utc", this.f);
-                jSONObject.put("et", this.i);
-                jSONObject.put(mfc.a, this.k);
-                jSONObject.put("mfs", this.j);
-                jSONObject.put("an", this.l);
-                jSONObject.put("stmc", this.g);
-                jSONObject.put("stms", this.h);
-                if (this.m != null && this.m.size() > 0) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    for (String str : this.m.keySet()) {
-                        if (!TextUtils.isEmpty(str) && (vtbVar = this.m.get(str)) != null) {
-                            JSONObject jSONObject3 = new JSONObject();
-                            if (vtbVar.e()) {
-                                i = xtb.o;
-                            } else {
-                                i = xtb.p;
-                            }
-                            jSONObject3.put("en", i);
-                            jSONObject3.put("et", vtbVar.a());
-                            jSONObject3.put("stmc", vtbVar.c());
-                            jSONObject3.put("stms", vtbVar.d());
-                            jSONObject3.put("an", vtbVar.b());
-                            jSONObject2.put(str, jSONObject3);
-                        }
-                    }
-                    if (jSONObject2.length() > 0) {
-                        jSONObject.put("set", jSONObject2);
-                    }
-                }
-            } catch (JSONException e) {
-                if (n) {
-                    e.printStackTrace();
-                }
-            }
-            if (!this.a.exists()) {
-                try {
-                    this.a.createNewFile();
-                } catch (IOException e2) {
-                    if (n) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-            return oub.g(jSONObject.toString(), this.a);
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
         }
         return invokeV.booleanValue;
     }
 
-    public final void n() {
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "/config/");
-            this.b = file;
-            if (!file.exists()) {
-                this.b.mkdirs();
-            }
-            File file2 = new File(this.b, "voyager_config.txt");
-            this.a = file2;
-            if (file2.exists()) {
-                q();
-            } else {
-                s();
-            }
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.a = z;
         }
     }
 
-    public final void s() {
+    public void g(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.c = xtb.a;
-            this.d = xtb.c;
-            this.e = xtb.e;
-            this.f = xtb.f;
-            this.i = xtb.g;
-            this.k = xtb.i;
-            this.j = xtb.h;
-            this.g = xtb.j;
-            this.h = xtb.l;
-            this.l = xtb.m;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.b = j;
         }
     }
 
-    public final void q() {
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            String f = oub.f(this.a);
-            if (n) {
-                Log.d("VoyagerConfig", "read from local: " + f);
-            }
-            if (TextUtils.isEmpty(f)) {
-                s();
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(f);
-                this.c = jSONObject.optBoolean("en", xtb.a);
-                this.d = jSONObject.optBoolean("c", xtb.c);
-                this.e = jSONObject.optLong(TaskUIData.key, xtb.e);
-                this.f = jSONObject.optInt("utc", xtb.f);
-                this.i = jSONObject.optLong("et", xtb.g);
-                this.k = jSONObject.optInt(mfc.a, xtb.i);
-                this.j = jSONObject.optLong("mfs", xtb.h);
-                this.l = jSONObject.optInt("an", xtb.m);
-                this.g = jSONObject.optInt("stmc", xtb.j);
-                this.h = jSONObject.optLong("stms", xtb.l);
-                JSONObject optJSONObject = jSONObject.optJSONObject("set");
-                if (optJSONObject != null && optJSONObject.length() > 0) {
-                    Iterator<String> keys = optJSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
-                        if (optJSONObject2 != null && optJSONObject2.length() != 0) {
-                            vtb g = new vtb.b(next).g();
-                            if (optJSONObject2.optInt("en") != xtb.p) {
-                                g.f(xtb.a);
-                            } else {
-                                g.f(xtb.b);
-                            }
-                            long optInt = optJSONObject2.optInt("et", 0);
-                            if (optInt > 0) {
-                                g.g(optInt);
-                            } else {
-                                g.g(this.i);
-                            }
-                            int optInt2 = optJSONObject2.optInt("stmc", 0);
-                            if (optInt2 > 0) {
-                                g.i(optInt2);
-                            } else {
-                                g.i(this.g);
-                            }
-                            long optLong = optJSONObject2.optLong("stms", 0L);
-                            if (optLong > 0) {
-                                g.j(optLong);
-                            } else {
-                                g.j(this.h);
-                            }
-                            if (optJSONObject2.optInt("an") != xtb.n) {
-                                g.h(xtb.m);
-                            } else {
-                                g.h(xtb.n);
-                            }
-                            if (!g.e() || g.a() != this.i || g.c() != this.g || g.d() != this.h || g.b() != this.l) {
-                                if (this.m == null) {
-                                    this.m = new HashMap<>();
-                                }
-                                this.m.put(next, g);
-                            }
-                        }
-                    }
-                }
-            } catch (JSONException e) {
-                if (n) {
-                    e.printStackTrace();
-                }
-            }
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.d = j;
         }
     }
 }

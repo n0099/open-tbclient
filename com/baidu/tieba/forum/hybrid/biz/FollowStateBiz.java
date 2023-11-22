@@ -28,20 +28,20 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.tieba.common.JSONKt;
-import com.baidu.tieba.eh7;
+import com.baidu.tieba.fh7;
 import com.baidu.tieba.forum.hybrid.manager.BizBase;
 import com.baidu.tieba.forum.hybrid.manager.WrapListener;
 import com.baidu.tieba.im.message.SettingChangeMessage;
 import com.baidu.tieba.im.settingcache.OfficialSettingCache;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.po5;
 import com.baidu.tieba.qd;
+import com.baidu.tieba.qo5;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.AttentionBarData;
-import com.baidu.tieba.tg7;
-import com.baidu.tieba.ui7;
+import com.baidu.tieba.ug7;
+import com.baidu.tieba.vi7;
 import com.baidu.tieba.w4;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -57,7 +57,7 @@ import org.json.JSONObject;
 import tbclient.FrsPage.ForumInfo;
 @Metadata(d1 = {"\u0000b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0007\u0018\u0000 '2\u00020\u00012\u00020\u0002:\u0001'B\u001b\u0012\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u0004\u0012\u0006\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\b\u0010\u0012\u001a\u00020\u0013H\u0002J\u0012\u0010\u0014\u001a\u00020\u00132\b\u0010\u0015\u001a\u0004\u0018\u00010\u0016H\u0002J\u0013\u0010\u0017\u001a\b\u0012\u0004\u0012\u00020\u00190\u0018H\u0016¢\u0006\u0002\u0010\u001aJ\b\u0010\u001b\u001a\u00020\u0013H\u0016J\b\u0010\u001c\u001a\u00020\u0013H\u0016J\u0018\u0010\u001d\u001a\u00020\u00132\u0006\u0010\u001e\u001a\u00020\u001f2\u0006\u0010 \u001a\u00020!H\u0002J\u000e\u0010\"\u001a\u00020\u00132\u0006\u0010#\u001a\u00020\u001fJ\u001a\u0010\"\u001a\u00020\u00132\b\u0010$\u001a\u0004\u0018\u00010!2\b\u0010 \u001a\u0004\u0018\u00010!J\u0010\u0010%\u001a\u00020\u00132\u0006\u0010&\u001a\u00020!H\u0002R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\nX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006("}, d2 = {"Lcom/baidu/tieba/forum/hybrid/biz/FollowStateBiz;", "Lcom/baidu/tieba/forum/hybrid/manager/BizBase;", "Lcom/baidu/tieba/forum/hybrid/manager/Clean;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/browser/TbWebView;)V", "mAttentionListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mBdLoadDataCallBack", "Lcom/baidu/adp/base/BdLoadDataCallBack;", "mLikeInjectListener", "Lcom/baidu/tieba/tbadkCore/util/AntiHelper$AntiDialogInjectClickListener;", "mLikeModel", "Lcom/baidu/tieba/tbadkCore/LikeModel;", "mUnLikeForumListener", "addLikeBtnClickStat", "", "attentionCallback", "result", "", "keyListeners", "", "Lcom/baidu/tieba/forum/hybrid/manager/WrapListener;", "()[Lcom/baidu/tieba/forum/hybrid/manager/WrapListener;", "onDataUpdate", MissionEvent.MESSAGE_DESTROY, "saveAcceptNotify", "isOn", "", "forumId", "", "startLike", "needAnimation", ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME, "startLikeForum", "data", "Companion", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class FollowStateBiz extends BizBase implements ui7 {
+public final class FollowStateBiz extends BizBase implements vi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LikeModel f;
@@ -236,20 +236,20 @@ public final class FollowStateBiz extends BizBase implements ui7 {
                     AttentionBarData attentionBarData = (AttentionBarData) data;
                     if (attentionBarData.isSuccess) {
                         String valueOf = String.valueOf(attentionBarData.forumId);
-                        eh7 c = this.a.c();
+                        fh7 c = this.a.c();
                         if (c != null && (e2 = c.e()) != null && (l2 = e2.id) != null) {
                             str = String.valueOf(l2);
                         } else {
                             str = null;
                         }
                         if (TextUtils.equals(valueOf, str)) {
-                            eh7 c2 = this.a.c();
+                            fh7 c2 = this.a.c();
                             Intrinsics.checkNotNull(c2);
                             c2.F(0);
                             JSONObject jSONObject = new JSONObject();
                             JSONKt.c(jSONObject, "signStatus", "6");
                             this.a.d().invoke("frsPageNa.frsSignStatus", jSONObject);
-                            eh7 c3 = this.a.c();
+                            fh7 c3 = this.a.c();
                             if (c3 != null && (e = c3.e()) != null && (l = e.id) != null) {
                                 FollowStateBiz followStateBiz = this.a;
                                 long longValue = l.longValue();
@@ -311,7 +311,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
         }
     }
 
-    @Override // com.baidu.tieba.ti7
+    @Override // com.baidu.tieba.ui7
     public WrapListener[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -325,9 +325,9 @@ public final class FollowStateBiz extends BizBase implements ui7 {
         ForumInfo e;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            eh7 c2 = c();
+            fh7 c2 = c();
             Intrinsics.checkNotNull(c2);
-            eh7 c3 = c();
+            fh7 c3 = c();
             if (c3 != null && (e = c3.e()) != null) {
                 num = e.is_like;
             } else {
@@ -342,7 +342,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
         }
     }
 
-    @Override // com.baidu.tieba.ui7
+    @Override // com.baidu.tieba.vi7
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -358,12 +358,12 @@ public final class FollowStateBiz extends BizBase implements ui7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             StatisticItem statisticItem = new StatisticItem("c13605");
-            po5.b(f().getContext(), statisticItem);
-            eh7 c2 = c();
+            qo5.b(f().getContext(), statisticItem);
+            fh7 c2 = c();
             if (c2 != null && (e2 = c2.e()) != null && (l = e2.id) != null) {
                 statisticItem.param("fid", l.longValue());
             }
-            eh7 c3 = c();
+            fh7 c3 = c();
             if (c3 != null && (e = c3.e()) != null && (str = e.name) != null) {
                 statisticItem.param("fname", str);
             }
@@ -404,7 +404,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
             z2 = z;
         }
         if (z2) {
-            eh7 c2 = c();
+            fh7 c2 = c();
             Intrinsics.checkNotNull(c2);
             c2.F(1);
             likeReturnData.setLike(1);
@@ -412,7 +412,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
             JSONKt.c(jSONObject, "signStatus", "7");
             JSONKt.c(jSONObject, "data", likeReturnData.originData);
             d().invoke("frsPageNa.frsSignStatus", jSONObject);
-            eh7 c3 = c();
+            fh7 c3 = c();
             if (c3 != null && (e = c3.e()) != null && (l = e.id) != null) {
                 long longValue = l.longValue();
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_FORUM_SIGN_IN_RESULT);
@@ -422,7 +422,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
                 if ((f().getPageActivity() instanceof FragmentActivity) && !BdToastHelper.canShowToast(likeReturnData.getToastData())) {
                     Activity pageActivity = f().getPageActivity();
                     if (pageActivity != null) {
-                        tg7.i((FragmentActivity) pageActivity).s(String.valueOf(longValue));
+                        ug7.i((FragmentActivity) pageActivity).s(String.valueOf(longValue));
                     } else {
                         throw new NullPointerException("null cannot be cast to non-null type androidx.fragment.app.FragmentActivity");
                     }
@@ -479,7 +479,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
                 TbadkCoreApplication.getInst().login(f(), new CustomMessage<>(2002001, new LoginActivityConfig(f().getPageActivity(), true, 11002)));
                 return;
             }
-            eh7 c2 = c();
+            fh7 c2 = c();
             Long l6 = null;
             if (c2 != null && (e9 = c2.e()) != null) {
                 str = e9.name;
@@ -492,14 +492,14 @@ public final class FollowStateBiz extends BizBase implements ui7 {
                 z3 = true;
             }
             if (!z3) {
-                eh7 c3 = c();
+                fh7 c3 = c();
                 if (c3 != null && (e8 = c3.e()) != null) {
                     l = e8.id;
                 } else {
                     l = null;
                 }
                 if (l != null) {
-                    eh7 c4 = c();
+                    fh7 c4 = c();
                     if (c4 != null) {
                         str3 = c4.h();
                     } else {
@@ -508,7 +508,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
                     long j = 0;
                     if (Intrinsics.areEqual(FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND, str3)) {
                         StatisticItem statisticItem = new StatisticItem("c10356");
-                        eh7 c5 = c();
+                        fh7 c5 = c();
                         if (c5 != null && (e7 = c5.e()) != null) {
                             l5 = e7.id;
                         } else {
@@ -521,7 +521,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
                         }
                         TiebaStatic.log(statisticItem.param("fid", longValue4));
                     } else {
-                        eh7 c6 = c();
+                        fh7 c6 = c();
                         if (c6 != null) {
                             str4 = c6.h();
                         } else {
@@ -529,7 +529,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
                         }
                         if (Intrinsics.areEqual(FrsActivityConfig.FRS_FROM_SQUARE_HOT, str4)) {
                             StatisticItem param = new StatisticItem("c10590").param("obj_type", 2);
-                            eh7 c7 = c();
+                            fh7 c7 = c();
                             if (c7 != null && (e5 = c7.e()) != null) {
                                 l4 = e5.id;
                             } else {
@@ -542,7 +542,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
                             }
                             TiebaStatic.log(param.param("fid", longValue3));
                         } else {
-                            eh7 c8 = c();
+                            fh7 c8 = c();
                             if (c8 != null) {
                                 str5 = c8.h();
                             } else {
@@ -550,7 +550,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
                             }
                             if (Intrinsics.areEqual(FrsActivityConfig.FRS_FROM_SQUARE_TOP, str5)) {
                                 StatisticItem param2 = new StatisticItem("c10587").param("obj_type", 2);
-                                eh7 c9 = c();
+                                fh7 c9 = c();
                                 if (c9 != null && (e4 = c9.e()) != null) {
                                     l3 = e4.id;
                                 } else {
@@ -563,7 +563,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
                                 }
                                 TiebaStatic.log(param2.param("fid", longValue2));
                             } else {
-                                eh7 c10 = c();
+                                fh7 c10 = c();
                                 if (c10 != null) {
                                     str6 = c10.h();
                                 } else {
@@ -571,7 +571,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
                                 }
                                 if (Intrinsics.areEqual(FrsActivityConfig.FRS_FROM_SQUARE_RECOMMEND, str6)) {
                                     StatisticItem param3 = new StatisticItem("c10578").param("obj_type", 2);
-                                    eh7 c11 = c();
+                                    fh7 c11 = c();
                                     if (c11 != null && (e3 = c11.e()) != null) {
                                         l2 = e3.id;
                                     } else {
@@ -588,7 +588,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
                         }
                     }
                     this.f.setFrom("recom_flist_like_frs");
-                    eh7 c12 = c();
+                    fh7 c12 = c();
                     if (c12 != null) {
                         str7 = c12.h();
                     } else {
@@ -597,7 +597,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
                     if (Intrinsics.areEqual(FrsActivityConfig.FRS_FROM_SQUARE, str7)) {
                         TiebaStatic.eventStat(f().getPageActivity(), "square_frs_focus", "click", 1, new Object[0]);
                     } else {
-                        eh7 c13 = c();
+                        fh7 c13 = c();
                         if (c13 != null) {
                             str8 = c13.h();
                         } else {
@@ -605,7 +605,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
                         }
                         if (Intrinsics.areEqual(FrsActivityConfig.FRS_FROM_FOLLOWED_RECOMMEND, str8)) {
                             StatisticItem statisticItem2 = new StatisticItem("c10359");
-                            eh7 c14 = c();
+                            fh7 c14 = c();
                             if (c14 != null && (e6 = c14.e()) != null) {
                                 l6 = e6.id;
                             }
@@ -616,12 +616,12 @@ public final class FollowStateBiz extends BizBase implements ui7 {
                         }
                     }
                     LikeModel likeModel = this.f;
-                    eh7 c15 = c();
+                    fh7 c15 = c();
                     Intrinsics.checkNotNull(c15);
                     ForumInfo e10 = c15.e();
                     Intrinsics.checkNotNull(e10);
                     String str9 = e10.name;
-                    eh7 c16 = c();
+                    fh7 c16 = c();
                     Intrinsics.checkNotNull(c16);
                     ForumInfo e11 = c16.e();
                     Intrinsics.checkNotNull(e11);
@@ -632,7 +632,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
             TbLog hybridLog = HybridLog.getInstance();
             StringBuilder sb = new StringBuilder();
             sb.append("关注吧失败，fname=");
-            eh7 c17 = c();
+            fh7 c17 = c();
             if (c17 != null && (e2 = c17.e()) != null) {
                 str2 = e2.name;
             } else {
@@ -640,7 +640,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
             }
             sb.append(str2);
             sb.append(" fid=");
-            eh7 c18 = c();
+            fh7 c18 = c();
             if (c18 != null && (e = c18.e()) != null) {
                 l6 = e.id;
             }
@@ -656,7 +656,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
         Long l2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            eh7 c2 = c();
+            fh7 c2 = c();
             Intrinsics.checkNotNull(c2);
             if (c2.n() == 1) {
                 return;
@@ -664,7 +664,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
                 k(R.string.obfuscated_res_0x7f0f0e61);
             } else if (!ViewHelper.checkUpIsLogin(f().getPageActivity())) {
-                eh7 c3 = c();
+                fh7 c3 = c();
                 if (c3 != null && (e2 = c3.e()) != null && (l2 = e2.id) != null) {
                     TiebaStatic.log(new StatisticItem("c10517").param("obj_locate", 1).param("fid", l2.longValue()));
                 }
@@ -672,7 +672,7 @@ public final class FollowStateBiz extends BizBase implements ui7 {
                 s(true);
                 if (!qd.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                     StatisticItem statisticItem = new StatisticItem("c10048");
-                    eh7 c4 = c();
+                    fh7 c4 = c();
                     if (c4 != null && (e = c4.e()) != null && (l = e.id) != null) {
                         statisticItem.param("fid", l.longValue());
                     }

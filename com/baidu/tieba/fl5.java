@@ -1,19 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
-/* compiled from: HomePageSpriteStateService.kt */
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes5.dex */
-public final /* synthetic */ class fl5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface fl5 {
+    @NonNull
+    public static final ServiceReference a;
+    @NonNull
+    public static final fl5 b;
 
-    @JvmStatic
-    public static gl5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? gl5.a.a() : (gl5) invokeV.objValue;
+    boolean a(@NonNull String str);
+
+    @NonNull
+    String b(@NonNull String str);
+
+    @NonNull
+    String c();
+
+    @NonNull
+    String d(@NonNull String str, boolean z);
+
+    @NonNull
+    String e(@NonNull String str, @NonNull String str2);
+
+    static {
+        ServiceReference serviceReference = new ServiceReference("tbBaseEmotion", "EmotionService");
+        a = serviceReference;
+        b = (fl5) ServiceManager.getService(serviceReference);
     }
 }

@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f55;
-import com.baidu.tieba.moa;
-import com.baidu.tieba.ooa;
+import com.baidu.tieba.g55;
+import com.baidu.tieba.noa;
+import com.baidu.tieba.poa;
 import com.baidu.tieba.square.square.SquareModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -30,7 +30,7 @@ public class SquareFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public static boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public ooa a;
+    public poa a;
     public SquareModel b;
     public boolean c;
     public boolean d;
@@ -40,7 +40,7 @@ public class SquareFragment extends BaseFragment {
     public final SquareModel.a h;
     public final NoNetworkView.b i;
     public final View.OnKeyListener j;
-    public final f55.g k;
+    public final g55.g k;
 
     static {
         InterceptResult invokeClinit;
@@ -82,13 +82,13 @@ public class SquareFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.square.square.SquareModel.a
-        public void a(boolean z, String str, moa moaVar) {
+        public void a(boolean z, String str, noa noaVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, moaVar}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, noaVar}) == null) {
                 this.a.a.z(true, "");
                 SquareFragment squareFragment = this.a;
                 squareFragment.hideLoadingView(squareFragment.a.A());
-                if (z && moaVar != null && !moaVar.g()) {
+                if (z && noaVar != null && !noaVar.g()) {
                     this.a.a.E(this.a.b.X());
                     this.a.c = true;
                     this.a.a.C();
@@ -215,7 +215,7 @@ public class SquareFragment extends BaseFragment {
     }
 
     /* loaded from: classes8.dex */
-    public class d implements f55.g {
+    public class d implements g55.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SquareFragment a;
@@ -238,7 +238,7 @@ public class SquareFragment extends BaseFragment {
             this.a = squareFragment;
         }
 
-        @Override // com.baidu.tieba.f55.g
+        @Override // com.baidu.tieba.g55.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeZ(1048576, this, z) != null) {
@@ -289,9 +289,9 @@ public class SquareFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            ooa ooaVar = this.a;
-            if (ooaVar != null) {
-                ooaVar.onChangeSkinType(i);
+            poa poaVar = this.a;
+            if (poaVar != null) {
+                poaVar.onChangeSkinType(i);
             }
         }
     }
@@ -313,9 +313,9 @@ public class SquareFragment extends BaseFragment {
     public final void K2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ooa ooaVar = new ooa(this.f, getUniqueId(), this.g, this.j);
-            this.a = ooaVar;
-            ooaVar.G(this.k);
+            poa poaVar = new poa(this.f, getUniqueId(), this.g, this.j);
+            this.a = poaVar;
+            poaVar.G(this.k);
         }
     }
 

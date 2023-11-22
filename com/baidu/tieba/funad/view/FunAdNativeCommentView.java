@@ -23,9 +23,9 @@ import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q58;
-import com.baidu.tieba.sra;
-import com.baidu.tieba.y58;
+import com.baidu.tieba.r58;
+import com.baidu.tieba.tra;
+import com.baidu.tieba.z58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -205,25 +205,25 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
-    public void f(@NonNull sra sraVar, @NonNull Activity activity) {
+    public void f(@NonNull tra traVar, @NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, sraVar, activity) == null) {
-            super.f(sraVar, activity);
-            if (sraVar.e() == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, traVar, activity) == null) {
+            super.f(traVar, activity);
+            if (traVar.e() == null) {
                 return;
             }
-            FunNativeAd2 funNativeAd2 = (FunNativeAd2) sraVar.e();
+            FunNativeAd2 funNativeAd2 = (FunNativeAd2) traVar.e();
             this.w.setText(this.c);
-            this.u.startLoad(y58.i(funNativeAd2), 10, false);
-            if (y58.l(funNativeAd2) != null) {
-                boolean z = y58.z(funNativeAd2);
-                y58.F(this.k, z);
-                y58.D(this.h, z);
+            this.u.startLoad(z58.i(funNativeAd2), 10, false);
+            if (z58.l(funNativeAd2) != null) {
+                boolean z = z58.z(funNativeAd2);
+                z58.F(this.k, z);
+                z58.D(this.h, z);
                 return;
             }
-            boolean y = y58.y(funNativeAd2, y58.j(funNativeAd2));
-            y58.F(this.k, y);
-            y58.D(this.h, y);
+            boolean y = z58.y(funNativeAd2, z58.j(funNativeAd2));
+            z58.F(this.k, y);
+            z58.D(this.h, y);
         }
     }
 
@@ -275,7 +275,7 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
-    public q58.f getLogItem() {
+    public r58.f getLogItem() {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
@@ -285,9 +285,9 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
             } else {
                 str = "0";
             }
-            return q58.b("pb", str);
+            return r58.b("pb", str);
         }
-        return (q58.f) invokeV.objValue;
+        return (r58.f) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView

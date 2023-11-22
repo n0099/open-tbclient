@@ -65,7 +65,7 @@ public class gu extends ns<bw4> {
                     this.a.d().a(this.a.i, this.a.j);
                 }
                 String id = this.a.j.getThreadData().getId();
-                il6.a(id);
+                jl6.a(id);
                 this.a.x(id);
                 this.a.a.q(new mu.a(1));
             }
@@ -121,19 +121,19 @@ public class gu extends ns<bw4> {
     }
 
     @Override // com.baidu.tieba.ns
-    public void n(xl6<bw4> xl6Var) {
+    public void n(yl6<bw4> yl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xl6Var) == null) {
-            super.n(xl6Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yl6Var) == null) {
+            super.n(yl6Var);
         }
     }
 
     public final void x(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            il6.l(this.g, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            il6.l(this.h, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            this.i.setReadState(il6.k(str));
+            jl6.l(this.g, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            jl6.l(this.h, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            this.i.setReadState(jl6.k(str));
         }
     }
 

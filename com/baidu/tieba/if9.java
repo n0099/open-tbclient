@@ -1,80 +1,230 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Item;
-import tbclient.RecommendForumInfo;
-import tbclient.SearchSug.DataRes;
-import tbclient.SugLiveInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.RankingParam;
 import tbclient.SugRankingInfo;
 /* loaded from: classes6.dex */
-public class if9 {
+public class if9 implements oi {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public a d;
 
-    public static List<oi> a(DataRes dataRes, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
-            if (dataRes == null) {
-                return null;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Integer a;
+        public Integer b;
+        public String c;
+        public Integer d;
+
+        public void e(Integer num) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, num) == null) {
             }
-            ArrayList arrayList = new ArrayList();
-            List<RecommendForumInfo> list = dataRes.forum_cards;
-            if (list != null && list.size() > 0) {
-                for (int i = 0; i < list.size(); i++) {
-                    if (list.get(i) != null) {
-                        ef9 ef9Var = new ef9();
-                        ef9Var.i(list.get(i));
-                        ef9Var.l(true);
-                        arrayList.add(ef9Var);
-                    }
-                }
-            } else {
-                RecommendForumInfo recommendForumInfo = dataRes.forum_card;
-                if (recommendForumInfo != null) {
-                    ef9 ef9Var2 = new ef9();
-                    ef9Var2.i(recommendForumInfo);
-                    ef9Var2.l(false);
-                    arrayList.add(ef9Var2);
-                }
-            }
-            Item item = dataRes.item_card;
-            if (item != null) {
-                ff9 ff9Var = new ff9();
-                ff9Var.g(item);
-                arrayList.add(ff9Var);
-            }
-            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
-                gf9 gf9Var = new gf9();
-                gf9Var.n(str);
-                gf9Var.l(sugLiveInfo);
-                arrayList.add(gf9Var);
-            }
-            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
-            if (sugRankingInfo != null) {
-                hf9 hf9Var = new hf9();
-                hf9Var.f(str);
-                hf9Var.e(sugRankingInfo);
-                arrayList.add(hf9Var);
-            }
-            int size = arrayList.size();
-            for (String str2 : dataRes.list) {
-                df9 df9Var = new df9();
-                df9Var.c(str);
-                df9Var.d(str2);
-                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
-                    arrayList.add(size, df9Var);
-                } else {
-                    arrayList.add(df9Var);
-                }
-            }
-            return arrayList;
         }
-        return (List) invokeLL.objValue;
+
+        public void h(Integer num) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, num) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public Integer a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return (Integer) invokeV.objValue;
+        }
+
+        public Integer b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (Integer) invokeV.objValue;
+        }
+
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.c;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public Integer d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.d;
+            }
+            return (Integer) invokeV.objValue;
+        }
+
+        public void f(Integer num) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, num) == null) {
+                this.b = num;
+            }
+        }
+
+        public void g(Integer num) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, num) == null) {
+                this.a = num;
+            }
+        }
+
+        public void i(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+                this.c = str;
+            }
+        }
+
+        public void j(Integer num) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, num) == null) {
+                this.d = num;
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947851725, "Lcom/baidu/tieba/if9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947851725, "Lcom/baidu/tieba/if9;");
+                return;
+            }
+        }
+        e = BdUniqueId.gen();
+    }
+
+    public if9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = "";
+        this.b = "";
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public a b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return e;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void e(SugRankingInfo sugRankingInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, sugRankingInfo) == null) {
+            String str = sugRankingInfo.rank_title;
+            this.a = str;
+            this.c = str;
+            RankingParam rankingParam = sugRankingInfo.rank_param;
+            if (rankingParam != null) {
+                a aVar = new a();
+                aVar.g(rankingParam.rank_type);
+                aVar.f(rankingParam.rank_code);
+                aVar.i(rankingParam.sort_type);
+                aVar.j(rankingParam.tab_id);
+                aVar.e(rankingParam.pn);
+                aVar.h(rankingParam.rn);
+                this.d = aVar;
+            }
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.b = str;
+        }
     }
 }

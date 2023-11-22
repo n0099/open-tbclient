@@ -16,13 +16,13 @@ import com.baidu.tbadk.editortools.meme.model.SpriteMemeReplyData;
 import com.baidu.tbadk.editortools.meme.pan.SpriteMemePan;
 import com.baidu.tbadk.editortools.meme.pan.SpriteMemePanController;
 import com.baidu.tbadk.editortools.pb.PbNewEditorTool;
-import com.baidu.tieba.cg5;
-import com.baidu.tieba.of5;
+import com.baidu.tieba.dg5;
 import com.baidu.tieba.pf5;
 import com.baidu.tieba.qf5;
-import com.baidu.tieba.wf5;
+import com.baidu.tieba.rf5;
 import com.baidu.tieba.xf5;
 import com.baidu.tieba.yf5;
+import com.baidu.tieba.zf5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -130,7 +130,7 @@ public final class SpriteMemePanController {
         }
 
         @Override // com.baidu.tbadk.editortools.meme.model.QuerySpriteMemeModel.a
-        public void a(xf5 spriteMemeQueryData, String requestQuery) {
+        public void a(yf5 spriteMemeQueryData, String requestQuery) {
             SpriteMemePanStateType spriteMemePanStateType;
             SpriteMemePanStateType spriteMemePanStateType2;
             Interceptable interceptable = $ic;
@@ -215,7 +215,7 @@ public final class SpriteMemePanController {
         }
 
         @Override // com.baidu.tbadk.editortools.meme.model.SpriteMemeLoopModel.a
-        public void a(wf5 spriteMemeLoopData) {
+        public void a(xf5 spriteMemeLoopData) {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spriteMemeLoopData) == null) {
@@ -646,7 +646,7 @@ public final class SpriteMemePanController {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, inputShowType)) == null) {
-            if (yf5.a.a() && (inputShowType == PbNewEditorTool.InputShowType.REPLY || inputShowType == PbNewEditorTool.InputShowType.REPLY_BIG_IMAGE || inputShowType == PbNewEditorTool.InputShowType.REPLY_VIDEO)) {
+            if (zf5.a.a() && (inputShowType == PbNewEditorTool.InputShowType.REPLY || inputShowType == PbNewEditorTool.InputShowType.REPLY_BIG_IMAGE || inputShowType == PbNewEditorTool.InputShowType.REPLY_VIDEO)) {
                 z = true;
             } else {
                 z = false;
@@ -706,7 +706,7 @@ public final class SpriteMemePanController {
                 u(spriteMemePanStateType, spriteMemePan, j, str, str2, false, null, false, 224, null);
                 return;
             }
-            d = new Runnable() { // from class: com.baidu.tieba.ag5
+            d = new Runnable() { // from class: com.baidu.tieba.bg5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -718,7 +718,7 @@ public final class SpriteMemePanController {
                     }
                 }
             };
-            SafeHandler.getInst().postDelayed(d, of5.a.a().f());
+            SafeHandler.getInst().postDelayed(d, pf5.a.a().f());
         }
     }
 
@@ -741,12 +741,12 @@ public final class SpriteMemePanController {
             if (str2 == null) {
                 str2 = "0";
             }
-            qf5 qf5Var = new qf5();
-            qf5Var.l(1);
-            qf5Var.j(i);
-            qf5Var.g(str);
-            qf5Var.k(str2);
-            pf5.a.c(qf5Var);
+            rf5 rf5Var = new rf5();
+            rf5Var.l(1);
+            rf5Var.j(i);
+            rf5Var.g(str);
+            rf5Var.k(str2);
+            qf5.a.c(rf5Var);
         }
     }
 
@@ -780,21 +780,21 @@ public final class SpriteMemePanController {
                                 }
                                 return;
                             }
-                            spriteMemePan.d(new cg5(spriteMemePanStateType, new SpriteMemeReplyData(null, null, null, z, null, false, 55, null), list));
+                            spriteMemePan.d(new dg5(spriteMemePanStateType, new SpriteMemeReplyData(null, null, null, z, null, false, 55, null), list));
                             return;
                         }
-                        spriteMemePan.d(new cg5(spriteMemePanStateType, new SpriteMemeReplyData(of5.a.a().i(of5.a.a().e()), null, null, z, new g(spriteMemePan, j, str3, str4), false, 38, null), list));
+                        spriteMemePan.d(new dg5(spriteMemePanStateType, new SpriteMemeReplyData(pf5.a.a().i(pf5.a.a().e()), null, null, z, new g(spriteMemePan, j, str3, str4), false, 38, null), list));
                         d();
                         return;
                     }
-                    spriteMemePan.d(new cg5(spriteMemePanStateType, new SpriteMemeReplyData(of5.a.a().i(of5.a.a().g()), of5.a.a().h(), SpriteMemeReplyData.SPRITE_SCENE.SCENE_REPLY_REFRESH, z, new f(str3, str4), false, 32, null), list));
+                    spriteMemePan.d(new dg5(spriteMemePanStateType, new SpriteMemeReplyData(pf5.a.a().i(pf5.a.a().g()), pf5.a.a().h(), SpriteMemeReplyData.SPRITE_SCENE.SCENE_REPLY_REFRESH, z, new f(str3, str4), false, 32, null), list));
                     return;
                 }
-                spriteMemePan.d(new cg5(spriteMemePanStateType, new SpriteMemeReplyData(of5.a.a().i(of5.a.a().j()), null, null, z, new e(spriteMemePan, j, str3, str4), false, 38, null), list));
+                spriteMemePan.d(new dg5(spriteMemePanStateType, new SpriteMemeReplyData(pf5.a.a().i(pf5.a.a().j()), null, null, z, new e(spriteMemePan, j, str3, str4), false, 38, null), list));
                 d();
                 return;
             }
-            spriteMemePan.d(new cg5(spriteMemePanStateType, new SpriteMemeReplyData(of5.a.a().i(of5.a.a().k()), of5.a.a().h(), SpriteMemeReplyData.SPRITE_SCENE.SCENE_REPLY_REFRESH, z, new d(str3, str4), false, 32, null), list));
+            spriteMemePan.d(new dg5(spriteMemePanStateType, new SpriteMemeReplyData(pf5.a.a().i(pf5.a.a().k()), pf5.a.a().h(), SpriteMemeReplyData.SPRITE_SCENE.SCENE_REPLY_REFRESH, z, new d(str3, str4), false, 32, null), list));
         }
     }
 
@@ -834,11 +834,11 @@ public final class SpriteMemePanController {
         t(spriteMemePanStateType, spriteMemePan, j2, str3, str4, z3, list2, z4);
     }
 
-    public final void p(xf5 xf5Var, SpriteMemePanStateType spriteMemePanStateType, SpriteMemePan spriteMemePan, long j, String str, String str2, boolean z) {
+    public final void p(yf5 yf5Var, SpriteMemePanStateType spriteMemePanStateType, SpriteMemePan spriteMemePan, long j, String str, String str2, boolean z) {
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{xf5Var, spriteMemePanStateType, spriteMemePan, Long.valueOf(j), str, str2, Boolean.valueOf(z)}) == null) {
-            String b2 = xf5Var.b();
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{yf5Var, spriteMemePanStateType, spriteMemePan, Long.valueOf(j), str, str2, Boolean.valueOf(z)}) == null) {
+            String b2 = yf5Var.b();
             if (b2.length() == 0) {
                 z2 = true;
             } else {
@@ -849,7 +849,7 @@ public final class SpriteMemePanController {
                 SpriteMemeLoopModel.m(h(), false, 1, null);
                 return;
             }
-            h().j(new c(xf5Var.a(), spriteMemePanStateType, spriteMemePan, j, str, str2, z));
+            h().j(new c(yf5Var.a(), spriteMemePanStateType, spriteMemePan, j, str, str2, z));
             h().k(b2);
         }
     }
@@ -857,12 +857,12 @@ public final class SpriteMemePanController {
     public final void q(int i, int i2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
-            qf5 qf5Var = new qf5();
-            qf5Var.l(i);
-            qf5Var.j(i2);
-            qf5Var.g(str);
-            qf5Var.k(str2);
-            pf5.a.c(qf5Var);
+            rf5 rf5Var = new rf5();
+            rf5Var.l(i);
+            rf5Var.j(i2);
+            rf5Var.g(str);
+            rf5Var.k(str2);
+            qf5.a.c(rf5Var);
         }
     }
 }

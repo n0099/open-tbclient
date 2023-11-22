@@ -1,20 +1,24 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseView;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.WholeDisplayGridView;
-import com.baidu.tieba.pxa;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.themeCenter.MemberRecommendView;
 import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,176 +26,191 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class qxa extends BaseAdapter {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int e = 16;
+public class qxa extends BdBaseView<AvatarPendantActivity> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AvatarPendantActivity a;
-    public List<nxa> b;
-    public oxa c;
-    public pxa.a d;
+    public rxa a;
+    public BdListView b;
+    public NoNetworkView c;
+    public MemberRecommendView d;
+    public NavigationBar e;
+    public int f;
+    public TextView g;
+    public TextView h;
+    public AvatarPendantActivity i;
+    public View j;
+    public TextView k;
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface a {
+        void W(DressItemData dressItemData);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948108591, "Lcom/baidu/tieba/qxa;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948108591, "Lcom/baidu/tieba/qxa;");
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public WholeDisplayGridView b;
-        public View c;
-
-        public b(qxa qxaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qxaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(qxa qxaVar, a aVar) {
-            this(qxaVar);
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public qxa(AvatarPendantActivity avatarPendantActivity) {
+        super(avatarPendantActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {avatarPendantActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = avatarPendantActivity;
+        this.f = 0;
+        this.i = avatarPendantActivity;
+        avatarPendantActivity.setContentView(R.layout.obfuscated_res_0x7f0d0135);
+        this.j = avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f09200a);
+        this.f = BdUtilHelper.getDimens(avatarPendantActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0703bc);
+        this.b = (BdListView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f090336);
+        this.c = (NoNetworkView) avatarPendantActivity.findViewById(R.id.view_no_network);
+        NavigationBar navigationBar = (NavigationBar) avatarPendantActivity.findViewById(R.id.view_navigation_bar);
+        this.e = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.e.setTitleText(R.string.obfuscated_res_0x7f0f0307);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f090338);
+        this.d = memberRecommendView;
+        memberRecommendView.setFromType(8);
+        this.d.getButton().setOnClickListener(avatarPendantActivity);
+        TextView textView = new TextView(avatarPendantActivity.getActivity());
+        this.g = textView;
+        textView.setHeight(BdUtilHelper.getDimens(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
+        this.k = new TextView(avatarPendantActivity.getActivity());
+        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f070282));
+        TextView textView2 = new TextView(avatarPendantActivity.getActivity());
+        this.h = textView2;
+        textView2.setHeight(BdUtilHelper.getDimens(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f0703ec));
+        this.k.setLayoutParams(layoutParams);
+        this.b.w(this.k, 0);
+        this.b.addFooterView(this.h);
+        rxa rxaVar = new rxa(avatarPendantActivity);
+        this.a = rxaVar;
+        this.b.setAdapter((ListAdapter) rxaVar);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public nxa getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<nxa> list = this.b;
-            if (list != null && list.size() > 0 && i >= 0 && i < getCount()) {
-                return this.b.get(i);
-            }
-            return null;
-        }
-        return (nxa) invokeI.objValue;
-    }
-
-    public void b(pxa.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.d = aVar;
-        }
-    }
-
-    public void c(List<nxa> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b = list;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public TextView A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<nxa> list = this.b;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.k;
         }
-        return invokeV.intValue;
+        return (TextView) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
+    public void x() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 != null && (view2.getTag() instanceof b)) {
-                bVar = (b) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0137, viewGroup, false);
-                bVar = new b(this, null);
-                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090682);
-                bVar.b = (WholeDisplayGridView) view2.findViewById(R.id.obfuscated_res_0x7f090335);
-                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f09157e);
-                view2.setTag(bVar);
-            }
-            nxa item = getItem(i);
-            if (StringUtils.isNull(item.a())) {
-                bVar.a.setVisibility(8);
-            } else {
-                bVar.a.setVisibility(0);
-                bVar.a.setText(qd.cutString(item.a(), e));
-            }
-            if (item != null && !ListUtils.isEmpty(item.b())) {
-                oxa oxaVar = new oxa(this.a);
-                this.c = oxaVar;
-                oxaVar.d(item.b());
-                bVar.b.setAdapter((ListAdapter) this.c);
-                this.c.c(this.d);
-            }
-            if (i == getCount() - 1) {
-                bVar.c.setVisibility(8);
-            } else {
-                bVar.c.setVisibility(0);
-            }
-            SkinManager.setBackgroundColor(bVar.c, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(bVar.a, (int) R.color.CAM_X0109);
-            return view2;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.i.hideNetRefreshView(this.j);
+            this.b.setVisibility(0);
         }
-        return (View) invokeILL.objValue;
+    }
+
+    public MemberRecommendView y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.d;
+        }
+        return (MemberRecommendView) invokeV.objValue;
+    }
+
+    public View z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.j;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            xp5.a(this.i.getPageContext(), this.j);
+            this.b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
+            this.a.notifyDataSetChanged();
+            this.e.onChangeSkinType(this.i.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.c.onChangeSkinType(this.i.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.d.d();
+            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0201);
+        }
+    }
+
+    public void D(List<oxa> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            if (list != null && list.size() > 0) {
+                this.b.setVisibility(0);
+                this.a.c(list);
+                this.a.notifyDataSetChanged();
+                return;
+            }
+            this.b.setVisibility(8);
+        }
+    }
+
+    public void F(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.a.b(aVar);
+        }
+    }
+
+    public void g(NoNetworkView.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
+            this.c.addNetworkChangeListener(bVar);
+        }
+    }
+
+    public final boolean E(qya qyaVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, qyaVar)) == null) {
+            if (qyaVar != null && !StringUtils.isNull(qyaVar.c())) {
+                this.d.setVisibility(0);
+                this.d.e(qyaVar);
+                return true;
+            }
+            this.d.setVisibility(8);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b.setVisibility(8);
+            String string = this.i.getPageContext().getResources().getString(R.string.no_data_text);
+            this.i.setNetRefreshViewTopMargin(this.f);
+            this.i.showNetRefreshView(this.j, string, false);
+        }
+    }
+
+    public void H(qya qyaVar, List<oxa> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, qyaVar, list) == null) {
+            if ((qyaVar != null && !StringUtils.isNull(qyaVar.c())) || (list != null && list.size() > 0)) {
+                x();
+                if (E(qyaVar)) {
+                    this.b.removeHeaderView(this.g);
+                    this.b.addHeaderView(this.g);
+                } else {
+                    this.b.removeHeaderView(this.g);
+                }
+                D(list);
+                return;
+            }
+            G();
+        }
     }
 }

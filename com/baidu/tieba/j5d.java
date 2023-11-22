@@ -5,23 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.TwAnchorProfitItem;
+import tbclient.TshowInfo;
 /* loaded from: classes6.dex */
-public class j5d extends poc {
+public class j5d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TwAnchorProfitItem twAnchorProfitItem) {
+    public static JSONObject b(@NonNull TshowInfo tshowInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, twAnchorProfitItem)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tshowInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "id", twAnchorProfitItem.id);
-            poc.a(jSONObject, "available_anchor_level", twAnchorProfitItem.available_anchor_level);
-            poc.a(jSONObject, "name", twAnchorProfitItem.name);
-            poc.a(jSONObject, "icon_unlock_url", twAnchorProfitItem.icon_unlock_url);
-            poc.a(jSONObject, "icon_lock_url", twAnchorProfitItem.icon_lock_url);
+            qoc.a(jSONObject, "icon", tshowInfo.icon);
+            qoc.a(jSONObject, "name", tshowInfo.name);
+            qoc.a(jSONObject, "url", tshowInfo.url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

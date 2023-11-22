@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ci5 extends yh5 {
+public class ci5 extends zh5 {
     public static /* synthetic */ Interceptable $ic;
     public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class ci5 extends yh5 {
                 return;
             }
         }
-        c = yh5.a("IEND");
+        c = zh5.a("IDAT");
     }
 
     public ci5() {

@@ -4,8 +4,8 @@ import androidx.annotation.Keep;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.aza;
-import com.baidu.tieba.qa5;
+import com.baidu.tieba.bza;
+import com.baidu.tieba.ra5;
 import com.baidu.tieba.tracker.Tracker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +20,7 @@ import org.json.JSONObject;
 @Service
 @Metadata(d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\b\u0007\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0016¨\u0006\u0007"}, d2 = {"Lcom/baidu/tbadk/tracker/LogUploadConfig;", "Lcom/baidu/tbadk/coreExtra/parser/WlConfigParseInject;", "()V", "parseJson", "", "json", "Lorg/json/JSONObject;", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class LogUploadConfig implements qa5 {
+public final class LogUploadConfig implements ra5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,7 +38,7 @@ public final class LogUploadConfig implements qa5 {
         }
     }
 
-    @Override // com.baidu.tieba.qa5
+    @Override // com.baidu.tieba.ra5
     public void parseJson(JSONObject json) {
         boolean z;
         Map<String, Object> map;
@@ -60,7 +60,7 @@ public final class LogUploadConfig implements qa5 {
                         z = false;
                     }
                     a.r(z);
-                    aza.a.b(optJSONObject.optInt("errlog_switch", 1));
+                    bza.a.b(optJSONObject.optInt("errlog_switch", 1));
                     JSONArray optJSONArray = optJSONObject.optJSONArray("page");
                     if (optJSONArray != null) {
                         Intrinsics.checkNotNullExpressionValue(optJSONArray, "optJSONArray(\"page\")");

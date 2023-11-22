@@ -1,214 +1,95 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.content.Context;
+import android.content.MutableContextWrapper;
+import android.view.ContextThemeWrapper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.vcode.VcodeTool;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.write.accountAccess.AccountAccessActivity;
+import com.baidu.tieba.browser.TbWebView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class b9b {
+public final class b9b {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c9b a;
-    public final NewWriteModel b;
-    public boolean c;
-    public final NewWriteModel.d d;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947601214, "Lcom/baidu/tieba/b9b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947601214, "Lcom/baidu/tieba/b9b;");
+                return;
+            }
+        }
+        a = new a(null);
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements NewWriteModel.d {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b9b a;
 
-        public a(b9b b9bVar) {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b9bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = b9bVar;
         }
 
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, g95 g95Var, WriteData writeData, AntiData antiData) {
+        @JvmStatic
+        public final TbWebView a(Context context) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, g95Var, writeData, antiData}) == null) && this.a.a != null && this.a.b != null && this.a.b.e0() != null) {
-                this.a.a.p(false);
-                if (writeData == null) {
-                    writeData = this.a.b.e0();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                if (context instanceof MutableContextWrapper) {
+                    MutableContextWrapper mutableContextWrapper = (MutableContextWrapper) context;
+                    mutableContextWrapper.setBaseContext(new ContextThemeWrapper(mutableContextWrapper.getBaseContext(), (int) R.style.obfuscated_res_0x7f10044d));
+                    return new TbWebView(context);
                 }
-                WriteData writeData2 = writeData;
-                if (!z) {
-                    if (writeData2 != null && g95Var != null && !TextUtils.isEmpty(g95Var.d())) {
-                        writeData2.setVcodeMD5(g95Var.b());
-                        writeData2.setVcodeUrl(g95Var.c());
-                        writeData2.setVcodeExtra(g95Var.a());
-                        this.a.a.g().setVisible(false);
-                        if (VcodeTool.needVcode(g95Var.d())) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.a.g().getActivity(), 12006, writeData2, false, g95Var.d())));
-                            return;
-                        } else {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.a.g().getActivity(), writeData2, 12006)));
-                            return;
-                        }
-                    } else if (postWriteCallBackData != null && postWriteCallBackData.isSensitiveError()) {
-                        Intent intent = new Intent();
-                        Bundle bundle = new Bundle();
-                        bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
-                        intent.putExtras(bundle);
-                        BaseActivity g = this.a.a.g();
-                        this.a.a.g();
-                        g.setResult(0, intent);
-                        this.a.a.g().finish();
-                        return;
-                    } else {
-                        if (postWriteCallBackData != null) {
-                            zta.b(this.a.a.g().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
-                            BaseActivity g2 = this.a.a.g();
-                            this.a.a.g();
-                            g2.setResult(0, null);
-                        }
-                        this.a.a.g().finish();
-                        return;
-                    }
+                return new TbWebView(new ContextThemeWrapper(context, (int) R.style.obfuscated_res_0x7f10044d));
+            }
+            return (TbWebView) invokeL.objValue;
+        }
+
+        @JvmStatic
+        public final Context b(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                if (context instanceof MutableContextWrapper) {
+                    MutableContextWrapper mutableContextWrapper = (MutableContextWrapper) context;
+                    mutableContextWrapper.setBaseContext(new ContextThemeWrapper(mutableContextWrapper.getBaseContext(), (int) R.style.obfuscated_res_0x7f10044d));
+                    return context;
                 }
-                this.a.c = true;
-                if (postWriteCallBackData == null) {
-                    zta.b(this.a.a.g().getActivity(), this.a.a.g().getResources().getString(R.string.send_success), null, null);
-                } else {
-                    zta.b(this.a.a.g().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
-                }
-                Intent intent2 = new Intent();
-                Bundle bundle2 = new Bundle();
-                bundle2.putSerializable("post_write_callback_data", postWriteCallBackData);
-                intent2.putExtras(bundle2);
-                BaseActivity g3 = this.a.a.g();
-                this.a.a.g();
-                g3.setResult(-1, intent2);
-                this.a.a.g().finish();
+                return new ContextThemeWrapper(context, (int) R.style.obfuscated_res_0x7f10044d);
             }
-        }
-    }
-
-    public b9b(c9b c9bVar, NewWriteModel newWriteModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {c9bVar, newWriteModel};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        a aVar = new a(this);
-        this.d = aVar;
-        this.a = c9bVar;
-        this.b = newWriteModel;
-        newWriteModel.m0(aVar);
-    }
-
-    public void h(String str) {
-        c9b c9bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (c9bVar = this.a) != null) {
-            c9bVar.q(true);
-            this.a.r(false);
-            this.a.j().loadUrl(str);
-        }
-    }
-
-    public void d() {
-        c9b c9bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (c9bVar = this.a) != null) {
-            c9bVar.s(500);
-        }
-    }
-
-    public void e() {
-        c9b c9bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (c9bVar = this.a) != null) {
-            c9bVar.p(false);
-        }
-    }
-
-    public boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.a == null || str == null) {
-                return false;
-            }
-            if (str.equals(AccountAccessActivity.g)) {
-                this.a.g().finish();
-                return true;
-            } else if (str.equals(AccountAccessActivity.h)) {
-                this.a.o(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
-                if (this.a.h() != this.a.i()) {
-                    c9b c9bVar = this.a;
-                    c9bVar.n(c9bVar.h());
-                    this.a.t();
-                }
-                this.a.j().setVisibility(0);
-                return true;
-            } else if (str.equals(AccountAccessActivity.i)) {
-                g();
-                return true;
-            } else if (str.equals(AccountAccessActivity.j) || str.equals(AccountAccessActivity.k)) {
-                this.a.g().finish();
-                UrlManager.getInstance().dealOneLink(this.a.g().getPageContext(), new String[]{UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK});
-                return true;
-            } else {
-                return true;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a != null && this.b != null) {
-            if (!BdUtilHelper.isNetOk()) {
-                this.a.g().showToast(R.string.obfuscated_res_0x7f0f0e61);
-                this.a.g().finish();
-                return;
-            }
-            this.a.p(true);
-            this.b.p0();
+            return (Context) invokeL.objValue;
         }
     }
 }

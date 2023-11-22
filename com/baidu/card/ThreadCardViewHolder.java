@@ -22,8 +22,8 @@ import com.baidu.tieba.ps;
 import com.baidu.tieba.ss;
 import com.baidu.tieba.tt;
 import com.baidu.tieba.ws;
-import com.baidu.tieba.xl6;
 import com.baidu.tieba.xs;
+import com.baidu.tieba.yl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -199,10 +199,10 @@ public class ThreadCardViewHolder<T extends bw4> extends TypeAdapter.ViewHolder 
         }
     }
 
-    public void h(xl6<T> xl6Var) {
+    public void h(yl6<T> yl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, xl6Var) == null) {
-            this.b.r(xl6Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yl6Var) == null) {
+            this.b.r(yl6Var);
         }
     }
 

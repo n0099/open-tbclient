@@ -5,20 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.Avatar;
+import tbclient.AtMsgBase;
 /* loaded from: classes9.dex */
-public class xpc extends poc {
+public class xpc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Avatar avatar) {
+    public static JSONObject b(@NonNull AtMsgBase atMsgBase) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, avatar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, atMsgBase)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "pic", avatar.pic);
-            poc.a(jSONObject, "pos", avatar.pos);
+            qoc.a(jSONObject, "msg_id", atMsgBase.msg_id);
+            qoc.a(jSONObject, "msg_key", atMsgBase.msg_key);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

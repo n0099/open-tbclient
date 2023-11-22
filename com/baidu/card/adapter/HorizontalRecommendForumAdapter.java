@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ln5;
+import com.baidu.tieba.mn5;
 import com.baidu.tieba.qw4;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.vu4;
@@ -30,7 +30,7 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public ArrayList<ln5> b;
+    public ArrayList<mn5> b;
     public vu4<ry4> c;
 
     public void n(boolean z) {
@@ -298,7 +298,7 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
         return invokeI.intValue;
     }
 
-    public void m(ArrayList<? extends ln5> arrayList) {
+    public void m(ArrayList<? extends mn5> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) != null) || arrayList == null) {
             return;
@@ -320,7 +320,7 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList<ln5> arrayList = this.b;
+            ArrayList<mn5> arrayList = this.b;
             if (arrayList == null) {
                 return 0;
             }
@@ -331,14 +331,14 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        ArrayList<ln5> arrayList;
+        ArrayList<mn5> arrayList;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048581, this, viewHolder, i) == null) && (arrayList = this.b) != null && arrayList.size() > 0) {
-            ln5 ln5Var = this.b.get(i);
-            if ((viewHolder instanceof a) && (ln5Var instanceof qw4)) {
-                ((a) viewHolder).a((qw4) ln5Var);
-            } else if ((viewHolder instanceof b) && (ln5Var instanceof ry4)) {
-                ry4 ry4Var = (ry4) ln5Var;
+            mn5 mn5Var = this.b.get(i);
+            if ((viewHolder instanceof a) && (mn5Var instanceof qw4)) {
+                ((a) viewHolder).a((qw4) mn5Var);
+            } else if ((viewHolder instanceof b) && (mn5Var instanceof ry4)) {
+                ry4 ry4Var = (ry4) mn5Var;
                 ((b) viewHolder).b(ry4Var);
                 vu4<ry4> vu4Var = this.c;
                 if (vu4Var != null) {

@@ -33,10 +33,10 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.b65;
 import com.baidu.tieba.bw4;
+import com.baidu.tieba.c65;
 import com.baidu.tieba.it;
-import com.baidu.tieba.wy7;
+import com.baidu.tieba.xy7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -247,7 +247,7 @@ public class CardItemRecommendLayout extends LinearLayout implements it {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) && ListUtils.getItem(this.a.d, i) != null) {
                 ItemClickJumpUtil.itemClickJump(((ItemInfo) ListUtils.getItem(this.a.d, i)).forum_name, String.valueOf(((ItemInfo) ListUtils.getItem(this.a.d, i)).id), 0);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new b65(3, i + 1, 2)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new c65(3, i + 1, 2)));
             }
         }
     }
@@ -296,7 +296,7 @@ public class CardItemRecommendLayout extends LinearLayout implements it {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, i) == null) && ListUtils.getItem(this.a.d, i) != null) {
                 dVar.b((ItemInfo) ListUtils.getItem(this.a.d, i));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new b65(3, i + 1, 1)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new c65(3, i + 1, 1)));
             }
         }
 
@@ -386,10 +386,10 @@ public class CardItemRecommendLayout extends LinearLayout implements it {
 
     public void setData(bw4 bw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bw4Var) == null) && (bw4Var instanceof wy7)) {
-            wy7 wy7Var = (wy7) bw4Var;
-            if (wy7Var.c() != null) {
-                this.d = wy7Var.c();
+        if ((interceptable == null || interceptable.invokeL(1048579, this, bw4Var) == null) && (bw4Var instanceof xy7)) {
+            xy7 xy7Var = (xy7) bw4Var;
+            if (xy7Var.c() != null) {
+                this.d = xy7Var.c();
                 this.c.notifyDataSetChanged();
             }
         }

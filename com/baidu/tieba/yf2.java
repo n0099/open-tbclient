@@ -12,7 +12,7 @@ import com.baidu.swan.apps.core.pms.PMSDownloadType;
 import com.baidu.swan.apps.core.pms.PkgDownloadError;
 import com.baidu.swan.pms.utils.AbiType;
 import com.baidu.tieba.c92;
-import com.baidu.tieba.ijc;
+import com.baidu.tieba.jjc;
 import com.baidu.tieba.wf2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -38,8 +38,8 @@ public final class yf2 extends k92 implements dj4, aj4 {
     public static final PMSDownloadType o;
     public transient /* synthetic */ FieldHolder $fh;
     public String c;
-    public ojc<? super if4> d;
-    public ojc<if4> e;
+    public pjc<? super if4> d;
+    public pjc<if4> e;
     public oj4 f;
     public final mh4 g;
     public xd4<if4> h;
@@ -222,7 +222,7 @@ public final class yf2 extends k92 implements dj4, aj4 {
     }
 
     /* loaded from: classes9.dex */
-    public class e implements ijc.a<if4> {
+    public class e implements jjc.a<if4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yf2 a;
@@ -246,19 +246,19 @@ public final class yf2 extends k92 implements dj4, aj4 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wjc
+        @Override // com.baidu.tieba.xjc
         /* renamed from: a */
-        public void call(ojc<? super if4> ojcVar) {
+        public void call(pjc<? super if4> pjcVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, ojcVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, pjcVar) != null) {
                 return;
             }
-            this.a.d = ojcVar;
+            this.a.d = pjcVar;
         }
     }
 
     /* loaded from: classes9.dex */
-    public class f extends ojc<if4> {
+    public class f extends pjc<if4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yf2 e;
@@ -286,7 +286,7 @@ public final class yf2 extends k92 implements dj4, aj4 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jjc
+        @Override // com.baidu.tieba.kjc
         /* renamed from: g */
         public void onNext(if4 if4Var) {
             Interceptable interceptable = $ic;
@@ -296,7 +296,7 @@ public final class yf2 extends k92 implements dj4, aj4 {
             }
         }
 
-        @Override // com.baidu.tieba.jjc
+        @Override // com.baidu.tieba.kjc
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -308,7 +308,7 @@ public final class yf2 extends k92 implements dj4, aj4 {
             }
         }
 
-        @Override // com.baidu.tieba.jjc
+        @Override // com.baidu.tieba.kjc
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -537,7 +537,7 @@ public final class yf2 extends k92 implements dj4, aj4 {
         }
     }
 
-    public final ojc<if4> b0() {
+    public final pjc<if4> b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -546,7 +546,7 @@ public final class yf2 extends k92 implements dj4, aj4 {
             }
             return this.e;
         }
-        return (ojc) invokeV.objValue;
+        return (pjc) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.dj4
@@ -792,10 +792,10 @@ public final class yf2 extends k92 implements dj4, aj4 {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             ArrayList arrayList = new ArrayList();
             if (this.f.g()) {
-                arrayList.add(ijc.d(new e(this)));
+                arrayList.add(jjc.d(new e(this)));
             }
             if (!arrayList.isEmpty()) {
-                ijc.q(arrayList).F(b0());
+                jjc.q(arrayList).F(b0());
             }
         }
     }

@@ -5,23 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.SchoolRecomUserInfo;
+import tbclient.Rpgoldicon;
 /* loaded from: classes8.dex */
-public class u2d extends poc {
+public class u2d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SchoolRecomUserInfo schoolRecomUserInfo) {
+    public static JSONObject b(@NonNull Rpgoldicon rpgoldicon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, schoolRecomUserInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, rpgoldicon)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "uid", schoolRecomUserInfo.uid);
-            poc.a(jSONObject, "uname", schoolRecomUserInfo.uname);
-            poc.a(jSONObject, "portrait", schoolRecomUserInfo.portrait);
-            poc.a(jSONObject, "institute", schoolRecomUserInfo.institute);
-            poc.a(jSONObject, "is_liked", schoolRecomUserInfo.is_liked);
+            qoc.a(jSONObject, "key", rpgoldicon.key);
+            qoc.a(jSONObject, "value", rpgoldicon.value);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

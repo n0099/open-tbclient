@@ -21,7 +21,7 @@ public class sy1 extends ry1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public ojc c;
+    public pjc c;
 
     /* loaded from: classes8.dex */
     public class a implements zk3<jb3<lb3.e>> {
@@ -174,7 +174,7 @@ public class sy1 extends ry1 {
                 return false;
             }
             bz1 bz1Var = (bz1) r(unitedSchemeEntity);
-            ojc x = new f22(context, bz1Var).x();
+            pjc x = new f22(context, bz1Var).x();
             this.c = x;
             if (x == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -198,12 +198,12 @@ public class sy1 extends ry1 {
                 String str = bz1Var.b;
                 mw2 mw2Var = bz1Var.h;
                 if (!TextUtils.isEmpty(str) && mw2Var != null && mw2Var.h()) {
-                    ojc ojcVar = this.c;
-                    if (ojcVar == null) {
+                    pjc pjcVar = this.c;
+                    if (pjcVar == null) {
                         z22.a("SwanAppCameraManager", "executionInstruction with a null subscriber");
                         return false;
                     }
-                    ojcVar.onCompleted();
+                    pjcVar.onCompleted();
                     g32.i("SwanAppCameraManager", "handle insert camera instruction end");
                     return true;
                 }

@@ -4,20 +4,34 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.EsportInfo;
+import tbclient.Esport;
+import tbclient.EsportRank;
+import tbclient.EsportStatic;
 /* loaded from: classes8.dex */
-public class wrc extends poc {
+public class wrc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull EsportInfo esportInfo) {
+    public static JSONObject b(@NonNull Esport esport) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, esportInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, esport)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "intro", esportInfo.intro);
+            EsportStatic esportStatic = esport._static;
+            if (esportStatic != null) {
+                qoc.a(jSONObject, "static", zrc.b(esportStatic));
+            }
+            qoc.a(jSONObject, "floor_no", esport.floor_no);
+            if (esport.billboard != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (EsportRank esportRank : esport.billboard) {
+                    jSONArray.put(yrc.b(esportRank));
+                }
+                qoc.a(jSONObject, "billboard", jSONArray);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

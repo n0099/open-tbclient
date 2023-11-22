@@ -1,97 +1,368 @@
 package com.baidu.tieba;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
+import android.graphics.drawable.GradientDrawable;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.view.ViewPropertyAnimator;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.forum.bubble.ForumFloatBubble;
+import com.baidu.tieba.forum.widget.TbBottomSheetView;
+import com.baidu.tieba.forum.widget.TbNestedScrollView;
+import com.baidu.tieba.om7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
 public final class te7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final int c;
+    public final ForumFloatBubble a;
+    public final int b;
+    public ViewPropertyAnimator c;
+    public TbBottomSheetView d;
+    public View e;
+    public om7 f;
+    public b g;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+    /* loaded from: classes8.dex */
+    public static final class a extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ te7 a;
+
+        public a(te7 te7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {te7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (obj instanceof te7) {
-                te7 te7Var = (te7) obj;
-                return Intrinsics.areEqual(this.a, te7Var.a) && Intrinsics.areEqual(this.b, te7Var.b) && this.c == te7Var.c;
+            this.a = te7Var;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                super.onAnimationEnd(animator);
+                this.a.d();
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c : invokeV.intValue;
-    }
+    /* loaded from: classes8.dex */
+    public static final class b implements om7 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ te7 a;
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "BubbleStatData(fid=" + this.a + ", fname=" + this.b + ", type=" + this.c + ')';
+        public b(te7 te7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {te7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = te7Var;
         }
-        return (String) invokeV.objValue;
+
+        @Override // com.baidu.tieba.om7
+        public void a(TbNestedScrollView tbNestedScrollView, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, tbNestedScrollView, i, i2) == null) {
+                om7.a.a(this, tbNestedScrollView, i, i2);
+            }
+        }
+
+        @Override // com.baidu.tieba.om7
+        public void b(TbNestedScrollView v, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v, i, i2) == null) {
+                Intrinsics.checkNotNullParameter(v, "v");
+                this.a.e();
+            }
+        }
     }
 
-    public te7(String fid, String fname, int i) {
+    /* loaded from: classes8.dex */
+    public static final class c implements om7 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ TbBottomSheetView b;
+        public final /* synthetic */ int c;
+
+        public c(View view2, TbBottomSheetView tbBottomSheetView, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2, tbBottomSheetView, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
+            this.b = tbBottomSheetView;
+            this.c = i;
+        }
+
+        @Override // com.baidu.tieba.om7
+        public void b(TbNestedScrollView v, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v, i, i2) == null) {
+                Intrinsics.checkNotNullParameter(v, "v");
+                this.a.setTranslationY(((Math.abs(this.b.getScrollY()) + this.b.getTop()) - this.a.getHeight()) + this.c);
+            }
+        }
+
+        @Override // com.baidu.tieba.om7
+        public void a(TbNestedScrollView tbNestedScrollView, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, tbNestedScrollView, i, i2) == null) {
+                om7.a.a(this, tbNestedScrollView, i, i2);
+            }
+        }
+    }
+
+    public te7(ForumFloatBubble bubble) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fid, fname, Integer.valueOf(i)};
+            Object[] objArr = {bubble};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(fid, "fid");
-        Intrinsics.checkNotNullParameter(fname, "fname");
-        this.a = fid;
-        this.b = fname;
-        this.c = i;
+        Intrinsics.checkNotNullParameter(bubble, "bubble");
+        this.a = bubble;
+        this.b = UtilHelper.getDimenPixelSize(R.dimen.tbds36);
+        this.g = new b(this);
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    public static final void b(te7 this$0, TbBottomSheetView target) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLL(65537, null, this$0, target) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            Intrinsics.checkNotNullParameter(target, "$target");
+            this$0.a.setTranslationY(((Math.abs(target.getScrollY()) + target.getTop()) - this$0.a.getHeight()) - this$0.b);
+            this$0.a.animate().alpha(1.0f).setDuration(150L).start();
         }
-        return (String) invokeV.objValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    public final void a(ViewGroup parent, final TbBottomSheetView target) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, parent, target) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            Intrinsics.checkNotNullParameter(target, "target");
+            if (this.a.getParent() != null) {
+                return;
+            }
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 1;
+            this.a.setAlpha(0.0f);
+            parent.addView(this.a, layoutParams);
+            target.post(new Runnable() { // from class: com.baidu.tieba.le7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        te7.b(te7.this, target);
+                    }
+                }
+            });
+            target.getListeners().add(this.g);
         }
-        return (String) invokeV.objValue;
     }
 
-    public final int c() {
-        InterceptResult invokeV;
+    public static final void f(te7 this$0, ValueAnimator valueAnimator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeLL(65538, null, this$0, valueAnimator) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            Object animatedValue = valueAnimator.getAnimatedValue();
+            if (animatedValue != null) {
+                float floatValue = ((Float) animatedValue).floatValue();
+                View view2 = this$0.e;
+                if (view2 != null) {
+                    view2.setAlpha(1 - floatValue);
+                    return;
+                }
+                return;
+            }
+            throw new NullPointerException("null cannot be cast to non-null type kotlin.Float");
         }
-        return invokeV.intValue;
+    }
+
+    public static final void j(te7 this$0, View shadow, TbBottomSheetView target, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(65539, null, this$0, shadow, target, i) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            Intrinsics.checkNotNullParameter(shadow, "$shadow");
+            Intrinsics.checkNotNullParameter(target, "$target");
+            if (this$0.a.getParent() != null) {
+                shadow.setTranslationY(((Math.abs(target.getScrollY()) + target.getTop()) - shadow.getHeight()) + i);
+                shadow.setVisibility(0);
+            }
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ViewPropertyAnimator viewPropertyAnimator = this.c;
+            if (viewPropertyAnimator != null) {
+                viewPropertyAnimator.setUpdateListener(null);
+            }
+            ViewPropertyAnimator viewPropertyAnimator2 = this.c;
+            if (viewPropertyAnimator2 != null) {
+                viewPropertyAnimator2.setListener(null);
+            }
+            ViewPropertyAnimator viewPropertyAnimator3 = this.c;
+            if (viewPropertyAnimator3 != null) {
+                viewPropertyAnimator3.cancel();
+            }
+        }
+    }
+
+    public final void d() {
+        HashSet<om7> listeners;
+        TbBottomSheetView tbBottomSheetView;
+        HashSet<om7> listeners2;
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            c();
+            if (this.a.getParent() != null) {
+                ViewParent parent = this.a.getParent();
+                if (parent instanceof ViewGroup) {
+                    viewGroup = (ViewGroup) parent;
+                } else {
+                    viewGroup = null;
+                }
+                if (viewGroup != null) {
+                    viewGroup.removeView(this.a);
+                }
+            }
+            View view2 = this.e;
+            if (view2 != null) {
+                view2.setVisibility(8);
+            }
+            om7 om7Var = this.f;
+            if (om7Var != null && (tbBottomSheetView = this.d) != null && (listeners2 = tbBottomSheetView.getListeners()) != null) {
+                listeners2.remove(om7Var);
+            }
+            TbBottomSheetView tbBottomSheetView2 = this.d;
+            if (tbBottomSheetView2 != null && (listeners = tbBottomSheetView2.getListeners()) != null) {
+                listeners.remove(this.g);
+            }
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.c != null) {
+            return;
+        }
+        ViewPropertyAnimator duration = this.a.animate().alpha(0.0f).setUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ke7
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+            public final void onAnimationUpdate(ValueAnimator valueAnimator) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
+                    te7.f(te7.this, valueAnimator);
+                }
+            }
+        }).setListener(new a(this)).setDuration(150L);
+        duration.start();
+        this.c = duration;
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048580, this, i) != null) || this.a.getParent() == null) {
+            return;
+        }
+        this.a.a();
+    }
+
+    public final void h(qe7 data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            this.a.b(data);
+        }
+    }
+
+    public final void i(final View shadow, final TbBottomSheetView target, final int i, String themeColor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(1048582, this, shadow, target, i, themeColor) == null) {
+            Intrinsics.checkNotNullParameter(shadow, "shadow");
+            Intrinsics.checkNotNullParameter(target, "target");
+            Intrinsics.checkNotNullParameter(themeColor, "themeColor");
+            this.d = target;
+            this.e = shadow;
+            int f = bqa.f(themeColor);
+            shadow.setBackground(new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, new int[]{bqa.a(f, 0.0f), bqa.a(f, 0.85f), f}));
+            target.post(new Runnable() { // from class: com.baidu.tieba.je7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        te7.j(te7.this, shadow, target, i);
+                    }
+                }
+            });
+            om7 om7Var = this.f;
+            if (om7Var != null) {
+                target.getListeners().remove(om7Var);
+            }
+            c cVar = new c(shadow, target, i);
+            target.getListeners().add(cVar);
+            this.f = cVar;
+        }
     }
 }

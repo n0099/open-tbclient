@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class oo7 extends bi<wo7, CardViewHolder<ap7>> {
+public class oo7 extends bi<xo7, CardViewHolder<ap7>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -55,11 +56,11 @@ public class oo7 extends bi<wo7, CardViewHolder<ap7>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bi
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wo7 wo7Var, CardViewHolder<ap7> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, xo7 xo7Var, CardViewHolder<ap7> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wo7Var, cardViewHolder})) == null) {
-            cardViewHolder.a().k(wo7Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xo7Var, cardViewHolder})) == null) {
+            cardViewHolder.a().l(this.a, TbadkCoreApplication.getInst().getSkinType());
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

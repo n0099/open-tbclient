@@ -72,7 +72,7 @@ public class gw4 {
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.y(ClogBuilder.LogType.SHOW).v(advertAppInfo.j).q(String.valueOf(advertAppInfo.position + 1)).r(gw4Var.d).s(gw4Var.e).t(gw4Var.c).w(String.valueOf(gw4Var.b)).p(advertAppInfo.g);
             az0.e(clogBuilder);
-            dc9.b(dc9.a(advertAppInfo));
+            ec9.b(ec9.a(advertAppInfo));
             gw4Var.h = true;
             i.add(gw4Var.g);
         }
@@ -86,22 +86,22 @@ public class gw4 {
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.y(ClogBuilder.LogType.SHOW).v(advertAppInfo.j).q(String.valueOf(advertAppInfo.position + 1)).w(String.valueOf(advertAppInfo.i.b)).p(advertAppInfo.i.g);
             az0.e(clogBuilder);
-            dc9.b(dc9.a(advertAppInfo));
+            ec9.b(ec9.a(advertAppInfo));
             gw4 gw4Var2 = advertAppInfo.i;
             gw4Var2.h = true;
             i.add(gw4Var2.g);
         }
     }
 
-    public static void g(tra traVar) {
+    public static void g(ura uraVar) {
         gw4 gw4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, traVar) == null) && traVar != null && traVar.getAdvertAppInfo() != null && (gw4Var = traVar.getAdvertAppInfo().i) != null && !gw4Var.h && !a(gw4Var.g)) {
-            traVar.j1 = gw4Var.d;
-            traVar.k1 = gw4Var.e;
-            traVar.i1 = gw4Var.c;
+        if ((interceptable == null || interceptable.invokeL(65544, null, uraVar) == null) && uraVar != null && uraVar.getAdvertAppInfo() != null && (gw4Var = uraVar.getAdvertAppInfo().i) != null && !gw4Var.h && !a(gw4Var.g)) {
+            uraVar.j1 = gw4Var.d;
+            uraVar.k1 = gw4Var.e;
+            uraVar.i1 = gw4Var.c;
             ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.SHOW).q(String.valueOf(traVar.o1 + 1)).w(String.valueOf(traVar.m1)).v(gw4Var.a).r(gw4Var.d).s(gw4Var.e).t(gw4Var.c).p(gw4Var.g);
+            clogBuilder.y(ClogBuilder.LogType.SHOW).q(String.valueOf(uraVar.o1 + 1)).w(String.valueOf(uraVar.m1)).v(gw4Var.a).r(gw4Var.d).s(gw4Var.e).t(gw4Var.c).p(gw4Var.g);
             az0.e(clogBuilder);
             gw4Var.h = true;
             i.add(gw4Var.g);
@@ -172,16 +172,16 @@ public class gw4 {
         }
     }
 
-    public static void e(hm6 hm6Var) {
+    public static void e(im6 im6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, hm6Var) == null) && hm6Var != null && hm6Var.c() != null && hm6Var.c().i != null && !hm6Var.c().i.h && !a(hm6Var.c().i.g)) {
-            hm6Var.c().j = hm6Var.c().i.a;
+        if ((interceptable == null || interceptable.invokeL(65542, null, im6Var) == null) && im6Var != null && im6Var.c() != null && im6Var.c().i != null && !im6Var.c().i.h && !a(im6Var.c().i.g)) {
+            im6Var.c().j = im6Var.c().i.a;
             ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.SHOW).v(hm6Var.c().j).q(String.valueOf(hm6Var.c().position + 1)).w(String.valueOf(hm6Var.c().i.b)).p(hm6Var.c().i.g);
+            clogBuilder.y(ClogBuilder.LogType.SHOW).v(im6Var.c().j).q(String.valueOf(im6Var.c().position + 1)).w(String.valueOf(im6Var.c().i.b)).p(im6Var.c().i.g);
             az0.e(clogBuilder);
-            dc9.b(dc9.a(hm6Var.c()));
-            hm6Var.c().i.h = true;
-            i.add(hm6Var.c().i.g);
+            ec9.b(ec9.a(im6Var.c()));
+            im6Var.c().i.h = true;
+            i.add(im6Var.c().i.g);
         }
     }
 }

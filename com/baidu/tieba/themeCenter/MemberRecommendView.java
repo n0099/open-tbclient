@@ -17,7 +17,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
-import com.baidu.tieba.pya;
+import com.baidu.tieba.qya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class MemberRecommendView extends FrameLayout {
     public TbImageView c;
     public TextView d;
     public TextView e;
-    public pya f;
+    public qya f;
     public int g;
 
     /* loaded from: classes8.dex */
@@ -222,13 +222,13 @@ public class MemberRecommendView extends FrameLayout {
         return invokeV.intValue;
     }
 
-    public void e(pya pyaVar) {
+    public void e(qya qyaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pyaVar) != null) || pyaVar == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qyaVar) != null) || qyaVar == null) {
             return;
         }
-        this.f = pyaVar;
-        this.c.startLoad(pyaVar.b(), 10, false);
+        this.f = qyaVar;
+        this.c.startLoad(qyaVar.b(), 10, false);
         this.d.setText(this.f.c());
         if (StringUtils.isNull(this.f.a())) {
             this.e.setVisibility(8);

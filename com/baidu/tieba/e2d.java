@@ -5,25 +5,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.Ranking;
-import tbclient.RankingParam;
+import tbclient.QuizOption;
 /* loaded from: classes5.dex */
-public class e2d extends poc {
+public class e2d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Ranking ranking) {
+    public static JSONObject b(@NonNull QuizOption quizOption) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ranking)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, quizOption)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "name", ranking.name);
-            poc.a(jSONObject, "rank_num", ranking.rank_num);
-            RankingParam rankingParam = ranking.ranking_param;
-            if (rankingParam != null) {
-                poc.a(jSONObject, "ranking_param", f2d.b(rankingParam));
-            }
+            qoc.a(jSONObject, "quiz_option_id", quizOption.quiz_option_id);
+            qoc.a(jSONObject, "quiz_option", quizOption.quiz_option);
+            qoc.a(jSONObject, "icon", quizOption.icon);
+            qoc.a(jSONObject, "total_user_count", quizOption.total_user_count);
+            qoc.a(jSONObject, "button_img", quizOption.button_img);
+            qoc.a(jSONObject, "button_text_sup", quizOption.button_text_sup);
+            qoc.a(jSONObject, "button_text_no", quizOption.button_text_no);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

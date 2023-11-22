@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.R;
 import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
-import com.baidu.tieba.li8;
-import com.baidu.tieba.lr7;
+import com.baidu.tieba.mi8;
+import com.baidu.tieba.mr7;
 import com.baidu.tieba.qd;
-import com.baidu.tieba.w65;
+import com.baidu.tieba.x65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,9 +34,9 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public TextView c;
     public TextView d;
     public EntelechyUserLikeButton e;
-    public w65 f;
+    public x65 f;
     public BdUniqueId g;
-    public lr7 h;
+    public mr7 h;
     public int i;
     public TbPageContext j;
     public View.OnClickListener k;
@@ -104,9 +104,9 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ea8);
         EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091ea9);
         this.e = entelechyUserLikeButton;
-        w65 w65Var = new w65(tbPageContext, entelechyUserLikeButton);
-        this.f = w65Var;
-        w65Var.l("1");
+        x65 x65Var = new x65(tbPageContext, entelechyUserLikeButton);
+        this.f = x65Var;
+        x65Var.l("1");
         this.f.k(bdUniqueId);
     }
 
@@ -134,14 +134,14 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void a(li8 li8Var) {
+    public void a(mi8 mi8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, li8Var) != null) || !(li8Var instanceof lr7)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, mi8Var) != null) || !(mi8Var instanceof mr7)) {
             return;
         }
-        lr7 lr7Var = (lr7) li8Var;
-        this.h = lr7Var;
-        if (StringUtils.isNull(lr7Var.a.getUserId())) {
+        mr7 mr7Var = (mr7) mi8Var;
+        this.h = mr7Var;
+        if (StringUtils.isNull(mr7Var.a.getUserId())) {
             return;
         }
         this.b.startLoad(this.h.a.getPortrait(), 28, false);

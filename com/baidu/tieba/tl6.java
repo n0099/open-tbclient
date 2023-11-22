@@ -5,21 +5,29 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.widget.layout.FrsBaseVideoView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.layout.ConstrainImageGroup;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class tl6 extends yk6<ThreadData> implements r16 {
+public class tl6 extends zk6<ThreadData> implements s16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final View i;
@@ -29,21 +37,21 @@ public class tl6 extends yk6<ThreadData> implements r16 {
     public TextView m;
     public TextView n;
     public ThreadData o;
-    public ql6 p;
-    public FrsBaseVideoView q;
+    public rl6 p;
+    public ConstrainImageGroup q;
 
-    @Override // com.baidu.tieba.r16
+    @Override // com.baidu.tieba.s16
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.yk6
+    @Override // com.baidu.tieba.zk6
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.frs_hottopic_video_card : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.frs_hot_topic_card_layout : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -75,24 +83,44 @@ public class tl6 extends yk6<ThreadData> implements r16 {
         this.l = (TextView) i3.findViewById(R.id.card_topic_name);
         this.n = (TextView) i3.findViewById(R.id.card_thread_title);
         this.m = (TextView) i3.findViewById(R.id.card_reply_time);
+        this.q = (ConstrainImageGroup) i3.findViewById(R.id.card_img_layout);
         this.i = i3.findViewById(R.id.card_divider_line);
-        FrsBaseVideoView frsBaseVideoView = (FrsBaseVideoView) i3.findViewById(R.id.base_video_view);
-        this.q = frsBaseVideoView;
-        frsBaseVideoView.setClickListener(this);
+        this.q.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
+        dx5 dx5Var = new dx5(3);
+        dx5Var.d(1.0d);
+        this.q.setImageProcessor(dx5Var);
+        this.q.setSinglePicUseStyleV10(true);
+        this.q.setFromCDN(true);
+        this.q.setClickable(false);
     }
 
-    @Override // com.baidu.tieba.yk6
+    public void x(ob<TbImageView> obVar) {
+        ConstrainImageGroup constrainImageGroup;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, obVar) == null) && (constrainImageGroup = this.q) != null) {
+            constrainImageGroup.setImageViewPool(obVar);
+        }
+    }
+
+    public void y(ob<ConstrainImageLayout> obVar) {
+        ConstrainImageGroup constrainImageGroup;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obVar) == null) && (constrainImageGroup = this.q) != null) {
+            constrainImageGroup.setConstrainLayoutPool(obVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.zk6
     public void l(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
             this.k.invalidate();
             SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0109);
             SkinManager.setBackgroundResource(i(), R.drawable.addresslist_item_bg);
             SkinManager.setBackgroundColor(this.i, R.color.CAM_X0204);
-            FrsBaseVideoView frsBaseVideoView = this.q;
-            if (frsBaseVideoView != null) {
-                frsBaseVideoView.h(i);
-            }
+            this.q.b();
+            this.k.setDefaultBgResource(i);
         }
     }
 
@@ -105,21 +133,28 @@ public class tl6 extends yk6<ThreadData> implements r16 {
         if (f() != null) {
             f().b(view2, this.o, this.p);
         }
-        il6.a(this.o.getTid());
-        il6.l(this.n, this.o.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
-        p();
+        if (view2 == i()) {
+            jl6.a(this.o.getTid());
+            jl6.l(this.n, this.o.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
+            p();
+        }
     }
 
     public final void p() {
         ThreadData threadData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (threadData = this.o) != null && threadData.getAuthor() != null && this.o.getAuthor().getName_show() != null) {
-            qt5.f(this.j, null, this.o.getAuthor().getName_show());
+            this.o.getFid();
+            OriginalForumInfo originalForumInfo = this.o.mOriginalForumInfo;
+            if (originalForumInfo != null) {
+                JavaTypesHelper.toLong(originalForumInfo.id, 0L);
+            }
+            rt5.f(this.j, null, this.o.getAuthor().getName_show());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yk6
+    @Override // com.baidu.tieba.zk6
     /* renamed from: r */
     public void k(ThreadData threadData) {
         Interceptable interceptable = $ic;
@@ -136,10 +171,6 @@ public class tl6 extends yk6<ThreadData> implements r16 {
                 i().setVisibility(0);
                 i().setOnClickListener(this);
             }
-            FrsBaseVideoView frsBaseVideoView = this.q;
-            if (frsBaseVideoView != null) {
-                frsBaseVideoView.g(this.o, threadData.getHotTopicInfo());
-            }
             if (threadData.getAuthor() != null) {
                 this.l.setText(threadData.getAuthor().getName_show());
             }
@@ -149,7 +180,25 @@ public class tl6 extends yk6<ThreadData> implements r16 {
             spannableStringBuilder.append((CharSequence) threadData.parseTitleOrAbstractForFrsNew(false, true));
             spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), 0, str.length(), 33);
             this.n.setText(spannableStringBuilder);
-            il6.l(this.n, this.o.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
+            ArrayList<MediaData> medias = threadData.getMedias();
+            if (lv4.c().g() && ListUtils.getCount(medias) != 0) {
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < medias.size(); i++) {
+                    MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);
+                    if (mediaData != null && mediaData.getType() == 3) {
+                        arrayList.add(mediaData);
+                    }
+                }
+                if (ListUtils.getCount(arrayList) > 0) {
+                    this.q.setVisibility(0);
+                    this.q.setImageMediaList(arrayList);
+                } else {
+                    this.q.setVisibility(8);
+                }
+            } else {
+                this.q.setVisibility(8);
+            }
+            jl6.l(this.n, this.o.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
             l(this.j, TbadkCoreApplication.getInst().getSkinType());
         }
     }

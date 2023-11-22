@@ -32,10 +32,10 @@ import com.baidu.tbadk.widget.level.TbLevelView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cx5;
+import com.baidu.tieba.dx5;
 import com.baidu.tieba.hw4;
-import com.baidu.tieba.ky9;
-import com.baidu.tieba.mv9;
+import com.baidu.tieba.ly9;
+import com.baidu.tieba.nv9;
 import com.baidu.tieba.pb.feedback.AigcFeedbackView;
 import com.baidu.tieba.pb.feedback.fold.AigcFeedbackFoldView;
 import com.baidu.tieba.pb.pb.sub.SubPbLayout;
@@ -78,7 +78,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public LinearLayout S;
 
     /* renamed from: T  reason: collision with root package name */
-    public LinearLayout f1143T;
+    public LinearLayout f1141T;
     public TextView U;
     public PbFloorComplaint V;
     public Boolean W;
@@ -120,7 +120,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public HeadImageView q;
     public MaskView q0;
     public TbRichTextView r;
-    public ky9 r0;
+    public ly9 r0;
     public RelativeLayout s;
     public FrameLayout s0;
     public TbAlphaVideo t;
@@ -268,10 +268,10 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
             this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d31);
             this.u.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be));
             this.u.setSingleImageRatio(0.75d);
-            this.u.setImageProcessor(new cx5(3));
-            mv9 mv9Var = new mv9(this.r.getLayoutStrategy());
-            mv9Var.p(TbConfig.getPostLineSpace(), 1.0f);
-            this.r.setLayoutStrategy(mv9Var);
+            this.u.setImageProcessor(new dx5(3));
+            nv9 nv9Var = new nv9(this.r.getLayoutStrategy());
+            nv9Var.p(TbConfig.getPostLineSpace(), 1.0f);
+            this.r.setLayoutStrategy(nv9Var);
             this.r.setIsNeedResizeEmotion(true);
             this.r.setTextSize(TbConfig.getContentSize());
             this.q.setIsRound(true);
@@ -288,7 +288,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
             this.Q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bab);
             this.R = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ba7);
             this.S = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090294);
-            this.f1143T = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090bc4);
+            this.f1141T = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090bc4);
             this.U = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bc5);
             this.X = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091cec);
             this.Y = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ced);
@@ -318,9 +318,9 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
             this.h0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090509);
             this.o0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ba6);
             this.p0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092853);
-            ky9 ky9Var = new ky9(tbPageContext, this.p0);
-            this.r0 = ky9Var;
-            ky9Var.f = 3;
+            ly9 ly9Var = new ly9(tbPageContext, this.p0);
+            this.r0 = ly9Var;
+            ly9Var.f = 3;
             this.q0 = (MaskView) view2.findViewById(R.id.obfuscated_res_0x7f091751);
             this.s0 = (FrameLayout) view2.findViewById(R.id.user_container);
             this.t0 = (VirtualImageStatusTip) view2.findViewById(R.id.obfuscated_res_0x7f092a1a);

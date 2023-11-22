@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class bs8 extends zr8 {
+public final class bs8 extends as8 {
     public static /* synthetic */ Interceptable $ic;
     public static final bs8 a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public final class bs8 extends zr8 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.js8
+    @Override // com.baidu.tieba.ks8
     /* renamed from: e */
     public void a(ChatMsg sdkMsg, TbBaseMsg tbMsg, String extJson) {
         Interceptable interceptable = $ic;
@@ -56,24 +56,23 @@ public final class bs8 extends zr8 {
             Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
             Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
             Intrinsics.checkNotNullParameter(extJson, "extJson");
-            sdkMsg.setCategory(0);
-            sdkMsg.setChatType(7);
-            sdkMsg.setContentExtra(extJson);
-            sdkMsg.setMsgContent(sdkMsg.getSendMsgContent());
+            sdkMsg.setCategory(4);
+            sdkMsg.setChatType(20);
+            sdkMsg.setChatRoomContentExt(extJson);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.js8
+    @Override // com.baidu.tieba.ks8
     /* renamed from: f */
     public String c(ChatMsg sdkMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sdkMsg)) == null) {
             Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            String contentExtra = sdkMsg.getContentExtra();
-            Intrinsics.checkNotNullExpressionValue(contentExtra, "sdkMsg.contentExtra");
-            return contentExtra;
+            String chatRoomContentExt = sdkMsg.getChatRoomContentExt();
+            Intrinsics.checkNotNullExpressionValue(chatRoomContentExt, "sdkMsg.chatRoomContentExt");
+            return chatRoomContentExt;
         }
         return (String) invokeL.objValue;
     }

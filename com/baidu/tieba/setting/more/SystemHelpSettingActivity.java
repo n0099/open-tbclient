@@ -29,7 +29,7 @@ import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.log.TbLogManager;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.model.SystemHelpSettingModel;
-import com.baidu.tieba.tia;
+import com.baidu.tieba.uia;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tia a;
+    public uia a;
     public SystemHelpSettingModel b;
     public zz4 c;
 
@@ -558,7 +558,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new tia(this);
+            this.a = new uia(this);
             this.b = new SystemHelpSettingModel(this);
             if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
                 this.a.C().k();
@@ -582,12 +582,12 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        tia tiaVar;
+        uia uiaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, view2) != null) || (tiaVar = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, view2) != null) || (uiaVar = this.a) == null) {
             return;
         }
-        if (view2 == tiaVar.y()) {
+        if (view2 == uiaVar.y()) {
             if (this.b != null) {
                 CyberPlayerManager.deleteVideoCache(null);
                 if (TextUtils.isEmpty(this.a.y().getTip())) {

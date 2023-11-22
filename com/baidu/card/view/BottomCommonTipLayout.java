@@ -44,11 +44,11 @@ import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tbadk.widget.richText.TbRichTextData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.aqa;
+import com.baidu.tieba.bqa;
 import com.baidu.tieba.cj;
-import com.baidu.tieba.kb5;
-import com.baidu.tieba.n0b;
-import com.baidu.tieba.u55;
+import com.baidu.tieba.lb5;
+import com.baidu.tieba.o0b;
+import com.baidu.tieba.v55;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -208,20 +208,20 @@ public final class BottomCommonTipLayout extends FrameLayout {
                     if (i == 2) {
                         BottomCommonTipLayout bottomCommonTipLayout = this.a.get();
                         Intrinsics.checkNotNull(bottomCommonTipLayout);
-                        n0b.b(bottomCommonTipLayout, this.b);
+                        o0b.b(bottomCommonTipLayout, this.b);
                         return;
                     }
                     return;
                 }
                 BottomCommonTipLayout bottomCommonTipLayout2 = this.a.get();
                 Intrinsics.checkNotNull(bottomCommonTipLayout2);
-                n0b.d(bottomCommonTipLayout2, this.b);
+                o0b.d(bottomCommonTipLayout2, this.b);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class c implements kb5.a {
+    public static final class c implements lb5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BottomCommonTipLayout a;
@@ -246,7 +246,7 @@ public final class BottomCommonTipLayout extends FrameLayout {
             this.b = memberBroadcastData;
         }
 
-        @Override // com.baidu.tieba.kb5.a
+        @Override // com.baidu.tieba.lb5.a
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.getVisibility() == 0 || this.a.h.hasMessages(1) || this.a.h.hasMessages(2)) {
@@ -411,13 +411,13 @@ public final class BottomCommonTipLayout extends FrameLayout {
             } else {
                 this.g.setText("去看看");
             }
-            u55 u55Var = new u55();
+            v55 v55Var = new v55();
             if (!TextUtils.isEmpty(memberBroadcastData.getBtnBackgroundColor()) && !TextUtils.isEmpty(memberBroadcastData.getBtnTextColor())) {
-                u55Var.r(aqa.f(memberBroadcastData.getBtnBackgroundColor()), aqa.f(memberBroadcastData.getBtnTextColor()));
+                v55Var.r(bqa.f(memberBroadcastData.getBtnBackgroundColor()), bqa.f(memberBroadcastData.getBtnTextColor()));
             } else {
-                u55Var.w(R.color.CAM_X0108);
+                v55Var.w(R.color.CAM_X0108);
             }
-            this.g.setConfig(u55Var);
+            this.g.setConfig(v55Var);
             this.g.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pu
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -431,7 +431,7 @@ public final class BottomCommonTipLayout extends FrameLayout {
                 }
             });
             if (!TextUtils.isEmpty(memberBroadcastData.getTextColor())) {
-                this.f.setTextColor(aqa.f(memberBroadcastData.getTextColor()));
+                this.f.setTextColor(bqa.f(memberBroadcastData.getTextColor()));
             }
             n(memberBroadcastData.getTbRichText());
         }
@@ -598,7 +598,7 @@ public final class BottomCommonTipLayout extends FrameLayout {
             ArrayList arrayList = new ArrayList();
             arrayList.add(memberBroadcastData.getBackgroundSrc());
             arrayList.add(memberBroadcastData.getLeftIconSrc());
-            new kb5().c(arrayList, new c(this, memberBroadcastData), 33);
+            new lb5().c(arrayList, new c(this, memberBroadcastData), 33);
             this.i = true;
         }
     }

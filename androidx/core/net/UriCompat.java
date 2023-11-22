@@ -3,6 +3,7 @@ package androidx.core.net;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.account.contants.LoginConstants;
+import com.baidu.tieba.nfc;
 import org.apache.commons.codec.language.bm.ResourceConstants;
 /* loaded from: classes.dex */
 public final class UriCompat {
@@ -12,7 +13,7 @@ public final class UriCompat {
         String scheme = uri.getScheme();
         String schemeSpecificPart = uri.getSchemeSpecificPart();
         if (scheme != null) {
-            if (!scheme.equalsIgnoreCase("tel") && !scheme.equalsIgnoreCase("sip") && !scheme.equalsIgnoreCase(LoginConstants.SMS_LOGIN) && !scheme.equalsIgnoreCase("smsto") && !scheme.equalsIgnoreCase(MailTo.MAILTO) && !scheme.equalsIgnoreCase("nfc")) {
+            if (!scheme.equalsIgnoreCase("tel") && !scheme.equalsIgnoreCase("sip") && !scheme.equalsIgnoreCase(LoginConstants.SMS_LOGIN) && !scheme.equalsIgnoreCase("smsto") && !scheme.equalsIgnoreCase(MailTo.MAILTO) && !scheme.equalsIgnoreCase(nfc.a)) {
                 if (scheme.equalsIgnoreCase("http") || scheme.equalsIgnoreCase("https") || scheme.equalsIgnoreCase("ftp") || scheme.equalsIgnoreCase("rtsp")) {
                     StringBuilder sb = new StringBuilder();
                     sb.append(ResourceConstants.CMT);

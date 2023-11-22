@@ -3,15 +3,21 @@ package com.baidu.tieba;
 import com.baidu.tbadk.download.DownloadData;
 /* loaded from: classes8.dex */
 public interface wd7 {
-    void a(DownloadData downloadData);
+    void a(xd7 xd7Var);
 
-    void b(DownloadData downloadData);
+    void b(DownloadData downloadData, xd7 xd7Var);
 
-    void c(DownloadData downloadData);
+    boolean c(DownloadData downloadData, xd7 xd7Var);
 
     void d(DownloadData downloadData);
 
-    void e(DownloadData downloadData);
+    int e(DownloadData downloadData);
 
-    void f(DownloadData downloadData, int i);
+    void f(DownloadData downloadData);
+
+    int g(DownloadData downloadData);
+
+    String h(DownloadData downloadData);
+
+    void i(xd7 xd7Var);
 }

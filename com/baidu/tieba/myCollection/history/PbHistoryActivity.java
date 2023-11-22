@@ -41,13 +41,13 @@ import com.baidu.tbadk.mvc.message.WriteCacheMessage;
 import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
 import com.baidu.tbadk.mvc.model.CacheModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ao5;
-import com.baidu.tieba.fm9;
+import com.baidu.tieba.bo5;
+import com.baidu.tieba.gm9;
 import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
 import com.baidu.tieba.myCollection.baseHistory.PbHistoryData;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusHttpResponseMessage;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusRequestMessage;
-import com.baidu.tieba.tn5;
+import com.baidu.tieba.un5;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,7 +66,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public NavigationBarShadowView c;
     public TextView d;
     public BdListView e;
-    public ao5<PbHistoryData, tn5, fm9> f;
+    public bo5<PbHistoryData, un5, gm9> f;
     public boolean g;
     public List<PbHistoryData> h;
     public List<Long> i;
@@ -415,9 +415,9 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public final void d1(List<PbHistoryData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            ao5<PbHistoryData, tn5, fm9> ao5Var = this.f;
-            if (ao5Var != null) {
-                ao5Var.g(list);
+            bo5<PbHistoryData, un5, gm9> bo5Var = this.f;
+            if (bo5Var != null) {
+                bo5Var.g(list);
             }
             if (list != null && list.size() != 0) {
                 this.d.setVisibility(0);
@@ -512,7 +512,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f070420)));
             this.e.w(textView, 0);
-            this.f = new ao5<>(getPageContext(), fm9.class, R.layout.obfuscated_res_0x7f0d07b5, null);
+            this.f = new bo5<>(getPageContext(), gm9.class, R.layout.obfuscated_res_0x7f0d07b5, null);
             this.f.f(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07038b)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f101c)), null, null);
             this.e.setAdapter((ListAdapter) this.f);
             this.e.setOnItemClickListener(new e(this));

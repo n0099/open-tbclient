@@ -1,43 +1,17 @@
 package com.baidu.tieba;
 
-import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import java.util.List;
 /* loaded from: classes7.dex */
 public interface na7 {
+    void c(@NonNull RecyclerView recyclerView, boolean z);
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(View view2, za7<?> za7Var, ya7<?, ?> ya7Var);
-    }
+    void e(@NonNull RecyclerView recyclerView);
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(@NonNull za7<?> za7Var, int i);
-    }
+    void i(ra7 ra7Var);
 
-    /* loaded from: classes7.dex */
-    public interface c {
-        void a(@NonNull za7<?> za7Var, @NonNull ya7<?, ?> ya7Var, int i);
+    void notifyDataSetChanged();
 
-        void b(@NonNull RecyclerView recyclerView);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface d {
-        boolean a(View view2, za7<?> za7Var, ya7<?, ?> ya7Var);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface e {
-        void a(@NonNull Object obj);
-    }
-
-    void b(b bVar);
-
-    void d(c cVar);
-
-    void h(a aVar);
-
-    void k(e eVar);
+    void setList(List<? extends ab7<?>> list);
 }

@@ -4,9 +4,9 @@ import android.content.Context;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.i98;
-import com.baidu.tieba.s98;
-import com.baidu.tieba.sa7;
+import com.baidu.tieba.j98;
+import com.baidu.tieba.t98;
+import com.baidu.tieba.ta7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,10 +15,10 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\r\u0012\u0006\u0010\u0003\u001a\u00020\u0004¢\u0006\u0002\u0010\u0005J\b\u0010\b\u001a\u00020\tH\u0016J\u000e\u0010\n\u001a\u00020\t2\u0006\u0010\u000b\u001a\u00020\fR\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\r"}, d2 = {"Lcom/baidu/tieba/compact/HotCardView;", "Landroid/widget/FrameLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "recommendHotCardLayout", "Lcom/baidu/tieba/homepage/concern/view/RecommendHotCardLayout;", "onChangeSkin", "", "setData", "data", "Lcom/baidu/tieba/homepage/concern/data/RecommendHotCardData;", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class HotCardView extends FrameLayout implements sa7 {
+public final class HotCardView extends FrameLayout implements ta7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s98 a;
+    public t98 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0024, code lost:
@@ -29,7 +29,7 @@ public final class HotCardView extends FrameLayout implements sa7 {
     */
     public HotCardView(Context context) {
         super(context);
-        s98 s98Var;
+        t98 t98Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,15 +47,15 @@ public final class HotCardView extends FrameLayout implements sa7 {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         Object obj = TbadkCoreApplication.getInst().getPersonalizeViewData().t;
-        if (obj instanceof s98) {
-            s98Var = (s98) obj;
+        if (obj instanceof t98) {
+            t98Var = (t98) obj;
         }
-        s98Var = new s98(context);
-        this.a = s98Var;
-        addView(s98Var.h(), new FrameLayout.LayoutParams(-1, -1));
+        t98Var = new t98(context);
+        this.a = t98Var;
+        addView(t98Var.h(), new FrameLayout.LayoutParams(-1, -1));
     }
 
-    @Override // com.baidu.tieba.sa7
+    @Override // com.baidu.tieba.ta7
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -63,7 +63,7 @@ public final class HotCardView extends FrameLayout implements sa7 {
         }
     }
 
-    public final void setData(i98 data) {
+    public final void setData(j98 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");

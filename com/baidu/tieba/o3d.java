@@ -1,28 +1,24 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.spswitch.utils.EmotionUbcHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.SpriteMemeInfo;
+import tbclient.SpriteButton;
 /* loaded from: classes7.dex */
-public class o3d extends poc {
+public class o3d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SpriteMemeInfo spriteMemeInfo) {
+    public static JSONObject b(@NonNull SpriteButton spriteButton) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, spriteMemeInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, spriteButton)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, EmotionUbcHelper.MEME_ID, spriteMemeInfo.meme_id);
-            poc.a(jSONObject, "query", spriteMemeInfo.query);
-            poc.a(jSONObject, "icon", spriteMemeInfo.icon);
-            poc.a(jSONObject, "use_same_guide", spriteMemeInfo.use_same_guide);
-            poc.a(jSONObject, "use_same_text", spriteMemeInfo.use_same_text);
+            qoc.a(jSONObject, "text", spriteButton.text);
+            qoc.a(jSONObject, "schema", spriteButton.schema);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.j7;
-import com.baidu.tieba.jt5;
+import com.baidu.tieba.kt5;
 import com.baidu.tieba.n7;
 import com.baidu.tieba.rb;
 import com.baidu.tieba.sb;
@@ -163,7 +163,7 @@ public class BigdayImageLoaderProc implements sb<BdImage> {
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            jt5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
+            kt5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
             WebClient webClient = new WebClient();
             if (rbVar != null) {
                 rbVar.a = webClient;

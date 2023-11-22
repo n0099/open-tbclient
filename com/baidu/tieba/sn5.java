@@ -1,120 +1,117 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public abstract class sn5 {
+public class sn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<qn5> eventDelegates;
-    public boolean isDispatchMvcEventing;
-    public BdUniqueId uniqueId;
+    public int a;
+    public boolean b;
+    public BdUniqueId c;
+    public mn5 d;
+    public un5 e;
+    public Object f;
 
-    public void onBeforeDispatchMvcEvent(rn5 rn5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rn5Var) == null) {
-        }
-    }
-
-    public sn5() {
+    public sn5(int i, mn5 mn5Var, un5 un5Var, ln5 ln5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), mn5Var, un5Var, ln5Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.isDispatchMvcEventing = false;
+        this.b = true;
+        this.a = i;
+        this.d = mn5Var;
+        this.e = un5Var;
     }
 
-    public void addEventDelegate(qn5 qn5Var) {
+    public mn5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, qn5Var) == null) {
-            if (this.eventDelegates == null) {
-                this.eventDelegates = new ArrayList();
-            }
-            if (this.eventDelegates.contains(qn5Var)) {
-                return;
-            }
-            if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
-                throw new RuntimeException("can not add event delegate on dispatch mvcevent");
-            }
-            this.eventDelegates.add(qn5Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (mn5) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public Object c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.objValue;
+    }
+
+    public un5 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (un5) invokeV.objValue;
+    }
+
+    public BdUniqueId e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+            this.f = obj;
         }
     }
 
-    public void removeEventDelegate(qn5 qn5Var) {
-        List<qn5> list;
+    public void h(un5 un5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, qn5Var) != null) || (list = this.eventDelegates) == null || !list.contains(qn5Var)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048583, this, un5Var) == null) {
+            this.e = un5Var;
         }
-        if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
-            throw new RuntimeException("can not add event delegate on dispatch mvcevent");
-        }
-        this.eventDelegates.remove(qn5Var);
     }
 
-    public boolean dispatchMvcEvent(rn5 rn5Var) {
-        InterceptResult invokeL;
-        boolean z;
+    public void i(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rn5Var)) == null) {
-            if (rn5Var == null) {
-                return false;
-            }
-            if (rn5Var.e() == null) {
-                rn5Var.i(this.uniqueId);
-            }
-            if (this.eventDelegates == null) {
-                return false;
-            }
-            try {
-                this.isDispatchMvcEventing = true;
-                onBeforeDispatchMvcEvent(rn5Var);
-                int size = this.eventDelegates.size();
-                z = false;
-                for (int i = 0; i < size; i++) {
-                    try {
-                        qn5 qn5Var = this.eventDelegates.get(i);
-                        if (qn5Var != null && ((!qn5Var.o() || (qn5Var.o() && rn5Var.e() == qn5Var.getUniqueId())) && (z = qn5Var.j(rn5Var)) && rn5Var.f())) {
-                            return true;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        try {
-                            BdLog.e(th);
-                            if (TbadkCoreApplication.getInst().isDebugMode()) {
-                                throw new RuntimeException(th);
-                            }
-                            this.isDispatchMvcEventing = false;
-                            return z;
-                        } finally {
-                            this.isDispatchMvcEventing = false;
-                        }
-                    }
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                z = false;
-            }
-            this.isDispatchMvcEventing = false;
-            return z;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
+            this.c = bdUniqueId;
         }
-        return invokeL.booleanValue;
     }
 }

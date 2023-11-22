@@ -24,7 +24,7 @@ public interface ct0 {
 
         /* renamed from: com.baidu.tieba.ct0$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0251a implements et0 {
+        public class C0250a implements et0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,7 +80,7 @@ public interface ct0 {
                 }
             }
 
-            public C0251a(a aVar) {
+            public C0250a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public interface ct0 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) {
-                return new C0251a(this);
+                return new C0250a(this);
             }
             return (et0) invokeLL.objValue;
         }

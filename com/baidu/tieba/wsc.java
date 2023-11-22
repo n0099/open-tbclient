@@ -1,28 +1,31 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FeedLiveComponent;
+import tbclient.FeedLinkComponent;
+import tbclient.PbLinkInfo;
 /* loaded from: classes8.dex */
-public class wsc extends poc {
+public class wsc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedLiveComponent feedLiveComponent) {
+    public static JSONObject b(@NonNull FeedLinkComponent feedLinkComponent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedLiveComponent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedLinkComponent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "top_label", feedLiveComponent.top_label);
-            poc.a(jSONObject, "bottom_label", feedLiveComponent.bottom_label);
-            poc.a(jSONObject, "audience_label", feedLiveComponent.audience_label);
-            poc.a(jSONObject, NetDiskFileMsg.NetDiskFile.JSON_KEY_COVER_URL, feedLiveComponent.cover_url);
-            poc.a(jSONObject, "schema", feedLiveComponent.schema);
+            if (feedLinkComponent.links != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (PbLinkInfo pbLinkInfo : feedLinkComponent.links) {
+                    jSONArray.put(z0d.b(pbLinkInfo));
+                }
+                qoc.a(jSONObject, "links", jSONArray);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

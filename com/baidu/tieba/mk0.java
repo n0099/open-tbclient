@@ -31,7 +31,7 @@ public class mk0 extends bg1<zk0> {
 
         /* renamed from: com.baidu.tieba.mk0$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0401a implements zo0<JSONObject> {
+        public class C0382a implements zo0<JSONObject> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ gn0 a;
@@ -46,7 +46,7 @@ public class mk0 extends bg1<zk0> {
                 }
             }
 
-            public C0401a(a aVar, gn0 gn0Var, zk0.b bVar, zn0 zn0Var) {
+            public C0382a(a aVar, gn0 gn0Var, zk0.b bVar, zn0 zn0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -184,7 +184,7 @@ public class mk0 extends bg1<zk0> {
                 hp0Var.l(d(gn0Var.g()));
                 hp0Var.h(cp0.c);
                 hp0Var.d("User-Agent", gf0.c().a().h());
-                a.a(hp0Var, new C0401a(this, gn0Var, bVar, zn0Var));
+                a.a(hp0Var, new C0382a(this, gn0Var, bVar, zn0Var));
             }
         }
 

@@ -39,13 +39,13 @@ public class nn3 extends ku1 {
 
         /* renamed from: com.baidu.tieba.nn3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0415a implements zk3<jb3<lb3.e>> {
+        public class C0413a implements zk3<jb3<lb3.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ju1.b a;
             public final /* synthetic */ a b;
 
-            public C0415a(a aVar, ju1.b bVar) {
+            public C0413a(a aVar, ju1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class nn3 extends ku1 {
                 if (c0 == null) {
                     return new hy1(1001, "null swan runtime");
                 }
-                c0.f0().g(f63.K(), "mapp_i_get_bduss", new C0415a(this, bVar));
+                c0.f0().g(f63.K(), "mapp_i_get_bduss", new C0413a(this, bVar));
                 return hy1.f();
             }
             return (hy1) invokeLL.objValue;

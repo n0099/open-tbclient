@@ -16,18 +16,18 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oo9;
 import com.baidu.tieba.po9;
-import com.baidu.tieba.t55;
+import com.baidu.tieba.qo9;
+import com.baidu.tieba.u55;
 import com.baidu.tieba.view.NoScrollGridView;
-import com.baidu.tieba.vo9;
+import com.baidu.tieba.wo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragment implements oo9.a {
+public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragment implements po9.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View g;
@@ -36,7 +36,7 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
     public TextView j;
     public TextView k;
     public NoScrollGridView l;
-    public vo9 m;
+    public wo9 m;
 
     public InterestSelectionStyleAFragment() {
         Interceptable interceptable = $ic;
@@ -121,9 +121,9 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            po9 po9Var = new po9(null, getContext());
-            this.c = po9Var;
-            this.m = new vo9(this, po9Var);
+            qo9 qo9Var = new qo9(null, getContext());
+            this.c = qo9Var;
+            this.m = new wo9(this, qo9Var);
         }
     }
 
@@ -160,9 +160,9 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
                 this.j.setText(strArr[0]);
                 this.k.setText(this.f[1]);
             }
-            t55 t55Var = new t55();
+            u55 u55Var = new u55();
             this.b.setTextSize(R.dimen.T_X06);
-            this.b.setConfig(t55Var);
+            this.b.setConfig(u55Var);
             this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1389));
             this.b.setEnabled(false);
             this.b.setOnClickListener(this);

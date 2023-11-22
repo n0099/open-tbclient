@@ -5,22 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.Music;
+import tbclient.FrsPage.MemberShowIcon;
 /* loaded from: classes5.dex */
-public class awc extends poc {
+public class awc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Music music) {
+    public static JSONObject b(@NonNull MemberShowIcon memberShowIcon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, music)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, memberShowIcon)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "pic", music.pic);
-            poc.a(jSONObject, "num", music.num);
-            poc.a(jSONObject, "sid", music.sid);
-            poc.a(jSONObject, "isopen", music.isopen);
+            qoc.a(jSONObject, "icon", memberShowIcon.icon);
+            qoc.a(jSONObject, "name", memberShowIcon.name);
+            qoc.a(jSONObject, "url", memberShowIcon.url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -1,37 +1,167 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public interface xj7 {
-    void b();
+public final class xj7 implements yj7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final bk7 a;
 
-    void c(zj7 zj7Var);
+    @Override // com.baidu.tieba.yj7
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
 
-    boolean d(String str);
+    @Override // com.baidu.tieba.yj7
+    public void c(ak7 initData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, initData) == null) {
+            Intrinsics.checkNotNullParameter(initData, "initData");
+        }
+    }
 
-    void e(int i);
+    @Override // com.baidu.tieba.yj7
+    public boolean d(String adId) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adId)) == null) {
+            Intrinsics.checkNotNullParameter(adId, "adId");
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 
-    void f(boolean z);
+    @Override // com.baidu.tieba.yj7
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        }
+    }
 
-    boolean g();
+    @Override // com.baidu.tieba.yj7
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        }
+    }
 
-    void h(JSONObject jSONObject, BdUniqueId bdUniqueId);
+    @Override // com.baidu.tieba.yj7
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
-    boolean hasMore();
+    @Override // com.baidu.tieba.yj7
+    public void h(JSONObject jSONObject, BdUniqueId pageUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, jSONObject, pageUniqueId) == null) {
+            Intrinsics.checkNotNullParameter(pageUniqueId, "pageUniqueId");
+        }
+    }
 
-    ak7 i();
+    @Override // com.baidu.tieba.yj7
+    public boolean hasMore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
-    void j(ThreadData threadData);
+    @Override // com.baidu.tieba.yj7
+    public void j(ThreadData data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+        }
+    }
 
-    boolean k();
+    @Override // com.baidu.tieba.yj7
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
-    boolean l(String str);
+    @Override // com.baidu.tieba.yj7
+    public boolean l(String tid) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, tid)) == null) {
+            Intrinsics.checkNotNullParameter(tid, "tid");
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 
-    boolean m();
+    @Override // com.baidu.tieba.yj7
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
-    void n(int i);
+    @Override // com.baidu.tieba.yj7
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        }
+    }
 
-    void onDestroy();
+    @Override // com.baidu.tieba.yj7
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        }
+    }
+
+    public xj7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new bk7(new ArrayList(), null, null, 6, null);
+    }
+
+    @Override // com.baidu.tieba.yj7
+    public bk7 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
+        }
+        return (bk7) invokeV.objValue;
+    }
 }

@@ -1,16 +1,11 @@
 package com.baidu.tieba;
-
-import com.baidu.tieba.er5;
-import com.baidu.tieba.fr5;
 /* loaded from: classes6.dex */
-public interface gr5<Q extends er5, P extends fr5> {
-    int a();
+public interface gr5<T> {
+    void a(int i, byte[] bArr) throws Exception;
 
-    Q b();
+    int getErrorCode();
 
-    String c();
+    String getErrorMsg();
 
-    P d();
-
-    int e();
+    ar5 getPageInfo();
 }

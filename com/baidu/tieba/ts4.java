@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ts4 implements cj6 {
+public class ts4 implements dj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        bj6.a(this, webView, str, jSONObject);
+        cj6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -31,9 +31,9 @@ public class ts4 implements cj6 {
         return invokeLLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public /* synthetic */ void onDestroy() {
-        bj6.b(this);
+        cj6.b(this);
     }
 
     public ts4() {
@@ -50,22 +50,22 @@ public class ts4 implements cj6 {
         }
     }
 
-    public nsa c(WebView webView, String str) {
+    public osa c(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
-            return new nsa();
+            return new osa();
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 
-    public nsa d(WebView webView, HashMap hashMap) {
+    public osa d(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, hashMap)) == null) {
             a(webView, CommonTbJsBridge.OPEN_VIP_SUCCESS, new JSONObject());
-            return new nsa();
+            return new osa();
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 }

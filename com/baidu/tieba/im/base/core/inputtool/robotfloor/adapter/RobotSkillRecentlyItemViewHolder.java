@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder;
-import com.baidu.tieba.pl8;
-import com.baidu.tieba.xj8;
+import com.baidu.tieba.ql8;
+import com.baidu.tieba.yj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,7 +37,7 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
     public TextView i;
     public ImageView j;
     public RobotSkillRecentlyItem k;
-    public final pl8 l;
+    public final ql8 l;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -74,13 +74,13 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RobotSkillRecentlyItemViewHolder(@NonNull View view2, pl8 pl8Var) {
+    public RobotSkillRecentlyItemViewHolder(@NonNull View view2, ql8 ql8Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, pl8Var};
+            Object[] objArr = {view2, ql8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -91,7 +91,7 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.l = pl8Var;
+        this.l = ql8Var;
         this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09045f);
         HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090454);
         this.f = headImageView;
@@ -121,10 +121,10 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
     }
 
     @Override // com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull xj8 xj8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void d(@NonNull yj8 yj8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xj8Var, tbPageContext, i) == null) && (xj8Var instanceof RobotSkillRecentlyItem)) {
-            this.k = (RobotSkillRecentlyItem) xj8Var;
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yj8Var, tbPageContext, i) == null) && (yj8Var instanceof RobotSkillRecentlyItem)) {
+            this.k = (RobotSkillRecentlyItem) yj8Var;
             this.h.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f099a) + this.k.getSkillName());
             this.i.setText(this.k.getSkillDesc());
             this.g.setText(this.k.getBotName());

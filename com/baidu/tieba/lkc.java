@@ -1,103 +1,105 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ijc;
+import com.baidu.tieba.jjc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.OnErrorThrowable;
+import java.util.Arrays;
+import rx.exceptions.CompositeException;
 /* loaded from: classes7.dex */
-public final class lkc<T> implements ijc.a<T> {
+public class lkc<T> implements jjc.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ijc<T> a;
-    public final bkc<? super T, Boolean> b;
+    public final kjc<? super T> a;
+    public final jjc<T> b;
 
     /* loaded from: classes7.dex */
-    public static final class a<T> extends ojc<T> {
+    public static final class a<T> extends pjc<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ojc<? super T> e;
-        public final bkc<? super T, Boolean> f;
+        public final pjc<? super T> e;
+        public final kjc<? super T> f;
         public boolean g;
 
-        public a(ojc<? super T> ojcVar, bkc<? super T, Boolean> bkcVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(pjc<? super T> pjcVar, kjc<? super T> kjcVar) {
+            super(pjcVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ojcVar, bkcVar};
+                Object[] objArr = {pjcVar, kjcVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((pjc) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.e = ojcVar;
-            this.f = bkcVar;
-            e(0L);
+            this.e = pjcVar;
+            this.f = kjcVar;
         }
 
-        @Override // com.baidu.tieba.ojc
-        public void f(kjc kjcVar) {
+        @Override // com.baidu.tieba.kjc
+        public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kjcVar) == null) {
-                super.f(kjcVar);
-                this.e.f(kjcVar);
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.g) {
+                return;
+            }
+            try {
+                this.f.onCompleted();
+                this.g = true;
+                this.e.onCompleted();
+            } catch (Throwable th) {
+                vjc.f(th, this);
             }
         }
 
-        @Override // com.baidu.tieba.jjc
+        @Override // com.baidu.tieba.kjc
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
                 if (this.g) {
-                    ync.j(th);
+                    znc.j(th);
                     return;
                 }
                 this.g = true;
-                this.e.onError(th);
+                try {
+                    this.f.onError(th);
+                    this.e.onError(th);
+                } catch (Throwable th2) {
+                    vjc.e(th2);
+                    this.e.onError(new CompositeException(Arrays.asList(th, th2)));
+                }
             }
         }
 
-        @Override // com.baidu.tieba.jjc
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
-                return;
-            }
-            this.e.onCompleted();
-        }
-
-        @Override // com.baidu.tieba.jjc
+        @Override // com.baidu.tieba.kjc
         public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                try {
-                    if (this.f.call(t).booleanValue()) {
-                        this.e.onNext(t);
-                    } else {
-                        e(1L);
-                    }
-                } catch (Throwable th) {
-                    ujc.e(th);
-                    unsubscribe();
-                    onError(OnErrorThrowable.addValueAsLastCause(th, t));
-                }
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.g) {
+                return;
+            }
+            try {
+                this.f.onNext(t);
+                this.e.onNext(t);
+            } catch (Throwable th) {
+                vjc.g(th, this, t);
             }
         }
     }
 
-    public lkc(ijc<T> ijcVar, bkc<? super T, Boolean> bkcVar) {
+    public lkc(jjc<T> jjcVar, kjc<? super T> kjcVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ijcVar, bkcVar};
+            Object[] objArr = {jjcVar, kjcVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -107,19 +109,17 @@ public final class lkc<T> implements ijc.a<T> {
                 return;
             }
         }
-        this.a = ijcVar;
-        this.b = bkcVar;
+        this.b = jjcVar;
+        this.a = kjcVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wjc
+    @Override // com.baidu.tieba.xjc
     /* renamed from: a */
-    public void call(ojc<? super T> ojcVar) {
+    public void call(pjc<? super T> pjcVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ojcVar) == null) {
-            a aVar = new a(ojcVar, this.b);
-            ojcVar.b(aVar);
-            this.a.O(aVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, pjcVar) == null) {
+            this.b.O(new a(pjcVar, this.a));
         }
     }
 }

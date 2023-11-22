@@ -26,10 +26,10 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.data.CommitCardInfoReqMsg;
-import com.baidu.tieba.bf6;
-import com.baidu.tieba.ne6;
+import com.baidu.tieba.cf6;
 import com.baidu.tieba.oe6;
-import com.baidu.tieba.se6;
+import com.baidu.tieba.pe6;
+import com.baidu.tieba.te6;
 import com.baidu.tieba.xb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,8 +40,8 @@ import java.io.File;
 public class IdentityReviewActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oe6 a;
-    public ne6 b;
+    public pe6 a;
+    public oe6 b;
     public long c;
     public boolean d;
     public String e;
@@ -56,7 +56,7 @@ public class IdentityReviewActivity extends BaseActivity {
     public TbImageView n;
     public TextView o;
     public TextView p;
-    public bf6 q;
+    public cf6 q;
     public int r;
     public int s;
     public View.OnClickListener t;
@@ -100,9 +100,9 @@ public class IdentityReviewActivity extends BaseActivity {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(identityReviewActivity2, identityReviewActivity2.f, CameraActivityConfig.CONTENT_TYPE_ID_CARD_BACK, 102)));
                 } else if (view2.getId() == R.id.obfuscated_res_0x7f090494) {
                     IdentityReviewActivity identityReviewActivity3 = this.a;
-                    new se6(identityReviewActivity3.e, 1, identityReviewActivity3.a).execute(new Void[0]);
+                    new te6(identityReviewActivity3.e, 1, identityReviewActivity3.a).execute(new Void[0]);
                     this.a.d = true;
-                    this.a.q = new bf6(this.a);
+                    this.a.q = new cf6(this.a);
                     this.a.q.setCancelable(true);
                     this.a.q.setCanceledOnTouchOutside(false);
                     this.a.q.setMessage(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f042c));
@@ -212,7 +212,7 @@ public class IdentityReviewActivity extends BaseActivity {
                         } else if (this.a.s == 1) {
                             if (this.a.a != null) {
                                 IdentityReviewActivity identityReviewActivity = this.a;
-                                new se6(identityReviewActivity.f, 2, identityReviewActivity.a).execute(new Void[0]);
+                                new te6(identityReviewActivity.f, 2, identityReviewActivity.a).execute(new Void[0]);
                             } else if (this.a.q != null) {
                                 xb.a(this.a.q, this.a);
                             }
@@ -232,7 +232,7 @@ public class IdentityReviewActivity extends BaseActivity {
                         }
                         this.a.d = false;
                         IdentityReviewActivity identityReviewActivity2 = this.a;
-                        new se6(identityReviewActivity2.e, 1, identityReviewActivity2.a).execute(new Void[0]);
+                        new te6(identityReviewActivity2.e, 1, identityReviewActivity2.a).execute(new Void[0]);
                     }
                 }
             }
@@ -371,8 +371,8 @@ public class IdentityReviewActivity extends BaseActivity {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d043e);
             this.c = getIntent().getLongExtra("fid", 0L);
-            this.a = new oe6(getPageContext());
-            this.b = new ne6(getPageContext());
+            this.a = new pe6(getPageContext());
+            this.b = new oe6(getPageContext());
             this.e = new File(TbadkCoreApplication.getInst().getFilesDir(), "positive.jpg").getAbsolutePath();
             this.f = new File(TbadkCoreApplication.getInst().getFilesDir(), "negative.jpg").getAbsolutePath();
             this.g = findViewById(R.id.obfuscated_res_0x7f091062);
@@ -405,8 +405,8 @@ public class IdentityReviewActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.v);
             MessageManager.getInstance().unRegisterListener(this.w);
-            bf6 bf6Var = this.q;
-            if (bf6Var != null && bf6Var.isShowing()) {
+            cf6 cf6Var = this.q;
+            if (cf6Var != null && cf6Var.isShowing()) {
                 xb.a(this.q, this);
             }
             super.onDestroy();

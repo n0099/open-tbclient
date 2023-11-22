@@ -1,9 +1,9 @@
 package com.baidu.tieba;
+
+import com.baidu.tbadk.coreExtra.data.VideoInfo;
 /* loaded from: classes8.dex */
 public interface whb {
-    void a();
+    void k(int i);
 
-    void b();
-
-    void c();
+    void l1(VideoInfo videoInfo);
 }

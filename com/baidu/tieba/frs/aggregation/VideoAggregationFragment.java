@@ -27,12 +27,12 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f55;
 import com.baidu.tieba.g55;
-import com.baidu.tieba.ks7;
-import com.baidu.tieba.ms7;
+import com.baidu.tieba.h55;
+import com.baidu.tieba.ls7;
 import com.baidu.tieba.ns7;
-import com.baidu.tieba.ps7;
+import com.baidu.tieba.os7;
+import com.baidu.tieba.qs7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class VideoAggregationFragment extends BaseFragment implements View.OnClickListener, ks7 {
+public class VideoAggregationFragment extends BaseFragment implements View.OnClickListener, ls7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -48,19 +48,19 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     public String c;
     public String d;
     public BdTypeListView e;
-    public g55 f;
+    public h55 f;
     public PbListView g;
-    public ms7 h;
-    public ps7 i;
+    public ns7 h;
+    public qs7 i;
     public NavigationBar j;
     public FrameLayout k;
     public NoNetworkView l;
     public NoDataView m;
-    public List<ns7> n;
+    public List<os7> n;
     public CustomMessageListener o;
     public CustomMessageListener p;
 
-    @Override // com.baidu.tieba.ks7
+    @Override // com.baidu.tieba.ls7
     public void s(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
@@ -68,7 +68,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     }
 
     /* loaded from: classes6.dex */
-    public class a implements f55.g {
+    public class a implements g55.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoAggregationFragment a;
@@ -91,7 +91,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             this.a = videoAggregationFragment;
         }
 
-        @Override // com.baidu.tieba.f55.g
+        @Override // com.baidu.tieba.g55.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -310,10 +310,10 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     }
 
     public void B2(int i) {
-        ms7 ms7Var;
+        ns7 ns7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.e != null && (ms7Var = this.h) != null) {
-            if (i == 1 && ms7Var.e()) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.e != null && (ns7Var = this.h) != null) {
+            if (i == 1 && ns7Var.e()) {
                 this.h.k();
             }
             if (i == 2) {
@@ -326,11 +326,11 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            ms7 ms7Var = this.h;
-            if (ms7Var == null) {
+            ns7 ns7Var = this.h;
+            if (ns7Var == null) {
                 return false;
             }
-            return ms7Var.j(i);
+            return ns7Var.j(i);
         }
         return invokeI.booleanValue;
     }
@@ -356,9 +356,9 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             } else {
                 this.j.setVisibility(0);
             }
-            ms7 ms7Var = this.h;
-            if (ms7Var != null) {
-                ms7Var.h(configuration);
+            ns7 ns7Var = this.h;
+            if (ns7Var != null) {
+                ns7Var.h(configuration);
             }
         }
     }
@@ -391,8 +391,8 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         }
     }
 
-    @Override // com.baidu.tieba.ks7
-    public void D1(List<ns7> list, boolean z, boolean z2) {
+    @Override // com.baidu.tieba.ls7
+    public void D1(List<os7> list, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || list == null) {
             return;
@@ -426,7 +426,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         }
     }
 
-    @Override // com.baidu.tieba.ks7
+    @Override // com.baidu.tieba.ls7
     public void d() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && ListUtils.isEmpty(this.n)) {
@@ -434,7 +434,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         }
     }
 
-    @Override // com.baidu.tieba.ks7
+    @Override // com.baidu.tieba.ls7
     public void hideLoadingView() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || this.k == null) {
@@ -449,13 +449,13 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDestroy();
-            ps7 ps7Var = this.i;
-            if (ps7Var != null) {
-                ps7Var.c();
+            qs7 qs7Var = this.i;
+            if (qs7Var != null) {
+                qs7Var.c();
             }
-            ms7 ms7Var = this.h;
-            if (ms7Var != null) {
-                ms7Var.i();
+            ns7 ns7Var = this.h;
+            if (ns7Var != null) {
+                ns7Var.i();
             }
         }
     }
@@ -516,9 +516,9 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
                 this.l.setVisibility(0);
             }
             this.e = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f091598);
-            g55 g55Var = new g55(getPageContext());
-            this.f = g55Var;
-            g55Var.f();
+            h55 h55Var = new h55(getPageContext());
+            this.f = h55Var;
+            h55Var.f();
             this.f.a(new a(this));
             this.f.W(getUniqueId());
             this.e.setPullRefresh(this.f);
@@ -530,7 +530,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             this.g.U();
             this.e.setNextPage(this.g);
             this.e.setOnScrollListener(new b(this));
-            this.h = new ms7(getPageContext(), this.e, VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.b));
+            this.h = new ns7(getPageContext(), this.e, VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.b));
             D2();
         }
     }
@@ -547,9 +547,9 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
                 this.c = arguments.getString("st_type");
                 this.d = arguments.getString("yuelaou_locate");
             }
-            ps7 ps7Var = new ps7(getPageContext(), this);
-            this.i = ps7Var;
-            ps7Var.g(this.a);
+            qs7 qs7Var = new qs7(getPageContext(), this);
+            this.i = qs7Var;
+            qs7Var.g(this.a);
             this.i.f(this.b);
             this.i.i(this.c);
             this.i.h(this.d);

@@ -25,9 +25,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.ij6;
 import com.baidu.tieba.jj6;
 import com.baidu.tieba.kj6;
+import com.baidu.tieba.lj6;
 import com.baidu.tieba.qd;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
-public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity> implements ij6, kj6, jj6 {
+public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity> implements jj6, lj6, kj6 {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern j;
     public transient /* synthetic */ FieldHolder $fh;
@@ -341,7 +341,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         }
     }
 
-    @Override // com.baidu.tieba.kj6
+    @Override // com.baidu.tieba.lj6
     public void a(WebView webView, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) {
@@ -363,7 +363,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         return invokeIL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.jj6
+    @Override // com.baidu.tieba.kj6
     public void onPageFinished(WebView webView, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, webView, str) == null) {
@@ -385,7 +385,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         }
     }
 
-    @Override // com.baidu.tieba.ij6
+    @Override // com.baidu.tieba.jj6
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

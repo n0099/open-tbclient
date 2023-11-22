@@ -10,20 +10,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ba6;
-import com.baidu.tieba.yk6;
+import com.baidu.tieba.ca6;
+import com.baidu.tieba.zk6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class LiveTabConcernTitleView extends yk6<ba6> {
+public class LiveTabConcernTitleView extends zk6<ca6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder i;
 
-    @Override // com.baidu.tieba.yk6
+    @Override // com.baidu.tieba.zk6
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -94,17 +94,17 @@ public class LiveTabConcernTitleView extends yk6<ba6> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yk6
+    @Override // com.baidu.tieba.zk6
     /* renamed from: p */
-    public void k(ba6 ba6Var) {
+    public void k(ca6 ca6Var) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, ba6Var) == null) && ba6Var != null && !StringUtils.isNull(ba6Var.a) && (viewHolder = this.i) != null) {
-            viewHolder.c.setText(ba6Var.a);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, ca6Var) == null) && ca6Var != null && !StringUtils.isNull(ca6Var.a) && (viewHolder = this.i) != null) {
+            viewHolder.c.setText(ca6Var.a);
         }
     }
 
-    @Override // com.baidu.tieba.yk6
+    @Override // com.baidu.tieba.zk6
     public void l(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {

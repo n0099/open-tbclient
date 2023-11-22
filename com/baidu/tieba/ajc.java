@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
-public interface ajc {
-    ajc a();
+public interface ajc extends uic, zic {
+    void c(String str);
 
-    boolean b(String str);
-
-    String c();
-
-    String toString();
+    void h(short s);
 }

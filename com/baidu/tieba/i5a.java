@@ -21,7 +21,7 @@ public class i5a extends bi<t6a, CardViewHolder<w7a>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i5a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), t6a.d);
+        super(tbPageContext.getPageActivity(), t6a.g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,8 +60,8 @@ public class i5a extends bi<t6a, CardViewHolder<w7a>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t6aVar, cardViewHolder})) == null) {
-            cardViewHolder.a().k(t6aVar);
             cardViewHolder.a().l(this.a, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.a().k(t6aVar);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

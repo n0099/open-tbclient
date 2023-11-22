@@ -1,239 +1,156 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Context;
+import android.view.View;
 import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.wzb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.ModuleConfigGdt;
+import com.fun.ad.sdk.FunNativeView;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.flavor.Flavors;
-import com.fun.ad.sdk.internal.api.flavor.IAdForbidStrategyManager;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.rewardvideo.RewardVideoAD;
-import com.qq.e.ads.rewardvideo.RewardVideoADListener;
-import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
-import com.qq.e.comm.util.AdError;
-import java.util.HashMap;
-import java.util.Map;
+import com.qq.e.ads.nativ.NativeADEventListener;
+import com.qq.e.ads.nativ.NativeUnifiedADData;
+import com.qq.e.ads.nativ.widget.NativeAdContainer;
+import java.lang.ref.WeakReference;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class a0c extends mzb<m0c> {
+public class a0c extends FunNativeAd2Bridger<m0c, com.fun.module.gdt.t> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ModuleConfigGdt e;
+    public final wzb.c b;
+    public final /* synthetic */ h0c c;
+    public final /* synthetic */ wzb d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a0c(Ssp.Pid pid, ModuleConfigGdt moduleConfigGdt) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
+    public a0c(wzb wzbVar, ReporterPidLoader reporterPidLoader, m0c m0cVar, String str, h0c h0cVar) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid, moduleConfigGdt};
+            Object[] objArr = {wzbVar, reporterPidLoader, m0cVar, str, h0cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = moduleConfigGdt;
+        this.d = wzbVar;
+        this.c = h0cVar;
+        this.b = new wzb.c(wzbVar, m0cVar, str);
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public /* bridge */ /* synthetic */ void showExpress(Activity activity, ExpressInflater expressInflater, String str, m0c m0cVar, BaseNativeAd2<m0c, com.fun.module.gdt.t> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        a(expressInflater, str, m0cVar, funAdInteractionListener);
+    }
+
+    public static void b(com.fun.module.gdt.t tVar, m0c m0cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, tVar, m0cVar) == null) {
+            tVar.b((NativeUnifiedADData) m0cVar.a);
+        }
+    }
+
+    /* JADX DEBUG: Incorrect args count in method signature: (Landroid/app/Activity;Lcom/fun/ad/sdk/ExpressInflater;Ljava/lang/String;Lcom/baidu/tieba/m0c;Lcom/fun/ad/sdk/internal/api/BaseNativeAd2<Lcom/baidu/tieba/m0c;Lcom/fun/module/gdt/t;>;Lcom/fun/ad/sdk/FunAdInteractionListener;)V */
+    public void a(ExpressInflater expressInflater, String str, final m0c m0cVar, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, expressInflater, str, m0cVar, funAdInteractionListener) == null) {
+            final com.fun.module.gdt.t tVar = (com.fun.module.gdt.t) expressInflater.getExpressView();
+            wzb wzbVar = this.d;
+            FunNativeAdListenerHelper<m0c, NativeADEventListener> funNativeAdListenerHelper = wzbVar.e;
+            pid = wzbVar.mPid;
+            funNativeAdListenerHelper.startShow(m0cVar, str, pid, this.b, funAdInteractionListener);
+            this.b.d = new wzb.e() { // from class: com.baidu.tieba.fzb
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.wzb.e
+                public final void onADStatusChanged() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        a0c.b(com.fun.module.gdt.t.this, m0cVar);
+                    }
+                }
+            };
+            this.d.n(tVar, m0cVar, this.b);
+            expressInflater.inflate();
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
+    /* JADX WARN: Type inference failed for: r1v1, types: [android.view.View, com.fun.module.gdt.t] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public com.fun.module.gdt.t createExpressView(m0c m0cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new nzb(pid) : (AdRipper) invokeL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            m0c m0cVar = (m0c) obj;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m0cVar)) == null) {
+            return this.d.g(FunAdSdk.getAppContext(), (NativeUnifiedADData) m0cVar.a);
         }
+        return (View) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.mzb
-    public void e(Context context, FunAdSlot funAdSlot) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, m0c m0cVar, BaseNativeAd2<m0c, com.fun.module.gdt.t> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        NativeAdContainer nativeAdContainer;
+        NativeAdContainer nativeAdContainer2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            String tid = getTid(valueOf);
-            String buildExtra = buildExtra(context, tid, valueOf, funAdSlot.getAppExtraData());
-            onLoadStart(funAdSlot, tid);
-            IAdForbidStrategyManager iAdForbidStrategyManager = Flavors.STRATEGY_MANAGER;
-            Ssp.Pid pid = this.mPid;
-            int checkForbidStatus = iAdForbidStrategyManager.checkForbidStatus(pid.ssp.type, pid.pid);
-            if (checkForbidStatus != 0) {
-                onError(checkForbidStatus != 5004 ? checkForbidStatus != 109502 ? "" : "toomuch" : "cheat", tid);
-                return;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, customInflater, str, m0cVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            m0c m0cVar2 = m0cVar;
+            ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener = this.c.c.getGdtADStatusChangeListener();
+            if (gdtADStatusChangeListener != null) {
+                this.b.d = new zzb(this, gdtADStatusChangeListener);
+            } else {
+                this.b.d = null;
             }
-            RewardVideoAD rewardVideoAD = new RewardVideoAD(context.getApplicationContext(), this.mPid.pid, new a(this, r2, tid), true ^ this.e.autoPlayMuted);
-            RewardVideoAD[] rewardVideoADArr = {rewardVideoAD};
-            rewardVideoAD.setServerSideVerificationOptions(new ServerSideVerificationOptions.Builder().setUserId(FunAdSdk.getFunAdConfig().userId).setCustomData(buildExtra).build());
-            rewardVideoAD.loadAD();
-        }
-    }
-
-    @Override // com.baidu.tieba.mzb, com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
-            e(context, funAdSlot);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements RewardVideoADListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public m0c c;
-        public final /* synthetic */ RewardVideoAD[] d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ a0c f;
-
-        public a(a0c a0cVar, RewardVideoAD[] rewardVideoADArr, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a0cVar, rewardVideoADArr, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            ViewGroup inflate = customInflater.inflate();
+            if (inflate instanceof FunNativeView) {
+                FunNativeView funNativeView = (FunNativeView) inflate;
+                Iterator<WeakReference<NativeAdContainer>> it = hzb.b.a.iterator();
+                while (it.hasNext()) {
+                    NativeAdContainer nativeAdContainer3 = it.next().get();
+                    if (nativeAdContainer3 == null) {
+                        it.remove();
+                    } else if (nativeAdContainer3 == funNativeView.getRoot()) {
+                        it.remove();
+                        nativeAdContainer2 = nativeAdContainer3;
+                        break;
+                    }
                 }
+                if (funNativeView.getRoot() instanceof NativeAdContainer) {
+                    nativeAdContainer = (NativeAdContainer) funNativeView.getRoot();
+                    nativeAdContainer2 = nativeAdContainer;
+                }
+                nativeAdContainer2 = null;
+            } else {
+                if (inflate instanceof NativeAdContainer) {
+                    nativeAdContainer = (NativeAdContainer) inflate;
+                    nativeAdContainer2 = nativeAdContainer;
+                }
+                nativeAdContainer2 = null;
             }
-            this.f = a0cVar;
-            this.d = rewardVideoADArr;
-            this.e = str;
+            this.d.q(m0cVar2, str, nativeAdContainer2, this.c.d, customInflater.getClickViews(), this.b, funAdInteractionListener);
         }
-
-        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
-        public void onADClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LogPrinter.d();
-                HashMap hashMap = new HashMap();
-                hashMap.put("tid", this.e);
-                hashMap.put("p_req_id", this.c.e());
-                this.f.onAdClicked((a0c) this.c, this.b, (Map<String, String>) hashMap);
-                this.b = true;
-            }
-        }
-
-        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
-        public void onADClose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                LogPrinter.d();
-                this.f.onAdClose((a0c) this.c, this.e);
-            }
-        }
-
-        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
-        public void onADExpose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-                HashMap hashMap = new HashMap();
-                hashMap.put("tid", this.e);
-                hashMap.put("p_req_id", this.c.e());
-                this.f.onAdShow((a0c) this.c, this.a, (Map<String, String>) hashMap);
-                this.a = true;
-            }
-        }
-
-        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
-        public void onADLoad() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-                m0c m0cVar = new m0c(this.d[0]);
-                this.c = m0cVar;
-                this.f.onAdLoaded(m0cVar, this.e);
-            }
-        }
-
-        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
-        public void onADShow() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
-        public void onError(AdError adError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, adError) == null) {
-                LogPrinter.e("GDTRewardVideoAd onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
-                this.f.onError(adError.getErrorCode(), adError.getErrorMsg(), this.e);
-            }
-        }
-
-        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
-        public void onVideoCached() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
-        public void onVideoComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
-        public void onReward(Map<String, Object> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
-                LogPrinter.d();
-                String str = (String) map.get("transId");
-                this.c.b = str;
-                HashMap hashMap = new HashMap();
-                hashMap.put("tid", this.e);
-                hashMap.put("p_req_id", this.c.e());
-                hashMap.put("p_trs_id", str);
-                this.f.onRewardedVideo((a0c) this.c, (Map<String, String>) hashMap);
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
-            m0c m0cVar = (m0c) obj;
-            onShowStart(m0cVar);
-            ((RewardVideoAD) m0cVar.a).showAD(activity);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
     }
 }

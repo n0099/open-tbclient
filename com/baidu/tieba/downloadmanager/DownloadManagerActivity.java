@@ -34,7 +34,7 @@ import com.baidu.tbadk.mainTab.FragmentTabStructure;
 import com.baidu.tieba.R;
 import com.baidu.tieba.downloadmanager.ui.DownloadManageButton;
 import com.baidu.tieba.downloadmanager.ui.DownloadManagerFragment;
-import com.baidu.tieba.wu6;
+import com.baidu.tieba.xu6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -87,11 +87,11 @@ public class DownloadManagerActivity extends BaseFragmentActivity implements Dow
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof wu6)) {
-                wu6 wu6Var = (wu6) customResponsedMessage.getData();
-                View a = wu6Var.a();
-                if (!ItemCardHelper.d.equals(((TBSpecificationBtn) wu6Var.a()).getText())) {
-                    ItemCardHelper.f(wu6Var.e(), wu6Var.d(), ItemCardHelper.e(((TBSpecificationBtn) wu6Var.a()).getText()), wu6Var.c(), wu6Var.b(), true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof xu6)) {
+                xu6 xu6Var = (xu6) customResponsedMessage.getData();
+                View a = xu6Var.a();
+                if (!ItemCardHelper.d.equals(((TBSpecificationBtn) xu6Var.a()).getText())) {
+                    ItemCardHelper.f(xu6Var.e(), xu6Var.d(), ItemCardHelper.e(((TBSpecificationBtn) xu6Var.a()).getText()), xu6Var.c(), xu6Var.b(), true);
                 }
                 DownloadManagerActivity downloadManagerActivity = this.a;
                 ItemCardHelper.l(downloadManagerActivity, downloadManagerActivity.getUniqueId(), a, (ViewGroup) this.a.findViewById(16908290));

@@ -37,7 +37,7 @@ public class kb6 implements View.OnClickListener {
     public b c;
     public View d;
     public ThreadData e;
-    public m76 f;
+    public n76 f;
     public View.OnClickListener g;
 
     public void f(String str) {
@@ -81,7 +81,7 @@ public class kb6 implements View.OnClickListener {
                 } else {
                     z = false;
                 }
-                l76.b().c();
+                m76.b().c();
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.b.getPageActivity()).createNormalConfig(j, z, this.a.e.getAuthor().isBigV())));
             }
         }
@@ -143,13 +143,13 @@ public class kb6 implements View.OnClickListener {
             this.b.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.e.getLayoutParams();
             layoutParams.width = (BdUtilHelper.getEquipmentWidth(view2.getContext()) - view2.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be)) / 2;
-            this.o.leftMargin = (int) view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0701d5);
-            this.o.rightMargin = (int) view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0701d5);
+            this.o.leftMargin = (int) view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070225);
+            this.o.rightMargin = (int) view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070225);
             this.n.bottomMargin = (int) view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070225);
             this.n.topMargin = (int) view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0701be);
-            this.j.setTextSize(0, view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702b3));
-            layoutParams.height = layoutParams.width;
-            this.i.setVisibility(8);
+            this.j.setTextSize(0, view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702b7));
+            layoutParams.height = (layoutParams.width * 9) / 16;
+            this.i.setVisibility(0);
             this.k.setLayoutParams(this.o);
             this.j.setLayoutParams(this.n);
             this.e.setLayoutParams(layoutParams);
@@ -181,10 +181,10 @@ public class kb6 implements View.OnClickListener {
         this.b.getPageActivity().getResources().getString(R.string.ala_live_entry_name_yanzhi);
     }
 
-    public void g(m76 m76Var) {
+    public void g(n76 n76Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, m76Var) == null) {
-            this.f = m76Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, n76Var) == null) {
+            this.f = n76Var;
         }
     }
 
@@ -217,8 +217,8 @@ public class kb6 implements View.OnClickListener {
             this.c.j.setText(this.e.getTitle());
             if (this.e.getAuthor() != null) {
                 String name_show = this.e.getAuthor().getName_show();
-                if (hu5.e(name_show) > 10) {
-                    name_show = hu5.m(name_show, 10) + "...";
+                if (iu5.e(name_show) > 10) {
+                    name_show = iu5.m(name_show, 10) + "...";
                 }
                 this.c.g.setText(name_show);
             }
@@ -260,11 +260,11 @@ public class kb6 implements View.OnClickListener {
             }
             ThreadData threadData = this.e;
             if (threadData != null && threadData.getThreadAlaInfo() != null) {
-                m76 m76Var = this.f;
-                if (m76Var != null) {
-                    m76Var.a(this.e);
+                n76 n76Var = this.f;
+                if (n76Var != null) {
+                    n76Var.a(this.e);
                 }
-                l76.b().c();
+                m76.b().c();
                 TiebaStatic.log(new StatisticItem("c12116").param("obj_id", this.e.getThreadAlaInfo().live_id));
             }
         }

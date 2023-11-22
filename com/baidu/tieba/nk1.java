@@ -49,13 +49,13 @@ public class nk1 {
 
         /* renamed from: com.baidu.tieba.nk1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0413a extends ll1 {
+        public class C0411a extends ll1 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ zj1.a b;
             public final /* synthetic */ a c;
 
-            public C0413a(a aVar, zj1.a aVar2) {
+            public C0411a(a aVar, zj1.a aVar2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +116,7 @@ public class nk1 {
                     for (int i = 0; i < this.d.size(); i++) {
                         zj1.a aVar2 = (zj1.a) this.d.get(i);
                         if (aVar2 != null) {
-                            nl1.c().b(new C0413a(this, aVar2));
+                            nl1.c().b(new C0411a(this, aVar2));
                         }
                     }
                 }

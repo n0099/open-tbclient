@@ -1,49 +1,166 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.DeviceInfoHelper;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.write.message.AddPostHttpResponse;
+import com.baidu.tieba.write.message.AddPostRequest;
+import com.baidu.tieba.write.message.AddThreadHttpResponse;
+import com.baidu.tieba.write.message.AddThreadRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class asa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public e a;
+    public final BdUniqueId b;
+    public HttpMessageListener c;
+    public HttpMessageListener d;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface e {
+        void a(zta ztaVar);
     }
 
     /* loaded from: classes5.dex */
-    public static class b {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final String b;
-        public final String c;
-        public final String d;
-        public final String e;
-        public final boolean f;
-        public final StatisticItem g;
+        public final /* synthetic */ asa a;
 
-        public b(String str, String str2, String str3, String str4, String str5) {
-            boolean z;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(asa asaVar, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3, str4, str5};
+                Object[] objArr = {asaVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = asaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                mv4.b("write", "threadRES");
+                if ((httpResponsedMessage instanceof AddThreadHttpResponse) && this.a.a != null) {
+                    JSONObject resultData = ((AddThreadHttpResponse) httpResponsedMessage).getResultData();
+                    zta ztaVar = new zta();
+                    if (httpResponsedMessage.hasError()) {
+                        ztaVar.i(true);
+                        ztaVar.f(httpResponsedMessage.getError());
+                        ztaVar.h(httpResponsedMessage.getErrorString());
+                    } else {
+                        ztaVar.i(false);
+                        ErrorData errorData = new ErrorData();
+                        errorData.parserJson(resultData);
+                        ztaVar.f(errorData.getError_code());
+                        ztaVar.h(errorData.getError_msg());
+                        ztaVar.g(errorData.getError_data());
+                    }
+                    ztaVar.j(resultData);
+                    this.a.a.a(ztaVar);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ asa a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(asa asaVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {asaVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = asaVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                mv4.b("write", "postRES");
+                if ((httpResponsedMessage instanceof AddPostHttpResponse) && this.a.a != null) {
+                    JSONObject resultData = ((AddPostHttpResponse) httpResponsedMessage).getResultData();
+                    zta ztaVar = new zta();
+                    if (httpResponsedMessage.hasError()) {
+                        ztaVar.i(true);
+                        ztaVar.f(httpResponsedMessage.getError());
+                        ztaVar.h(httpResponsedMessage.getErrorString());
+                    } else {
+                        ztaVar.i(false);
+                        ErrorData errorData = new ErrorData();
+                        errorData.parserJson(resultData);
+                        ztaVar.f(errorData.getError_code());
+                        ztaVar.h(errorData.getError_msg());
+                        ztaVar.g(errorData.getError_data());
+                    }
+                    ztaVar.j(resultData);
+                    this.a.a.a(ztaVar);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AddThreadRequest a;
+
+        public c(asa asaVar, AddThreadRequest addThreadRequest) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {asaVar, addThreadRequest};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,171 +170,141 @@ public class asa {
                     return;
                 }
             }
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
-            this.d = str4;
-            this.e = str5;
-            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && !StringUtils.isNull(str3) && !StringUtils.isNull(str4) && !StringUtils.isNull(str5)) {
-                z = false;
-            } else {
-                z = true;
-            }
-            this.f = !z;
-            this.g = b();
+            this.a = addThreadRequest;
         }
 
-        public /* synthetic */ b(String str, String str2, String str3, String str4, String str5, a aVar) {
-            this(str, str2, str3, str4, str5);
-        }
-
-        public final StatisticItem b() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                StatisticItem statisticItem = new StatisticItem(this.a);
-                if (!StringUtils.isNull(this.b)) {
-                    statisticItem = statisticItem.param("line", this.b);
-                }
-                if (!StringUtils.isNull(this.c)) {
-                    statisticItem = statisticItem.param("page", this.c);
-                }
-                if (!StringUtils.isNull(this.d)) {
-                    statisticItem = statisticItem.param("locate", this.d);
-                }
-                if (!StringUtils.isNull(this.e)) {
-                    return statisticItem.param(DownloadStatisticConstants.UBC_VALUE_TASK, this.e);
-                }
-                return statisticItem;
-            }
-            return (StatisticItem) invokeV.objValue;
-        }
-
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.g.delete(str);
-            }
-        }
-
-        public final StatisticItem d(String str, String str2, String str3, String str4, String str5) {
-            InterceptResult invokeLLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, str4, str5)) == null) {
-                if (!StringUtils.isNull(str)) {
-                    this.g.param("action_type", str);
-                }
-                if (!StringUtils.isNull(str2)) {
-                    this.g.param("obj_id", str2);
-                }
-                if (!StringUtils.isNull(str3)) {
-                    this.g.param("fid", str3);
-                }
-                if (!StringUtils.isNull(str4)) {
-                    this.g.param("fname", str4);
-                }
-                if (!StringUtils.isNull(str5)) {
-                    this.g.param("tid", str5);
-                }
-                this.g.param("obj_cpid", 0).param("obj_good_id", 0).param("obj_throw_type", "BY_POST").param("client_type", "MOBILE_APP").param("user_timestamp", String.valueOf(System.currentTimeMillis())).param("os", "android").param(HttpConstants.OS_VERSION, DeviceInfoHelper.getOsVersion()).param("log_ver", "1.1");
-                return this.g;
-            }
-            return (StatisticItem) invokeLLLLL.objValue;
-        }
-
-        public b e(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-                if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                    this.g.param(str, str2);
-                }
-                return this;
-            }
-            return (b) invokeLL.objValue;
-        }
-
-        public void f() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                TiebaStatic.log(this.g);
-                if (!this.f) {
-                    if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                        BdLog.e("Invalid parameter.");
-                        return;
-                    }
-                    throw new IllegalArgumentException();
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageManager.getInstance().sendMessage(this.a);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class c {
+    public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AddPostRequest a;
 
-        public c() {
+        public d(asa asaVar, AddPostRequest addPostRequest) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {asaVar, addPostRequest};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = addPostRequest;
         }
-    }
 
-    public static b a(String str, String str2, String str3, String str4, String str5, String str6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
-            b bVar = new b("ad_tpoint", "PT", str, str2, "tpoint", null);
-            bVar.d(null, null, str3, str4, str5);
-            if (!qd.isEmpty(str6)) {
-                bVar.e("obj_ref", str6);
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageManager.getInstance().sendMessage(this.a);
             }
-            return bVar;
-        }
-        return (b) invokeCommon.objValue;
-    }
-
-    public static b b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10})) == null) {
-            b bVar = new b(str, str2, str3, str4, str5, null);
-            bVar.d(str6, str7, str8, str9, str10);
-            return bVar;
-        }
-        return (b) invokeCommon.objValue;
-    }
-
-    @Deprecated
-    public static void c(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, str4, str5, str6, str7}) == null) {
-            b bVar = new b("ad_tpoint", "PT", str, "c0122", "ad_plat", null);
-            bVar.d(str2, str7, str3, str4, str5);
-            bVar.e(TiebaStatic.Params.OBJ_URL, str6);
-            bVar.f();
         }
     }
 
-    @Deprecated
-    public static void d(String str, String str2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947627130, "Lcom/baidu/tieba/asa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947627130, "Lcom/baidu/tieba/asa;");
+                return;
+            }
+        }
+        d();
+    }
+
+    public asa(BdPageContext<?> bdPageContext) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65539, null, str, str2) != null) || qd.isEmpty(str)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdPageContext};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = BdUniqueId.gen();
+        this.c = new a(this, CmdConfigHttp.CMD_WRITE_THREAD_ADD);
+        this.d = new b(this, CmdConfigHttp.CMD_WRITE_POST_ADD);
+        this.c.setTag(this.b);
+        this.c.setSelfListener(true);
+        this.d.setTag(this.b);
+        this.d.setSelfListener(true);
+        if (bdPageContext != null) {
+            bdPageContext.registerListener(this.c);
+            bdPageContext.registerListener(this.d);
             return;
         }
-        StatisticItem statisticItem = new StatisticItem(str);
-        if (str2 != null) {
-            statisticItem = statisticItem.param("obj_type", str2);
+        MessageManager.getInstance().registerListener(this.c);
+        MessageManager.getInstance().registerListener(this.d);
+    }
+
+    public void b(NetWork netWork) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, netWork) == null) {
+            AddPostRequest addPostRequest = new AddPostRequest();
+            addPostRequest.setRequestData(netWork.getPostDataMap());
+            addPostRequest.setNetType(NetMessage.NetType.HTTP);
+            addPostRequest.setTag(this.b);
+            SafeHandler.getInst().post(new d(this, addPostRequest));
         }
-        TiebaStatic.log(statisticItem);
+    }
+
+    public void c(NetWork netWork) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netWork) == null) {
+            AddThreadRequest addThreadRequest = new AddThreadRequest();
+            addThreadRequest.setRequestData(netWork.getPostDataMap());
+            addThreadRequest.setNetType(NetMessage.NetType.HTTP);
+            addThreadRequest.setTag(this.b);
+            SafeHandler.getInst().post(new c(this, addThreadRequest));
+        }
+    }
+
+    public asa e(e eVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar)) == null) {
+            this.a = eVar;
+            return this;
+        }
+        return (asa) invokeL.objValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WRITE_THREAD_ADD, dra.a(TbConfig.POST_THREAD_ADDRESS, 309730));
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setResponsedClass(AddThreadHttpResponse.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_WRITE_POST_ADD, dra.a(TbConfig.REPLY_THREAD_ADDRESS, 309731));
+            tbHttpMessageTask2.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask2.setResponsedClass(AddPostHttpResponse.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask2);
+        }
     }
 }

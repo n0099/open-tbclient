@@ -33,13 +33,13 @@ public class tg0 extends bg1<q31> {
 
         /* renamed from: com.baidu.tieba.tg0$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0485a extends wi0<ah0> {
+        public class C0480a extends wi0<ah0> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ q31.c b;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0485a(a aVar, Class cls, q31.c cVar) {
+            public C0480a(a aVar, Class cls, q31.c cVar) {
                 super(cls);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -102,7 +102,7 @@ public class tg0 extends bg1<q31> {
         public void a(Object obj, q31.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, obj, cVar) == null) {
-                si0.a().c(obj, new C0485a(this, ah0.class, cVar));
+                si0.a().c(obj, new C0480a(this, ah0.class, cVar));
             }
         }
 

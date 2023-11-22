@@ -31,14 +31,14 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.data.QmFilterItem;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a1b;
-import com.baidu.tieba.dq6;
+import com.baidu.tieba.b1b;
+import com.baidu.tieba.eq6;
 import com.baidu.tieba.h05;
-import com.baidu.tieba.iq6;
 import com.baidu.tieba.j05;
-import com.baidu.tieba.kq6;
+import com.baidu.tieba.jq6;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.q7b;
+import com.baidu.tieba.lq6;
+import com.baidu.tieba.r7b;
 import com.baidu.tieba.view.widget.TbGLMediaPreviewView;
 import com.baidu.tieba.view.widget.mediaedit.MultiMediaEditLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -53,7 +53,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
     public MultiMediaEditLayout b;
     public ImageView c;
     public View d;
-    public iq6 e;
+    public jq6 e;
     public TbMultiMediaData f;
     public VideoInfo g;
     public int h;
@@ -212,7 +212,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
                     this.a.f.end = j2;
                 } else if (this.a.h == 2) {
                     Intent intent = new Intent();
-                    intent.putExtra("enter_anim_values", a1b.a(this.a.l));
+                    intent.putExtra("enter_anim_values", b1b.a(this.a.l));
                     intent.putExtra(TbEditVideoActivityConfig.KEY_EDIT_VIDEO_DATA, (Parcelable) this.a.f);
                     this.a.setResult(-1, intent);
                     this.a.finish();
@@ -253,7 +253,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             if (interceptable == null || interceptable.invokeLIL(1048576, this, j05Var, i, view2) == null) {
                 if (i == 0) {
                     Intent intent = new Intent();
-                    intent.putExtra("enter_anim_values", a1b.a(this.b.l));
+                    intent.putExtra("enter_anim_values", b1b.a(this.b.l));
                     this.b.setResult(0, intent);
                     this.b.finish();
                     return;
@@ -300,9 +300,9 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            iq6 iq6Var = this.e;
-            if (iq6Var != null) {
-                iq6Var.onDestroy();
+            jq6 jq6Var = this.e;
+            if (jq6Var != null) {
+                jq6Var.onDestroy();
             }
         }
     }
@@ -312,9 +312,9 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPause();
-            iq6 iq6Var = this.e;
-            if (iq6Var != null) {
-                iq6Var.onPause();
+            jq6 jq6Var = this.e;
+            if (jq6Var != null) {
+                jq6Var.onPause();
             }
         }
     }
@@ -322,15 +322,15 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
     public final void S0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            iq6 iq6Var = this.e;
-            if (iq6Var != null && iq6Var.i()) {
+            jq6 jq6Var = this.e;
+            if (jq6Var != null && jq6Var.i()) {
                 h05 h05Var = new h05(getPageContext(), new j05(getPageContext().getPageActivity()));
                 h05Var.i(getResources().getString(R.string.obfuscated_res_0x7f0f0624), new String[]{getResources().getString(R.string.obfuscated_res_0x7f0f11fe)}, new e(this, h05Var));
                 h05Var.l();
                 return;
             }
             Intent intent = new Intent();
-            intent.putExtra("enter_anim_values", a1b.a(this.l));
+            intent.putExtra("enter_anim_values", b1b.a(this.l));
             setResult(0, intent);
             finish();
         }
@@ -345,9 +345,9 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             int color = getResources().getColor(R.color.CAM_X0105);
             this.l.setGlClearColor((Color.red(color) * 1.0f) / 255.0f, (Color.green(color) * 1.0f) / 255.0f, (Color.blue(color) * 1.0f) / 255.0f, (Color.alpha(color) * 1.0f) / 255.0f);
             this.b = (MultiMediaEditLayout) findViewById(R.id.obfuscated_res_0x7f09189c);
-            kq6 kq6Var = new kq6(getPageContext(), this.l, this.b, this.f, this.h, getIntent().getBooleanExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, false));
-            this.e = kq6Var;
-            kq6Var.a(this.i);
+            lq6 lq6Var = new lq6(getPageContext(), this.l, this.b, this.f, this.h, getIntent().getBooleanExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, false));
+            this.e = lq6Var;
+            lq6Var.a(this.i);
             int i = this.h;
             if (i == 2) {
                 this.e.j(true);
@@ -360,18 +360,18 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
     public final void U0(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && i > 0) {
-            dq6 dq6Var = new dq6(getPageContext(), this.b);
-            dq6Var.L(R.drawable.bg_tip_blue_up_right);
-            dq6Var.l(4);
-            dq6Var.N(true);
-            dq6Var.Q(-UtilHelper.getDimenPixelSize(R.dimen.tbds78));
-            dq6Var.R(UtilHelper.getDimenPixelSize(R.dimen.tbds19));
-            dq6Var.C(R.color.CAM_X0101);
-            dq6Var.J(R.dimen.T_X08);
-            dq6Var.p(R.dimen.T_X08);
-            dq6Var.F(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
-            dq6Var.I(UtilHelper.getDimenPixelSize(R.dimen.tbds44));
-            dq6Var.S(getResources().getString(i));
+            eq6 eq6Var = new eq6(getPageContext(), this.b);
+            eq6Var.L(R.drawable.bg_tip_blue_up_right);
+            eq6Var.l(4);
+            eq6Var.N(true);
+            eq6Var.Q(-UtilHelper.getDimenPixelSize(R.dimen.tbds78));
+            eq6Var.R(UtilHelper.getDimenPixelSize(R.dimen.tbds19));
+            eq6Var.C(R.color.CAM_X0101);
+            eq6Var.J(R.dimen.T_X08);
+            eq6Var.p(R.dimen.T_X08);
+            eq6Var.F(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
+            eq6Var.I(UtilHelper.getDimenPixelSize(R.dimen.tbds44));
+            eq6Var.S(getResources().getString(i));
         }
     }
 
@@ -387,9 +387,9 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
                     }
                     SharedPrefHelper.getInstance().putBoolean("key_file_video_clip_play_pause_show", true);
                 }
-                iq6 iq6Var = this.e;
-                if (iq6Var != null) {
-                    if (iq6Var.isPlaying()) {
+                jq6 jq6Var = this.e;
+                if (jq6Var != null) {
+                    if (jq6Var.isPlaying()) {
                         this.e.pause();
                         this.c.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c62));
                         return;
@@ -412,7 +412,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
                 VideoInfo videoInfo = (VideoInfo) getIntent().getSerializableExtra(WriteActivityConfig.VIDEO_INFO);
                 this.g = videoInfo;
                 if (videoInfo != null) {
-                    this.f = q7b.a(videoInfo);
+                    this.f = r7b.a(videoInfo);
                 } else {
                     this.f = (TbMultiMediaData) getIntent().getParcelableExtra(TbFileVideoActivityConfig.MULTI_MEDIA_DATA);
                 }
@@ -468,9 +468,9 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             if (view2 != null) {
                 view2.setSystemUiVisibility(4100);
             }
-            iq6 iq6Var = this.e;
-            if (iq6Var != null) {
-                iq6Var.onResume();
+            jq6 jq6Var = this.e;
+            if (jq6Var != null) {
+                jq6Var.onResume();
                 this.c.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c62));
             }
         }

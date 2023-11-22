@@ -1,25 +1,13 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes5.dex */
-public interface a06 extends g06<i06> {
+public interface a06<T> {
+    void a(String str);
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(i06 i06Var, View view2);
+    void b(T t);
 
-        void b(i06 i06Var, View view2);
-    }
+    String getTitle();
 
-    void a(int i);
+    void onChangeSkinType();
 
-    void c(Object obj);
-
-    View getView();
-
-    void h(a aVar);
-
-    void j();
-
-    void l(int i);
+    void onDestroy();
 }

@@ -1,22 +1,32 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.db.pojo.ApkDetailPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import protobuf.Item;
 /* loaded from: classes5.dex */
 public class br8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public Long a;
     public String b;
-    public String c;
-    public int d;
-    public int e;
-    public long f;
+    public Double c;
+    public String d;
+    public List<String> e;
+    public Double f;
+    public Integer g;
+    public String h;
+    public String i;
+    public String j;
+    public Integer k;
+    public Integer l;
+    public String m;
+    public String n;
+    public ApkDetailPojo o;
 
     public br8() {
         Interceptable interceptable = $ic;
@@ -32,99 +42,59 @@ public class br8 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static br8 a(Item item) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, item)) == null) {
+            if (item == null) {
+                return null;
+            }
+            br8 br8Var = new br8();
+            br8Var.a = item.itemId;
+            br8Var.b = item.itemName;
+            br8Var.c = item.iconSize;
+            br8Var.d = item.iconUrl;
+            br8Var.e = item.tags;
+            br8Var.f = item.score;
+            br8Var.g = item.star;
+            br8Var.h = item.buttonName;
+            br8Var.i = item.buttonLink;
+            br8Var.j = item.itemAppid;
+            br8Var.k = item.categoryId;
+            br8Var.l = item.buttonLinkType;
+            br8Var.m = item.apkName;
+            br8Var.n = item.forumName;
+            br8Var.o = ApkDetailPojo.O(item.apkDetail);
+            return br8Var;
         }
-        return (String) invokeV.objValue;
+        return (br8) invokeL.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public static br8 b(tbclient.Item item) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, item)) == null) {
+            if (item == null) {
+                return null;
+            }
+            br8 br8Var = new br8();
+            br8Var.a = item.item_id;
+            br8Var.b = item.item_name;
+            br8Var.c = item.icon_size;
+            br8Var.d = item.icon_url;
+            br8Var.e = item.tags;
+            br8Var.f = item.score;
+            br8Var.g = item.star;
+            br8Var.h = item.button_name;
+            br8Var.i = item.button_link;
+            br8Var.j = item.item_appid;
+            br8Var.k = item.category_id;
+            br8Var.l = item.button_link_type;
+            br8Var.m = item.apk_name;
+            br8Var.n = item.forum_name;
+            br8Var.o = ApkDetailPojo.P(item.apk_detail);
+            return br8Var;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.f = j;
-        }
+        return (br8) invokeL.objValue;
     }
 }

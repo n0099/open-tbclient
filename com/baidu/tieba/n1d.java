@@ -5,22 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.Position;
+import tbclient.Portrait;
 /* loaded from: classes7.dex */
-public class n1d extends poc {
+public class n1d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Position position) {
+    public static JSONObject b(@NonNull Portrait portrait) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, position)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, portrait)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "frs", position.frs);
-            poc.a(jSONObject, "pb", position.pb);
-            poc.a(jSONObject, "home", position.home);
-            poc.a(jSONObject, "card", position.card);
+            qoc.a(jSONObject, "props_id", portrait.props_id);
+            qoc.a(jSONObject, "end_time", portrait.end_time);
+            qoc.a(jSONObject, "url", portrait.url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

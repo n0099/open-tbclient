@@ -28,10 +28,10 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.pay.AliAuthResult;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.dj6;
-import com.baidu.tieba.hc5;
-import com.baidu.tieba.isa;
-import com.baidu.tieba.nsa;
+import com.baidu.tieba.ej6;
+import com.baidu.tieba.ic5;
+import com.baidu.tieba.jsa;
+import com.baidu.tieba.osa;
 import com.baidu.tieba.video.VideoConvertUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -48,7 +48,7 @@ public final class AliAuthHttpProxy {
     public final WeakReference<WebView> a;
     public final BdUniqueId b;
     @Nullable
-    public isa c;
+    public jsa c;
     public final Handler d;
 
     /* loaded from: classes4.dex */
@@ -155,7 +155,7 @@ public final class AliAuthHttpProxy {
                     if (this.a.c != null) {
                         this.a.c.i((WebView) this.a.a.get(), "aliAuthResult", hashMap);
                     } else {
-                        dj6.a().d((View) this.a.a.get(), "aliAuthResult", hashMap);
+                        ej6.a().d((View) this.a.a.get(), "aliAuthResult", hashMap);
                     }
                 } else if (authHttpRequestMsg.checkAllowToPolling()) {
                     Message obtainMessage = this.a.d.obtainMessage(1118481);
@@ -168,7 +168,7 @@ public final class AliAuthHttpProxy {
                     if (this.a.c != null) {
                         this.a.c.i((WebView) this.a.a.get(), "aliAuthResult", hashMap2);
                     } else {
-                        dj6.a().d((View) this.a.a.get(), "aliAuthResult", hashMap2);
+                        ej6.a().d((View) this.a.a.get(), "aliAuthResult", hashMap2);
                     }
                 }
             }
@@ -258,10 +258,10 @@ public final class AliAuthHttpProxy {
         MessageManager.getInstance().registerListener(cVar);
     }
 
-    public void m(isa isaVar) {
+    public void m(jsa jsaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, isaVar) == null) {
-            this.c = isaVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jsaVar) == null) {
+            this.c = jsaVar;
         }
     }
 
@@ -346,15 +346,15 @@ public final class AliAuthHttpProxy {
         return (HttpMessage) invokeL.objValue;
     }
 
-    public nsa l() {
+    public osa l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            nsa nsaVar = new nsa();
-            nsaVar.y(0);
+            osa osaVar = new osa();
+            osaVar.y(0);
             Activity activityByView = TbPageExtraHelper.getActivityByView(this.a.get());
             if (activityByView == null) {
-                return nsaVar;
+                return osaVar;
             }
             HashMap<String, String> hashMap = new HashMap<String, String>(this) { // from class: com.baidu.tbadk.browser.auth.AliAuthHttpProxy.4
                 public static /* synthetic */ Interceptable $ic;
@@ -380,14 +380,14 @@ public final class AliAuthHttpProxy {
                     put("url", "https://authweb.alipay.com/auth?auth_type=PURE_OAUTH_SDK&app_id=2021003145680066&scope=auth_user&state=init");
                 }
             };
-            hc5 hc5Var = new hc5();
-            hc5Var.a = activityByView;
-            hc5Var.b = "__tb_account_auth__";
-            hc5Var.c = hashMap;
-            hc5Var.d = this.b;
-            MessageManager.getInstance().runTask(2921793, String.class, hc5Var);
-            return nsaVar;
+            ic5 ic5Var = new ic5();
+            ic5Var.a = activityByView;
+            ic5Var.b = "__tb_account_auth__";
+            ic5Var.c = hashMap;
+            ic5Var.d = this.b;
+            MessageManager.getInstance().runTask(2921793, String.class, ic5Var);
+            return osaVar;
         }
-        return (nsa) invokeV.objValue;
+        return (osa) invokeV.objValue;
     }
 }

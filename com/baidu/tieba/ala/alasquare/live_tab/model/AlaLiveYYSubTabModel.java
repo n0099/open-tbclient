@@ -17,13 +17,13 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
-import com.baidu.tieba.bm6;
+import com.baidu.tieba.cm6;
 import com.baidu.tieba.d45;
-import com.baidu.tieba.d96;
-import com.baidu.tieba.g86;
-import com.baidu.tieba.n96;
+import com.baidu.tieba.e96;
+import com.baidu.tieba.h86;
+import com.baidu.tieba.o96;
 import com.baidu.tieba.oi;
-import com.baidu.tieba.s76;
+import com.baidu.tieba.t76;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
     public boolean c;
     public boolean d;
     public BdUniqueId e;
-    public d96 f;
+    public e96 f;
     public long g;
     public int h;
     public int i;
@@ -111,18 +111,18 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.e) {
                 AlaTabLiveResponsedMessage alaTabLiveResponsedMessage = (AlaTabLiveResponsedMessage) httpResponsedMessage;
                 if (alaTabLiveResponsedMessage.getError() == 0 && alaTabLiveResponsedMessage.isSuccess()) {
-                    g86 g86Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    h86 h86Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.d) {
                         if (this.a.f != null) {
-                            this.a.f.a(g86Var);
+                            this.a.f.a(h86Var);
                         }
                     } else {
-                        s76.a(this.a.h);
+                        t76.a(this.a.h);
                         if (this.a.f != null) {
                             this.a.f.b();
                         }
                         AlaLiveYYSubTabModel alaLiveYYSubTabModel = this.a;
-                        alaLiveYYSubTabModel.f = new d96(g86Var, alaLiveYYSubTabModel.j, this.a.k);
+                        alaLiveYYSubTabModel.f = new e96(h86Var, alaLiveYYSubTabModel.j, this.a.k);
                         this.a.a0();
                     }
                     if (this.a.f != null) {
@@ -232,9 +232,9 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         } else {
             str = "";
         }
-        n96 n96Var = new n96();
-        n96Var.a = new bm6(this.a.getUniqueId(), TbSingleton.getInstance().getLiveFollowSecondFloor(), str);
-        this.f.g(n96Var);
+        o96 o96Var = new o96();
+        o96Var.a = new cm6(this.a.getUniqueId(), TbSingleton.getInstance().getLiveFollowSecondFloor(), str);
+        this.f.g(o96Var);
     }
 
     public void b() {
@@ -245,7 +245,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
                 this.g = currentTimeMillis;
             }
             this.d = true;
-            b0(1, s76.b(this.h) - 1);
+            b0(1, t76.b(this.h) - 1);
         }
     }
 
@@ -282,8 +282,8 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            d96 d96Var = this.f;
-            if (d96Var != null && !ListUtils.isEmpty(d96Var.d())) {
+            e96 e96Var = this.f;
+            if (e96Var != null && !ListUtils.isEmpty(e96Var.d())) {
                 return true;
             }
             return false;
@@ -318,7 +318,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
             if (pollingModel != null) {
                 pollingModel.getData(PollingModel.LIVE_FOLLOW_SECOND_FLOOR);
             }
-            b0(0, s76.b(this.h));
+            b0(0, t76.b(this.h));
         }
     }
 }

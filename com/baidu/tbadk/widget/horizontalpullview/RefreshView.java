@@ -15,14 +15,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jw5;
+import com.baidu.tieba.kw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class RefreshView extends FrameLayout implements jw5 {
+public class RefreshView extends FrameLayout implements kw5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -30,7 +30,7 @@ public class RefreshView extends FrameLayout implements jw5 {
     public int c;
     public int d;
 
-    @Override // com.baidu.tieba.jw5
+    @Override // com.baidu.tieba.kw5
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -102,7 +102,7 @@ public class RefreshView extends FrameLayout implements jw5 {
         c(context);
     }
 
-    @Override // com.baidu.tieba.jw5
+    @Override // com.baidu.tieba.kw5
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.d != 2) {
@@ -112,7 +112,7 @@ public class RefreshView extends FrameLayout implements jw5 {
         }
     }
 
-    @Override // com.baidu.tieba.jw5
+    @Override // com.baidu.tieba.kw5
     public void b(View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && this.d != 1) {

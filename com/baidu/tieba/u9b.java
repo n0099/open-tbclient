@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class u9b {
+public class u9b implements lf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n9b a;
 
     public u9b() {
         Interceptable interceptable = $ic;
@@ -22,25 +21,20 @@ public class u9b {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
     }
 
-    public n9b a() {
+    @Override // com.baidu.tieba.lf1
+    public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new pj9());
+            arrayList.add(new qj9());
+            return arrayList;
         }
-        return (n9b) invokeV.objValue;
-    }
-
-    public void b(n9b n9bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n9bVar) == null) {
-            this.a = n9bVar;
-        }
+        return invokeV.objValue;
     }
 }

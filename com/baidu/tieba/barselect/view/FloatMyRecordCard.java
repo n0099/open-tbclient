@@ -19,11 +19,11 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.af6;
 import com.baidu.tieba.barselect.segment.VotedAreaLayout;
-import com.baidu.tieba.pe6;
+import com.baidu.tieba.bf6;
 import com.baidu.tieba.qe6;
 import com.baidu.tieba.re6;
+import com.baidu.tieba.se6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,8 +34,8 @@ public class FloatMyRecordCard extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public int b;
-    public re6 c;
-    public pe6 d;
+    public se6 c;
+    public qe6 d;
     public TextView e;
     public BazhuHeadView f;
     public TextView g;
@@ -167,12 +167,12 @@ public class FloatMyRecordCard extends LinearLayout {
     }
 
     public void d(int i) {
-        pe6 pe6Var;
+        qe6 qe6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || (pe6Var = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || (qe6Var = this.d) == null) {
             return;
         }
-        if (pe6Var.i() > 3) {
+        if (qe6Var.i() > 3) {
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1, i);
         }
         SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
@@ -183,21 +183,21 @@ public class FloatMyRecordCard extends LinearLayout {
         setGrade(this.d.d());
     }
 
-    public void setData(re6 re6Var) {
-        pe6 pe6Var;
+    public void setData(se6 se6Var) {
+        qe6 qe6Var;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, re6Var) == null) {
-            this.c = re6Var;
-            if (re6Var != null && re6Var.a() != null) {
-                qe6 a2 = this.c.a();
+        if (interceptable == null || interceptable.invokeL(1048579, this, se6Var) == null) {
+            this.c = se6Var;
+            if (se6Var != null && se6Var.a() != null) {
+                re6 a2 = this.c.a();
                 if (a2 != null) {
                     this.b = a2.h();
                 }
                 this.d = this.c.f();
             }
-            if (this.c != null && (pe6Var = this.d) != null && this.b == af6.c) {
-                int i = pe6Var.i();
+            if (this.c != null && (qe6Var = this.d) != null && this.b == bf6.c) {
+                int i = qe6Var.i();
                 if (i < 10) {
                     this.e.setText("0" + i);
                 } else {

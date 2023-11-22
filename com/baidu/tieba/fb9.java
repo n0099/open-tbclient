@@ -1,15 +1,11 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import com.baidu.tieba.lego.activity.LegoListFragment;
 /* loaded from: classes5.dex */
 public interface fb9 {
-    void a(List<yc9> list);
+    pc9 R();
 
-    void b();
+    uc9 V0();
 
-    void c(long j, String str);
-
-    void d(String str, String str2, String str3, List<zc9> list);
-
-    void e(long j, String str, int i, String str2);
+    LegoListFragment c0();
 }

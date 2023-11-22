@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.UserMuteCheck.DataRes;
 /* loaded from: classes7.dex */
-public class l0b {
+public class l0b extends j6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DataRes a;
-    public String b;
-    public int c;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l0b() {
+        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -21,9 +23,29 @@ public class l0b {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.m6
+    /* renamed from: i */
+    public HttpResponsedMessage g(HttpResponsedMessage httpResponsedMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
+            if (httpResponsedMessage == null) {
+                return null;
+            }
+            if (j0b.d(httpResponsedMessage.getError()) && httpResponsedMessage.getCmd() == 1001601) {
+                j0b.e(TbadkCoreApplication.getInst().getCurrentActivity(), httpResponsedMessage.getErrorString());
+            }
+            return httpResponsedMessage;
+        }
+        return (HttpResponsedMessage) invokeL.objValue;
     }
 }

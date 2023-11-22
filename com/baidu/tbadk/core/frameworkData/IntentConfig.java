@@ -32,10 +32,10 @@ import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.pageStayDuration.IPageStayDuration;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.ko5;
+import com.baidu.tieba.lo5;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.no5;
 import com.baidu.tieba.oo5;
+import com.baidu.tieba.po5;
 import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -379,7 +379,7 @@ public class IntentConfig extends OrmObject {
         ArrayList<String> c2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
-            ko5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+            lo5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
             if (currentVisiblePageExtra == null) {
                 c2 = null;
             } else {
@@ -575,12 +575,12 @@ public class IntentConfig extends OrmObject {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65548, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
             BdPageContextSupport<?> b2 = a5.b(context);
-            oo5 oo5Var = null;
-            if (b2 instanceof no5) {
-                oo5Var = ((no5) b2).getTbPageInfo();
+            po5 po5Var = null;
+            if (b2 instanceof oo5) {
+                po5Var = ((oo5) b2).getTbPageInfo();
             }
-            if (oo5Var != null) {
-                this.mIntent.putExtra("tb_page_tag_source_trace", oo5Var.a());
+            if (po5Var != null) {
+                this.mIntent.putExtra("tb_page_tag_source_trace", po5Var.a());
             }
         }
     }

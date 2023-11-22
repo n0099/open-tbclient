@@ -4,9 +4,9 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.oj8;
 import com.baidu.tieba.pj8;
 import com.baidu.tieba.qj8;
+import com.baidu.tieba.rj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -46,7 +46,7 @@ public final class HttpImplMCFacade$ResJson extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             Message<?> orginalMessage = getOrginalMessage();
-            oj8 oj8Var = null;
+            pj8 pj8Var = null;
             if (orginalMessage instanceof HttpMessage) {
                 httpMessage = (HttpMessage) orginalMessage;
             } else {
@@ -57,17 +57,17 @@ public final class HttpImplMCFacade$ResJson extends JsonHttpResponsedMessage {
             } else {
                 obj = null;
             }
-            if (obj instanceof oj8) {
-                oj8Var = obj;
+            if (obj instanceof pj8) {
+                pj8Var = obj;
             }
-            if (oj8Var == null) {
-                z = pj8.a;
+            if (pj8Var == null) {
+                z = qj8.a;
                 if (z) {
                     throw new IllegalStateException();
                 }
                 return;
             }
-            qj8 a = oj8Var.a();
+            rj8 a = pj8Var.a();
             if (a != null) {
                 a.a(jSONObject);
             }

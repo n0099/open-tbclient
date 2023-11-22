@@ -5,20 +5,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.DelThreadText;
+import tbclient.DeclareInfo;
 /* loaded from: classes7.dex */
-public class mrc extends poc {
+public class mrc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull DelThreadText delThreadText) {
+    public static JSONObject b(@NonNull DeclareInfo declareInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, delThreadText)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, declareInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "text_id", delThreadText.text_id);
-            poc.a(jSONObject, "text_info", delThreadText.text_info);
+            qoc.a(jSONObject, "declare_id", declareInfo.declare_id);
+            qoc.a(jSONObject, "declare_url", declareInfo.declare_url);
+            qoc.a(jSONObject, "declare_text", declareInfo.declare_text);
+            qoc.a(jSONObject, "declare_num", declareInfo.declare_num);
+            qoc.a(jSONObject, "is_declare", declareInfo.is_declare);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
-import androidx.annotation.WorkerThread;
-import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.chatmessage.response.SendMsgResponse;
 /* loaded from: classes7.dex */
 public interface ok5 {
-    @WorkerThread
-    void a(long j, int i, String str, IChatRoomEnterListener.ChatRoomInfo chatRoomInfo);
+    void a(ChatMsg chatMsg);
+
+    void b(int i, String str, SendMsgResponse sendMsgResponse);
 }

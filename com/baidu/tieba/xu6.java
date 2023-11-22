@@ -1,161 +1,86 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ApkDetail;
-import tbclient.ManageInfo;
 /* loaded from: classes9.dex */
-public class xu6 implements oi {
+public class xu6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public ItemData a;
+    public int a;
     public int b;
     public int c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
+    public String d;
+    public View e;
 
-    public static boolean e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i == 3 || i == 4 : invokeI.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948312912, "Lcom/baidu/tieba/xu6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948312912, "Lcom/baidu/tieba/xu6;");
-                return;
-            }
-        }
-        g = BdUniqueId.gen();
-    }
-
-    public xu6() {
+    public xu6(int i, int i2, int i3, String str, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str, view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = 0;
-        this.c = 0;
-        this.d = true;
-        this.e = false;
-        this.f = false;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = str;
+        this.e = view2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public xu6 clone() {
+    public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            xu6 xu6Var = new xu6();
-            xu6Var.a = this.a;
-            xu6Var.b = this.b;
-            xu6Var.c = this.c;
-            xu6Var.d = this.d;
-            xu6Var.e = this.e;
-            xu6Var.f = this.f;
-            return xu6Var;
+            return this.e;
         }
-        return (xu6) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.oi
-    public BdUniqueId getType() {
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return g;
+            return this.b;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static xu6 b(mc5 mc5Var) {
-        InterceptResult invokeL;
+    public int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mc5Var)) == null) {
-            xu6 xu6Var = new xu6();
-            xu6Var.a = mc5Var.b;
-            xu6Var.b = mc5Var.d;
-            xu6Var.c = mc5Var.e;
-            return xu6Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
         }
-        return (xu6) invokeL.objValue;
-    }
-
-    public static xu6 c(ManageInfo manageInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, manageInfo)) == null) {
-            xu6 xu6Var = new xu6();
-            ItemData itemData = new ItemData();
-            xu6Var.a = itemData;
-            itemData.parseProto(manageInfo.item);
-            xu6Var.b = manageInfo.item_source.intValue();
-            return xu6Var;
-        }
-        return (xu6) invokeL.objValue;
-    }
-
-    public boolean d(xu6 xu6Var) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        boolean z3;
-        ItemData itemData;
-        ApkDetail apkDetail;
-        ApkDetail apkDetail2;
-        ItemData itemData2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xu6Var)) == null) {
-            if (this.b == xu6Var.b && this.c == xu6Var.c) {
-                z = true;
-            } else {
-                z = false;
-            }
-            ItemData itemData3 = this.a;
-            if (itemData3 != null && (itemData2 = xu6Var.a) != null) {
-                z2 = itemData3.pkgName.equals(itemData2.pkgName);
-            } else {
-                z2 = false;
-            }
-            ItemData itemData4 = this.a;
-            if (itemData4 != null && (itemData = xu6Var.a) != null && (apkDetail = itemData4.apkDetail) != null && (apkDetail2 = itemData.apkDetail) != null) {
-                z3 = apkDetail.version_code.equals(apkDetail2.version_code);
-            } else {
-                z3 = false;
-            }
-            if (z && z2 && z3) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
     }
 }

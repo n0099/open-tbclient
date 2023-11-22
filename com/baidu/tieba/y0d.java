@@ -2,32 +2,30 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.config.QuickPersistConfigConst;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.PbLinkInfo;
+import tbclient.PbGoodsInfo;
 /* loaded from: classes9.dex */
-public class y0d extends poc {
+public class y0d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PbLinkInfo pbLinkInfo) {
+    public static JSONObject b(@NonNull PbGoodsInfo pbGoodsInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pbLinkInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pbGoodsInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "title", pbLinkInfo.title);
-            poc.a(jSONObject, "to_url", pbLinkInfo.to_url);
-            poc.a(jSONObject, "pic_url", pbLinkInfo.pic_url);
-            poc.a(jSONObject, "link_from", pbLinkInfo.link_from);
-            poc.a(jSONObject, "ext_txt", pbLinkInfo.ext_txt);
-            poc.a(jSONObject, QuickPersistConfigConst.KEY_SPLASH_SORT, pbLinkInfo.sort);
-            poc.a(jSONObject, "url_type", pbLinkInfo.url_type);
-            poc.a(jSONObject, GameGuideConfigInfo.KEY_CONTENT1, pbLinkInfo.content1);
-            poc.a(jSONObject, GameGuideConfigInfo.KEY_CONTENT2, pbLinkInfo.content2);
+            qoc.a(jSONObject, "goods_title", pbGoodsInfo.goods_title);
+            qoc.a(jSONObject, "goods_image", pbGoodsInfo.goods_image);
+            qoc.a(jSONObject, "goods_price", pbGoodsInfo.goods_price);
+            qoc.a(jSONObject, "goods_url", pbGoodsInfo.goods_url);
+            qoc.a(jSONObject, QuickPersistConfigConst.KEY_SPLASH_SORT, pbGoodsInfo.sort);
+            qoc.a(jSONObject, "goods_from", pbGoodsInfo.goods_from);
+            qoc.a(jSONObject, "goods_url_h5", pbGoodsInfo.goods_url_h5);
+            qoc.a(jSONObject, "goods_id", pbGoodsInfo.goods_id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

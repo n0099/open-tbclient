@@ -9,23 +9,30 @@ import android.webkit.WebSettings;
 import com.baidu.adp.lib.util.DeviceInfoHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.util.KVStorageFactory;
+import com.baidu.android.util.KVStorageRuntime;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.logsystem.basic.Loki;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
+import com.baidu.searchbox.util.KVStorageWrapper;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.InitWriteWebDelaySwitch;
-import com.baidu.tieba.cv5;
+import com.baidu.tieba.dv5;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.m00;
 import com.baidu.tieba.pf;
 import com.baidu.tieba.s05;
+import com.baidu.tieba.w0b;
 import com.baidu.tieba.write.WriteWebViewCacheManager;
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONArray;
 /* loaded from: classes4.dex */
@@ -69,7 +76,6 @@ public class MainTabLoadFinishTask extends LaunchTask {
         Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.searchbox.task.async.homeready.MainTabLoadFinishTask.1
             @Override // android.os.MessageQueue.IdleHandler
             public boolean queueIdle() {
-                String str;
                 try {
                     Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                     if (currentActivity != null) {
@@ -87,16 +93,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                boolean z = SharedPrefHelper.getInstance().getBoolean("key_splash_shake_ad_open", true);
-                TbLog defaultLog = DefaultLog.getInstance();
-                defaultLog.i(LaunchTask.TAG, "冷启动，开屏广告摇一摇开关状态" + z);
-                StatisticItem statisticItem = new StatisticItem("c15178");
-                if (z) {
-                    str = "0";
-                } else {
-                    str = "1";
-                }
-                TiebaStatic.log(statisticItem.param("obj_param1", str));
+                MainTabLoadFinishTask.this.statSplashShakeSwitch();
                 TbLog a = pf.a();
                 a.i(Config.DEVICE_PART, "Device Info: cuid: " + TbadkCoreApplication.getInst().getCuid() + " from: " + TbadkCoreApplication.getFrom() + " client_version: " + TbConfig.getVersion() + " os_version: " + DeviceInfoHelper.getOsVersion());
                 if (InitWriteWebDelaySwitch.isOn()) {
@@ -112,11 +109,40 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 JSONArray jSONArray = new JSONArray(string);
                 TbLog defaultLog = DefaultLog.getInstance();
                 defaultLog.i("WebPreheat", "冷启动预热H5:" + jSONArray);
-                cv5.e(jSONArray);
+                dv5.e(jSONArray);
             }
         } catch (Throwable th) {
             TbLog defaultLog2 = DefaultLog.getInstance();
             defaultLog2.e("WebPreheat", "exception:" + th);
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void statSplashShakeSwitch() {
+        String str;
+        boolean z;
+        boolean z2 = SharedPrefHelper.getInstance().getBoolean("key_splash_shake_ad_open", true);
+        DefaultLog.getInstance().i(LaunchTask.TAG, "冷启动，开屏广告摇一摇开关状态" + z2);
+        StatisticItem statisticItem = new StatisticItem("c15178");
+        if (z2) {
+            str = "0";
+        } else {
+            str = "1";
+        }
+        TiebaStatic.log(statisticItem.param("obj_param1", str));
+        boolean contains = TbadkCoreApplication.getInst().getSharedPreferences("settings2", 0).contains("key_splash_shake_ad_open");
+        boolean z3 = TbadkCoreApplication.getInst().getSharedPreferences("settings2", 0).getBoolean("key_splash_shake_ad_open", true);
+        boolean isKVStorageInitSuccess = KVStorageFactory.isKVStorageInitSuccess();
+        String absolutePath = AppRuntime.getAppContext().getDir(w0b.c, 0).getAbsolutePath();
+        boolean exists = new File(absolutePath).exists();
+        String kVStoragePath = KVStorageRuntime.getKVStorageControl().getKVStoragePath();
+        if (kVStoragePath != null && new File(kVStoragePath).exists()) {
+            z = true;
+        } else {
+            z = false;
+        }
+        String str2 = "hasSp: " + contains + " isOnSp: " + z3 + " isKVStorageInitSuccess: " + isKVStorageInitSuccess + " spPath: " + absolutePath + " isSpFileExist: " + exists + " kvPath: " + kVStoragePath + " isKvFileExist: " + z + " kvMeta: " + new KVStorageWrapper("settings2").getCustomMeta() + " hasKV: " + KVStorageFactory.getSharedPreferences("settings2", 0).contains("key_splash_shake_ad_open") + " isOnKV: " + TbadkCoreApplication.getInst().getSharedPreferences("settings2", 0).getBoolean("key_splash_shake_ad_open", true);
+        pf.a().i(LaunchTask.TAG, "冷启动，开屏广告摇一摇开关状态(详细) " + str2);
+        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_type", "shake_switch_check").param("obj_source", "launch check: " + z2).param("obj_param1", str2));
     }
 }

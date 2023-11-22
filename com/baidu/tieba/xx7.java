@@ -1,13 +1,11 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes9.dex */
 public interface xx7 {
-    void a(List<LiveFuseForumData> list, wx7 wx7Var);
+    void a(int i, LiveFuseForumData liveFuseForumData);
 
-    View getView();
+    void b(int i, LiveFuseForumData liveFuseForumData, int i2);
 
-    void r();
+    void c(int i, LiveFuseForumData liveFuseForumData);
 }

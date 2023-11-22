@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import java.util.Map;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.im.lib.socket.msg.data.Reaction;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface gz8 {
-    void b(int i, @Nullable Map<String, Object> map);
+    void d(@NonNull List<Reaction> list);
 }

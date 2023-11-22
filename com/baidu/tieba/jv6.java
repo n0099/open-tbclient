@@ -1,38 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tieba.downloadmanager.data.DownloadManageModeCardType;
+import com.baidu.tieba.downloadmanager.ui.adapter.ItemCardViewWrapperAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.ApkDetail;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class jv6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaseFragment a;
+    public BdTypeRecyclerView b;
+    public ItemCardViewWrapperAdapter c;
+    public List<bi> d;
+    public int e;
+    public int f;
 
-    public static void a(xu6 xu6Var) {
-        ItemData itemData;
+    public jv6(BaseFragment baseFragment, BdTypeRecyclerView bdTypeRecyclerView, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, xu6Var) == null) && xu6Var != null && (itemData = xu6Var.a) != null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_DOWNLOAD_INFO);
-            httpMessage.addParam("item_id", itemData.itemId);
-            httpMessage.addParam("app_name", itemData.mTitle);
-            httpMessage.addParam("source_type", xu6Var.b);
-            httpMessage.addParam("icon_url", itemData.mIconUrl);
-            httpMessage.addParam("score", Double.valueOf(itemData.mScore));
-            httpMessage.addParam("tags", itemData.mTags);
-            httpMessage.addParam("apk_name", itemData.pkgName);
-            ApkDetail apkDetail = itemData.apkDetail;
-            if (apkDetail != null) {
-                httpMessage.addParam("developer", apkDetail.developer);
-                httpMessage.addParam("privacy_url", itemData.apkDetail.privacy_url);
-                httpMessage.addParam("authority_url", itemData.apkDetail.authority_url);
-                httpMessage.addParam("version", itemData.apkDetail.version);
-                httpMessage.addParam("version_code", itemData.apkDetail.version_code);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment, bdTypeRecyclerView, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            MessageManager.getInstance().sendMessageFromBackground(httpMessage);
+        }
+        this.d = new ArrayList();
+        this.a = baseFragment;
+        this.b = bdTypeRecyclerView;
+        this.e = i;
+        this.f = i2;
+        b();
+    }
+
+    public void a(DownloadManageModeCardType downloadManageModeCardType) {
+        ItemCardViewWrapperAdapter itemCardViewWrapperAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, downloadManageModeCardType) == null) && (itemCardViewWrapperAdapter = this.c) != null) {
+            itemCardViewWrapperAdapter.F(downloadManageModeCardType);
+        }
+    }
+
+    public void d(ItemCardViewWrapperAdapter.b bVar) {
+        ItemCardViewWrapperAdapter itemCardViewWrapperAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) && (itemCardViewWrapperAdapter = this.c) != null) {
+            itemCardViewWrapperAdapter.I(bVar);
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ItemCardViewWrapperAdapter itemCardViewWrapperAdapter = new ItemCardViewWrapperAdapter(this.a.getContext(), yu6.g, this.e, this.b, this.f);
+            this.c = itemCardViewWrapperAdapter;
+            this.d.add(itemCardViewWrapperAdapter);
+            this.b.addAdapters(this.d);
+        }
+    }
+
+    public void c() {
+        ItemCardViewWrapperAdapter itemCardViewWrapperAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (itemCardViewWrapperAdapter = this.c) != null) {
+            itemCardViewWrapperAdapter.notifyDataSetChanged();
         }
     }
 }

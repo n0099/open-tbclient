@@ -1,27 +1,34 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.data.IMUserExtraData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.BusinessAccountInfo;
+import tbclient.BottomMenu;
+import tbclient.SubBottomMenu;
 /* loaded from: classes7.dex */
-public class pqc extends poc {
+public class pqc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull BusinessAccountInfo businessAccountInfo) {
+    public static JSONObject b(@NonNull BottomMenu bottomMenu) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, businessAccountInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bottomMenu)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, IMUserExtraData.KEY_IS_BUSINESS_ACCOUNT, businessAccountInfo.is_business_account);
-            poc.a(jSONObject, "is_forum_business_account", businessAccountInfo.is_forum_business_account);
-            poc.a(jSONObject, "business_name", businessAccountInfo.business_name);
-            poc.a(jSONObject, "identifi_explain", businessAccountInfo.identifi_explain);
+            qoc.a(jSONObject, "name", bottomMenu.name);
+            qoc.a(jSONObject, "url", bottomMenu.url);
+            if (bottomMenu.submenu != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (SubBottomMenu subBottomMenu : bottomMenu.submenu) {
+                    jSONArray.put(x3d.b(subBottomMenu));
+                }
+                qoc.a(jSONObject, "submenu", jSONArray);
+            }
+            qoc.a(jSONObject, "type", bottomMenu.type);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

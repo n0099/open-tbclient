@@ -1,107 +1,86 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.sdk.crashreportbaidu.ReportInfo;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public class pbc<T extends ReportInfo> {
+public class pbc {
     public static /* synthetic */ Interceptable $ic;
+    public static obc a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SharedPreferences a;
 
-    public pbc(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948057720, "Lcom/baidu/tieba/pbc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948057720, "Lcom/baidu/tieba/pbc;");
                 return;
             }
         }
-        this.a = context.getSharedPreferences(str, 0);
+        a = new tbc();
     }
 
-    public String a(T t) {
-        InterceptResult invokeL;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            if (t == null) {
-                return "anr info is null";
-            }
-            obc.d("ReportDB", "add info: " + t.crashId);
-            try {
-                List<T> d = d();
-                int size = d.size();
-                SharedPreferences.Editor edit = this.a.edit();
-                for (int i = 0; i <= size - 30; i++) {
-                    T t2 = d.get(i);
-                    t2.clearFiles(t2.fileList);
-                    edit.remove(t2.crashId);
-                }
-                edit.putString(t.crashId, t.serialize()).commit();
-                return null;
-            } catch (IOException e) {
-                String C = rbc.C(e);
-                obc.c("ReportDB", C, e);
-                return C;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.edit().clear().commit();
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            a.d(str, str2);
         }
     }
 
-    public void c(String str) {
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            obc.d("ReportDB", "delete info: " + str);
-            if (this.a.contains(str)) {
-                this.a.edit().remove(str).commit();
-            }
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            a.e(str, str2);
         }
     }
 
-    public List<T> d() {
-        InterceptResult invokeV;
+    public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Map<String, ?> all = this.a.getAll();
-            if (all != null && !all.isEmpty()) {
-                for (Map.Entry<String, ?> entry : all.entrySet()) {
-                    try {
-                        arrayList.add((ReportInfo) ReportInfo.deserialize((String) entry.getValue()));
-                        obc.d("ReportDB", String.format("read info:%s", entry.getKey()));
-                    } catch (Exception e) {
-                        c(entry.getKey());
-                        obc.b("ReportDB", String.format("read info error:[%s] %s", entry.getKey(), rbc.C(e)));
-                    }
-                }
-                obc.d("ReportDB", "get all size: " + arrayList.size());
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            a.i(str, str2);
         }
-        return (List) invokeV.objValue;
+    }
+
+    public static void g(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
+            a.w(str, str2);
+        }
+    }
+
+    public static void c(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) {
+            a.e(str, str2, th);
+        }
+    }
+
+    public static void e(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, th) == null) {
+            a.i(str, str2, th);
+        }
+    }
+
+    public static void h(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, str, str2, th) == null) {
+            a.w(str, str2, th);
+        }
+    }
+
+    public static void f(obc obcVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, obcVar) == null) && obcVar != null) {
+            a = obcVar;
+        }
     }
 }

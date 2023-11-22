@@ -23,10 +23,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e8b;
-import com.baidu.tieba.nsb;
-import com.baidu.tieba.psb;
-import com.baidu.tieba.u55;
+import com.baidu.tieba.f8b;
+import com.baidu.tieba.osb;
+import com.baidu.tieba.qsb;
+import com.baidu.tieba.v55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
     public View d;
     public View e;
     public TBSpecificationBtn f;
-    public e8b g;
+    public f8b g;
     public TextPaint h;
     public int i;
     public boolean j;
@@ -192,9 +192,9 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             if (view2 == this.f) {
                 String obj = this.b.getText().toString();
                 k();
-                e8b e8bVar = this.g;
-                if (e8bVar != null) {
-                    e8bVar.g(obj);
+                f8b f8bVar = this.g;
+                if (f8bVar != null) {
+                    f8bVar.g(obj);
                 }
             } else if (view2 == this.c) {
                 this.b.setText("");
@@ -237,7 +237,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             setLayoutParams(layoutParams);
         }
         this.m = false;
-        if (!TextUtils.equals(str, nsb.l(R.string.obfuscated_res_0x7f0f1788))) {
+        if (!TextUtils.equals(str, osb.l(R.string.obfuscated_res_0x7f0f1788))) {
             this.b.setText(str);
         }
         setVisibility(0);
@@ -273,9 +273,9 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
         this.d = findViewById;
         EMManager.from(findViewById).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0106);
         this.f = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f092521);
-        u55 u55Var = new u55();
-        u55Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
-        this.f.setConfig(u55Var);
+        v55 v55Var = new v55();
+        v55Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
+        this.f.setConfig(v55Var);
         this.f.setTextSize(R.dimen.T_X08);
         this.f.setText(this.a.getResources().getString(R.string.pb_send_post));
         this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f0909c1);
@@ -295,10 +295,10 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
         }
     }
 
-    public void setOnTextWordsEditListener(e8b e8bVar) {
+    public void setOnTextWordsEditListener(f8b f8bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, e8bVar) == null) {
-            this.g = e8bVar;
+        if (interceptable == null || interceptable.invokeL(1048585, this, f8bVar) == null) {
+            this.g = f8bVar;
         }
     }
 
@@ -359,9 +359,9 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             if (this.h == null) {
                 TextPaint textPaint = new TextPaint();
                 this.h = textPaint;
-                textPaint.setTextSize(nsb.j(R.dimen.obfuscated_res_0x7f0702b7));
+                textPaint.setTextSize(osb.j(R.dimen.obfuscated_res_0x7f0702b7));
             }
-            StaticLayout staticLayout = new StaticLayout(str, this.h, psb.c(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
+            StaticLayout staticLayout = new StaticLayout(str, this.h, qsb.c(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
             int i2 = 0;
             if (staticLayout.getLineCount() > i) {
                 str = str.substring(0, staticLayout.getLineStart(i) - 1);
@@ -371,9 +371,9 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
                 i2 = this.b.getText().length();
             }
             this.b.setSelection(i2);
-            e8b e8bVar = this.g;
-            if (e8bVar != null && this.m) {
-                e8bVar.k(str);
+            f8b f8bVar = this.g;
+            if (f8bVar != null && this.m) {
+                f8bVar.k(str);
             }
         }
     }

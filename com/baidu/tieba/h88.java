@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class h88 extends bi<nm6, ThreadCardViewHolder<nm6>> implements s16 {
+public class h88 extends bi<om6, ThreadCardViewHolder<om6>> implements t16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
@@ -29,10 +29,10 @@ public class h88 extends bi<nm6, ThreadCardViewHolder<nm6>> implements s16 {
     public String c;
     public boolean d;
     public ui e;
-    public xl6<nm6> f;
+    public yl6<om6> f;
 
     /* loaded from: classes6.dex */
-    public class a extends xl6<nm6> {
+    public class a extends yl6<om6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ h88 b;
@@ -56,12 +56,12 @@ public class h88 extends bi<nm6, ThreadCardViewHolder<nm6>> implements s16 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xl6
+        @Override // com.baidu.tieba.yl6
         /* renamed from: d */
-        public void a(View view2, nm6 nm6Var) {
+        public void a(View view2, om6 om6Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, nm6Var) == null) && view2 != null && nm6Var != null && nm6Var.getThreadData() != null && !StringUtils.isNull(nm6Var.getThreadData().getTid())) {
-                this.b.z(view2, nm6Var);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, om6Var) == null) && view2 != null && om6Var != null && om6Var.getThreadData() != null && !StringUtils.isNull(om6Var.getThreadData().getTid())) {
+                this.b.z(view2, om6Var);
             }
         }
     }
@@ -93,14 +93,14 @@ public class h88 extends bi<nm6, ThreadCardViewHolder<nm6>> implements s16 {
         @Override // com.baidu.tieba.yi
         public void b(View view2, oi oiVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, oiVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (oiVar instanceof nm6) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, oiVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (oiVar instanceof om6) && (view2.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                nm6 nm6Var = (nm6) oiVar;
-                nm6Var.f = 1;
+                om6 om6Var = (om6) oiVar;
+                om6Var.f = 1;
                 if (this.a.f != null) {
-                    this.a.f.a(threadCardViewHolder.getView(), nm6Var);
+                    this.a.f.a(threadCardViewHolder.getView(), om6Var);
                 }
-                ThreadCardUtils.jumpToPB((bw4) nm6Var, view2.getContext(), 1, false);
+                ThreadCardUtils.jumpToPB((bw4) om6Var, view2.getContext(), 1, false);
                 threadCardViewHolder.a().q(new mu.a(1));
             }
         }
@@ -137,7 +137,7 @@ public class h88 extends bi<nm6, ThreadCardViewHolder<nm6>> implements s16 {
         }
     }
 
-    @Override // com.baidu.tieba.s16
+    @Override // com.baidu.tieba.t16
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -153,7 +153,10 @@ public class h88 extends bi<nm6, ThreadCardViewHolder<nm6>> implements s16 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
             bu.b bVar = new bu.b(this.b.getPageActivity(), false);
-            bVar.n(pt.s(this.b.getPageActivity(), ImageViewerConfig.FROM_CONCERN, this.d));
+            nt ntVar = new nt(this.b.getPageActivity());
+            ntVar.setFrom(ImageViewerConfig.FROM_CONCERN);
+            ntVar.x(this.d);
+            bVar.n(ntVar);
             bu k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.e);
             k.t(1);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
@@ -167,21 +170,20 @@ public class h88 extends bi<nm6, ThreadCardViewHolder<nm6>> implements s16 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bi
     /* renamed from: y */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, nm6 nm6Var, ThreadCardViewHolder<nm6> threadCardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, om6 om6Var, ThreadCardViewHolder<om6> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nm6Var, threadCardViewHolder})) == null) {
-            if (nm6Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && nm6Var.a != null) {
-                nm6Var.A(nm6Var.position + 1);
-                pl6.b().a(nm6Var.d("c12351"));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, om6Var, threadCardViewHolder})) == null) {
+            if (om6Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && om6Var.a != null) {
+                om6Var.A(om6Var.position + 1);
+                ql6.b().a(om6Var.d("c12351"));
                 threadCardViewHolder.a().s(i);
-                if (threadCardViewHolder.a() instanceof r16) {
+                if (threadCardViewHolder.a() instanceof s16) {
                     threadCardViewHolder.a().b(this.c);
                 }
-                threadCardViewHolder.e(nm6Var);
+                threadCardViewHolder.e(om6Var);
                 threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.a().r(this.f);
-                rl6.a(threadCardViewHolder.a().g(), nm6Var.j, nm6Var.k);
                 return threadCardViewHolder.getView();
             }
             return null;
@@ -189,15 +191,15 @@ public class h88 extends bi<nm6, ThreadCardViewHolder<nm6>> implements s16 {
         return (View) invokeCommon.objValue;
     }
 
-    public final void z(View view2, nm6 nm6Var) {
+    public final void z(View view2, om6 om6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, view2, nm6Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048582, this, view2, om6Var) == null) {
             if (view2.getId() == R.id.thread_card_root) {
-                y78.b(view2, nm6Var, 2);
+                z78.b(view2, om6Var, 2);
             } else if (view2 instanceof TbImageView) {
-                y78.b(view2, nm6Var, 3);
+                z78.b(view2, om6Var, 3);
             } else if (view2.getId() == R.id.thread_card_title || view2.getId() == R.id.thread_card_abstract) {
-                y78.b(view2, nm6Var, 2);
+                z78.b(view2, om6Var, 2);
             }
         }
     }

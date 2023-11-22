@@ -29,7 +29,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.cz4;
 import com.baidu.tieba.stamp.view.SignStampIconsView;
-import com.baidu.tieba.woa;
+import com.baidu.tieba.xoa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +55,7 @@ public class SignStampIconsView extends LinearLayout {
     public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public woa b;
+    public xoa b;
     public List<ImageView> c;
 
     /* loaded from: classes8.dex */
@@ -283,7 +283,7 @@ public class SignStampIconsView extends LinearLayout {
             linearLayout.setGravity(1);
             linearLayout.addView(tbImageView);
             linearLayout.addView(textView);
-            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bpa
+            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.cpa
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -319,9 +319,9 @@ public class SignStampIconsView extends LinearLayout {
                 h(linearLayout.getChildAt(0), 1.44f, 1.44f, 70L);
             }
         }
-        woa woaVar = this.b;
-        if (woaVar != null) {
-            woaVar.a(aVar);
+        xoa xoaVar = this.b;
+        if (xoaVar != null) {
+            xoaVar.a(aVar);
         }
     }
 
@@ -399,10 +399,10 @@ public class SignStampIconsView extends LinearLayout {
         }
     }
 
-    public void setSignStampIconClickListener(woa woaVar) {
+    public void setSignStampIconClickListener(xoa xoaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, woaVar) == null) {
-            this.b = woaVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, xoaVar) == null) {
+            this.b = xoaVar;
         }
     }
 }

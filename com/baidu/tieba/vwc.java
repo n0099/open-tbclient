@@ -5,25 +5,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.RecreationRankInfo;
+import tbclient.FrsPage.RecommendForum;
 /* loaded from: classes8.dex */
-public class vwc extends poc {
+public class vwc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RecreationRankInfo recreationRankInfo) {
+    public static JSONObject b(@NonNull RecommendForum recommendForum) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recreationRankInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recommendForum)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "icon", recreationRankInfo.icon);
-            poc.a(jSONObject, "rank_name", recreationRankInfo.rank_name);
-            poc.a(jSONObject, "rank_score", recreationRankInfo.rank_score);
-            poc.a(jSONObject, "rank_link", recreationRankInfo.rank_link);
-            poc.a(jSONObject, "rank_icon", recreationRankInfo.rank_icon);
-            poc.a(jSONObject, "rank_color", recreationRankInfo.rank_color);
-            poc.a(jSONObject, "show_type", recreationRankInfo.show_type);
+            qoc.a(jSONObject, "name", recommendForum.name);
+            qoc.a(jSONObject, "avatar", recommendForum.avatar);
+            qoc.a(jSONObject, "link", recommendForum.link);
+            qoc.a(jSONObject, "st_param", recommendForum.st_param);
+            qoc.a(jSONObject, "member_num", recommendForum.member_num);
+            qoc.a(jSONObject, "thread_num", recommendForum.thread_num);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

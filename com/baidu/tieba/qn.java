@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class qn {
     public static /* synthetic */ Interceptable $ic;
     public static volatile qn d;
@@ -25,7 +25,7 @@ public class qn {
     public ConcurrentLinkedQueue<cn> b;
     public volatile boolean c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Function0<Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class qn {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +96,7 @@ public class qn {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c implements on.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

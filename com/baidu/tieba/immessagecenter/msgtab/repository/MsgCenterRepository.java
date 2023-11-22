@@ -16,7 +16,7 @@ import com.baidu.tieba.immessagecenter.arch.base.BaseRepository;
 import com.baidu.tieba.immessagecenter.msgtab.data.CacheDataType;
 import com.baidu.tieba.immessagecenter.msgtab.data.ForumListData;
 import com.baidu.tieba.immessagecenter.msgtab.data.MsgTabForumData;
-import com.baidu.tieba.qx8;
+import com.baidu.tieba.rx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -213,7 +213,7 @@ public final class MsgCenterRepository extends BaseRepository {
                 this.b.put(c, forumListData);
                 return forumListData;
             } catch (Exception e) {
-                qx8.a.a("MsgCenterContainerPresenter->获取本地存储的推荐数据失败", e);
+                rx8.a.a("MsgCenterContainerPresenter->获取本地存储的推荐数据失败", e);
             }
         } else {
             return (ForumListData) invokeV.objValue;
@@ -239,7 +239,7 @@ public final class MsgCenterRepository extends BaseRepository {
                 this.b.put(c, forumListData);
                 return forumListData;
             } catch (Exception e) {
-                qx8.a.a("MsgCenterContainerPresenter->获取本地存储的最后一次网络请求数据失败", e);
+                rx8.a.a("MsgCenterContainerPresenter->获取本地存储的最后一次网络请求数据失败", e);
             }
         } else {
             return (ForumListData) invokeV.objValue;

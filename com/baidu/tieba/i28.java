@@ -1,20 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.message.UpgradePopWindowMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes6.dex */
-public class i28 extends g15 {
+public class i28 implements y15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.y15
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_TOAST_STRATEGY" : (String) invokeV.objValue;
+    }
 
     public i28() {
         Interceptable interceptable = $ic;
@@ -30,18 +34,13 @@ public class i28 extends g15 {
         }
     }
 
-    @Override // com.baidu.tieba.g15
-    public void a(@NonNull Context context, @NonNull u05 u05Var) {
+    @Override // com.baidu.tieba.y15
+    public w15 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, u05Var) == null) {
-            if (!(context instanceof c25)) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "FRS升级弹窗失败：获取到的IForumDialogExtSupport为空");
-                YunDialogManager.unMarkShowingDialogName("frsUpgrade");
-                return;
-            }
-            UpgradePopWindowMessage upgradePopWindowMessage = new UpgradePopWindowMessage(2001016, TbadkCoreApplication.getInst().getCurrentPageContext(context));
-            upgradePopWindowMessage.setFromPage("frs");
-            MessageManager.getInstance().sendMessage(upgradePopWindowMessage);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new h28();
         }
+        return (w15) invokeV.objValue;
     }
 }

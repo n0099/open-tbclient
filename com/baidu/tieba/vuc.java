@@ -5,37 +5,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.CoverImageColor;
+import tbclient.FrsPage.CommonForum;
 /* loaded from: classes8.dex */
-public class vuc extends poc {
+public class vuc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static CoverImageColor b(@NonNull JSONObject jSONObject) {
+    public static JSONObject b(@NonNull CommonForum commonForum) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            CoverImageColor.Builder builder = new CoverImageColor.Builder();
-            if (jSONObject.has("value")) {
-                builder.value = jSONObject.optString("value");
-            }
-            if (jSONObject.has("model")) {
-                builder.model = Integer.valueOf(jSONObject.optInt("model"));
-            }
-            return builder.build(true);
-        }
-        return (CoverImageColor) invokeL.objValue;
-    }
-
-    @NonNull
-    public static JSONObject c(@NonNull CoverImageColor coverImageColor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, coverImageColor)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, commonForum)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "value", coverImageColor.value);
-            poc.a(jSONObject, "model", coverImageColor.model);
+            qoc.a(jSONObject, "common_forum", commonForum.common_forum);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

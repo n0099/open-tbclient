@@ -30,7 +30,7 @@ public class y30 {
     }
 
     /* loaded from: classes9.dex */
-    public static class a extends HttpClient.a {
+    public class a extends HttpClient.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int e;

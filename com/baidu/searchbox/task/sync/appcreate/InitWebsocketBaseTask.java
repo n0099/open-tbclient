@@ -16,19 +16,19 @@ import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
 import com.baidu.tbadk.task.TbSocketMessageTask;
-import com.baidu.tieba.bc5;
 import com.baidu.tieba.c6;
-import com.baidu.tieba.dc5;
+import com.baidu.tieba.cc5;
 import com.baidu.tieba.e6;
 import com.baidu.tieba.ec5;
 import com.baidu.tieba.f6;
 import com.baidu.tieba.fc5;
-import com.baidu.tieba.ip5;
-import com.baidu.tieba.oj5;
+import com.baidu.tieba.gc5;
+import com.baidu.tieba.jp5;
+import com.baidu.tieba.pj5;
 import com.baidu.tieba.x5;
-import com.baidu.tieba.xb5;
-import com.baidu.tieba.ys5;
+import com.baidu.tieba.yb5;
 import com.baidu.tieba.z6;
+import com.baidu.tieba.zs5;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes4.dex */
@@ -66,7 +66,7 @@ public class InitWebsocketBaseTask extends LaunchTask {
         if (UseHttpdnsSdkSwitch.isOn()) {
             x5.h(TiebaIMConfig.url);
         } else {
-            String h = xb5.f().h();
+            String h = yb5.f().h();
             if (TextUtils.isEmpty(h)) {
                 x5.h(TiebaIMConfig.url);
             } else {
@@ -78,11 +78,11 @@ public class InitWebsocketBaseTask extends LaunchTask {
         BdSocketDaemonService.setLinkServiceDisconnectCallBack(new f6() { // from class: com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask.3
             @Override // com.baidu.tieba.f6
             public void onLinkServiceDisconnect() {
-                ys5.e().c(new ys5.b() { // from class: com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask.3.1
-                    @Override // com.baidu.tieba.ys5.b
+                zs5.e().c(new zs5.b() { // from class: com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask.3.1
+                    @Override // com.baidu.tieba.zs5.b
                     public void onResult(boolean z) {
                         if (!z) {
-                            oj5.b(0, 0, 0, 1, 8);
+                            pj5.b(0, 0, 0, 1, 8);
                             BdSocketLinkService.startService(false, "restart");
                         }
                     }
@@ -90,7 +90,7 @@ public class InitWebsocketBaseTask extends LaunchTask {
             }
         });
         BdSocketLinkService.init();
-        oj5.b(0, 0, 0, 1, 9);
+        pj5.b(0, 0, 0, 1, 9);
         if (PermissionUtil.isAgreePrivacyPolicy()) {
             BdSocketLinkService.startService(false, "TiebaImApplication init");
         }
@@ -114,18 +114,18 @@ public class InitWebsocketBaseTask extends LaunchTask {
         if (socketReconnStratgy != null && socketReconnStratgy.length > 0) {
             x5.g(socketReconnStratgy);
         }
-        bc5.j().k();
-        MessageManager.getInstance().getSocketClient().G(bc5.j());
-        MessageManager.getInstance().addResponsedMessageRule(new fc5());
+        cc5.j().k();
+        MessageManager.getInstance().getSocketClient().G(cc5.j());
+        MessageManager.getInstance().addResponsedMessageRule(new gc5());
         try {
             c6.a().d(TiebaIMConfig.getRSAPublicKey());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        ec5.j().k();
-        dc5.y().z();
+        fc5.j().k();
+        ec5.y().z();
         initSocket();
-        ip5.a().r(System.currentTimeMillis() - currentTimeMillis);
+        jp5.a().r(System.currentTimeMillis() - currentTimeMillis);
     }
 
     public static TbSocketMessageTask registerImScoketTask(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {

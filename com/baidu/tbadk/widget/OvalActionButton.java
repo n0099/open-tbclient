@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aqa;
+import com.baidu.tieba.bqa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -204,11 +204,11 @@ public class OvalActionButton extends ImageView {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             this.t = skinType;
             if (skinType == 0) {
-                this.l = aqa.f("#00E1FF");
-                this.m = aqa.f("#00A2FF");
+                this.l = bqa.f("#00E1FF");
+                this.m = bqa.f("#00A2FF");
             } else if (skinType == 4) {
-                this.l = aqa.f("#2BE6FF");
-                this.m = aqa.f("#2BB1FF");
+                this.l = bqa.f("#2BE6FF");
+                this.m = bqa.f("#2BB1FF");
             }
         }
     }
@@ -324,7 +324,7 @@ public class OvalActionButton extends ImageView {
                         } else {
                             i3 = this.m;
                         }
-                        paint.setShadowLayer(16.0f, 5.0f, 5.0f, aqa.a(i3, 0.5f));
+                        paint.setShadowLayer(16.0f, 5.0f, 5.0f, bqa.a(i3, 0.5f));
                     } else {
                         int i6 = this.d;
                         float f15 = i6 * 0.054f;
@@ -338,7 +338,7 @@ public class OvalActionButton extends ImageView {
                         } else {
                             i2 = this.m;
                         }
-                        paint2.setShadowLayer(f15, cos, sin, aqa.a(i2, 0.83f));
+                        paint2.setShadowLayer(f15, cos, sin, bqa.a(i2, 0.83f));
                     }
                 }
                 LinearGradient linearGradient = this.k;
@@ -470,8 +470,8 @@ public class OvalActionButton extends ImageView {
     public void setStartAndEndColor(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, str, str2) == null) {
-            this.l = aqa.f(str);
-            this.m = aqa.f(str2);
+            this.l = bqa.f(str);
+            this.m = bqa.f(str2);
             this.a = true;
             invalidate();
         }

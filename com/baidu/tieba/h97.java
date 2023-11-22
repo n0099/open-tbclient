@@ -1,37 +1,49 @@
 package com.baidu.tieba;
 
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
+import com.baidu.tbadk.core.data.ThemeCardInUserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class h97 extends ClickableSpan {
+public final class h97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public h97() {
+    public static final boolean a(ThemeCardInUserData themeCardInUserData) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, themeCardInUserData)) == null) {
+            if (themeCardInUserData == null) {
+                return false;
             }
+            String cardImageUrlAndroid = themeCardInUserData.getCardImageUrlAndroid();
+            if (cardImageUrlAndroid != null && cardImageUrlAndroid.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint ds) {
+    public static final ThemeCardInUserData b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ds) == null) {
-            Intrinsics.checkNotNullParameter(ds, "ds");
-            ds.setUnderlineText(false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            JSONObject a = cn6.a.a(str);
+            if (a == null) {
+                return null;
+            }
+            ThemeCardInUserData themeCardInUserData = new ThemeCardInUserData();
+            themeCardInUserData.parser(a);
+            return themeCardInUserData;
         }
+        return (ThemeCardInUserData) invokeL.objValue;
     }
 }

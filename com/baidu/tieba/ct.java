@@ -105,7 +105,7 @@ public class ct extends us {
                     if (ThreadCardUtils.isHeadlinesCard(this.b.i.getThreadData().getTaskInfoData()) && HeadlinesPrefetchSwitch.isOn() && !UbsABTestHelper.isExistSid(ThreadCardUtils.KEY_TOUTIAO_PREFETCH_A) && StringUtils.isNotNull(this.b.i.getThreadData().getTaskInfoData().r())) {
                         TbLog defaultLog = DefaultLog.getInstance();
                         defaultLog.i("GodReplySegment", "头条卡，点击frs卡片神回复区域预取， url：" + this.b.i.getThreadData().getTaskInfoData().r());
-                        wi6.c(this.b.i.getThreadData().getTaskInfoData().r());
+                        xi6.c(this.b.i.getThreadData().getTaskInfoData().r());
                     }
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
@@ -144,7 +144,7 @@ public class ct extends us {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                il6.l(this.a.h.getGodReplyContent(), this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                jl6.l(this.a.h.getGodReplyContent(), this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return false;
             }
             return invokeL.booleanValue;
@@ -208,10 +208,10 @@ public class ct extends us {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bw4Var) == null) {
             this.i = bw4Var;
-            ura topAgreePost = bw4Var.getThreadData().getTopAgreePost();
+            vra topAgreePost = bw4Var.getThreadData().getTopAgreePost();
             if (this.j != null && topAgreePost != null && topAgreePost.t() != null && topAgreePost.t().getUserId() != null) {
                 this.j.param("tid", bw4Var.getThreadData().tid).param("post_id", topAgreePost.T()).param("uid", TbadkCoreApplication.getCurrentAccount());
-                pl6.b().a(this.j);
+                ql6.b().a(this.j);
             }
             this.h.setData(bw4Var.getThreadData());
         }

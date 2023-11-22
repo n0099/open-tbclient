@@ -24,8 +24,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.BlueCircleProgressDialog;
 import com.baidu.tbadk.data.CloseAdData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cra;
-import com.baidu.tieba.nia;
+import com.baidu.tieba.dra;
+import com.baidu.tieba.oia;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
 import com.baidu.tieba.setting.im.more.MemberCloseAdHttpResponseMessage;
 import com.baidu.tieba.setting.im.more.MemberCloseAdRequestMessage;
@@ -46,7 +46,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public static int f = 1;
     public static int g = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public nia a;
+    public oia a;
     public int b;
     public BlueCircleProgressDialog c;
     public NetMessageListener d;
@@ -253,7 +253,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new nia(this);
+            this.a = new oia(this);
             O0();
             registerListener(this.d);
             initData();
@@ -276,8 +276,8 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public void O0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            cra.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
-            cra.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
+            dra.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
+            dra.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
         }
     }
 

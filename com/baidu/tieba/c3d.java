@@ -1,38 +1,45 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.EditHeadActivityConfig;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.SignActivityInfo;
+import tbclient.FeedContentText;
+import tbclient.FeedKV;
+import tbclient.SidewayRecomComponent;
 /* loaded from: classes5.dex */
-public class c3d extends poc {
+public class c3d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SignActivityInfo signActivityInfo) {
+    public static JSONObject b(@NonNull SidewayRecomComponent sidewayRecomComponent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, signActivityInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, sidewayRecomComponent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "activity_id", signActivityInfo.activity_id);
-            poc.a(jSONObject, "activity_time", signActivityInfo.activity_time);
-            poc.a(jSONObject, "countdown_time", signActivityInfo.countdown_time);
-            poc.a(jSONObject, "activity_duration", signActivityInfo.activity_duration);
-            poc.a(jSONObject, "countdown_msg", signActivityInfo.countdown_msg);
-            poc.a(jSONObject, "activity_msg", signActivityInfo.activity_msg);
-            poc.a(jSONObject, "activity_suc_msg", signActivityInfo.activity_suc_msg);
-            poc.a(jSONObject, "activity_fail_msg", signActivityInfo.activity_fail_msg);
-            poc.a(jSONObject, "gift_type", signActivityInfo.gift_type);
-            poc.a(jSONObject, "gift_url", signActivityInfo.gift_url);
-            poc.a(jSONObject, "gift_name", signActivityInfo.gift_name);
-            poc.a(jSONObject, "icon_name", signActivityInfo.icon_name);
-            poc.a(jSONObject, "icon_lifecycle", signActivityInfo.icon_lifecycle);
-            poc.a(jSONObject, "activity_name", signActivityInfo.activity_name);
-            poc.a(jSONObject, EditHeadActivityConfig.IMAGE_URL, signActivityInfo.image_url);
+            qoc.a(jSONObject, "type", sidewayRecomComponent.type);
+            FeedContentText feedContentText = sidewayRecomComponent.title;
+            if (feedContentText != null) {
+                qoc.a(jSONObject, "title", hsc.b(feedContentText));
+            }
+            FeedContentText feedContentText2 = sidewayRecomComponent.desc;
+            if (feedContentText2 != null) {
+                qoc.a(jSONObject, "desc", hsc.b(feedContentText2));
+            }
+            qoc.a(jSONObject, BigdayActivityConfig.IMG_URL, sidewayRecomComponent.img_url);
+            qoc.a(jSONObject, "corner_url", sidewayRecomComponent.corner_url);
+            if (sidewayRecomComponent.business_info != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (FeedKV feedKV : sidewayRecomComponent.business_info) {
+                    jSONArray.put(usc.b(feedKV));
+                }
+                qoc.a(jSONObject, "business_info", jSONArray);
+            }
+            qoc.a(jSONObject, "schema", sidewayRecomComponent.schema);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

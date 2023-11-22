@@ -43,20 +43,20 @@ import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.switchs.HeadlinesPrefetchSwitch;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a55;
+import com.baidu.tieba.b55;
 import com.baidu.tieba.bw4;
 import com.baidu.tieba.fz4;
-import com.baidu.tieba.g5b;
-import com.baidu.tieba.il6;
-import com.baidu.tieba.iy5;
-import com.baidu.tieba.k65;
+import com.baidu.tieba.h5b;
+import com.baidu.tieba.jl6;
+import com.baidu.tieba.jy5;
+import com.baidu.tieba.l65;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.lt5;
+import com.baidu.tieba.mt5;
 import com.baidu.tieba.py4;
 import com.baidu.tieba.qd;
-import com.baidu.tieba.qp7;
+import com.baidu.tieba.rp7;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.wi6;
+import com.baidu.tieba.xi6;
 import com.baidu.tieba.yd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -314,13 +314,13 @@ public final class ThreadCardUtils {
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
             SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(" ");
-            spannableStringBuilder2.setSpan(new k65(BdUtilHelper.getDimens(textView.getContext(), i2)), 0, spannableStringBuilder2.length(), 17);
+            spannableStringBuilder2.setSpan(new l65(BdUtilHelper.getDimens(textView.getContext(), i2)), 0, spannableStringBuilder2.length(), 17);
             SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(i));
             if (z) {
-                spannableStringBuilder3.setSpan(new iy5(2, null), 0, spannableStringBuilder3.length(), 33);
+                spannableStringBuilder3.setSpan(new jy5(2, null), 0, spannableStringBuilder3.length(), 33);
             }
             SpannableStringBuilder spannableStringBuilder4 = new SpannableStringBuilder(" ");
-            spannableStringBuilder4.setSpan(new k65(BdUtilHelper.getDimens(textView.getContext(), R.dimen.tbds1)), 0, spannableStringBuilder2.length(), 17);
+            spannableStringBuilder4.setSpan(new l65(BdUtilHelper.getDimens(textView.getContext(), R.dimen.tbds1)), 0, spannableStringBuilder2.length(), 17);
             SpannableStringBuilder spannableStringBuilder5 = new SpannableStringBuilder(str);
             spannableStringBuilder5.append((CharSequence) spannableStringBuilder2);
             if (z2) {
@@ -454,13 +454,13 @@ public final class ThreadCardUtils {
                     ThreadRecommendTagUtil.setTag(spannableStringBuilder, threadData);
                 }
                 textView.setVisibility(0);
-                textView.setOnTouchListener(new g5b(spannableStringBuilder));
+                textView.setOnTouchListener(new h5b(spannableStringBuilder));
                 if (i > 0) {
                     cutAndSetTextByMaxLineForDot(textView, spannableStringBuilder, i2, i);
                 } else {
                     textView.setText(spannableStringBuilder);
                 }
-                il6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                jl6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
         }
     }
@@ -559,7 +559,7 @@ public final class ThreadCardUtils {
         } else {
             z = false;
         }
-        lt5.e(context, arrayList, str4, z, 0, rect, "from_nani_video", "personalize_page", "", str2, str2, false, threadData.isJumpToFrsVideoTabPlay, true, threadData.getFid());
+        mt5.e(context, arrayList, str4, z, 0, rect, "from_nani_video", "personalize_page", "", str2, str2, false, threadData.isJumpToFrsVideoTabPlay, true, threadData.getFid());
     }
 
     public static void setAbstract(TextView textView, SpannableString spannableString, ThreadData threadData, float f) {
@@ -570,9 +570,9 @@ public final class ThreadCardUtils {
         if (threadData != null && spannableString != null && !qd.isEmptyStringAfterTrim(spannableString.toString())) {
             textView.setVisibility(0);
             threadData.setShowFullThread(false);
-            textView.setOnTouchListener(new g5b(spannableString));
+            textView.setOnTouchListener(new h5b(spannableString));
             threadData.setShowFullThread(cutAndSetTextByMaxLine(textView, new SpannableStringBuilder(spannableString), 5, (int) f));
-            il6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            jl6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             return;
         }
         textView.setVisibility(8);
@@ -590,13 +590,13 @@ public final class ThreadCardUtils {
         int dimens4 = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
         BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds2);
         int dimens5 = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-        a55 a55Var = new a55(dimens, -1, i, dimens3, i2, dimens4, BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds42));
-        a55Var.b(dimens2);
-        a55Var.i(dimens5);
-        a55Var.f(true);
-        a55Var.g(true);
-        a55Var.d(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds7));
-        spannableStringBuilder.setSpan(a55Var, 0, str.length(), 17);
+        b55 b55Var = new b55(dimens, -1, i, dimens3, i2, dimens4, BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+        b55Var.b(dimens2);
+        b55Var.i(dimens5);
+        b55Var.f(true);
+        b55Var.g(true);
+        b55Var.d(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds7));
+        spannableStringBuilder.setSpan(b55Var, 0, str.length(), 17);
     }
 
     public static boolean isTargetUser(ThreadData threadData, String str) {
@@ -726,9 +726,9 @@ public final class ThreadCardUtils {
                     DefaultLog.getInstance().d("PbActivityStatic", "jumpToPB return because goto video");
                     return;
                 }
-                String g = il6.g();
+                String g = jl6.g();
                 if (i == 3) {
-                    g = il6.f();
+                    g = jl6.f();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, Long.valueOf(threadData.getFid())));
                 }
                 PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(threadData, null, g, 18003, true, false, false);
@@ -764,17 +764,17 @@ public final class ThreadCardUtils {
                 createFromThreadCfg.setFromHomePageQuality(z3);
                 if (TbSingleton.getInstance().isPbPreloadSwitchOn() && isPreloadType(threadData) && !z2 && !z4) {
                     createFromThreadCfg.setNeedPreLoad(true);
-                    qp7.e(threadData);
+                    rp7.e(threadData);
                 }
                 createFromThreadCfg.setThreadData(threadData);
                 createFromThreadCfg.setVideoOriginArea(rect);
                 createFromThreadCfg.setIsPrivacy(threadData.isPrivacy);
-                il6.a(threadData.getTid());
+                jl6.a(threadData.getTid());
                 if (threadData != null && threadData.getTaskInfoData() != null) {
                     if (HeadlinesPrefetchSwitch.isOn() && !UbsABTestHelper.isExistSid(KEY_TOUTIAO_PREFETCH_A) && StringUtils.isNotNull(threadData.getTaskInfoData().r())) {
                         TbLog defaultLog = DefaultLog.getInstance();
                         defaultLog.i(TAG, "头条卡，点击frs卡片区域预取, url: " + threadData.getTaskInfoData().r());
-                        wi6.c(threadData.getTaskInfoData().r());
+                        xi6.c(threadData.getTaskInfoData().r());
                     }
                     createFromThreadCfg.setFromCardType(threadData.getTaskInfoData().j());
                 }
@@ -791,9 +791,9 @@ public final class ThreadCardUtils {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLII(65567, null, bw4Var, context, i, i2) == null) && bw4Var != null && context != null && bw4Var.getThreadData() != null) {
             ThreadData threadData = bw4Var.getThreadData();
-            String g = il6.g();
+            String g = jl6.g();
             if (i == 3) {
-                g = il6.f();
+                g = jl6.f();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, Long.valueOf(threadData.getFid())));
             }
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(threadData, null, g, 18003, true, false, false);
@@ -824,7 +824,7 @@ public final class ThreadCardUtils {
             if (threadData.isInterviewLiveStyle() && createFromThreadCfg.getIntent() != null) {
                 createFromThreadCfg.getIntent().putExtra("KEY_IS_INTERVIEW_LIVE", true);
             }
-            il6.a(threadData.getTid());
+            jl6.a(threadData.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
             cancelHighLight(threadData);
         }
@@ -863,13 +863,13 @@ public final class ThreadCardUtils {
                     ThreadRecommendTagUtil.setTag(spannableStringBuilder, threadData);
                 }
                 textView.setVisibility(0);
-                textView.setOnTouchListener(new g5b(spannableStringBuilder));
+                textView.setOnTouchListener(new h5b(spannableStringBuilder));
                 if (i > 0) {
                     cutAndSetTextByMaxLine(textView, spannableStringBuilder, 5, i);
                 } else {
                     textView.setText(spannableStringBuilder);
                 }
-                il6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                jl6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
         }
     }
@@ -889,7 +889,7 @@ public final class ThreadCardUtils {
                         spannableStringBuilder.insert(threadData.getTabName().length(), (CharSequence) TAB_NAME_SPLIT_STRING);
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0203)), threadData.getTabName().length(), threadData.getTabName().length() + 5, 33);
                     }
-                    textView.setOnTouchListener(new g5b(spannableStringBuilder));
+                    textView.setOnTouchListener(new h5b(spannableStringBuilder));
                     setAbstractStyleAb(textView);
                     if (textView2.getVisibility() != 8) {
                         i2 = 5 - yd.a(i, textView2.getPaint(), textView2.getText().toString(), 2);
@@ -908,7 +908,7 @@ public final class ThreadCardUtils {
                     textView.setVisibility(8);
                 }
                 if (!z) {
-                    il6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    jl6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                     return;
                 } else if (!(textView instanceof TextView)) {
                     return;
@@ -967,7 +967,7 @@ public final class ThreadCardUtils {
                         setExcellentThreadPrefix(spannableStringBuilder);
                     }
                     setAbstractStyleAb(textView);
-                    textView.setOnTouchListener(new g5b(spannableStringBuilder));
+                    textView.setOnTouchListener(new h5b(spannableStringBuilder));
                     textView.setVisibility(0);
                     if (z2) {
                         i3 = 2;
@@ -996,7 +996,7 @@ public final class ThreadCardUtils {
                 } else {
                     textView.setVisibility(8);
                 }
-                il6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                jl6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return;
             }
             textView.setVisibility(8);
@@ -1091,7 +1091,7 @@ public final class ThreadCardUtils {
             str2 = "";
         }
         isCDN.setLastId(str2).setIsReserve(true).setAssistUrls(concurrentHashMap).setIsShowAd(true).setThreadData(threadData).setIsDynamicCard(z2).setSrcRectInScreen(rect, UtilHelper.fixedDrawableRect(rect, view2));
-        ImageViewerConfig bulid = builder.bulid(TbadkCoreApplication.getInst());
+        ImageViewerConfig bulid = builder.bulid(context);
         if (str != null) {
             bulid.getIntent().putExtra("from", str);
         }

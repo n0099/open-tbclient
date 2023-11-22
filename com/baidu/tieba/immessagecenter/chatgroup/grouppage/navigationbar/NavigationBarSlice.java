@@ -53,10 +53,10 @@ import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatNameChangeNotifyData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
-import com.baidu.tieba.jmb;
-import com.baidu.tieba.r19;
-import com.baidu.tieba.uv8;
+import com.baidu.tieba.kmb;
+import com.baidu.tieba.s19;
 import com.baidu.tieba.view.BdTopToast;
+import com.baidu.tieba.vv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -247,8 +247,8 @@ public class NavigationBarSlice extends Slice {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a.j, new String[]{jmb.a(jmb.a(TbConfig.URL_CHAT_ROOM, "roomId", String.valueOf(this.a.q)), "forumId", String.valueOf(this.a.r))});
-                uv8.e("c15094", TbadkCoreApplication.getCurrentAccount(), this.a.r, this.a.q);
+                UrlManager.getInstance().dealOneLink(this.a.j, new String[]{kmb.a(kmb.a(TbConfig.URL_CHAT_ROOM, "roomId", String.valueOf(this.a.q)), "forumId", String.valueOf(this.a.r))});
+                vv8.e("c15094", TbadkCoreApplication.getCurrentAccount(), this.a.r, this.a.q);
             }
         }
     }
@@ -312,7 +312,7 @@ public class NavigationBarSlice extends Slice {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
                 dialogInterface.dismiss();
-                r19.c((Activity) this.a);
+                s19.c((Activity) this.a);
             }
         }
     }
@@ -662,10 +662,10 @@ public class NavigationBarSlice extends Slice {
                 E0(activity);
                 SharedPrefHelper.getInstance().putBoolean("key_group_chat_subscribe_click", true);
             } else {
-                r19.c(activity);
+                s19.c(activity);
             }
         } else {
-            r19.d(activity);
+            s19.d(activity);
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921770));
     }

@@ -31,14 +31,14 @@ public class e2b {
     }
 
     /* loaded from: classes5.dex */
-    public class a implements ld5 {
+    public class a implements md5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
         public final /* synthetic */ String b;
         public final /* synthetic */ e2b c;
 
-        @Override // com.baidu.tieba.ld5
+        @Override // com.baidu.tieba.md5
         public boolean onFileDownloaded(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class e2b {
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ld5
+        @Override // com.baidu.tieba.md5
         public boolean onPreDownload(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class e2b {
             this.b = str;
         }
 
-        @Override // com.baidu.tieba.ld5
+        @Override // com.baidu.tieba.md5
         public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
@@ -96,7 +96,7 @@ public class e2b {
             }
         }
 
-        @Override // com.baidu.tieba.ld5
+        @Override // com.baidu.tieba.md5
         public void onFileDownloadSucceed(DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && downloadData != null && !StringUtils.isNull(downloadData.getPath())) {
@@ -104,13 +104,13 @@ public class e2b {
                     this.c.b = null;
                 }
                 if (this.a != null) {
-                    this.c.a.put(downloadData.getPath().substring(j1b.h.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                    this.c.a.put(downloadData.getPath().substring(k1b.a.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
                     this.a.c(this.b, downloadData.getPath());
                 }
             }
         }
 
-        @Override // com.baidu.tieba.ld5
+        @Override // com.baidu.tieba.md5
         public void onFileUpdateProgress(DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
@@ -169,7 +169,7 @@ public class e2b {
             } else {
                 hashMap.clear();
             }
-            File file = new File(j1b.h);
+            File file = new File(k1b.a);
             if (!file.exists() || (listFiles = file.listFiles()) == null) {
                 return;
             }
@@ -187,21 +187,25 @@ public class e2b {
         if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bVar) != null) || TextUtils.isEmpty(str2) || (nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2)) == null) {
             return;
         }
-        if (this.b != null) {
-            md5.k().h(this.b.getUrl(), true);
+        DownloadData downloadData = this.b;
+        if (downloadData != null) {
+            if (str2.equals(downloadData.getUrl())) {
+                return;
+            }
+            nd5.k().h(this.b.getUrl(), true);
         }
-        File file = new File(j1b.h);
+        File file = new File(k1b.a);
         if (!file.exists()) {
             file.mkdirs();
         }
-        DownloadData downloadData = new DownloadData();
-        downloadData.setType(18);
-        downloadData.setId(str);
-        downloadData.setUrl(str2);
-        downloadData.setPath(j1b.h + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
-        downloadData.setCallback(new a(this, bVar, str2));
-        this.b = downloadData;
-        md5.k().l(downloadData);
+        DownloadData downloadData2 = new DownloadData();
+        downloadData2.setType(17);
+        downloadData2.setId(str);
+        downloadData2.setUrl(str2);
+        downloadData2.setPath(k1b.a + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+        downloadData2.setCallback(new a(this, bVar, str2));
+        this.b = downloadData2;
+        nd5.k().l(downloadData2);
     }
 
     public String f(String str) {

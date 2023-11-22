@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import androidx.core.content.FileProvider;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m56;
-import com.baidu.tieba.o46;
+import com.baidu.tieba.n56;
+import com.baidu.tieba.p46;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -171,7 +171,7 @@ public class AdInfo implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            o46 b = o46.b(m56.d());
+            p46 b = p46.b(n56.d());
             if (TextUtils.isEmpty(b.d)) {
                 return true;
             }

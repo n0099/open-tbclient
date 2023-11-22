@@ -1,23 +1,24 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.compact.RecommendBannerCardView;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
+import com.baidu.tieba.u27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class io6 extends ia7<RecommendBannerCardView, s27> {
+public final class io6 implements u27.m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public io6() {
-        super("recommend_banner");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -25,41 +26,78 @@ public class io6 extends ia7<RecommendBannerCardView, s27> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.ia7, com.baidu.tieba.ya7
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
+    public static final void l(m47 state, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, state, view2) == null) {
+            Intrinsics.checkNotNullParameter(state, "$state");
+            for (n77 n77Var : state.m()) {
+                jb7.a.f(n77Var, state.k() + 1);
+                state.j().invoke(n77Var);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.u27.m
+    public void a(ViewGroup view2, final m47 state) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, state) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(state, "state");
+            if (view2 instanceof PlayVoiceBntNew) {
+                w77 l = state.l();
+                VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
+                voiceModel.from = l.b();
+                voiceModel.setVoiceId(l.c());
+                voiceModel.setDuration(l.a());
+                PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) view2;
+                playVoiceBntNew.setVoiceModel(voiceModel);
+                playVoiceBntNew.setTag(voiceModel);
+                playVoiceBntNew.b();
+                Integer num = voiceModel.voice_status;
+                Intrinsics.checkNotNullExpressionValue(num, "voiceModel.voice_status");
+                playVoiceBntNew.k(num.intValue());
+                playVoiceBntNew.m();
+                playVoiceBntNew.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tn6
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // android.view.View.OnClickListener
+                    public final void onClick(View view3) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
+                            io6.l(m47.this, view3);
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.u27.s
+    public void b(ViewGroup view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            if (view2 instanceof PlayVoiceBntNew) {
+                ((PlayVoiceBntNew) view2).b();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.u27.m
+    public ViewGroup create(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            RecommendBannerCardView recommendBannerCardView = new RecommendBannerCardView(viewGroup.getContext());
-            recommendBannerCardView.a(viewGroup);
-            rc7.i(recommendBannerCardView, Integer.valueOf(rc7.e() * 2));
-            return recommendBannerCardView;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            return new PlayVoiceBntNew(context, PlayVoiceBntNew.PLAY_TYPE.NORMAL);
         }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ya7
-    /* renamed from: e */
-    public void b(@NonNull RecommendBannerCardView recommendBannerCardView, @NonNull s27 s27Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recommendBannerCardView, s27Var) == null) {
-            Object obj = s27Var.a().a;
-            if (obj instanceof pe8) {
-                recommendBannerCardView.setVisibility(0);
-                recommendBannerCardView.c((pe8) obj);
-                return;
-            }
-            recommendBannerCardView.setVisibility(8);
-        }
+        return (ViewGroup) invokeL.objValue;
     }
 }

@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhKeyValue;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,16 +10,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class eba {
     public static /* synthetic */ Interceptable $ic;
     public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public int b;
+    public String a;
+    public final List<fba> b;
 
     static {
         InterceptResult invokeClinit;
@@ -38,13 +45,13 @@ public final class eba {
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
             if (obj instanceof eba) {
                 eba ebaVar = (eba) obj;
-                return this.a == ebaVar.a && this.b == ebaVar.b;
+                return Intrinsics.areEqual(this.a, ebaVar.a) && Intrinsics.areEqual(this.b, ebaVar.b);
             }
             return false;
         }
@@ -54,14 +61,14 @@ public final class eba {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.a * 31) + this.b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "PushSceneGroupSingleRecord(groupNo=" + this.a + ", shownCount=" + this.b + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return "PushSceneGroupRecord(date=" + this.a + ", groups=" + this.b + ')';
         }
         return (String) invokeV.objValue;
     }
@@ -89,73 +96,150 @@ public final class eba {
             }
         }
 
-        @JvmStatic
-        public final eba a(JSONObject jSONObject) {
+        public final List<fba> a(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject == null) {
+                JSONArray optJSONArray = jSONObject.optJSONArray("groups");
+                if (optJSONArray == null) {
+                    return new ArrayList();
+                }
+                ArrayList arrayList = new ArrayList();
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    fba a = fba.c.a(optJSONArray.optJSONObject(i));
+                    if (a != null) {
+                        arrayList.add(a);
+                    }
+                }
+                return arrayList;
+            }
+            return (List) invokeL.objValue;
+        }
+
+        @JvmStatic
+        public final eba b(String str) {
+            InterceptResult invokeL;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                if (str != null && str.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (z) {
                     return null;
                 }
-                return new eba(jSONObject.optInt("group_no"), jSONObject.optInt("shown_count"));
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString(GfhKeyValue.TYPE_DATE);
+                Intrinsics.checkNotNullExpressionValue(optString, "jsonObj.optString(\"date\")");
+                return new eba(optString, a(jSONObject));
             }
             return (eba) invokeL.objValue;
         }
     }
 
-    public eba(int i, int i2) {
+    public eba(String date, List<fba> groups) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {date, groups};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
+        Intrinsics.checkNotNullParameter(date, "date");
+        Intrinsics.checkNotNullParameter(groups, "groups");
+        this.a = date;
+        this.b = groups;
     }
 
-    public final int a() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public final int b() {
+    public final List<fba> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return invokeV.intValue;
+        return (List) invokeV.objValue;
     }
 
-    public final JSONObject d() {
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("group_no", this.a);
-            jSONObject.put("shown_count", this.b);
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Intrinsics.areEqual(this.a, qd.getDateStringDay(new Date()));
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void c(int i) {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            String dateStringDay = qd.getDateStringDay(new Date());
+            if (dateStringDay == null) {
+                dateStringDay = "";
+            }
+            this.a = dateStringDay;
+            this.b.clear();
         }
+    }
+
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            fba fbaVar = null;
+            for (fba fbaVar2 : this.b) {
+                if (fbaVar2.a() == i) {
+                    fbaVar = fbaVar2;
+                }
+            }
+            if (fbaVar == null) {
+                this.b.add(new fba(i, 1));
+                return;
+            }
+            fbaVar.c(fbaVar.b() + 1);
+        }
+    }
+
+    public final void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.a = str;
+        }
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            for (fba fbaVar : this.b) {
+                jSONArray.put(fbaVar.d());
+            }
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(GfhKeyValue.TYPE_DATE, this.a);
+            jSONObject.put("groups", jSONArray);
+            String jSONObject2 = jSONObject.toString();
+            Intrinsics.checkNotNullExpressionValue(jSONObject2, "JSONObject().apply {\n   …ray)\n        }.toString()");
+            return jSONObject2;
+        }
+        return (String) invokeV.objValue;
     }
 }

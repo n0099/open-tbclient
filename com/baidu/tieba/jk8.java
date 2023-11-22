@@ -1,235 +1,201 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener;
+import com.baidu.android.imsdk.chatmessage.ISendMessageListener;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.util.orderlist.OrderLinkList;
-import com.baidu.tieba.im.base.core.inputtool.GroupInputViewController;
+import com.baidu.android.imsdk.upload.AsyncChatTask;
+import com.baidu.android.imsdk.upload.AsyncUploadTask;
+import com.baidu.android.imsdk.upload.IUploadTransferListener;
+import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.yy.hiidostatis.inner.util.cipher.Base64Util;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class jk8 implements zl8 {
-    public static /* synthetic */ Interceptable $ic;
+public class jk8 implements IGenBosObjectUrlListener, IUploadTransferListener, BIMValueCallBack<String>, ISendMessageListener {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String d = "jk8";
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    @NonNull
-    public final OrderLinkList<ks8> b;
-    @NonNull
-    public final GroupInputViewController c;
+    public Context a;
+    public String b;
+    public pk8 c;
 
-    public jk8(@NonNull GroupInputViewController groupInputViewController) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947886290, "Lcom/baidu/tieba/jk8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947886290, "Lcom/baidu/tieba/jk8;");
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
+    public void onProgress(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
+    public void onSendMessageResult(int i, ChatMsg chatMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, chatMsg) == null) {
+        }
+    }
+
+    public jk8(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {groupInputViewController};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context, str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = groupInputViewController;
-        this.b = new OrderLinkList<>();
+        this.a = context;
+        this.b = str;
     }
 
-    @Override // com.baidu.tieba.zl8
-    public boolean a(@NonNull List<Integer> list) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0079 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // com.baidu.android.imsdk.group.BIMValueCallBack
+    /* renamed from: a */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onResult(int i, String str, String str2) {
+        FileOutputStream fileOutputStream;
+        Throwable th;
+        Exception e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            if (list.isEmpty()) {
-                return false;
-            }
-            for (Integer num : list) {
-                if (i(num.intValue()) != null) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.zl8
-    public void f(@NonNull List<ks8> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list.size() > 0) {
-            for (ks8 ks8Var : list) {
-                ks8Var.b(k(ks8Var.d()));
-                ks8Var.h(false);
-                this.b.c(ks8Var);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.zl8
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.b.d(k(i));
-        }
-    }
-
-    @Override // com.baidu.tieba.zl8
-    public void c(@NonNull ks8 ks8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ks8Var) == null) {
-            ks8Var.b(k(ks8Var.d()));
-            ks8Var.h(false);
-            this.b.c(ks8Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.zl8
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    @Nullable
-    public ks8 i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            return this.b.a(k(i));
-        }
-        return (ks8) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.zl8
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ks8 h = h();
-            if (h == null) {
-                return false;
-            }
-            this.c.Q1(h.c());
-            this.c.i2(false);
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.zl8
-    @Nullable
-    public ks8 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b.b();
-        }
-        return (ks8) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.zl8
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            int k = k(i);
-            ks8 a = this.b.a(k);
-            if (i == 7011 && a != null && a.e()) {
-                a.f(j(i));
-            }
-            if (a == null) {
-                ks8 ks8Var = new ks8();
-                ks8Var.g(i);
-                ks8Var.b(k);
-                ks8Var.f(j(i));
-                ks8Var.h(true);
-                this.b.c(ks8Var);
-            }
-        }
-    }
-
-    @SuppressLint({"StringFormatMatches"})
-    public final String j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            if (i != 102) {
-                if (i != 7003) {
-                    if (i != 7005) {
-                        if (i != 7007) {
-                            switch (i) {
-                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_POST /* 7011 */:
-                                    return String.format(tk8.g, Integer.valueOf(this.a));
-                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_VIEW /* 7012 */:
-                                    return tk8.b;
-                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_ONLY_MANAGER_CAN_TALK /* 7013 */:
-                                    return tk8.e;
-                                default:
-                                    return "";
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) {
+            if (i == 0 && !TextUtils.isEmpty(str2)) {
+                FileOutputStream fileOutputStream2 = null;
+                try {
+                    try {
+                        byte[] decode = Base64Util.decode(str2);
+                        File file = new File(this.b);
+                        if (file.exists()) {
+                            fileOutputStream = new FileOutputStream(file);
+                            try {
+                                try {
+                                    fileOutputStream.write(decode);
+                                    fileOutputStream.flush();
+                                    fileOutputStream2 = fileOutputStream;
+                                } catch (Exception e2) {
+                                    e = e2;
+                                    if (this.c != null) {
+                                        this.c.isFailed();
+                                    }
+                                    LogUtils.e(d, e.getMessage());
+                                    if (fileOutputStream != null) {
+                                        fileOutputStream.close();
+                                    }
+                                    BIMManager.genBosObjectUrl(this.a, this.b, "mp3", "mp3", 12, 0, 0, this);
+                                    return;
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                    } catch (Exception e3) {
+                                        LogUtils.e(d, e3.getMessage());
+                                    }
+                                }
+                                throw th;
                             }
+                        } else if (this.c != null) {
+                            this.c.isFailed();
                         }
-                        return tk8.c;
+                    } catch (Exception e4) {
+                        LogUtils.e(d, e4.getMessage());
                     }
-                    return tk8.d;
+                } catch (Exception e5) {
+                    fileOutputStream = null;
+                    e = e5;
+                } catch (Throwable th3) {
+                    fileOutputStream = null;
+                    th = th3;
+                    if (fileOutputStream != null) {
+                    }
+                    throw th;
                 }
-                return tk8.f;
+                if (fileOutputStream2 != null) {
+                    fileOutputStream2.close();
+                }
+                BIMManager.genBosObjectUrl(this.a, this.b, "mp3", "mp3", 12, 0, 0, this);
+                return;
             }
-            return tk8.a;
+            pk8 pk8Var = this.c;
+            if (pk8Var != null) {
+                pk8Var.isFailed();
+            }
         }
-        return (String) invokeI.objValue;
     }
 
-    public final int k(int i) {
-        InterceptResult invokeI;
-        int i2;
+    public void b(@NonNull pk8 pk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            if (i != 102) {
-                switch (i) {
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE /* 7003 */:
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE /* 7004 */:
-                        i2 = 5;
-                        break;
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE_ALL /* 7005 */:
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE_ALL /* 7006 */:
-                        i2 = 7;
-                        break;
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_FROZEN /* 7007 */:
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_FROZEN /* 7008 */:
-                        i2 = 8;
-                        break;
-                    default:
-                        switch (i) {
-                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_POST /* 7011 */:
-                                i2 = 4;
-                                break;
-                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_VIEW /* 7012 */:
-                                i2 = 9;
-                                break;
-                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_ONLY_MANAGER_CAN_TALK /* 7013 */:
-                                i2 = 6;
-                                break;
-                            default:
-                                i2 = 0;
-                                break;
-                        }
-                }
-            } else {
-                i2 = 10;
-            }
-            if (i2 != 0) {
-                return i2;
-            }
-            throw new IllegalArgumentException("The type of the banned msg is unknown!");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pk8Var) == null) {
+            this.c = pk8Var;
         }
-        return invokeI.intValue;
+    }
+
+    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
+    public void onFailed(int i, int i2, String str) {
+        pk8 pk8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, str) == null) && (pk8Var = this.c) != null) {
+            pk8Var.isFailed();
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
+    public void onFinished(int i, String str) {
+        pk8 pk8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && (pk8Var = this.c) != null) {
+            pk8Var.a(str);
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener
+    public void onGenBosObjectUrlListener(int i, String str, String str2, String str3, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, str2, str3, map}) == null) {
+            if (i == 0) {
+                new AsyncUploadTask(this.a, 2, map.get(AsyncChatTask.PUT_URL), map.get(AsyncChatTask.GET_URL), this.b, "mp3", str2, str3, this).execute(new Void[0]);
+                return;
+            }
+            pk8 pk8Var = this.c;
+            if (pk8Var != null) {
+                pk8Var.isFailed();
+            }
+        }
     }
 }

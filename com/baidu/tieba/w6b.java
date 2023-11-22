@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,17 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class w6b implements oi {
+public class w6b implements oi {
     public static /* synthetic */ Interceptable $ic;
-    @JvmField
-    public static final BdUniqueId b;
+    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<q6b> a;
+    public boolean a;
+    public q6b b;
+    public int c;
+    public String d;
+    public String e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,9 +34,7 @@ public final class w6b implements oi {
                 return;
             }
         }
-        BdUniqueId gen = BdUniqueId.gen();
-        Intrinsics.checkNotNullExpressionValue(gen, "gen()");
-        b = gen;
+        f = BdUniqueId.gen();
     }
 
     public w6b() {
@@ -53,51 +50,83 @@ public final class w6b implements oi {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.a = false;
+        this.c = 0;
     }
 
-    public final List<q6b> a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.d;
         }
-        return (List) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public q6b c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (q6b) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.oi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return f;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public final void b(p6b p6bVar, int i, String fid, String fname) {
+    public void e(q6b q6bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p6bVar, i, fid, fname) == null) {
-            Intrinsics.checkNotNullParameter(fid, "fid");
-            Intrinsics.checkNotNullParameter(fname, "fname");
-            if (p6bVar == null) {
-                return;
-            }
-            this.a.clear();
-            if (!ListUtils.isEmpty(p6bVar.l())) {
-                List<q6b> list = this.a;
-                ArrayList<q6b> l = p6bVar.l();
-                Intrinsics.checkNotNull(l);
-                list.addAll(l);
-                for (q6b q6bVar : this.a) {
-                    q6bVar.v(i);
-                    q6bVar.t(fid);
-                    q6bVar.u(fname);
-                    Integer g = p6bVar.g();
-                    Intrinsics.checkNotNull(g);
-                    q6bVar.z(g.intValue());
-                }
-            }
+        if ((interceptable != null && interceptable.invokeL(1048580, this, q6bVar) != null) || q6bVar == null) {
+            return;
+        }
+        this.a = false;
+        this.b = q6bVar;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.c = i;
         }
     }
 }

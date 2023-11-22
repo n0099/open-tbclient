@@ -54,9 +54,9 @@ public class qt extends ns<bw4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    il6.a(this.a.g.getThreadData().getId());
-                    il6.l(this.a.f.a, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    il6.l(this.a.f.b, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    jl6.a(this.a.g.getThreadData().getId());
+                    jl6.l(this.a.f.a, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    jl6.l(this.a.f.b, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -96,10 +96,10 @@ public class qt extends ns<bw4> {
     }
 
     @Override // com.baidu.tieba.ns
-    public void n(xl6<bw4> xl6Var) {
+    public void n(yl6<bw4> yl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xl6Var) == null) {
-            this.f.setSubClickListener(xl6Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yl6Var) == null) {
+            this.f.setSubClickListener(yl6Var);
         }
     }
 

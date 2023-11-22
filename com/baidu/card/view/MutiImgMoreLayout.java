@@ -24,13 +24,13 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax5;
 import com.baidu.tieba.bw4;
+import com.baidu.tieba.bx5;
 import com.baidu.tieba.ht;
 import com.baidu.tieba.lv4;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.xl6;
 import com.baidu.tieba.yh;
+import com.baidu.tieba.yl6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,10 +54,10 @@ public class MutiImgMoreLayout extends LinearLayout implements ht<bw4> {
     public TbImageView g;
     public String h;
     public boolean i;
-    public xl6<bw4> j;
+    public yl6<bw4> j;
     public bw4 k;
     public int l;
-    public ax5 m;
+    public bx5 m;
     public LinkedList<MediaData> n;
 
     public void setPreloadSizeReadyCallback(yh yhVar) {
@@ -92,7 +92,7 @@ public class MutiImgMoreLayout extends LinearLayout implements ht<bw4> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            xl6<bw4> subClickListener;
+            yl6<bw4> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -102,7 +102,7 @@ public class MutiImgMoreLayout extends LinearLayout implements ht<bw4> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements ax5 {
+    public class b implements bx5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MutiImgMoreLayout a;
@@ -125,11 +125,11 @@ public class MutiImgMoreLayout extends LinearLayout implements ht<bw4> {
             this.a = mutiImgMoreLayout;
         }
 
-        @Override // com.baidu.tieba.ax5
+        @Override // com.baidu.tieba.bx5
         public void a(View view2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                xl6<bw4> subClickListener = this.a.getSubClickListener();
+                yl6<bw4> subClickListener = this.a.getSubClickListener();
                 if (subClickListener != null) {
                     view2.setTag("1");
                     this.a.k.objType = 2;
@@ -185,14 +185,14 @@ public class MutiImgMoreLayout extends LinearLayout implements ht<bw4> {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || this.d.m == null) {
                 return;
             }
-            ax5 ax5Var = this.d.m;
+            bx5 bx5Var = this.d.m;
             int i = this.a;
             if (this.b && this.c) {
                 z = true;
             } else {
                 z = false;
             }
-            ax5Var.a(view2, i, z);
+            bx5Var.a(view2, i, z);
         }
     }
 
@@ -313,10 +313,10 @@ public class MutiImgMoreLayout extends LinearLayout implements ht<bw4> {
         }
     }
 
-    public void setSubClickListener(xl6<bw4> xl6Var) {
+    public void setSubClickListener(yl6<bw4> yl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, xl6Var) == null) {
-            this.j = xl6Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, yl6Var) == null) {
+            this.j = yl6Var;
         }
     }
 
@@ -433,13 +433,13 @@ public class MutiImgMoreLayout extends LinearLayout implements ht<bw4> {
         }
     }
 
-    public xl6<bw4> getSubClickListener() {
+    public yl6<bw4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.j;
         }
-        return (xl6) invokeV.objValue;
+        return (yl6) invokeV.objValue;
     }
 
     public final void i(TbImageView tbImageView, int i, boolean z, boolean z2) {

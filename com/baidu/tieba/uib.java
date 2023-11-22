@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.VisibleForTesting;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,15 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.impl.CronetUploadDataStream;
-import org.chromium.base.NativeLibraryLoadedStatus;
-import org.chromium.base.annotations.CheckDiscard;
-import org.chromium.base.natives.GEN_JNI;
-@CheckDiscard("crbug.com/993421")
+import com.baidu.turbonet.net.RequestFinishedInfo;
+@VisibleForTesting
 /* loaded from: classes8.dex */
-public final class uib implements CronetUploadDataStream.d {
+public final class uib extends RequestFinishedInfo.Metrics {
     public static /* synthetic */ Interceptable $ic;
-    public static CronetUploadDataStream.d a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,70 +30,27 @@ public final class uib implements CronetUploadDataStream.d {
         }
     }
 
-    public uib() {
+    public uib(long j, long j2, long j3, long j4, long j5, long j6, long j7, long j8, long j9, long j10, long j11, long j12, long j13, boolean z, long j14, long j15) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(j7), Long.valueOf(j8), Long.valueOf(j9), Long.valueOf(j10), Long.valueOf(j11), Long.valueOf(j12), Long.valueOf(j13), Boolean.valueOf(z), Long.valueOf(j14), Long.valueOf(j15)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public static CronetUploadDataStream.d d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (GEN_JNI.TESTING_ENABLED) {
-                CronetUploadDataStream.d dVar = a;
-                if (dVar != null) {
-                    return dVar;
-                }
-                if (GEN_JNI.REQUIRE_MOCK) {
-                    throw new UnsupportedOperationException("No mock found for the native implementation for com.baidu.turbonet.net.impl.CronetUploadDataStream.Natives. The current configuration requires all native implementations to have a mock instance.");
-                }
-            }
-            NativeLibraryLoadedStatus.checkLoaded(false);
-            return new uib();
+        int i3 = (j > (-1L) ? 1 : (j == (-1L) ? 0 : -1));
+        if (i3 != 0) {
+            int i4 = (j12 > (-1L) ? 1 : (j12 == (-1L) ? 0 : -1));
         }
-        return (CronetUploadDataStream.d) invokeV.objValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUploadDataStream.d
-    public void a(long j, CronetUploadDataStream cronetUploadDataStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048576, this, j, cronetUploadDataStream) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUploadDataStream_onRewindSucceeded(j, cronetUploadDataStream);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUploadDataStream.d
-    public void b(long j, CronetUploadDataStream cronetUploadDataStream, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), cronetUploadDataStream, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUploadDataStream_onReadSucceeded(j, cronetUploadDataStream, i, z);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUploadDataStream.d
-    public long c(CronetUploadDataStream cronetUploadDataStream, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{cronetUploadDataStream, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUploadDataStream_attachUploadDataToRequest(cronetUploadDataStream, j, j2);
-        }
-        return invokeCommon.longValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUploadDataStream.d
-    public void destroy(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUploadDataStream_destroy(j);
+        if (i3 != 0) {
+            int i5 = (j13 > (-1L) ? 1 : (j13 == (-1L) ? 0 : -1));
         }
     }
 }

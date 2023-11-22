@@ -5,25 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.ForumShowInfo;
-import tbclient.ForumShowInfoTag;
+import tbclient.ForumRuleStatus;
 /* loaded from: classes7.dex */
-public class otc extends poc {
+public class otc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ForumShowInfo forumShowInfo) {
+    public static JSONObject b(@NonNull ForumRuleStatus forumRuleStatus) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumShowInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumRuleStatus)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "content", forumShowInfo.content);
-            ForumShowInfoTag forumShowInfoTag = forumShowInfo.tag;
-            if (forumShowInfoTag != null) {
-                poc.a(jSONObject, "tag", ptc.b(forumShowInfoTag));
-            }
-            poc.a(jSONObject, "show_type", forumShowInfo.show_type);
+            qoc.a(jSONObject, "title", forumRuleStatus.title);
+            qoc.a(jSONObject, "audit_status", forumRuleStatus.audit_status);
+            qoc.a(jSONObject, "has_forum_rule", forumRuleStatus.has_forum_rule);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

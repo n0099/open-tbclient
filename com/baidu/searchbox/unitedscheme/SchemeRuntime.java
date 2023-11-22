@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.security.ISchemeIoc;
 import com.baidu.tieba.a40;
 import com.baidu.tieba.ft3;
 import com.baidu.tieba.ht3;
-import com.baidu.tieba.nha;
+import com.baidu.tieba.oha;
 @Autowired
 /* loaded from: classes4.dex */
 public class SchemeRuntime {
@@ -18,7 +18,7 @@ public class SchemeRuntime {
 
     @Inject
     public static IFlyingScheduleIoc getFlyingScheduleIoc() {
-        return nha.a();
+        return oha.a();
     }
 
     @Inject

@@ -1,32 +1,35 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.sdk.api.RequestParameters;
+import com.baidu.mobads.sdk.api.SplashAd;
+import com.baidu.mobads.sdk.api.SplashAdListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class fyb extends oyb {
+public class fyb extends SplashAd implements azb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fyb(Ssp.Pid pid) {
-        super(pid);
+    public fyb(Context context, String str, RequestParameters requestParameters, SplashAdListener splashAdListener) {
+        super(context, str, requestParameters, splashAdListener);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {context, str, requestParameters, splashAdListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (RequestParameters) objArr2[2], (SplashAdListener) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,51 +37,26 @@ public class fyb extends oyb {
         }
     }
 
-    @Override // com.baidu.tieba.oyb
-    public JSONObject c(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.azb
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                if (obj instanceof yxb) {
-                    Field declaredField = obj.getClass().getSuperclass().getDeclaredField("mAdProd");
-                    declaredField.setAccessible(true);
-                    Object obj2 = declaredField.get(obj);
-                    if (obj2 == null) {
-                        return null;
-                    }
-                    Field declaredField2 = obj2.getClass().getSuperclass().getSuperclass().getDeclaredField("k");
-                    declaredField2.setAccessible(true);
-                    Object obj3 = declaredField2.get(obj2);
-                    if (obj3 == null) {
-                        return null;
-                    }
-                    Field declaredField3 = obj3.getClass().getDeclaredField("adProdTemplate");
-                    declaredField3.setAccessible(true);
-                    Object obj4 = declaredField3.get(obj3);
-                    if (obj4 == null) {
-                        return null;
-                    }
-                    Field declaredField4 = obj4.getClass().getSuperclass().getDeclaredField("f");
-                    declaredField4.setAccessible(true);
-                    Object obj5 = declaredField4.get(obj4);
-                    if (obj5 == null) {
-                        return null;
-                    }
-                    Field declaredField5 = obj5.getClass().getDeclaredField("p");
-                    declaredField5.setAccessible(true);
-                    Object obj6 = declaredField5.get(obj5);
-                    if (obj6 instanceof JSONObject) {
-                        return (JSONObject) obj6;
-                    }
-                    return null;
-                }
-                return null;
-            } catch (Exception unused) {
-                LogPrinter.d();
-                return null;
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getECPMLevel() : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.azb
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            biddingSuccess(str);
         }
-        return (JSONObject) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.azb
+    public void a(String str, HashMap<String, Object> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, hashMap) == null) {
+            biddingFail(str, hashMap);
+        }
     }
 }

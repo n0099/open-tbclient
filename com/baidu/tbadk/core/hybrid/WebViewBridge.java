@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.dj6;
+import com.baidu.tieba.ej6;
 import com.baidu.tieba.n35;
 import com.baidu.tieba.o35;
 import com.baidu.tieba.p35;
@@ -494,7 +494,7 @@ public class WebViewBridge extends v35 implements s35 {
             }
             try {
                 String b2 = w35Var.b();
-                dj6.a().e(this.a, b2, null);
+                ej6.a().e(this.a, b2, null);
                 p35.a(b2);
             } catch (NullPointerException e) {
                 y("500", e.getMessage());

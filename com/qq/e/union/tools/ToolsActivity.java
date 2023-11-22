@@ -93,7 +93,7 @@ public class ToolsActivity extends Activity {
             }
             this.a.setOnItemSelectedListener(new a(this));
             this.b.setOnItemSelectedListener(new b(this));
-            button.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.w9c
+            button.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.x9c
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,7 +105,7 @@ public class ToolsActivity extends Activity {
                     }
                 }
             });
-            button2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.x9c
+            button2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.y9c
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -117,7 +117,7 @@ public class ToolsActivity extends Activity {
                     }
                 }
             });
-            this.c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.y9c
+            this.c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.z9c
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

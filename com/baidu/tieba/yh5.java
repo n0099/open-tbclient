@@ -1,67 +1,61 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes9.dex */
 public class yh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    public void b(fi5 fi5Var) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fi5Var) == null) {
-        }
-    }
-
-    public yh5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static int a(String str) {
+    public static List<zh5> a(gi5 gi5Var) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.length() == 4) {
-                return ((str.charAt(3) & 255) << 24) | (str.charAt(0) & 255) | ((str.charAt(1) & 255) << 8) | ((str.charAt(2) & 255) << 16);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, gi5Var)) == null) {
+            if (gi5Var.c("\u0089PNG") && gi5Var.c("\r\n\u001a\n")) {
+                ArrayList arrayList = new ArrayList();
+                while (gi5Var.available() > 0) {
+                    arrayList.add(b(gi5Var));
+                }
+                return arrayList;
             }
-            return -1159790593;
+            throw new IOException("APNG Format error");
         }
-        return invokeL.intValue;
+        return (List) invokeL.objValue;
     }
 
-    public void c(fi5 fi5Var) throws IOException {
+    public static zh5 b(gi5 gi5Var) throws IOException {
+        InterceptResult invokeL;
+        zh5 zh5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fi5Var) == null) {
-            int available = fi5Var.available();
-            b(fi5Var);
-            int available2 = available - fi5Var.available();
-            int i = this.a;
-            if (available2 <= i) {
-                if (available2 < i) {
-                    fi5Var.skip(i - available2);
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, gi5Var)) == null) {
+            int position = gi5Var.position();
+            int e = gi5Var.e();
+            int d = gi5Var.d();
+            if (d == vh5.d) {
+                zh5Var = new vh5();
+            } else if (d == ai5.k) {
+                zh5Var = new ai5();
+            } else if (d == bi5.c) {
+                zh5Var = new bi5();
+            } else if (d == ci5.c) {
+                zh5Var = new ci5();
+            } else if (d == di5.c) {
+                zh5Var = new di5();
+            } else if (d == ei5.f) {
+                zh5Var = new ei5();
+            } else {
+                zh5Var = new zh5();
             }
-            throw new IOException("Out of chunk area");
+            zh5Var.b = position;
+            zh5Var.a = e;
+            zh5Var.c(gi5Var);
+            gi5Var.e();
+            return zh5Var;
         }
+        return (zh5) invokeL.objValue;
     }
 }

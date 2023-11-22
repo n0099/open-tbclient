@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface mcc {
-    void onPlayerInfo(zcc zccVar, int i, long j);
-
-    void onPlayerVideoSizeUpdate(zcc zccVar, int i, int i2);
+    void onPlayerFirstVideoFrameShow(adc adcVar, int i, int i2, int i3);
 }

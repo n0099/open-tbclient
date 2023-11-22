@@ -1,6 +1,9 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,75 +11,115 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
 public final class ys6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Bitmap a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final <T extends wr6> T a(xr6 xr6Var, Class<T> type, y0 entity, pr6 item) {
-        InterceptResult invokeLLLL;
-        T t;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, xr6Var, type, entity, item)) == null) {
-            Intrinsics.checkNotNullParameter(xr6Var, "<this>");
-            Intrinsics.checkNotNullParameter(type, "type");
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            Intrinsics.checkNotNullParameter(item, "item");
-            x0 f = xr6Var.f();
-            if (f != null && (t = (T) f.h(type)) != null) {
-                entity.a(t);
-                t.b(item);
-                return t;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948340781, "Lcom/baidu/tieba/ys6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return null;
-        }
-        return (T) invokeLLLL.objValue;
-    }
-
-    public static final long b(xr6 xr6Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, xr6Var)) == null) {
-            Intrinsics.checkNotNullParameter(xr6Var, "<this>");
-            return d(xr6Var).a();
-        }
-        return invokeL.longValue;
-    }
-
-    public static final pt6 c(xr6 xr6Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, xr6Var)) == null) {
-            Intrinsics.checkNotNullParameter(xr6Var, "<this>");
-            return xr6Var.j().d();
-        }
-        return (pt6) invokeL.objValue;
-    }
-
-    public static final st6 d(xr6 xr6Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, xr6Var)) == null) {
-            Intrinsics.checkNotNullParameter(xr6Var, "<this>");
-            return xr6Var.j().f();
-        }
-        return (st6) invokeL.objValue;
-    }
-
-    public static final boolean e(xr6 xr6Var) {
-        InterceptResult invokeL;
-        vr6 vr6Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, xr6Var)) == null) {
-            Intrinsics.checkNotNullParameter(xr6Var, "<this>");
-            x0 f = xr6Var.f();
-            if (f instanceof vr6) {
-                vr6Var = (vr6) f;
-            } else {
-                vr6Var = null;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948340781, "Lcom/baidu/tieba/ys6;");
+                return;
             }
-            if (vr6Var != null) {
-                return vr6Var.y();
+        }
+        Bitmap createBitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
+        Intrinsics.checkNotNullExpressionValue(createBitmap, "createBitmap(1, 1, Bitmap.Config.ARGB_8888)");
+        a = createBitmap;
+    }
+
+    public static final Bitmap b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public static final boolean a(qr6 qr6Var, qr6 qr6Var2, qt6 qt6Var, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{qr6Var, qr6Var2, qt6Var, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            int width = qt6Var.getWidth();
+            float q = qr6Var.f().q();
+            float q2 = qr6Var2.f().q();
+            long j3 = j - qr6Var.j();
+            float f = width;
+            float f2 = (float) j2;
+            if (f - ((q2 + f) * (((float) (j - qr6Var2.j())) / f2)) < (f - ((f + q) * (((float) j3) / f2))) + q) {
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static final boolean c(qr6 qr6Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, qr6Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(qr6Var, "<this>");
+            if (j - qr6Var.j() < 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public static final boolean d(qr6 qr6Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, qr6Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(qr6Var, "<this>");
+            if (!e(qr6Var, j) && !c(qr6Var, j)) {
+                return false;
             }
             return true;
         }
-        return invokeL.booleanValue;
+        return invokeLJ.booleanValue;
+    }
+
+    public static final boolean e(qr6 qr6Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, qr6Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(qr6Var, "<this>");
+            if (j - qr6Var.j() > qr6Var.g()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public static final boolean f(qr6 qr6Var, qr6 danmaku, qt6 displayer, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{qr6Var, danmaku, displayer, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            Intrinsics.checkNotNullParameter(qr6Var, "<this>");
+            Intrinsics.checkNotNullParameter(danmaku, "danmaku");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            if (d(qr6Var, j)) {
+                return false;
+            }
+            long j3 = danmaku.j() - qr6Var.j();
+            if (j3 <= 0) {
+                return true;
+            }
+            if (Math.abs(j3) >= j2 || e(qr6Var, j) || e(danmaku, j)) {
+                return false;
+            }
+            if (qr6Var.e().j() != 5 && qr6Var.e().j() != 4 && !a(qr6Var, danmaku, displayer, j, j2) && !a(qr6Var, danmaku, displayer, j + j2, j2)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 }

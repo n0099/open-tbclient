@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewSingleClickCompat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aqa;
-import com.baidu.tieba.cn8;
+import com.baidu.tieba.bqa;
+import com.baidu.tieba.dn8;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.tieba.impersonal.databinding.ImSugItemLayoutBinding;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ public abstract class ImSugAdapter extends RecyclerView.Adapter<SugViewHolder> i
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
-    public final cn8 b;
+    public final dn8 b;
     public List<AbilityItem> c;
 
     public abstract SugSourceType A();
@@ -89,7 +89,7 @@ public abstract class ImSugAdapter extends RecyclerView.Adapter<SugViewHolder> i
         }
     }
 
-    public ImSugAdapter(Context context, cn8 processor) {
+    public ImSugAdapter(Context context, dn8 processor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -227,7 +227,7 @@ public abstract class ImSugAdapter extends RecyclerView.Adapter<SugViewHolder> i
                 }
             }
             if (!m(view2)) {
-                corner.setBackGroundRealColor(aqa.a(SkinManager.getColor(R.color.CAM_X0611), 0.5f));
+                corner.setBackGroundRealColor(bqa.a(SkinManager.getColor(R.color.CAM_X0611), 0.5f));
             }
         }
     }

@@ -5,22 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.AwardInfo;
+import tbclient.AvatarFrame;
 /* loaded from: classes9.dex */
-public class zpc extends poc {
+public class zpc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull AwardInfo awardInfo) {
+    public static JSONObject b(@NonNull AvatarFrame avatarFrame) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, awardInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, avatarFrame)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "award_id", awardInfo.award_id);
-            poc.a(jSONObject, "award_act_id", awardInfo.award_act_id);
-            poc.a(jSONObject, "award_name", awardInfo.award_name);
-            poc.a(jSONObject, "award_imgsrc", awardInfo.award_imgsrc);
+            qoc.a(jSONObject, "props_id", avatarFrame.props_id);
+            qoc.a(jSONObject, "end_time", avatarFrame.end_time);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

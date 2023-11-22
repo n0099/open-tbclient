@@ -1,23 +1,25 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.compact.AlaLiveAttentionCardView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.AgreeView;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tieba.u27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class un6 extends ia7<AlaLiveAttentionCardView, s27> {
+public final class un6 implements u27.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public un6() {
-        super("ala_live_attention");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -25,40 +27,68 @@ public class un6 extends ia7<AlaLiveAttentionCardView, s27> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.ia7, com.baidu.tieba.ya7
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.u27.s
+    public void b(ViewGroup view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            if (view2 instanceof AgreeView) {
+                ((AgreeView) view2).P(TbadkCoreApplication.getInst().getSkinType());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.u27.e
+    public ViewGroup create(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            AlaLiveAttentionCardView alaLiveAttentionCardView = new AlaLiveAttentionCardView(viewGroup.getContext());
-            rc7.i(alaLiveAttentionCardView, Integer.valueOf(rc7.e() * 2));
-            return alaLiveAttentionCardView;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            return new AgreeView(context);
         }
-        return (View) invokeL.objValue;
+        return (ViewGroup) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ya7
-    /* renamed from: e */
-    public void b(@NonNull AlaLiveAttentionCardView alaLiveAttentionCardView, @NonNull s27 s27Var) {
+    @Override // com.baidu.tieba.u27.e
+    public void j(ViewGroup view2, y57 feedAgreeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, alaLiveAttentionCardView, s27Var) == null) {
-            Object obj = s27Var.a().a;
-            if (obj instanceof bm6) {
-                alaLiveAttentionCardView.setVisibility(0);
-                alaLiveAttentionCardView.a((bm6) obj);
-                return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, feedAgreeData) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(feedAgreeData, "feedAgreeData");
+            if (view2 instanceof AgreeView) {
+                AgreeView agreeView = (AgreeView) view2;
+                agreeView.setAgreeAlone(true);
+                agreeView.z(false);
+                agreeView.setUseDynamicLikeResImmediately();
+                Map<String, String> a = feedAgreeData.b().a();
+                AgreeData agreeData = new AgreeData();
+                agreeData.agreeNum = feedAgreeData.a();
+                agreeData.hasAgree = feedAgreeData.c();
+                String str = a.get("thread_id");
+                String str2 = "";
+                if (str == null) {
+                    str = "";
+                }
+                agreeData.threadId = str;
+                String str3 = a.get("forum_id");
+                if (str3 == null) {
+                    str3 = "";
+                }
+                agreeData.forumId = str3;
+                String str4 = a.get("reply_id");
+                if (str4 != null) {
+                    str2 = str4;
+                }
+                agreeData.postId = str2;
+                agreeData.isInPost = true;
+                agreeView.setData(agreeData);
             }
-            alaLiveAttentionCardView.setVisibility(8);
         }
     }
 }

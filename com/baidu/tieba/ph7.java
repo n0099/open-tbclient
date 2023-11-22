@@ -1,50 +1,106 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FrsPage.ActivityConfig;
+import tbclient.ItemInfo;
 /* loaded from: classes7.dex */
 public final class ph7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ForumWriteData a;
+    public final ActivityConfig b;
+    public final ItemInfo c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948062122, "Lcom/baidu/tieba/ph7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948062122, "Lcom/baidu/tieba/ph7;");
+            if (obj instanceof ph7) {
+                ph7 ph7Var = (ph7) obj;
+                return Intrinsics.areEqual(this.a, ph7Var.a) && Intrinsics.areEqual(this.b, ph7Var.b) && Intrinsics.areEqual(this.c, ph7Var.c);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ForumWriteData forumWriteData = this.a;
+            int hashCode = (forumWriteData == null ? 0 : forumWriteData.hashCode()) * 31;
+            ActivityConfig activityConfig = this.b;
+            int hashCode2 = (hashCode + (activityConfig == null ? 0 : activityConfig.hashCode())) * 31;
+            ItemInfo itemInfo = this.c;
+            return hashCode2 + (itemInfo != null ? itemInfo.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "WriteButtonData(forumWriteData=" + this.a + ", activityConfig=" + this.b + ", itemInfo=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ph7(ForumWriteData forumWriteData, ActivityConfig activityConfig, ItemInfo itemInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {forumWriteData, activityConfig, itemInfo};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = TbConfig.TIEBA_ADDRESS + "mo/q/forumtarget?fid=%1$s&fn=%2$s&nomenu=1";
-        b = TbConfig.TIEBA_ADDRESS + "mo/q/priforum/editinfo?fid=%1$s&nomenu=1";
+        this.a = forumWriteData;
+        this.b = activityConfig;
+        this.c = itemInfo;
     }
 
-    public static final String a() {
+    public final ActivityConfig a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return (ActivityConfig) invokeV.objValue;
     }
 
-    public static final String b() {
+    public final ForumWriteData b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (ForumWriteData) invokeV.objValue;
+    }
+
+    public final ItemInfo c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (ItemInfo) invokeV.objValue;
     }
 }

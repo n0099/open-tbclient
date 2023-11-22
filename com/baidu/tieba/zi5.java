@@ -1,42 +1,60 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.LocalViewSize;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tbadk.img.ImageUploader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.lang.ref.WeakReference;
 /* loaded from: classes9.dex */
-public class zi5 {
+public class zi5<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Queue<bj5> a;
-    public volatile a b;
+    public WeakReference<b<T>> a;
+    public d b;
+    public String c;
+    public zi5<T>.c d;
+    public T e;
+    public final ImageUploader f;
+    public int g;
 
     /* loaded from: classes9.dex */
-    public class a extends BdAsyncTask<Void, bj5, bj5> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Queue<bj5> a;
-        public final /* synthetic */ zi5 b;
+    }
 
-        public a(zi5 zi5Var, Queue<bj5> queue) {
+    /* loaded from: classes9.dex */
+    public interface b<T> {
+        void a(int i, T t);
+    }
+
+    /* loaded from: classes9.dex */
+    public interface d {
+        void a(String str, ImageUploadResult imageUploadResult);
+    }
+
+    /* loaded from: classes9.dex */
+    public class c extends BdAsyncTask<String, Integer, ImageUploadResult> implements ImageUploader.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public int b;
+        public final /* synthetic */ zi5 c;
+
+        public c(zi5 zi5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zi5Var, queue};
+                Object[] objArr = {zi5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,99 +64,130 @@ public class zi5 {
                     return;
                 }
             }
-            this.b = zi5Var;
-            this.a = queue;
-            super.setPriority(2);
+            this.c = zi5Var;
+            this.a = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public bj5 doInBackground(Void... voidArr) {
-            boolean z;
+        public ImageUploadResult doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, voidArr)) != null) {
-                return (bj5) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
+                return g();
             }
-            while (true) {
-                bj5 poll = this.a.poll();
-                if (poll == null) {
-                    return null;
-                }
-                if (isCancelled()) {
-                    this.a.add(poll);
-                    return null;
-                }
-                ImageFileInfo imageFileInfo = poll.a;
-                if (imageFileInfo != null) {
-                    poll.d = zi5.f(imageFileInfo, poll.c);
-                    if (TbImageMemoryCache.B().D(poll.a.toCachedKey(poll.c)) != null) {
-                        z = true;
-                    } else {
-                        z = false;
+            return (ImageUploadResult) invokeL.objValue;
+        }
+
+        public void e(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+                this.a = z;
+            }
+        }
+
+        public void f(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+                this.b = i;
+            }
+        }
+
+        public /* synthetic */ c(zi5 zi5Var, a aVar) {
+            this(zi5Var);
+        }
+
+        @Override // com.baidu.tbadk.img.ImageUploader.a
+        public void a(String str, Object obj, long j, long j2) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, obj, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                if (j2 == 0) {
+                    i = 0;
+                } else {
+                    i = (int) ((((float) j) * 100.0f) / ((float) j2));
+                    if (i > 100) {
+                        i = 90;
                     }
-                    poll.e = z;
                 }
-                publishProgress(poll);
+                publishProgress(Integer.valueOf(i));
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(bj5 bj5Var) {
+        public void onPostExecute(ImageUploadResult imageUploadResult) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bj5Var) == null) {
-                super.onPostExecute(bj5Var);
-                this.b.b = null;
-                this.b.h();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imageUploadResult) == null) {
+                super.onPostExecute(imageUploadResult);
+                this.c.d = null;
+                if (this.c.b != null) {
+                    if (imageUploadResult == null) {
+                        imageUploadResult = new ImageUploadResult();
+                        imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
+                        imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f139f);
+                    }
+                    this.c.b.a(this.c.c, imageUploadResult);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                super.cancel();
+                this.c.d = null;
+                this.c.f.cancel();
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
-        public void onProgressUpdate(bj5... bj5VarArr) {
+        public void onProgressUpdate(Integer... numArr) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bj5VarArr) == null) && bj5VarArr != null) {
-                for (bj5 bj5Var : bj5VarArr) {
-                    BdImage bdImage = bj5Var.d;
-                    if (bdImage != null && !bj5Var.e) {
-                        TbImageMemoryCache.B().l(bj5Var.a.toCachedKey(bj5Var.c), bdImage);
-                    }
-                    wi5 wi5Var = bj5Var.b;
-                    if (wi5Var != null) {
-                        wi5Var.a(bdImage, bj5Var.a.toCachedKey(bj5Var.c), bj5Var.e);
-                    }
-                }
+            if ((interceptable == null || interceptable.invokeL(1048580, this, numArr) == null) && numArr != null && numArr.length != 0 && this.c.a != null && this.c.a.get() != null) {
+                ((b) this.c.a.get()).a(numArr[0].intValue(), this.c.e);
             }
         }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onCancelled() {
+        public final ImageUploadResult g() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                super.onCancelled();
-                this.b.b = null;
-                while (true) {
-                    bj5 poll = this.a.poll();
-                    if (poll == null) {
-                        return;
-                    }
-                    wi5 wi5Var = poll.b;
-                    if (wi5Var != null) {
-                        wi5Var.a(null, poll.a.toCachedKey(poll.c), false);
-                    }
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                this.c.f.setImageUploadProgressCallback(this, null);
+                this.c.f.setWaterMaskType(this.b);
+                ImageUploadResult uploadInBackground = this.c.f.uploadInBackground(this.c.c, this.a);
+                publishProgress(100);
+                return uploadInBackground;
+            }
+            return (ImageUploadResult) invokeV.objValue;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+                super.onPreCancel();
+                if (this.c.b != null) {
+                    ImageUploadResult imageUploadResult = new ImageUploadResult();
+                    imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
+                    imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f139f);
+                    this.c.b.a(this.c.c, imageUploadResult);
                 }
             }
         }
     }
 
-    public zi5() {
+    public zi5(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -148,149 +197,82 @@ public class zi5 {
                 return;
             }
         }
-        this.a = new ConcurrentLinkedQueue();
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.c = str;
+        this.f = new ImageUploader(str2);
     }
 
-    public void b() {
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = new ConcurrentLinkedQueue();
-            if (this.b != null) {
-                this.b.cancel(true);
-                this.b = null;
-            }
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && this.d == null) {
+            zi5<T>.c cVar = new c(this, null);
+            this.d = cVar;
+            cVar.e(z);
+            this.d.f(this.g);
+            this.d.execute(new String[0]);
         }
     }
 
-    public void h() {
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.b == null && !this.a.isEmpty()) {
-            this.b = new a(this, this.a);
-            this.b.execute(new Void[0]);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f.setGroupId(str);
         }
     }
 
-    public BdImage c(ImageFileInfo imageFileInfo, boolean z) {
-        InterceptResult invokeLZ;
+    public void i(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, z)) == null) {
-            if (imageFileInfo == null) {
-                return null;
-            }
-            return TbImageMemoryCache.B().D(imageFileInfo.toCachedKey(z));
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+            this.e = t;
         }
-        return (BdImage) invokeLZ.objValue;
     }
 
-    @Nullable
-    public static BdImage f(@NonNull ImageFileInfo imageFileInfo, boolean z) {
-        InterceptResult invokeLZ;
+    public void l(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, imageFileInfo, z)) == null) {
-            BdImage D = TbImageMemoryCache.B().D(imageFileInfo.toCachedKey(z));
-            if (D != null) {
-                return D;
-            }
-            Bitmap g = g(imageFileInfo, z);
-            if (g != null) {
-                int i = 0;
-                Bitmap bitmap = null;
-                try {
-                    i = BitmapHelper.readPictureDegree(imageFileInfo.getFilePath());
-                    if (i != 0) {
-                        Bitmap rotateBitmapBydegree = BitmapHelper.rotateBitmapBydegree(g, i);
-                        if (g != rotateBitmapBydegree) {
-                            try {
-                                g.recycle();
-                                g = null;
-                            } catch (Exception unused) {
-                            }
-                        }
-                        bitmap = rotateBitmapBydegree;
-                    }
-                } catch (Exception unused2) {
-                }
-                if (i != 0 && bitmap != null) {
-                    return new BdImage(bitmap, imageFileInfo.isGif(), imageFileInfo.getFilePath());
-                }
-                return new BdImage(g, imageFileInfo.isGif(), imageFileInfo.getFilePath());
-            }
-            return D;
+        if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
+            this.b = dVar;
         }
-        return (BdImage) invokeLZ.objValue;
     }
 
-    public static Bitmap g(ImageFileInfo imageFileInfo, boolean z) {
-        InterceptResult invokeLZ;
-        boolean z2;
+    public void m(b<T> bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, imageFileInfo, z)) == null) {
-            if (imageFileInfo == null) {
-                return null;
-            }
-            LinkedList linkedList = new LinkedList();
-            if (z && imageFileInfo.getPersistActionsList() != null) {
-                linkedList.addAll(imageFileInfo.getPersistActionsList());
-            }
-            if (imageFileInfo.getPageActionsList() != null) {
-                linkedList.addAll(imageFileInfo.getPageActionsList());
-            }
-            if (imageFileInfo.getOrginalBitmap() != null) {
-                try {
-                    ij5 d = ij5.d();
-                    Bitmap orginalBitmap = imageFileInfo.getOrginalBitmap();
-                    if (!imageFileInfo.isOrginalBitmapShared()) {
-                        z2 = true;
-                    } else {
-                        z2 = false;
-                    }
-                    return d.b(orginalBitmap, z2, linkedList, imageFileInfo);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            } else if (imageFileInfo.hasActions(z)) {
-                try {
-                    return ij5.d().c(imageFileInfo.getFilePath(), linkedList, imageFileInfo);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return null;
-                }
-            } else {
-                return BitmapHelper.loadBitmap(imageFileInfo.getFilePath());
-            }
+        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
+            this.a = new WeakReference<>(bVar);
         }
-        return (Bitmap) invokeLZ.objValue;
     }
 
-    public BdImage d(ImageFileInfo imageFileInfo, wi5 wi5Var, boolean z) {
-        InterceptResult invokeLLZ;
+    public void n(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, imageFileInfo, wi5Var, z)) == null) {
-            return e(imageFileInfo, wi5Var, z, false);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.g = i;
         }
-        return (BdImage) invokeLLZ.objValue;
     }
 
-    public BdImage e(ImageFileInfo imageFileInfo, wi5 wi5Var, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    public T f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{imageFileInfo, wi5Var, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            BdImage c = c(imageFileInfo, z);
-            if (c != null) {
-                return c;
-            }
-            if (z2) {
-                return null;
-            }
-            bj5 bj5Var = new bj5();
-            bj5Var.b = wi5Var;
-            bj5Var.a = imageFileInfo;
-            bj5Var.c = z;
-            this.a.add(bj5Var);
-            h();
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        return (BdImage) invokeCommon.objValue;
+        return (T) invokeV.objValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LocalViewSize.ImageSize msgSPicMaxSize = LocalViewSize.getInstance().getMsgSPicMaxSize();
+            LocalViewSize.ImageSize msgBPicMaxSize = LocalViewSize.getInstance().getMsgBPicMaxSize();
+            k(msgBPicMaxSize.width, msgBPicMaxSize.height, msgSPicMaxSize.width, msgSPicMaxSize.height);
+        }
+    }
+
+    public void k(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
+            this.f.setServersideResize(i, i2, i3, i4);
+        }
     }
 }

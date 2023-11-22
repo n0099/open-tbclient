@@ -47,13 +47,13 @@ public class up2 implements pd4 {
 
         /* renamed from: com.baidu.tieba.up2$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0497a extends a92 {
+        public class C0494a extends a92 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AtomicInteger a;
             public final /* synthetic */ a b;
 
-            public C0497a(a aVar, AtomicInteger atomicInteger) {
+            public C0494a(a aVar, AtomicInteger atomicInteger) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public class up2 implements pd4 {
                 if (arrayList.isEmpty()) {
                     return;
                 }
-                w42.b(arrayList, "3", new C0497a(this, atomicInteger));
+                w42.b(arrayList, "3", new C0494a(this, atomicInteger));
             }
         }
     }

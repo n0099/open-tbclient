@@ -16,11 +16,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.forum.controller.ForumBackFloatTipController;
 import com.baidu.tieba.forum.databinding.ActivityForumBinding;
 import com.baidu.tieba.forum.view.FrsCopyLinkGuideDialogView;
-import com.baidu.tieba.fr6;
+import com.baidu.tieba.gr6;
 import com.baidu.tieba.gu4;
-import com.baidu.tieba.hi7;
-import com.baidu.tieba.hm7;
-import com.baidu.tieba.og7;
+import com.baidu.tieba.ii7;
+import com.baidu.tieba.im7;
+import com.baidu.tieba.pg7;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -36,11 +36,11 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000M\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004*\u0001\n\u0018\u0000 \u001e2\u00020\u0001:\u0001\u001eB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0010\u0010\u000e\u001a\u00020\r2\u0006\u0010\u000f\u001a\u00020\u0010H\u0002J\u0010\u0010\u0011\u001a\u00020\r2\u0006\u0010\u000f\u001a\u00020\u0010H\u0002J\u0010\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u0015H\u0002J\u0010\u0010\u0016\u001a\u00020\u00132\u0006\u0010\u0017\u001a\u00020\u0018H\u0016J\u001a\u0010\u0019\u001a\u00020\u00132\b\u0010\u001a\u001a\u0004\u0018\u00010\u001b2\u0006\u0010\u000f\u001a\u00020\u0010H\u0016J\b\u0010\u001c\u001a\u00020\u0013H\u0016J\b\u0010\u001d\u001a\u00020\u0013H\u0002R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\u000e\u0010\u0007\u001a\u00020\bX\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\t\u001a\u00020\nX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u000bR\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u001f"}, d2 = {"Lcom/baidu/tieba/forum/controller/ForumBackFloatTipController;", "Lcom/baidu/tieba/forum/controller/BaseActivityController;", "activity", "Landroidx/fragment/app/FragmentActivity;", "(Landroidx/fragment/app/FragmentActivity;)V", "getActivity", "()Landroidx/fragment/app/FragmentActivity;", "buttonLayout", "Landroid/view/View;", "hideForumFloatTipListener", "com/baidu/tieba/forum/controller/ForumBackFloatTipController$hideForumFloatTipListener$1", "Lcom/baidu/tieba/forum/controller/ForumBackFloatTipController$hideForumFloatTipListener$1;", "view", "Lcom/baidu/tieba/forum/view/ForumBackFloatView;", "buildBackForumBroadcastView", "binding", "Lcom/baidu/tieba/forum/databinding/ActivityForumBinding;", "buildBackForumDoingsView", "handleGuideDialogShow", "", "key", "", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "", "onCreate", "savedInstanceState", "Landroid/os/Bundle;", MissionEvent.MESSAGE_DESTROY, "showCopyLinkGuideDialog", "Companion", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class ForumBackFloatTipController extends og7 {
+public final class ForumBackFloatTipController extends pg7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final FragmentActivity b;
-    public hm7 c;
+    public im7 c;
     public View d;
     public final a e;
 
@@ -95,13 +95,13 @@ public final class ForumBackFloatTipController extends og7 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
-                hm7 hm7Var = this.a.c;
+                im7 im7Var = this.a.c;
                 boolean z = true;
-                if ((hm7Var == null || !hm7Var.b()) ? false : false) {
-                    hi7.a.a();
-                    hm7 hm7Var2 = this.a.c;
-                    if (hm7Var2 != null) {
-                        hm7Var2.c(false);
+                if ((im7Var == null || !im7Var.b()) ? false : false) {
+                    ii7.a.a();
+                    im7 im7Var2 = this.a.c;
+                    if (im7Var2 != null) {
+                        im7Var2.c(false);
                     }
                 }
             }
@@ -128,35 +128,35 @@ public final class ForumBackFloatTipController extends og7 {
         this.e = new a(this);
     }
 
-    @Override // com.baidu.tieba.og7
+    @Override // com.baidu.tieba.pg7
     public void i(int i) {
-        hm7 hm7Var;
+        im7 im7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (hm7Var = this.c) != null) {
-            hm7Var.a();
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (im7Var = this.c) != null) {
+            im7Var.a();
         }
     }
 
-    public final hm7 r(ActivityForumBinding activityForumBinding) {
+    public final im7 r(ActivityForumBinding activityForumBinding) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activityForumBinding)) == null) {
             String string = UtilHelper.getString(R.string.obfuscated_res_0x7f0f0808);
             Intrinsics.checkNotNullExpressionValue(string, "getString(R.string.frs_back_forum_broadcast_tip)");
-            return new hm7(string, R.color.CAM_X0305, R.drawable.pic_float_return_broadcast32, 0, null, false, 56, null);
+            return new im7(string, R.color.CAM_X0305, R.drawable.pic_float_return_broadcast32, 0, null, false, 56, null);
         }
-        return (hm7) invokeL.objValue;
+        return (im7) invokeL.objValue;
     }
 
-    public final hm7 s(ActivityForumBinding activityForumBinding) {
+    public final im7 s(ActivityForumBinding activityForumBinding) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, activityForumBinding)) == null) {
             String string = UtilHelper.getString(R.string.obfuscated_res_0x7f0f0809);
             Intrinsics.checkNotNullExpressionValue(string, "getString(R.string.frs_back_forum_doings_tip)");
-            return new hm7(string, R.color.CAM_X0309, R.drawable.obfuscated_res_0x7f080227, 0, null, false, 56, null);
+            return new im7(string, R.color.CAM_X0309, R.drawable.obfuscated_res_0x7f080227, 0, null, false, 56, null);
         }
-        return (hm7) invokeL.objValue;
+        return (im7) invokeL.objValue;
     }
 
     public final void u(String str) {
@@ -176,7 +176,7 @@ public final class ForumBackFloatTipController extends og7 {
         }
     }
 
-    @Override // com.baidu.tieba.og7
+    @Override // com.baidu.tieba.pg7
     public void k(Bundle bundle, final ActivityForumBinding binding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle, binding) == null) {
@@ -193,15 +193,15 @@ public final class ForumBackFloatTipController extends og7 {
                 this.c = r(binding);
                 u("key_broadcast_doings_copy_link_guide_show_number");
             }
-            final hm7 hm7Var = this.c;
-            if (hm7Var != null) {
+            final im7 im7Var = this.c;
+            if (im7Var != null) {
                 FragmentActivity fragmentActivity = this.b;
                 if (fragmentActivity instanceof BaseFragmentActivity) {
-                    hi7.a.b(hm7Var, (BaseFragmentActivity) fragmentActivity, new Function1<Boolean, Unit>(this, hm7Var, binding) { // from class: com.baidu.tieba.forum.controller.ForumBackFloatTipController$onCreate$1$1
+                    ii7.a.b(im7Var, (BaseFragmentActivity) fragmentActivity, new Function1<Boolean, Unit>(this, im7Var, binding) { // from class: com.baidu.tieba.forum.controller.ForumBackFloatTipController$onCreate$1$1
                         public static /* synthetic */ Interceptable $ic;
                         public final /* synthetic */ ActivityForumBinding $binding;
                         public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ hm7 $it;
+                        public final /* synthetic */ im7 $it;
                         public final /* synthetic */ ForumBackFloatTipController this$0;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -211,7 +211,7 @@ public final class ForumBackFloatTipController extends og7 {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, hm7Var, binding};
+                                Object[] objArr = {this, im7Var, binding};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i = newInitContext.flag;
                                 if ((i & 1) != 0) {
@@ -223,7 +223,7 @@ public final class ForumBackFloatTipController extends og7 {
                                 }
                             }
                             this.this$0 = this;
-                            this.$it = hm7Var;
+                            this.$it = im7Var;
                             this.$binding = binding;
                         }
 
@@ -259,15 +259,15 @@ public final class ForumBackFloatTipController extends og7 {
         }
     }
 
-    @Override // com.baidu.tieba.og7
+    @Override // com.baidu.tieba.pg7
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.l();
-            hm7 hm7Var = this.c;
+            im7 im7Var = this.c;
             boolean z = true;
-            if ((hm7Var == null || !hm7Var.b()) ? false : false) {
-                hi7.a.a();
+            if ((im7Var == null || !im7Var.b()) ? false : false) {
+                ii7.a.a();
             }
             gu4.b.a().e(this.e);
         }
@@ -289,7 +289,7 @@ public final class ForumBackFloatTipController extends og7 {
             zz4Var.setContentViewSize(2);
             zz4Var.setCanceledOnTouchOutside(false);
             FrsCopyLinkGuideDialogView frsCopyLinkGuideDialogView = new FrsCopyLinkGuideDialogView(this.b, null, 0, 6, null);
-            frsCopyLinkGuideDialogView.setConfirmButtonListener(new View.OnClickListener() { // from class: com.baidu.tieba.qf7
+            frsCopyLinkGuideDialogView.setConfirmButtonListener(new View.OnClickListener() { // from class: com.baidu.tieba.rf7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -303,8 +303,8 @@ public final class ForumBackFloatTipController extends og7 {
             });
             zz4Var.setContentView(frsCopyLinkGuideDialogView);
             FragmentActivity fragmentActivity = this.b;
-            if (fragmentActivity instanceof fr6) {
-                zz4Var.create(((fr6) fragmentActivity).getPageContext()).show();
+            if (fragmentActivity instanceof gr6) {
+                zz4Var.create(((gr6) fragmentActivity).getPageContext()).show();
             } else if (fragmentActivity instanceof TbPageContextSupport) {
                 zz4Var.create(((TbPageContextSupport) fragmentActivity).getPageContext()).show();
             }

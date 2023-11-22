@@ -37,7 +37,7 @@ public class eh6 extends ja {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
+            return 0;
         }
         return invokeV.intValue;
     }
@@ -56,7 +56,7 @@ public class eh6 extends ja {
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "jump_web_container_intercept_url" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "hybrid_net_proxy_no_encoding" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ja
@@ -87,7 +87,7 @@ public class eh6 extends ja {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (SwitchManager.getInstance().findType("jump_web_container_intercept_url") == 1) {
+            if (SwitchManager.getInstance().findType("hybrid_net_proxy_no_encoding") == 1) {
                 return true;
             }
             return false;

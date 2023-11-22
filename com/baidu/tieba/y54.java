@@ -32,7 +32,7 @@ public class y54 extends g23 implements d33 {
     public int f;
 
     /* loaded from: classes9.dex */
-    public class a implements wjc<String> {
+    public class a implements xjc<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -60,7 +60,7 @@ public class y54 extends g23 implements d33 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wjc
+        @Override // com.baidu.tieba.xjc
         /* renamed from: a */
         public void call(String str) {
             Interceptable interceptable = $ic;
@@ -170,7 +170,7 @@ public class y54 extends g23 implements d33 {
                 Log.i("SwanGameReloadDelegate", "execCall: target = " + this.f);
                 Log.i("SwanGameReloadDelegate", "execCall: waitCallback = " + checkProcessId);
             }
-            ijc.n("").s(Schedulers.io()).H(new a(this, checkProcessId, bundle));
+            jjc.n("").s(Schedulers.io()).H(new a(this, checkProcessId, bundle));
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import androidx.annotation.VisibleForTesting;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.RequestFinishedInfo;
-@VisibleForTesting
+import com.baidu.turbonet.net.impl.CronetLibraryLoader;
+import org.chromium.base.NativeLibraryLoadedStatus;
+import org.chromium.base.annotations.CheckDiscard;
+import org.chromium.base.natives.GEN_JNI;
+@CheckDiscard("crbug.com/993421")
 /* loaded from: classes8.dex */
-public final class tib extends RequestFinishedInfo.Metrics {
+public final class tib implements CronetLibraryLoader.b {
     public static /* synthetic */ Interceptable $ic;
+    public static CronetLibraryLoader.b a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,27 +34,64 @@ public final class tib extends RequestFinishedInfo.Metrics {
         }
     }
 
-    public tib(long j, long j2, long j3, long j4, long j5, long j6, long j7, long j8, long j9, long j10, long j11, long j12, long j13, boolean z, long j14, long j15) {
+    public tib() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(j7), Long.valueOf(j8), Long.valueOf(j9), Long.valueOf(j10), Long.valueOf(j11), Long.valueOf(j12), Long.valueOf(j13), Boolean.valueOf(z), Long.valueOf(j14), Long.valueOf(j15)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        int i3 = (j > (-1L) ? 1 : (j == (-1L) ? 0 : -1));
-        if (i3 != 0) {
-            int i4 = (j12 > (-1L) ? 1 : (j12 == (-1L) ? 0 : -1));
+    }
+
+    @Override // com.baidu.turbonet.net.impl.CronetLibraryLoader.b
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            GEN_JNI.com_baidu_turbonet_net_impl_CronetLibraryLoader_cronetInitOnInitThread();
         }
-        if (i3 != 0) {
-            int i5 = (j13 > (-1L) ? 1 : (j13 == (-1L) ? 0 : -1));
+    }
+
+    @Override // com.baidu.turbonet.net.impl.CronetLibraryLoader.b
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return GEN_JNI.com_baidu_turbonet_net_impl_CronetLibraryLoader_getTurboNetVersion();
         }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.turbonet.net.impl.CronetLibraryLoader.b
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return GEN_JNI.com_baidu_turbonet_net_impl_CronetLibraryLoader_getTurboNetHandler();
+        }
+        return invokeV.longValue;
+    }
+
+    public static CronetLibraryLoader.b d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (GEN_JNI.TESTING_ENABLED) {
+                CronetLibraryLoader.b bVar = a;
+                if (bVar != null) {
+                    return bVar;
+                }
+                if (GEN_JNI.REQUIRE_MOCK) {
+                    throw new UnsupportedOperationException("No mock found for the native implementation for com.baidu.turbonet.net.impl.CronetLibraryLoader.Natives. The current configuration requires all native implementations to have a mock instance.");
+                }
+            }
+            NativeLibraryLoadedStatus.checkLoaded(false);
+            return new tib();
+        }
+        return (CronetLibraryLoader.b) invokeV.objValue;
     }
 }

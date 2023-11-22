@@ -34,19 +34,19 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ak5;
+import com.baidu.tieba.bk5;
 import com.baidu.tieba.by4;
 import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
 import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
 import com.baidu.tieba.homepage.concern.ConcernPageView;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
-import com.baidu.tieba.qza;
+import com.baidu.tieba.rza;
 import com.baidu.tieba.s05;
-import com.baidu.tieba.so5;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
-import com.baidu.tieba.vq7;
+import com.baidu.tieba.to5;
+import com.baidu.tieba.wq7;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -63,7 +63,7 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes6.dex */
-public class ConcernFragment extends BaseFragment implements vq7, qza {
+public class ConcernFragment extends BaseFragment implements wq7, rza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ConcernPageView a;
@@ -78,14 +78,14 @@ public class ConcernFragment extends BaseFragment implements vq7, qza {
     public final CustomMessageListener j;
     public final HttpMessageListener k;
 
-    @Override // com.baidu.tieba.vq7
+    @Override // com.baidu.tieba.wq7
     public void A0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.qza
+    @Override // com.baidu.tieba.rza
     @NonNull
     public String Z1() {
         InterceptResult invokeV;
@@ -93,7 +93,7 @@ public class ConcernFragment extends BaseFragment implements vq7, qza {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? "home_follow_landing_page" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vq7
+    @Override // com.baidu.tieba.wq7
     public void c0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -107,7 +107,7 @@ public class ConcernFragment extends BaseFragment implements vq7, qza {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "a038" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qza
+    @Override // com.baidu.tieba.rza
     @NonNull
     public String n2() {
         InterceptResult invokeV;
@@ -537,8 +537,8 @@ public class ConcernFragment extends BaseFragment implements vq7, qza {
                 this.a.T();
             }
             this.d = true;
-            ak5.e().b();
-            so5.a.a(getUniqueId(), new Pair<>(PushMessageHelper.ERROR_TYPE, "home_follow"), new Pair<>("error_info", "home follow unfinished destroy"));
+            bk5.e().b();
+            to5.a.a(getUniqueId(), new Pair<>(PushMessageHelper.ERROR_TYPE, "home_follow"), new Pair<>("error_info", "home follow unfinished destroy"));
         }
     }
 
@@ -608,7 +608,7 @@ public class ConcernFragment extends BaseFragment implements vq7, qza {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, bundle) == null) {
             super.onCreate(bundle);
-            so5.a.e(getUniqueId(), this);
+            to5.a.e(getUniqueId(), this);
         }
     }
 
@@ -620,7 +620,7 @@ public class ConcernFragment extends BaseFragment implements vq7, qza {
         }
     }
 
-    @Override // com.baidu.tieba.vq7
+    @Override // com.baidu.tieba.wq7
     public void G0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -632,7 +632,7 @@ public class ConcernFragment extends BaseFragment implements vq7, qza {
         }
     }
 
-    @Override // com.baidu.tieba.vq7
+    @Override // com.baidu.tieba.wq7
     public void R() {
         ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
@@ -641,7 +641,7 @@ public class ConcernFragment extends BaseFragment implements vq7, qza {
         }
     }
 
-    @Override // com.baidu.tieba.qza
+    @Override // com.baidu.tieba.rza
     @NonNull
     public String getTraceId() {
         InterceptResult invokeV;
@@ -801,7 +801,7 @@ public class ConcernFragment extends BaseFragment implements vq7, qza {
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             super.onPrimary();
             if (isPrimary()) {
-                so5.a.g(getUniqueId());
+                to5.a.g(getUniqueId());
                 if (!this.e) {
                     ConcernPageView concernPageView = this.a;
                     if (concernPageView != null) {

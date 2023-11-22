@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import java.util.Map;
+import com.baidu.tieba.feed.log.FeedStat;
 /* loaded from: classes5.dex */
 public interface fb7 {
-    void d(Map<String, ? extends gb7> map);
+    void e(FeedStat.a aVar);
 }

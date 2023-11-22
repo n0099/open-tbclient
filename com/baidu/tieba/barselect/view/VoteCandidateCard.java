@@ -18,9 +18,9 @@ import com.baidu.tieba.barselect.segment.CardBasicLayout;
 import com.baidu.tieba.barselect.segment.NewAnounceLayout;
 import com.baidu.tieba.barselect.segment.VoteAreaLayout;
 import com.baidu.tieba.barselect.segment.VotedAreaLayout;
-import com.baidu.tieba.pe6;
-import com.baidu.tieba.re6;
-import com.baidu.tieba.ye6;
+import com.baidu.tieba.qe6;
+import com.baidu.tieba.se6;
+import com.baidu.tieba.ze6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -181,29 +181,29 @@ public class VoteCandidateCard extends CardBasicLayout {
             this.k.d(i);
             SkinManager.setBackgroundColor(this.p, R.color.CAM_X0204, i);
             int i2 = this.a;
-            if (i2 == ye6.d) {
+            if (i2 == ze6.d) {
                 SkinManager.setBackgroundResource(this.t, R.drawable.bar_select_bg_shadow_and_radius, i);
                 SkinManager.setViewTextColor(this.h, R.color.CAM_X0105, 1, i);
                 SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
-            } else if (i2 == ye6.c) {
+            } else if (i2 == ze6.c) {
                 SkinManager.setBackgroundResource(this.t, R.drawable.bg_bazhu_shadow_and_radius, i);
-            } else if (i2 == ye6.b) {
+            } else if (i2 == ze6.b) {
                 if (this.v == 1) {
                     SkinManager.setBackgroundResource(this.t, R.drawable.bar_select_bg_top_round, i);
                 } else {
                     SkinManager.setBackgroundColor(this.t, R.color.CAM_X0201, i);
                 }
-            } else if (i2 == ye6.a) {
+            } else if (i2 == ze6.a) {
                 SkinManager.setBackgroundColor(this.t, R.color.CAM_X0201, i);
                 SkinManager.setViewTextColor(this.w, R.color.CAM_X0105, 1, i);
                 SkinManager.setBackgroundColor(this.z, R.color.CAM_X0201, i);
                 SkinManager.setBackgroundColor(this.x, R.color.CAM_X0203, i);
             }
-            pe6 pe6Var = this.c;
-            if (pe6Var == null) {
+            qe6 qe6Var = this.c;
+            if (qe6Var == null) {
                 return;
             }
-            if (pe6Var.n()) {
+            if (qe6Var.n()) {
                 SkinManager.setViewTextColor(this.o, R.color.CAM_X0301, 1, i);
                 SkinManager.setBackgroundResource(this.n, R.drawable.icon_use_tip_red, i);
             }
@@ -219,14 +219,14 @@ public class VoteCandidateCard extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, re6 re6Var) {
+    public void setData(int i, se6 se6Var) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, re6Var) == null) {
-            super.setData(i, re6Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, se6Var) == null) {
+            super.setData(i, se6Var);
             this.v = i;
             if (this.b != null && this.c != null && (i2 = this.a) >= 0) {
-                if (i2 == ye6.d) {
+                if (i2 == ze6.d) {
                     this.t.setBackgroundResource(R.drawable.bar_select_bg_shadow_and_radius);
                     this.f.setVisibility(0);
                     TextView textView = this.h;
@@ -235,9 +235,9 @@ public class VoteCandidateCard extends CardBasicLayout {
                     this.r.setVisibility(8);
                     this.k.setVisibility(0);
                     this.l.setVisibility(8);
-                    this.k.setData(i, re6Var);
+                    this.k.setData(i, se6Var);
                     this.z.setVisibility(8);
-                } else if (i2 == ye6.a) {
+                } else if (i2 == ze6.a) {
                     if (i == 0) {
                         this.r.setVisibility(8);
                     } else {
@@ -261,10 +261,10 @@ public class VoteCandidateCard extends CardBasicLayout {
                     } else {
                         this.z.setVisibility(8);
                         this.k.setVisibility(0);
-                        this.k.setData(i, re6Var);
+                        this.k.setData(i, se6Var);
                     }
                     this.l.setVisibility(8);
-                } else if (i2 == ye6.c) {
+                } else if (i2 == ze6.c) {
                     int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.tbds22);
                     int dimens2 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds10);
                     int dimens3 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds20);
@@ -279,10 +279,10 @@ public class VoteCandidateCard extends CardBasicLayout {
                     setRankVisible(8);
                     this.k.setVisibility(8);
                     this.l.setVisibility(0);
-                    this.l.setData(i, re6Var);
+                    this.l.setData(i, se6Var);
                     this.u.setPadding(0, dimens, 0, 0);
                     this.z.setVisibility(8);
-                } else if (i2 == ye6.b) {
+                } else if (i2 == ze6.b) {
                     if (i == 1) {
                         this.t.setBackgroundResource(R.drawable.bar_select_bg_top_round);
                         this.r.setVisibility(8);
@@ -310,14 +310,14 @@ public class VoteCandidateCard extends CardBasicLayout {
                     }
                     this.k.setVisibility(8);
                     this.l.setVisibility(0);
-                    this.l.setData(i, re6Var);
+                    this.l.setData(i, se6Var);
                     this.z.setVisibility(8);
                 } else {
                     setVisibility(8);
                     return;
                 }
-                this.i.setData(i, re6Var);
-                this.j.setData(i, re6Var);
+                this.i.setData(i, se6Var);
+                this.j.setData(i, se6Var);
                 if (this.c.n()) {
                     this.m.setVisibility(0);
                 } else {

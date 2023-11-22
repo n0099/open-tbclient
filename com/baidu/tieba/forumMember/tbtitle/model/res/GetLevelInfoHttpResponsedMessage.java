@@ -2,7 +2,7 @@ package com.baidu.tieba.forumMember.tbtitle.model.res;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ao7;
+import com.baidu.tieba.bo7;
 import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoRequestMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -51,8 +51,8 @@ public class GetLevelInfoHttpResponsedMessage extends HttpResponsedMessage {
                 getLevelInfoRequestMessage = null;
             }
             if (getLevelInfoRequestMessage != null) {
-                ao7 ao7Var = new ao7();
-                ao7Var.c(getLevelInfoRequestMessage.getForumId() + "", bArr);
+                bo7 bo7Var = new bo7();
+                bo7Var.c(getLevelInfoRequestMessage.getForumId() + "", bArr);
             }
         }
     }

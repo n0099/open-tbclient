@@ -9,14 +9,120 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public class mta extends kta {
+public class mta extends lta {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean g;
+    public volatile ota g;
+    public volatile boolean h;
+    public int i;
+
+    /* loaded from: classes7.dex */
+    public class a implements ThreadFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+
+        public a(mta mtaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mtaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 0;
+        }
+
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                Thread thread = new Thread(runnable);
+                thread.setName("VideoUploadThread@" + this.a);
+                this.a = this.a + 1;
+                return thread;
+            }
+            return (Thread) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ RandomAccessFile a;
+        public final /* synthetic */ ArrayList b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ int f;
+        public final /* synthetic */ CountDownLatch g;
+        public final /* synthetic */ mta h;
+
+        public b(mta mtaVar, RandomAccessFile randomAccessFile, ArrayList arrayList, int i, int i2, String str, int i3, CountDownLatch countDownLatch) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mtaVar, randomAccessFile, arrayList, Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), countDownLatch};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.h = mtaVar;
+            this.a = randomAccessFile;
+            this.b = arrayList;
+            this.c = i;
+            this.d = i2;
+            this.e = str;
+            this.f = i3;
+            this.g = countDownLatch;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ota h = this.h.h(this.a, ((Integer) this.b.get(this.c)).intValue(), this.d, this.e);
+                if (h != null) {
+                    if (h.b != 0) {
+                        this.h.g.b = h.b;
+                        this.h.g.c = h.c;
+                    }
+                    if (!StringUtils.isNull(h.a)) {
+                        this.h.g.a = h.a;
+                    }
+                    synchronized (this.h) {
+                        mta.k(this.h);
+                        this.h.d((int) (((this.h.i * 50.0f) / this.f) + 30.0f));
+                    }
+                }
+                this.g.countDown();
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public mta(String str, int i, int i2, long j, String str2) {
@@ -37,57 +143,65 @@ public class mta extends kta {
                 return;
             }
         }
+        this.g = new ota();
     }
 
-    @Override // com.baidu.tieba.kta
+    public static /* synthetic */ int k(mta mtaVar) {
+        int i = mtaVar.i;
+        mtaVar.i = i + 1;
+        return i;
+    }
+
+    @Override // com.baidu.tieba.lta
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g = true;
+            this.h = true;
         }
     }
 
-    @Override // com.baidu.tieba.kta
+    @Override // com.baidu.tieba.lta
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
+            if (!this.h && this.g.b == 0 && StringUtils.isNull(this.g.a)) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.kta
-    public nta g(ArrayList<Integer> arrayList, String str, int i) {
+    @Override // com.baidu.tieba.lta
+    public ota g(ArrayList<Integer> arrayList, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, str, i)) == null) {
-            nta ntaVar = new nta();
+            int size = arrayList.size();
+            CountDownLatch countDownLatch = new CountDownLatch(size);
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 3, 2L, TimeUnit.SECONDS, new LinkedBlockingDeque(), new a(this));
             try {
                 RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
-                int i2 = 0;
-                int size = arrayList.size();
-                Iterator<Integer> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    int i3 = i2 + 1;
-                    nta h = h(randomAccessFile, it.next().intValue(), i, str);
-                    if (h == null) {
-                        return null;
-                    }
-                    d((int) (((i3 * 50.0f) / size) + 30.0f));
-                    if (!StringUtils.isNull(h.a)) {
-                        return h;
-                    }
-                    if (h.b != 0) {
-                        return h;
-                    }
-                    i2 = i3;
-                    ntaVar = h;
+                for (int i2 = 0; i2 < size; i2++) {
+                    threadPoolExecutor.execute(new b(this, randomAccessFile, arrayList, i2, i, str, size, countDownLatch));
                 }
+                try {
+                    countDownLatch.await();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                threadPoolExecutor.shutdown();
+                try {
+                    randomAccessFile.close();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
+                return this.g;
             } catch (FileNotFoundException unused) {
+                return this.g;
             }
-            return ntaVar;
         }
-        return (nta) invokeLLI.objValue;
+        return (ota) invokeLLI.objValue;
     }
 }

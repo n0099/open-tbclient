@@ -1,44 +1,44 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.ijc;
 import com.baidu.tieba.jjc;
-import com.baidu.tieba.joc;
-import com.baidu.tieba.ojc;
-import com.baidu.tieba.ooc;
-import com.baidu.tieba.vjc;
+import com.baidu.tieba.kjc;
+import com.baidu.tieba.koc;
+import com.baidu.tieba.pjc;
+import com.baidu.tieba.poc;
+import com.baidu.tieba.wjc;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
-public final class BufferUntilSubscriber<T> extends joc<T, T> {
-    public static final jjc d = new a();
+public final class BufferUntilSubscriber<T> extends koc<T, T> {
+    public static final kjc d = new a();
     public final State<T> b;
     public boolean c;
 
     /* loaded from: classes2.dex */
-    public static class a implements jjc {
-        @Override // com.baidu.tieba.jjc
+    public static class a implements kjc {
+        @Override // com.baidu.tieba.kjc
         public void onCompleted() {
         }
 
-        @Override // com.baidu.tieba.jjc
+        @Override // com.baidu.tieba.kjc
         public void onError(Throwable th) {
         }
 
-        @Override // com.baidu.tieba.jjc
+        @Override // com.baidu.tieba.kjc
         public void onNext(Object obj) {
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class b<T> implements ijc.a<T> {
+    public static final class b<T> implements jjc.a<T> {
         public final State<T> a;
 
         /* loaded from: classes2.dex */
-        public class a implements vjc {
+        public class a implements wjc {
             public a() {
             }
 
-            @Override // com.baidu.tieba.vjc
+            @Override // com.baidu.tieba.wjc
             public void call() {
                 b.this.a.set(BufferUntilSubscriber.d);
             }
@@ -49,12 +49,12 @@ public final class BufferUntilSubscriber<T> extends joc<T, T> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wjc
+        @Override // com.baidu.tieba.xjc
         /* renamed from: a */
-        public void call(ojc<? super T> ojcVar) {
+        public void call(pjc<? super T> pjcVar) {
             boolean z;
-            if (this.a.casObserverRef(null, ojcVar)) {
-                ojcVar.b(ooc.a(new a()));
+            if (this.a.casObserverRef(null, pjcVar)) {
+                pjcVar.b(poc.a(new a()));
                 synchronized (this.a.guard) {
                     z = true;
                     if (!this.a.emitting) {
@@ -80,7 +80,7 @@ public final class BufferUntilSubscriber<T> extends joc<T, T> {
                     }
                 }
             } else {
-                ojcVar.onError(new IllegalStateException("Only one subscriber allowed!"));
+                pjcVar.onError(new IllegalStateException("Only one subscriber allowed!"));
             }
         }
     }
@@ -89,7 +89,7 @@ public final class BufferUntilSubscriber<T> extends joc<T, T> {
         return new BufferUntilSubscriber<>(new State());
     }
 
-    @Override // com.baidu.tieba.jjc
+    @Override // com.baidu.tieba.kjc
     public void onCompleted() {
         if (this.c) {
             this.b.get().onCompleted();
@@ -99,14 +99,14 @@ public final class BufferUntilSubscriber<T> extends joc<T, T> {
     }
 
     /* loaded from: classes2.dex */
-    public static final class State<T> extends AtomicReference<jjc<? super T>> {
+    public static final class State<T> extends AtomicReference<kjc<? super T>> {
         public static final long serialVersionUID = 8026705089538090368L;
         public boolean emitting;
         public final Object guard = new Object();
         public final ConcurrentLinkedQueue<Object> buffer = new ConcurrentLinkedQueue<>();
 
-        public boolean casObserverRef(jjc<? super T> jjcVar, jjc<? super T> jjcVar2) {
-            return compareAndSet(jjcVar, jjcVar2);
+        public boolean casObserverRef(kjc<? super T> kjcVar, kjc<? super T> kjcVar2) {
+            return compareAndSet(kjcVar, kjcVar2);
         }
     }
 
@@ -115,7 +115,7 @@ public final class BufferUntilSubscriber<T> extends joc<T, T> {
         this.b = state;
     }
 
-    @Override // com.baidu.tieba.jjc
+    @Override // com.baidu.tieba.kjc
     public void onError(Throwable th) {
         if (this.c) {
             this.b.get().onError(th);
@@ -124,7 +124,7 @@ public final class BufferUntilSubscriber<T> extends joc<T, T> {
         }
     }
 
-    @Override // com.baidu.tieba.jjc
+    @Override // com.baidu.tieba.kjc
     public void onNext(T t) {
         if (this.c) {
             this.b.get().onNext(t);

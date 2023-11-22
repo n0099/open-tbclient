@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
 /* loaded from: classes8.dex */
-public final class s7c<TResult> implements i7c<TResult> {
+public final class s7c<TResult> implements j7c<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k7c a;
+    public k7c<TResult> a;
     public Executor b;
     public final Object c;
 
@@ -18,15 +18,15 @@ public final class s7c<TResult> implements i7c<TResult> {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m7c a;
+        public final /* synthetic */ n7c a;
         public final /* synthetic */ s7c b;
 
-        public a(s7c s7cVar, m7c m7cVar) {
+        public a(s7c s7cVar, n7c n7cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {s7cVar, m7cVar};
+                Object[] objArr = {s7cVar, n7cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,7 +37,7 @@ public final class s7c<TResult> implements i7c<TResult> {
                 }
             }
             this.b = s7cVar;
-            this.a = m7cVar;
+            this.a = n7cVar;
         }
 
         @Override // java.lang.Runnable
@@ -46,14 +46,14 @@ public final class s7c<TResult> implements i7c<TResult> {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this.b.c) {
                     if (this.b.a != null) {
-                        this.b.a.onFailure(this.a.d());
+                        this.b.a.onComplete(this.a);
                     }
                 }
             }
         }
     }
 
-    public s7c(Executor executor, k7c k7cVar) {
+    public s7c(Executor executor, k7c<TResult> k7cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,7 +73,7 @@ public final class s7c<TResult> implements i7c<TResult> {
         this.b = executor;
     }
 
-    @Override // com.baidu.tieba.i7c
+    @Override // com.baidu.tieba.j7c
     public final void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -83,12 +83,11 @@ public final class s7c<TResult> implements i7c<TResult> {
         }
     }
 
-    @Override // com.baidu.tieba.i7c
-    public final void onComplete(m7c<TResult> m7cVar) {
+    @Override // com.baidu.tieba.j7c
+    public final void onComplete(n7c<TResult> n7cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m7cVar) == null) || m7cVar.h() || m7cVar.f()) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n7cVar) == null) {
+            this.b.execute(new a(this, n7cVar));
         }
-        this.b.execute(new a(this, m7cVar));
     }
 }

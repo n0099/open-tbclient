@@ -21,10 +21,10 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ada;
 import com.baidu.tieba.az0;
 import com.baidu.tieba.dw4;
-import com.baidu.tieba.g16;
-import com.baidu.tieba.zca;
+import com.baidu.tieba.h16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -178,7 +178,7 @@ public class AdAppInfoView extends FrameLayout {
                     str = "";
                     str2 = str;
                 }
-                zca.a(this.a.getContext(), str3, null, null, str);
+                ada.a(this.a.getContext(), str3, null, null, str);
                 this.a.d(str2);
             }
         };
@@ -190,7 +190,7 @@ public class AdAppInfoView extends FrameLayout {
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, attributeSet) != null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, g16.SimpleAdInfoView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, h16.SimpleAdInfoView);
         this.l = obtainStyledAttributes.getResourceId(0, this.l);
         obtainStyledAttributes.recycle();
     }

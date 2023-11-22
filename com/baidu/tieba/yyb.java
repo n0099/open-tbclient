@@ -3,42 +3,42 @@ package com.baidu.tieba;
 import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.sdk.api.RequestParameters;
-import com.baidu.mobads.sdk.api.SplashAd;
-import com.baidu.mobads.sdk.api.SplashInteractionListener;
+import com.baidu.mobads.sdk.api.RewardVideoAd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.flavor.Flavors;
 import com.fun.ad.sdk.internal.api.ripper.AdRipper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes9.dex */
-public class yyb extends gyb<eyb> {
+public class yyb extends hyb<dyb> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
-    public class a implements SplashInteractionListener {
+    public class a implements RewardVideoAd.RewardVideoAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
         public boolean b;
         public boolean c;
-        public final /* synthetic */ eyb[] d;
-        public final /* synthetic */ yyb e;
+        public final /* synthetic */ dyb[] d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ yyb f;
 
-        public a(yyb yybVar, eyb[] eybVarArr) {
+        public a(yyb yybVar, dyb[] dybVarArr, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yybVar, eybVarArr};
+                Object[] objArr = {yybVar, dybVarArr, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,83 +48,97 @@ public class yyb extends gyb<eyb> {
                     return;
                 }
             }
-            this.e = yybVar;
-            this.d = eybVarArr;
+            this.f = yybVar;
+            this.d = dybVarArr;
+            this.e = str;
         }
 
-        @Override // com.baidu.mobads.sdk.api.SplashAdListener
-        public void onADLoaded() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LogPrinter.d();
-                this.a = true;
-                this.e.onAdLoaded(this.d[0], new String[0]);
-            }
-        }
-
-        @Override // com.baidu.mobads.sdk.api.SplashInteractionListener
-        public void onAdCacheFailed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.baidu.mobads.sdk.api.SplashInteractionListener
-        public void onAdCacheSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.baidu.mobads.sdk.api.SplashInteractionListener
+        @Override // com.baidu.mobads.sdk.api.RewardVideoAd.RewardVideoAdListener, com.baidu.mobads.sdk.api.ScreenVideoAdListener
         public void onAdClick() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-                this.e.onAdClicked((yyb) this.d[0], this.c, new String[0]);
-                this.c = true;
-            }
-        }
-
-        @Override // com.baidu.mobads.sdk.api.SplashInteractionListener
-        public void onAdDismissed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                LogPrinter.d();
-                this.e.onAdClose(this.d[0]);
-            }
-        }
-
-        @Override // com.baidu.mobads.sdk.api.SplashAdListener
-        public void onAdFailed(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-                LogPrinter.d("onAdFailed:%s", str);
-                eyb eybVar = this.d[0];
-                if (this.a) {
-                    this.e.onAdError(eybVar, 0, str);
-                } else {
-                    this.e.onError(0, str);
-                }
-            }
-        }
-
-        @Override // com.baidu.mobads.sdk.api.SplashInteractionListener
-        public void onAdPresent() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                LogPrinter.d();
-                this.e.onAdShow((yyb) this.d[0], this.b, new String[0]);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f.onAdClicked((yyb) this.d[0], this.b, this.e);
                 this.b = true;
             }
         }
 
-        @Override // com.baidu.mobads.sdk.api.SplashInteractionListener
-        public void onLpClosed() {
+        @Override // com.baidu.mobads.sdk.api.RewardVideoAd.RewardVideoAdListener, com.baidu.mobads.sdk.api.ScreenVideoAdListener
+        public void onAdClose(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+                this.f.onAdClose((yyb) this.d[0], this.e);
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.RewardVideoAd.RewardVideoAdListener, com.baidu.mobads.sdk.api.ScreenVideoAdListener
+        public void onAdFailed(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                LogPrinter.d("Baidu reward error reason:" + str, new Object[0]);
+                dyb dybVar = this.d[0];
+                if (this.c) {
+                    this.f.onAdError(dybVar, 0, str, this.e);
+                } else {
+                    this.f.onError(0, str, this.e);
+                }
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.RewardVideoAd.RewardVideoAdListener, com.baidu.mobads.sdk.api.ScreenVideoAdListener
+        public void onAdLoaded() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                dyb dybVar = this.d[0];
+                this.c = true;
+                this.f.onAdLoaded(dybVar, this.e);
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.RewardVideoAd.RewardVideoAdListener, com.baidu.mobads.sdk.api.ScreenVideoAdListener
+        public void onAdShow() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.f.onAdShow((yyb) this.d[0], this.a, this.e);
+                this.a = true;
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.RewardVideoAd.RewardVideoAdListener, com.baidu.mobads.sdk.api.ScreenVideoAdListener
+        public void onAdSkip(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.RewardVideoAd.RewardVideoAdListener
+        public void onRewardVerify(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+                this.f.onRewardedVideo(this.d[0], z, this.e);
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.RewardVideoAd.RewardVideoAdListener, com.baidu.mobads.sdk.api.ScreenVideoAdListener
+        public void onVideoDownloadFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.RewardVideoAd.RewardVideoAdListener, com.baidu.mobads.sdk.api.ScreenVideoAdListener
+        public void onVideoDownloadSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.RewardVideoAd.RewardVideoAdListener, com.baidu.mobads.sdk.api.ScreenVideoAdListener
+        public void playCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
                 LogPrinter.d();
             }
         }
@@ -132,7 +146,7 @@ public class yyb extends gyb<eyb> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public yyb(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, Flavors.CACHING_AWARE.isCachingAware(), false, true);
+        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -143,7 +157,7 @@ public class yyb extends gyb<eyb> {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -155,15 +169,14 @@ public class yyb extends gyb<eyb> {
     public AdRipper createAdRipper(Ssp.Pid pid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new lyb(pid) : (AdRipper) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new kyb(pid) : (AdRipper) invokeL.objValue;
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
     public void destroyInternal(Object obj) {
-        eyb eybVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (eybVar = (eyb) obj) != null) {
-            eybVar.destroy();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            dyb dybVar = (dyb) obj;
         }
     }
 
@@ -171,10 +184,16 @@ public class yyb extends gyb<eyb> {
     public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            onLoadStart(funAdSlot);
-            eyb eybVar = new eyb(context.getApplicationContext(), this.mPid.pid, new RequestParameters.Builder().addExtra(SplashAd.KEY_FETCHAD, "false").build(), new a(this, r8));
-            eyb[] eybVarArr = {eybVar};
-            eybVar.load();
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            String tid = getTid(valueOf);
+            String buildExtra = buildExtra(context, tid, valueOf, funAdSlot.getAppExtraData());
+            onLoadStart(funAdSlot, tid);
+            dyb dybVar = new dyb(context.getApplicationContext(), this.mPid.pid, new a(this, r2, tid), true ^ FunAdSdk.getFunAdConfig().isUseTextureView);
+            dybVar.setDownloadAppConfirmPolicy(3);
+            dybVar.setUserId(FunAdSdk.getBaiduCustomUserId());
+            dybVar.setExtraInfo(buildExtra);
+            dyb[] dybVarArr = {dybVar};
+            dybVar.load();
         }
     }
 
@@ -183,9 +202,11 @@ public class yyb extends gyb<eyb> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            eyb eybVar = (eyb) obj;
-            onShowStart(eybVar);
-            eybVar.show(viewGroup);
+            dyb dybVar = (dyb) obj;
+            onShowStart(dybVar);
+            dybVar.setShowDialogOnSkip(true);
+            dybVar.setUseRewardCountdown(true);
+            dybVar.show();
             return true;
         }
         return invokeLLLL.booleanValue;

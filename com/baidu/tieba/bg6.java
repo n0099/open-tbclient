@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.webkit.WebView;
 /* loaded from: classes5.dex */
 public interface bg6 {
-    public static final ServiceReference a = new ServiceReference("Frames", "ISafetyConfig");
-
-    boolean a();
-
-    String b();
+    void g(WebView webView, int i);
 }

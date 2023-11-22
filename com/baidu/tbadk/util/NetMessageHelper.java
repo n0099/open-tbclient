@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.growthFunnel.GrowthFunnelHelper;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.gm5;
+import com.baidu.tieba.hm5;
 import com.baidu.tieba.lv4;
-import com.baidu.tieba.paa;
 import com.baidu.tieba.pv4;
 import com.baidu.tieba.qaa;
+import com.baidu.tieba.raa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -91,9 +91,9 @@ public class NetMessageHelper {
             builder.user_agent = WebviewHelper.getGlobalUserAgent();
             if (z) {
                 if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    builder.BDUSS = gm5.b();
-                    if (!StringUtils.isNull(gm5.e())) {
-                        builder.stoken = gm5.e();
+                    builder.BDUSS = hm5.b();
+                    if (!StringUtils.isNull(hm5.e())) {
+                        builder.stoken = hm5.e();
                     }
                 } else {
                     AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
@@ -108,7 +108,7 @@ public class NetMessageHelper {
             }
             if (z2) {
                 if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    builder.tbs = gm5.f();
+                    builder.tbs = hm5.f();
                 } else {
                     builder.tbs = TbadkCoreApplication.getInst().getTbs();
                 }
@@ -124,7 +124,7 @@ public class NetMessageHelper {
             builder.net_type = Integer.valueOf(BdNetTypeUtil.netType());
             builder.sample_id = TbSingleton.getInstance().getSampleId();
             builder.is_teenager = 0;
-            if (qaa.b()) {
+            if (raa.b()) {
                 builder._phone_imei = TbadkCoreApplication.getInst().getImei();
                 builder.model = DeviceInfoHelper.getModel();
                 builder._os_version = DeviceInfoHelper.getOsVersion();
@@ -132,53 +132,53 @@ public class NetMessageHelper {
                 builder.oaid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
                 builder.android_id = TbadkCoreApplication.getInst().getAndroidId();
             } else {
-                builder.need_decrypt = Integer.valueOf(JavaTypesHelper.toInt(qaa.c(), 0));
-                String g = qaa.g(HttpRequest.PHONE_IMEI);
+                builder.need_decrypt = Integer.valueOf(JavaTypesHelper.toInt(raa.c(), 0));
+                String g = raa.g(HttpRequest.PHONE_IMEI);
                 if (HttpRequest.PHONE_IMEI.equals(g)) {
-                    builder._phone_imei = qaa.f();
+                    builder._phone_imei = raa.f();
                 } else if (HttpRequest.PHONE_IMEI_REVERSAL.equals(g)) {
-                    builder.iemi = qaa.f();
+                    builder.iemi = raa.f();
                 }
-                String g2 = qaa.g("model");
+                String g2 = raa.g("model");
                 if ("model".equals(g2)) {
-                    builder.model = qaa.h();
+                    builder.model = raa.h();
                 } else if ("ledom".equals(g2)) {
-                    builder.ledom = qaa.h();
+                    builder.ledom = raa.h();
                 }
-                String g3 = qaa.g(HttpRequest.OS_VERSION);
+                String g3 = raa.g(HttpRequest.OS_VERSION);
                 if (HttpRequest.OS_VERSION.equals(g3)) {
-                    builder._os_version = qaa.j();
+                    builder._os_version = raa.j();
                 } else if ("noisrev_so".equals(g3)) {
-                    builder.noisrev_so = qaa.j();
+                    builder.noisrev_so = raa.j();
                 }
-                String g4 = qaa.g("brand");
+                String g4 = raa.g("brand");
                 if ("brand".equals(g4)) {
-                    builder.brand = qaa.e();
+                    builder.brand = raa.e();
                 } else if ("dnarb".equals(g4)) {
-                    builder.dnarb = qaa.e();
+                    builder.dnarb = raa.e();
                 }
-                String g5 = qaa.g("oaid");
+                String g5 = raa.g("oaid");
                 if ("oaid".equals(g5)) {
-                    builder.oaid = qaa.i();
+                    builder.oaid = raa.i();
                 } else if ("diao".equals(g5)) {
-                    builder.diao = qaa.i();
+                    builder.diao = raa.i();
                 }
-                String g6 = qaa.g(HttpRequest.ANDROID_ID);
+                String g6 = raa.g(HttpRequest.ANDROID_ID);
                 if (HttpRequest.ANDROID_ID.equals(g6)) {
-                    builder.android_id = qaa.d();
+                    builder.android_id = raa.d();
                 } else if (HttpRequest.ANDROID_ID_REVERSAL.equals(g6)) {
-                    builder.di_diordna = qaa.d();
+                    builder.di_diordna = raa.d();
                 }
             }
-            if (paa.b()) {
+            if (qaa.b()) {
                 builder.mac = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
             } else {
-                builder.need_cam_decrypt = Integer.valueOf(JavaTypesHelper.toInt(paa.c(), 0));
-                String d = paa.d("mac");
+                builder.need_cam_decrypt = Integer.valueOf(JavaTypesHelper.toInt(qaa.c(), 0));
+                String d = qaa.d("mac");
                 if ("mac".equals(d)) {
-                    builder.mac = paa.e();
+                    builder.mac = qaa.e();
                 } else if (HttpRequest.MAC_REVERSAL.equals(d)) {
-                    builder.cam = paa.e();
+                    builder.cam = qaa.e();
                 }
             }
             builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();

@@ -37,7 +37,7 @@ import com.baidu.tieba.bw4;
 import com.baidu.tieba.fz4;
 import com.baidu.tieba.ht;
 import com.baidu.tieba.lv4;
-import com.baidu.tieba.xl6;
+import com.baidu.tieba.yl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -50,7 +50,7 @@ public class InterviewLiveLayout extends FrameLayout implements ht<bw4> {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public xl6<bw4> c;
+    public yl6<bw4> c;
     public bw4 d;
     public TbImageView e;
     public LinearLayout f;
@@ -299,10 +299,10 @@ public class InterviewLiveLayout extends FrameLayout implements ht<bw4> {
         }
     }
 
-    public void setSubClickListener(xl6<bw4> xl6Var) {
+    public void setSubClickListener(yl6<bw4> yl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, xl6Var) == null) {
-            this.c = xl6Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, yl6Var) == null) {
+            this.c = yl6Var;
         }
     }
 

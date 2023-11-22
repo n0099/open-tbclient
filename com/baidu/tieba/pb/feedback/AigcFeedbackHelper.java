@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
-import com.baidu.tieba.ko5;
 import com.baidu.tieba.ku4;
+import com.baidu.tieba.lo5;
 import com.baidu.tieba.n45;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.ura;
+import com.baidu.tieba.vra;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -112,7 +112,7 @@ public final class AigcFeedbackHelper {
             } else {
                 activity = null;
             }
-            ko5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(activity);
+            lo5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(activity);
             if (currentVisiblePageExtra != null) {
                 agreeData.objSource = currentVisiblePageExtra.a();
             }
@@ -157,7 +157,7 @@ public final class AigcFeedbackHelper {
             } else {
                 activity = null;
             }
-            ko5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(activity);
+            lo5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(activity);
             if (currentVisiblePageExtra != null) {
                 agreeData.objSource = currentVisiblePageExtra.a();
             }
@@ -170,22 +170,22 @@ public final class AigcFeedbackHelper {
     }
 
     @JvmStatic
-    public static final void d(ura uraVar) {
+    public static final void d(vra vraVar) {
         String str;
         AigcFeedbackInfo s;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uraVar) == null) {
-            if (uraVar != null && (s = uraVar.s()) != null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, vraVar) == null) {
+            if (vraVar != null && (s = vraVar.s()) != null) {
                 str = s.feedback_url;
             } else {
                 str = null;
             }
             if (str != null && !TextUtils.isEmpty(str)) {
                 HashMap<String, Serializable> hashMap = new HashMap<>();
-                String T2 = uraVar.T();
+                String T2 = vraVar.T();
                 Intrinsics.checkNotNullExpressionValue(T2, "postData.id");
                 hashMap.put("post_id", T2);
-                String u = uraVar.u();
+                String u = vraVar.u();
                 Intrinsics.checkNotNullExpressionValue(u, "postData.authorId");
                 hashMap.put("bot_uid", u);
                 Bundle bundle = new Bundle();

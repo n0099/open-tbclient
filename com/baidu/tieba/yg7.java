@@ -1,118 +1,25 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.forum.databinding.ActivityForumBinding;
-import com.baidu.tieba.forum.widget.TbBottomSheetView;
-import com.baidu.tieba.forum.widget.ViewExtentionsKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.Reflection;
 /* loaded from: classes9.dex */
-public final class yg7 {
+public final class yg7 extends pg7 implements uk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FragmentActivity a;
-    public final ActivityForumBinding b;
-    public yk7 c;
-    public final a d;
+    public final FragmentActivity b;
 
-    /* loaded from: classes9.dex */
-    public static final class a implements pm7 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float a;
-        public final /* synthetic */ yg7 b;
-
-        public a(yg7 yg7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yg7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = yg7Var;
-        }
-
-        @Override // com.baidu.tieba.pm7
-        public Boolean a(MotionEvent e) {
-            InterceptResult invokeL;
-            xg7 xg7Var;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
-                Intrinsics.checkNotNullParameter(e, "e");
-                int action = e.getAction();
-                wg7 wg7Var = null;
-                if (action != 0) {
-                    if (action == 2) {
-                        if (e.getRawY() - this.a > 5.0f) {
-                            return b();
-                        }
-                        if (e.getRawY() - this.a >= -5.0f) {
-                            return null;
-                        }
-                        Boolean b = b();
-                        if (Intrinsics.areEqual(b, Boolean.TRUE)) {
-                            FragmentActivity fragmentActivity = this.b.a;
-                            if (fragmentActivity instanceof wg7) {
-                                wg7Var = (wg7) fragmentActivity;
-                            }
-                            if (wg7Var != null && (xg7Var = (xg7) wg7Var.X1(Reflection.getOrCreateKotlinClass(xg7.class))) != null) {
-                                xg7Var.s();
-                            }
-                        }
-                        return b;
-                    }
-                } else {
-                    this.a = e.getRawY();
-                }
-                return null;
-            }
-            return (Boolean) invokeL.objValue;
-        }
-
-        public final Boolean b() {
-            InterceptResult invokeV;
-            yk7 yk7Var;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                yk7 yk7Var2 = this.b.c;
-                if (yk7Var2 != null) {
-                    yk7Var2.G();
-                }
-                TbBottomSheetView tbBottomSheetView = this.b.b.t;
-                Intrinsics.checkNotNullExpressionValue(tbBottomSheetView, "binding.topContentContainer");
-                LinearLayout linearLayout = this.b.b.h;
-                Intrinsics.checkNotNullExpressionValue(linearLayout, "binding.contentContainer");
-                if (!ViewExtentionsKt.f(tbBottomSheetView, linearLayout) || (yk7Var = this.b.c) == null) {
-                    return null;
-                }
-                return Boolean.valueOf(yk7Var.c());
-            }
-            return (Boolean) invokeV.objValue;
-        }
-    }
-
-    public yg7(FragmentActivity activity, ActivityForumBinding binding, yk7 yk7Var) {
+    public yg7(FragmentActivity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, binding, yk7Var};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -123,24 +30,73 @@ public final class yg7 {
             }
         }
         Intrinsics.checkNotNullParameter(activity, "activity");
-        Intrinsics.checkNotNullParameter(binding, "binding");
-        this.a = activity;
-        this.b = binding;
-        this.c = yk7Var;
-        this.d = new a(this);
+        this.b = activity;
     }
 
-    public final void d() {
+    @Override // com.baidu.tieba.uk7
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.m.H(this.d);
+            oi7.b(this.b, 3);
         }
     }
 
-    public final void e() {
+    @Override // com.baidu.tieba.uk7
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.m.K(this.d);
+            oi7.b(this.b, 1);
+        }
+    }
+
+    @Override // com.baidu.tieba.uk7
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            oi7.b(this.b, 2);
+        }
+    }
+
+    @Override // com.baidu.tieba.uk7
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            oi7.a(this.b, 1);
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            oi7.a(this.b, 3);
+        }
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            oi7.a(this.b, 4);
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            oi7.a(this.b, 5);
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            oi7.a(this.b, 2);
+        }
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            oi7.b(this.b, 2);
         }
     }
 }

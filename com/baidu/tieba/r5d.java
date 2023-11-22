@@ -1,34 +1,26 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.UserTaskInfo;
+import tbclient.UserStory;
 /* loaded from: classes8.dex */
-public class r5d extends poc {
+public class r5d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull UserTaskInfo userTaskInfo) {
+    public static JSONObject b(@NonNull UserStory userStory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, userTaskInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, userStory)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "id", userTaskInfo.id);
-            poc.a(jSONObject, "name", userTaskInfo.name);
-            poc.a(jSONObject, DBTableDefine.GroupInfoColumns.COLUMN_BRIEF, userTaskInfo.brief);
-            poc.a(jSONObject, "task_icon_url", userTaskInfo.task_icon_url);
-            poc.a(jSONObject, "status", userTaskInfo.status);
-            poc.a(jSONObject, "target_num", userTaskInfo.target_num);
-            poc.a(jSONObject, "curr_num", userTaskInfo.curr_num);
-            poc.a(jSONObject, "task_type", userTaskInfo.task_type);
-            poc.a(jSONObject, "weight", userTaskInfo.weight);
-            poc.a(jSONObject, "act_type", userTaskInfo.act_type);
-            poc.a(jSONObject, "target_scheme", userTaskInfo.target_scheme);
+            qoc.a(jSONObject, "user_id", userStory.user_id);
+            qoc.a(jSONObject, "user_name", userStory.user_name);
+            qoc.a(jSONObject, "portrait", userStory.portrait);
+            qoc.a(jSONObject, "has_read", userStory.has_read);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

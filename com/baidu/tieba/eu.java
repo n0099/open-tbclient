@@ -79,13 +79,13 @@ public class eu extends us {
     }
 
     @Override // com.baidu.tieba.ns
-    public void n(xl6<bw4> xl6Var) {
+    public void n(yl6<bw4> yl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xl6Var) == null) {
-            super.n(xl6Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yl6Var) == null) {
+            super.n(yl6Var);
             BjhArticleLayout bjhArticleLayout = this.i;
             if (bjhArticleLayout != null) {
-                bjhArticleLayout.setSubClickListener(xl6Var);
+                bjhArticleLayout.setSubClickListener(yl6Var);
             }
         }
     }

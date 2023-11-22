@@ -16,7 +16,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
 import com.baidu.tieba.b35;
-import com.baidu.tieba.m3a;
+import com.baidu.tieba.n3a;
 import com.baidu.tieba.x25;
 import com.baidu.tieba.y25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,8 +29,8 @@ import java.util.List;
 public class AutoBannerView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CoverFlowView<m3a> a;
-    public List<m3a> b;
+    public CoverFlowView<n3a> a;
+    public List<n3a> b;
 
     /* loaded from: classes7.dex */
     public class a extends x25 {
@@ -193,7 +193,7 @@ public class AutoBannerView extends RelativeLayout {
         }
     }
 
-    public void d(List<m3a> list) {
+    public void d(List<n3a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.b = list;
@@ -202,7 +202,7 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void e(int i) {
-        CoverFlowView<m3a> coverFlowView;
+        CoverFlowView<n3a> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.v();
@@ -218,7 +218,7 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void setMarqueenTime(long j) {
-        CoverFlowView<m3a> coverFlowView;
+        CoverFlowView<n3a> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.setMarqueenTime(j);
@@ -240,7 +240,7 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void f() {
-        CoverFlowView<m3a> coverFlowView;
+        CoverFlowView<n3a> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.D();

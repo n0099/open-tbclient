@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.impersonal.data.VoiceMsgContent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,19 +8,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public final class x79 extends t79<VoiceMsgContent> implements za7<x79> {
+public final class x79 extends u79<g89> implements ab7<x79> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String d;
+    public boolean e;
 
     public x79 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (x79) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (x79) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x79(e89<VoiceMsgContent> data, String templateName) {
+    public x79(f89<g89> data, String templateName) {
         super(data);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -32,7 +32,7 @@ public final class x79 extends t79<VoiceMsgContent> implements za7<x79> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((e89) newInitContext.callArgs[0]);
+                super((f89) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,7 +43,7 @@ public final class x79 extends t79<VoiceMsgContent> implements za7<x79> {
         this.d = templateName;
     }
 
-    @Override // com.baidu.tieba.za7
+    @Override // com.baidu.tieba.ab7
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -54,9 +54,54 @@ public final class x79 extends t79<VoiceMsgContent> implements za7<x79> {
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.za7
+    @Override // com.baidu.tieba.ab7
     public /* bridge */ /* synthetic */ x79 b() {
         i();
         return this;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.u79
+    public boolean f(u79<?> other) {
+        InterceptResult invokeL;
+        x79 x79Var;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, other)) == null) {
+            Intrinsics.checkNotNullParameter(other, "other");
+            if (super.f(other)) {
+                return true;
+            }
+            if (other instanceof x79) {
+                x79Var = (x79) other;
+            } else {
+                x79Var = null;
+            }
+            if (x79Var != null && this.e == x79Var.e) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.e = z;
+        }
     }
 }

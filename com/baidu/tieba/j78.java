@@ -1,30 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.widget.timepicker.DatePickerHelper;
+import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Date;
 /* loaded from: classes6.dex */
-public class j78 {
+public class j78 extends DatePickerHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaseActivity<?> a;
+    public b b;
+    public final OnTimeSelectListener c;
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14488");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(Date date, long j);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements OnTimeSelectListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j78 a;
+
+        public a(j78 j78Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j78Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j78Var;
+        }
+
+        @Override // com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener
+        public void onTimeSelect(Date date, View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, date, view2) == null) && date != null && this.a.a != null) {
+                if (date.getTime() > System.currentTimeMillis()) {
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f1088);
+                    return;
+                }
+                long time = date.getTime() / 1000;
+                if (this.a.b != null) {
+                    this.a.b.a(date, time);
+                }
+            }
         }
     }
 
-    public static void b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j78(BaseActivity<?> baseActivity) {
+        super(baseActivity);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14487");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = new a(this);
+        this.a = baseActivity;
+    }
+
+    public void c(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.b = bVar;
+            super.showTimePicker(this.c);
         }
     }
 }

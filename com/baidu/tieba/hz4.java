@@ -190,8 +190,8 @@ public class hz4 extends bw4 implements oi {
                         }
                         return ThreadData.TYPE_FRS_HOTTOPIC;
                     }
-                    sra sraVar = this.t.funAdData;
-                    if (sraVar != null && sraVar.h()) {
+                    tra traVar = this.t.funAdData;
+                    if (traVar != null && traVar.h()) {
                         if (this.t.funAdData.i()) {
                             return AdvertAppInfo.I;
                         }

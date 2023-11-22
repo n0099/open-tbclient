@@ -2,102 +2,119 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
-import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.OvershootInterpolator;
-import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f0c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunSplashAd;
-import com.fun.ad.sdk.FunSplashAdInteractionListener;
+import com.fun.ad.sdk.channel.ModuleConfigGdt;
 import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.flavor.Flavors;
+import com.fun.ad.sdk.internal.api.flavor.IAdForbidStrategyManager;
 import com.fun.ad.sdk.internal.api.ripper.AdRipper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.ViewUtils;
-import com.qq.e.ads.splash.SplashAD;
-import com.qq.e.ads.splash.SplashADZoomOutListener;
+import com.qq.e.ads.rewardvideo.RewardVideoAD;
+import com.qq.e.ads.rewardvideo.RewardVideoADListener;
+import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
 import com.qq.e.comm.util.AdError;
-import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class b0c extends mzb<fzb> {
+public class b0c extends nzb<n0c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean e;
-    public WeakReference<b> f;
+    public ModuleConfigGdt e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b0c(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, true, false, true);
+    public b0c(Ssp.Pid pid, ModuleConfigGdt moduleConfigGdt) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {pid, moduleConfigGdt};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new WeakReference<>(null);
+        this.e = moduleConfigGdt;
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
     public AdRipper createAdRipper(Ssp.Pid pid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new rzb(pid) : (AdRipper) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new ozb(pid) : (AdRipper) invokeL.objValue;
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
     public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            fzb fzbVar = (fzb) obj;
+            n0c n0cVar = (n0c) obj;
         }
     }
 
-    @Override // com.baidu.tieba.mzb
+    @Override // com.baidu.tieba.nzb
     public void e(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            this.e = false;
-            SplashAD splashAD = new SplashAD(context, this.mPid.pid, new a(this, r0, funAdSlot), 0);
-            SplashAD[] splashADArr = {splashAD};
-            splashAD.fetchAdOnly();
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            String tid = getTid(valueOf);
+            String buildExtra = buildExtra(context, tid, valueOf, funAdSlot.getAppExtraData());
+            onLoadStart(funAdSlot, tid);
+            IAdForbidStrategyManager iAdForbidStrategyManager = Flavors.STRATEGY_MANAGER;
+            Ssp.Pid pid = this.mPid;
+            int checkForbidStatus = iAdForbidStrategyManager.checkForbidStatus(pid.ssp.type, pid.pid);
+            if (checkForbidStatus != 0) {
+                onError(checkForbidStatus != 5004 ? checkForbidStatus != 109502 ? "" : "toomuch" : "cheat", tid);
+                return;
+            }
+            RewardVideoAD rewardVideoAD = new RewardVideoAD(context.getApplicationContext(), this.mPid.pid, new a(this, r2, tid), true ^ this.e.autoPlayMuted);
+            RewardVideoAD[] rewardVideoADArr = {rewardVideoAD};
+            rewardVideoAD.setServerSideVerificationOptions(new ServerSideVerificationOptions.Builder().setUserId(FunAdSdk.getFunAdConfig().userId).setCustomData(buildExtra).build());
+            rewardVideoAD.loadAD();
+        }
+    }
+
+    @Override // com.baidu.tieba.nzb, com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
+            e(context, funAdSlot);
         }
     }
 
     /* loaded from: classes5.dex */
-    public class a implements SplashADZoomOutListener {
+    public class a implements RewardVideoADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
         public boolean b;
-        public fzb c;
-        public final /* synthetic */ SplashAD[] d;
-        public final /* synthetic */ FunAdSlot e;
+        public n0c c;
+        public final /* synthetic */ RewardVideoAD[] d;
+        public final /* synthetic */ String e;
         public final /* synthetic */ b0c f;
 
-        public a(b0c b0cVar, SplashAD[] splashADArr, FunAdSlot funAdSlot) {
+        public a(b0c b0cVar, RewardVideoAD[] rewardVideoADArr, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {b0cVar, splashADArr, funAdSlot};
+                Object[] objArr = {b0cVar, rewardVideoADArr, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -108,308 +125,102 @@ public class b0c extends mzb<fzb> {
                 }
             }
             this.f = b0cVar;
-            this.d = splashADArr;
-            this.e = funAdSlot;
+            this.d = rewardVideoADArr;
+            this.e = str;
         }
 
-        @Override // com.qq.e.ads.splash.SplashADZoomOutListener
-        public boolean isSupportZoomOut() {
-            InterceptResult invokeV;
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADClick() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                LogPrinter.d("isSupportZoomOut", new Object[0]);
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onADExposure() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 LogPrinter.d();
-                this.f.onAdShow((b0c) this.c, this.a, new String[0]);
+                HashMap hashMap = new HashMap();
+                hashMap.put("tid", this.e);
+                hashMap.put("p_req_id", this.c.e());
+                this.f.onAdClicked((b0c) this.c, this.b, (Map<String, String>) hashMap);
+                this.b = true;
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADClose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                this.f.onAdClose((b0c) this.c, this.e);
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADExpose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+                HashMap hashMap = new HashMap();
+                hashMap.put("tid", this.e);
+                hashMap.put("p_req_id", this.c.e());
+                this.f.onAdShow((b0c) this.c, this.a, (Map<String, String>) hashMap);
                 this.a = true;
             }
         }
 
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onADLoaded(long j) {
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADLoad() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 LogPrinter.d();
-                fzb fzbVar = new fzb(this.d[0]);
-                this.c = fzbVar;
-                this.f.onAdLoaded(fzbVar, new String[0]);
+                n0c n0cVar = new n0c(this.d[0]);
+                this.c = n0cVar;
+                this.f.onAdLoaded(n0cVar, this.e);
             }
         }
 
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onADPresent() {
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADShow() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onADTick(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 LogPrinter.d();
             }
         }
 
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onNoAD(AdError adError) {
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onError(AdError adError) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, adError) == null) {
-                int errorCode = adError.getErrorCode();
-                LogPrinter.e("onNoAD code: " + errorCode + ", message: " + adError.getErrorMsg(), new Object[0]);
-                if (errorCode == 4005) {
-                    this.f.onAdError(this.c, adError.getErrorMsg());
-                } else {
-                    this.f.onError(errorCode, adError.getErrorMsg());
-                }
+            if (interceptable == null || interceptable.invokeL(1048581, this, adError) == null) {
+                LogPrinter.e("GDTRewardVideoAd onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
+                this.f.onError(adError.getErrorCode(), adError.getErrorMsg(), this.e);
             }
         }
 
-        @Override // com.qq.e.ads.splash.SplashADZoomOutListener
-        public void onZoomOutPlayFinish() {
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onVideoCached() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                LogPrinter.d("onZoomOutPlayFinish", new Object[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onADClicked() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
                 LogPrinter.d();
-                this.f.onAdClicked((b0c) this.c, this.b, new String[0]);
-                this.b = true;
-                b bVar = this.f.f.get();
-                if (bVar != null) {
-                    String sid = this.e.getSid();
-                    FunSplashAdInteractionListener funSplashAdInteractionListener = bVar.e;
-                    if (funSplashAdInteractionListener != null) {
-                        funSplashAdInteractionListener.onAdClicked(sid);
-                    }
-                }
             }
         }
 
-        @Override // com.qq.e.ads.splash.SplashADZoomOutListener
-        public void onZoomOut() {
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onVideoComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                this.f.e = true;
-                b bVar = this.f.f.get();
-                if (bVar != null) {
-                    bVar.c = true;
-                }
-                LogPrinter.d("onZoomOut", new Object[0]);
-                this.f.onAdClose(this.c);
-            }
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onADDismissed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.d();
-                b0c b0cVar = this.f;
-                if (!b0cVar.e) {
-                    b0cVar.onAdClose(this.c);
-                    return;
-                }
-                b bVar = b0cVar.f.get();
-                if (bVar != null) {
-                    bVar.a();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements FunSplashAd {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public f0c a;
-        public SplashAD b;
-        public boolean c;
-        public ViewGroup d;
-        public FunSplashAdInteractionListener e;
-
-        /* loaded from: classes5.dex */
-        public class a implements f0c.a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
             }
         }
 
-        public b(SplashAD splashAD) {
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onReward(Map<String, Object> map) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {splashAD};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = splashAD;
-        }
-
-        @Override // com.fun.ad.sdk.FunSplashAd
-        public void removeMiniWindow() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
                 LogPrinter.d();
-                a();
+                String str = (String) map.get("transId");
+                this.c.b = str;
+                HashMap hashMap = new HashMap();
+                hashMap.put("tid", this.e);
+                hashMap.put("p_req_id", this.c.e());
+                hashMap.put("p_trs_id", str);
+                this.f.onRewardedVideo((b0c) this.c, (Map<String, String>) hashMap);
             }
-        }
-
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                f0c f0cVar = this.a;
-                if (f0cVar != null) {
-                    f0cVar.g = null;
-                    f0cVar.h = null;
-                }
-                ViewUtils.removeFromParent(this.d);
-                this.d = null;
-                this.a = null;
-                this.b = null;
-                this.e = null;
-            }
-        }
-
-        @Override // com.fun.ad.sdk.FunSplashAd
-        public boolean showMiniWindow(Activity activity, boolean z, FunSplashAdInteractionListener funSplashAdInteractionListener) {
-            InterceptResult invokeCommon;
-            b bVar;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, Boolean.valueOf(z), funSplashAdInteractionListener})) == null) {
-                if (activity != null) {
-                    if (!this.c) {
-                        LogPrinter.d("isZoomOutPulled == false, will not show mini window", new Object[0]);
-                        return false;
-                    }
-                    f0c f0cVar = this.a;
-                    if (f0cVar == null) {
-                        return false;
-                    }
-                    this.e = funSplashAdInteractionListener;
-                    ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
-                    ViewGroup viewGroup2 = (ViewGroup) activity.findViewById(16908290);
-                    a aVar = new a(this);
-                    f0cVar.getClass();
-                    LogPrinter.d("zoomOut startZoomOut activity", new Object[0]);
-                    com.fun.module.gdt.p pVar = null;
-                    if (viewGroup != null && viewGroup2 != null) {
-                        if (f0cVar.g != null && f0cVar.h != null) {
-                            int[] iArr = new int[2];
-                            viewGroup.getLocationOnScreen(iArr);
-                            int[] iArr2 = f0cVar.k;
-                            int i2 = iArr2[0] - iArr[0];
-                            int i3 = iArr2[1] - iArr[1];
-                            ViewUtils.removeFromParent(f0cVar.h);
-                            viewGroup.addView(f0cVar.h, new FrameLayout.LayoutParams(f0cVar.i, f0cVar.j));
-                            f0cVar.h.setX(i2);
-                            f0cVar.h.setY(i3);
-                            View view2 = f0cVar.h;
-                            f0cVar.g = null;
-                            f0cVar.h = null;
-                            if (view2 != null) {
-                                Context context = viewGroup2.getContext();
-                                int[] iArr3 = new int[2];
-                                view2.getLocationOnScreen(iArr3);
-                                int width = view2.getWidth();
-                                int height = view2.getHeight();
-                                int width2 = viewGroup.getWidth();
-                                int height2 = viewGroup.getHeight();
-                                if (width2 == 0) {
-                                    width2 = f0cVar.l;
-                                }
-                                if (height2 == 0) {
-                                    height2 = f0cVar.m;
-                                }
-                                int i4 = f0cVar.a;
-                                float f = i4 / width;
-                                int i5 = f0cVar.b;
-                                float f2 = i5 / height;
-                                if (f0cVar.e == 0) {
-                                    i = f0cVar.c;
-                                } else {
-                                    i = (width2 - f0cVar.c) - i4;
-                                }
-                                float f3 = i;
-                                float f4 = (height2 - f0cVar.d) - i5;
-                                LogPrinter.d("zoomOut animationContainerWidth:" + width2 + " animationContainerHeight:" + height2, new Object[0]);
-                                StringBuilder sb = new StringBuilder();
-                                sb.append("zoomOut splashScreenX:");
-                                sb.append(iArr3[0]);
-                                sb.append(" splashScreenY:");
-                                sb.append(iArr3[1]);
-                                LogPrinter.d(sb.toString(), new Object[0]);
-                                LogPrinter.d("zoomOut splashWidth:" + width + " splashHeight:" + height, new Object[0]);
-                                LogPrinter.d("zoomOut width:" + f0cVar.a + " height:" + f0cVar.b, new Object[0]);
-                                LogPrinter.d("zoomOut animationDistX:" + f3 + " animationDistY:" + f4, new Object[0]);
-                                ViewUtils.removeFromParent(view2);
-                                viewGroup.addView(view2, new FrameLayout.LayoutParams(width, height));
-                                com.fun.module.gdt.p pVar2 = new com.fun.module.gdt.p(context, f0cVar.c);
-                                view2.setPivotX(0.0f);
-                                view2.setPivotY(0.0f);
-                                if (z) {
-                                    view2.animate().scaleX(f).scaleY(f2).x(f3).y(f4).setInterpolator(new OvershootInterpolator(0.0f)).setDuration(f0cVar.f).setListener(new e0c(f0cVar, aVar, view2, viewGroup2, f3, f4, iArr3, pVar2));
-                                } else {
-                                    f0cVar.a(view2, viewGroup2, f3, f4, iArr3, pVar2, aVar);
-                                }
-                                bVar = this;
-                                pVar = pVar2;
-                                bVar.d = pVar;
-                                return true;
-                            }
-                        } else {
-                            LogPrinter.d("zoomOut splashAD or splashView is null", new Object[0]);
-                        }
-                    } else {
-                        LogPrinter.d("zoomOut animationContainer or zoomOutContainer is null", new Object[0]);
-                    }
-                    bVar = this;
-                    bVar.d = pVar;
-                    return true;
-                }
-                throw new IllegalArgumentException();
-            }
-            return invokeCommon.booleanValue;
         }
     }
 
@@ -417,39 +228,12 @@ public class b0c extends mzb<fzb> {
     public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            fzb fzbVar = (fzb) obj;
-            onShowStart(fzbVar);
-            ((SplashAD) fzbVar.a).showAd(viewGroup);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
+            n0c n0cVar = (n0c) obj;
+            onShowStart(n0cVar);
+            ((RewardVideoAD) n0cVar.a).showAD(activity);
             return true;
         }
         return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunSplashAd showSplashInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
-            fzb fzbVar = (fzb) obj;
-            onShowStart(fzbVar);
-            ((SplashAD) fzbVar.a).showAd(viewGroup);
-            b bVar = new b((SplashAD) fzbVar.a);
-            this.f = new WeakReference<>(bVar);
-            View decorView = activity.getWindow().getDecorView();
-            if (bVar.a == null) {
-                bVar.a = new f0c(decorView.getContext());
-            }
-            f0c f0cVar = bVar.a;
-            f0cVar.g = bVar.b;
-            f0cVar.h = viewGroup;
-            viewGroup.getLocationOnScreen(f0cVar.k);
-            f0cVar.i = viewGroup.getWidth();
-            f0cVar.j = viewGroup.getHeight();
-            f0cVar.l = decorView.getWidth();
-            f0cVar.m = decorView.getHeight();
-            return bVar;
-        }
-        return (FunSplashAd) invokeLLLL.objValue;
     }
 }

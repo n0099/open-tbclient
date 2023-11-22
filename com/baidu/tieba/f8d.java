@@ -1,15 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import tv.athena.revenue.api.pay.params.PayFlowType;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes5.dex */
-public class f8d {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface f8d {
+    void a(PayFlowType payFlowType);
 
-    public static void a(d8d d8dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, d8dVar) == null) {
-        }
-    }
+    void b(PayFlowType payFlowType, PayDialogType payDialogType);
+
+    void c(String str, PayFlowType payFlowType);
+
+    void d(String str, PayFlowType payFlowType);
 }

@@ -8,8 +8,8 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.ThreadRecommendTagData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aqa;
-import com.baidu.tieba.l65;
+import com.baidu.tieba.bqa;
+import com.baidu.tieba.m65;
 import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -50,11 +50,11 @@ public class ThreadRecommendTagUtil {
                 if (!isElementValid(themeColorInfo.dark)) {
                     return 0;
                 }
-                return aqa.f(themeColorInfo.dark.common_color);
+                return bqa.f(themeColorInfo.dark.common_color);
             } else if (!isElementValid(themeColorInfo.day)) {
                 return 0;
             } else {
-                return aqa.f(themeColorInfo.day.common_color);
+                return bqa.f(themeColorInfo.day.common_color);
             }
         }
         return invokeL.intValue;
@@ -85,7 +85,7 @@ public class ThreadRecommendTagUtil {
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
                 int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
                 float[] B = r25.B(R.string.J_X04);
-                l65.b bVar = new l65.b();
+                m65.b bVar = new m65.b();
                 bVar.y(B[0]);
                 bVar.B(R.dimen.T_X10);
                 bVar.z(dimenPixelSize);
@@ -123,7 +123,7 @@ public class ThreadRecommendTagUtil {
                 int color3 = getColor(threadData.getThreadRecommendTagData().getBoundaryColor());
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
                 int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
-                l65.b bVar = new l65.b();
+                m65.b bVar = new m65.b();
                 bVar.y(UtilHelper.getDimenPixelSize(R.dimen.tbds10));
                 bVar.B(R.dimen.T_X10);
                 bVar.z(dimenPixelSize);

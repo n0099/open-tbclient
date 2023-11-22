@@ -1,11 +1,11 @@
 package com.baidu.tieba;
+
+import android.content.Intent;
 /* loaded from: classes6.dex */
 public interface fr5<T> {
-    void a(int i, byte[] bArr) throws Exception;
+    void a(Intent intent);
 
-    int getErrorCode();
+    T b(boolean z);
 
-    String getErrorMsg();
-
-    zq5 getPageInfo();
+    zq5 c();
 }

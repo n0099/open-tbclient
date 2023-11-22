@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.asb;
-import com.baidu.tieba.dt5;
+import com.baidu.tieba.bsb;
+import com.baidu.tieba.et5;
 import com.baidu.tieba.impersonal.databinding.ActivityPersonalChatBinding;
-import com.baidu.tieba.l79;
+import com.baidu.tieba.m79;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -371,7 +371,7 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
             if (bundle == null) {
                 PersonalChatFragment personalChatFragment = new PersonalChatFragment();
                 personalChatFragment.setArguments(getIntent().getExtras());
-                dt5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f0906e6, personalChatFragment);
+                et5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f0906e6, personalChatFragment);
             }
             adjustResizeForSoftInput();
             addGlobalLayoutListener();
@@ -385,8 +385,8 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
                 str = "0";
             }
             boolean z = false;
-            int b = asb.b(str, 0);
-            l79.b((b == 1 || b == 2) ? true : true);
+            int b = bsb.b(str, 0);
+            m79.b((b == 1 || b == 2) ? true : true);
         }
     }
 

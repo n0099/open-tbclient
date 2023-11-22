@@ -1,60 +1,121 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.mutiprocess.location.LocationEvent;
-import com.baidu.tieba.location.data.SearchLocationActivityConfig;
 import com.baidu.tieba.location.selectpoi.SelectLocationActivity;
 import com.baidu.tieba.tbadkCore.location.LocationData;
-import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class he9 implements yp5, View.OnClickListener, AdapterView.OnItemClickListener {
+public class he9 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<SelectLocationActivity> a;
-    public NavigationBar b;
-    public ImageView c;
-    public LinearLayout d;
-    public BdListView e;
-    public ge9 f;
-    public Intent g;
+    public ArrayList<Object> a;
+    public TbPageContext<SelectLocationActivity> b;
+    public boolean c;
 
-    @Override // com.baidu.tieba.yp5
-    public boolean s1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public he9(TbPageContext tbPageContext, LinearLayout linearLayout, NavigationBar navigationBar) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 3;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public TextView b;
+        public ImageView c;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public ImageView b;
+        public View c;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+    }
+
+    public he9(TbPageContext<SelectLocationActivity> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, linearLayout, navigationBar};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -64,109 +125,188 @@ public class he9 implements yp5, View.OnClickListener, AdapterView.OnItemClickLi
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.d = linearLayout;
-        this.b = navigationBar;
-        b();
-        a();
-    }
-
-    @Override // com.baidu.tieba.yp5
-    public void D(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            this.f.notifyDataSetChanged();
+        this.b = tbPageContext;
+        LocationData b2 = usa.a().b();
+        this.c = !usa.a().c();
+        if (b2 == null) {
+            return;
         }
+        this.a = c(b2.getPoi_info(), b2.getFormatted_address());
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public final View a(View view2, int i, boolean z) {
+        InterceptResult invokeCommon;
+        b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2 == this.c) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002012, new SearchLocationActivityConfig(this.a.getPageActivity(), 23009)));
-        }
-    }
-
-    @Override // com.baidu.tieba.yp5
-    public boolean Q() {
-        InterceptResult invokeV;
-        View childAt;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            BdListView bdListView = this.e;
-            if (bdListView == null || bdListView.getFirstVisiblePosition() != 0 || (childAt = this.e.getChildAt(0)) == null || childAt.getTop() != 0) {
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            Object item = getItem(i);
+            if (!(item instanceof LocationData.NearByAddressData)) {
+                return null;
             }
-            return true;
+            LocationData.NearByAddressData nearByAddressData = (LocationData.NearByAddressData) item;
+            if (view2 != null && (view2.getTag() instanceof c)) {
+                bVar = (b) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08b7, (ViewGroup) null);
+                bVar = new b(null);
+                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921d6);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921d4);
+                bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0921d7);
+                view2.setTag(bVar);
+            }
+            bVar.b.setText(nearByAddressData.getAddr());
+            if (this.c && i == 1) {
+                bVar.c.setVisibility(0);
+                bVar.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_chx__site_ok24, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
+                if (TextUtils.isEmpty(nearByAddressData.getAddr())) {
+                    bVar.b.setText(R.string.obfuscated_res_0x7f0f138a);
+                }
+            } else {
+                bVar.c.setVisibility(4);
+            }
+            bVar.a.setText(nearByAddressData.getName());
+            this.b.getLayoutMode().setNightMode(z);
+            this.b.getLayoutMode().onModeChanged(view2);
+            SkinManager.setBackgroundResource(view2, R.drawable.home_recommend_item_bg);
+            return view2;
         }
-        return invokeV.booleanValue;
+        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.yp5
-    public Intent getResultIntent() {
+    public final View b(View view2, int i, boolean z) {
+        InterceptResult invokeCommon;
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            Object item = getItem(i);
+            if (!(item instanceof String)) {
+                return null;
+            }
+            String str = (String) item;
+            if (view2 != null && (view2.getTag() instanceof c)) {
+                cVar = (c) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08b8, (ViewGroup) null);
+                cVar = new c(null);
+                cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921d8);
+                cVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0921d7);
+                cVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0921d5);
+                view2.setTag(cVar);
+            }
+            if (i == 0 && !this.c) {
+                cVar.b.setVisibility(0);
+                cVar.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_chx__site_ok24, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
+            } else {
+                cVar.b.setVisibility(4);
+            }
+            cVar.a.setText(str);
+            SkinManager.setBackgroundColor(cVar.c, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(cVar.a, R.color.CAM_X0302, 1);
+            SkinManager.setBackgroundResource(view2, R.drawable.home_recommend_item_bg);
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final ArrayList<Object> c(List<LocationData.NearByAddressData> list, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, str)) == null) {
+            LocationData.NearByAddressData nearByAddressData = null;
+            if (list == null || list.size() <= 0) {
+                return null;
+            }
+            ArrayList<Object> arrayList = new ArrayList<>();
+            for (LocationData.NearByAddressData nearByAddressData2 : list) {
+                if (nearByAddressData2 != null && !TextUtils.isEmpty(nearByAddressData2.getName())) {
+                    if (TextUtils.equals(nearByAddressData2.getName(), str)) {
+                        nearByAddressData = nearByAddressData2;
+                    } else {
+                        arrayList.add(nearByAddressData2);
+                    }
+                }
+            }
+            if (nearByAddressData != null) {
+                arrayList.add(0, nearByAddressData);
+            } else {
+                LocationData.NearByAddressData nearByAddressData3 = new LocationData.NearByAddressData();
+                nearByAddressData3.setName(str);
+                arrayList.add(0, nearByAddressData3);
+            }
+            TbPageContext<SelectLocationActivity> tbPageContext = this.b;
+            if (tbPageContext != null) {
+                arrayList.add(0, tbPageContext.getString(R.string.obfuscated_res_0x7f0f138b));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeLL.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList<Object> arrayList = this.a;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
         }
-        return (Intent) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final void a() {
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08b6, (ViewGroup) this.d, true);
-            this.e = (BdListView) this.d.findViewById(R.id.obfuscated_res_0x7f0921de);
-            ge9 ge9Var = new ge9(this.a);
-            this.f = ge9Var;
-            this.e.setAdapter((ListAdapter) ge9Var);
-            this.e.setOnItemClickListener(this);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            ArrayList<Object> arrayList = this.a;
+            if (arrayList != null && i >= 0 && i < arrayList.size()) {
+                return this.a.get(i);
+            }
+            return null;
         }
+        return invokeI.objValue;
     }
 
-    public final void b() {
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f138c));
-            ImageView imageView = (ImageView) this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
-            this.c = imageView;
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
-            layoutParams.setMargins(0, 0, BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070359), 0);
-            this.c.setLayoutParams(layoutParams);
-            this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            this.c.setOnClickListener(this);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            Object item = getItem(i);
+            if (item instanceof String) {
+                return 0;
+            }
+            if (item instanceof LocationData.NearByAddressData) {
+                return 1;
+            }
+            return 2;
         }
+        return invokeI.intValue;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || this.f == null) {
-            return;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            int itemViewType = getItemViewType(i);
+            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (itemViewType != 0) {
+                if (itemViewType != 1) {
+                    return null;
+                }
+                return a(view2, i, z);
+            }
+            return b(view2, i, z);
         }
-        MessageManager messageManager = MessageManager.getInstance();
-        LocationEvent locationEvent = new LocationEvent();
-        locationEvent.setType(1);
-        locationEvent.eventType = 2;
-        if (i == 0) {
-            messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
-            locationEvent.isShowLocation = false;
-            this.a.getOrignalPage().publishEvent(locationEvent);
-            this.a.getOrignalPage().finish();
-            return;
-        }
-        Object item = this.f.getItem(i);
-        if (!(item instanceof LocationData.NearByAddressData)) {
-            return;
-        }
-        LocationData.NearByAddressData nearByAddressData = (LocationData.NearByAddressData) item;
-        messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, nearByAddressData.getName(), nearByAddressData.getAddr(), nearByAddressData.getSn()));
-        locationEvent.locName = nearByAddressData.getName();
-        locationEvent.locAddr = nearByAddressData.getAddr();
-        locationEvent.locSn = nearByAddressData.getSn();
-        locationEvent.isShowLocation = true;
-        this.a.getOrignalPage().publishEvent(locationEvent);
-        this.a.getOrignalPage().finish();
+        return (View) invokeILL.objValue;
     }
 }

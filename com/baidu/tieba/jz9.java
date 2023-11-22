@@ -1,271 +1,249 @@
 package com.baidu.tieba;
 
+import android.text.SpannableString;
+import android.text.TextUtils;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.pb.mixplayer.TbMixPlayerView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import java.util.LinkedList;
+import java.util.List;
+import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
-public final class jz9 {
+public class jz9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
-    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947900736, "Lcom/baidu/tieba/jz9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947900736, "Lcom/baidu/tieba/jz9;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
-
-    @JvmStatic
-    public static final AlaInfoData c(ds9 ds9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ds9Var)) == null) ? a.b(ds9Var) : (AlaInfoData) invokeL.objValue;
-    }
-
-    @JvmStatic
-    public static final void d(ix9 ix9Var, ds9 ds9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, ix9Var, ds9Var) == null) {
-            a.e(ix9Var, ds9Var);
-        }
-    }
-
     /* loaded from: classes6.dex */
-    public static final class a {
+    public class a extends jy5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gm6 n;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        /* renamed from: com.baidu.tieba.jz9$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static final class C0358a implements TbMixPlayerView.a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ds9 a;
-
-            public C0358a(ds9 ds9Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {ds9Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = ds9Var;
-            }
-
-            @Override // com.baidu.tieba.pb.mixplayer.TbMixPlayerView.a
-            public void onClick() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    tpa.u("c15499", this.a.O(), jz9.a.b(this.a), 0L);
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public static final class b implements TbMixPlayerView.b {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ds9 a;
-
-            public b(ds9 ds9Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {ds9Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = ds9Var;
-            }
-
-            @Override // com.baidu.tieba.pb.mixplayer.TbMixPlayerView.b
-            public void onError() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a aVar = jz9.a;
-                    jz9.b = 0L;
-                }
-            }
-
-            @Override // com.baidu.tieba.pb.mixplayer.TbMixPlayerView.b
-            public void onPause() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    jz9.a.d(this.a);
-                }
-            }
-
-            @Override // com.baidu.tieba.pb.mixplayer.TbMixPlayerView.b
-            public void onRelease() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    a aVar = jz9.a;
-                    jz9.b = 0L;
-                }
-            }
-
-            @Override // com.baidu.tieba.pb.mixplayer.TbMixPlayerView.b
-            public void onStart() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                    a aVar = jz9.a;
-                    jz9.b = System.currentTimeMillis();
-                }
-            }
-
-            @Override // com.baidu.tieba.pb.mixplayer.TbMixPlayerView.b
-            public void onStop() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                    jz9.a.d(this.a);
-                }
-            }
-        }
-
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i, String str, gm6 gm6Var) {
+            super(i, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str, gm6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.n = gm6Var;
+        }
+
+        @Override // com.baidu.tieba.jy5, android.text.style.ClickableSpan
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                StatisticItem statisticItem = null;
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(view2.getContext(), g(), null)));
+                gm6 gm6Var = this.n;
+                if (gm6Var instanceof om6) {
+                    statisticItem = ((om6) gm6Var).N();
+                } else if (gm6Var instanceof pm6) {
+                    statisticItem = ((pm6) gm6Var).J(null);
+                }
+                TiebaStatic.log(statisticItem);
+            }
+        }
+    }
+
+    public static void a(List<ThreadInfo> list, List<oi> list2, String str, int i) {
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(65536, null, list, list2, str, i) == null) {
+            int i2 = 0;
+            for (int i3 = 0; i3 < list.size(); i3++) {
+                ThreadInfo threadInfo = list.get(i3);
+                if (threadInfo != null) {
+                    ThreadData threadData2 = new ThreadData();
+                    threadData2.floorNum = i3 + 1;
+                    threadData2.parserProtobuf(threadInfo);
+                    if (threadData2.getForumData() != null && !TextUtils.isEmpty(str)) {
+                        threadData2.getForumData().l = str;
+                    }
+                    if ((om6.R(threadData2) || pm6.L(threadData2)) && threadData2.getType() != ThreadData.TYPE_SHARE_THREAD) {
+                        om6 d = d(threadData2, i);
+                        if (d != null && (threadData = d.a) != null && threadData.getForumData() != null && !StringUtils.isNull(threadData.getForumData().b)) {
+                            d.g = threadData2.getTid();
+                            d.position = i2;
+                            f(d);
+                            list2.add(d);
+                        }
+                        int[] imageWidthAndHeight = threadData2.getImageWidthAndHeight();
+                        gm6 c = c(threadData2, i);
+                        if (c != null) {
+                            c.g = threadData2.getTid();
+                            c.position = i2;
+                            if (c instanceof om6) {
+                                if (threadData2.picCount() == 1) {
+                                    h(c);
+                                    c.j = imageWidthAndHeight[0];
+                                    c.k = imageWidthAndHeight[1];
+                                } else if (threadData2.picCount() >= 2) {
+                                    g(c);
+                                } else {
+                                    i(c);
+                                }
+                            } else if (c instanceof pm6) {
+                                j(c);
+                            }
+                        }
+                        if (c != null && c.isValid()) {
+                            c.a.insertItemToTitleOrAbstractText();
+                            if (!threadData2.isUgcThreadType() && threadData2.getAuthor() != null) {
+                                String format = String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), threadData2.getAuthor().getName_show());
+                                SpannableString spannableString = new SpannableString(format);
+                                spannableString.setSpan(new a(16, threadData2.getAuthor().getUserId(), c), 0, format.length() - 1, 33);
+                                c.a.insertUsernameIntoTitleOrAbstract(spannableString);
+                            }
+                            list2.add(c);
+                        }
+                        om6 d2 = d(threadData2, i);
+                        if (d2 != null) {
+                            d2.g = threadData2.getTid();
+                            d2.position = i2;
+                            e(d2);
+                        }
+                        if (d2 != null && d2.isValid()) {
+                            list2.add(d2);
+                        }
+                    }
+                    i2++;
                 }
             }
         }
+    }
 
-        @JvmStatic
-        public final void e(ix9 ix9Var, ds9 pbData) {
-            TbMixPlayerView o1;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, ix9Var, pbData) == null) {
-                Intrinsics.checkNotNullParameter(pbData, "pbData");
-                if (ix9Var != null && (o1 = ix9Var.o1()) != null) {
-                    o1.setOnClickCallback(new C0358a(pbData));
-                    o1.setPlayerStatusCallBack(new b(pbData));
-                }
-            }
+    public static List<oi> b(List<ThreadInfo> list, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, list, str, i)) == null) {
+            LinkedList linkedList = new LinkedList();
+            a(list, linkedList, str, i);
+            return linkedList;
         }
+        return (List) invokeLLI.objValue;
+    }
 
-        @JvmStatic
-        public final AlaInfoData b(ds9 ds9Var) {
-            InterceptResult invokeL;
-            ThreadData O;
-            HashMap<String, MetaData> userMap;
-            MetaData metaData;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ds9Var)) == null) {
-                if (ds9Var != null && (O = ds9Var.O()) != null && (userMap = O.getUserMap()) != null && (metaData = userMap.get(c(ds9Var))) != null) {
-                    return metaData.getAlaInfo();
-                }
+    public static gm6 c(ThreadData threadData, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, threadData, i)) == null) {
+            if (threadData == null) {
                 return null;
             }
-            return (AlaInfoData) invokeL.objValue;
-        }
-
-        public final void d(ds9 ds9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ds9Var) == null) {
-                long currentTimeMillis = System.currentTimeMillis() - jz9.b;
-                if (jz9.b > 0 && currentTimeMillis > 0) {
-                    tpa.u("c15500", ds9Var.O(), b(ds9Var), Long.valueOf(currentTimeMillis));
+            if (om6.R(threadData)) {
+                om6 om6Var = new om6();
+                threadData.isLinkThread();
+                threadData.isSmartAppThreadType();
+                if (!threadData.isLinkThread() && !threadData.isSmartAppThreadType()) {
+                    threadData.isGodThread();
                 }
-                jz9.b = 0L;
+                om6Var.a = threadData;
+                om6Var.C = i;
+                return om6Var;
+            } else if (!pm6.L(threadData)) {
+                return null;
+            } else {
+                pm6 pm6Var = new pm6(threadData);
+                pm6Var.C = i;
+                return pm6Var;
             }
         }
+        return (gm6) invokeLI.objValue;
+    }
 
-        public final String c(ds9 ds9Var) {
-            InterceptResult invokeL;
-            String str;
-            String str2;
-            ura i;
-            ArrayList<ura> F;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ds9Var)) == null) {
-                String str3 = "";
-                boolean z2 = false;
-                if (ds9Var == null || (F = ds9Var.F()) == null) {
-                    str = "";
-                } else {
-                    Iterator<ura> it = F.iterator();
-                    str = "";
-                    while (it.hasNext()) {
-                        ura next = it.next();
-                        if (next != null && next.J() == 1) {
-                            z = true;
-                        } else {
-                            z = false;
-                        }
-                        if (z) {
-                            str = next.u();
-                            Intrinsics.checkNotNullExpressionValue(str, "data.authorId");
-                        }
-                    }
-                }
-                if ((str == null || StringsKt__StringsJVMKt.isBlank(str)) ? true : true) {
-                    if (ds9Var != null && (i = ds9Var.i()) != null) {
-                        str2 = i.u();
-                    } else {
-                        str2 = null;
-                    }
-                    if (str2 != null) {
-                        str3 = str2;
-                    }
-                    return str3;
-                }
-                return str;
+    public static om6 d(ThreadData threadData, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, threadData, i)) == null) {
+            om6 om6Var = new om6();
+            om6Var.a = threadData;
+            threadData.isLinkThread();
+            if (!threadData.isLinkThread()) {
+                threadData.isGodThread();
             }
-            return (String) invokeL.objValue;
+            om6Var.C = i;
+            return om6Var;
+        }
+        return (om6) invokeLI.objValue;
+    }
+
+    public static void e(gm6 gm6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, gm6Var) == null) {
+            if (gm6Var instanceof om6) {
+                ((om6) gm6Var).A = true;
+            } else if (gm6Var instanceof pm6) {
+                ((pm6) gm6Var).A = true;
+            } else if (gm6Var instanceof nm6) {
+                ((nm6) gm6Var).A = true;
+            }
+            gm6Var.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+        }
+    }
+
+    public static void f(gm6 gm6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, gm6Var) == null) {
+            gm6Var.n = true;
+            gm6Var.setSupportType(BaseCardInfo.SupportType.TOP);
+        }
+    }
+
+    public static void g(gm6 gm6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, gm6Var) == null) {
+            ((om6) gm6Var).q = true;
+            gm6Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+        }
+    }
+
+    public static void h(gm6 gm6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, gm6Var) == null) {
+            ((om6) gm6Var).p = true;
+            gm6Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+        }
+    }
+
+    public static void i(gm6 gm6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, gm6Var) == null) {
+            ((om6) gm6Var).r = true;
+            gm6Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+        }
+    }
+
+    public static void j(gm6 gm6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, gm6Var) == null) {
+            ((pm6) gm6Var).s = true;
+            gm6Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
         }
     }
 }

@@ -14,13 +14,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.ah8;
+import com.baidu.tieba.ag8;
+import com.baidu.tieba.bh8;
 import com.baidu.tieba.ow4;
 import com.baidu.tieba.qx4;
 import com.baidu.tieba.su4;
 import com.baidu.tieba.vu4;
 import com.baidu.tieba.z25;
-import com.baidu.tieba.zf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -105,7 +105,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         public void a(View view2, boolean z, Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), obj}) == null) && z) {
-                zf8.c("c13751", this.a.d);
+                ag8.c("c13751", this.a.d);
             }
         }
     }
@@ -149,7 +149,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         public void b(View view2, ow4 ow4Var, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, ow4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                zf8.a("c13751", ow4Var, i + 1, this.a.d);
+                ag8.a("c13751", ow4Var, i + 1, this.a.d);
             }
         }
     }
@@ -184,7 +184,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
                 ow4 ow4Var = new ow4();
                 ow4Var.e(str);
-                zf8.a("c13750", ow4Var, i, this.a.d);
+                ag8.a("c13750", ow4Var, i, this.a.d);
             }
         }
 
@@ -196,7 +196,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, ow4Var) != null) || ow4Var == null) {
                 return;
             }
-            zf8.b("c13750", ow4Var, i, this.a.d);
+            ag8.b("c13750", ow4Var, i, this.a.d);
         }
     }
 
@@ -333,11 +333,11 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         }
     }
 
-    public void setData(ah8 ah8Var) {
+    public void setData(bh8 bh8Var) {
         int i;
         List<ow4> list;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, ah8Var) != null) || ah8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, bh8Var) != null) || bh8Var == null) {
             return;
         }
         setPadding(0, BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X003), 0, 0);
@@ -351,7 +351,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             addView(this.b);
             this.b.setIWindowChangedListener(new a(this));
         }
-        this.b.onBindDataToView(ah8Var.e);
+        this.b.onBindDataToView(bh8Var.e);
         if (this.c == null) {
             GridIconLayout gridIconLayout = new GridIconLayout(getContext());
             this.c = gridIconLayout;
@@ -361,7 +361,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             addView(this.c, layoutParams);
             int dimens = BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.M_H_X002);
             int dimens2 = BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds30);
-            qx4 qx4Var = ah8Var.f;
+            qx4 qx4Var = bh8Var.f;
             if (qx4Var != null && (list = qx4Var.a) != null) {
                 i = list.size();
             } else {
@@ -377,7 +377,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             this.c.setIWindowChangedListener(new b(this));
             this.c.setMaxItem(10);
         }
-        this.c.onBindDataToView(ah8Var.f);
+        this.c.onBindDataToView(bh8Var.f);
         this.c.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
     }
 }

@@ -1,28 +1,25 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.DownloadBar;
+import tbclient.DislikeInfo;
 /* loaded from: classes8.dex */
-public class qrc extends poc {
+public class qrc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull DownloadBar downloadBar) {
+    public static JSONObject b(@NonNull DislikeInfo dislikeInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, downloadBar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dislikeInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "type", downloadBar.type);
-            poc.a(jSONObject, GameGuideConfigInfo.KEY_BUTTON_TEXT, downloadBar.button_text);
-            poc.a(jSONObject, "schema", downloadBar.schema);
-            poc.a(jSONObject, "guide_text", downloadBar.guide_text);
-            poc.a(jSONObject, "icon", downloadBar.icon);
+            qoc.a(jSONObject, "dislike_reason", dislikeInfo.dislike_reason);
+            qoc.a(jSONObject, "dislike_id", dislikeInfo.dislike_id);
+            qoc.a(jSONObject, "extra", dislikeInfo.extra);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

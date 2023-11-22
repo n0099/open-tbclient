@@ -12,7 +12,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h2a;
+import com.baidu.tieba.i2a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -133,7 +133,7 @@ public class BdPersonListView extends BdTypeListView {
         this.K = new Scroller(this.J);
         this.L = new Scroller(this.J);
         this.V = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h2a.ExpandListView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i2a.ExpandListView);
         this.W = obtainStyledAttributes.getDimensionPixelSize(e0, 0);
         obtainStyledAttributes.recycle();
     }

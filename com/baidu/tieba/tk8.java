@@ -1,21 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 public class tk8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
-    public static final String d;
-    public static final String e;
-    public static final String f;
-    public static final String g;
+    public static final Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,12 +25,6 @@ public class tk8 {
                 return;
             }
         }
-        a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0955);
-        b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0957);
-        c = TbadkCoreApplication.getInst().getString(R.string.group_chat_group_had_close);
-        d = TbadkCoreApplication.getInst().getString(R.string.group_chat_no_speak_all);
-        e = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0972);
-        f = TbadkCoreApplication.getInst().getString(R.string.group_chat_no_speak_person);
-        g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0964);
+        a = Pattern.compile("[0-9]");
     }
 }

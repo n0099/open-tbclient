@@ -6,25 +6,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.AlaLiveInsert;
-import tbclient.ThreadInfo;
+import tbclient.FrsPage.AgreeBanner;
+import tbclient.SimpleUser;
 /* loaded from: classes5.dex */
-public class duc extends poc {
+public class duc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull AlaLiveInsert alaLiveInsert) {
+    public static JSONObject b(@NonNull AgreeBanner agreeBanner) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, alaLiveInsert)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, agreeBanner)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (alaLiveInsert.ala_live_list != null) {
+            qoc.a(jSONObject, "text", agreeBanner.text);
+            qoc.a(jSONObject, "icon_url", agreeBanner.icon_url);
+            qoc.a(jSONObject, "url", agreeBanner.url);
+            if (agreeBanner.top_agree_user != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (ThreadInfo threadInfo : alaLiveInsert.ala_live_list) {
-                    jSONArray.put(u4d.b(threadInfo));
+                for (SimpleUser simpleUser : agreeBanner.top_agree_user) {
+                    jSONArray.put(i3d.b(simpleUser));
                 }
-                poc.a(jSONObject, "ala_live_list", jSONArray);
+                qoc.a(jSONObject, "top_agree_user", jSONArray);
             }
             return jSONObject;
         }

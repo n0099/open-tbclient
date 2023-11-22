@@ -17,14 +17,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class az9 extends vy9 {
+public class az9 extends wy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout f;
-    public ItemCardView g;
-    public ThreadData h;
-    public bw4 i;
-    public dt j;
+    public wt g;
+    public ItemCardView h;
+    public ThreadData i;
+    public bw4 j;
 
     /* loaded from: classes5.dex */
     public class a extends bw4 {
@@ -75,7 +75,7 @@ public class az9 extends vy9 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a.h;
+                return this.a.i;
             }
             return (ThreadData) invokeV.objValue;
         }
@@ -111,7 +111,7 @@ public class az9 extends vy9 {
             ns.a aVar;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = (az9Var = this.a).c) != null) {
-                aVar.a(az9Var.i);
+                aVar.a(az9Var.j);
             }
         }
     }
@@ -136,7 +136,7 @@ public class az9 extends vy9 {
         }
     }
 
-    @Override // com.baidu.tieba.vy9
+    @Override // com.baidu.tieba.wy9
     public void c(OriginalThreadInfo originalThreadInfo) {
         ThreadData b2;
         Interceptable interceptable = $ic;
@@ -147,27 +147,27 @@ public class az9 extends vy9 {
             } else {
                 b2 = originalThreadInfo.b();
             }
-            this.h = b2;
-            this.i = new a(this);
-            ItemCardView itemCardView = this.g;
+            this.i = b2;
+            this.j = new a(this);
+            ItemCardView itemCardView = this.h;
             if (itemCardView != null && originalThreadInfo != null) {
                 itemCardView.setData(originalThreadInfo.D, 17, originalThreadInfo.f);
             }
-            dt dtVar = this.j;
-            if (dtVar != null) {
-                dtVar.onBindDataToView(this.i);
+            wt wtVar = this.g;
+            if (wtVar != null) {
+                wtVar.onBindDataToView(this.j);
             }
         }
     }
 
-    @Override // com.baidu.tieba.vy9
+    @Override // com.baidu.tieba.wy9
     public void d(ns.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             super.d(aVar);
-            dt dtVar = this.j;
-            if (dtVar != null) {
-                dtVar.E(aVar);
+            wt wtVar = this.g;
+            if (wtVar != null) {
+                wtVar.A(aVar);
             }
             LinearLayout linearLayout = this.f;
             if (linearLayout != null) {
@@ -176,19 +176,7 @@ public class az9 extends vy9 {
         }
     }
 
-    @Override // com.baidu.tieba.vy9
-    public void e(xl6 xl6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, xl6Var) == null) {
-            super.e(xl6Var);
-            dt dtVar = this.j;
-            if (dtVar != null) {
-                dtVar.n(this.b);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.vy9
+    @Override // com.baidu.tieba.wy9
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -203,45 +191,42 @@ public class az9 extends vy9 {
                 this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             }
             this.f.removeAllViews();
-            if (this.j == null) {
-                dt dtVar = new dt(this.a.getPageActivity());
-                this.j = dtVar;
-                dtVar.q(Boolean.TRUE);
-                this.j.setFrom("pb");
-                this.j.D(0);
-                this.j.I(this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005), this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), 0);
-                this.j.J(false);
-                this.j.H(true);
-            }
-            this.f.addView(this.j.g());
             if (this.g == null) {
-                ItemCardView itemCardView = new ItemCardView(this.a.getPageActivity());
-                this.g = itemCardView;
-                itemCardView.setIsShowRightBtn(true);
+                wt wtVar = new wt(this.a);
+                this.g = wtVar;
+                wtVar.q(Boolean.TRUE);
             }
-            this.g.setBackGroundColor(R.color.CAM_X0205);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
+            layoutParams.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
             layoutParams.leftMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
             layoutParams.rightMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            layoutParams.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
-            this.f.addView(this.g, layoutParams);
+            this.f.addView(this.g.g(), layoutParams);
+            if (this.h == null) {
+                this.h = new ItemCardView(this.a.getPageActivity());
+            }
+            this.h.setBackGroundColor(R.color.CAM_X0205);
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
+            layoutParams2.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
+            layoutParams2.leftMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
+            layoutParams2.rightMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
+            layoutParams2.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
+            this.f.addView(this.h, layoutParams2);
             return this.f;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vy9
+    @Override // com.baidu.tieba.wy9
     public void b(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) && this.e != i) {
             this.e = i;
             SkinManager.setBackgroundColor(this.f, R.color.CAM_X0206);
-            dt dtVar = this.j;
-            if (dtVar != null) {
-                dtVar.onChangeSkinType(tbPageContext, i);
+            wt wtVar = this.g;
+            if (wtVar != null) {
+                wtVar.onChangeSkinType(tbPageContext, i);
             }
-            ItemCardView itemCardView = this.g;
+            ItemCardView itemCardView = this.h;
             if (itemCardView != null) {
                 itemCardView.M();
             }

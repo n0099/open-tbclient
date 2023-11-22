@@ -1,38 +1,63 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
 public final class vc7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final vc7 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a(String str, String errorMessage) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, errorMessage)) == null) {
-            Intrinsics.checkNotNullParameter(errorMessage, "errorMessage");
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948236063, "Lcom/baidu/tieba/vc7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (!z) {
-                return str;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948236063, "Lcom/baidu/tieba/vc7;");
+                return;
             }
-            throw new IllegalStateException(errorMessage);
         }
-        return (String) invokeLL.objValue;
+        a = new vc7();
     }
 
-    public static /* synthetic */ String b(String str, String str2, int i, Object obj) {
-        if ((i & 1) != 0) {
-            str2 = "string must not empty!";
+    public vc7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        a(str, str2);
-        return str;
+    }
+
+    public final int a(String resName) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, resName)) == null) {
+            Intrinsics.checkNotNullParameter(resName, "resName");
+            try {
+                return h27.a.getResources().getIdentifier(resName, EMABTest.TYPE_STRING, h27.a.getPackageName());
+            } catch (Exception e) {
+                BdLog.e(e);
+                return 0;
+            }
+        }
+        return invokeL.intValue;
     }
 }

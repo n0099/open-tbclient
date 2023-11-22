@@ -1,21 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.BaseFragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes9.dex */
 public interface zl5 {
-    void B(int i, int i2, Intent intent);
 
-    boolean E();
+    /* loaded from: classes9.dex */
+    public interface a {
+        void a();
 
-    BaseFragment F();
+        void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map);
+    }
 
-    void G(boolean z);
+    void a(@Nullable a aVar);
 
-    void setUniqueId(BdUniqueId bdUniqueId);
-
-    void setUserVisibleHint(boolean z);
-
-    long t();
+    void b(@NonNull String str, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5);
 }

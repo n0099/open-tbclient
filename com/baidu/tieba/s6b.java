@@ -2,11 +2,15 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.QuizInfo;
 import tbclient.QuizOption;
 /* loaded from: classes8.dex */
 public final class s6b {
@@ -16,9 +20,12 @@ public final class s6b {
     public String b;
     public String c;
     public Long d;
-    public String e;
-    public String f;
-    public String g;
+    public Long e;
+    public Long f;
+    public Long g;
+    public Long h;
+    public Long i;
+    public ArrayList<t6b> j;
 
     public s6b() {
         Interceptable interceptable = $ic;
@@ -30,91 +37,147 @@ public final class s6b {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.j = new ArrayList<>();
     }
 
-    public final String a() {
+    public final Long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (Long) invokeV.objValue;
     }
 
-    public final String b() {
+    public final Long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
+            return this.h;
         }
-        return (String) invokeV.objValue;
+        return (Long) invokeV.objValue;
     }
 
-    public final String c() {
+    public final Long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.f;
         }
-        return (String) invokeV.objValue;
+        return (Long) invokeV.objValue;
     }
 
-    public final String d() {
+    public final ArrayList<t6b> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+            return this.j;
         }
-        return (String) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public final String e() {
+    public final Long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+            return this.i;
         }
-        return (String) invokeV.objValue;
+        return (Long) invokeV.objValue;
     }
 
     public final Long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
+            return this.g;
         }
         return (Long) invokeV.objValue;
     }
 
-    public final Long g() {
+    public final String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final Long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.d;
         }
         return (Long) invokeV.objValue;
     }
 
-    public final void h(QuizOption quizOption) {
+    public final String i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, quizOption) != null) || quizOption == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.c;
         }
-        this.a = quizOption.quiz_option_id;
-        this.b = quizOption.quiz_option;
-        this.c = quizOption.icon;
-        this.d = quizOption.total_user_count;
-        this.e = quizOption.button_img;
-        this.f = quizOption.button_text_sup;
-        this.g = quizOption.button_text_no;
+        return (String) invokeV.objValue;
     }
 
-    public final void i(Long l) {
+    public final Long j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, l) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.e;
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public final void k(QuizInfo quizInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, quizInfo) != null) || quizInfo == null) {
+            return;
+        }
+        this.a = quizInfo.bonus_type;
+        this.b = quizInfo.title;
+        this.c = quizInfo.total_count_icon;
+        String str = quizInfo.total_count_text;
+        this.d = quizInfo.total_count;
+        this.e = quizInfo.total_user_count;
+        this.f = quizInfo.min_pour_count;
+        this.g = quizInfo.quiz_id;
+        this.h = quizInfo.browse_user_option;
+        this.i = quizInfo.product;
+        this.j.clear();
+        if (!ListUtils.isEmpty(quizInfo.options)) {
+            for (QuizOption quizOption : quizInfo.options) {
+                Intrinsics.checkNotNullExpressionValue(quizOption, "quizInfo.options");
+                t6b t6bVar = new t6b();
+                t6bVar.h(quizOption);
+                this.j.add(t6bVar);
+            }
+        }
+        Long l = quizInfo.type;
+    }
+
+    public final void l(Long l) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, l) == null) {
+            this.h = l;
+        }
+    }
+
+    public final void m(Long l) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, l) == null) {
             this.d = l;
+        }
+    }
+
+    public final void n(Long l) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, l) == null) {
+            this.e = l;
         }
     }
 }

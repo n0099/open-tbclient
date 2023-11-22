@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,62 +9,59 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* loaded from: classes9.dex */
-public class zh5 extends yh5 {
+public class zh5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public short g;
-    public short h;
-    public byte i;
-    public byte j;
+    public int a;
+    public int b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948359970, "Lcom/baidu/tieba/zh5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948359970, "Lcom/baidu/tieba/zh5;");
-                return;
-            }
+    public void b(gi5 gi5Var) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, gi5Var) == null) {
         }
-        k = yh5.a("fcTL");
     }
 
     public zh5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.yh5
-    public void b(fi5 fi5Var) throws IOException {
+    public static int a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fi5Var) == null) {
-            fi5Var.e();
-            this.c = fi5Var.e();
-            this.d = fi5Var.e();
-            this.e = fi5Var.e();
-            this.f = fi5Var.e();
-            this.g = fi5Var.f();
-            this.h = fi5Var.f();
-            this.i = fi5Var.peek();
-            this.j = fi5Var.peek();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.length() == 4) {
+                return ((str.charAt(3) & 255) << 24) | (str.charAt(0) & 255) | ((str.charAt(1) & 255) << 8) | ((str.charAt(2) & 255) << 16);
+            }
+            return -1159790593;
+        }
+        return invokeL.intValue;
+    }
+
+    public void c(gi5 gi5Var) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gi5Var) == null) {
+            int available = gi5Var.available();
+            b(gi5Var);
+            int available2 = available - gi5Var.available();
+            int i = this.a;
+            if (available2 <= i) {
+                if (available2 < i) {
+                    gi5Var.skip(i - available2);
+                    return;
+                }
+                return;
+            }
+            throw new IOException("Out of chunk area");
         }
     }
 }

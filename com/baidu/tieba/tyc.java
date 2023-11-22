@@ -1,32 +1,48 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.HotTWThreadInfo;
-import tbclient.User;
+import tbclient.HeadcardLayout;
+import tbclient.PubHeadCardCover;
+import tbclient.QuizCard;
+import tbclient.ThemeColorInfo;
+import tbclient.ThreadInfo;
 /* loaded from: classes8.dex */
-public class tyc extends poc {
+public class tyc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull HotTWThreadInfo hotTWThreadInfo) {
+    public static JSONObject b(@NonNull HeadcardLayout headcardLayout) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, hotTWThreadInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, headcardLayout)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (hotTWThreadInfo.user_list != null) {
+            qoc.a(jSONObject, "card_title", headcardLayout.card_title);
+            if (headcardLayout.thread_list != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (User user : hotTWThreadInfo.user_list) {
-                    jSONArray.put(m5d.b(user));
+                for (ThreadInfo threadInfo : headcardLayout.thread_list) {
+                    jSONArray.put(v4d.b(threadInfo));
                 }
-                poc.a(jSONObject, "user_list", jSONArray);
+                qoc.a(jSONObject, "thread_list", jSONArray);
             }
-            poc.a(jSONObject, "fans_count", hotTWThreadInfo.fans_count);
+            ThemeColorInfo themeColorInfo = headcardLayout.card_background;
+            if (themeColorInfo != null) {
+                qoc.a(jSONObject, "card_background", q4d.b(themeColorInfo));
+            }
+            PubHeadCardCover pubHeadCardCover = headcardLayout.cover;
+            if (pubHeadCardCover != null) {
+                qoc.a(jSONObject, AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, y1d.b(pubHeadCardCover));
+            }
+            QuizCard quizCard = headcardLayout.quiz_card;
+            if (quizCard != null) {
+                qoc.a(jSONObject, "quiz_card", b2d.b(quizCard));
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

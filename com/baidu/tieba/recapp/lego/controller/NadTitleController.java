@@ -22,18 +22,18 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.az0;
-import com.baidu.tieba.d26;
-import com.baidu.tieba.dc9;
 import com.baidu.tieba.dy0;
-import com.baidu.tieba.fea;
+import com.baidu.tieba.e26;
+import com.baidu.tieba.ec9;
+import com.baidu.tieba.gea;
 import com.baidu.tieba.gw4;
 import com.baidu.tieba.ih0;
 import com.baidu.tieba.j11;
 import com.baidu.tieba.recapp.lego.controller.NadTitleController;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.u25;
-import com.baidu.tieba.vda;
 import com.baidu.tieba.vg0;
+import com.baidu.tieba.wda;
 import com.baidu.tieba.wn0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -338,12 +338,12 @@ public final class NadTitleController {
                         } else {
                             str = null;
                         }
-                        d26.a(str);
+                        e26.a(str);
                         AdCard adCard3 = this.a.c;
                         if (adCard3 != null) {
                             advertAppInfo = adCard3.getAdvertAppInfo();
                         }
-                        dc9.c(advertAppInfo);
+                        ec9.c(advertAppInfo);
                         ih0 ih0Var = this.a.d;
                         if (ih0Var != null) {
                             ih0Var.m();
@@ -511,7 +511,7 @@ public final class NadTitleController {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
             Resources resources = f().getResources();
             if (resources == null) {
-                i = vda.b;
+                i = wda.b;
                 return i;
             }
             return resources.getIdentifier(bVar.d, "color", f().getPackageName());
@@ -646,8 +646,8 @@ public final class NadTitleController {
             if (adCard2 != null) {
                 advertAppInfo2 = adCard2.getAdvertAppInfo();
             }
-            dc9.c(advertAppInfo2);
-            d26.a(str);
+            ec9.c(advertAppInfo2);
+            e26.a(str);
         }
     }
 
@@ -667,7 +667,7 @@ public final class NadTitleController {
             Boolean bool = adCard.titleBold;
             Intrinsics.checkNotNullExpressionValue(bool, "card.titleBold");
             boolean booleanValue = bool.booleanValue();
-            i2 = vda.a;
+            i2 = wda.a;
             l.setParams(new dy0(str, str2, booleanValue, i2, bVar.c, k(bVar), j(bVar), h(bVar), g(), i, adCard.maxTitleLine));
             l().setCustomizedProcessor(new a(this));
             if (!l().i()) {
@@ -681,7 +681,7 @@ public final class NadTitleController {
                 }
                 this.d = null;
             }
-            vg0 d = fea.d(adCard);
+            vg0 d = gea.d(adCard);
             d.q.j = "title_shorturl";
             this.d = new ih0(d, l());
             return true;

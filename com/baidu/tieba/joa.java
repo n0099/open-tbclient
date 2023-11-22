@@ -6,12 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class joa extends yna {
+public class joa extends zna {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public koa c;
+    public ArrayList<loa> c;
 
     public joa() {
         Interceptable interceptable = $ic;
@@ -23,34 +25,42 @@ public class joa extends yna {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new ArrayList<>();
     }
 
-    public koa h() {
+    public ArrayList<loa> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.c;
         }
-        return (koa) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yna
+    @Override // com.baidu.tieba.zna
     public void d(JSONObject jSONObject) throws Exception {
-        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("forum_dir")) != null) {
-            koa koaVar = new koa();
-            koaVar.a(optJSONObject);
-            i(koaVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            ArrayList<loa> arrayList = new ArrayList<>();
+            JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    loa loaVar = new loa();
+                    loaVar.a(optJSONArray.getJSONObject(i));
+                    arrayList.add(loaVar);
+                }
+            }
+            i(arrayList);
         }
     }
 
-    public void i(koa koaVar) {
+    public void i(ArrayList<loa> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, koaVar) == null) {
-            this.c = koaVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            this.c = arrayList;
             g(null);
         }
     }

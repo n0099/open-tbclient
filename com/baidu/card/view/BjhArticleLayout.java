@@ -22,9 +22,9 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bw4;
 import com.baidu.tieba.ht;
-import com.baidu.tieba.il6;
 import com.baidu.tieba.it;
-import com.baidu.tieba.xl6;
+import com.baidu.tieba.jl6;
+import com.baidu.tieba.yl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class BjhArticleLayout extends RelativeLayout implements ht<bw4>, View.On
     public float f;
     public float g;
     public float h;
-    public xl6<bw4> i;
+    public yl6<bw4> i;
     public View.OnClickListener j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -160,7 +160,7 @@ public class BjhArticleLayout extends RelativeLayout implements ht<bw4>, View.On
             } else {
                 i = R.color.CAM_X0105;
             }
-            il6.l(textView, id, i, R.color.CAM_X0109);
+            jl6.l(textView, id, i, R.color.CAM_X0109);
         }
     }
 
@@ -190,9 +190,9 @@ public class BjhArticleLayout extends RelativeLayout implements ht<bw4>, View.On
             if (onClickListener != null) {
                 onClickListener.onClick(view2);
             }
-            xl6<bw4> xl6Var = this.i;
-            if (xl6Var != null) {
-                xl6Var.a(view2, this.e);
+            yl6<bw4> yl6Var = this.i;
+            if (yl6Var != null) {
+                yl6Var.a(view2, this.e);
             }
         }
     }
@@ -204,10 +204,10 @@ public class BjhArticleLayout extends RelativeLayout implements ht<bw4>, View.On
         }
     }
 
-    public void setSubClickListener(xl6<bw4> xl6Var) {
+    public void setSubClickListener(yl6<bw4> yl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, xl6Var) == null) {
-            this.i = xl6Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yl6Var) == null) {
+            this.i = yl6Var;
         }
     }
 
@@ -225,7 +225,7 @@ public class BjhArticleLayout extends RelativeLayout implements ht<bw4>, View.On
                 } else {
                     i2 = R.color.CAM_X0105;
                 }
-                il6.l(textView, id, i2, R.color.CAM_X0109);
+                jl6.l(textView, id, i2, R.color.CAM_X0109);
             }
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0101);
             TBSelector.makeDrawableSelector().setShape(0).defaultColorNotAutoChangeSkinType(R.color.CAM_X0606).radius(this.f).into(this.b);

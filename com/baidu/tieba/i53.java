@@ -38,13 +38,13 @@ public class i53 extends k53 {
 
         /* renamed from: com.baidu.tieba.i53$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class DialogInterface$OnKeyListenerC0329a implements DialogInterface.OnKeyListener {
+        public class DialogInterface$OnKeyListenerC0327a implements DialogInterface.OnKeyListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public DialogInterface$OnKeyListenerC0329a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public DialogInterface$OnKeyListenerC0327a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -308,7 +308,7 @@ public class i53 extends k53 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, onClickListener)) == null) {
-                super.M(new DialogInterface$OnKeyListenerC0329a(this, onClickListener));
+                super.M(new DialogInterface$OnKeyListenerC0327a(this, onClickListener));
                 return this;
             }
             return (a) invokeL.objValue;

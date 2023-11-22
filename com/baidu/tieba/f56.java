@@ -76,7 +76,7 @@ public final class f56 extends ja {
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "12.48_open_screen_show_timeout_switch" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "12.48_open_screen_close_timeout_switch" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ja
@@ -117,7 +117,7 @@ public final class f56 extends ja {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return SwitchManager.getInstance().findType("12.48_open_screen_show_timeout_switch");
+                return SwitchManager.getInstance().findType("12.48_open_screen_close_timeout_switch");
             }
             return invokeV.intValue;
         }

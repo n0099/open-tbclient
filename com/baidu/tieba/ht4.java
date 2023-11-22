@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class ht4 extends zd5 {
+public final class ht4 extends ae5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ft4 a;
@@ -47,8 +47,8 @@ public final class ht4 extends zd5 {
         this.a = mConfig;
     }
 
-    @Override // com.baidu.tieba.zd5
-    public void c(final be5 editor) {
+    @Override // com.baidu.tieba.ae5
+    public void c(final ce5 editor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, editor) == null) {
             Intrinsics.checkNotNullParameter(editor, "editor");
@@ -56,35 +56,35 @@ public final class ht4 extends zd5 {
                 return;
             }
             final EditorTools a = editor.a();
-            yd5 yd5Var = new yd5() { // from class: com.baidu.tieba.ct4
+            zd5 zd5Var = new zd5() { // from class: com.baidu.tieba.ct4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.yd5
-                public final void S(xd5 xd5Var) {
+                @Override // com.baidu.tieba.zd5
+                public final void S(yd5 yd5Var) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, xd5Var) == null) {
-                        ht4.e(be5.this, this, a, xd5Var);
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, yd5Var) == null) {
+                        ht4.e(ce5.this, this, a, yd5Var);
                     }
                 }
             };
-            a.setActionListener(4, yd5Var);
-            a.setActionListener(7, yd5Var);
-            a.setActionListener(16, yd5Var);
-            a.setActionListener(8, yd5Var);
+            a.setActionListener(4, zd5Var);
+            a.setActionListener(7, zd5Var);
+            a.setActionListener(16, zd5Var);
+            a.setActionListener(8, zd5Var);
         }
     }
 
-    public static final void e(be5 editor, ht4 this$0, EditorTools editorTools, xd5 xd5Var) {
+    public static final void e(ce5 editor, ht4 this$0, EditorTools editorTools, yd5 yd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, editor, this$0, editorTools, xd5Var) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, editor, this$0, editorTools, yd5Var) == null) {
             Intrinsics.checkNotNullParameter(editor, "$editor");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             gt4 gt4Var = (gt4) editor;
-            if (gt4Var.a() == null || xd5Var == null) {
+            if (gt4Var.a() == null || yd5Var == null) {
                 return;
             }
-            int i = xd5Var.a;
+            int i = yd5Var.a;
             if (i != 4) {
                 if (i != 16) {
                     if (i != 7) {
@@ -121,15 +121,15 @@ public final class ht4 extends zd5 {
                 TiebaStatic.log(statisticItem);
                 return;
             }
-            Object obj = xd5Var.c;
-            if (obj instanceof zg5) {
+            Object obj = yd5Var.c;
+            if (obj instanceof ah5) {
                 if (obj != null) {
-                    String str = ((zg5) obj).a;
+                    String str = ((ah5) obj).a;
                     Intrinsics.checkNotNullExpressionValue(str, "action.data as SubPbInputContentData).mContent");
                     gt4Var.r(str);
-                    Object obj2 = xd5Var.c;
+                    Object obj2 = yd5Var.c;
                     if (obj2 != null) {
-                        gt4Var.s(((zg5) obj2).c);
+                        gt4Var.s(((ah5) obj2).c);
                     } else {
                         throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.editortools.pb.SubPbInputContentData");
                     }
@@ -141,21 +141,21 @@ public final class ht4 extends zd5 {
         }
     }
 
-    @Override // com.baidu.tieba.zd5
-    public be5 a(Context context) {
+    @Override // com.baidu.tieba.ae5
+    public ce5 a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
-            be5 a = super.a(context);
+            ce5 a = super.a(context);
             Intrinsics.checkNotNullExpressionValue(a, "super.build(context)");
             return a;
         }
-        return (be5) invokeL.objValue;
+        return (ce5) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.zd5
-    public be5 b(Context context) {
+    @Override // com.baidu.tieba.ae5
+    public ce5 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
@@ -172,12 +172,12 @@ public final class ht4 extends zd5 {
             editorTools.setClearEbPadding(true);
             return new gt4(editorTools);
         }
-        return (be5) invokeL.objValue;
+        return (ce5) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.zd5
-    public void d(be5 editor) {
-        ke5 u;
+    @Override // com.baidu.tieba.ae5
+    public void d(ce5 editor) {
+        le5 u;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, editor) == null) {
             Intrinsics.checkNotNullParameter(editor, "editor");
@@ -193,9 +193,9 @@ public final class ht4 extends zd5 {
                 }
             }
             if (this.a.h) {
-                me5 me5Var = new me5(a.getContext(), 7);
-                me5Var.i = false;
-                a.f(me5Var);
+                ne5 ne5Var = new ne5(a.getContext(), 7);
+                ne5Var.i = false;
+                a.f(ne5Var);
             }
             it4 it4Var = new it4(a.getContext());
             it4Var.i(this.a);

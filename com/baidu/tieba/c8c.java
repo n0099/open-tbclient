@@ -1,67 +1,138 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.io.UnsupportedEncodingException;
-import java.util.Locale;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import org.bouncycastle.crypto.engines.AESEngine;
+import org.bouncycastle.crypto.prng.SP800SecureRandomBuilder;
 /* loaded from: classes5.dex */
-public final class c8c {
-    public static /* synthetic */ Interceptable $ic;
+public class c8c {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = false;
+    public static boolean b = true;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            if (bArr != null && bArr.length != 0) {
-                StringBuilder sb = new StringBuilder();
-                for (byte b : bArr) {
-                    String hexString = Integer.toHexString(b & 255);
-                    if (hexString.length() == 1) {
-                        sb.append(TransactionIdCreater.FILL_BYTE);
-                    }
-                    sb.append(hexString);
-                }
-                return sb.toString();
-            }
-            return "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947630075, "Lcom/baidu/tieba/c8c;")) == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947630075, "Lcom/baidu/tieba/c8c;");
+        }
     }
 
-    public static byte[] b(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: Removed duplicated region for block: B:29:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static SecureRandom a() {
+        InterceptResult invokeV;
+        SecureRandom secureRandom;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new byte[0];
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            g8c.b("EncryptUtil", "generateSecureRandomNew ");
             try {
-                String upperCase = str.toUpperCase(Locale.ENGLISH);
-                int length = upperCase.length() / 2;
-                byte[] bArr = new byte[length];
-                try {
-                    byte[] bytes = upperCase.getBytes("UTF-8");
-                    for (int i = 0; i < length; i++) {
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("0x");
-                        int i2 = i * 2;
-                        sb.append(new String(new byte[]{bytes[i2]}, "UTF-8"));
-                        bArr[i] = (byte) (((byte) (Byte.decode(sb.toString()).byteValue() << 4)) ^ Byte.decode("0x" + new String(new byte[]{bytes[i2 + 1]}, "UTF-8")).byteValue());
+            } catch (NoSuchAlgorithmException unused) {
+                g8c.c("EncryptUtil", "getSecureRandomBytes: NoSuchAlgorithmException");
+            }
+            if (Build.VERSION.SDK_INT >= 26) {
+                secureRandom = SecureRandom.getInstanceStrong();
+                if (secureRandom == null) {
+                    try {
+                        secureRandom = SecureRandom.getInstance("SHA1PRNG");
+                    } catch (NoSuchAlgorithmException unused2) {
+                        g8c.c("EncryptUtil", "NoSuchAlgorithmException");
+                        return secureRandom;
+                    } catch (Throwable th) {
+                        if (b) {
+                            g8c.c("EncryptUtil", "exception : " + th.getMessage() + " , you should implementation bcprov-jdk15on library");
+                            b = false;
+                        }
+                        return secureRandom;
                     }
-                    return bArr;
-                } catch (UnsupportedEncodingException | NumberFormatException e) {
-                    f8c.c("HexUtil", "hex string 2 byte array exception : " + e.getMessage());
-                    return new byte[0];
                 }
-            } catch (Throwable th) {
-                f8c.c("HexUtil", "hex string toUpperCase exception : " + th.getMessage());
+                AESEngine aESEngine = new AESEngine();
+                byte[] bArr = new byte[32];
+                secureRandom.nextBytes(bArr);
+                return new SP800SecureRandomBuilder(secureRandom, true).setEntropyBitsRequired(384).buildCTR(aESEngine, 256, bArr, false);
+            }
+            secureRandom = null;
+            if (secureRandom == null) {
+            }
+            AESEngine aESEngine2 = new AESEngine();
+            byte[] bArr2 = new byte[32];
+            secureRandom.nextBytes(bArr2);
+            return new SP800SecureRandomBuilder(secureRandom, true).setEntropyBitsRequired(384).buildCTR(aESEngine2, 256, bArr2, false);
+        }
+        return (SecureRandom) invokeV.objValue;
+    }
+
+    public static byte[] b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            SecureRandom a2 = a();
+            if (a2 == null) {
                 return new byte[0];
             }
+            byte[] bArr = new byte[i];
+            a2.nextBytes(bArr);
+            return bArr;
         }
-        return (byte[]) invokeL.objValue;
+        return (byte[]) invokeI.objValue;
+    }
+
+    public static String d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            return d8c.a(c(i));
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static byte[] c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (!a) {
+                byte[] bArr = new byte[i];
+                SecureRandom secureRandom = null;
+                try {
+                    if (Build.VERSION.SDK_INT >= 26) {
+                        secureRandom = SecureRandom.getInstanceStrong();
+                    }
+                } catch (NoSuchAlgorithmException unused) {
+                    g8c.c("EncryptUtil", "getSecureRandomBytes: NoSuchAlgorithmException");
+                }
+                if (secureRandom == null) {
+                    try {
+                        secureRandom = SecureRandom.getInstance("SHA1PRNG");
+                    } catch (NoSuchAlgorithmException unused2) {
+                        g8c.c("EncryptUtil", "getSecureRandomBytes getInstance: NoSuchAlgorithmException");
+                        return new byte[0];
+                    } catch (Exception e) {
+                        g8c.c("EncryptUtil", "getSecureRandomBytes getInstance: exception : " + e.getMessage());
+                        return new byte[0];
+                    }
+                }
+                secureRandom.nextBytes(bArr);
+                return bArr;
+            }
+            return b(i);
+        }
+        return (byte[]) invokeI.objValue;
     }
 }

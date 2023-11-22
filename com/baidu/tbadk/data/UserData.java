@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.data.ShakeAdSwitchData;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.dd5;
+import com.baidu.tieba.ed5;
 import com.baidu.tieba.nz4;
 import com.baidu.tieba.oi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1066,7 +1066,7 @@ public class UserData extends MetaData {
         }
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, com.baidu.tieba.u65
+    @Override // com.baidu.tbadk.data.MetaData, com.baidu.tieba.v65
     public void setLikeStatus(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048667, this, i) == null) {
@@ -1263,22 +1263,22 @@ public class UserData extends MetaData {
                     this.mPhotoAlbum = new ArrayList();
                 }
                 this.mPhotoAlbum.clear();
-                dd5 dd5Var = new dd5();
-                dd5Var.d(getPortraitH());
-                dd5Var.f(getPortrait());
-                dd5Var.e(true);
-                this.mPhotoAlbum.add(dd5Var);
+                ed5 ed5Var = new ed5();
+                ed5Var.d(getPortraitH());
+                ed5Var.f(getPortrait());
+                ed5Var.e(true);
+                this.mPhotoAlbum.add(ed5Var);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            dd5 dd5Var2 = new dd5();
-                            dd5Var2.d(jSONObject2.optString("big"));
-                            dd5Var2.f(jSONObject2.optString("small"));
-                            dd5Var2.e(false);
-                            this.mPhotoAlbum.add(dd5Var2);
+                            ed5 ed5Var2 = new ed5();
+                            ed5Var2.d(jSONObject2.optString("big"));
+                            ed5Var2.f(jSONObject2.optString("small"));
+                            ed5Var2.e(false);
+                            this.mPhotoAlbum.add(ed5Var2);
                         }
                     }
                 }
@@ -1392,20 +1392,20 @@ public class UserData extends MetaData {
             this.mPhotoAlbum = new ArrayList();
         }
         this.mPhotoAlbum.clear();
-        dd5 dd5Var = new dd5();
-        dd5Var.d(getPortraitH());
-        dd5Var.f(getPortrait());
-        dd5Var.e(true);
-        this.mPhotoAlbum.add(dd5Var);
+        ed5 ed5Var = new ed5();
+        ed5Var.d(getPortraitH());
+        ed5Var.f(getPortrait());
+        ed5Var.e(true);
+        this.mPhotoAlbum.add(ed5Var);
         List<UserPics> list = user.user_pics;
         if (list != null && list.size() > 0) {
             for (UserPics userPics : user.user_pics) {
                 if (userPics != null) {
-                    dd5 dd5Var2 = new dd5();
-                    dd5Var2.d(userPics.big);
-                    dd5Var2.f(userPics.small);
-                    dd5Var2.e(false);
-                    this.mPhotoAlbum.add(dd5Var2);
+                    ed5 ed5Var2 = new ed5();
+                    ed5Var2.d(userPics.big);
+                    ed5Var2.f(userPics.small);
+                    ed5Var2.e(false);
+                    this.mPhotoAlbum.add(ed5Var2);
                 }
             }
         }

@@ -5,17 +5,14 @@ import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.ClickableSpan;
 import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.a55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class r97 implements i97 {
+public final class r97 implements j97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,11 +30,11 @@ public final class r97 implements i97 {
         }
     }
 
-    @Override // com.baidu.tieba.i97
-    public SpannableString b(Context context, j77 richTextData, ClickableSpan clickableSpan) {
+    @Override // com.baidu.tieba.j97
+    public SpannableString b(Context context, k77 richTextData, ClickableSpan clickableSpan) {
         InterceptResult invokeLLL;
-        Unit unit;
-        Unit unit2;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
@@ -45,48 +42,31 @@ public final class r97 implements i97 {
             Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
             String c = richTextData.g().c();
             SpannableString spannableString = new SpannableString(c);
-            int dimens = BdUtilHelper.getDimens(g27.a, R.dimen.L_X02);
-            int dimens2 = BdUtilHelper.getDimens(g27.a, R.dimen.tbds10);
-            int dimens3 = BdUtilHelper.getDimens(g27.a, R.dimen.T_X10);
-            int dimens4 = BdUtilHelper.getDimens(g27.a, R.dimen.M_W_X002);
-            int dimens5 = BdUtilHelper.getDimens(context, R.dimen.tbds1);
-            int dimens6 = BdUtilHelper.getDimens(g27.a, R.dimen.M_W_X002);
-            int dimens7 = BdUtilHelper.getDimens(g27.a, R.dimen.tbds40);
-            a55.a aVar = new a55.a();
-            m57 b = richTextData.g().b();
-            if (b != null) {
-                aVar.a = qc7.a.d(b);
-                aVar.b = qc7.a.c(b);
-                unit = Unit.INSTANCE;
-            } else {
-                unit = null;
-            }
-            if (unit == null) {
-                aVar.a = SkinManager.getColor(0, (int) R.color.CAM_X0306);
-                aVar.b = SkinManager.getColor(4, (int) R.color.CAM_X0306);
-            }
-            a55.a aVar2 = new a55.a();
-            m57 a = richTextData.g().a();
+            int dimens = BdUtilHelper.getDimens(h27.a, R.dimen.L_X01);
+            int dimens2 = BdUtilHelper.getDimens(h27.a, R.dimen.tbds10);
+            int dimens3 = BdUtilHelper.getDimens(h27.a, R.dimen.T_X10);
+            int dimens4 = BdUtilHelper.getDimens(h27.a, R.dimen.M_W_X002);
+            int dimens5 = BdUtilHelper.getDimens(h27.a, R.dimen.M_W_X002);
+            int dimens6 = BdUtilHelper.getDimens(h27.a, R.dimen.tbds42);
+            n57 a = richTextData.g().a();
             if (a != null) {
-                aVar2.a = qc7.a.d(a);
-                aVar2.b = qc7.a.c(a);
-                unit2 = Unit.INSTANCE;
+                i = rc7.a.b(a);
             } else {
-                unit2 = null;
+                i = R.color.CAM_X0302;
             }
-            if (unit2 == null) {
-                aVar2.a = SkinManager.getColor(0, (int) R.color.CAM_X0306);
-                aVar2.b = SkinManager.getColor(4, (int) R.color.CAM_X0306);
+            n57 b = richTextData.g().b();
+            if (b != null) {
+                i2 = rc7.a.b(b);
+            } else {
+                i2 = R.color.CAM_X0101;
             }
-            a55 a55Var = new a55(dimens, -1, aVar2, dimens3, aVar, dimens4, dimens7);
-            a55Var.b(dimens2);
-            a55Var.h(dimens5);
-            a55Var.i(dimens6);
-            a55Var.f(false);
-            a55Var.g(true);
-            a55Var.a(0.5f);
-            a55Var.d(BdUtilHelper.getDimens(g27.a, R.dimen.tbds7));
-            spannableString.setSpan(a55Var, 0, c.length(), 17);
+            b55 b55Var = new b55(dimens, -1, i, dimens3, i2, dimens4, dimens6);
+            b55Var.b(dimens2);
+            b55Var.i(dimens5);
+            b55Var.f(true);
+            b55Var.g(true);
+            b55Var.d(BdUtilHelper.getDimens(h27.a, R.dimen.tbds7));
+            spannableString.setSpan(b55Var, 0, c.length(), 17);
             if (!TextUtils.isEmpty(richTextData.e())) {
                 spannableString.setSpan(clickableSpan, 0, c.length(), 33);
             }

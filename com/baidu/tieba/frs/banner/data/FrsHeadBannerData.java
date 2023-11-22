@@ -4,8 +4,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tieba.fqa;
 import com.baidu.tieba.frs.FrsBountyTaskData;
+import com.baidu.tieba.gqa;
 import com.baidu.tieba.w25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,7 +24,7 @@ public final class FrsHeadBannerData implements w25 {
     public transient /* synthetic */ FieldHolder $fh;
     public BannerType a;
     public ForumData b;
-    public fqa c;
+    public gqa c;
     public boolean d;
     public FrsBountyTaskData e;
 
@@ -39,7 +39,7 @@ public final class FrsHeadBannerData implements w25 {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                this((BannerType) objArr[0], (ForumData) objArr[1], (fqa) objArr[2], ((Boolean) objArr[3]).booleanValue(), (FrsBountyTaskData) objArr[4], ((Integer) objArr[5]).intValue(), (DefaultConstructorMarker) objArr[6]);
+                this((BannerType) objArr[0], (ForumData) objArr[1], (gqa) objArr[2], ((Boolean) objArr[3]).booleanValue(), (FrsBountyTaskData) objArr[4], ((Integer) objArr[5]).intValue(), (DefaultConstructorMarker) objArr[6]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -86,8 +86,8 @@ public final class FrsHeadBannerData implements w25 {
             int hashCode = this.a.hashCode() * 31;
             ForumData forumData = this.b;
             int hashCode2 = (hashCode + (forumData == null ? 0 : forumData.hashCode())) * 31;
-            fqa fqaVar = this.c;
-            int hashCode3 = (hashCode2 + (fqaVar == null ? 0 : fqaVar.hashCode())) * 31;
+            gqa gqaVar = this.c;
+            int hashCode3 = (hashCode2 + (gqaVar == null ? 0 : gqaVar.hashCode())) * 31;
             boolean z = this.d;
             int i = z;
             if (z != 0) {
@@ -175,12 +175,12 @@ public final class FrsHeadBannerData implements w25 {
         }
     }
 
-    public FrsHeadBannerData(BannerType type, ForumData forumData, fqa fqaVar, boolean z, FrsBountyTaskData frsBountyTaskData) {
+    public FrsHeadBannerData(BannerType type, ForumData forumData, gqa gqaVar, boolean z, FrsBountyTaskData frsBountyTaskData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {type, forumData, fqaVar, Boolean.valueOf(z), frsBountyTaskData};
+            Object[] objArr = {type, forumData, gqaVar, Boolean.valueOf(z), frsBountyTaskData};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -193,7 +193,7 @@ public final class FrsHeadBannerData implements w25 {
         Intrinsics.checkNotNullParameter(type, "type");
         this.a = type;
         this.b = forumData;
-        this.c = fqaVar;
+        this.c = gqaVar;
         this.d = z;
         this.e = frsBountyTaskData;
     }
@@ -202,10 +202,10 @@ public final class FrsHeadBannerData implements w25 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public /* synthetic */ FrsHeadBannerData(BannerType bannerType, ForumData forumData, fqa fqaVar, boolean z, FrsBountyTaskData frsBountyTaskData, int i, DefaultConstructorMarker defaultConstructorMarker) {
+    public /* synthetic */ FrsHeadBannerData(BannerType bannerType, ForumData forumData, gqa gqaVar, boolean z, FrsBountyTaskData frsBountyTaskData, int i, DefaultConstructorMarker defaultConstructorMarker) {
         this(bannerType, r10, r1, r2, (i & 16) == 0 ? frsBountyTaskData : null);
         ForumData forumData2;
-        fqa fqaVar2;
+        gqa gqaVar2;
         boolean z2;
         bannerType = (i & 1) != 0 ? BannerType.DEFAULT : bannerType;
         if ((i & 2) != 0) {
@@ -214,9 +214,9 @@ public final class FrsHeadBannerData implements w25 {
             forumData2 = forumData;
         }
         if ((i & 4) != 0) {
-            fqaVar2 = null;
+            gqaVar2 = null;
         } else {
-            fqaVar2 = fqaVar;
+            gqaVar2 = gqaVar;
         }
         if ((i & 8) != 0) {
             z2 = false;
@@ -234,13 +234,13 @@ public final class FrsHeadBannerData implements w25 {
         return (FrsBountyTaskData) invokeV.objValue;
     }
 
-    public final fqa b() {
+    public final gqa b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.c;
         }
-        return (fqa) invokeV.objValue;
+        return (gqa) invokeV.objValue;
     }
 
     public final ForumData c() {
@@ -277,10 +277,10 @@ public final class FrsHeadBannerData implements w25 {
         }
     }
 
-    public final void g(fqa fqaVar) {
+    public final void g(gqa gqaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fqaVar) == null) {
-            this.c = fqaVar;
+        if (interceptable == null || interceptable.invokeL(1048583, this, gqaVar) == null) {
+            this.c = gqaVar;
         }
     }
 

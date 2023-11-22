@@ -17,7 +17,7 @@ public class ir4 extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements MessageQueue.IdleHandler {
+    public class a implements MessageQueue.IdleHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -99,7 +99,7 @@ public class ir4 extends Thread {
             }
             BdLog.e(UriUtil.LOCAL_RESOURCE_SCHEME + f);
             TbSingleton.getInstance().setCpuFlopsDuration((int) ((((double) System.nanoTime()) - nanoTime) / 1000000.0d));
-            mp5.a();
+            np5.a();
         }
     }
 }

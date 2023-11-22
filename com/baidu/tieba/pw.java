@@ -48,7 +48,7 @@ public class pw {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return cka.a();
+            return dka.a();
         }
         return (qw) invokeV.objValue;
     }

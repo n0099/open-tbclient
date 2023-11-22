@@ -4,21 +4,30 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tieba.newinterest.viewholder.InterestedForumStyleAMoreViewHolder;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tieba.newinterest.viewholder.InterestedForumStyleAForumViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class ro9 extends bi<ap9, InterestedForumStyleAMoreViewHolder> {
+public class ro9 extends bi<ap9, InterestedForumStyleAForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gp9 a;
-    public hp9 b;
+    public ip9 a;
 
     /* loaded from: classes8.dex */
     public class a implements yi {
@@ -51,12 +60,18 @@ public class ro9 extends bi<ap9, InterestedForumStyleAMoreViewHolder> {
                 return;
             }
             ap9 ap9Var = (ap9) oiVar;
+            ap9Var.s(!ap9Var.h());
+            InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder = (InterestedForumStyleAForumViewHolder) view2.getTag();
+            if (interestedForumStyleAForumViewHolder != null) {
+                this.a.E(interestedForumStyleAForumViewHolder.h, ap9Var.h());
+            }
             if (this.a.a != null) {
-                this.a.a.d(ap9Var.a(), ap9Var.b(), i);
+                this.a.a.a();
             }
-            if (this.a.b != null) {
-                this.a.b.a();
+            if (!ap9Var.h()) {
+                return;
             }
+            this.a.y(ap9Var);
         }
     }
 
@@ -84,67 +99,98 @@ public class ro9 extends bi<ap9, InterestedForumStyleAMoreViewHolder> {
         setOnAdapterItemClickListener(new a(this));
     }
 
-    public void A(gp9 gp9Var) {
+    public void C(ip9 ip9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, gp9Var) == null) {
-            this.a = gp9Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ip9Var) == null) {
+            this.a = ip9Var;
         }
     }
 
-    public void B(hp9 hp9Var) {
+    public final void y(ap9 ap9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hp9Var) == null) {
-            this.b = hp9Var;
-        }
-    }
-
-    public final void C(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interestedForumStyleAMoreViewHolder) == null) {
-            EMManager.from(interestedForumStyleAMoreViewHolder.c).setTextColor(R.color.CAM_X0302).setTextSize(R.dimen.T_X07);
-            EMManager.from(interestedForumStyleAMoreViewHolder.d).setBackGroundColor(R.color.CAM_X0206);
+        if (interceptable == null || interceptable.invokeL(1048583, this, ap9Var) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13682");
+            statisticItem.param("obj_type", 2);
+            statisticItem.param("obj_locate", 4);
+            statisticItem.param("fid", ap9Var.c());
+            TiebaStatic.log(statisticItem);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bi
-    /* renamed from: x */
-    public InterestedForumStyleAMoreViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: z */
+    public InterestedForumStyleAForumViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            return new InterestedForumStyleAMoreViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0482, viewGroup, false));
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
+            return new InterestedForumStyleAForumViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0481, viewGroup, false));
         }
-        return (InterestedForumStyleAMoreViewHolder) invokeL.objValue;
+        return (InterestedForumStyleAForumViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.bi
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ap9 ap9Var, InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
-        y(i, view2, viewGroup, ap9Var, interestedForumStyleAMoreViewHolder);
-        return view2;
+    public final void E(ImageView imageView, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, imageView, z) == null) {
+            if (z) {
+                SkinManager.setImageResource(imageView, R.drawable.icon_interest_checked);
+            } else {
+                SkinManager.setImageResource(imageView, R.drawable.icon_interest_unchecked);
+            }
+        }
     }
 
-    public View y(int i, View view2, ViewGroup viewGroup, ap9 ap9Var, InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
+    public View A(int i, View view2, ViewGroup viewGroup, ap9 ap9Var, InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ap9Var, interestedForumStyleAMoreViewHolder})) == null) {
-            C(interestedForumStyleAMoreViewHolder);
-            z(interestedForumStyleAMoreViewHolder, ap9Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ap9Var, interestedForumStyleAForumViewHolder})) == null) {
+            if (ap9Var == null) {
+                return view2;
+            }
+            D(interestedForumStyleAForumViewHolder);
+            B(interestedForumStyleAForumViewHolder, ap9Var);
             return view2;
         }
         return (View) invokeCommon.objValue;
     }
 
-    public final void z(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder, ap9 ap9Var) {
+    public final void B(InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder, ap9 ap9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, interestedForumStyleAMoreViewHolder, ap9Var) == null) {
-            interestedForumStyleAMoreViewHolder.c.setText(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0b04));
-            if (ap9Var.c()) {
-                interestedForumStyleAMoreViewHolder.b.setVisibility(0);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interestedForumStyleAForumViewHolder, ap9Var) == null) {
+            interestedForumStyleAForumViewHolder.b.setShowOval(true);
+            interestedForumStyleAForumViewHolder.b.setAutoChangeStyle(true);
+            interestedForumStyleAForumViewHolder.b.setStrokeWith(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            interestedForumStyleAForumViewHolder.b.setStrokeColorResId(R.color.CAM_X0401);
+            interestedForumStyleAForumViewHolder.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            interestedForumStyleAForumViewHolder.b.setPlaceHolder(1);
+            interestedForumStyleAForumViewHolder.b.startLoad(ap9Var.a(), 10, false);
+            interestedForumStyleAForumViewHolder.c.setText(ap9Var.d() + this.mContext.getString(R.string.obfuscated_res_0x7f0f0787));
+            if (!StringUtils.isNull(ap9Var.f())) {
+                interestedForumStyleAForumViewHolder.d.setText(this.mContext.getString(R.string.obfuscated_res_0x7f0f0b01, ap9Var.f()));
             } else {
-                interestedForumStyleAMoreViewHolder.b.setVisibility(8);
+                interestedForumStyleAForumViewHolder.d.setText(this.mContext.getString(R.string.obfuscated_res_0x7f0f0b05));
             }
+            interestedForumStyleAForumViewHolder.e.setText(String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f04be), StringHelper.numberUniformFormatExtraWithRoundInt(ap9Var.e())));
+            interestedForumStyleAForumViewHolder.f.setText(String.format(this.mContext.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtraWithRoundInt(ap9Var.g())));
+            E(interestedForumStyleAForumViewHolder.h, ap9Var.h());
         }
+    }
+
+    public final void D(InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, interestedForumStyleAForumViewHolder) == null) {
+            EMManager.from(interestedForumStyleAForumViewHolder.c).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X06);
+            EMManager.from(interestedForumStyleAForumViewHolder.d).setTextColor(R.color.CAM_X0109).setTextSize(R.dimen.T_X09);
+            EMManager.from(interestedForumStyleAForumViewHolder.e).setTextColor(R.color.CAM_X0109).setTextSize(R.dimen.T_X09);
+            EMManager.from(interestedForumStyleAForumViewHolder.f).setTextColor(R.color.CAM_X0109).setTextSize(R.dimen.T_X09);
+            TBSelector.setViewBackgroundColorWithPressedState(interestedForumStyleAForumViewHolder.a, R.color.CAM_X0205, R.color.CAM_X0204);
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.bi
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ap9 ap9Var, InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder) {
+        A(i, view2, viewGroup, ap9Var, interestedForumStyleAForumViewHolder);
+        return view2;
     }
 }

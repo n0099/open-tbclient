@@ -1,8 +1,8 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.p3c;
+import com.baidu.tieba.q3c;
 /* loaded from: classes10.dex */
-public class TrackableBase implements p3c {
+public class TrackableBase implements q3c {
     public final long a;
     public final Session b;
 

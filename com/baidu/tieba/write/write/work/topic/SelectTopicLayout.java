@@ -27,8 +27,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopicselect.HotTopicSelectModel;
-import com.baidu.tieba.kj8;
-import com.baidu.tieba.nj8;
+import com.baidu.tieba.lj8;
+import com.baidu.tieba.oj8;
 import com.baidu.tieba.r25;
 import com.baidu.tieba.write.write.work.topic.view.SelectTopicListLayout;
 import com.baidu.tieba.write.write.work.topic.view.SelectTopicSuggestLayout;
@@ -65,7 +65,7 @@ public class SelectTopicLayout extends RelativeLayout {
     public int t;
     public int u;
     public int v;
-    public List<nj8> w;
+    public List<oj8> w;
     public float x;
     public float y;
     public final View.OnClickListener z;
@@ -695,26 +695,26 @@ public class SelectTopicLayout extends RelativeLayout {
         return invokeLII.booleanValue;
     }
 
-    public void s(kj8 kj8Var, kj8 kj8Var2, kj8 kj8Var3) {
+    public void s(lj8 lj8Var, lj8 lj8Var2, lj8 lj8Var3) {
         SelectTopicListLayout selectTopicListLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048589, this, kj8Var, kj8Var2, kj8Var3) == null) && (selectTopicListLayout = this.l) != null) {
-            selectTopicListLayout.a(kj8Var, kj8Var2, kj8Var3);
+        if ((interceptable == null || interceptable.invokeLLL(1048589, this, lj8Var, lj8Var2, lj8Var3) == null) && (selectTopicListLayout = this.l) != null) {
+            selectTopicListLayout.a(lj8Var, lj8Var2, lj8Var3);
         }
     }
 
-    public void u(kj8 kj8Var) {
+    public void u(lj8 lj8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, kj8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, lj8Var) == null) {
             this.w.clear();
             String searchKey = getSearchKey();
-            kj8 kj8Var2 = new kj8();
-            this.w.add(new nj8(searchKey, 0L, false));
-            if (kj8Var == null) {
-                kj8Var = kj8Var2;
+            lj8 lj8Var2 = new lj8();
+            this.w.add(new oj8(searchKey, 0L, false));
+            if (lj8Var == null) {
+                lj8Var = lj8Var2;
             }
-            kj8Var.c().addAll(0, this.w);
-            this.m.b(getSearchKey(), kj8Var.c());
+            lj8Var.c().addAll(0, this.w);
+            this.m.b(getSearchKey(), lj8Var.c());
         }
     }
 

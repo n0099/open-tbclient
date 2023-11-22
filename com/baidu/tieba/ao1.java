@@ -20,11 +20,11 @@ public class ao1 implements tp1 {
 
         /* renamed from: com.baidu.tieba.ao1$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0236a implements al3<Bundle> {
+        public class C0235a implements al3<Bundle> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0236a(a aVar) {
+            public C0235a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,7 +74,7 @@ public class ao1 implements tp1 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                return (Bundle) xk3.b(new C0236a(this));
+                return (Bundle) xk3.b(new C0235a(this));
             }
             return (Bundle) invokeL.objValue;
         }

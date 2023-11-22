@@ -5,23 +5,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.DeclareInfo;
+import tbclient.DealMedia;
 /* loaded from: classes7.dex */
-public class lrc extends poc {
+public class lrc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull DeclareInfo declareInfo) {
+    public static JSONObject b(@NonNull DealMedia dealMedia) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, declareInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dealMedia)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "declare_id", declareInfo.declare_id);
-            poc.a(jSONObject, "declare_url", declareInfo.declare_url);
-            poc.a(jSONObject, "declare_text", declareInfo.declare_text);
-            poc.a(jSONObject, "declare_num", declareInfo.declare_num);
-            poc.a(jSONObject, "is_declare", declareInfo.is_declare);
+            qoc.a(jSONObject, "type", dealMedia.type);
+            qoc.a(jSONObject, "small_pic", dealMedia.small_pic);
+            qoc.a(jSONObject, "big_pic", dealMedia.big_pic);
+            qoc.a(jSONObject, "water_pic", dealMedia.water_pic);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

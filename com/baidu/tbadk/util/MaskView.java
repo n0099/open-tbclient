@@ -57,7 +57,7 @@ public class MaskView extends View {
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements View.OnClickListener {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

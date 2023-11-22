@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.aja;
 import com.baidu.tieba.setting.im.more.PrivacySettingMessage;
-import com.baidu.tieba.zia;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zia a;
+    public aja a;
     public HttpMessageListener b;
 
     /* loaded from: classes8.dex */
@@ -121,9 +121,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
             if (intExtra2 != 1 && intExtra2 != 3) {
                 intExtra2 = 1;
             }
-            zia ziaVar = new zia(getPageContext(), (intExtra << 2) | intExtra2);
-            this.a = ziaVar;
-            setContentView(ziaVar.C());
+            aja ajaVar = new aja(getPageContext(), (intExtra << 2) | intExtra2);
+            this.a = ajaVar;
+            setContentView(ajaVar.C());
             registerListener(this.b);
         }
     }

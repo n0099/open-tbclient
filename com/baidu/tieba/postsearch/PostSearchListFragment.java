@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iaa;
-import com.baidu.tieba.laa;
-import com.baidu.tieba.wp5;
+import com.baidu.tieba.jaa;
+import com.baidu.tieba.maa;
+import com.baidu.tieba.xp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,10 +35,10 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
     public PostSearchActivity a;
     public View b;
     public BdListView c;
-    public laa d;
+    public maa d;
     public PbListView e;
     public NoDataView f;
-    public iaa g;
+    public jaa g;
     public int h;
     public String i;
 
@@ -98,11 +98,11 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
     }
 
     public void u2() {
-        List<iaa.a> list;
+        List<jaa.a> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            iaa iaaVar = this.g;
-            if (iaaVar != null && (list = iaaVar.a) != null) {
+            jaa jaaVar = this.g;
+            if (jaaVar != null && (list = jaaVar.a) != null) {
                 list.clear();
                 this.d.c(this.g.a);
                 this.d.notifyDataSetChanged();
@@ -178,9 +178,9 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
 
     @Override // com.baidu.adp.widget.ListView.BdListView.p
     public void onScrollToBottom() {
-        iaa iaaVar;
+        jaa jaaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !StringUtils.isNull(this.i) && (iaaVar = this.g) != null && iaaVar.b() && this.a.n1().l(this.i, this.h)) {
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !StringUtils.isNull(this.i) && (jaaVar = this.g) != null && jaaVar.b() && this.a.n1().l(this.i, this.h)) {
             D2();
         }
     }
@@ -191,9 +191,9 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onActivityCreated(bundle);
             this.a = (PostSearchActivity) getBaseFragmentActivity();
-            laa laaVar = new laa(this.a.getPageContext());
-            this.d = laaVar;
-            laaVar.f(this.h);
+            maa maaVar = new maa(this.a.getPageContext());
+            this.d = maaVar;
+            maaVar.f(this.h);
             BdListViewHelper.d(this.a.getActivity(), this.c, BdListViewHelper.HeadType.HASTAB);
             this.c.setAdapter((ListAdapter) this.d);
             PbListView pbListView = new PbListView(this.a.getPageContext().getPageActivity());
@@ -220,8 +220,8 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         } else {
             z2 = true;
         }
-        iaa iaaVar = this.g;
-        if (iaaVar != null && (iaaVar == null || iaaVar.a())) {
+        jaa jaaVar = this.g;
+        if (jaaVar != null && (jaaVar == null || jaaVar.a())) {
             z3 = z2;
         }
         if (z3) {
@@ -238,15 +238,15 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
             super.onChangeSkinType(i);
             PostSearchActivity postSearchActivity = this.a;
             if (postSearchActivity != null) {
-                wp5.a(postSearchActivity.getPageContext(), this.b);
+                xp5.a(postSearchActivity.getPageContext(), this.b);
             }
             PbListView pbListView = this.e;
             if (pbListView != null) {
                 pbListView.e(i);
             }
-            laa laaVar = this.d;
-            if (laaVar != null) {
-                laaVar.notifyDataSetChanged();
+            maa maaVar = this.d;
+            if (maaVar != null) {
+                maaVar.notifyDataSetChanged();
             }
         }
     }
@@ -263,25 +263,25 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         return (View) invokeLLL.objValue;
     }
 
-    public void y2(iaa iaaVar, boolean z) {
-        iaa iaaVar2;
-        List<iaa.a> list;
-        List<iaa.a> list2;
-        iaa iaaVar3;
-        List<iaa.a> list3;
+    public void y2(jaa jaaVar, boolean z) {
+        jaa jaaVar2;
+        List<jaa.a> list;
+        List<jaa.a> list2;
+        jaa jaaVar3;
+        List<jaa.a> list3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048590, this, iaaVar, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048590, this, jaaVar, z) == null) {
             w2();
             hideLoadingView(this.b);
             boolean z2 = false;
             boolean z3 = true;
-            if (iaaVar != null && (list2 = iaaVar.a) != null && list2.size() != 0) {
-                if (z && (iaaVar3 = this.g) != null && (list3 = iaaVar3.a) != null && list3.size() != 0) {
-                    iaa iaaVar4 = this.g;
-                    iaaVar4.b = iaaVar.b;
-                    iaaVar4.a.addAll(iaaVar.a);
+            if (jaaVar != null && (list2 = jaaVar.a) != null && list2.size() != 0) {
+                if (z && (jaaVar3 = this.g) != null && (list3 = jaaVar3.a) != null && list3.size() != 0) {
+                    jaa jaaVar4 = this.g;
+                    jaaVar4.b = jaaVar.b;
+                    jaaVar4.a.addAll(jaaVar.a);
                 } else {
-                    this.g = iaaVar;
+                    this.g = jaaVar;
                 }
                 if (z) {
                     E2();
@@ -302,7 +302,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
                     this.c.setSelection(0);
                 }
                 this.c.setVisibility(0);
-            } else if (z && (iaaVar2 = this.g) != null && (list = iaaVar2.a) != null && list.size() != 0) {
+            } else if (z && (jaaVar2 = this.g) != null && (list = jaaVar2.a) != null && list.size() != 0) {
                 if (this.g.b.b() == 1) {
                     z2 = true;
                 }
@@ -315,7 +315,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
                 v2();
                 B2();
                 this.c.setVisibility(8);
-                this.g = iaaVar;
+                this.g = jaaVar;
             }
         }
     }

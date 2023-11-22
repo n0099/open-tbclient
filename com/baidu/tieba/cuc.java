@@ -6,28 +6,29 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.AgreeBanner;
-import tbclient.SimpleUser;
+import tbclient.FrsPage.Adkiller;
+import tbclient.FrsPage.AdkillerAd;
 /* loaded from: classes5.dex */
-public class cuc extends poc {
+public class cuc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull AgreeBanner agreeBanner) {
+    public static JSONObject b(@NonNull Adkiller adkiller) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, agreeBanner)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adkiller)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "text", agreeBanner.text);
-            poc.a(jSONObject, "icon_url", agreeBanner.icon_url);
-            poc.a(jSONObject, "url", agreeBanner.url);
-            if (agreeBanner.top_agree_user != null) {
+            qoc.a(jSONObject, "show_hint", adkiller.show_hint);
+            qoc.a(jSONObject, "show_ad", adkiller.show_ad);
+            qoc.a(jSONObject, "hint_url", adkiller.hint_url);
+            qoc.a(jSONObject, "ad_left_num", adkiller.ad_left_num);
+            if (adkiller.ad_list != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (SimpleUser simpleUser : agreeBanner.top_agree_user) {
-                    jSONArray.put(h3d.b(simpleUser));
+                for (AdkillerAd adkillerAd : adkiller.ad_list) {
+                    jSONArray.put(buc.b(adkillerAd));
                 }
-                poc.a(jSONObject, "top_agree_user", jSONArray);
+                qoc.a(jSONObject, "ad_list", jSONArray);
             }
             return jSONObject;
         }

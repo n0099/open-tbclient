@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.app.Dialog;
-import com.baidu.tieba.dbd;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
+import java.util.List;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
 /* loaded from: classes9.dex */
 public interface y7d {
-    void f(Activity activity, Dialog dialog, wad wadVar, PurchaseStatus purchaseStatus);
+    void a(Activity activity, n9d n9dVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
 
-    void i(int i, String str, Activity activity, Dialog dialog, wad wadVar, dbd.b bVar, m9d m9dVar, q9d q9dVar, PayCallBackBean payCallBackBean, IPayCallback<CurrencyChargeMessage> iPayCallback);
+    q9d b();
 
-    void o(Activity activity, q9d q9dVar, Dialog dialog, wad wadVar);
+    void c(q9d q9dVar);
+
+    void release();
 }

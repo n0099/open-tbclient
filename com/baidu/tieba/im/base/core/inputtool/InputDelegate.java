@@ -10,28 +10,28 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.tieba.bn8;
+import com.baidu.tieba.am8;
 import com.baidu.tieba.cn8;
-import com.baidu.tieba.dk8;
-import com.baidu.tieba.hk8;
+import com.baidu.tieba.dn8;
+import com.baidu.tieba.ek8;
+import com.baidu.tieba.ik8;
 import com.baidu.tieba.im.base.core.inputtool.consts.BotSourceType;
 import com.baidu.tieba.im.base.core.inputtool.data.InputBanData;
 import com.baidu.tieba.im.base.core.inputtool.data.PaddingContentData;
 import com.baidu.tieba.im.base.core.inputtool.keyboardtool.PanelType;
 import com.baidu.tieba.im.base.core.inputtool.robotfloor.data.UserReplyInfoData;
 import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
-import com.baidu.tieba.ks8;
-import com.baidu.tieba.lk8;
+import com.baidu.tieba.ls8;
 import com.baidu.tieba.mk8;
-import com.baidu.tieba.ml8;
 import com.baidu.tieba.nk8;
+import com.baidu.tieba.nl8;
 import com.baidu.tieba.ok8;
-import com.baidu.tieba.qk8;
-import com.baidu.tieba.vk8;
-import com.baidu.tieba.xk8;
-import com.baidu.tieba.yjc;
+import com.baidu.tieba.pk8;
+import com.baidu.tieba.rk8;
+import com.baidu.tieba.wk8;
 import com.baidu.tieba.yk8;
-import com.baidu.tieba.zl8;
+import com.baidu.tieba.zjc;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -117,12 +117,12 @@ public class InputDelegate {
         }
     }
 
-    public InputDelegate(SOURCE source, @NonNull InputToolFragment inputToolFragment, @NonNull GroupInputTool groupInputTool, @Nullable cn8 cn8Var, long j, long j2) {
+    public InputDelegate(SOURCE source, @NonNull InputToolFragment inputToolFragment, @NonNull GroupInputTool groupInputTool, @Nullable dn8 dn8Var, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {source, inputToolFragment, groupInputTool, cn8Var, Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {source, inputToolFragment, groupInputTool, dn8Var, Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -135,7 +135,7 @@ public class InputDelegate {
         SOURCE source2 = SOURCE.ROOM;
         this.a = inputToolFragment;
         this.b = groupInputTool;
-        GroupInputViewController groupInputViewController = new GroupInputViewController(inputToolFragment, cn8Var, j);
+        GroupInputViewController groupInputViewController = new GroupInputViewController(inputToolFragment, dn8Var, j);
         this.c = groupInputViewController;
         groupInputViewController.J1(j2);
         E();
@@ -249,23 +249,23 @@ public class InputDelegate {
     }
 
     @Nullable
-    public dk8 m() {
+    public ek8 m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
             return this.c.E0();
         }
-        return (dk8) invokeV.objValue;
+        return (ek8) invokeV.objValue;
     }
 
     @Nullable
-    public ks8 n() {
+    public ls8 n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
             return this.c.Y0().h();
         }
-        return (ks8) invokeV.objValue;
+        return (ls8) invokeV.objValue;
     }
 
     public int o() {
@@ -352,13 +352,13 @@ public class InputDelegate {
     }
 
     @Nullable
-    public hk8 w() {
+    public ik8 w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
             return this.c.U0();
         }
-        return (hk8) invokeV.objValue;
+        return (ik8) invokeV.objValue;
     }
 
     public String x() {
@@ -371,13 +371,13 @@ public class InputDelegate {
     }
 
     @NonNull
-    public zl8 y() {
+    public am8 y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
             return this.c.Y0();
         }
-        return (zl8) invokeV.objValue;
+        return (am8) invokeV.objValue;
     }
 
     @Nullable
@@ -420,17 +420,17 @@ public class InputDelegate {
         }
     }
 
-    public void J(@Nullable mk8 mk8Var) {
+    public void J(@Nullable nk8 nk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, mk8Var) == null) {
-            this.c.v1(mk8Var);
+        if (interceptable == null || interceptable.invokeL(1048585, this, nk8Var) == null) {
+            this.c.v1(nk8Var);
         }
     }
 
-    public void M(bn8 bn8Var) {
+    public void M(cn8 cn8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bn8Var) == null) {
-            this.c.D1(bn8Var);
+        if (interceptable == null || interceptable.invokeL(1048588, this, cn8Var) == null) {
+            this.c.D1(cn8Var);
         }
     }
 
@@ -448,10 +448,10 @@ public class InputDelegate {
         }
     }
 
-    public void Q(qk8 qk8Var) {
+    public void Q(rk8 rk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, qk8Var) == null) {
-            this.b.j0(qk8Var);
+        if (interceptable == null || interceptable.invokeL(1048592, this, rk8Var) == null) {
+            this.b.j0(rk8Var);
         }
     }
 
@@ -483,14 +483,14 @@ public class InputDelegate {
         }
     }
 
-    public void X(yjc<PanelType, PanelType, Float, Float> yjcVar) {
+    public void X(zjc<PanelType, PanelType, Float, Float> zjcVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, yjcVar) == null) {
-            this.c.W1(yjcVar);
+        if (interceptable == null || interceptable.invokeL(1048599, this, zjcVar) == null) {
+            this.c.W1(zjcVar);
         }
     }
 
-    public void Y(@Nullable ml8.d dVar) {
+    public void Y(@Nullable nl8.d dVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048600, this, dVar) == null) && this.c.R0() != null) {
             this.c.R0().w(dVar);
@@ -504,21 +504,21 @@ public class InputDelegate {
         }
     }
 
-    public void a0(@Nullable nk8 nk8Var) {
+    public void a0(@Nullable ok8 ok8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, nk8Var) == null) {
-            this.c.e2(nk8Var);
+        if (interceptable == null || interceptable.invokeL(1048603, this, ok8Var) == null) {
+            this.c.e2(ok8Var);
         }
     }
 
-    public void b(@NonNull ks8 ks8Var) {
+    public void b(@NonNull ls8 ls8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, ks8Var) == null) {
-            this.c.Y0().c(ks8Var);
+        if (interceptable == null || interceptable.invokeL(1048604, this, ls8Var) == null) {
+            this.c.Y0().c(ls8Var);
         }
     }
 
-    public void c(@NonNull List<ks8> list) {
+    public void c(@NonNull List<ls8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, list) == null) {
             this.c.Y0().f(list);
@@ -560,10 +560,10 @@ public class InputDelegate {
         }
     }
 
-    public void b0(int i, @NonNull Object obj, @NonNull xk8 xk8Var) {
+    public void b0(int i, @NonNull Object obj, @NonNull yk8 yk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048605, this, i, obj, xk8Var) == null) {
-            this.c.g2(i, obj, xk8Var);
+        if (interceptable == null || interceptable.invokeILL(1048605, this, i, obj, yk8Var) == null) {
+            this.c.g2(i, obj, yk8Var);
         }
     }
 
@@ -581,17 +581,17 @@ public class InputDelegate {
         }
     }
 
-    public void e0(yk8 yk8Var, vk8 vk8Var) {
+    public void e0(zk8 zk8Var, wk8 wk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048611, this, yk8Var, vk8Var) == null) {
-            this.c.t2(yk8Var, vk8Var);
+        if (interceptable == null || interceptable.invokeLL(1048611, this, zk8Var, wk8Var) == null) {
+            this.c.t2(zk8Var, wk8Var);
         }
     }
 
-    public void g0(@NonNull String str, @NonNull lk8 lk8Var) {
+    public void g0(@NonNull String str, @NonNull mk8 mk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048615, this, str, lk8Var) == null) {
-            this.c.v2(str, lk8Var);
+        if (interceptable == null || interceptable.invokeLL(1048615, this, str, mk8Var) == null) {
+            this.c.v2(str, mk8Var);
         }
     }
 
@@ -604,10 +604,10 @@ public class InputDelegate {
         return invokeII.booleanValue;
     }
 
-    public void h0(@NonNull String str, @NonNull ok8 ok8Var) {
+    public void h0(@NonNull String str, @NonNull pk8 pk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048617, this, str, ok8Var) == null) {
-            this.c.w2(str, ok8Var);
+        if (interceptable == null || interceptable.invokeLL(1048617, this, str, pk8Var) == null) {
+            this.c.w2(str, pk8Var);
         }
     }
 
@@ -618,12 +618,12 @@ public class InputDelegate {
         }
     }
 
-    public void d0(@NonNull yk8 yk8Var, @NonNull BotsDTO botsDTO) {
+    public void d0(@NonNull zk8 zk8Var, @NonNull BotsDTO botsDTO) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048609, this, yk8Var, botsDTO) == null) {
-            f0(yk8Var.e());
-            if (yk8Var.b() != null && ListUtils.isNotEmpty(yk8Var.b())) {
-                c(yk8Var.b());
+        if (interceptable == null || interceptable.invokeLL(1048609, this, zk8Var, botsDTO) == null) {
+            f0(zk8Var.e());
+            if (zk8Var.b() != null && ListUtils.isNotEmpty(zk8Var.b())) {
+                c(zk8Var.b());
             }
             N(botsDTO);
             if (botsDTO.getGuide() != null) {

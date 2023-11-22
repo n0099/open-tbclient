@@ -1,7 +1,7 @@
 package com.baidu.tieba.feed.component.uistate;
 
 import android.content.Context;
-import com.baidu.tieba.e47;
+import com.baidu.tieba.f47;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import kotlin.jvm.functions.Function2;
 /* loaded from: classes5.dex */
 public final class CardReplyUiStateKt {
     public static /* synthetic */ Interceptable $ic;
-    public static final Function2<Context, e47, Unit> a;
+    public static final Function2<Context, f47, Unit> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

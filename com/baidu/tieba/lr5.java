@@ -1,64 +1,55 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.NetMessageListener;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.template.message.TemplateHttpResponseMessage;
-import com.baidu.tbadk.template.message.TemplateNetMessage;
-import com.baidu.tbadk.template.message.TemplateSocketResponsedMessage;
-import com.baidu.tieba.er5;
-import com.baidu.tieba.fr5;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.template.model.LoadType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class lr5<Q extends er5, P extends fr5> {
+public class lr5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<dq5> a;
-    public final BdPageContext<?> b;
-    public final gr5<Q, P> c;
-    public final Q d;
-    public final P e;
-    public final ir5 f;
-    public BdUniqueId g;
-    public boolean h;
-    public NetMessageListener i;
-    public TbHttpMessageTask j;
-    public SocketMessageTask k;
+    public BdUniqueId a;
+    public BdTypeRecyclerView b;
+    public final List<oi> c;
+    public CustomMessageListener d;
+    public CustomMessageListener e;
 
     /* loaded from: classes7.dex */
-    public class a extends NetMessageListener {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lr5 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(lr5 lr5Var, int i, int i2) {
-            super(i, i2);
+        public a(lr5 lr5Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lr5Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {lr5Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -67,22 +58,61 @@ public class lr5<Q extends er5, P extends fr5> {
             this.a = lr5Var;
         }
 
-        @Override // com.baidu.adp.framework.listener.NetMessageListener
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                ur5.b("TemplateModel-->onMessage");
-                this.a.n(responsedMessage);
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                lr5 lr5Var = this.a;
+                lr5Var.c(lr5Var.b, customResponsedMessage);
             }
         }
     }
 
-    public lr5(BdPageContext<?> bdPageContext, gr5<Q, P> gr5Var, ir5 ir5Var) {
+    /* loaded from: classes7.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lr5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(lr5 lr5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lr5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lr5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                lr5 lr5Var = this.a;
+                lr5Var.c(lr5Var.b, customResponsedMessage);
+            }
+        }
+    }
+
+    public lr5(BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdPageContext, gr5Var, ir5Var};
+            Object[] objArr = {bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -92,240 +122,141 @@ public class lr5<Q extends er5, P extends fr5> {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.h = false;
-        this.b = bdPageContext;
-        this.g = bdPageContext.getUniqueId();
-        this.c = gr5Var;
-        this.d = gr5Var.b();
-        this.e = this.c.d();
-        this.f = ir5Var;
-        o(d(), h(), e());
-        q(h());
-        p(d(), h());
+        this.c = new ArrayList();
+        this.d = new a(this, 2016488);
+        this.e = new b(this, 2016553);
+        this.b = bdTypeRecyclerView;
     }
 
-    public void l(Q q, boolean z) {
+    public final void c(BdTypeRecyclerView bdTypeRecyclerView, CustomResponsedMessage<?> customResponsedMessage) {
+        hz4 hz4Var;
+        ThreadData threadData;
+        ThreadData threadData2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048586, this, q, z) == null) {
-            for (dq5 dq5Var : this.a) {
-                dq5Var.b(q, z);
-            }
-        }
-    }
-
-    public void m(Q q, P p) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, q, p) == null) {
-            for (dq5 dq5Var : this.a) {
-                dq5Var.a(q, p);
-            }
-        }
-    }
-
-    public void b(dq5 dq5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, dq5Var) == null) && dq5Var != null && !this.a.contains(dq5Var)) {
-            this.a.add(dq5Var);
-        }
-    }
-
-    public final boolean c(ResponsedMessage<?> responsedMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responsedMessage)) == null) {
-            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != this.g) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean i(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-            ur5.b(" ----requestMessage---- ");
-            if (this.h) {
-                return false;
-            }
-            this.h = true;
-            l(f(), true);
-            r();
-            return true;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c.e();
-        }
-        return invokeV.intValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c.c();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Q f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (Q) invokeV.objValue;
-    }
-
-    public P g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return (P) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c.a();
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ur5.b(" ----loadMoreNetRequest---- ");
-            if (this.h) {
-                return false;
-            }
-            this.h = true;
-            l(f(), false);
-            r();
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.i);
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            TemplateNetMessage templateNetMessage = new TemplateNetMessage(this.c, this.d, this.e);
-            templateNetMessage.setTag(this.g);
-            MessageManager.getInstance().sendMessage(templateNetMessage, this.k, this.j);
-        }
-    }
-
-    public final void n(ResponsedMessage<?> responsedMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, responsedMessage) == null) {
-            this.h = false;
-            if (!c(responsedMessage) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof TemplateNetMessage)) {
-                return;
-            }
-            int error = responsedMessage.getError();
-            String errorString = responsedMessage.getErrorString();
-            if (responsedMessage.getError() == 0 && !responsedMessage.hasError()) {
-                if (responsedMessage instanceof TemplateSocketResponsedMessage) {
-                    TemplateSocketResponsedMessage templateSocketResponsedMessage = (TemplateSocketResponsedMessage) responsedMessage;
-                    m(f(), g());
-                    ir5 ir5Var = this.f;
-                    if (ir5Var != null) {
-                        ir5Var.onSuccess(templateSocketResponsedMessage.getIResp());
-                        return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, bdTypeRecyclerView, customResponsedMessage) == null) && bdTypeRecyclerView != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
+            JSONObject jSONObject = (JSONObject) customResponsedMessage.getData();
+            String optString = jSONObject.optString("tid");
+            if (StringUtils.isNull(optString)) {
+                String optString2 = jSONObject.optString("liveid");
+                if (bdTypeRecyclerView != null && !TextUtils.isEmpty(optString2)) {
+                    int i = 0;
+                    while (true) {
+                        if (i >= bdTypeRecyclerView.getCount()) {
+                            break;
+                        }
+                        oi item = bdTypeRecyclerView.getItem(i);
+                        if (item instanceof bw4) {
+                            bw4 bw4Var = (bw4) item;
+                            if (bw4Var.getThreadData() != null && bw4Var.getThreadData().getThreadAlaInfo() != null && optString2.equals(String.valueOf(bw4Var.getThreadData().getThreadAlaInfo().live_id))) {
+                                optString = bw4Var.getThreadData().getTid();
+                                break;
+                            }
+                        }
+                        i++;
                     }
-                    return;
-                } else if (responsedMessage instanceof TemplateHttpResponseMessage) {
-                    TemplateHttpResponseMessage templateHttpResponseMessage = (TemplateHttpResponseMessage) responsedMessage;
-                    m(f(), g());
-                    ir5 ir5Var2 = this.f;
-                    if (ir5Var2 != null) {
-                        ir5Var2.onSuccess(templateHttpResponseMessage.getIResp());
-                        return;
-                    }
-                    return;
-                } else {
-                    return;
                 }
             }
-            if (TextUtils.isEmpty(errorString)) {
-                errorString = TbadkCoreApplication.getInst().getString(R.string.data_load_error);
+            if (StringUtils.isNull(optString)) {
+                return;
             }
-            ir5 ir5Var3 = this.f;
-            if (ir5Var3 != null) {
-                ir5Var3.onError(error, errorString);
+            Iterator<oi> it = this.c.iterator();
+            while (it.hasNext()) {
+                oi next = it.next();
+                if ((next instanceof bw4) && (threadData2 = ((bw4) next).getThreadData()) != null && !TextUtils.isEmpty(threadData2.getTid()) && optString.equals(threadData2.getTid())) {
+                    it.remove();
+                }
+            }
+            List<oi> data = bdTypeRecyclerView.getData();
+            if (ListUtils.isEmpty(data)) {
+                return;
+            }
+            Iterator<oi> it2 = data.iterator();
+            int i2 = -1;
+            int i3 = -1;
+            int i4 = -1;
+            int i5 = 0;
+            while (it2.hasNext()) {
+                oi next2 = it2.next();
+                if ((next2 instanceof hz4) && (threadData = (hz4Var = (hz4) next2).t) != null) {
+                    if (i2 >= 0) {
+                        if (hz4Var.position != i2) {
+                            break;
+                        }
+                        it2.remove();
+                        i4 = i5;
+                    } else if (StringHelper.equals(optString, threadData.getTid())) {
+                        i2 = hz4Var.position;
+                        it2.remove();
+                        i3 = i5;
+                    }
+                }
+                i5++;
+            }
+            if (i3 < i4) {
+                bdTypeRecyclerView.removeItemList(i3, i4);
             }
         }
     }
 
-    public final void o(int i, int i2, String str) {
+    public cr5 d(LoadType loadType, dr5 dr5Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048589, this, i, i2, str) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, cra.a(str, i2));
-            tbHttpMessageTask.setIsNeedLogin(true);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-            tbHttpMessageTask.setResponsedClass(TemplateHttpResponseMessage.class);
-            MessageManager.getInstance().unRegisterTask(i);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            this.j = tbHttpMessageTask;
-        }
-    }
-
-    public final void p(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
-            if (this.i == null) {
-                this.i = new a(this, i, i2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, loadType, dr5Var)) == null) {
+            if (dr5Var == null) {
+                cr5 cr5Var = new cr5();
+                cr5Var.a = null;
+                return cr5Var;
             }
-            this.i.setTag(this.g);
-            this.i.getSocketMessageListener().isSelfListener();
-            this.i.getHttpMessageListener().isSelfListener();
-            MessageManager.getInstance().registerListener(this.i);
+            List<ThreadData> f = dr5Var.f();
+            List<bw4> e = dr5Var.e();
+            dr5Var.h(f);
+            vr5.b("response threadList =  " + ListUtils.getCount(f));
+            if (!ListUtils.isEmpty(f)) {
+                if (loadType == LoadType.REFRESH) {
+                    this.c.clear();
+                    this.c.addAll(f);
+                } else if (loadType == LoadType.PREPEND) {
+                    this.c.addAll(0, f);
+                } else {
+                    this.c.addAll(f);
+                }
+            }
+            ArrayList arrayList = new ArrayList(ListUtils.getCount(this.c) + ListUtils.getCount(e));
+            arrayList.addAll(this.c);
+            vr5.b("dataList = " + ListUtils.getCount(arrayList));
+            vr5.b("floorList = " + ListUtils.getCount(e));
+            if (!ListUtils.isEmpty(e)) {
+                for (bw4 bw4Var : e) {
+                    wr5.b(arrayList, bw4Var);
+                }
+            }
+            List<oi> d = dr5Var.d(arrayList);
+            if (d == null) {
+                d = wr5.a(arrayList);
+            }
+            int count = ListUtils.getCount(d);
+            int count2 = ListUtils.getCount(f);
+            vr5.b("addThreadCount=" + count2 + ",resultThreadList=" + count);
+            cr5 cr5Var2 = new cr5();
+            cr5Var2.a = d;
+            dr5Var.g(cr5Var2);
+            return cr5Var2;
         }
+        return (cr5) invokeLL.objValue;
     }
 
-    public final void q(int i) {
+    public void e(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            SocketMessageTask socketMessageTask = new SocketMessageTask(i);
-            socketMessageTask.setNeedAck(true);
-            socketMessageTask.setNeedCompress(false);
-            socketMessageTask.setNeedEncrypt(false);
-            socketMessageTask.setResponsedClass(TemplateSocketResponsedMessage.class);
-            MessageManager.getInstance().unRegisterTask(i);
-            MessageManager.getInstance().registerTask(socketMessageTask);
-            this.k = socketMessageTask;
-        }
-    }
-
-    public void s(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, bdUniqueId) == null) {
-            this.g = bdUniqueId;
-            o(d(), h(), e());
-            q(h());
-            p(d(), h());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+            if (this.a != bdUniqueId) {
+                this.d.setTag(bdUniqueId);
+                this.e.setTag(bdUniqueId);
+                MessageManager.getInstance().unRegisterListener(this.d);
+                MessageManager.getInstance().unRegisterListener(this.e);
+                MessageManager.getInstance().registerListener(this.d);
+                MessageManager.getInstance().registerListener(this.e);
+            }
+            this.a = bdUniqueId;
         }
     }
 }

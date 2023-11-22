@@ -4,24 +4,28 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.ToastContent;
+import tbclient.FeedContentResource;
+import tbclient.TitleComponent;
 /* loaded from: classes5.dex */
-public class d5d extends poc {
+public class d5d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ToastContent toastContent) {
+    public static JSONObject b(@NonNull TitleComponent titleComponent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, toastContent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, titleComponent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "text", toastContent.text);
-            poc.a(jSONObject, "has_color", toastContent.has_color);
-            poc.a(jSONObject, MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR, toastContent.text_color);
-            poc.a(jSONObject, "text_color_dark", toastContent.text_color_dark);
+            if (titleComponent.data != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (FeedContentResource feedContentResource : titleComponent.data) {
+                    jSONArray.put(gsc.b(feedContentResource));
+                }
+                qoc.a(jSONObject, "data", jSONArray);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

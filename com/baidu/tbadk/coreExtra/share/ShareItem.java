@@ -23,7 +23,7 @@ import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.ShareIMCommonCardData;
 import com.baidu.tieba.my0;
 import com.baidu.tieba.qd;
-import com.baidu.tieba.ura;
+import com.baidu.tieba.vra;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -309,10 +309,10 @@ public class ShareItem {
             return (ForwardInfo) invokeLI.objValue;
         }
 
-        public static ForwardInfo generateForwardInfo(ThreadData threadData, int i, ura uraVar) {
+        public static ForwardInfo generateForwardInfo(ThreadData threadData, int i, vra vraVar) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData, i, uraVar)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData, i, vraVar)) == null) {
                 String str = null;
                 if (threadData == null) {
                     return null;
@@ -334,8 +334,8 @@ public class ShareItem {
                     forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
                     forwardInfo.originalTid = originalThreadInfo.f;
                     if (i == 1) {
-                        if (uraVar != null && uraVar.e0() != null) {
-                            str = uraVar.e0().toString();
+                        if (vraVar != null && vraVar.e0() != null) {
+                            str = vraVar.e0().toString();
                         } else if (threadData.getAbstract() != null) {
                             str = threadData.getAbstractText().toString();
                         }
@@ -348,8 +348,8 @@ public class ShareItem {
                     if (threadData.getAuthor() != null && !TextUtils.isEmpty(threadData.getAuthor().getName_show())) {
                         forwardInfo.transmitThreadAuthorNameShow = threadData.getAuthor().getName_show();
                     }
-                    if (i == 1 && uraVar != null && qd.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && uraVar.t() != null) {
-                        forwardInfo.transmitThreadAuthorNameShow = uraVar.t().getName_show();
+                    if (i == 1 && vraVar != null && qd.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && vraVar.t() != null) {
+                        forwardInfo.transmitThreadAuthorNameShow = vraVar.t().getName_show();
                     }
                     if (i == 2 && qd.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
                         forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();

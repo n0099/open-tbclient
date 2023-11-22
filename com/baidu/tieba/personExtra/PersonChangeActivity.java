@@ -92,21 +92,21 @@ import com.baidu.tbadk.switchs.NickNameActivitySwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a05;
 import com.baidu.tieba.h05;
-import com.baidu.tieba.hq9;
-import com.baidu.tieba.hu5;
-import com.baidu.tieba.i78;
+import com.baidu.tieba.iq9;
+import com.baidu.tieba.iu5;
 import com.baidu.tieba.j05;
 import com.baidu.tieba.j78;
+import com.baidu.tieba.k78;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
 import com.baidu.tieba.personExtra.PersonChangeModel;
 import com.baidu.tieba.qd;
-import com.baidu.tieba.rh5;
-import com.baidu.tieba.vb5;
+import com.baidu.tieba.sh5;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.vsa;
+import com.baidu.tieba.wb5;
 import com.baidu.tieba.widget.InterestForumTagLayout;
 import com.baidu.tieba.widget.InterestForumTagView;
 import com.baidu.tieba.widget.ManualObservableScrollView;
+import com.baidu.tieba.wsa;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -124,7 +124,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public InputMethodManager A;
     public TextView A0;
     public PersonChangeModel B;
-    public i78 B0;
+    public j78 B0;
     public FrameLayout C;
     public boolean C0;
     public HeadImageView D;
@@ -165,7 +165,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public final WriteImagesInfo b;
     public PermissionJudgePolicy b0;
     public NavigationBar c;
-    public vb5 c0;
+    public wb5 c0;
     public TextView d;
     public LinearLayout d0;
     public EMTextView e;
@@ -608,7 +608,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 }
                 this.a.postMultiNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    vsa.j();
+                    wsa.j();
                 }
                 return null;
             }
@@ -1422,7 +1422,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     }
 
     /* loaded from: classes7.dex */
-    public class w implements i78.b {
+    public class w implements j78.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonChangeActivity a;
@@ -1445,7 +1445,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.a = personChangeActivity;
         }
 
-        @Override // com.baidu.tieba.i78.b
+        @Override // com.baidu.tieba.j78.b
         public void a(Date date, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, date, j) == null) {
@@ -1487,7 +1487,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public void onClick(zz4 zz4Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
-                BrowserHelper.startWebActivity((Context) this.a.getPageContext().getPageActivity(), (String) null, hq9.a(), true);
+                BrowserHelper.startWebActivity((Context) this.a.getPageContext().getPageActivity(), (String) null, iq9.a(), true);
                 zz4Var.dismiss();
             }
         }
@@ -1527,7 +1527,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     }
 
     /* loaded from: classes7.dex */
-    public class z implements vb5.e {
+    public class z implements wb5.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonChangeActivity a;
@@ -1550,7 +1550,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.a = personChangeActivity;
         }
 
-        @Override // com.baidu.tieba.vb5.e
+        @Override // com.baidu.tieba.wb5.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, accountData) != null) || accountData == null) {
@@ -1774,9 +1774,9 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, accountData) == null) {
             if (this.c0 == null) {
-                vb5 vb5Var = new vb5(this);
-                this.c0 = vb5Var;
-                vb5Var.w(new z(this));
+                wb5 wb5Var = new wb5(this);
+                this.c0 = wb5Var;
+                wb5Var.w(new z(this));
             }
             this.c0.p();
             this.c0.u(accountData);
@@ -1968,7 +1968,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             if (!this.C0) {
                 TiebaStatic.log("c12204");
             } else {
-                j78.b();
+                k78.b();
             }
             registerListener(this.J0);
             registerListener(this.K0);
@@ -2169,7 +2169,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             if (str == null || str.equals(this.B.S().getNameShow())) {
                 return true;
             }
-            if (hu5.c(this.a0) <= 20 && hu5.c(this.a0) >= 2) {
+            if (iu5.c(this.a0) <= 20 && iu5.c(this.a0) >= 2) {
                 return true;
             }
             return false;
@@ -2181,7 +2181,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         PersonChangeModel personChangeModel;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && (personChangeModel = this.B) != null && personChangeModel.S() != null) {
-            rh5.d().h();
+            sh5.d().h();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001380, this.B.S()));
         }
     }
@@ -2290,9 +2290,9 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             if (editText != null) {
                 editText.addTextChangedListener(null);
             }
-            vb5 vb5Var = this.c0;
-            if (vb5Var != null) {
-                vb5Var.s();
+            wb5 wb5Var = this.c0;
+            if (wb5Var != null) {
+                wb5Var.s();
             }
             if (this.E0 != null && (viewGroup = this.U) != null) {
                 viewGroup.getViewTreeObserver().removeGlobalOnLayoutListener(this.E0);
@@ -2351,16 +2351,16 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         TiebaStatic.log(statisticItem);
     }
 
-    public final i78 c2() {
+    public final j78 c2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             if (this.B0 == null) {
-                this.B0 = new i78(this);
+                this.B0 = new j78(this);
             }
             return this.B0;
         }
-        return (i78) invokeV.objValue;
+        return (j78) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -2375,13 +2375,13 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
     }
 
-    public final i78.b d2() {
+    public final j78.b d2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return new w(this);
         }
-        return (i78.b) invokeV.objValue;
+        return (j78.b) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -2657,7 +2657,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                             }
                             return;
                         } else if (view2 == this.A0) {
-                            j78.a();
+                            k78.a();
                             if (!this.M && !this.N) {
                                 finish();
                                 return;

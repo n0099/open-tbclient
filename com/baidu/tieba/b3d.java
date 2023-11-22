@@ -1,45 +1,48 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FeedContentText;
+import tbclient.ComponentFactory;
+import tbclient.FeedFeedback;
 import tbclient.FeedKV;
-import tbclient.SidewayRecomComponent;
+import tbclient.SidewayLayout;
 /* loaded from: classes5.dex */
-public class b3d extends poc {
+public class b3d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SidewayRecomComponent sidewayRecomComponent) {
+    public static JSONObject b(@NonNull SidewayLayout sidewayLayout) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, sidewayRecomComponent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, sidewayLayout)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "type", sidewayRecomComponent.type);
-            FeedContentText feedContentText = sidewayRecomComponent.title;
-            if (feedContentText != null) {
-                poc.a(jSONObject, "title", gsc.b(feedContentText));
-            }
-            FeedContentText feedContentText2 = sidewayRecomComponent.desc;
-            if (feedContentText2 != null) {
-                poc.a(jSONObject, "desc", gsc.b(feedContentText2));
-            }
-            poc.a(jSONObject, BigdayActivityConfig.IMG_URL, sidewayRecomComponent.img_url);
-            poc.a(jSONObject, "corner_url", sidewayRecomComponent.corner_url);
-            if (sidewayRecomComponent.business_info != null) {
+            if (sidewayLayout.components != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (FeedKV feedKV : sidewayRecomComponent.business_info) {
-                    jSONArray.put(tsc.b(feedKV));
+                for (ComponentFactory componentFactory : sidewayLayout.components) {
+                    jSONArray.put(erc.b(componentFactory));
                 }
-                poc.a(jSONObject, "business_info", jSONArray);
+                qoc.a(jSONObject, "components", jSONArray);
             }
-            poc.a(jSONObject, "schema", sidewayRecomComponent.schema);
+            ComponentFactory componentFactory2 = sidewayLayout.title;
+            if (componentFactory2 != null) {
+                qoc.a(jSONObject, "title", erc.b(componentFactory2));
+            }
+            FeedFeedback feedFeedback = sidewayLayout.feedback;
+            if (feedFeedback != null) {
+                qoc.a(jSONObject, "feedback", jsc.b(feedFeedback));
+            }
+            if (sidewayLayout.business_info != null) {
+                JSONArray jSONArray2 = new JSONArray();
+                for (FeedKV feedKV : sidewayLayout.business_info) {
+                    jSONArray2.put(usc.b(feedKV));
+                }
+                qoc.a(jSONObject, "business_info", jSONArray2);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

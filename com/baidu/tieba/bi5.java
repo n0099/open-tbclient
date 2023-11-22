@@ -7,8 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public class bi5 extends yh5 {
+public class bi5 extends zh5 {
     public static /* synthetic */ Interceptable $ic;
     public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +27,7 @@ public class bi5 extends yh5 {
                 return;
             }
         }
-        c = yh5.a("IDAT");
+        c = zh5.a("fdAT");
     }
 
     public bi5() {
@@ -40,6 +41,14 @@ public class bi5 extends yh5 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.zh5
+    public void b(gi5 gi5Var) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, gi5Var) == null) {
+            gi5Var.e();
         }
     }
 }

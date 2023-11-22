@@ -4,9 +4,9 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.aw7;
 import com.baidu.tieba.bw7;
-import com.baidu.tieba.hw7;
+import com.baidu.tieba.cw7;
+import com.baidu.tieba.iw7;
 import com.baidu.tieba.oi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,7 +22,7 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mHasMore;
-    public List<hw7> mTabList;
+    public List<iw7> mTabList;
     public List<oi> mThreadList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -57,7 +57,7 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
                 frsGameStrategyRequestMessage = null;
             }
             if (frsGameStrategyRequestMessage != null) {
-                new bw7().d(String.valueOf(frsGameStrategyRequestMessage.getFid()), bArr, false);
+                new cw7().d(String.valueOf(frsGameStrategyRequestMessage.getFid()), bArr, false);
             }
         }
     }
@@ -77,8 +77,8 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
                 setError(error.errorno.intValue());
                 setErrorString(gameForumGuideTabResIdl.error.errmsg);
             }
-            this.mTabList = aw7.a(gameForumGuideTabResIdl.data.sub_tab_list);
-            this.mThreadList = aw7.b(gameForumGuideTabResIdl.data.thread_list);
+            this.mTabList = bw7.a(gameForumGuideTabResIdl.data.sub_tab_list);
+            this.mThreadList = bw7.b(gameForumGuideTabResIdl.data.thread_list);
             if (gameForumGuideTabResIdl.data.has_more.intValue() == 1) {
                 z = true;
             }
@@ -86,7 +86,7 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
         }
     }
 
-    public List<hw7> getTabList() {
+    public List<iw7> getTabList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

@@ -1,72 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.gq9;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cu9 extends zt9<du9, CustomDialogData> {
+public class cu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.eu9
-    public boolean b() {
-        InterceptResult invokeV;
+    public static fu9 a(TbPageContext tbPageContext, IBaseDialogData iBaseDialogData) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.eu9
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cu9(TbPageContext tbPageContext, CustomDialogData customDialogData) {
-        super(tbPageContext, new du9(tbPageContext), customDialogData);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, customDialogData};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (fu9) objArr2[1], (IBaseDialogData) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, iBaseDialogData)) == null) {
+            if (tbPageContext == null || tbPageContext.getPageActivity() == null || iBaseDialogData == null || iBaseDialogData.getType() != 1) {
+                return null;
             }
+            StatisticItem statisticItem = new StatisticItem(gq9.a.a);
+            int i = 0;
+            int from = iBaseDialogData.getFrom();
+            if (from != 0) {
+                if (from != 1) {
+                    if (from == 2) {
+                        i = 4;
+                    }
+                } else {
+                    i = 3;
+                }
+            } else {
+                i = 2;
+            }
+            statisticItem.param("obj_type", i);
+            TiebaStatic.log(statisticItem);
+            return new du9(tbPageContext, (CustomDialogData) iBaseDialogData);
         }
-        V v = this.h;
-        if (v instanceof du9) {
-            ((du9) v).f(this);
-        }
-    }
-
-    @Override // com.baidu.tieba.eu9
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return BdUtilHelper.getDimens(this.c, R.dimen.obfuscated_res_0x7f070422);
-        }
-        return invokeV.intValue;
+        return (fu9) invokeLL.objValue;
     }
 }

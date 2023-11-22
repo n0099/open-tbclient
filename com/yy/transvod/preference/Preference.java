@@ -1,25 +1,25 @@
 package com.yy.transvod.preference;
 
-import com.baidu.tieba.bgc;
 import com.baidu.tieba.cgc;
-import com.baidu.tieba.fgc;
-import com.baidu.tieba.sfc;
-import com.baidu.tieba.ucc;
-import com.baidu.tieba.wfc;
+import com.baidu.tieba.dgc;
+import com.baidu.tieba.ggc;
+import com.baidu.tieba.tfc;
+import com.baidu.tieba.vcc;
 import com.baidu.tieba.xfc;
 import com.baidu.tieba.yfc;
+import com.baidu.tieba.zfc;
 import com.yy.transvod.net.NetRequestClientFactory;
 import com.yy.transvod.player.log.TLog;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes10.dex */
 public class Preference {
-    public static yfc a;
-    public static cgc b;
-    public static ucc c;
-    public static bgc d;
-    public static xfc e;
-    public static wfc f;
+    public static zfc a;
+    public static dgc b;
+    public static vcc c;
+    public static cgc d;
+    public static yfc e;
+    public static xfc f;
     public static boolean g;
     public static boolean h;
     public static AtomicInteger i = new AtomicInteger(0);
@@ -30,19 +30,19 @@ public class Preference {
 
     public static native void registerNetClientFactory(int i2, NetRequestClientFactory netRequestClientFactory);
 
-    public static wfc a() {
+    public static xfc a() {
         return f;
     }
 
-    public static yfc b() {
+    public static zfc b() {
         return a;
     }
 
-    public static ucc c() {
+    public static vcc c() {
         return c;
     }
 
-    public static bgc d() {
+    public static cgc d() {
         return d;
     }
 
@@ -59,28 +59,28 @@ public class Preference {
     }
 
     public static boolean h() {
-        return fgc.v.get();
+        return ggc.v.get();
     }
 
-    public static void i(wfc wfcVar) {
-        f = wfcVar;
+    public static void i(xfc xfcVar) {
+        f = xfcVar;
     }
 
-    public static void j(xfc xfcVar) {
-        e = xfcVar;
-        TLog.j(xfcVar);
+    public static void j(yfc yfcVar) {
+        e = yfcVar;
+        TLog.j(yfcVar);
     }
 
-    public static void l(cgc cgcVar) {
-        b = cgcVar;
-        sfc.a(cgcVar);
+    public static void l(dgc dgcVar) {
+        b = dgcVar;
+        tfc.a(dgcVar);
     }
 
     public static void k(HashMap<String, String> hashMap) {
         if (hashMap == null) {
             TLog.d("[vod-java]", "setMediaConfig fail, configs is null");
         }
-        fgc.n().u(hashMap);
+        ggc.n().u(hashMap);
         StringBuilder sb = new StringBuilder("mediaConfig:");
         for (String str : hashMap.keySet()) {
             sb.append(" ");

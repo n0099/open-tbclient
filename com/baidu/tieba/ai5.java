@@ -9,10 +9,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* loaded from: classes5.dex */
-public class ai5 extends yh5 {
+public class ai5 extends zh5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int c;
+    public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public short g;
+    public short h;
+    public byte i;
+    public byte j;
 
     static {
         InterceptResult invokeClinit;
@@ -27,7 +35,7 @@ public class ai5 extends yh5 {
                 return;
             }
         }
-        c = yh5.a("fdAT");
+        k = zh5.a("fcTL");
     }
 
     public ai5() {
@@ -44,11 +52,19 @@ public class ai5 extends yh5 {
         }
     }
 
-    @Override // com.baidu.tieba.yh5
-    public void b(fi5 fi5Var) throws IOException {
+    @Override // com.baidu.tieba.zh5
+    public void b(gi5 gi5Var) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fi5Var) == null) {
-            fi5Var.e();
+        if (interceptable == null || interceptable.invokeL(1048576, this, gi5Var) == null) {
+            gi5Var.e();
+            this.c = gi5Var.e();
+            this.d = gi5Var.e();
+            this.e = gi5Var.e();
+            this.f = gi5Var.e();
+            this.g = gi5Var.f();
+            this.h = gi5Var.f();
+            this.i = gi5Var.peek();
+            this.j = gi5Var.peek();
         }
     }
 }

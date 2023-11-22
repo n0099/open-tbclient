@@ -19,14 +19,14 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.switchs.UploadLogButtonSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cb9;
-import com.baidu.tieba.fa5;
-import com.baidu.tieba.mia;
-import com.baidu.tieba.pia;
+import com.baidu.tieba.db9;
+import com.baidu.tieba.ga5;
+import com.baidu.tieba.nia;
+import com.baidu.tieba.qia;
 import com.baidu.tieba.setting.model.AboutModel;
-import com.baidu.tieba.uia;
 import com.baidu.tieba.via;
 import com.baidu.tieba.w4;
+import com.baidu.tieba.wia;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,16 +36,16 @@ import java.util.Date;
 public class AboutActivity extends BaseActivity<AboutActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mia a;
+    public nia a;
     public AboutModel b;
     public c c;
     public String d;
-    public uia e;
-    public via f;
+    public via e;
+    public wia f;
     public int g;
 
     /* loaded from: classes8.dex */
-    public class a implements pia {
+    public class a implements qia {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AboutActivity a;
@@ -68,7 +68,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             this.a = aboutActivity;
         }
 
-        @Override // com.baidu.tieba.pia
+        @Override // com.baidu.tieba.qia
         public void a(int i) {
             String str;
             String fileDireciory;
@@ -99,7 +99,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 } else if (i == 5) {
                     if (this.a.e == null) {
                         AboutActivity aboutActivity = this.a;
-                        aboutActivity.e = new uia(aboutActivity.getActivity());
+                        aboutActivity.e = new via(aboutActivity.getActivity());
                         this.a.e.create(this.a.getPageContext());
                     }
                     this.a.e.show();
@@ -208,7 +208,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public final void U0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            cb9.b().a(true);
+            db9.b().a(true);
             AboutModel aboutModel = this.b;
             if (aboutModel == null) {
                 this.b = new AboutModel(this, new b(this));
@@ -216,9 +216,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 aboutModel.cancelLoadData();
             }
             this.b.S();
-            mia miaVar = this.a;
-            if (miaVar != null) {
-                miaVar.R();
+            nia niaVar = this.a;
+            if (niaVar != null) {
+                niaVar.R();
             }
         }
     }
@@ -233,17 +233,17 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (aboutModel != null) {
                 aboutModel.cancelLoadData();
             }
-            mia miaVar = this.a;
-            if (miaVar != null) {
-                miaVar.S();
+            nia niaVar = this.a;
+            if (niaVar != null) {
+                niaVar.S();
             }
-            uia uiaVar = this.e;
-            if (uiaVar != null) {
-                uiaVar.dismiss();
-            }
-            via viaVar = this.f;
+            via viaVar = this.e;
             if (viaVar != null) {
-                viaVar.i();
+                viaVar.dismiss();
+            }
+            wia wiaVar = this.f;
+            if (wiaVar != null) {
+                wiaVar.i();
                 this.f = null;
             }
         }
@@ -254,9 +254,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            mia miaVar = this.a;
-            if (miaVar != null) {
-                miaVar.Y(i);
+            nia niaVar = this.a;
+            if (niaVar != null) {
+                niaVar.Y(i);
             }
         }
     }
@@ -266,43 +266,43 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f = new via();
-            mia miaVar = new mia(this, new a(this));
-            this.a = miaVar;
-            miaVar.W();
+            this.f = new wia();
+            nia niaVar = new nia(this, new a(this));
+            this.a = niaVar;
+            niaVar.W();
             W0();
         }
     }
 
     public final void V0(Object obj) {
-        fa5 fa5Var;
+        ga5 ga5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            mia miaVar = this.a;
-            if (miaVar != null) {
-                miaVar.S();
+            nia niaVar = this.a;
+            if (niaVar != null) {
+                niaVar.S();
             }
             if (obj != null) {
-                fa5Var = (fa5) obj;
+                ga5Var = (ga5) obj;
             } else {
-                fa5Var = null;
+                ga5Var = null;
             }
-            if (fa5Var != null) {
-                TbadkCoreApplication.getInst().setVersionData(fa5Var.u());
+            if (ga5Var != null) {
+                TbadkCoreApplication.getInst().setVersionData(ga5Var.u());
                 TbadkCoreApplication.getInst().refreshNewVersion(false);
-                if (fa5Var.u().hasNewVer() && TbConfig.COULD_UPDATE) {
-                    if (fa5Var.u().forceUpdate()) {
-                        sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), fa5Var.u(), fa5Var.j())));
+                if (ga5Var.u().hasNewVer() && TbConfig.COULD_UPDATE) {
+                    if (ga5Var.u().forceUpdate()) {
+                        sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), ga5Var.u(), ga5Var.j())));
                     } else {
                         Long valueOf = Long.valueOf(new Date().getTime());
-                        CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), fa5Var.u(), fa5Var.j()));
+                        CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), ga5Var.u(), ga5Var.j()));
                         TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf.longValue());
                         sendMessage(customMessage);
                     }
                 }
-                mia miaVar2 = this.a;
-                if (miaVar2 != null) {
-                    miaVar2.W();
+                nia niaVar2 = this.a;
+                if (niaVar2 != null) {
+                    niaVar2.W();
                     return;
                 }
                 return;
@@ -341,9 +341,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
-            mia miaVar = this.a;
-            if (miaVar != null) {
-                miaVar.W();
+            nia niaVar = this.a;
+            if (niaVar != null) {
+                niaVar.W();
             }
         }
     }

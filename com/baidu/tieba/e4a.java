@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +16,7 @@ public class e4a extends BaseCardInfo implements oi {
     public static /* synthetic */ Interceptable $ic;
     public static BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ApkDownloadInfoData> a;
+    public List<n3a> a;
 
     static {
         InterceptResult invokeClinit;

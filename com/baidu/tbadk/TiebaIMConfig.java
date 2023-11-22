@@ -7,7 +7,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.tieba.jd;
-import com.baidu.tieba.uya;
+import com.baidu.tieba.vya;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +52,7 @@ public class TiebaIMConfig {
         }
         IM_ASYCTASK_UNIQUEID = BdUniqueId.gen();
         sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, IM_ASYCTASK_UNIQUEID);
-        String c = uya.c(AppRuntime.getAppContext(), "LCS_SERVER_ADDR");
+        String c = vya.c(AppRuntime.getAppContext(), "LCS_SERVER_ADDR");
         defaultUrl = c;
         url = c;
         reconStrategy = new int[]{30, 60, 300, 600, 1800, 3600, 7200, 14400};

@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import java.util.List;
 /* loaded from: classes9.dex */
 public interface zb8 {
-    void a(int i);
+    boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3);
 
-    void c();
+    boolean b(int i, kc8 kc8Var);
 
-    void onChangeSkinType(int i);
+    boolean c(int i);
 
     void setData(List<oi> list);
 }

@@ -54,10 +54,10 @@ public class uy extends ly {
     public static class c<T extends b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<C0501c<T>> a;
+        public List<C0498c<T>> a;
 
         /* loaded from: classes8.dex */
-        public class a implements Comparator<C0501c<T>> {
+        public class a implements Comparator<C0498c<T>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,18 +80,18 @@ public class uy extends ly {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             /* renamed from: a */
-            public int compare(C0501c<T> c0501c, C0501c<T> c0501c2) {
+            public int compare(C0498c<T> c0498c, C0498c<T> c0498c2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, c0501c, c0501c2)) == null) {
-                    return c0501c.a - c0501c2.a;
+                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, c0498c, c0498c2)) == null) {
+                    return c0498c.a - c0498c2.a;
                 }
                 return invokeLL.intValue;
             }
         }
 
         /* loaded from: classes8.dex */
-        public class b implements Comparator<C0501c<T>> {
+        public class b implements Comparator<C0498c<T>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -114,11 +114,11 @@ public class uy extends ly {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             /* renamed from: a */
-            public int compare(C0501c<T> c0501c, C0501c<T> c0501c2) {
+            public int compare(C0498c<T> c0498c, C0498c<T> c0498c2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, c0501c, c0501c2)) == null) {
-                    return c0501c2.a - c0501c.a;
+                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, c0498c, c0498c2)) == null) {
+                    return c0498c2.a - c0498c.a;
                 }
                 return invokeLL.intValue;
             }
@@ -126,13 +126,13 @@ public class uy extends ly {
 
         /* renamed from: com.baidu.tieba.uy$c$c  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0501c<T> {
+        public static class C0498c<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
             public T b;
 
-            public C0501c(T t) {
+            public C0498c(T t) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -183,7 +183,7 @@ public class uy extends ly {
             this.a = new ArrayList();
         }
 
-        public List<C0501c<T>> b() {
+        public List<C0498c<T>> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -194,7 +194,7 @@ public class uy extends ly {
             return (List) invokeV.objValue;
         }
 
-        public List<C0501c<T>> c() {
+        public List<C0498c<T>> c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -214,15 +214,15 @@ public class uy extends ly {
             return (String) invokeV.objValue;
         }
 
-        public C0501c a(T t) {
+        public C0498c a(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-                C0501c<T> c0501c = new C0501c<>(t);
-                this.a.add(c0501c);
-                return c0501c;
+                C0498c<T> c0498c = new C0498c<>(t);
+                this.a.add(c0498c);
+                return c0498c;
             }
-            return (C0501c) invokeL.objValue;
+            return (C0498c) invokeL.objValue;
         }
 
         public String d(int i) {
@@ -230,12 +230,12 @@ public class uy extends ly {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
                 StringBuilder sb = new StringBuilder();
-                List<C0501c<T>> b2 = b();
+                List<C0498c<T>> b2 = b();
                 sb.append("{");
-                for (C0501c<T> c0501c : b2) {
-                    sb.append(((b) c0501c.b).b());
+                for (C0498c<T> c0498c : b2) {
+                    sb.append(((b) c0498c.b).b());
                     sb.append(":");
-                    sb.append(c0501c.a / i);
+                    sb.append(c0498c.a / i);
                     sb.append("; ");
                 }
                 sb.append("}");
@@ -1569,16 +1569,16 @@ public class uy extends ly {
         return (ly.f) invokeL.objValue;
     }
 
-    public final d t(String str, int i2, List<c.C0501c<a>> list, List<c.C0501c<g>> list2, int i3, i iVar) {
+    public final d t(String str, int i2, List<c.C0498c<a>> list, List<c.C0498c<g>> list2, int i3, i iVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{str, Integer.valueOf(i2), list, list2, Integer.valueOf(i3), iVar})) == null) {
-            for (c.C0501c<a> c0501c : list) {
-                for (c.C0501c<g> c0501c2 : list2) {
-                    d d2 = d.d(c0501c2.c(), c0501c.c());
+            for (c.C0498c<a> c0498c : list) {
+                for (c.C0498c<g> c0498c2 : list2) {
+                    d d2 = d.d(c0498c2.c(), c0498c.c());
                     if (u(str, i2, d2, i3, iVar)) {
-                        c0501c.d();
-                        c0501c2.d();
+                        c0498c.d();
+                        c0498c2.d();
                         return d2;
                     }
                 }

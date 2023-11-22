@@ -21,10 +21,10 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aqa;
-import com.baidu.tieba.c1b;
+import com.baidu.tieba.bqa;
+import com.baidu.tieba.d1b;
 import com.baidu.tieba.qd;
-import com.baidu.tieba.qe8;
+import com.baidu.tieba.re8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,7 +39,7 @@ public class HomePageRecentForumItemLayout extends RelativeLayout {
     public View d;
     public BarImageView e;
     public TbImage f;
-    public qe8 g;
+    public re8 g;
     public ImageView h;
 
     public final void c() {
@@ -155,22 +155,22 @@ public class HomePageRecentForumItemLayout extends RelativeLayout {
         int f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            qe8 qe8Var = this.g;
+            re8 re8Var = this.g;
             int i2 = Integer.MAX_VALUE;
-            if (qe8Var != null && qe8Var.g() != null) {
-                i2 = aqa.f(c1b.d(this.g.g()));
-                i = aqa.f(c1b.f(this.g.g()));
+            if (re8Var != null && re8Var.g() != null) {
+                i2 = bqa.f(d1b.d(this.g.g()));
+                i = bqa.f(d1b.f(this.g.g()));
             } else {
                 i = Integer.MAX_VALUE;
             }
-            if (aqa.e(i2) || aqa.e(i)) {
+            if (bqa.e(i2) || bqa.e(i)) {
                 if (TbadkApplication.getInst().getSkinType() == 4) {
-                    f = aqa.f("#4D4070FF");
+                    f = bqa.f("#4D4070FF");
                 } else {
-                    f = aqa.f("#324070FF");
+                    f = bqa.f("#324070FF");
                 }
                 i2 = f;
-                i = aqa.f("#004070FF");
+                i = bqa.f("#004070FF");
             }
             EMManager.from(this.d).setCorner(R.string.J_X05).setGradientColorValue(new int[]{i2, i}, Direction.TOP);
         }
@@ -194,40 +194,40 @@ public class HomePageRecentForumItemLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onAttachedToWindow();
-            qe8 qe8Var = this.g;
-            if (qe8Var != null) {
-                f("c15375", qe8Var.e(), this.g.b(), this.g.d(), this.g.h());
+            re8 re8Var = this.g;
+            if (re8Var != null) {
+                f("c15375", re8Var.e(), this.g.b(), this.g.d(), this.g.h());
             }
         }
     }
 
-    public void setData(qe8 qe8Var) {
+    public void setData(re8 re8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, qe8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, re8Var) == null) {
             int i = 8;
-            if (qe8Var == null) {
+            if (re8Var == null) {
                 ViewCommonUtil.setVisibility(this, 8);
                 return;
             }
-            this.g = qe8Var;
-            String c = qe8Var.c();
+            this.g = re8Var;
+            String c = re8Var.c();
             String string = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0787);
             if (!qd.isEmpty(c) && !c.endsWith(string)) {
                 c = c + string;
             }
             this.c.setText(c);
             this.e.startLoad(this.g.a(), 10, false);
-            if (!qd.isEmpty(qe8Var.d())) {
-                if (qe8Var.j()) {
+            if (!qd.isEmpty(re8Var.d())) {
+                if (re8Var.j()) {
                     TbImage tbImage = this.f;
-                    if (!qe8Var.i()) {
+                    if (!re8Var.i()) {
                         i = 0;
                     }
                     ViewCommonUtil.setVisibility(tbImage, i);
                 } else {
                     ViewCommonUtil.setVisibility(this.f, 0);
                 }
-                this.f.l(qe8Var.d());
+                this.f.l(re8Var.d());
             } else {
                 ViewCommonUtil.setVisibility(this.f, 8);
             }

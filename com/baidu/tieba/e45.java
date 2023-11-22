@@ -14,7 +14,7 @@ public interface e45 {
 
     ChatRoomEntranceData getChatRoomEntranceData();
 
-    nc5 getFestivalConfigData();
+    oc5 getFestivalConfigData();
 
     IconPopData getIconPopData();
 

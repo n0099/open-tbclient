@@ -16,7 +16,7 @@ import com.baidu.tieba.im.base.core.uilist.BaseSysAdapter;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.TbRecallSysMsg;
 import com.baidu.tieba.im.under.common.uiliststyle.group.item.RecallSysItem;
-import com.baidu.tieba.uv8;
+import com.baidu.tieba.vv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -156,7 +156,7 @@ public class RecallAdapter extends BaseSysAdapter<RecallSysItem, Holder> {
                     holder.d.setText(R.string.obfuscated_res_0x7f0f097c);
                 }
             }
-            uv8.d("c15095", 3, this.l, this.m, TbadkCoreApplication.getCurrentAccount());
+            vv8.d("c15095", 3, this.l, this.m, TbadkCoreApplication.getCurrentAccount());
         }
     }
 }

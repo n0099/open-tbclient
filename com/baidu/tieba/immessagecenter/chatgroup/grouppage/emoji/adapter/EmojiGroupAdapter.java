@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.adapter.holder.EmojiGroupVH;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiGroupData;
-import com.baidu.tieba.v09;
-import com.baidu.tieba.x09;
+import com.baidu.tieba.w09;
+import com.baidu.tieba.y09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,15 +24,15 @@ public class EmojiGroupAdapter extends RecyclerView.Adapter<EmojiGroupVH> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public final x09 a;
+    public final y09 a;
     public final List<EmojiGroupData> b;
 
-    public EmojiGroupAdapter(@NonNull x09 x09Var) {
+    public EmojiGroupAdapter(@NonNull y09 y09Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x09Var};
+            Object[] objArr = {y09Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,7 +43,7 @@ public class EmojiGroupAdapter extends RecyclerView.Adapter<EmojiGroupVH> {
             }
         }
         this.b = new ArrayList();
-        this.a = x09Var;
+        this.a = y09Var;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -65,7 +65,7 @@ public class EmojiGroupAdapter extends RecyclerView.Adapter<EmojiGroupVH> {
             EmojiGroupData emojiGroupData = this.b.get(i);
             emojiGroupVH.a.setText(emojiGroupData.getGroupName());
             EMManager.from(emojiGroupVH.a).setTextColor(R.color.CAM_X0109);
-            ((v09) emojiGroupVH.b.getAdapter()).d(emojiGroupData.getReactions());
+            ((w09) emojiGroupVH.b.getAdapter()).d(emojiGroupData.getReactions());
         }
     }
 

@@ -220,7 +220,7 @@ public class dp4 {
                 if (userData.isNewGod()) {
                     TextView textView4 = new TextView(context);
                     textView4.setPadding(dimenPixelSize, dimenPixelSize2, dimenPixelSize, dimenPixelSize2);
-                    textView4.setText(userData.getNewGodData().getFieldName() + nu5.a(userData.getNewGodData()));
+                    textView4.setText(userData.getNewGodData().getFieldName() + ou5.a(userData.getNewGodData()));
                     textView4.setTextSize(0, (float) UtilHelper.getDimenPixelSize(R.dimen.T_X09));
                     linearLayout.addView(textView4);
                     textView4.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
@@ -270,10 +270,10 @@ public class dp4 {
             }
             textView6.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) viewGroup.findViewById(R.id.jump_user_detail_btn);
-            u55 u55Var = new u55();
-            u55Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
+            v55 v55Var = new v55();
+            v55Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
             tBSpecificationBtn.setTextSize(R.dimen.T_X05);
-            tBSpecificationBtn.setConfig(u55Var);
+            tBSpecificationBtn.setConfig(v55Var);
             tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.browse_user_detail));
             tBSpecificationBtn.setOnClickListener(new a(this, userData, tbPageContext));
             this.a = new no4(tbPageContext);

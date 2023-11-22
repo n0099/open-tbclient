@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
 import com.baidu.tieba.ad.browser.newstyle.TBAdWebView;
-import com.baidu.tieba.eea;
 import com.baidu.tieba.fea;
+import com.baidu.tieba.gea;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
 import com.baidu.tieba.recapp.view.WebViewContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     public int K;
     public int L;
     public int M;
-    public eea N;
+    public fea N;
     public WebViewContainer.OnScrollChangedCallback O;
 
     /* loaded from: classes8.dex */
@@ -217,7 +217,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 if (this.M == 14) {
                     Integer valueOf = Integer.valueOf(BdUtilHelper.getEquipmentWidth(getActivity()));
                     builder.video_height = valueOf;
-                    builder.video_width = Integer.valueOf(fea.c(valueOf.intValue()));
+                    builder.video_width = Integer.valueOf(gea.c(valueOf.intValue()));
                 } else {
                     Integer valueOf2 = Integer.valueOf(BdUtilHelper.getEquipmentWidth(getActivity()));
                     builder.video_width = valueOf2;
@@ -236,9 +236,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 int intValue2 = build.video_height.intValue();
                 this.J = intValue2;
                 this.L = intValue2 / 2;
-                eea eeaVar = this.N;
-                if (eeaVar != null) {
-                    this.D.setVideoTailFrameData(eeaVar);
+                fea feaVar = this.N;
+                if (feaVar != null) {
+                    this.D.setVideoTailFrameData(feaVar);
                 }
                 this.D.setPageContext(getPageContext());
                 this.D.setData(build, 2, getPageContext());
@@ -281,9 +281,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 this.M = intent.getIntExtra(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 7);
                 String stringExtra = intent.getStringExtra(AdWebVideoActivityConfig.KEY_TAIL_FRAME);
                 if (!TextUtils.isEmpty(stringExtra)) {
-                    eea eeaVar = new eea();
-                    this.N = eeaVar;
-                    eeaVar.c(stringExtra);
+                    fea feaVar = new fea();
+                    this.N = feaVar;
+                    feaVar.c(stringExtra);
                 }
             } else if (bundle != null) {
                 this.F = bundle.getString("video_url");

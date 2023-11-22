@@ -82,14 +82,14 @@ public class p45 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ShareEvent) && ((ShareEvent) customResponsedMessage.getData()).status == 1) {
-                ab5.d(((ShareEvent) customResponsedMessage.getData()).channel);
+                bb5.d(((ShareEvent) customResponsedMessage.getData()).channel);
                 this.a.k();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class b extends CustomMessageListener {
+    public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

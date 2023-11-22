@@ -172,7 +172,7 @@ public interface fq1 {
 
         /* renamed from: com.baidu.tieba.fq1$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0289b implements zk3<ISwanApkFetcher> {
+        public class C0288b implements zk3<ISwanApkFetcher> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
@@ -180,7 +180,7 @@ public interface fq1 {
             public final /* synthetic */ String c;
             public final /* synthetic */ boolean d;
 
-            public C0289b(b bVar, String str, String str2, String str3, boolean z) {
+            public C0288b(b bVar, String str, String str2, String str3, boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -651,7 +651,7 @@ public interface fq1 {
                 if (TextUtils.isEmpty(optString)) {
                     y53.g(AppRuntime.getAppContext(), "download url is empty");
                     return false;
-                } else if (p(new C0289b(this, optString, optString2, optString3, optBoolean))) {
+                } else if (p(new C0288b(this, optString, optString2, optString3, optBoolean))) {
                     return true;
                 } else {
                     i13.e("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new c(this, optString, optString2, optString3, optBoolean, context));

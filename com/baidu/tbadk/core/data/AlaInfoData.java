@@ -108,7 +108,7 @@ public class AlaInfoData implements Serializable, Parcelable, Cloneable {
     }
 
     /* loaded from: classes4.dex */
-    public static class a implements Parcelable.Creator<AlaInfoData> {
+    public class a implements Parcelable.Creator<AlaInfoData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

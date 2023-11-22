@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.topic;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.cra;
+import com.baidu.tieba.dra;
 import com.baidu.tieba.homepage.BlessHttpResponseMessage;
 import com.baidu.tieba.homepage.BlessSocketResponseMessage;
 import com.baidu.tieba.homepage.hotTopic.tab.net.HotTopicTabHttpResponse;
@@ -55,22 +55,22 @@ public class TopicStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            cra.c(309661, CmdConfigHttp.CMD_HOT_TOPIC_TAB, TbConfig.URL_GET_HOT_TOPIC_TAB, HotTopicTabHttpResponse.class, false, false, true, false);
+            dra.c(309661, CmdConfigHttp.CMD_HOT_TOPIC_TAB, TbConfig.URL_GET_HOT_TOPIC_TAB, HotTopicTabHttpResponse.class, false, false, true, false);
         }
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            cra.c(309628, CmdConfigHttp.CMD_TOPIC_LIST, TbConfig.URL_GET_TAB_TOPIC_LIST, ResponseHttpGetTopicListMessage.class, false, false, true, false);
+            dra.c(309628, CmdConfigHttp.CMD_TOPIC_LIST, TbConfig.URL_GET_TAB_TOPIC_LIST, ResponseHttpGetTopicListMessage.class, false, false, true, false);
         }
     }
 
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            cra.h(309085, BlessSocketResponseMessage.class, false, false);
-            cra.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
+            dra.h(309085, BlessSocketResponseMessage.class, false, false);
+            dra.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
         }
     }
 }

@@ -1,66 +1,86 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.SelectForumConfig;
-import com.baidu.tbadk.core.data.GameData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.message.EvaluateRelevanceItemSelectedMessage;
+import com.baidu.tbadk.coreExtra.data.HeadItem;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.data.SelectForumData;
-import com.baidu.tieba.tfb;
-import com.baidu.tieba.write.view.ForumSelectedView;
+import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
+import com.baidu.tieba.write.view.WriteEvaluationHeaderView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.ThemeColorInfo;
+import com.google.gson.Gson;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class vdb extends ieb<web> {
+public class vdb extends jeb<web> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public ForumSelectedView g;
-    @Nullable
-    public tfb h;
-    @Nullable
-    public SelectForumData i;
-    public final tfb.b j;
+    public WriteEvaluationHeaderView g;
+    public final CustomMessageListener h;
 
-    @Override // com.baidu.tieba.neb
-    public void c(@NonNull WriteData writeData) {
+    public final int D(double d) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.neb
-    public void d(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, writeData) == null) {
-        }
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d)})) == null) ? (int) ((d + 1.0d) / 2.0d) : invokeCommon.intValue;
     }
 
     /* loaded from: classes8.dex */
-    public class a implements tfb.b {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vdb a;
 
-        public a(vdb vdbVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(vdb vdbVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vdbVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vdbVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof EvaluateRelevanceItemSelectedMessage)) {
+                return;
+            }
+            this.a.E((EvaluateRelevanceItemSelectedMessage) customResponsedMessage);
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements WriteEvaluationHeaderView.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vdb a;
+
+        public b(vdb vdbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,21 +98,12 @@ public class vdb extends ieb<web> {
             this.a = vdbVar;
         }
 
-        @Override // com.baidu.tieba.tfb.b
-        public void a(@NonNull SelectForumData selectForumData) {
+        @Override // com.baidu.tieba.write.view.WriteEvaluationHeaderView.c
+        public void onClose() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, selectForumData) != null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
+                this.a.b.j();
             }
-            this.a.i = selectForumData;
-            if (this.a.e != null) {
-                this.a.e.setForumId(selectForumData.forumId);
-                this.a.e.setForumName(selectForumData.forumName);
-            }
-            if (this.a.g != null) {
-                this.a.g.setSelectedForum(selectForumData.forumName);
-            }
-            this.a.y(selectForumData);
         }
     }
 
@@ -115,163 +126,153 @@ public class vdb extends ieb<web> {
                 return;
             }
         }
-        this.j = new a(this);
+        this.h = new a(this, 2921516);
     }
 
-    @Override // com.baidu.tieba.ieb, com.baidu.tieba.neb
-    public void q(@NonNull List<neb<?>> list) {
+    @Override // com.baidu.tieba.oeb
+    public void c(@NonNull WriteData writeData) {
+        WriteEvaluationHeaderView writeEvaluationHeaderView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            super.q(list);
-            for (neb<?> nebVar : list) {
-                if (nebVar instanceof wdb) {
-                    w((wdb) nebVar);
-                } else if (nebVar instanceof eeb) {
-                    w((eeb) nebVar);
-                } else if (nebVar instanceof sdb) {
-                    w((sdb) nebVar);
-                }
-            }
+        if ((interceptable != null && interceptable.invokeL(1048580, this, writeData) != null) || (writeEvaluationHeaderView = this.g) == null) {
+            return;
+        }
+        writeData.setItemInfo(writeEvaluationHeaderView.getEvaluateItemInfo());
+        writeData.setEvaluationStar(this.g.getStarCount());
+    }
+
+    @Override // com.baidu.tieba.jeb, com.baidu.tieba.oeb
+    public void j(@NonNull qeb qebVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, qebVar) == null) {
+            super.j(qebVar);
+            this.a.registerListener(this.h);
         }
     }
 
-    @Override // com.baidu.tieba.neb
-    public void a(WriteData writeData) {
-        SelectForumData selectForumData;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) && (selectForumData = this.i) != null) {
-            writeData.setForumId(selectForumData.forumId);
-            writeData.setForumName(this.i.forumName);
-        }
-    }
-
-    @Override // com.baidu.tieba.neb
+    @Override // com.baidu.tieba.oeb
     public void onChangeSkinType(int i) {
-        ForumSelectedView forumSelectedView;
+        WriteEvaluationHeaderView writeEvaluationHeaderView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (forumSelectedView = this.g) != null) {
-            forumSelectedView.c();
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (writeEvaluationHeaderView = this.g) != null) {
+            writeEvaluationHeaderView.f();
         }
     }
 
-    public final boolean F() {
+    public final String C() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WriteData writeData = this.e;
-            if (writeData != null && "2".equals(writeData.getCallFrom())) {
-                return TextUtils.isEmpty(this.e.getForumName());
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ieb, com.baidu.tieba.neb
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.b();
-            tfb tfbVar = this.h;
-            if (tfbVar != null) {
-                tfbVar.d();
-            }
-        }
-    }
-
-    public final void G() {
-        ThemeColorInfo themeColorInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            dq6 dq6Var = new dq6(this.a, this.c);
-            dq6Var.L(R.drawable.bg_tip_blue_dropup_left);
-            if (kh5.b().a() != null) {
-                themeColorInfo = kh5.b().a().f;
+            ArrayList arrayList = new ArrayList();
+            WriteEvaluationHeaderView writeEvaluationHeaderView = this.g;
+            if (writeEvaluationHeaderView != null) {
+                i = writeEvaluationHeaderView.getStarCount();
             } else {
-                themeColorInfo = null;
+                i = 0;
             }
-            dq6Var.M(SkinManager.getColorFromServerColor(themeColorInfo, R.color.CAM_X0301));
-            dq6Var.o(32);
-            dq6Var.l(4);
-            dq6Var.Q(-50);
-            dq6Var.R(-10);
-            dq6Var.J(R.dimen.T_X08);
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X006);
-            dq6Var.E(dimenPixelSize, UtilHelper.getDimenPixelSize(R.dimen.tbds40), dimenPixelSize, UtilHelper.getDimenPixelSize(R.dimen.tbds23));
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1474);
-            if (kh5.b().a() != null && !TextUtils.isEmpty(kh5.b().a().d)) {
-                string = kh5.b().a().d;
-            }
-            if (StringHelper.getChineseAndEnglishLength(string) > 40) {
-                dq6Var.Q(0);
-            }
-            dq6Var.T(string, qd7.a("springfestival", "write_select_forum"));
+            arrayList.add(new HeadItem("", String.valueOf(i), 2));
+            return new Gson().toJson(arrayList);
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ieb, com.baidu.tieba.neb
-    public void j(@NonNull peb pebVar) {
-        WriteData writeData;
+    public final void E(EvaluateRelevanceItemSelectedMessage evaluateRelevanceItemSelectedMessage) {
+        WriteEvaluationHeaderView writeEvaluationHeaderView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, pebVar) == null) {
-            super.j(pebVar);
-            if (this.h == null) {
-                tfb tfbVar = new tfb();
-                this.h = tfbVar;
-                tfbVar.c(this.j);
-            }
-            this.h.b(this.a.getUniqueId());
-            if (lh5.b.a().a("show_write_tip") && (writeData = this.e) != null && "springfestival".equals(writeData.getActiveName()) && "write_select_forum".equals(this.e.getActiveTaskName())) {
-                G();
-            }
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, evaluateRelevanceItemSelectedMessage) != null) || (writeEvaluationHeaderView = this.g) == null) {
+            return;
         }
+        writeEvaluationHeaderView.setVisibility(0);
+        TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo = new TbRichTextEvaluateItemInfo();
+        tbRichTextEvaluateItemInfo.setItemID(evaluateRelevanceItemSelectedMessage.item_id);
+        tbRichTextEvaluateItemInfo.setTags(evaluateRelevanceItemSelectedMessage.tags);
+        tbRichTextEvaluateItemInfo.setScore(evaluateRelevanceItemSelectedMessage.score);
+        tbRichTextEvaluateItemInfo.setStar(evaluateRelevanceItemSelectedMessage.star);
+        tbRichTextEvaluateItemInfo.setIconUrl(evaluateRelevanceItemSelectedMessage.icon_url);
+        tbRichTextEvaluateItemInfo.setIconSize(evaluateRelevanceItemSelectedMessage.icon_size);
+        tbRichTextEvaluateItemInfo.setTitle(evaluateRelevanceItemSelectedMessage.item_name);
+        this.g.setItemInfo(tbRichTextEvaluateItemInfo);
     }
 
-    @Override // com.baidu.tieba.ieb, com.baidu.tieba.neb
-    public boolean o() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.oeb
+    public void a(WriteData writeData) {
+        WriteEvaluationHeaderView writeEvaluationHeaderView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (F()) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectForumConfig(this.a.getPageActivity())));
-                return false;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) && (writeEvaluationHeaderView = this.g) != null) {
+            writeData.setItemInfo(writeEvaluationHeaderView.getEvaluateItemInfo());
+            if (this.g.getEvaluateItemInfo() != null) {
+                writeData.setItem_id(this.g.getEvaluateItemInfo().getItemID());
+                writeData.setComment_head(C());
             }
-            return true;
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.neb
+    @Override // com.baidu.tieba.oeb
+    public void d(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, writeData) == null) && this.g != null && writeData.getItemInfo() != null) {
+            WriteData writeData2 = this.e;
+            if (writeData2 != null) {
+                writeData2.setItemInfo(writeData.getItemInfo());
+                this.e.setEvaluationStar(writeData.getEvaluationStar());
+            }
+            this.g.setItemInfo(writeData.getItemInfo());
+            this.g.setStarCount(writeData.getEvaluationStar());
+        }
+    }
+
+    @Override // com.baidu.tieba.oeb
     public View s(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d053d, viewGroup, false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0536, viewGroup, false);
             this.c = inflate;
-            ForumSelectedView forumSelectedView = (ForumSelectedView) inflate.findViewById(R.id.obfuscated_res_0x7f0921cc);
-            this.g = forumSelectedView;
-            WriteData writeData = this.e;
-            if (writeData != null && forumSelectedView != null) {
-                if ("main_tab".equals(writeData.getFrom()) && !this.e.isFromErrorDialog()) {
-                    this.g.setVisibility(0);
-                } else if (!TextUtils.isEmpty(this.e.getForumName())) {
-                    this.g.setVisibility(0);
-                    this.g.setSelectedForum(this.e.getForumName());
-                    if (this.e.isFromGameRank()) {
-                        GameData gameData = new GameData();
-                        gameData.gameId = this.e.getGameId();
-                        gameData.gameName = this.e.getGameName();
-                        this.g.setGameData(gameData);
-                    } else {
-                        this.g.a();
-                        this.g.setOnClickListener(null);
+            WriteEvaluationHeaderView writeEvaluationHeaderView = (WriteEvaluationHeaderView) inflate.findViewById(R.id.obfuscated_res_0x7f092ad0);
+            this.g = writeEvaluationHeaderView;
+            if (writeEvaluationHeaderView != null) {
+                writeEvaluationHeaderView.setItemCloseListener(new b(this));
+                WriteData writeData = this.e;
+                if (writeData != null) {
+                    if (writeData.isFromItemDetail()) {
+                        this.g.setShowItemInfo(false);
                     }
-                } else {
-                    this.g.setVisibility(8);
+                    if (this.e.getIntentItemInfo() != null) {
+                        TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo = new TbRichTextEvaluateItemInfo();
+                        tbRichTextEvaluateItemInfo.setItemID(String.valueOf(this.e.getIntentItemInfo().id));
+                        tbRichTextEvaluateItemInfo.setTags(this.e.getIntentItemInfo().tags);
+                        tbRichTextEvaluateItemInfo.setScore(this.e.getIntentItemInfo().averageScore);
+                        tbRichTextEvaluateItemInfo.setStar(D(this.e.getIntentItemInfo().averageScore));
+                        tbRichTextEvaluateItemInfo.setIconUrl(this.e.getIntentItemInfo().icon_url);
+                        tbRichTextEvaluateItemInfo.setIconSize(this.e.getIntentItemInfo().icon_size);
+                        tbRichTextEvaluateItemInfo.setTitle(this.e.getIntentItemInfo().name);
+                        this.g.setItemInfo(tbRichTextEvaluateItemInfo);
+                        this.g.setStarCount(this.e.getIntentStarCount());
+                        this.e.setItemInfo(tbRichTextEvaluateItemInfo);
+                        WriteData writeData2 = this.e;
+                        writeData2.setEvaluationStar(writeData2.getIntentStarCount());
+                    } else if (this.e.getItemInfo() != null) {
+                        this.g.setItemInfo(this.e.getItemInfo());
+                        this.g.setStarCount(this.e.getEvaluationStar());
+                    }
                 }
             }
             return this.c;
         }
         return (View) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.jeb, com.baidu.tieba.oeb
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            WriteEvaluationHeaderView writeEvaluationHeaderView = this.g;
+            if (writeEvaluationHeaderView != null && writeEvaluationHeaderView.e()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

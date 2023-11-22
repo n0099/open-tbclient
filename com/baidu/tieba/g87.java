@@ -1,24 +1,17 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.ComponentFactory;
-import tbclient.FrsTopThreadCardLayout;
-import tbclient.FrsTopThreadComponent;
-import tbclient.LayoutFactory;
 /* loaded from: classes6.dex */
-public final class g87 implements i87<LayoutFactory> {
+public class g87 extends d87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
 
     public g87() {
         Interceptable interceptable = $ic;
@@ -30,62 +23,42 @@ public final class g87 implements i87<LayoutFactory> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = "";
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i87
-    /* renamed from: a */
-    public za7<?> b(LayoutFactory layoutFactory) {
-        InterceptResult invokeL;
-        FrsTopThreadCardLayout frsTopThreadCardLayout;
-        boolean z;
-        FrsTopThreadComponent frsTopThreadComponent;
-        q77 a;
+    @Override // com.baidu.tieba.d87
+    @Nullable
+    public Object e(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, layoutFactory)) == null) {
-            if (layoutFactory != null) {
-                frsTopThreadCardLayout = layoutFactory.frs_top_thread_card;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (str.hashCode() == 155229553 && str.equals("click_back_card")) {
+                c = 0;
             } else {
-                frsTopThreadCardLayout = null;
+                c = 65535;
             }
-            if (frsTopThreadCardLayout != null) {
-                List<ComponentFactory> list = layoutFactory.frs_top_thread_card.components;
-                if (list != null && !list.isEmpty()) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (!z) {
-                    ArrayList arrayList = new ArrayList();
-                    for (ComponentFactory componentFactory : layoutFactory.frs_top_thread_card.components) {
-                        if (Intrinsics.areEqual(componentFactory.component, "frs_top_thread") && (frsTopThreadComponent = componentFactory.frs_top_thread) != null && (a = d97.a(frsTopThreadComponent)) != null) {
-                            arrayList.add(a);
-                        }
-                    }
-                    return new ab7(new t47(arrayList, this.a, this.b), "feed_top_card");
-                }
+            if (c != 0) {
+                return super.e(str, str2);
             }
-            return null;
+            return wz4.b(str2);
         }
-        return (za7) invokeL.objValue;
+        return invokeLL.objValue;
     }
 
-    public final void c(boolean z) {
+    @Override // com.baidu.tieba.d87
+    @NonNull
+    public ab7<?> h(@NonNull f57<?> f57Var, @NonNull a67 a67Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f57Var, a67Var)) == null) {
+            o57 o57Var = new o57();
+            o57Var.c = f57Var;
+            o57Var.b = a67Var.a();
+            o57Var.a = a67Var.c();
+            return o57Var;
         }
-    }
-
-    public final void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.b = str;
-        }
+        return (ab7) invokeLL.objValue;
     }
 }

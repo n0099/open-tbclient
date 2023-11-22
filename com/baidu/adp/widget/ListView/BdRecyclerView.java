@@ -23,7 +23,7 @@ import com.baidu.tieba.ei;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.si;
-import com.baidu.tieba.us5;
+import com.baidu.tieba.vs5;
 import com.baidu.tieba.xf;
 import com.baidu.tieba.z4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -766,7 +766,7 @@ public class BdRecyclerView extends RecyclerView implements qi<BdRecyclerView> {
             try {
                 super.removeViewAt(i2);
             } catch (NullPointerException e2) {
-                us5.a(this, i2, e2);
+                vs5.a(this, i2, e2);
                 throw e2;
             }
         }

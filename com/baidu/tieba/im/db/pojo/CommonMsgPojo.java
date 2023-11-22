@@ -12,9 +12,9 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import com.baidu.tieba.iw8;
 import com.baidu.tieba.jw8;
-import com.baidu.tieba.lt8;
+import com.baidu.tieba.kw8;
+import com.baidu.tieba.mt8;
 import com.baidu.tieba.qd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -121,7 +121,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
                 if (jSONObject != null) {
                     j = jSONObject.optLong("msg_id");
                 }
-                this.illegalMsgId = iw8.a(j);
+                this.illegalMsgId = jw8.a(j);
             }
             return this.illegalMsgId;
         }
@@ -172,9 +172,9 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(lt8.j);
+                this.gid = String.valueOf(mt8.j);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                this.gid = String.valueOf(lt8.k);
+                this.gid = String.valueOf(mt8.k);
             }
             this.mid = chatMessage.getMsgId();
             this.uid = String.valueOf(chatMessage.getUserId());
@@ -662,7 +662,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
                     toUserInfo = personalChatMessage.getToUserInfo();
                     if (toUserInfo != null) {
                     }
-                    jw8.s(personalChatMessage);
+                    kw8.s(personalChatMessage);
                     personalChatMessage.setIsFriend(this.isFriend);
                     personalChatMessage.setFollowStatus(this.followStatus);
                     return personalChatMessage;
@@ -713,7 +713,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
                     }
                     personalChatMessage2.setToUserId(j5);
                 }
-                jw8.s(personalChatMessage2);
+                kw8.s(personalChatMessage2);
                 personalChatMessage2.setIsFriend(this.isFriend);
                 personalChatMessage2.setFollowStatus(this.followStatus);
                 return personalChatMessage2;
@@ -742,7 +742,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             toUserInfo = personalChatMessage22.getToUserInfo();
             if (toUserInfo != null) {
             }
-            jw8.s(personalChatMessage22);
+            kw8.s(personalChatMessage22);
             personalChatMessage22.setIsFriend(this.isFriend);
             personalChatMessage22.setFollowStatus(this.followStatus);
             return personalChatMessage22;

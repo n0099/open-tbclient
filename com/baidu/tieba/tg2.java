@@ -27,12 +27,12 @@ public class tg2 {
 
         /* renamed from: com.baidu.tieba.tg2$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0486a implements zk3<Exception> {
+        public class C0481a implements zk3<Exception> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0486a(a aVar) {
+            public C0481a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +100,7 @@ public class tg2 {
                     return;
                 }
                 g32.k("SwanAppCoresManager", "ensureSwanCore: update preset failed ");
-                lf3.o(this.b, new C0486a(this));
+                lf3.o(this.b, new C0481a(this));
             }
         }
     }

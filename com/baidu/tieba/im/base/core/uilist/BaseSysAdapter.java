@@ -10,11 +10,11 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.en8;
+import com.baidu.tieba.fn8;
 import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.TbSysMsg;
-import com.baidu.tieba.jn8;
+import com.baidu.tieba.kn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class BaseSysAdapter<ChildItemData extends BaseItem<? extends TbSysMsg>, ChildViewHolder extends BaseViewHolder> extends en8<ChildItemData, Holder<ChildViewHolder>> {
+public abstract class BaseSysAdapter<ChildItemData extends BaseItem<? extends TbSysMsg>, ChildViewHolder extends BaseViewHolder> extends fn8<ChildItemData, Holder<ChildViewHolder>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,11 +80,11 @@ public abstract class BaseSysAdapter<ChildItemData extends BaseItem<? extends Tb
         }
 
         @Override // com.baidu.tieba.im.base.core.uilist.BaseViewHolder
-        public void d(@NonNull jn8 jn8Var) {
+        public void d(@NonNull kn8 kn8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jn8Var) == null) {
-                super.d(jn8Var);
-                this.a.d(jn8Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kn8Var) == null) {
+                super.d(kn8Var);
+                this.a.d(kn8Var);
             }
         }
     }
@@ -147,7 +147,7 @@ public abstract class BaseSysAdapter<ChildItemData extends BaseItem<? extends Tb
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en8, com.baidu.tieba.bi
+    @Override // com.baidu.tieba.fn8, com.baidu.tieba.bi
     /* renamed from: Q */
     public void onFillViewHolder(int i, ViewGroup viewGroup, Holder<ChildViewHolder> holder, ChildItemData childitemdata, @NonNull List<Object> list) {
         Interceptable interceptable = $ic;

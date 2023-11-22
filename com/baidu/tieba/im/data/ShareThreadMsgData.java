@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
-import com.baidu.tieba.ar8;
+import com.baidu.tieba.br8;
 import com.baidu.tieba.dz4;
 import com.baidu.tieba.im.db.pojo.ApkDetailPojo;
 import com.baidu.tieba.im.db.pojo.GraffitiInfoPojo;
@@ -541,25 +541,25 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
                     }
                     if (pbContentPojo.item != null) {
                         Item.Builder builder8 = new Item.Builder();
-                        ar8 ar8Var = pbContentPojo.item;
-                        builder8.item_id = ar8Var.a;
-                        builder8.item_name = ar8Var.b;
-                        builder8.icon_size = ar8Var.c;
-                        builder8.icon_url = ar8Var.d;
-                        if (ar8Var.e != null) {
+                        br8 br8Var = pbContentPojo.item;
+                        builder8.item_id = br8Var.a;
+                        builder8.item_name = br8Var.b;
+                        builder8.icon_size = br8Var.c;
+                        builder8.icon_url = br8Var.d;
+                        if (br8Var.e != null) {
                             builder8.tags = new ArrayList(pbContentPojo.item.e);
                         }
-                        ar8 ar8Var2 = pbContentPojo.item;
-                        builder8.score = ar8Var2.f;
-                        builder8.star = ar8Var2.g;
-                        builder8.button_name = ar8Var2.h;
-                        builder8.button_link = ar8Var2.i;
-                        builder8.item_appid = ar8Var2.j;
-                        builder8.category_id = ar8Var2.k;
-                        builder8.button_link_type = ar8Var2.l;
-                        builder8.apk_name = ar8Var2.m;
-                        builder8.forum_name = ar8Var2.n;
-                        if (ar8Var2.o != null) {
+                        br8 br8Var2 = pbContentPojo.item;
+                        builder8.score = br8Var2.f;
+                        builder8.star = br8Var2.g;
+                        builder8.button_name = br8Var2.h;
+                        builder8.button_link = br8Var2.i;
+                        builder8.item_appid = br8Var2.j;
+                        builder8.category_id = br8Var2.k;
+                        builder8.button_link_type = br8Var2.l;
+                        builder8.apk_name = br8Var2.m;
+                        builder8.forum_name = br8Var2.n;
+                        if (br8Var2.o != null) {
                             ApkDetail.Builder builder9 = new ApkDetail.Builder();
                             ApkDetailPojo apkDetailPojo = pbContentPojo.item.o;
                             builder9.developer = apkDetailPojo.developer;

@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.mutiprocess.backbaidubox.BackBaiduBoxViewEvent;
+import com.baidu.tbadk.mutiprocess.aiApply.AICapacityStatusUpdateEvent;
+import com.baidu.tieba.tbadkCore.util.AICapacityApplyHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class nm5 implements cm5<BackBaiduBoxViewEvent> {
+public final class nm5 implements dm5<AICapacityStatusUpdateEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,16 +27,16 @@ public class nm5 implements cm5<BackBaiduBoxViewEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cm5
+    @Override // com.baidu.tieba.dm5
     /* renamed from: a */
-    public boolean onEvent(BackBaiduBoxViewEvent backBaiduBoxViewEvent) {
+    public boolean onEvent(AICapacityStatusUpdateEvent aICapacityStatusUpdateEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, backBaiduBoxViewEvent)) == null) {
-            if (backBaiduBoxViewEvent == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aICapacityStatusUpdateEvent)) == null) {
+            if (aICapacityStatusUpdateEvent == null) {
                 return false;
             }
-            rs5.m().u(backBaiduBoxViewEvent.isShow);
+            AICapacityApplyHelper.e.a().g(aICapacityStatusUpdateEvent.getAiCapacityPermission());
             return true;
         }
         return invokeL.booleanValue;

@@ -4,22 +4,29 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.ForumRuleStatus;
+import tbclient.ForumPresentInfo;
+import tbclient.UserRankPresentInfo;
 /* loaded from: classes7.dex */
-public class ntc extends poc {
+public class ntc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ForumRuleStatus forumRuleStatus) {
+    public static JSONObject b(@NonNull ForumPresentInfo forumPresentInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumRuleStatus)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumPresentInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "title", forumRuleStatus.title);
-            poc.a(jSONObject, "audit_status", forumRuleStatus.audit_status);
-            poc.a(jSONObject, "has_forum_rule", forumRuleStatus.has_forum_rule);
+            if (forumPresentInfo.user_list != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (UserRankPresentInfo userRankPresentInfo : forumPresentInfo.user_list) {
+                    jSONArray.put(q5d.b(userRankPresentInfo));
+                }
+                qoc.a(jSONObject, "user_list", jSONArray);
+            }
+            qoc.a(jSONObject, "content", forumPresentInfo.content);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

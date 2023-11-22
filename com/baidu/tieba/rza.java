@@ -1,7 +1,9 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes8.dex */
 public interface rza {
-    void a(View view2);
+    String Z1();
+
+    String getTraceId();
+
+    String n2();
 }

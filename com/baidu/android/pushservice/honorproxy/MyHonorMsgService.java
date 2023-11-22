@@ -6,7 +6,7 @@ import com.baidu.android.pushservice.l.d;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.android.pushservice.z.c;
 import com.baidu.android.pushservice.z.e;
-import com.baidu.tieba.r4c;
+import com.baidu.tieba.s4c;
 import com.hihonor.push.sdk.HonorMessageService;
 /* loaded from: classes.dex */
 public class MyHonorMsgService extends HonorMessageService {
@@ -28,11 +28,11 @@ public class MyHonorMsgService extends HonorMessageService {
     }
 
     @Override // com.hihonor.push.sdk.HonorMessageService
-    public void onMessageReceived(r4c r4cVar) {
-        super.onMessageReceived(r4cVar);
+    public void onMessageReceived(s4c s4cVar) {
+        super.onMessageReceived(s4cVar);
         Intent intent = new Intent("com.honor.android.push.intent.RECEIVE");
-        intent.putExtra("honor_pass_msg_content", r4cVar.a());
-        intent.putExtra("honor_pass_msg_id", r4cVar.b());
+        intent.putExtra("honor_pass_msg_content", s4cVar.a());
+        intent.putExtra("honor_pass_msg_id", s4cVar.b());
         Utility.a(intent, getApplicationContext());
     }
 

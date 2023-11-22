@@ -14,23 +14,23 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class sfa implements gb7, db7 {
+public final class sfa implements hb7, eb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
-    @Override // com.baidu.tieba.db7
+    @Override // com.baidu.tieba.eb7
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "obj_locate" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gb7
+    @Override // com.baidu.tieba.hb7
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? CommonStatisticKey.KEY_HOME_PEI_WAN_VOICE_CLICK : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? CommonStatisticKey.KEY_HOME_PEI_WAN_CARD_SHOW : (String) invokeV.objValue;
     }
 
     public sfa() {
@@ -49,8 +49,8 @@ public final class sfa implements gb7, db7 {
         this.a = true;
     }
 
-    @Override // com.baidu.tieba.gb7
-    public Map<String, String> a(d57 businessInfo) {
+    @Override // com.baidu.tieba.hb7
+    public Map<String, String> a(e57 businessInfo) {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
@@ -64,15 +64,10 @@ public final class sfa implements gb7, db7 {
             }
             hashMap.put("uid", currentAccount);
             String str3 = businessInfo.a().get("room_id");
-            if (str3 == null) {
-                str3 = "";
+            if (str3 != null) {
+                str2 = str3;
             }
-            hashMap.put(TiebaStatic.Params.OBJ_TO, str3);
-            String str4 = businessInfo.a().get("voice_uid");
-            if (str4 != null) {
-                str2 = str4;
-            }
-            hashMap.put("obj_id", str2);
+            hashMap.put(TiebaStatic.Params.OBJ_TO, str2);
             if (this.a) {
                 str = "1";
             } else {

@@ -1,17 +1,29 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Hottopic.UserInfo;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.TopicList.DataRes;
+import tbclient.TopicList.NewTopicList;
+import tbclient.TopicList.TabList;
+import tbclient.TopicList.TopicList;
+import tbclient.TopicList.TopicListModule;
 /* loaded from: classes5.dex */
 public class aj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public String a;
+    public List<ej8> b;
+    public dj8 c;
+    public List<ti8> d;
+    public List<si8> e;
+    public List<TopicList> f;
 
     public aj8() {
         Interceptable interceptable = $ic;
@@ -27,37 +39,57 @@ public class aj8 {
         }
     }
 
-    public int hashCode() {
+    public List<TopicList> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long j = this.a;
-            return (int) (j ^ (j >>> 32));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
-        return invokeV.intValue;
+        return (List) invokeV.objValue;
     }
 
-    public void a(UserInfo userInfo) {
+    public void b(DataRes dataRes) {
+        List<TopicList> list;
+        List<TopicList> list2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, userInfo) == null) {
-            this.a = userInfo.user_id.longValue();
-            String str = userInfo.user_name;
-            String str2 = userInfo.portrait;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        List<TabList> list3 = dataRes.tab_list;
+        if (list3 != null && !ListUtils.isEmpty(list3)) {
+            this.b = new ArrayList();
+            for (TabList tabList : dataRes.tab_list) {
+                ej8 ej8Var = new ej8();
+                ej8Var.a(tabList);
+                this.b.add(ej8Var);
             }
-            if (obj != null && aj8.class == obj.getClass() && this.a == ((aj8) obj).a) {
-                return true;
-            }
-            return false;
         }
-        return invokeL.booleanValue;
+        if (dataRes.media_topic != null) {
+            dj8 dj8Var = new dj8();
+            this.c = dj8Var;
+            dj8Var.a(dataRes.media_topic);
+        }
+        TopicListModule topicListModule = dataRes.topic_manual;
+        if (topicListModule != null && (list2 = topicListModule.topic_list) != null && list2.size() > 0) {
+            this.e = new ArrayList();
+            for (int i = 0; i < dataRes.topic_manual.topic_list.size(); i++) {
+                si8 si8Var = new si8();
+                si8Var.b(dataRes.topic_manual);
+                si8Var.a(dataRes.topic_manual.topic_list.get(i));
+                this.e.add(si8Var);
+            }
+        }
+        TopicListModule topicListModule2 = dataRes.topic_bang;
+        if (topicListModule2 != null && (list = topicListModule2.topic_list) != null && list.size() > 0) {
+            this.d = new ArrayList();
+            for (int i2 = 0; i2 < dataRes.topic_bang.topic_list.size(); i2++) {
+                ti8 ti8Var = new ti8();
+                ti8Var.b(dataRes.topic_bang);
+                ti8Var.a(dataRes.topic_bang.topic_list.get(i2));
+                this.d.add(ti8Var);
+            }
+        }
+        this.f = dataRes.frs_tab_topic;
+        List<NewTopicList> list4 = dataRes.topic_list;
     }
 }

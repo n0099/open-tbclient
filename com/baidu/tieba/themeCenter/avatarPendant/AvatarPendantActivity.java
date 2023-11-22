@@ -19,12 +19,12 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.data.UserPendantData;
 import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tieba.lxa;
 import com.baidu.tieba.mxa;
 import com.baidu.tieba.nxa;
+import com.baidu.tieba.oxa;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
-import com.baidu.tieba.pxa;
-import com.baidu.tieba.pya;
+import com.baidu.tieba.qxa;
+import com.baidu.tieba.qya;
 import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel;
 import com.baidu.tieba.themeCenter.avatarPendant.SetAvatarPendantModel;
 import com.baidu.tieba.themeCenter.background.DressItemData;
@@ -35,10 +35,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class AvatarPendantActivity extends BaseActivity implements pxa.a, SetAvatarPendantModel.b, View.OnClickListener {
+public class AvatarPendantActivity extends BaseActivity implements qxa.a, SetAvatarPendantModel.b, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pxa a;
+    public qxa a;
     public AvatarPendantModel b;
     public SetAvatarPendantModel c;
     public String d;
@@ -71,16 +71,16 @@ public class AvatarPendantActivity extends BaseActivity implements pxa.a, SetAva
         }
 
         @Override // com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel.b
-        public void a(int i, String str, pya pyaVar, List<nxa> list) {
+        public void a(int i, String str, qya qyaVar, List<oxa> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, pyaVar, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, qyaVar, list}) == null) {
                 AvatarPendantActivity avatarPendantActivity = this.a;
                 avatarPendantActivity.hideLoadingView(avatarPendantActivity.a.z());
                 if (i != 0) {
                     this.a.showToast(str);
                     this.a.a.G();
                 } else {
-                    this.a.a.H(pyaVar, list);
+                    this.a.a.H(qyaVar, list);
                 }
                 this.a.e = !ListUtils.isEmpty(list);
             }
@@ -180,7 +180,7 @@ public class AvatarPendantActivity extends BaseActivity implements pxa.a, SetAva
             if (dressItemData == null) {
                 return "";
             }
-            List<nxa> T2 = this.b.T();
+            List<oxa> T2 = this.b.T();
             if (T2 != null && T2.size() > 0) {
                 int size = T2.size();
                 for (int i = 0; i < size; i++) {
@@ -209,9 +209,9 @@ public class AvatarPendantActivity extends BaseActivity implements pxa.a, SetAva
     public final void O0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            pxa pxaVar = new pxa(this);
-            this.a = pxaVar;
-            pxaVar.g(this.g);
+            qxa qxaVar = new qxa(this);
+            this.a = qxaVar;
+            qxaVar.g(this.g);
             this.a.F(this);
         }
     }
@@ -240,10 +240,10 @@ public class AvatarPendantActivity extends BaseActivity implements pxa.a, SetAva
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        pxa pxaVar;
+        qxa qxaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.b != null && (pxaVar = this.a) != null) {
-            showLoadingView(pxaVar.z());
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.b != null && (qxaVar = this.a) != null) {
+            showLoadingView(qxaVar.z());
             this.b.loadData();
         }
     }
@@ -258,16 +258,16 @@ public class AvatarPendantActivity extends BaseActivity implements pxa.a, SetAva
                 i3 = 0;
             }
             if (!StringUtils.isNull(str)) {
-                if (i == mxa.a) {
-                    lxa.d(getPageContext(), 7, str, i3, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
-                } else if (i == mxa.b) {
-                    lxa.c(getPageContext(), 7, str, i3);
+                if (i == nxa.a) {
+                    mxa.d(getPageContext(), 7, str, i3, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
+                } else if (i == nxa.b) {
+                    mxa.c(getPageContext(), 7, str, i3);
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.pxa.a
+    @Override // com.baidu.tieba.qxa.a
     public void W(DressItemData dressItemData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, dressItemData) == null) && M0() && dressItemData != null && dressItemData.getPropsId() >= 0 && this.e) {
@@ -305,7 +305,7 @@ public class AvatarPendantActivity extends BaseActivity implements pxa.a, SetAva
                 Q0(i2, str, i);
                 return;
             }
-            List<nxa> T2 = this.b.T();
+            List<oxa> T2 = this.b.T();
             if (T2 != null && T2.size() > 0) {
                 if (i == 0) {
                     TiebaStatic.log("c11681");

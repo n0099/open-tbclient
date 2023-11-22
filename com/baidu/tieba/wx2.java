@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import okhttp3.Interceptor;
 import okhttp3.Response;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class wx2 implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +18,7 @@ public class wx2 implements Interceptor {
     @SuppressLint({"BDThrowableCheck"})
     public final mx2 b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a(long j);
 
@@ -27,7 +27,7 @@ public class wx2 implements Interceptor {
         void c(long j, long j2);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements mx2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

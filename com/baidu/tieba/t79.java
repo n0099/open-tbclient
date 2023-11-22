@@ -1,31 +1,182 @@
 package com.baidu.tieba;
 
+import android.text.Editable;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.impersonal.components.inputview.ImPersonInputView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Objects;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public abstract class t79<T> {
+public class t79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final e89<T> a;
-    public Function2<? super View, ? super e89<T>, Unit> b;
-    public Function2<? super View, ? super e89<T>, Unit> c;
+    @NonNull
+    public TbPageContext a;
+    @NonNull
+    public ImPersonInputView b;
+    @NonNull
+    public o99 c;
+    public boolean d;
 
-    public t79(e89<T> data) {
+    /* loaded from: classes8.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t79 a;
+
+        public a(t79 t79Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t79Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = t79Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !this.a.d) {
+                return;
+            }
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                BdUtilHelper.showToast(this.a.a.getString(R.string.obfuscated_res_0x7f0f1477), 2000, true);
+                return;
+            }
+            String obj = this.a.b.getEditText().getText().toString();
+            if (!TextUtils.isEmpty(obj)) {
+                TiebaStatic.log(new StatisticItem("c15273").param("uid", TbadkCoreApplication.getCurrentAccount()));
+                this.a.j(obj);
+                this.a.g();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements TextWatcher {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t79 a;
+
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        public b(t79 t79Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t79Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = t79Var;
+        }
+
+        @Override // android.text.TextWatcher
+        public void afterTextChanged(Editable editable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, editable) != null) {
+                return;
+            }
+            this.a.k(!TextUtils.isEmpty(editable.toString().trim()));
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements InputFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public final /* synthetic */ t79 b;
+
+        public c(t79 t79Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t79Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = t79Var;
+            this.a = i;
+        }
+
+        @Override // android.text.InputFilter
+        public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+                int length = this.a - (spanned.length() - (i4 - i3));
+                int i5 = i2 - i;
+                if (length < i5) {
+                    BdUtilHelper.showToast(this.b.a.getString(R.string.obfuscated_res_0x7f0f0abf), 2000, true);
+                }
+                if (length <= 0) {
+                    return "";
+                }
+                if (length >= i5) {
+                    return null;
+                }
+                return charSequence.subSequence(i, length + i);
+            }
+            return (CharSequence) invokeCommon.objValue;
+        }
+    }
+
+    public t79(@NonNull TbPageContext tbPageContext, @NonNull ImPersonInputView imPersonInputView, @NonNull o99 o99Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {data};
+            Object[] objArr = {tbPageContext, imPersonInputView, o99Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,118 +186,53 @@ public abstract class t79<T> {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        this.a = data;
+        this.d = false;
+        this.a = tbPageContext;
+        this.b = imPersonInputView;
+        this.c = o99Var;
+        h();
+        i();
     }
 
-    public boolean f(t79<?> other) {
-        InterceptResult invokeL;
+    public final void j(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, other)) == null) {
-            Intrinsics.checkNotNullParameter(other, "other");
-            if (this.a.e().c() != 2 && other.a.e().c() != 2) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.c.t(j89.a(str));
+        }
+    }
+
+    public final void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            if (z) {
+                this.b.getSendViewContainer().setAlpha(1.0f);
+                this.d = true;
+                return;
             }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final e89<T> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (e89) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function2<? super android.view.View, ? super com.baidu.tieba.e89<T>, kotlin.Unit>, kotlin.jvm.functions.Function2<android.view.View, com.baidu.tieba.e89<T>, kotlin.Unit> */
-    public final Function2<View, e89<T>, Unit> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (Function2<? super View, ? super e89<T>, Unit>) this.b;
-        }
-        return (Function2) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function2<? super android.view.View, ? super com.baidu.tieba.e89<T>, kotlin.Unit>, kotlin.jvm.functions.Function2<android.view.View, com.baidu.tieba.e89<T>, kotlin.Unit> */
-    public final Function2<View, e89<T>, Unit> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (Function2<? super View, ? super e89<T>, Unit>) this.c;
-        }
-        return (Function2) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return Objects.hashCode(this.a);
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v10 */
-    /* JADX WARN: Type inference failed for: r1v11 */
-    /* JADX WARN: Type inference failed for: r1v12 */
-    /* JADX WARN: Type inference failed for: r1v4, types: [java.lang.CharSequence] */
-    /* JADX WARN: Type inference failed for: r1v9 */
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        t79 t79Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            e89<T> e89Var = (e89<T>) false;
-            if (obj instanceof t79) {
-                t79Var = (t79) obj;
-            } else {
-                t79Var = null;
-            }
-            if (this instanceof v79) {
-                String a = ((v79) this).c().g().a();
-                ?? r1 = e89Var;
-                if (t79Var != null) {
-                    e89<T> e89Var2 = t79Var.a;
-                    r1 = e89Var;
-                    if (e89Var2 != null) {
-                        d89 g = e89Var2.g();
-                        r1 = e89Var;
-                        if (g != null) {
-                            r1 = (e89<T>) g.a();
-                        }
-                    }
-                }
-                return TextUtils.equals(a, r1);
-            }
-            e89<T> e89Var3 = this.a;
-            e89<T> e89Var4 = e89Var;
-            if (t79Var != null) {
-                e89Var4 = t79Var.a;
-            }
-            return Objects.equals(e89Var3, e89Var4);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void g(Function2<? super View, ? super e89<T>, Unit> function2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, function2) == null) {
-            this.b = function2;
+            this.b.getSendViewContainer().setAlpha(0.5f);
+            this.d = false;
         }
     }
 
-    public final void h(Function2<? super View, ? super e89<T>, Unit> function2) {
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, function2) == null) {
-            this.c = function2;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.getEditText().setText("");
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.getEditText().setFilters(new InputFilter[]{new c(this, 400)});
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.getSendViewContainer().setOnClickListener(new a(this));
+            this.b.getEditText().addTextChangedListener(new b(this));
         }
     }
 }

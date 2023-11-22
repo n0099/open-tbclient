@@ -28,8 +28,8 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj6;
-import com.baidu.tieba.ke9;
+import com.baidu.tieba.ej6;
+import com.baidu.tieba.le9;
 import com.baidu.tieba.quickWebView.QuickWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -316,7 +316,7 @@ public class MemberCenterFragment extends BaseFragment {
             if (arguments != null) {
                 this.f = arguments.getString("key_url", "");
             }
-            new ke9("my_tab_vip_banner_bubble").i();
+            new le9("my_tab_vip_banner_bubble").i();
         }
     }
 
@@ -348,7 +348,7 @@ public class MemberCenterFragment extends BaseFragment {
             HashMap<String, Object> hashMap = new HashMap<>();
             if (intent != null) {
                 hashMap.put(WalletPayResultActivityConfig.PAY_RESULT, intent.getStringExtra(WalletPayResultActivityConfig.PAY_RESULT));
-                dj6.a().d(this.e, "tbPayResult", hashMap);
+                ej6.a().d(this.e, "tbPayResult", hashMap);
             }
         }
     }

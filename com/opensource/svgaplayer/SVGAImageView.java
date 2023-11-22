@@ -15,10 +15,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.tieba.d9c;
 import com.baidu.tieba.e9c;
 import com.baidu.tieba.f9c;
-import com.baidu.tieba.s9c;
+import com.baidu.tieba.g9c;
+import com.baidu.tieba.t9c;
 import com.baidu.tieba.video.VideoItemModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -44,7 +44,7 @@ public class SVGAImageView extends ImageView {
     public int b;
     public boolean c;
     public FillMode d;
-    public d9c e;
+    public e9c e;
     public ValueAnimator f;
 
     private final void setAnimating(boolean z) {
@@ -133,14 +133,14 @@ public class SVGAImageView extends ImageView {
                         this.b.o(this.a.a.d);
                         this.a.a.c.setVideoItem(this.b);
                         Drawable drawable = this.a.a.c.getDrawable();
-                        if (!(drawable instanceof e9c)) {
+                        if (!(drawable instanceof f9c)) {
                             drawable = null;
                         }
-                        e9c e9cVar = (e9c) drawable;
-                        if (e9cVar != null) {
+                        f9c f9cVar = (f9c) drawable;
+                        if (f9cVar != null) {
                             ImageView.ScaleType scaleType = this.a.a.c.getScaleType();
                             Intrinsics.checkExpressionValueIsNotNull(scaleType, "scaleType");
-                            e9cVar.e(scaleType);
+                            f9cVar.e(scaleType);
                         }
                         a aVar = this.a.a;
                         if (aVar.e) {
@@ -259,14 +259,14 @@ public class SVGAImageView extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ValueAnimator a;
         public final /* synthetic */ SVGAImageView b;
-        public final /* synthetic */ e9c c;
+        public final /* synthetic */ f9c c;
 
-        public b(ValueAnimator valueAnimator, SVGAImageView sVGAImageView, s9c s9cVar, e9c e9cVar, boolean z) {
+        public b(ValueAnimator valueAnimator, SVGAImageView sVGAImageView, t9c t9cVar, f9c f9cVar, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {valueAnimator, sVGAImageView, s9cVar, e9cVar, Boolean.valueOf(z)};
+                Object[] objArr = {valueAnimator, sVGAImageView, t9cVar, f9cVar, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -278,20 +278,20 @@ public class SVGAImageView extends ImageView {
             }
             this.a = valueAnimator;
             this.b = sVGAImageView;
-            this.c = e9cVar;
+            this.c = f9cVar;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public final void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                e9c e9cVar = this.c;
+                f9c f9cVar = this.c;
                 ValueAnimator animator = this.a;
                 Intrinsics.checkExpressionValueIsNotNull(animator, "animator");
                 Object animatedValue = animator.getAnimatedValue();
                 if (animatedValue != null) {
-                    e9cVar.d(((Integer) animatedValue).intValue());
-                    d9c callback = this.b.getCallback();
+                    f9cVar.d(((Integer) animatedValue).intValue());
+                    e9c callback = this.b.getCallback();
                     if (callback != null) {
                         callback.a(this.c.a(), (this.c.a() + 1) / this.c.b().d());
                         return;
@@ -310,14 +310,14 @@ public class SVGAImageView extends ImageView {
         public final /* synthetic */ int a;
         public final /* synthetic */ int b;
         public final /* synthetic */ SVGAImageView c;
-        public final /* synthetic */ e9c d;
+        public final /* synthetic */ f9c d;
 
-        public c(int i, int i2, SVGAImageView sVGAImageView, s9c s9cVar, e9c e9cVar, boolean z) {
+        public c(int i, int i2, SVGAImageView sVGAImageView, t9c t9cVar, f9c f9cVar, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), sVGAImageView, s9cVar, e9cVar, Boolean.valueOf(z)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), sVGAImageView, t9cVar, f9cVar, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -330,7 +330,7 @@ public class SVGAImageView extends ImageView {
             this.a = i;
             this.b = i2;
             this.c = sVGAImageView;
-            this.d = e9cVar;
+            this.d = f9cVar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -344,7 +344,7 @@ public class SVGAImageView extends ImageView {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationRepeat(Animator animator) {
-            d9c callback;
+            e9c callback;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) && (callback = this.c.getCallback()) != null) {
                 callback.b();
@@ -375,7 +375,7 @@ public class SVGAImageView extends ImageView {
                     this.d.d(this.b);
                 }
             }
-            d9c callback = this.c.getCallback();
+            e9c callback = this.c.getCallback();
             if (callback != null) {
                 callback.onFinished();
             }
@@ -421,12 +421,12 @@ public class SVGAImageView extends ImageView {
                 valueAnimator3.removeAllUpdateListeners();
             }
             Drawable drawable = getDrawable();
-            if (!(drawable instanceof e9c)) {
+            if (!(drawable instanceof f9c)) {
                 drawable = null;
             }
-            e9c e9cVar = (e9c) drawable;
-            if (e9cVar != null) {
-                e9cVar.c(z);
+            f9c f9cVar = (f9c) drawable;
+            if (f9cVar != null) {
+                f9cVar.c(z);
             }
         }
     }
@@ -485,19 +485,19 @@ public class SVGAImageView extends ImageView {
         }
     }
 
-    public final void setVideoItem(SVGAVideoEntity sVGAVideoEntity, f9c f9cVar) {
+    public final void setVideoItem(SVGAVideoEntity sVGAVideoEntity, g9c g9cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, sVGAVideoEntity, f9cVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048592, this, sVGAVideoEntity, g9cVar) == null) {
             if (sVGAVideoEntity == null) {
                 setImageDrawable(null);
                 return;
             }
-            if (f9cVar == null) {
-                f9cVar = new f9c();
+            if (g9cVar == null) {
+                g9cVar = new g9c();
             }
-            e9c e9cVar = new e9c(sVGAVideoEntity, f9cVar);
-            e9cVar.c(this.c);
-            setImageDrawable(e9cVar);
+            f9c f9cVar = new f9c(sVGAVideoEntity, g9cVar);
+            f9cVar.c(this.c);
+            setImageDrawable(f9cVar);
         }
     }
 
@@ -550,13 +550,13 @@ public class SVGAImageView extends ImageView {
         }
     }
 
-    public final d9c getCallback() {
+    public final e9c getCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.e;
         }
-        return (d9c) invokeV.objValue;
+        return (e9c) invokeV.objValue;
     }
 
     public final boolean getClearsAfterStop() {
@@ -606,28 +606,28 @@ public class SVGAImageView extends ImageView {
         }
     }
 
-    public final void e(s9c s9cVar, boolean z) {
+    public final void e(t9c t9cVar, boolean z) {
         int i;
         Field declaredField;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, s9cVar, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, t9cVar, z) == null) {
             g(false);
             Drawable drawable = getDrawable();
-            if (!(drawable instanceof e9c)) {
+            if (!(drawable instanceof f9c)) {
                 drawable = null;
             }
-            e9c e9cVar = (e9c) drawable;
-            if (e9cVar != null) {
-                e9cVar.c(false);
+            f9c f9cVar = (f9c) drawable;
+            if (f9cVar != null) {
+                f9cVar.c(false);
                 ImageView.ScaleType scaleType = getScaleType();
                 Intrinsics.checkExpressionValueIsNotNull(scaleType, "scaleType");
-                e9cVar.e(scaleType);
-                SVGAVideoEntity b2 = e9cVar.b();
-                if (s9cVar == null) {
+                f9cVar.e(scaleType);
+                SVGAVideoEntity b2 = f9cVar.b();
+                if (t9cVar == null) {
                     int max = Math.max(0, 0);
                     int d = b2.d() - 1;
-                    if (s9cVar == null) {
-                        if (s9cVar == null) {
+                    if (t9cVar == null) {
+                        if (t9cVar == null) {
                             int min = Math.min(d, (Integer.MAX_VALUE + 0) - 1);
                             ValueAnimator animator = ValueAnimator.ofInt(max, min);
                             double d2 = 1.0d;
@@ -657,8 +657,8 @@ public class SVGAImageView extends ImageView {
                                 i = i2 - 1;
                             }
                             animator.setRepeatCount(i);
-                            animator.addUpdateListener(new b(animator, this, s9cVar, e9cVar, z));
-                            animator.addListener(new c(max, min, this, s9cVar, e9cVar, z));
+                            animator.addUpdateListener(new b(animator, this, t9cVar, f9cVar, z));
+                            animator.addListener(new c(max, min, this, t9cVar, f9cVar, z));
                             if (z) {
                                 animator.reverse();
                             } else {
@@ -667,22 +667,22 @@ public class SVGAImageView extends ImageView {
                             this.f = animator;
                             return;
                         }
-                        s9cVar.a();
+                        t9cVar.a();
                         throw null;
                     }
-                    s9cVar.b();
+                    t9cVar.b();
                     throw null;
                 }
-                s9cVar.b();
+                t9cVar.b();
                 throw null;
             }
         }
     }
 
-    public final void setCallback(d9c d9cVar) {
+    public final void setCallback(e9c e9cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, d9cVar) == null) {
-            this.e = d9cVar;
+        if (interceptable == null || interceptable.invokeL(1048587, this, e9cVar) == null) {
+            this.e = e9cVar;
         }
     }
 
@@ -710,7 +710,7 @@ public class SVGAImageView extends ImageView {
     public final void setVideoItem(SVGAVideoEntity sVGAVideoEntity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, sVGAVideoEntity) == null) {
-            setVideoItem(sVGAVideoEntity, new f9c());
+            setVideoItem(sVGAVideoEntity, new g9c());
         }
     }
 }

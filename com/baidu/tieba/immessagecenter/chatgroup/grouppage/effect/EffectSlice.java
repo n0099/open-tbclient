@@ -18,7 +18,7 @@ import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.im.lib.socket.msg.data.ChatEggRainData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.t05;
-import com.baidu.tieba.u09;
+import com.baidu.tieba.v09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -114,7 +114,7 @@ public class EffectSlice extends Slice {
     }
 
     /* loaded from: classes6.dex */
-    public static abstract class c extends YunTask implements u09 {
+    public static abstract class c extends YunTask implements v09 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -132,7 +132,7 @@ public class EffectSlice extends Slice {
             }
         }
 
-        @Override // com.baidu.tieba.u09
+        @Override // com.baidu.tieba.v09
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {

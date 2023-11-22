@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder;
-import com.baidu.tieba.xj8;
+import com.baidu.tieba.yj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -75,10 +75,10 @@ public class RobotItemViewHolder extends BaseItemViewHolder {
     }
 
     @Override // com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull xj8 xj8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void d(@NonNull yj8 yj8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xj8Var, tbPageContext, i) == null) && (xj8Var instanceof RobotItemIm)) {
-            RobotItemIm robotItemIm = (RobotItemIm) xj8Var;
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yj8Var, tbPageContext, i) == null) && (yj8Var instanceof RobotItemIm)) {
+            RobotItemIm robotItemIm = (RobotItemIm) yj8Var;
             this.j = robotItemIm;
             if (!TextUtils.isEmpty(robotItemIm.getRoboatName())) {
                 this.h.setText(this.j.getRoboatName());

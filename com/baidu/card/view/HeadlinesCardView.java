@@ -23,9 +23,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.bw4;
 import com.baidu.tieba.fz4;
 import com.baidu.tieba.ht;
-import com.baidu.tieba.mq6;
 import com.baidu.tieba.nq6;
-import com.baidu.tieba.ob5;
+import com.baidu.tieba.oq6;
+import com.baidu.tieba.pb5;
 import com.baidu.tieba.qu;
 import com.baidu.tieba.view.TbImageAutoSwitch;
 import com.baidu.tieba.zy4;
@@ -238,16 +238,16 @@ public class HeadlinesCardView extends FrameLayout implements ht<bw4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.b.a != null) {
-                    ob5.f(this.b.getContext(), this.b.a.getThreadData(), 1, 2);
+                    pb5.f(this.b.getContext(), this.b.a.getThreadData(), 1, 2);
                 } else {
-                    mq6.b().c(new e(this.a));
+                    nq6.b().c(new e(this.a));
                 }
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class e extends nq6 {
+    public static class e extends oq6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable

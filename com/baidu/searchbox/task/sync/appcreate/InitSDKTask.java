@@ -14,14 +14,14 @@ import com.baidu.searchbox.retrieve.debug.provider.DebugActiveUploadResult;
 import com.baidu.storage.swankv.SwanKV;
 import com.baidu.tbadk.GrowthStatsUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.a9a;
 import com.baidu.tieba.ah;
 import com.baidu.tieba.eq4;
 import com.baidu.tieba.hh;
 import com.baidu.tieba.image.ImageViewerActivity;
-import com.baidu.tieba.z8a;
 /* loaded from: classes4.dex */
 public class InitSDKTask extends LaunchTask {
-    public z8a cyberMediaContextDef = new z8a();
+    public a9a cyberMediaContextDef = new a9a();
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {

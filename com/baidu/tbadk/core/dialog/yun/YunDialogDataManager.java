@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.au5;
+import com.baidu.tieba.bu5;
 import com.baidu.tieba.ca;
-import com.baidu.tieba.eu5;
-import com.baidu.tieba.ft5;
+import com.baidu.tieba.fu5;
+import com.baidu.tieba.gt5;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.o25;
 import com.baidu.tieba.yz4;
@@ -162,7 +162,7 @@ public class YunDialogDataManager {
     }
 
     /* loaded from: classes4.dex */
-    public class c extends au5<List<DialogStrategiesData>> {
+    public class c extends bu5<List<DialogStrategiesData>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ YunDialogDataManager a;
@@ -186,7 +186,7 @@ public class YunDialogDataManager {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.au5
+        @Override // com.baidu.tieba.bu5
         public List<DialogStrategiesData> doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -198,7 +198,7 @@ public class YunDialogDataManager {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements ft5<List<DialogStrategiesData>> {
+    public class d implements gt5<List<DialogStrategiesData>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ e a;
@@ -226,7 +226,7 @@ public class YunDialogDataManager {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ft5
+        @Override // com.baidu.tieba.gt5
         /* renamed from: a */
         public void onReturnDataInUI(List<DialogStrategiesData> list) {
             Interceptable interceptable = $ic;
@@ -359,7 +359,7 @@ public class YunDialogDataManager {
             }
             List<DialogStrategiesData> list = this.a.get(str);
             if (list == null && this.a.isEmpty()) {
-                eu5.b(new c(this), new d(this, eVar, str));
+                fu5.b(new c(this), new d(this, eVar, str));
             } else if (eVar != null) {
                 if (ListUtils.isEmpty(list)) {
                     list = d;

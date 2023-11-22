@@ -26,7 +26,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.bw4;
 import com.baidu.tieba.fz4;
 import com.baidu.tieba.ht;
-import com.baidu.tieba.nq6;
+import com.baidu.tieba.oq6;
 import com.baidu.tieba.qu;
 import com.baidu.tieba.view.TbImageAutoSwitch;
 import com.baidu.tieba.zy4;
@@ -165,7 +165,7 @@ public class HeadlinesAgreeCardView extends FrameLayout implements ht<bw4> {
     }
 
     /* loaded from: classes3.dex */
-    public static class c extends nq6 {
+    public static class c extends oq6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable

@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hb8 extends db8<hz4, ThreadCardViewHolder<ThreadData>> {
+public class hb8 extends eb8<hz4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xl6<ThreadData> e;
+    public yl6<ThreadData> e;
 
     /* loaded from: classes6.dex */
-    public class a extends xl6<ThreadData> {
+    public class a extends yl6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ hb8 b;
@@ -48,7 +48,7 @@ public class hb8 extends db8<hz4, ThreadCardViewHolder<ThreadData>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xl6
+        @Override // com.baidu.tieba.yl6
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
@@ -100,7 +100,7 @@ public class hb8 extends db8<hz4, ThreadCardViewHolder<ThreadData>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public hb8(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, ThreadData.TYPE_CONTENT_TEXT_NORMAL);
+        super(tbPageContext, ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,12 +128,9 @@ public class hb8 extends db8<hz4, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             bu.b bVar = new bu.b(this.b.getPageActivity(), false);
-            qt qtVar = new qt(this.b.getPageActivity());
-            qtVar.setFrom("index");
-            qtVar.u(u());
-            bVar.n(qtVar);
+            bVar.n(pt.s(this.b.getPageActivity(), "hot_topic", u()));
             bu k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.c);
-            k.t(0);
+            k.t(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.i(this.mPageId);
             setOnAdapterItemClickListener(new b(this));
@@ -143,7 +140,7 @@ public class hb8 extends db8<hz4, ThreadCardViewHolder<ThreadData>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.db8, com.baidu.tieba.bi
+    @Override // com.baidu.tieba.eb8, com.baidu.tieba.bi
     /* renamed from: C */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, hz4 hz4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
         InterceptResult invokeCommon;
@@ -156,6 +153,7 @@ public class hb8 extends db8<hz4, ThreadCardViewHolder<ThreadData>> {
                 threadCardViewHolder.e(hz4Var.t);
                 threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.a().r(this.e);
+                sl6.a(threadCardViewHolder.a().g(), hz4Var.u, hz4Var.v);
                 z(threadCardViewHolder.getView(), hz4Var.t, i, i);
                 return threadCardViewHolder.getView();
             }

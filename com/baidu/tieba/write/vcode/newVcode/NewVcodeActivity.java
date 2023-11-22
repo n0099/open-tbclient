@@ -9,11 +9,11 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.g95;
-import com.baidu.tieba.hab;
+import com.baidu.tieba.h95;
 import com.baidu.tieba.iab;
 import com.baidu.tieba.jab;
 import com.baidu.tieba.kab;
+import com.baidu.tieba.lab;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public NewWriteModel a;
     public NewVcodeView b;
-    public iab c;
+    public jab c;
     public WriteData d;
     public int e;
     public NewWriteModel.d f;
@@ -72,9 +72,9 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
             }
 
             @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, g95 g95Var, WriteData writeData, AntiData antiData) {
+            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, h95 h95Var, WriteData writeData, AntiData antiData) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, g95Var, writeData, antiData}) == null) && postWriteCallBackData != null && !z) {
+                if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, h95Var, writeData, antiData}) == null) && postWriteCallBackData != null && !z) {
                     if (postWriteCallBackData.getErrorCode() == 220015) {
                         Intent intent = new Intent();
                         Bundle bundle = new Bundle();
@@ -90,14 +90,14 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                         intent2.putExtras(bundle2);
                         this.a.setResult(0, intent2);
                         this.a.finish();
-                    } else if (g95Var != null && writeData != null) {
+                    } else if (h95Var != null && writeData != null) {
                         this.a.e = JavaTypesHelper.toInt("4", 0);
                         this.a.c.d();
                         this.a.c.onDestroy();
                         this.a.d = writeData;
-                        this.a.d.setVcodeMD5(g95Var.b());
-                        this.a.d.setVcodeUrl(g95Var.c());
-                        this.a.d.setVcodeExtra(g95Var.a());
+                        this.a.d.setVcodeMD5(h95Var.b());
+                        this.a.d.setVcodeUrl(h95Var.c());
+                        this.a.d.setVcodeExtra(h95Var.a());
                         this.a.a.setWriteData(this.a.d);
                         NewVcodeActivity newVcodeActivity = this.a;
                         newVcodeActivity.c = newVcodeActivity.V0();
@@ -149,22 +149,22 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         }
     }
 
-    public final iab V0() {
+    public final jab V0() {
         InterceptResult invokeV;
-        iab jabVar;
+        jab kabVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.e == JavaTypesHelper.toInt("5", 0)) {
-                jabVar = new hab(this.b, this.a);
+                kabVar = new iab(this.b, this.a);
             } else if (this.e == JavaTypesHelper.toInt("4", 0)) {
-                jabVar = new kab(this.b, this.a);
+                kabVar = new lab(this.b, this.a);
             } else {
-                jabVar = new jab(this.b, this.a);
+                kabVar = new kab(this.b, this.a);
             }
-            jabVar.c(this.f);
-            return jabVar;
+            kabVar.c(this.f);
+            return kabVar;
         }
-        return (iab) invokeV.objValue;
+        return (jab) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -214,7 +214,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                 }
                 newWriteModel2.k0(z);
             }
-            iab V0 = V0();
+            jab V0 = V0();
             this.c = V0;
             this.b.setPresenter(V0);
             this.c.a(this.g);

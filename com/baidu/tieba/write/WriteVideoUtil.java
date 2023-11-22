@@ -28,7 +28,7 @@ import com.baidu.tieba.f05;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.h05;
 import com.baidu.tieba.j05;
-import com.baidu.tieba.xqa;
+import com.baidu.tieba.yqa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +49,7 @@ public class WriteVideoUtil {
     }
 
     /* loaded from: classes8.dex */
-    public static class a implements PermissionJudgePolicy.OnPermissionsGrantedListener {
+    public class a implements PermissionJudgePolicy.OnPermissionsGrantedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -86,7 +86,7 @@ public class WriteVideoUtil {
     }
 
     /* loaded from: classes8.dex */
-    public static class b implements j05.f {
+    public class b implements j05.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -145,7 +145,7 @@ public class WriteVideoUtil {
     }
 
     /* loaded from: classes8.dex */
-    public static class c implements j05.c {
+    public class c implements j05.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ h05 a;
@@ -205,7 +205,7 @@ public class WriteVideoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return !TextUtils.isEmpty(xqa.G());
+            return !TextUtils.isEmpty(yqa.G());
         }
         return invokeV.booleanValue;
     }
@@ -315,7 +315,7 @@ public class WriteVideoUtil {
                 if (z2) {
                     i2 = 2;
                 } else {
-                    xqa.B("");
+                    yqa.B("");
                     i2 = 1;
                 }
             } else {

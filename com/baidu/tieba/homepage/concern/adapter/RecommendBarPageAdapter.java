@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.concern.data.RecommendBarCardModel;
-import com.baidu.tieba.j98;
-import com.baidu.tieba.m98;
+import com.baidu.tieba.k98;
+import com.baidu.tieba.n98;
 import com.baidu.tieba.oi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +31,7 @@ public class RecommendBarPageAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<oi> a;
-    public List<m98> b;
+    public List<n98> b;
     public TbPageContext<?> c;
     public int d;
     public byte e;
@@ -64,7 +64,7 @@ public class RecommendBarPageAdapter extends PagerAdapter {
         this.a = new ArrayList(6);
         this.b = new ArrayList(6);
         for (int i3 = 0; i3 < 6; i3++) {
-            this.b.add(new m98(LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0867, (ViewGroup) null, false), this.c, b));
+            this.b.add(new n98(LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0867, (ViewGroup) null, false), this.c, b));
         }
     }
 
@@ -86,21 +86,21 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             return;
         }
         this.d = i;
-        List<m98> list = this.b;
+        List<n98> list = this.b;
         if (list != null && list.size() > 0) {
-            for (m98 m98Var : this.b) {
-                m98Var.p(i);
+            for (n98 n98Var : this.b) {
+                n98Var.p(i);
             }
         }
     }
 
-    public final void e(j98 j98Var) {
-        j98.a[] aVarArr;
+    public final void e(k98 k98Var) {
+        k98.a[] aVarArr;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, j98Var) != null) || j98Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, k98Var) != null) || k98Var == null) {
             return;
         }
-        for (j98.a aVar : j98Var.g) {
+        for (k98.a aVar : k98Var.g) {
             if (aVar != null) {
                 TiebaStatic.log(new StatisticItem("c15342").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", aVar.e()));
             }
@@ -109,21 +109,21 @@ public class RecommendBarPageAdapter extends PagerAdapter {
 
     public final void d(oi oiVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oiVar) == null) && (oiVar instanceof j98)) {
-            j98 j98Var = (j98) oiVar;
-            if (j98Var.f() && !j98Var.e()) {
-                int b = j98Var.b();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oiVar) == null) && (oiVar instanceof k98)) {
+            k98 k98Var = (k98) oiVar;
+            if (k98Var.f() && !k98Var.e()) {
+                int b = k98Var.b();
                 for (int i = 0; i < b; i++) {
-                    j98.a[] aVarArr = j98Var.g;
+                    k98.a[] aVarArr = k98Var.g;
                     if (aVarArr[i] != null) {
-                        j98.a aVar = aVarArr[i];
+                        k98.a aVar = aVarArr[i];
                         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_HOMEPAGE_RECFORUM_CARD_INNERFORUM_SHOW);
                         statisticItem.addParam("fid", aVar.e());
                         statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
                         TiebaStatic.log(statisticItem);
                     }
                 }
-                j98Var.i(true);
+                k98Var.i(true);
             }
         }
     }
@@ -142,25 +142,25 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             this.a.clear();
             this.a.addAll(recommendBarCardModel.h());
             for (int i = 0; i < this.a.size() && i < this.b.size(); i++) {
-                m98 m98Var = this.b.get(i);
-                m98Var.s(!recommendBarCardModel.l());
-                m98Var.c((oi) ListUtils.getItem(this.a, i));
+                n98 n98Var = this.b.get(i);
+                n98Var.s(!recommendBarCardModel.l());
+                n98Var.c((oi) ListUtils.getItem(this.a, i));
                 d((oi) ListUtils.getItem(this.a, i));
             }
             notifyDataSetChanged();
-            if (this.a.get(0) instanceof j98) {
-                j98 j98Var = (j98) this.a.get(0);
+            if (this.a.get(0) instanceof k98) {
+                k98 k98Var = (k98) this.a.get(0);
                 StatisticItem param = new StatisticItem("c14004").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.e).param("obj_param1", 0);
-                if (!StringUtils.isNull(j98Var.a)) {
-                    param = param.param("obj_name", j98Var.a);
+                if (!StringUtils.isNull(k98Var.a)) {
+                    param = param.param("obj_name", k98Var.a);
                 }
                 TiebaStatic.log(param);
-                StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", j98Var.a()).param("obj_locate", (int) this.e);
-                if (!StringUtils.isNull(j98Var.a)) {
-                    param2 = param2.param("obj_name", j98Var.a);
+                StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", k98Var.a()).param("obj_locate", (int) this.e);
+                if (!StringUtils.isNull(k98Var.a)) {
+                    param2 = param2.param("obj_name", k98Var.a);
                 }
                 TiebaStatic.log(param2);
-                e(j98Var);
+                e(k98Var);
             }
         }
     }
@@ -171,15 +171,15 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             return;
         }
         for (int i = 0; i < this.b.size(); i++) {
-            m98 m98Var = this.b.get(i);
-            j98 m = m98Var.m();
+            n98 n98Var = this.b.get(i);
+            k98 m = n98Var.m();
             if (m != null) {
                 int i2 = 0;
                 while (true) {
-                    j98.a[] aVarArr = m.g;
+                    k98.a[] aVarArr = m.g;
                     if (i2 < aVarArr.length) {
                         if (aVarArr[i2].e() == j) {
-                            m98Var.t(i2, z);
+                            n98Var.t(i2, z);
                         }
                         i2++;
                     }
@@ -194,20 +194,20 @@ public class RecommendBarPageAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i)) == null) {
-            List<m98> list = this.b;
+            List<n98> list = this.b;
             if (list == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            m98 m98Var = (m98) ListUtils.getItem(list, i);
-            if (m98Var == null) {
+            n98 n98Var = (n98) ListUtils.getItem(list, i);
+            if (n98Var == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            if (m98Var.b().getParent() == null) {
-                viewGroup.addView(m98Var.b(), new ViewGroup.LayoutParams(-2, -2));
+            if (n98Var.b().getParent() == null) {
+                viewGroup.addView(n98Var.b(), new ViewGroup.LayoutParams(-2, -2));
             }
-            m98Var.b().setTag(Integer.valueOf(i));
-            m98Var.c((oi) ListUtils.getItem(this.a, i));
-            return m98Var.b();
+            n98Var.b().setTag(Integer.valueOf(i));
+            n98Var.c((oi) ListUtils.getItem(this.a, i));
+            return n98Var.b();
         }
         return invokeLI.objValue;
     }

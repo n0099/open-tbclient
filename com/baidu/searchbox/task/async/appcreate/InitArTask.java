@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import com.baidu.tieba.kd5;
+import com.baidu.tieba.ld5;
 import com.baidu.tieba.wa0;
 /* loaded from: classes4.dex */
 public class InitArTask extends LaunchTask {
@@ -27,6 +27,6 @@ public class InitArTask extends LaunchTask {
         wa0.s(BdUploadHandler.MEDIA_SOURCE_KEY);
         wa0.k(context);
         wa0.v(false);
-        kd5.a();
+        ld5.a();
     }
 }

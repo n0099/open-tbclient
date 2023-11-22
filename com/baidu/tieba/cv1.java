@@ -34,7 +34,7 @@ public class cv1 extends av1 {
 
         /* renamed from: com.baidu.tieba.cv1$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0252a implements Runnable {
+        public class RunnableC0251a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ g63 a;
@@ -45,17 +45,17 @@ public class cv1 extends av1 {
 
             /* renamed from: com.baidu.tieba.cv1$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class DialogInterface$OnClickListenerC0253a implements DialogInterface.OnClickListener {
+            public class DialogInterface$OnClickListenerC0252a implements DialogInterface.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ RunnableC0252a a;
+                public final /* synthetic */ RunnableC0251a a;
 
-                public DialogInterface$OnClickListenerC0253a(RunnableC0252a runnableC0252a) {
+                public DialogInterface$OnClickListenerC0252a(RunnableC0251a runnableC0251a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0252a};
+                        Object[] objArr = {runnableC0251a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -65,7 +65,7 @@ public class cv1 extends av1 {
                             return;
                         }
                     }
-                    this.a = runnableC0252a;
+                    this.a = runnableC0251a;
                 }
 
                 @Override // android.content.DialogInterface.OnClickListener
@@ -75,11 +75,11 @@ public class cv1 extends av1 {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("type", "cancel");
-                            RunnableC0252a runnableC0252a = this.a;
-                            runnableC0252a.e.a.d(runnableC0252a.c, new hy1(0, jSONObject));
+                            RunnableC0251a runnableC0251a = this.a;
+                            runnableC0251a.e.a.d(runnableC0251a.c, new hy1(0, jSONObject));
                         } catch (JSONException unused) {
-                            RunnableC0252a runnableC0252a2 = this.a;
-                            runnableC0252a2.e.a.d(runnableC0252a2.c, new hy1(201));
+                            RunnableC0251a runnableC0251a2 = this.a;
+                            runnableC0251a2.e.a.d(runnableC0251a2.c, new hy1(201));
                         }
                     }
                 }
@@ -90,14 +90,14 @@ public class cv1 extends av1 {
             public class b implements DialogInterface.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ RunnableC0252a a;
+                public final /* synthetic */ RunnableC0251a a;
 
-                public b(RunnableC0252a runnableC0252a) {
+                public b(RunnableC0251a runnableC0251a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0252a};
+                        Object[] objArr = {runnableC0251a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -107,7 +107,7 @@ public class cv1 extends av1 {
                             return;
                         }
                     }
-                    this.a = runnableC0252a;
+                    this.a = runnableC0251a;
                 }
 
                 @Override // android.content.DialogInterface.OnClickListener
@@ -117,17 +117,17 @@ public class cv1 extends av1 {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("type", "confirm");
-                            RunnableC0252a runnableC0252a = this.a;
-                            runnableC0252a.e.a.d(runnableC0252a.c, new hy1(0, jSONObject));
+                            RunnableC0251a runnableC0251a = this.a;
+                            runnableC0251a.e.a.d(runnableC0251a.c, new hy1(0, jSONObject));
                         } catch (JSONException unused) {
-                            RunnableC0252a runnableC0252a2 = this.a;
-                            runnableC0252a2.e.a.d(runnableC0252a2.c, new hy1(201));
+                            RunnableC0251a runnableC0251a2 = this.a;
+                            runnableC0251a2.e.a.d(runnableC0251a2.c, new hy1(201));
                         }
                     }
                 }
             }
 
-            public RunnableC0252a(a aVar, g63 g63Var, JSONObject jSONObject, String str, String str2) {
+            public RunnableC0251a(a aVar, g63 g63Var, JSONObject jSONObject, String str, String str2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -164,7 +164,7 @@ public class cv1 extends av1 {
                         if (TextUtils.isEmpty(optString)) {
                             optString = this.e.a.i().getString(R.string.obfuscated_res_0x7f0f0141);
                         }
-                        aVar.C(optString, new DialogInterface$OnClickListenerC0253a(this));
+                        aVar.C(optString, new DialogInterface$OnClickListenerC0252a(this));
                     }
                     aVar.R(this.b.optString("confirmColor"), R.color.obfuscated_res_0x7f060450);
                     aVar.P(this.d, new b(this));
@@ -200,7 +200,7 @@ public class cv1 extends av1 {
                 if (TextUtils.isEmpty(optString)) {
                     optString = this.a.i().getString(R.string.obfuscated_res_0x7f0f0149);
                 }
-                ak3.e0(new RunnableC0252a(this, g63Var, jSONObject, str, optString));
+                ak3.e0(new RunnableC0251a(this, g63Var, jSONObject, str, optString));
                 return hy1.f();
             }
             return (hy1) invokeLLL.objValue;

@@ -27,7 +27,7 @@ public class jt extends ju implements View.OnClickListener {
     public InterviewLiveLayout A;
     public int B;
     public TextView C;
-    public xl6<bw4> D;
+    public yl6<bw4> D;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public jt(Context context) {
@@ -69,7 +69,7 @@ public class jt extends ju implements View.OnClickListener {
             this.C = (TextView) this.f.findViewById(R.id.video_seg_abstract);
             this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
             this.A = (InterviewLiveLayout) this.f.findViewById(R.id.frame_interview_no_video);
-            k9a t = t();
+            l9a t = t();
             this.l = t;
             t.getMainView().setBackgroundResource(R.color.transparent);
             this.C.setOnClickListener(this);
@@ -85,21 +85,21 @@ public class jt extends ju implements View.OnClickListener {
     }
 
     @Override // com.baidu.tieba.ns
-    public void n(xl6<bw4> xl6Var) {
+    public void n(yl6<bw4> yl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, xl6Var) == null) {
-            this.D = xl6Var;
-            this.A.setSubClickListener(xl6Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, yl6Var) == null) {
+            this.D = yl6Var;
+            this.A.setSubClickListener(yl6Var);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        xl6<bw4> xl6Var;
+        yl6<bw4> yl6Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
-            if ((view2 == this.C || view2 == this.g) && (xl6Var = this.D) != null) {
-                xl6Var.a(view2, this.h);
+            if ((view2 == this.C || view2 == this.g) && (yl6Var = this.D) != null) {
+                yl6Var.a(view2, this.h);
             }
         }
     }
@@ -115,15 +115,15 @@ public class jt extends ju implements View.OnClickListener {
     }
 
     @Override // com.baidu.tieba.ju
-    public k9a t() {
+    public l9a t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            l9a l9aVar = new l9a(this.b, this.i);
-            l9aVar.setStageType("2003");
-            return l9aVar;
+            m9a m9aVar = new m9a(this.b, this.i);
+            m9aVar.setStageType("2003");
+            return m9aVar;
         }
-        return (k9a) invokeV.objValue;
+        return (l9a) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ju, com.baidu.tieba.it

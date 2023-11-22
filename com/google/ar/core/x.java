@@ -3,14 +3,14 @@ package com.google.ar.core;
 import android.os.Bundle;
 import android.util.Log;
 import com.baidu.tieba.a4c;
-import com.baidu.tieba.e4c;
-import com.baidu.tieba.z3c;
+import com.baidu.tieba.b4c;
+import com.baidu.tieba.f4c;
 import com.google.ar.core.exceptions.FatalException;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes10.dex */
 public final class x extends com.google.a.b.a.a.a.e {
     public final /* synthetic */ AtomicBoolean a;
-    public final /* synthetic */ e4c b;
+    public final /* synthetic */ f4c b;
 
     @Override // com.google.a.b.a.a.a.d
     public final void a() {
@@ -20,8 +20,8 @@ public final class x extends com.google.a.b.a.a.a.e {
     public final void b(Bundle bundle) {
     }
 
-    public x(e4c e4cVar, AtomicBoolean atomicBoolean) {
-        this.b = e4cVar;
+    public x(f4c f4cVar, AtomicBoolean atomicBoolean) {
+        this.b = f4cVar;
         this.a = atomicBoolean;
     }
 
@@ -40,13 +40,13 @@ public final class x extends com.google.a.b.a.a.a.e {
             sb.append(i);
             sb.append(", launching fullscreen.");
             Log.w("ARCore-InstallService", sb.toString());
-            e4c e4cVar = this.b;
-            z3c z3cVar = e4cVar.c;
-            z3c.n(e4cVar.a, e4cVar.b);
+            f4c f4cVar = this.b;
+            a4c a4cVar = f4cVar.c;
+            a4c.n(f4cVar.a, f4cVar.b);
         } else if (bundle.containsKey("resolution.intent")) {
-            e4c e4cVar2 = this.b;
-            z3c z3cVar2 = e4cVar2.c;
-            z3c.b(e4cVar2.a, bundle, e4cVar2.b);
+            f4c f4cVar2 = this.b;
+            a4c a4cVar2 = f4cVar2.c;
+            a4c.b(f4cVar2.a, bundle, f4cVar2.b);
         } else if (i2 != 10) {
             switch (i2) {
                 case 1:
@@ -64,11 +64,11 @@ public final class x extends com.google.a.b.a.a.a.e {
                     this.b.b.a(p.CANCELLED);
                     return;
                 default:
-                    a4c a4cVar = this.b.b;
+                    b4c b4cVar = this.b.b;
                     StringBuilder sb2 = new StringBuilder(38);
                     sb2.append("Unexpected install status: ");
                     sb2.append(i2);
-                    a4cVar.b(new FatalException(sb2.toString()));
+                    b4cVar.b(new FatalException(sb2.toString()));
                     return;
             }
         } else {

@@ -5,19 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.Good;
+import tbclient.FrsPage.GconAccount;
 /* loaded from: classes7.dex */
-public class mvc extends poc {
+public class mvc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Good good) {
+    public static JSONObject b(@NonNull GconAccount gconAccount) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, good)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, gconAccount)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "num", good.num);
+            qoc.a(jSONObject, "has_account", gconAccount.has_account);
+            qoc.a(jSONObject, "menu_name", gconAccount.menu_name);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

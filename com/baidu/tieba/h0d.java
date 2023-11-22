@@ -5,23 +5,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.NewGodInfo;
+import tbclient.NativeApp;
 /* loaded from: classes6.dex */
-public class h0d extends poc {
+public class h0d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull NewGodInfo newGodInfo) {
+    public static JSONObject b(@NonNull NativeApp nativeApp) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, newGodInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, nativeApp)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "status", newGodInfo.status);
-            poc.a(jSONObject, "field_id", newGodInfo.field_id);
-            poc.a(jSONObject, "field_name", newGodInfo.field_name);
-            poc.a(jSONObject, "type", newGodInfo.type);
-            poc.a(jSONObject, "type_name", newGodInfo.type_name);
+            qoc.a(jSONObject, "jump_and", nativeApp.jump_and);
+            qoc.a(jSONObject, "jump_ios", nativeApp.jump_ios);
+            qoc.a(jSONObject, "download_and", nativeApp.download_and);
+            qoc.a(jSONObject, "download_ios", nativeApp.download_ios);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

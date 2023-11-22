@@ -28,7 +28,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.addresslist.model.QuickSearchModel;
-import com.baidu.tieba.sa5;
+import com.baidu.tieba.ta5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -296,7 +296,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     public class g extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<sa5> a;
+        public List<ta5> a;
         public final /* synthetic */ QuickSearchActivity b;
 
         @Override // android.widget.Adapter
@@ -332,7 +332,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         /* renamed from: a */
-        public sa5 getItem(int i) {
+        public ta5 getItem(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -341,10 +341,10 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
                 }
                 return null;
             }
-            return (sa5) invokeI.objValue;
+            return (ta5) invokeI.objValue;
         }
 
-        public void b(List<sa5> list) {
+        public void b(List<ta5> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 this.a = list;
@@ -356,7 +356,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                List<sa5> list = this.a;
+                List<ta5> list = this.a;
                 if (list != null) {
                     return list.size();
                 }
@@ -372,7 +372,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
                 BDLayoutMode layoutMode = this.b.getLayoutMode();
-                sa5 item = getItem(i);
+                ta5 item = getItem(i);
                 if (item == null) {
                     return null;
                 }
@@ -538,7 +538,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     public final void T0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            List<sa5> O = this.a.O(str);
+            List<ta5> O = this.a.O(str);
             if (O.size() > 0) {
                 U0(true);
                 this.h.b(O);
@@ -558,7 +558,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
             if (headerViewsCount > 0) {
                 i -= headerViewsCount;
             }
-            sa5 item = this.h.getItem(i);
+            ta5 item = this.h.getItem(i);
             if (item != null && item.d() > 0) {
                 if (item.h() == 1) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(getPageContext().getPageActivity(), item.d(), item.e(), item.g(), 0, 4)));

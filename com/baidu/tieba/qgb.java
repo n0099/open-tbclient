@@ -1,8 +1,13 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tieba.write.data.QuestionTagListData;
+import android.graphics.Bitmap;
 /* loaded from: classes7.dex */
 public interface qgb {
-    void a(@NonNull QuestionTagListData.QuestionTag questionTag);
+    void a();
+
+    void b();
+
+    boolean c(Bitmap bitmap);
+
+    void d();
 }

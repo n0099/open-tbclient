@@ -8,17 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipTaskItem;
-import tbclient.GetVipInfo.VipTaskList;
+import tbclient.GetVipInfo.VipRank;
+import tbclient.GetVipInfo.VipUser;
 /* loaded from: classes9.dex */
 public class zi9 implements oi {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public mi9 a;
-    public List<aj9> b;
+    public ni9 a;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +30,7 @@ public class zi9 implements oi {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        b = BdUniqueId.gen();
     }
 
     @Override // com.baidu.tieba.oi
@@ -41,17 +38,17 @@ public class zi9 implements oi {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
+            return b;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public zi9(VipTaskList vipTaskList) {
+    public zi9(VipRank vipRank, VipUser vipUser) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipTaskList};
+            Object[] objArr = {vipRank, vipUser};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,18 +58,16 @@ public class zi9 implements oi {
                 return;
             }
         }
-        if (vipTaskList != null && vipTaskList.item != null) {
-            String str = vipTaskList.card_id;
-            mi9 mi9Var = new mi9();
-            this.a = mi9Var;
-            mi9Var.e(3);
-            this.a.d(vipTaskList.class_name);
-            this.a.f(vipTaskList.class_url_name);
-            this.a.g(vipTaskList.class_url);
-            this.b = new ArrayList();
-            for (VipTaskItem vipTaskItem : vipTaskList.item) {
-                this.b.add(new aj9(vipTaskItem));
-            }
+        if (vipRank == null) {
+            return;
         }
+        String str = vipRank.card_id;
+        ni9 ni9Var = new ni9();
+        this.a = ni9Var;
+        ni9Var.d(vipRank.class_name);
+        this.a.f(vipRank.class_url_name);
+        this.a.g(vipRank.class_url);
+        vipRank.my_score_rank.intValue();
+        String str2 = vipUser.portrait;
     }
 }

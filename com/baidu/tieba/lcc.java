@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface lcc {
-    void onPlayerFirstVideoFrameShow(zcc zccVar, int i, int i2, int i3);
+    void a(int i, long j, long j2, long j3, String str, Object obj);
 }

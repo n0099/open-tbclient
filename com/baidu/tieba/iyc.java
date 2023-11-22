@@ -5,21 +5,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FullLengthNovel;
+import tbclient.ActBtn;
+import tbclient.FrsVideo;
 /* loaded from: classes6.dex */
-public class iyc extends poc {
+public class iyc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FullLengthNovel fullLengthNovel) {
+    public static JSONObject b(@NonNull FrsVideo frsVideo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, fullLengthNovel)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsVideo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "schema", fullLengthNovel.schema);
-            poc.a(jSONObject, "has_truncate", fullLengthNovel.has_truncate);
-            poc.a(jSONObject, "button_heigh", fullLengthNovel.button_heigh);
+            ActBtn actBtn = frsVideo.video_act;
+            if (actBtn != null) {
+                qoc.a(jSONObject, "video_act", uoc.b(actBtn));
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

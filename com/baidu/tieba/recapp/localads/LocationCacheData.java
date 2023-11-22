@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.qd;
 import com.baidu.tieba.tbadkCore.util.MercatorModel;
-import com.baidu.tieba.tsa;
+import com.baidu.tieba.usa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,7 +66,7 @@ public class LocationCacheData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (sInstance == null) {
-                synchronized (tsa.class) {
+                synchronized (usa.class) {
                     if (sInstance == null) {
                         sInstance = new LocationCacheData();
                     }

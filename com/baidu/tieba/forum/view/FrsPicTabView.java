@@ -21,13 +21,13 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aqa;
-import com.baidu.tieba.c1b;
+import com.baidu.tieba.bqa;
+import com.baidu.tieba.d1b;
 import com.baidu.tieba.forum.data.ForumTabPic;
 import com.baidu.tieba.forum.view.FrsPicTabView;
 import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
-import com.baidu.tieba.im7;
-import com.baidu.tieba.ow5;
+import com.baidu.tieba.jm7;
+import com.baidu.tieba.pw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ import kotlin.jvm.internal.Intrinsics;
 import tbclient.ThemeColorInfo;
 @Metadata(d1 = {"\u0000P\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u00012\u00020\u0002B%\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\b\u0010\u0018\u001a\u00020\u0019H\u0002J\u0018\u0010\u001a\u001a\u00020\b2\u0006\u0010\u001b\u001a\u00020\b2\u0006\u0010\u001c\u001a\u00020\bH\u0002J\b\u0010\u001d\u001a\u00020\u0019H\u0002J\b\u0010\u001e\u001a\u00020\u0019H\u0016J\b\u0010\u001f\u001a\u00020\u0019H\u0016J\u0010\u0010 \u001a\u00020\u00192\b\b\u0001\u0010!\u001a\u00020\bJ\u0010\u0010\"\u001a\u00020\u00192\b\b\u0001\u0010#\u001a\u00020\bJ\u0010\u0010$\u001a\u00020\u00192\b\u0010%\u001a\u0004\u0018\u00010\u0016J\u0010\u0010&\u001a\u00020\u00192\b\u0010'\u001a\u0004\u0018\u00010(J\u000e\u0010)\u001a\u00020\u00192\u0006\u0010\u001c\u001a\u00020\bJ\u0016\u0010*\u001a\u00020\u00192\u0006\u0010\u0012\u001a\u00020\f2\u0006\u0010\u000b\u001a\u00020\fR\u000e\u0010\n\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000b\u001a\u0004\u0018\u00010\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0012\u001a\u0004\u0018\u00010\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0015\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006+"}, d2 = {"Lcom/baidu/tieba/forum/view/FrsPicTabView;", "Landroid/widget/RelativeLayout;", "Lcom/baidu/tieba/forum/view/IFrsTabView;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "curIndicatorColorInt", "darkPic", "Lcom/baidu/tieba/forum/data/ForumTabPic;", "indicatorColorInt", "indicatorColorRex", "lottieView", "Lcom/baidu/tbadk/widget/lottie/TBLottieAnimationView;", "mTabHeight", "normalPic", "selectImageView", "Lcom/baidu/tbadk/widget/image/TbImage;", "themeColorInfo", "Ltbclient/ThemeColorInfo;", "unSelectImageView", "changeIndicatorColor", "", "getPicWidth", "width", "height", "onChangeSkinType", "onSelect", "onUnSelect", "setIndicatorColor", "colorInt", "setIndicatorColorRes", "colorRes", "setIntelligentColorInfo", AiBotChatDispatcher.AI_SINGLE_THEME_COLOR, "setSelectColorFilter", "colorFilter", "Landroid/graphics/ColorFilter;", "setTabHeight", "updateData", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class FrsPicTabView extends RelativeLayout implements im7 {
+public final class FrsPicTabView extends RelativeLayout implements jm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbImage a;
@@ -138,14 +138,14 @@ public final class FrsPicTabView extends RelativeLayout implements im7 {
         layoutParams2.addRule(13);
         this.a.setLayoutParams(layoutParams2);
         this.a.setVisibility(4);
-        this.a.setPlaceHolderDrawable(ow5.a.a());
+        this.a.setPlaceHolderDrawable(pw5.a.a());
         addView(this.a);
         this.b = new TbImage(context, null, 0, 6, null);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams3.leftMargin = BdUtilHelper.getDimens(context, R.dimen.M_W_X013) / 2;
         layoutParams3.rightMargin = BdUtilHelper.getDimens(context, R.dimen.M_W_X013) / 2;
         layoutParams3.addRule(13);
-        this.b.setPlaceHolderDrawable(ow5.a.a());
+        this.b.setPlaceHolderDrawable(pw5.a.a());
         this.b.setLayoutParams(layoutParams3);
         addView(this.b);
         f();
@@ -164,7 +164,7 @@ public final class FrsPicTabView extends RelativeLayout implements im7 {
         }
     }
 
-    @Override // com.baidu.tieba.im7
+    @Override // com.baidu.tieba.jm7
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -179,7 +179,7 @@ public final class FrsPicTabView extends RelativeLayout implements im7 {
         }
     }
 
-    @Override // com.baidu.tieba.im7
+    @Override // com.baidu.tieba.jm7
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -197,7 +197,7 @@ public final class FrsPicTabView extends RelativeLayout implements im7 {
     public final void c() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f != this.g) {
-            this.c.post(new Runnable() { // from class: com.baidu.tieba.gm7
+            this.c.post(new Runnable() { // from class: com.baidu.tieba.hm7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -238,8 +238,8 @@ public final class FrsPicTabView extends RelativeLayout implements im7 {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             ThemeColorInfo themeColorInfo = this.j;
             if (themeColorInfo != null) {
-                int f = aqa.f(c1b.e(themeColorInfo));
-                if (aqa.e(f)) {
+                int f = bqa.f(d1b.e(themeColorInfo));
+                if (bqa.e(f)) {
                     f = SkinManager.getColor(R.color.plugin_button_shadow_red);
                 }
                 setSelectColorFilter(new PorterDuffColorFilter(f, PorterDuff.Mode.SRC_IN));

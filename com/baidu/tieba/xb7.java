@@ -3,15 +3,16 @@ package com.baidu.tieba;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardPicView;
+import com.baidu.tieba.feed.component.CardPeiWanWrapperView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class xb7 extends ia7<CardPicView, c47> {
+public class xb7 extends ja7<CardPeiWanWrapperView, c47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +36,27 @@ public class xb7 extends ia7<CardPicView, c47> {
         }
     }
 
-    @Override // com.baidu.tieba.ia7, com.baidu.tieba.ya7
+    @Override // com.baidu.tieba.ja7, com.baidu.tieba.za7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            int dimens = BdUtilHelper.getDimens(viewGroup.getContext(), R.dimen.M_W_X005);
             View a = super.a(viewGroup);
-            rc7.j(a);
+            sc7.m(a, null, null, Integer.valueOf(dimens));
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ya7
+    @Override // com.baidu.tieba.za7
     /* renamed from: e */
-    public void b(@NonNull CardPicView cardPicView, @NonNull c47 c47Var) {
+    public void b(@NonNull CardPeiWanWrapperView cardPeiWanWrapperView, @NonNull c47 c47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardPicView, c47Var) == null) {
-            cardPicView.b(c47Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardPeiWanWrapperView, c47Var) == null) {
+            cardPeiWanWrapperView.a(c47Var);
         }
     }
 }

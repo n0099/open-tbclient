@@ -1,144 +1,142 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
+import com.baidu.tieba.ad.AbsDataRecorder;
+import com.baidu.tieba.recapp.lego.view.AdCardBaseView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class hea implements qc9<AdCard> {
+public class hea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdCard a;
-    public AdvertAppInfo b;
-    public Context c;
-    public TbPageContext d;
-    public vb9 e;
 
-    @Override // com.baidu.tieba.qc9
-    public void b() {
+    public static boolean a(String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public abstract void c();
-
-    @Override // com.baidu.tieba.qc9
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qc9
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qc9
-    public void g(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qc9
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qc9
-    public void setBusinessType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qc9
-    public void setFromCDN(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qc9
-    public void setMulDel(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qc9
-    public void setPosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-        }
-    }
-
-    public hea(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, str, i, i2)) == null) {
+            if (i == 2) {
+                if ("frs_new_tab".equals(str) && c26.k().s(AbsDataRecorder.Scene.FRS_NEW)) {
+                    return true;
+                }
+                if ("frs_hot_tab".equals(str) && c26.k().s(AbsDataRecorder.Scene.FRS_HOT)) {
+                    return true;
+                }
+                return false;
+            } else if (i == 3) {
+                if (c26.k().r(i2, AbsDataRecorder.Scene.PB)) {
+                    return true;
+                }
+                return false;
+            } else if (i == 1 && "INDEX".equals(str) && c26.k().s(AbsDataRecorder.Scene.RECOMMEND)) {
+                return true;
+            } else {
+                return false;
             }
         }
-        this.d = tbPageContext;
-        this.c = tbPageContext.getPageActivity();
+        return invokeLII.booleanValue;
     }
 
-    public AdvertAppInfo a() {
-        InterceptResult invokeV;
+    public static void b(AdCardBaseView adCardBaseView, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{adCardBaseView, vipAdFreeGuideLayout, str, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            if (i != 2 && i != 1) {
+                if (i == 3) {
+                    if (c26.k().m() && i2 == 1) {
+                        vipAdFreeGuideLayout.setBottomCornerRound(false);
+                        vipAdFreeGuideLayout.setAllCornerRound(false);
+                        if (adCardBaseView.getPbBottomView() != null) {
+                            adCardBaseView.getPbBottomView().setVisibility(8);
+                            return;
+                        }
+                        return;
+                    }
+                    if (vipAdFreeGuideLayout != null) {
+                        vipAdFreeGuideLayout.setBottomCornerRound(false);
+                        vipAdFreeGuideLayout.setAllCornerRound(true);
+                    }
+                    if (adCardBaseView.getPbBottomView() != null) {
+                        adCardBaseView.getPbBottomView().setVisibility(0);
+                    }
+                }
+            } else if (vipAdFreeGuideLayout != null) {
+                vipAdFreeGuideLayout.setBottomCornerRound(true);
+            }
         }
-        return (AdvertAppInfo) invokeV.objValue;
     }
 
-    public void e(AdCard adCard) {
+    public static void c(VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, adCard) == null) {
-            this.a = adCard;
-            this.b = adCard.getAdvertAppInfo();
+        if (interceptable == null || interceptable.invokeLLLI(65538, null, vipAdFreeGuideLayout, str, str2, i) == null) {
+            if (i == 2) {
+                if ("frs_new_tab".equals(str2)) {
+                    vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_NEW, str);
+                } else if ("frs_hot_tab".equals(str2)) {
+                    vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_HOT, str);
+                }
+            } else if (i == 3) {
+                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.PB, str);
+            } else if (i == 1) {
+                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.RECOMMEND, str);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.qc9
-    public void h(Object obj) {
+    public static void d(AdCardBaseView adCardBaseView, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, obj) != null) || !(obj instanceof AdCard)) {
+        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{adCardBaseView, vipAdFreeGuideLayout, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) != null) || vipAdFreeGuideLayout == null) {
             return;
         }
-        this.a = (AdCard) obj;
-        c();
-        e(this.a);
+        vipAdFreeGuideLayout.setVisibility(0);
+        b(adCardBaseView, vipAdFreeGuideLayout, str2, i, i2);
+        vipAdFreeGuideLayout.f();
+        c(vipAdFreeGuideLayout, str, str2, i);
     }
 
-    @Override // com.baidu.tieba.qc9
-    public void setAfterClickSchemeListener(vb9 vb9Var) {
+    public static void e(AdvertAppInfo advertAppInfo, rc9<?> rc9Var, String str, String str2, int i, int i2) {
+        AdCardBaseView adCardBaseView;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, vb9Var) == null) {
-            this.e = vb9Var;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{advertAppInfo, rc9Var, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            VipAdFreeGuideLayout vipAdFreeGuideLayout = null;
+            if (rc9Var instanceof AdCardBaseView) {
+                adCardBaseView = (AdCardBaseView) rc9Var;
+            } else {
+                adCardBaseView = null;
+            }
+            if (adCardBaseView != null) {
+                vipAdFreeGuideLayout = adCardBaseView.getVipAdFreeGuideLayout();
+            }
+            VipAdFreeGuideLayout vipAdFreeGuideLayout2 = vipAdFreeGuideLayout;
+            if (vipAdFreeGuideLayout2 != null) {
+                if (i == 1) {
+                    i3 = c26.k().j(advertAppInfo.a);
+                } else {
+                    i3 = advertAppInfo.t;
+                }
+                if (i3 == 1) {
+                    vipAdFreeGuideLayout2.setVisibility(8);
+                } else if (i3 == 2) {
+                    d(adCardBaseView, vipAdFreeGuideLayout2, str, str2, i, i2);
+                } else if (a(str2, i, i2)) {
+                    d(adCardBaseView, vipAdFreeGuideLayout2, str, str2, i, i2);
+                    c26.k().c();
+                    if (i == 1) {
+                        c26.k().p(advertAppInfo.a, 2);
+                    } else {
+                        advertAppInfo.t = 2;
+                    }
+                } else {
+                    vipAdFreeGuideLayout2.setVisibility(8);
+                    if (i == 1) {
+                        c26.k().p(advertAppInfo.a, 1);
+                    } else {
+                        advertAppInfo.t = 1;
+                    }
+                }
+            }
         }
     }
 }

@@ -4,29 +4,23 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.RecomTopicInfo;
-import tbclient.RecomTopicList;
+import tbclient.RecomTagInfo;
 /* loaded from: classes6.dex */
-public class i2d extends poc {
+public class i2d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RecomTopicInfo recomTopicInfo) {
+    public static JSONObject b(@NonNull RecomTagInfo recomTagInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recomTopicInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recomTagInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "recom_title", recomTopicInfo.recom_title);
-            if (recomTopicInfo.topic_list != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
-                    jSONArray.put(j2d.b(recomTopicList));
-                }
-                poc.a(jSONObject, "topic_list", jSONArray);
-            }
+            qoc.a(jSONObject, "id", recomTagInfo.id);
+            qoc.a(jSONObject, "name", recomTagInfo.name);
+            qoc.a(jSONObject, "pic", recomTagInfo.pic);
+            qoc.a(jSONObject, "first_class", recomTagInfo.first_class);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

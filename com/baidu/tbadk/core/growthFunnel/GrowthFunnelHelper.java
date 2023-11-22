@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.UniKVTestSwitch;
 import com.baidu.tbadk.util.AppLaunchInfoFetcher;
-import com.baidu.tieba.gm5;
+import com.baidu.tieba.hm5;
 import com.baidu.tieba.k35;
 import com.baidu.tieba.qd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -245,7 +245,7 @@ public class GrowthFunnelHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             String str = "";
             if (realStartType == 99) {
-                String c = gm5.c();
+                String c = hm5.c();
                 if (qd.isEmpty(c)) {
                     return "";
                 }

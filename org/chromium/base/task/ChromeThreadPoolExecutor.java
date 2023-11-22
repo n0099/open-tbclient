@@ -53,7 +53,7 @@ public class ChromeThreadPoolExecutor extends ThreadPoolExecutor {
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(final Runnable runnable) {
-            Runnable runnable2 = new Runnable() { // from class: com.baidu.tieba.uhc
+            Runnable runnable2 = new Runnable() { // from class: com.baidu.tieba.vhc
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

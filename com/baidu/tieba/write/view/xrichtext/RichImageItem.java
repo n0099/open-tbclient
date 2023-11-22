@@ -19,10 +19,10 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jj5;
+import com.baidu.tieba.aj5;
+import com.baidu.tieba.kj5;
 import com.baidu.tieba.qd;
-import com.baidu.tieba.wi5;
-import com.baidu.tieba.zi5;
+import com.baidu.tieba.xi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -126,7 +126,7 @@ public class RichImageItem extends FrameLayout {
     }
 
     /* loaded from: classes8.dex */
-    public class c implements wi5 {
+    public class c implements xi5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RichImageItem a;
@@ -149,7 +149,7 @@ public class RichImageItem extends FrameLayout {
             this.a = richImageItem;
         }
 
-        @Override // com.baidu.tieba.wi5
+        @Override // com.baidu.tieba.xi5
         public void a(BdImage bdImage, String str, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeLLZ(1048576, this, bdImage, str, z) != null) || bdImage == null) {
@@ -367,12 +367,12 @@ public class RichImageItem extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a.setIsLongPic(this.d.isLong());
             int i = this.e;
-            ImageOperation g = jj5.g(i, i * 2);
+            ImageOperation g = kj5.g(i, i * 2);
             this.d.clearPageActions();
             this.d.addPageAction(g);
             if (this.d.getImageType() == 0) {
                 this.a.setTag(this.d.toCachedKey(true));
-                BdImage d2 = new zi5().d(this.d, new c(this), true);
+                BdImage d2 = new aj5().d(this.d, new c(this), true);
                 if (d2 != null && d2.getWidth() > 0 && d2.getHeight() > 0) {
                     post(new d(this, d2));
                 }

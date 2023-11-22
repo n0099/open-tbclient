@@ -5465,7 +5465,7 @@ public final class FontSizeHelper {
     /* JADX WARN: Removed duplicated region for block: B:74:0x0162 A[Catch: all -> 0x0181, TryCatch #0 {all -> 0x0181, blocks: (B:49:0x00e1, B:51:0x00fa, B:54:0x0100, B:56:0x0104, B:58:0x010c, B:62:0x012f, B:67:0x0146, B:71:0x0152, B:76:0x0169, B:72:0x0157, B:73:0x015c, B:75:0x0167, B:74:0x0162, B:63:0x0134, B:64:0x0139, B:66:0x0144, B:65:0x013f, B:77:0x0175, B:78:0x0179, B:80:0x017d), top: B:202:0x00e1 }] */
     /* JADX WARN: Type inference failed for: r0v33, types: [java.lang.Object[]] */
     /* JADX WARN: Type inference failed for: r13v11 */
-    /* JADX WARN: Type inference failed for: r13v12, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r13v12, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r13v14 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

@@ -7,14 +7,14 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ei7;
+import com.baidu.tieba.fi7;
 import com.baidu.tieba.forum.databinding.ActivityForumBinding;
 import com.baidu.tieba.forum.widget.TbBottomSheetView;
 import com.baidu.tieba.forum.widget.TbLinkageScrollView;
 import com.baidu.tieba.forum.widget.TbNestedScrollView;
 import com.baidu.tieba.forum.widget.ViewExtentionsKt;
-import com.baidu.tieba.vm7;
-import com.baidu.tieba.xk7;
+import com.baidu.tieba.wm7;
+import com.baidu.tieba.yk7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public final class FullWebLayoutStrategy extends BaseLayoutStrategy {
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
     public int B;
-    public xk7 C;
+    public yk7 C;
     public final a D;
 
     @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy
@@ -46,7 +46,7 @@ public final class FullWebLayoutStrategy extends BaseLayoutStrategy {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a implements xk7 {
+    public static final class a implements yk7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FullWebLayoutStrategy a;
@@ -71,38 +71,38 @@ public final class FullWebLayoutStrategy extends BaseLayoutStrategy {
             this.b = activityForumBinding;
         }
 
-        @Override // com.baidu.tieba.xk7
+        @Override // com.baidu.tieba.yk7
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.E((this.b.m.getHeight() - this.a.o()) - this.a.r());
-                xk7 W = this.a.W();
+                yk7 W = this.a.W();
                 if (W != null) {
                     W.a();
                 }
             }
         }
 
-        @Override // com.baidu.tieba.xk7
+        @Override // com.baidu.tieba.yk7
         public void b() {
-            xk7 W;
+            yk7 W;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (W = this.a.W()) != null) {
                 W.b();
             }
         }
 
-        @Override // com.baidu.tieba.xk7
+        @Override // com.baidu.tieba.yk7
         public void c(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                xk7.a.a(this, i);
+                yk7.a.a(this, i);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FullWebLayoutStrategy(ActivityForumBinding binding, ei7.a dataWrapper) {
+    public FullWebLayoutStrategy(ActivityForumBinding binding, fi7.a dataWrapper) {
         super(binding, (int) dataWrapper.e(), (int) dataWrapper.f());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -136,7 +136,7 @@ public final class FullWebLayoutStrategy extends BaseLayoutStrategy {
             if (!ViewExtentionsKt.f(tbBottomSheetView, linearLayout)) {
                 TbLinkageScrollView tbLinkageScrollView = i().m;
                 Intrinsics.checkNotNullExpressionValue(tbLinkageScrollView, "binding.linkageView");
-                if (!vm7.a(tbLinkageScrollView)) {
+                if (!wm7.a(tbLinkageScrollView)) {
                     g();
                     i().m.scrollTo(0, (r() - q()) - 1);
                     d();
@@ -163,7 +163,7 @@ public final class FullWebLayoutStrategy extends BaseLayoutStrategy {
         fullWebLayoutStrategy.Y(i, function1);
     }
 
-    @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy, com.baidu.tieba.yk7
+    @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy, com.baidu.tieba.zk7
     public boolean F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -178,7 +178,7 @@ public final class FullWebLayoutStrategy extends BaseLayoutStrategy {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy, com.baidu.tieba.yk7
+    @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy, com.baidu.tieba.zk7
     public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -188,7 +188,7 @@ public final class FullWebLayoutStrategy extends BaseLayoutStrategy {
         }
     }
 
-    @Override // com.baidu.tieba.yk7
+    @Override // com.baidu.tieba.zk7
     public float M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -202,7 +202,7 @@ public final class FullWebLayoutStrategy extends BaseLayoutStrategy {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yk7
+    @Override // com.baidu.tieba.zk7
     /* renamed from: V */
     public WebView H() {
         InterceptResult invokeV;
@@ -213,13 +213,13 @@ public final class FullWebLayoutStrategy extends BaseLayoutStrategy {
         return (WebView) invokeV.objValue;
     }
 
-    public final xk7 W() {
+    public final yk7 W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.C;
         }
-        return (xk7) invokeV.objValue;
+        return (yk7) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy
@@ -361,10 +361,10 @@ public final class FullWebLayoutStrategy extends BaseLayoutStrategy {
         }
     }
 
-    public final void a0(xk7 xk7Var) {
+    public final void a0(yk7 yk7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, xk7Var) == null) {
-            this.C = xk7Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, yk7Var) == null) {
+            this.C = yk7Var;
         }
     }
 
@@ -376,7 +376,7 @@ public final class FullWebLayoutStrategy extends BaseLayoutStrategy {
         }
     }
 
-    @Override // com.baidu.tieba.yk7
+    @Override // com.baidu.tieba.zk7
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

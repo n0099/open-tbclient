@@ -12,7 +12,7 @@ import com.baidu.tbadk.data.LiveRemindData;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tbadk.data.SubscribeGroupUnreadMsgData;
 import com.baidu.tieba.e45;
-import com.baidu.tieba.nc5;
+import com.baidu.tieba.oc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements e45 {
     public List<AlaLiveInfo> liveIndexSecondFloor;
     public final List<AlaLiveInfo> livePicSecondFloor;
     public MemberBroadcastData mActivityBroadcastData;
-    public nc5 mFestivalConfigData;
+    public oc5 mFestivalConfigData;
     public IconPopData mIconPopData;
     public LevePopData mLevePopData;
     public LiveRemindData mLiveRemindData;
@@ -66,7 +66,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements e45 {
         }
         this.mLevePopData = new LevePopData();
         this.mIconPopData = new IconPopData();
-        this.mFestivalConfigData = new nc5();
+        this.mFestivalConfigData = new oc5();
         this.mLiveRemindData = new LiveRemindData();
         this.liveFollowSecondFloor = new ArrayList();
         this.liveIndexSecondFloor = new ArrayList();
@@ -165,13 +165,13 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements e45 {
     }
 
     @Override // com.baidu.tieba.e45
-    public nc5 getFestivalConfigData() {
+    public oc5 getFestivalConfigData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mFestivalConfigData;
         }
-        return (nc5) invokeV.objValue;
+        return (oc5) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.e45

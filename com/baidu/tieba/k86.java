@@ -6,29 +6,26 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernItemViewLineHolder;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernEmptyViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class k86 extends bi<h86, LiveTabConcernItemViewLineHolder> {
+public class k86 extends bi<ba6, LiveTabConcernEmptyViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public x86 b;
-    public c96 c;
-    public String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k86(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), h86.d);
+    public k86(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), ba6.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, str};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,51 +37,32 @@ public class k86 extends bi<h86, LiveTabConcernItemViewLineHolder> {
                 return;
             }
         }
-        this.d = "";
         this.a = tbPageContext;
-        this.d = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bi
     /* renamed from: t */
-    public LiveTabConcernItemViewLineHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public LiveTabConcernEmptyViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            x86 x86Var = new x86(this.a, viewGroup, this.d);
-            this.b = x86Var;
-            c96 c96Var = this.c;
-            if (c96Var != null) {
-                x86Var.r(c96Var);
-            }
-            return new LiveTabConcernItemViewLineHolder(this.b);
+            return new LiveTabConcernEmptyViewHolder(new w86(this.a, viewGroup));
         }
-        return (LiveTabConcernItemViewLineHolder) invokeL.objValue;
-    }
-
-    public void x(c96 c96Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c96Var) == null) {
-            this.c = c96Var;
-            x86 x86Var = this.b;
-            if (x86Var != null) {
-                x86Var.r(c96Var);
-            }
-        }
+        return (LiveTabConcernEmptyViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bi
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, h86 h86Var, LiveTabConcernItemViewLineHolder liveTabConcernItemViewLineHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ba6 ba6Var, LiveTabConcernEmptyViewHolder liveTabConcernEmptyViewHolder) {
         InterceptResult invokeCommon;
-        x86 x86Var;
+        w86 w86Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, h86Var, liveTabConcernItemViewLineHolder})) == null) {
-            if (liveTabConcernItemViewLineHolder != null && (x86Var = liveTabConcernItemViewLineHolder.a) != null) {
-                x86Var.k(h86Var);
-                return liveTabConcernItemViewLineHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ba6Var, liveTabConcernEmptyViewHolder})) == null) {
+            if (liveTabConcernEmptyViewHolder != null && (w86Var = liveTabConcernEmptyViewHolder.a) != null) {
+                w86Var.k(ba6Var);
+                return liveTabConcernEmptyViewHolder.getView();
             }
             return null;
         }

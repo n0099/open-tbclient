@@ -70,13 +70,13 @@ public final class h33 {
 
         /* renamed from: com.baidu.tieba.h33$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0318a implements zk3<d33> {
+        public class C0316a implements zk3<d33> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ f33 b;
 
-            public C0318a(a aVar, String str, f33 f33Var) {
+            public C0316a(a aVar, String str, f33 f33Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public final class h33 {
                     Log.i("SwanPuppetManager", "onEvent: to=" + this.a.g.size() + " event=" + str + " client=" + f33Var.b);
                 }
                 synchronized (this.a.g) {
-                    yk3.a(f63.M(), new C0318a(this, str, f33Var), this.a.g);
+                    yk3.a(f63.M(), new C0316a(this, str, f33Var), this.a.g);
                 }
             }
         }

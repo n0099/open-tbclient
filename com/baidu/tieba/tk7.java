@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface tk7 {
-    void a();
+    void a(int i);
 
     void b();
 
-    void c();
+    void c(String str, long j, String str2, int i);
 
     void d();
 }

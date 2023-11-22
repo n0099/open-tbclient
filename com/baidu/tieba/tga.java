@@ -1,96 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class tga implements gb7, n67, db7 {
+public final class tga implements hb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    @Override // com.baidu.tieba.db7
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "position_from_1" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gb7
+    @Override // com.baidu.tieba.hb7
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class a implements l77 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tga a;
-
-        public a(tga tgaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tgaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tgaVar;
-        }
-
-        @Override // com.baidu.tieba.l77
-        public void a(Map<String, String> map) {
-            String str;
-            String str2;
-            String str3;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-                Intrinsics.checkNotNullParameter(map, "map");
-                String str4 = map.get("thread_id");
-                if (str4 == null) {
-                    str4 = "";
-                }
-                String str5 = map.get("weight");
-                if (str5 == null) {
-                    str = "";
-                } else {
-                    str = str5;
-                }
-                String str6 = map.get("source");
-                if (str6 == null) {
-                    str2 = "";
-                } else {
-                    str2 = str6;
-                }
-                String str7 = map.get("position_from_1");
-                if (str7 == null) {
-                    str7 = "0";
-                }
-                String str8 = map.get("abtest_tag");
-                if (str8 == null) {
-                    str3 = "";
-                } else {
-                    str3 = str8;
-                }
-                mq6.b().c(new efa(JavaTypesHelper.toLong(str4, 0L), str, str2, JavaTypesHelper.toInt(str7, 0), str3, JavaTypesHelper.toInt(this.a.a, 0)));
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CommonStatisticKey.KEY_LIVE_MERGE_CARD_SHOW : (String) invokeV.objValue;
     }
 
     public tga() {
@@ -103,43 +35,48 @@ public final class tga implements gb7, n67, db7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
     }
 
-    @Override // com.baidu.tieba.n67
-    public l77 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new a(this);
-        }
-        return (l77) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gb7
-    public Map<String, String> a(d57 businessInfo) {
+    @Override // com.baidu.tieba.hb7
+    public Map<String, String> a(e57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            hashMap.putAll(businessInfo.a());
-            return hashMap;
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            String str = businessInfo.a().get("live_attach_image_type");
+            String str2 = "";
+            if (str == null) {
+                str = "";
+            }
+            linkedHashMap.put("obj_name", str);
+            String str3 = businessInfo.a().get(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS);
+            if (str3 == null) {
+                str3 = "";
+            }
+            linkedHashMap.put("obj_source", str3);
+            String str4 = businessInfo.a().get("live_page_from");
+            if (str4 == null) {
+                str4 = "";
+            }
+            linkedHashMap.put(TiebaStatic.Params.OBJ_TO, str4);
+            String str5 = businessInfo.a().get("live_app_id");
+            if (str5 == null) {
+                str5 = "";
+            }
+            linkedHashMap.put(TiebaStatic.Params.OBJ_PARAM3, str5);
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount != null) {
+                str2 = currentAccount;
+            }
+            linkedHashMap.put("uid", str2);
+            String hdid = TbadkCoreApplication.getInst().getHdid();
+            Intrinsics.checkNotNullExpressionValue(hdid, "getInst().hdid");
+            linkedHashMap.put("hdid", hdid);
+            return linkedHashMap;
         }
         return (Map) invokeL.objValue;
-    }
-
-    public final tga f(String type) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, type)) == null) {
-            Intrinsics.checkNotNullParameter(type, "type");
-            this.a = type;
-            return this;
-        }
-        return (tga) invokeL.objValue;
     }
 }

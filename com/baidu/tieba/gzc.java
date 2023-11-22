@@ -5,23 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.ItemThemeColor;
 import tbclient.ItemThemeColorElement;
 /* loaded from: classes6.dex */
-public class gzc extends poc {
+public class gzc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ItemThemeColor itemThemeColor) {
+    public static JSONObject b(@NonNull ItemThemeColorElement itemThemeColorElement) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, itemThemeColor)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, itemThemeColorElement)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ItemThemeColorElement itemThemeColorElement = itemThemeColor.day;
-            if (itemThemeColorElement != null) {
-                poc.a(jSONObject, "day", fzc.b(itemThemeColorElement));
-            }
+            qoc.a(jSONObject, "top_color", itemThemeColorElement.top_color);
+            qoc.a(jSONObject, "bottom_color", itemThemeColorElement.bottom_color);
+            qoc.a(jSONObject, "edit_button_color", itemThemeColorElement.edit_button_color);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

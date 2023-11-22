@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -9,25 +10,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FrsPage.HeadCardCover;
-import tbclient.FrsPage.HeaderCard;
+import tbclient.LinkConf;
+import tbclient.PubCardFreq;
 import tbclient.QuizCard;
+import tbclient.QuizCardTopConf;
 import tbclient.ThemeColorInfo;
-import tbclient.ThreadInfo;
 /* loaded from: classes7.dex */
 public final class o6b implements oi {
     public static /* synthetic */ Interceptable $ic;
     @JvmField
-    public static final BdUniqueId f;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<ThreadInfo> b;
-    public ThemeColorInfo c;
-    public m6b d;
-    public n6b e;
+    public PubCardFreq a;
+    public ThemeColorInfo b;
+    public QuizCardTopConf c;
+    public LinkConf d;
+    public s6b e;
+    public boolean f;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +45,7 @@ public final class o6b implements oi {
         }
         BdUniqueId gen = BdUniqueId.gen();
         Intrinsics.checkNotNullExpressionValue(gen, "gen()");
-        f = gen;
+        g = gen;
     }
 
     public o6b() {
@@ -61,49 +62,72 @@ public final class o6b implements oi {
         }
     }
 
-    public final ThemeColorInfo a() {
+    public final LinkConf a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.d;
+        }
+        return (LinkConf) invokeV.objValue;
+    }
+
+    public final ThemeColorInfo b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
         return (ThemeColorInfo) invokeV.objValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final m6b c() {
+    public final PubCardFreq c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+            return this.a;
         }
-        return (m6b) invokeV.objValue;
+        return (PubCardFreq) invokeV.objValue;
     }
 
-    public final n6b d() {
+    public final s6b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.e;
         }
-        return (n6b) invokeV.objValue;
+        return (s6b) invokeV.objValue;
     }
 
-    public final List<ThreadInfo> e() {
+    public final QuizCardTopConf e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+            return this.c;
         }
-        return (List) invokeV.objValue;
+        return (QuizCardTopConf) invokeV.objValue;
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        Long a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            s6b s6bVar = this.e;
+            if (s6bVar == null || (a = s6bVar.a()) == null || a.longValue() != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.oi
@@ -111,60 +135,33 @@ public final class o6b implements oi {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return f;
+            return g;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public final void f(HeaderCard headerCard) {
+    public final void h(QuizCard quizCard) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, headerCard) != null) || headerCard == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, quizCard) != null) || quizCard == null) {
             return;
         }
-        this.a = headerCard.card_title;
-        this.b = headerCard.thread_list;
-        QuizCard quizCard = headerCard.quiz_card;
-        if (quizCard != null) {
-            n6b n6bVar = new n6b();
-            this.e = n6bVar;
-            if (n6bVar != null) {
-                n6bVar.h(quizCard);
-            }
-        }
-        this.c = headerCard.card_background;
-        HeadCardCover headCardCover = headerCard.cover;
-        if (headCardCover != null) {
-            m6b m6bVar = new m6b();
-            this.d = m6bVar;
-            if (m6bVar != null) {
-                m6bVar.d(headCardCover);
+        this.a = quizCard.freq;
+        this.b = quizCard.card_background;
+        this.d = quizCard.bottom;
+        this.c = quizCard.top;
+        if (quizCard.quiz != null) {
+            s6b s6bVar = new s6b();
+            this.e = s6bVar;
+            if (s6bVar != null) {
+                s6bVar.k(quizCard.quiz);
             }
         }
     }
 
-    public final void g(tbclient.Personalized.HeaderCard headerCard) {
+    public final void i(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, headerCard) != null) || headerCard == null) {
-            return;
-        }
-        this.a = headerCard.card_title;
-        this.b = headerCard.thread_list;
-        QuizCard quizCard = headerCard.quiz_card;
-        if (quizCard != null) {
-            n6b n6bVar = new n6b();
-            this.e = n6bVar;
-            if (n6bVar != null) {
-                n6bVar.h(quizCard);
-            }
-        }
-        this.c = headerCard.card_background;
-        tbclient.Personalized.HeadCardCover headCardCover = headerCard.cover;
-        if (headCardCover != null) {
-            m6b m6bVar = new m6b();
-            this.d = m6bVar;
-            if (m6bVar != null) {
-                m6bVar.e(headCardCover);
-            }
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.f = z;
         }
     }
 }

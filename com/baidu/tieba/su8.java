@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbTextGenImageMsg;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
-import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,10 +13,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class su8 extends xm8 {
+public class su8 extends ym8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean e;
+
+    @Override // com.baidu.tieba.vm8
+    public boolean a(int i, boolean z, Object obj) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
 
     public su8() {
         Interceptable interceptable = $ic;
@@ -28,110 +37,40 @@ public class su8 extends xm8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = true;
     }
 
-    @Override // com.baidu.tieba.um8
-    public boolean a(int i, boolean z, Object obj) {
-        InterceptResult invokeCommon;
-        boolean z2;
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
-            um8 um8Var = this.c;
-            if (um8Var != null) {
-                z2 = um8Var.a(i, z, obj);
-            } else {
-                z2 = true;
-            }
-            for (int i2 = 0; i2 < this.a.size(); i2++) {
-                tm8 tm8Var = this.a.get(i2);
-                if (tm8Var instanceof iv8) {
-                    iv8 iv8Var = (iv8) tm8Var;
-                    if (iv8Var.d() && i != i2) {
-                        iv8Var.e(false);
-                        i(i2);
-                    } else {
-                        if (i == i2) {
-                            z3 = true;
-                        } else {
-                            z3 = false;
-                        }
-                        iv8Var.e(z3);
-                    }
-                }
-            }
-            return z2;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.xm8
-    public List<tm8> j(List list) {
+    @Override // com.baidu.tieba.ym8
+    public List<um8> j(@NonNull List list) {
         InterceptResult invokeL;
-        List<BotsDTO.BotListDTO.SkillDTO> list2;
-        ym8 ym8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
             ArrayList arrayList = new ArrayList();
-            int i = 0;
-            while (true) {
-                boolean z = true;
-                if (i < list.size()) {
-                    Object obj = list.get(i);
-                    if (obj instanceof BotsDTO.BotListDTO.SkillDTO.ItemsDTO) {
-                        BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO = (BotsDTO.BotListDTO.SkillDTO.ItemsDTO) obj;
-                        if (itemsDTO.getItemType() == 1) {
-                            ym8Var = new zm8(itemsDTO);
-                        } else {
-                            ym8 ym8Var2 = new ym8(itemsDTO);
-                            int i2 = this.d;
-                            if (i2 > -1) {
-                                if (i != i2) {
-                                    z = false;
-                                }
-                                ym8Var2.n(z);
-                            }
-                            ym8Var = ym8Var2;
-                        }
-                        arrayList.add(ym8Var);
-                    } else if (obj instanceof BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) {
-                        iv8 iv8Var = new iv8((BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) obj);
-                        int i3 = this.d;
-                        if (i3 > -1) {
-                            if (i != i3) {
-                                z = false;
-                            }
-                            iv8Var.e(z);
-                        }
-                        arrayList.add(iv8Var);
-                    } else if (obj instanceof TbBaseMsg) {
-                        TbTextGenImageMsg tbTextGenImageMsg = (TbTextGenImageMsg) obj;
-                        if (tbTextGenImageMsg.getSubSkillConfig() != null && (list2 = tbTextGenImageMsg.getSubSkillConfig().a) != null && !list2.isEmpty()) {
-                            if (this.e) {
-                                arrayList.add(new gv8());
-                                this.e = false;
-                            }
-                            for (BotsDTO.BotListDTO.SkillDTO skillDTO : list2) {
-                                hv8 hv8Var = new hv8(skillDTO);
-                                hv8Var.e(tbTextGenImageMsg);
-                                arrayList.add(hv8Var);
-                            }
-                        }
-                    } else if (obj instanceof AbilityItem) {
-                        arrayList.add(new jv8((AbilityItem) obj));
+            for (int i = 0; i < list.size(); i++) {
+                Object obj = list.get(i);
+                if (obj instanceof TbBaseMsg) {
+                    TbBaseMsg tbBaseMsg = (TbBaseMsg) obj;
+                    List<AbilityItem> quickOperate = tbBaseMsg.getQuickOperate();
+                    if (ListUtils.isEmpty(quickOperate)) {
+                        break;
                     }
-                    i++;
-                } else {
-                    this.e = true;
-                    return arrayList;
+                    for (int i2 = 0; i2 < ListUtils.getCount(quickOperate); i2++) {
+                        AbilityItem abilityItem = (AbilityItem) ListUtils.getItem(quickOperate, i2);
+                        if (abilityItem != null && abilityItem.getStyleConf() != null && abilityItem.getStyleConf().shouldShow()) {
+                            cv8 cv8Var = new cv8();
+                            cv8Var.f(abilityItem);
+                            cv8Var.g(tbBaseMsg);
+                            if (tbBaseMsg != null) {
+                                cv8Var.h(tbBaseMsg.getUserId());
+                            }
+                            arrayList.add(cv8Var);
+                        }
+                    }
                 }
             }
-        } else {
-            return (List) invokeL.objValue;
+            return arrayList;
         }
+        return (List) invokeL.objValue;
     }
 }

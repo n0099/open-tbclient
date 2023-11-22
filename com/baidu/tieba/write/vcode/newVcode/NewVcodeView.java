@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.BlueCircleProgressDialog;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b55;
-import com.baidu.tieba.iab;
+import com.baidu.tieba.c55;
+import com.baidu.tieba.jab;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,12 +33,12 @@ public class NewVcodeView {
     public transient /* synthetic */ FieldHolder $fh;
     public BaseActivity a;
     public int b;
-    public iab c;
+    public jab c;
     public BaseWebView d;
     public View e;
     public BlueCircleProgressDialog f;
     public TextView g;
-    public b55 h;
+    public c55 h;
     public boolean i;
     public Runnable j;
     public float k;
@@ -144,10 +144,10 @@ public class NewVcodeView {
         }
     }
 
-    public void setPresenter(iab iabVar) {
+    public void setPresenter(jab jabVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, iabVar) == null) {
-            this.c = iabVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jabVar) == null) {
+            this.c = jabVar;
             this.i = false;
         }
     }
@@ -207,9 +207,9 @@ public class NewVcodeView {
             TextView textView = (TextView) findViewById.findViewById(R.id.custom_loading_text);
             this.g = textView;
             textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f13af));
-            b55 b55Var = new b55();
-            this.h = b55Var;
-            b55Var.a = 1000L;
+            c55 c55Var = new c55();
+            this.h = c55Var;
+            c55Var.a = 1000L;
             if (this.d != null) {
                 return true;
             }

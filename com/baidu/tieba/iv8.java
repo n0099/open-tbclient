@@ -3,6 +3,7 @@ package com.baidu.tieba;
 import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.lib.socket.msg.TbTextGenImageMsg;
 import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,12 +13,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class iv8 extends tm8 {
+public class iv8 extends um8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int b;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO a;
+    public BotsDTO.BotListDTO.SkillDTO a;
+    public TbTextGenImageMsg b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,56 +34,53 @@ public class iv8 extends tm8 {
                 return;
             }
         }
-        b = BdUniqueId.gen().getId();
+        c = BdUniqueId.gen().getId();
     }
 
-    @Override // com.baidu.tieba.tm8
+    @Override // com.baidu.tieba.um8
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+            return c;
         }
         return invokeV.intValue;
     }
 
     @NonNull
-    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO b() {
+    public TbTextGenImageMsg b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.b;
         }
-        return (BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) invokeV.objValue;
+        return (TbTextGenImageMsg) invokeV.objValue;
     }
 
-    public String c() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.getType();
+        }
+        return invokeV.intValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.a.getName();
         }
         return (String) invokeV.objValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a.getDefaultX() == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public iv8(@NonNull BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO) {
+    public iv8(@NonNull BotsDTO.BotListDTO.SkillDTO skillDTO) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {optsDTO};
+            Object[] objArr = {skillDTO};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -91,13 +90,13 @@ public class iv8 extends tm8 {
                 return;
             }
         }
-        this.a = optsDTO;
+        this.a = skillDTO;
     }
 
-    public void e(boolean z) {
+    public void e(@NonNull TbTextGenImageMsg tbTextGenImageMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.a.setDefaultX(z ? 1 : 0);
+        if (interceptable == null || interceptable.invokeL(1048580, this, tbTextGenImageMsg) == null) {
+            this.b = tbTextGenImageMsg;
         }
     }
 }

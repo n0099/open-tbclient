@@ -55,7 +55,7 @@ public final class g25 implements w15 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
             Intrinsics.checkNotNullParameter(map, "map");
-            if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW || jb5.j() || t95.c() || (a = TopNotifyData.Companion.a()) == null || !rb5.a.d(a)) {
+            if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW || kb5.j() || u95.c() || (a = TopNotifyData.Companion.a()) == null || !sb5.a.d(a)) {
                 return false;
             }
             return true;

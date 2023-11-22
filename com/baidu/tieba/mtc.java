@@ -4,29 +4,23 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.ForumPresentInfo;
-import tbclient.UserRankPresentInfo;
+import tbclient.ForumFriendWatchingInfo;
 /* loaded from: classes7.dex */
-public class mtc extends poc {
+public class mtc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ForumPresentInfo forumPresentInfo) {
+    public static JSONObject b(@NonNull ForumFriendWatchingInfo forumFriendWatchingInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumPresentInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumFriendWatchingInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (forumPresentInfo.user_list != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (UserRankPresentInfo userRankPresentInfo : forumPresentInfo.user_list) {
-                    jSONArray.put(p5d.b(userRankPresentInfo));
-                }
-                poc.a(jSONObject, "user_list", jSONArray);
-            }
-            poc.a(jSONObject, "content", forumPresentInfo.content);
+            qoc.a(jSONObject, "forum_avatar", forumFriendWatchingInfo.forum_avatar);
+            qoc.a(jSONObject, "forum_name", forumFriendWatchingInfo.forum_name);
+            qoc.a(jSONObject, "show_num", forumFriendWatchingInfo.show_num);
+            qoc.a(jSONObject, "show_type", forumFriendWatchingInfo.show_type);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

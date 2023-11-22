@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SearchFriendActivityConfig;
-import com.baidu.tieba.p36;
+import com.baidu.tieba.q36;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +31,7 @@ public class SearchFriendActivityStatic {
             }
         }
         TbadkCoreApplication.getInst().RegisterIntent(SearchFriendActivityConfig.class, SearchFriendActivity.class);
-        MessageManager.getInstance().registerTask(new CustomMessageTask(2001265, new p36()));
+        MessageManager.getInstance().registerTask(new CustomMessageTask(2001265, new q36()));
     }
 
     public SearchFriendActivityStatic() {

@@ -1,153 +1,208 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.mjc;
+import com.baidu.tieba.njc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public final class cmc implements pjc {
+public final class cmc<T> extends njc<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<pjc> a;
-    public volatile boolean b;
+    public final T b;
 
-    public cmc() {
+    /* loaded from: classes5.dex */
+    public class a implements njc.c<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Object a;
+
+        public a(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = obj;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xjc
+        /* renamed from: a */
+        public void call(ojc<? super T> ojcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, ojcVar) == null) {
+                ojcVar.c((Object) this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b<T> implements njc.c<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final nlc a;
+        public final T b;
+
+        public b(nlc nlcVar, T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nlcVar, t};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nlcVar;
+            this.b = t;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xjc
+        /* renamed from: a */
+        public void call(ojc<? super T> ojcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, ojcVar) == null) {
+                ojcVar.a(this.a.a(new d(ojcVar, this.b)));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class c<T> implements njc.c<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final mjc a;
+        public final T b;
+
+        public c(mjc mjcVar, T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mjcVar, t};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mjcVar;
+            this.b = t;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xjc
+        /* renamed from: a */
+        public void call(ojc<? super T> ojcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, ojcVar) == null) {
+                mjc.a createWorker = this.a.createWorker();
+                ojcVar.a(createWorker);
+                createWorker.b(new d(ojcVar, this.b));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class d<T> implements wjc {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final ojc<? super T> a;
+        public final T b;
+
+        public d(ojc<? super T> ojcVar, T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ojcVar, t};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ojcVar;
+            this.b = t;
+        }
+
+        /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+        @Override // com.baidu.tieba.wjc
+        public void call() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.a.c((T) this.b);
+                } catch (Throwable th) {
+                    this.a.b(th);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cmc(T t) {
+        super(new a(t));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((njc.c) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.pjc
-    public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pjc
-    public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.b) {
-            synchronized (this) {
-                if (this.b) {
-                    return;
-                }
-                this.b = true;
-                List<pjc> list = this.a;
-                this.a = null;
-                c(list);
-            }
-        }
-    }
-
-    public cmc(pjc pjcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pjcVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        LinkedList linkedList = new LinkedList();
-        this.a = linkedList;
-        linkedList.add(pjcVar);
+        this.b = t;
     }
 
-    public static void c(Collection<pjc> collection) {
+    public static <T> cmc<T> m(T t) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, collection) != null) || collection == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, t)) == null) {
+            return new cmc<>(t);
         }
-        ArrayList arrayList = null;
-        for (pjc pjcVar : collection) {
-            try {
-                pjcVar.unsubscribe();
-            } catch (Throwable th) {
-                if (arrayList == null) {
-                    arrayList = new ArrayList();
-                }
-                arrayList.add(th);
-            }
-        }
-        ujc.d(arrayList);
+        return (cmc) invokeL.objValue;
     }
 
-    public void a(pjc pjcVar) {
+    public njc<T> n(mjc mjcVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, pjcVar) != null) || pjcVar.isUnsubscribed()) {
-            return;
-        }
-        if (!this.b) {
-            synchronized (this) {
-                if (!this.b) {
-                    List list = this.a;
-                    if (list == null) {
-                        list = new LinkedList();
-                        this.a = list;
-                    }
-                    list.add(pjcVar);
-                    return;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mjcVar)) == null) {
+            if (mjcVar instanceof nlc) {
+                return njc.b(new b((nlc) mjcVar, this.b));
             }
+            return njc.b(new c(mjcVar, this.b));
         }
-        pjcVar.unsubscribe();
-    }
-
-    public cmc(pjc... pjcVarArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pjcVarArr};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = new LinkedList(Arrays.asList(pjcVarArr));
-    }
-
-    public void b(pjc pjcVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pjcVar) == null) && !this.b) {
-            synchronized (this) {
-                List<pjc> list = this.a;
-                if (!this.b && list != null) {
-                    boolean remove = list.remove(pjcVar);
-                    if (remove) {
-                        pjcVar.unsubscribe();
-                    }
-                }
-            }
-        }
+        return (njc) invokeL.objValue;
     }
 }

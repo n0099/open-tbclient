@@ -1,23 +1,42 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.os.Build;
-import androidx.annotation.ColorRes;
+import android.graphics.Rect;
+import android.view.View;
+import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.breathetip.tipview.BreatheTipView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class t55 extends TBSpecificationButtonConfig {
+public class t55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] v;
-    public boolean w;
+    public LinearLayout a;
+    public int b;
+    public int c;
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 32;
+        }
+        return invokeV.intValue;
+    }
 
     public t55() {
         Interceptable interceptable = $ic;
@@ -32,83 +51,111 @@ public class t55 extends TBSpecificationButtonConfig {
                 return;
             }
         }
-        this.w = false;
-        this.b = R.color.CAM_X0101;
-        this.d = R.color.CAM_X0302;
+        this.b = 0;
+        this.c = 0;
     }
 
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    public Drawable a(float f) {
-        InterceptResult invokeF;
+    public View e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-            return t(f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
         }
-        return (Drawable) invokeF.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public void r(@ColorRes int i) {
+    public int f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.d = i;
-            this.b = R.color.CAM_X0101;
-            this.r = true;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void a(int i, int i2, Rect rect, s55 s55Var) {
+        LinearLayout.LayoutParams layoutParams;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), rect, s55Var}) == null) {
+            if (s55Var.getView().getLayoutParams() instanceof LinearLayout.LayoutParams) {
+                layoutParams = (LinearLayout.LayoutParams) s55Var.getView().getLayoutParams();
+            } else {
+                layoutParams = new LinearLayout.LayoutParams(-2, -2);
             }
-        }
-    }
-
-    public void s(@ColorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-            this.r = true;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
+            int dimens = (i / 2) - BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X017);
+            boolean z2 = false;
+            if (rect.centerX() >= dimens) {
+                z = true;
+            } else {
+                z = false;
             }
+            if (BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst().getContext()) - rect.centerX() >= dimens) {
+                z2 = true;
+            }
+            if (z && z2) {
+                layoutParams.gravity = 1;
+            } else if (z) {
+                layoutParams.gravity = 5;
+                this.b = (-(i - i2)) / 2;
+            } else {
+                layoutParams.gravity = 3;
+                this.b = (i - i2) / 2;
+            }
+            this.a.addView(s55Var.getView(), layoutParams);
         }
     }
 
-    public void u(int[] iArr) {
+    public final void b(int i, int i2, Rect rect, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) {
-            this.v = iArr;
-            this.w = true;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), rect, view2}) == null) {
+            if (i > rect.centerY() - (i2 / 2)) {
+                this.a.addView(view2);
+                this.c = ((rect.height() + i2) / 2) + i;
+                return;
+            }
+            this.a.addView(view2, 0);
+            this.c = (rect.height() + i2) / 2;
         }
     }
 
-    public final Drawable t(float f) {
-        InterceptResult invokeF;
+    public void h(BreatheTipView breatheTipView, s55 s55Var, View view2) {
         int i;
-        GradientDrawable gradientDrawable;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
-            if (!this.r) {
-                this.b = SkinManager.getColor(this.s, (int) R.color.CAM_X0101);
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, breatheTipView, s55Var, view2) == null) {
+            LinearLayout linearLayout = new LinearLayout(breatheTipView.getContext());
+            this.a = linearLayout;
+            linearLayout.setOrientation(1);
+            Rect rect = new Rect();
+            if (view2 != null) {
+                view2.getGlobalVisibleRect(rect);
             }
-            if (this.r) {
-                i = SkinManager.getColor(this.s, this.d);
+            int i3 = 0;
+            if (breatheTipView.getLayoutParams() != null) {
+                i = breatheTipView.getLayoutParams().height;
             } else {
-                i = this.d;
+                i = 0;
             }
-            if (!this.w) {
-                this.v = new int[]{i, i};
-            }
-            if (Build.VERSION.SDK_INT >= 16) {
-                gradientDrawable = new GradientDrawable();
-                gradientDrawable.setOrientation(this.t);
-                gradientDrawable.setColors(this.v);
+            if (breatheTipView.getLayoutParams() != null) {
+                i2 = breatheTipView.getLayoutParams().width;
             } else {
-                gradientDrawable = new GradientDrawable(this.t, this.v);
+                i2 = 0;
             }
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(f);
-            return gradientDrawable;
+            if (s55Var.getView().getLayoutParams() != null) {
+                i3 = s55Var.getView().getLayoutParams().width;
+            }
+            a(i2, i3, rect, s55Var);
+            b(i, i3, rect, breatheTipView);
         }
-        return (Drawable) invokeF.objValue;
     }
 }

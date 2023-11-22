@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
 import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.graphics.Point;
+import android.graphics.Canvas;
+import android.graphics.PorterDuff;
 import android.graphics.Rect;
-import android.graphics.RectF;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,23 +14,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
 public class rw5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RectF a;
-    public final Rect b;
-    public final RectF c;
-    public final int d;
-    public final int e;
-    public float f;
-    public final List<qw5> g;
-    public final int h;
-    public qw5 i;
-    public final Rect j;
-    public final Matrix k;
+    public Bitmap a;
+    public final a b;
+    public final Rect c;
+    public final Rect d;
+    public final Rect e;
+    public int f;
+    public Canvas g;
 
     static {
         InterceptResult invokeClinit;
@@ -47,249 +41,264 @@ public class rw5 {
         }
     }
 
-    public rw5(int i, int i2, int[] iArr) {
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public int c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return invokeV.intValue;
+        }
+
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return invokeV.intValue;
+        }
+
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.c;
+            }
+            return invokeV.intValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return ((((119 + this.a) * 17) + this.b) * 17) + (this.c * 100);
+            }
+            return invokeV.intValue;
+        }
+
+        public a(int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = i2;
+            this.c = i3;
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+                if (obj instanceof a) {
+                    a aVar = (a) obj;
+                    if (this.a == aVar.b() && this.b == aVar.a() && this.c == aVar.c()) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return "Position{row=" + this.a + ", column=" + this.b + ", sampleScale=" + this.c + '}';
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public rw5(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), iArr};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new RectF();
-        this.b = new Rect();
-        this.f = 1.0f;
-        this.g = new ArrayList();
-        this.k = new Matrix();
-        this.e = i2;
-        this.d = i;
-        this.c = new RectF(0.0f, 0.0f, i, i2);
-        this.j = new Rect(0, 0, iArr[0], iArr[1]);
-        this.h = i / 2;
+        this.b = new a();
+        this.c = new Rect();
+        this.d = new Rect();
+        this.e = new Rect();
+        this.a = Bitmap.createBitmap(i, i, TbConfig.BitmapConfig);
+        this.f = i;
+        this.g = new Canvas();
     }
 
-    public void a(Rect rect) {
+    public rw5(Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, rect) == null) {
-            if (rect.left < 0) {
-                rect.left = 0;
-            }
-            if (rect.top < 0) {
-                rect.top = 0;
-            }
-            int i = rect.right;
-            int i2 = this.j.right;
-            if (i > i2) {
-                rect.right = i2;
-            }
-            int i3 = rect.bottom;
-            int i4 = this.j.bottom;
-            if (i3 > i4) {
-                rect.bottom = i4;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bitmap};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
-    }
-
-    public Rect g(qw5 qw5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, qw5Var)) == null) {
-            if (qw5Var == null) {
-                return null;
-            }
-            return qw5Var.e();
+        this.b = new a();
+        this.c = new Rect();
+        this.d = new Rect();
+        this.e = new Rect();
+        if (bitmap != null) {
+            this.a = bitmap;
+            this.c.set(0, 0, bitmap.getWidth(), this.a.getHeight());
         }
-        return (Rect) invokeL.objValue;
+        this.g = new Canvas();
     }
 
-    public void q(float f) {
+    public void a() {
+        Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048592, this, f) == null) {
-            this.k.postScale(f, f);
-        }
-    }
-
-    public void s(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048594, this, f) == null) {
-            this.f = f;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bitmap = this.a) != null && !bitmap.isRecycled() && this.a.isMutable()) {
+            this.g.setBitmap(this.a);
+            this.g.drawColor(-1, PorterDuff.Mode.CLEAR);
         }
     }
 
-    public void t(Bitmap bitmap) {
+    public Bitmap b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048595, this, bitmap) == null) && bitmap != null) {
-            qw5 qw5Var = new qw5(bitmap);
-            this.i = qw5Var;
-            qw5Var.i(0, 0, this.d, this.e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (Bitmap) invokeV.objValue;
     }
 
-    public boolean b(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3)) == null) {
-            if (i3 == k()) {
-                return j(i, i2, i3).intersect(this.b);
-            }
-            return false;
-        }
-        return invokeIII.booleanValue;
-    }
-
-    public Rect j(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048585, this, i, i2, i3)) == null) {
-            int i4 = this.h;
-            int i5 = i4 * i3 * i2;
-            int i6 = i4 * i3 * i;
-            return new Rect(i5, i6, (i3 * i4) + i5, (i3 * i4) + i6);
-        }
-        return (Rect) invokeIII.objValue;
-    }
-
-    public void r(float f, float f2, float f3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.k.postScale(f, f, f2, f3);
-        }
-    }
-
-    public qw5 c() {
+    public Rect c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new qw5(this.h);
+            return this.d;
         }
-        return (qw5) invokeV.objValue;
+        return (Rect) invokeV.objValue;
     }
 
-    public List<qw5> d() {
+    public a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
+            return this.b;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
+        return (a) invokeV.objValue;
     }
 
     public Rect f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.j;
+            return this.c;
         }
         return (Rect) invokeV.objValue;
     }
 
-    public int h() {
+    public Rect e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i = this.f;
+            a aVar = this.b;
+            int i2 = aVar.c;
+            int i3 = aVar.b * i * i2;
+            int i4 = aVar.a * i * i2;
+            this.e.set(i3, i4, (i * i2) + i3, (i * i2) + i4);
             return this.e;
         }
-        return invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            int i = 1;
-            while (i < Math.round(this.f)) {
-                i *= 2;
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public float l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.f;
-        }
-        return invokeV.floatValue;
-    }
-
-    public qw5 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.i;
-        }
-        return (qw5) invokeV.objValue;
-    }
-
-    public Rect o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            this.k.mapRect(this.a, this.c);
-            u(this.b, this.a);
-            return this.b;
-        }
         return (Rect) invokeV.objValue;
     }
 
-    public Point[] m() {
-        InterceptResult invokeV;
+    public boolean g(Rect rect) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            o();
-            int k = k();
-            Rect rect = this.b;
-            int i = this.h;
-            int i2 = (rect.top / k) / i;
-            int i3 = (rect.left / k) / i;
-            Point point = new Point();
-            point.y = i2;
-            point.x = i3;
-            Point point2 = new Point();
-            point2.y = (((rect.bottom / k) / i) * k) + 1;
-            point2.x = (((rect.right / k) / i) * k) + 1;
-            return new Point[]{point, point2};
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, rect)) == null) {
+            if (rect == null) {
+                return false;
+            }
+            int i = rect.right - rect.left;
+            int i2 = this.f;
+            if (i != i2 || rect.bottom - rect.top != i2) {
+                return false;
+            }
+            return true;
         }
-        return (Point[]) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void p(float f, float f2) {
+    public void h(Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            this.k.postTranslate(f, f2);
+        if (interceptable == null || interceptable.invokeL(1048583, this, bitmap) == null) {
+            this.a = bitmap;
         }
     }
 
-    public final void u(Rect rect, RectF rectF) {
+    public void i(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, rect, rectF) == null) {
-            rect.set(Math.round(rectF.left), Math.round(rectF.top), Math.round(rectF.right), Math.round(rectF.bottom));
+        if (interceptable == null || interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3, i4) == null) {
+            this.d.set(i, i2, i3, i4);
+        }
+    }
+
+    public void k(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048586, this, i, i2, i3, i4) == null) {
+            this.c.set(i, i2, i3, i4);
+        }
+    }
+
+    public void j(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048585, this, i, i2, i3) == null) {
+            a aVar = this.b;
+            aVar.a = i;
+            aVar.b = i2;
+            aVar.c = i3;
         }
     }
 }

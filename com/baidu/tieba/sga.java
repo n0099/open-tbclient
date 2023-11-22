@@ -14,15 +14,16 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class sga implements gb7 {
+public final class sga implements hb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    @Override // com.baidu.tieba.gb7
+    @Override // com.baidu.tieba.hb7
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CommonStatisticKey.KEY_LIVE_MERGE_CARD_SHOW : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? CommonStatisticKey.KEY_LIVE_MERGE_CARD_CLICK : (String) invokeV.objValue;
     }
 
     public sga() {
@@ -35,12 +36,14 @@ public final class sga implements gb7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "";
     }
 
-    @Override // com.baidu.tieba.gb7
-    public Map<String, String> a(d57 businessInfo) {
+    @Override // com.baidu.tieba.hb7
+    public Map<String, String> a(e57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
@@ -75,8 +78,20 @@ public final class sga implements gb7 {
             String hdid = TbadkCoreApplication.getInst().getHdid();
             Intrinsics.checkNotNullExpressionValue(hdid, "getInst().hdid");
             linkedHashMap.put("hdid", hdid);
+            linkedHashMap.put("obj_locate", this.a);
             return linkedHashMap;
         }
         return (Map) invokeL.objValue;
+    }
+
+    public final sga b(String objLocate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objLocate)) == null) {
+            Intrinsics.checkNotNullParameter(objLocate, "objLocate");
+            this.a = objLocate;
+            return this;
+        }
+        return (sga) invokeL.objValue;
     }
 }

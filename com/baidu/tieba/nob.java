@@ -1,47 +1,92 @@
 package com.baidu.tieba;
 
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.baidu.ugc.utils.FileUtils;
+import java.io.IOException;
 /* loaded from: classes7.dex */
 public class nob {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int g = 2;
+    public static int h = 4;
+    public static int i = 8;
+    public static int j = 16;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<pob> a;
-    public lob b;
-    public String c;
+    public String a;
+    public int b;
+    public int c;
+    public int d;
+    public long e;
+    public String f;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public nob(List<pob> list) {
-        this(list, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((List) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes7.dex */
+    public class a implements hpb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean[] a;
+        public final /* synthetic */ nob b;
+
+        public a(nob nobVar, boolean[] zArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nobVar, zArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = nobVar;
+            this.a = zArr;
+        }
+
+        @Override // com.baidu.tieba.hpb
+        public void a(MediaFormat mediaFormat) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, mediaFormat) == null) {
+                this.a[0] = true;
+                this.b.l(mediaFormat);
             }
         }
     }
 
-    public nob(List<pob> list, int i) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948010600, "Lcom/baidu/tieba/nob;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948010600, "Lcom/baidu/tieba/nob;");
+        }
+    }
+
+    public nob(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, Integer.valueOf(i)};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -51,38 +96,189 @@ public class nob {
                 return;
             }
         }
-        this.a = list;
+        this.a = str;
+        j(str);
     }
 
-    public String a() {
+    public static nob b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            nob nobVar = new nob("");
+            nobVar.c = 2;
+            nobVar.f = "audio/mp4a-latm";
+            nobVar.b = 44100;
+            nobVar.d = 16;
+            return nobVar;
+        }
+        return (nob) invokeV.objValue;
     }
 
-    public lob b() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (lob) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
     }
 
-    public List<pob> c() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
     }
 
-    public void d(String str) {
+    public long e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.c = str;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e / 1000 : invokeV.longValue;
+    }
+
+    public boolean equals(@Nullable Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? (obj instanceof nob) && k((nob) obj) == 0 : invokeL.booleanValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int i2 = this.d + this.b + this.c;
+            String str = this.f;
+            return i2 + (str != null ? str.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (TextUtils.isEmpty(this.f) || this.b == 0 || this.c == 0 || this.d == 0 || this.e == 0) ? false : true : invokeV.booleanValue;
+    }
+
+    public final void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            try {
+                if (m(str)) {
+                    boolean[] zArr = {false};
+                    gpb gpbVar = new gpb(str);
+                    gpbVar.k(new a(this, zArr));
+                    while (!zArr[0]) {
+                        if (gpbVar.c()) {
+                            zArr[0] = true;
+                        }
+                    }
+                    gpbVar.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public void e(lob lobVar) {
+    public int k(nob nobVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, lobVar) == null) {
-            this.b = lobVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, nobVar)) == null) {
+            if (nobVar == null) {
+                return 0;
+            }
+            int i2 = nobVar.d != this.d ? 0 | g : 0;
+            if (nobVar.b != this.b) {
+                i2 |= h;
+            }
+            if (nobVar.c != this.c) {
+                i2 |= i;
+            }
+            return !TextUtils.equals(nobVar.f, this.f) ? i2 | j : i2;
         }
+        return invokeL.intValue;
+    }
+
+    public final boolean l(MediaFormat mediaFormat) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, mediaFormat)) == null) {
+            try {
+                this.b = mediaFormat.getInteger("sample-rate");
+                this.c = mediaFormat.getInteger("channel-count");
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            boolean z = false;
+            if (FileUtils.isExists(str)) {
+                MediaExtractor mediaExtractor = new MediaExtractor();
+                try {
+                    mediaExtractor.setDataSource(str);
+                    MediaFormat mediaFormat = null;
+                    for (int i2 = 0; i2 < mediaExtractor.getTrackCount(); i2++) {
+                        MediaFormat trackFormat = mediaExtractor.getTrackFormat(i2);
+                        if (trackFormat.getString("mime").startsWith("audio/")) {
+                            mediaExtractor.selectTrack(i2);
+                            mediaFormat = trackFormat;
+                            break;
+                        }
+                    }
+                    try {
+                        if (mediaFormat == null) {
+                            return false;
+                        }
+                        this.f = mediaFormat.getString("mime");
+                        this.b = mediaFormat.getInteger("sample-rate");
+                        this.c = mediaFormat.getInteger("channel-count");
+                        this.e = mediaFormat.getLong("durationUs");
+                        if (mediaFormat.containsKey("bit-width")) {
+                            this.d = mediaFormat.getInteger("bit-width");
+                        } else {
+                            this.d = 16;
+                        }
+                        if (mediaFormat.containsKey("aac-profile")) {
+                            if (mediaFormat.getInteger("aac-profile") != 2) {
+                                z = true;
+                            }
+                        }
+                        return z;
+                    } catch (Exception e) {
+                        xrb.e("VideoMuxer", "initAudioProperty error:" + e.getMessage());
+                        return false;
+                    } finally {
+                        mediaExtractor.release();
+                    }
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -1,18 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+@Service
 /* loaded from: classes8.dex */
-public final class w18 extends g15 {
+public class w18 implements y15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.y15
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_MANAGE_STRATEGY" : (String) invokeV.objValue;
+    }
 
     public w18() {
         Interceptable interceptable = $ic;
@@ -28,30 +34,13 @@ public final class w18 extends g15 {
         }
     }
 
-    @Override // com.baidu.tieba.g15
-    public void a(Context context, u05 data) {
+    @Override // com.baidu.tieba.y15
+    public w15 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(data, "data");
-            if (context instanceof c25) {
-                c25 c25Var = (c25) context;
-                if (c25Var.j1() != null) {
-                    b25 j1 = c25Var.j1();
-                    if (context instanceof FrsActivity) {
-                        FrsActivity frsActivity = (FrsActivity) context;
-                        if (frsActivity.q1() == null || frsActivity.q1().Z() == null) {
-                            YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "展示新用户引导弹窗失败：tabController或guideHelper为空");
-                            YunDialogManager.unMarkShowingDialogName("frsNewUserGuide");
-                            return;
-                        }
-                    }
-                    j1.o0();
-                    return;
-                }
-            }
-            YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "展示新用户引导弹窗失败：获取到的IForumDialogExtSupport为空");
-            YunDialogManager.unMarkShowingDialogName("frsNewUserGuide");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new v18();
         }
+        return (w15) invokeV.objValue;
     }
 }

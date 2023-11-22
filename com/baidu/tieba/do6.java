@@ -9,14 +9,15 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.util.ItemClickJumpUtil;
 import com.baidu.tbadk.core.view.ItemCardView;
-import com.baidu.tieba.t27;
+import com.baidu.tieba.u27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ApkDetail;
 /* loaded from: classes5.dex */
-public class do6 implements t27.j {
+public class do6 implements u27.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,15 +25,15 @@ public class do6 implements t27.j {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y37 a;
+        public final /* synthetic */ v37 a;
         public final /* synthetic */ ItemData b;
 
-        public a(do6 do6Var, y37 y37Var, ItemData itemData) {
+        public a(do6 do6Var, v37 v37Var, ItemData itemData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {do6Var, y37Var, itemData};
+                Object[] objArr = {do6Var, v37Var, itemData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,7 +43,7 @@ public class do6 implements t27.j {
                     return;
                 }
             }
-            this.a = y37Var;
+            this.a = v37Var;
             this.b = itemData;
         }
 
@@ -50,21 +51,15 @@ public class do6 implements t27.j {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                int i = 1;
-                int i2 = 2;
-                if (this.a.c() != null) {
-                    if (ImageViewerConfig.FROM_CONCERN.equals(this.a.c().b)) {
-                        i = 2;
-                    } else if ("recommend".equals(this.a.c().b)) {
-                        i2 = 1;
-                    }
-                    ItemData itemData = this.b;
-                    ItemClickJumpUtil.itemClickJump(itemData.forumName, String.valueOf(itemData.itemId), i, Integer.valueOf(i2));
+                int i = 2;
+                int i2 = 0;
+                if (ImageViewerConfig.FROM_CONCERN.equals(this.a.c().b)) {
+                    i2 = 2;
+                } else {
+                    i = 0;
                 }
-                i = 0;
-                i2 = 0;
-                ItemData itemData2 = this.b;
-                ItemClickJumpUtil.itemClickJump(itemData2.forumName, String.valueOf(itemData2.itemId), i, Integer.valueOf(i2));
+                ItemData itemData = this.b;
+                ItemClickJumpUtil.itemClickJump(itemData.forumName, String.valueOf(itemData.itemId), i, Integer.valueOf(i2));
             }
         }
     }
@@ -83,7 +78,7 @@ public class do6 implements t27.j {
         }
     }
 
-    @Override // com.baidu.tieba.t27.s
+    @Override // com.baidu.tieba.u27.s
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof ItemCardView)) {
@@ -91,7 +86,7 @@ public class do6 implements t27.j {
         }
     }
 
-    @Override // com.baidu.tieba.t27.j
+    @Override // com.baidu.tieba.u27.i
     @NonNull
     public ViewGroup create(Context context) {
         InterceptResult invokeL;
@@ -102,49 +97,48 @@ public class do6 implements t27.j {
         return (ViewGroup) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.t27.j
-    public void d(@NonNull ViewGroup viewGroup, @NonNull y37 y37Var) {
+    @Override // com.baidu.tieba.u27.i
+    public void e(@NonNull ViewGroup viewGroup, @NonNull v37 v37Var) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, y37Var) == null) && viewGroup != null && y37Var != null && y37Var.a() != null) {
-            w67 a2 = y37Var.a();
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, v37Var) == null) && viewGroup != null && v37Var != null && v37Var.a() != null) {
+            y47 a2 = v37Var.a();
             ItemData itemData = new ItemData();
             itemData.itemId = a2.a;
             itemData.buttonName = a2.h;
-            itemData.buttonLink = a2.i;
-            int i = 2;
-            itemData.buttonLinkType = 2;
+            itemData.buttonLink = a2.r;
+            itemData.buttonLinkType = 1;
+            itemData.pkgName = a2.n;
+            itemData.appId = a2.l;
             itemData.mIconUrl = a2.b;
-            itemData.mTitle = a2.d;
+            itemData.mTitle = a2.m;
             itemData.mTags = a2.g;
             itemData.mScore = a2.f;
             itemData.mStar = a2.e;
             itemData.mIconSize = a2.c;
             itemData.forumName = a2.k;
-            int i2 = a2.j;
-            if (i2 != 0) {
-                ((ItemCardView) viewGroup).setBackGroundColor(i2);
+            ApkDetail.Builder builder = new ApkDetail.Builder();
+            builder.developer = a2.s;
+            builder.publisher = a2.t;
+            builder.version = a2.o;
+            builder.version_code = Integer.valueOf(a2.p);
+            builder.size = String.valueOf(a2.q);
+            builder.authority_url = a2.u;
+            builder.privacy_url = a2.v;
+            builder.pkg_source = Integer.valueOf(a2.w);
+            itemData.apkDetail = builder.build(false);
+            int i = a2.j;
+            if (i != 0) {
+                ((ItemCardView) viewGroup).setBackGroundColor(i);
             }
-            if (y37Var.c() != null) {
-                str = y37Var.c().a;
+            if (v37Var.c() != null) {
+                str = v37Var.c().a;
             } else {
                 str = "";
             }
-            if (y37Var.c() != null) {
-                if (!ImageViewerConfig.FROM_CONCERN.equals(y37Var.c().b)) {
-                    if ("recommend".equals(y37Var.c().b)) {
-                        i = 1;
-                    } else {
-                        i = 0;
-                    }
-                }
-                ((ItemCardView) viewGroup).setPosition(i);
-            }
-            ItemCardView itemCardView = (ItemCardView) viewGroup;
-            itemCardView.setIsShowRightBtn(true);
-            itemCardView.setData(itemData, 13, str);
-            if (y37Var.b()) {
-                viewGroup.setOnClickListener(new a(this, y37Var, itemData));
+            ((ItemCardView) viewGroup).setData(itemData, 13, str);
+            if (v37Var.b()) {
+                viewGroup.setOnClickListener(new a(this, v37Var, itemData));
             } else {
                 viewGroup.setClickable(false);
             }

@@ -8,17 +8,17 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i29;
+import com.baidu.tieba.ap8;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.zo8;
+import com.baidu.tieba.j29;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class MsgReplyCardView extends zo8 {
+public class MsgReplyCardView extends ap8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout I;
@@ -109,7 +109,7 @@ public class MsgReplyCardView extends zo8 {
         return (String) invokeI.objValue;
     }
 
-    public final String o0(i29.a aVar, String str) {
+    public final String o0(j29.a aVar, String str) {
         InterceptResult invokeLL;
         String r0;
         Interceptable interceptable = $ic;
@@ -132,7 +132,7 @@ public class MsgReplyCardView extends zo8 {
         return (String) invokeLL.objValue;
     }
 
-    public final String p0(i29.a aVar, String str) {
+    public final String p0(j29.a aVar, String str) {
         InterceptResult invokeLL;
         String string;
         String r0;
@@ -167,7 +167,7 @@ public class MsgReplyCardView extends zo8 {
         if ((interceptable != null && interceptable.invokeLLL(1048581, this, tbPageContext, chatMessage, view2) != null) || chatMessage == null) {
             return;
         }
-        i29.a a2 = i29.a(chatMessage.getContent());
+        j29.a a2 = j29.a(chatMessage.getContent());
         String valueOf = String.valueOf(chatMessage.getUserId());
         this.J.setText(p0(a2, valueOf));
         this.K.setText(a2.b);

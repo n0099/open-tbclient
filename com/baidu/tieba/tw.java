@@ -106,7 +106,7 @@ public class tw {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return cka.a();
+            return dka.a();
         }
         return (ww) invokeV.objValue;
     }
@@ -126,7 +126,7 @@ public class tw {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return eka.a();
+            return fka.a();
         }
         return (yw) invokeV.objValue;
     }

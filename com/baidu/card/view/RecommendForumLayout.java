@@ -26,7 +26,7 @@ import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.tbadk.widget.horizontalpullview.RefreshView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.it;
-import com.baidu.tieba.ln5;
+import com.baidu.tieba.mn5;
 import com.baidu.tieba.qw4;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.sy4;
@@ -128,7 +128,7 @@ public class RecommendForumLayout extends LinearLayout implements it {
                 this.g.setVisibility(8);
             }
             if (sy4Var != null && sy4Var.e() != null && sy4Var.e().size() > 0) {
-                ArrayList<? extends ln5> arrayList = new ArrayList<>();
+                ArrayList<? extends mn5> arrayList = new ArrayList<>();
                 ArrayList<ry4> e = sy4Var.e();
                 if (this.h) {
                     if (this.i) {

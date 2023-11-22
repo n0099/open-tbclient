@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.l98;
+import com.baidu.tieba.m98;
 import com.baidu.tieba.oi;
-import com.baidu.tieba.s27;
-import com.baidu.tieba.sa7;
-import com.baidu.tieba.w78;
+import com.baidu.tieba.t27;
+import com.baidu.tieba.ta7;
+import com.baidu.tieba.x78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,11 +24,11 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\f\u001a\u00020\rH\u0016J\u000e\u0010\u000e\u001a\u00020\r2\u0006\u0010\u000f\u001a\u00020\u0010R\u000e\u0010\b\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0011"}, d2 = {"Lcom/baidu/tieba/compact/FakeWallCardView;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "adapterManager", "Lcom/baidu/tieba/homepage/concern/ConcernAdapterManager;", "mRecyclerView", "Lcom/baidu/adp/widget/ListView/BdTypeRecyclerView;", "onChangeSkin", "", StickerDataChangeType.UPDATE, "state", "Lcom/baidu/tieba/feed/card/uistate/OtherTemplateUiState;", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class FakeWallCardView extends LinearLayout implements sa7 {
+public final class FakeWallCardView extends LinearLayout implements ta7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdTypeRecyclerView a;
-    public w78 b;
+    public x78 b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @JvmOverloads
@@ -79,7 +79,7 @@ public final class FakeWallCardView extends LinearLayout implements sa7 {
         bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
         this.a.setFadingEdgeLength(0);
         this.a.setOverScrollMode(2);
-        this.b = new w78(context, this.a);
+        this.b = new x78(context, this.a);
         addView(this.a, new LinearLayout.LayoutParams(-1, -2));
     }
 
@@ -87,20 +87,20 @@ public final class FakeWallCardView extends LinearLayout implements sa7 {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public final void a(s27 state) {
+    public final void a(t27 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
             Object obj = state.a().a;
             if (obj instanceof ThreadData) {
-                List<oi> f = new l98().f((ThreadData) obj, 0, null);
+                List<oi> f = new m98().f((ThreadData) obj, 0, null);
                 Intrinsics.checkNotNullExpressionValue(f, "ConcernListGenerate().spliteThread(data, 0, null)");
                 this.b.j(f);
             }
         }
     }
 
-    @Override // com.baidu.tieba.sa7
+    @Override // com.baidu.tieba.ta7
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

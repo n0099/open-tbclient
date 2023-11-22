@@ -1,98 +1,108 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.widget.TbImageView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class rp7 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static ThreadData b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zz4 a;
-
-        public a(zz4 zz4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zz4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zz4Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948129392, "Lcom/baidu/tieba/rp7;")) == null) {
+            return;
         }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948129392, "Lcom/baidu/tieba/rp7;");
+        }
+    }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ThreadData b2 = b();
+            if (b2 == null || !TbSingleton.getInstance().isPbPreloadSwitchOn() || !ThreadCardUtils.isPreloadType(b2)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static ThreadData b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            ThreadData b2 = b();
+            if (b2 == null) {
+                return false;
+            }
+            if ((UbsABTestHelper.isConcernFeedTest() && b2.isFromConcern()) || (UbsABTestHelper.isConcernFeedTest() && b2.isFromHomPage)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z || !a()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static synchronized void e(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, threadData) == null) {
+            synchronized (rp7.class) {
+                a = threadData.getTid();
+                b = threadData;
             }
         }
     }
 
-    public static void a(Activity activity, TbPageContext<?> tbPageContext) {
-        int equipmentWidth;
+    public static synchronized void f(Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, activity, tbPageContext) == null) && activity != null && tbPageContext != null) {
-            View inflate = LayoutInflater.from(activity).inflate(R.layout.frs_general_tab_notify_dialog_layout, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.general_title);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.general_content_1);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.general_content_2);
-            TextView textView4 = (TextView) inflate.findViewById(R.id.general_content_3);
-            TextView textView5 = (TextView) inflate.findViewById(R.id.general_btn);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.top_general_image);
-            zz4 zz4Var = new zz4(activity);
-            zz4Var.setContentView(inflate);
-            zz4Var.setContentViewSize(2);
-            zz4Var.setCanceledOnTouchOutside(true);
-            zz4Var.setAutoNight(true);
-            zz4Var.setCancelable(true);
-            int dimens = BdUtilHelper.getDimens(activity, R.dimen.tbds31);
-            SkinManager.setBackgroundShapeDrawable(inflate, dimens, R.color.CAM_X0201, R.color.CAM_X0101);
-            tbImageView.setRadius(dimens);
-            tbImageView.setConrers(3);
-            tbImageView.setIsBitmapPic(true);
-            int dimens2 = BdUtilHelper.getDimens(activity, R.dimen.tbds44);
-            if (UtilHelper.getRealScreenOrientation(activity) == 2) {
-                equipmentWidth = BdUtilHelper.getEquipmentHeight(activity);
-            } else {
-                equipmentWidth = BdUtilHelper.getEquipmentWidth(activity);
+        if (interceptable == null || interceptable.invokeL(65542, null, obj) == null) {
+            synchronized (rp7.class) {
+                if (obj instanceof ThreadData) {
+                    e((ThreadData) obj);
+                }
             }
-            int i = equipmentWidth - (dimens2 * 2);
-            ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
-            layoutParams.width = -1;
-            layoutParams.height = (i * 556) / 988;
-            tbImageView.setLayoutParams(layoutParams);
-            SkinManager.setImageResource(tbImageView, R.drawable.frs_general_tab_notify_pic);
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(textView4, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(textView5, (int) R.color.CAM_X0302);
-            textView5.setOnClickListener(new a(zz4Var));
-            zz4Var.create(tbPageContext).show();
         }
     }
 }

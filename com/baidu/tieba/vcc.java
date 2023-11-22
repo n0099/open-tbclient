@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import java.util.HashMap;
 /* loaded from: classes8.dex */
 public interface vcc {
-    void a(zcc zccVar, int i, String str, int i2);
+    void a(int i, int i2, boolean z, HashMap<String, String> hashMap);
 }

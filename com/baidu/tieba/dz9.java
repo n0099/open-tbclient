@@ -1,16 +1,13 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.NegativeFeedBackData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.PollData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.VoteView;
 import com.baidu.tieba.ns;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,15 +15,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dz9 extends vy9 {
+public class dz9 extends wy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout f;
+    public ThreadData f;
     public bw4 g;
-    public wt h;
-    public iu i;
-    public ThreadData j;
-    public VoteView k;
+    public dt h;
+    public View i;
 
     /* loaded from: classes5.dex */
     public class a extends bw4 {
@@ -77,7 +72,7 @@ public class dz9 extends vy9 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a.j;
+                return this.a.f;
             }
             return (ThreadData) invokeV.objValue;
         }
@@ -138,98 +133,7 @@ public class dz9 extends vy9 {
         }
     }
 
-    @Override // com.baidu.tieba.vy9
-    public void d(ns.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            super.d(aVar);
-            iu iuVar = this.i;
-            if (iuVar != null) {
-                iuVar.B(aVar);
-            }
-            wt wtVar = this.h;
-            if (wtVar != null) {
-                wtVar.A(aVar);
-            }
-            LinearLayout linearLayout = this.f;
-            if (linearLayout != null) {
-                linearLayout.setOnClickListener(new b(this));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.vy9
-    public void e(xl6 xl6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, xl6Var) == null) {
-            super.e(xl6Var);
-            iu iuVar = this.i;
-            if (iuVar != null) {
-                iuVar.n(this.b);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.vy9
-    public View a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f == null) {
-                LinearLayout linearLayout = new LinearLayout(this.a.getPageActivity());
-                this.f = linearLayout;
-                SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0206);
-                this.f.setOrientation(1);
-                this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            }
-            this.f.removeAllViews();
-            if (this.h == null) {
-                wt wtVar = new wt(this.a);
-                this.h = wtVar;
-                wtVar.q(Boolean.TRUE);
-            }
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
-            layoutParams.leftMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            layoutParams.rightMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            this.f.addView(this.h.g(), layoutParams);
-            if (this.i == null) {
-                iu iuVar = new iu(this.a.getPageActivity());
-                this.i = iuVar;
-                iuVar.setFrom("pb");
-            }
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams2.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
-            this.f.addView(this.i.g(), layoutParams2);
-            if (this.k == null) {
-                this.k = new VoteView(this.a.getPageActivity());
-            }
-            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams3.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
-            this.f.addView(this.k, layoutParams3);
-            return this.f;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vy9
-    public void b(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) && this.e != i) {
-            this.e = i;
-            SkinManager.setBackgroundColor(this.f, R.color.CAM_X0206);
-            wt wtVar = this.h;
-            if (wtVar != null) {
-                wtVar.onChangeSkinType(tbPageContext, i);
-            }
-            iu iuVar = this.i;
-            if (iuVar != null) {
-                iuVar.onChangeSkinType(tbPageContext, i);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.vy9
+    @Override // com.baidu.tieba.wy9
     public void c(OriginalThreadInfo originalThreadInfo) {
         ThreadData b2;
         Interceptable interceptable = $ic;
@@ -240,27 +144,76 @@ public class dz9 extends vy9 {
             } else {
                 b2 = originalThreadInfo.b();
             }
-            this.j = b2;
+            this.f = b2;
             a aVar = new a(this);
             this.g = aVar;
-            iu iuVar = this.i;
-            if (iuVar != null) {
-                iuVar.onBindDataToView(aVar);
+            dt dtVar = this.h;
+            if (dtVar != null) {
+                dtVar.onBindDataToView(aVar);
             }
-            wt wtVar = this.h;
-            if (wtVar != null) {
-                wtVar.onBindDataToView(this.g);
+        }
+    }
+
+    @Override // com.baidu.tieba.wy9
+    public void d(ns.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            super.d(aVar);
+            dt dtVar = this.h;
+            if (dtVar != null) {
+                dtVar.E(aVar);
             }
-            PollData pollData = this.d.G;
-            if (pollData != null && pollData.getOptions() != null && this.d.G.getOptions().size() > 0) {
-                this.k.setIsTransmit(true);
-                VoteView voteView = this.k;
-                OriginalThreadInfo originalThreadInfo2 = this.d;
-                voteView.setData(originalThreadInfo2.G, originalThreadInfo2.f, originalThreadInfo2.e);
-                this.k.setVisibility(0);
-                return;
+            View view2 = this.i;
+            if (view2 != null) {
+                view2.setOnClickListener(new b(this));
             }
-            this.f.removeView(this.k);
+        }
+    }
+
+    @Override // com.baidu.tieba.wy9
+    public void e(yl6 yl6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, yl6Var) == null) {
+            super.e(yl6Var);
+            dt dtVar = this.h;
+            if (dtVar != null) {
+                dtVar.n(this.b);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.wy9
+    public View a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                dt dtVar = new dt(this.a.getPageActivity());
+                this.h = dtVar;
+                dtVar.q(Boolean.TRUE);
+                this.h.setFrom("pb");
+                this.h.D(0);
+                this.h.I(this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005), this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.a.getResources().getDimensionPixelSize(R.dimen.M_H_X005));
+                this.h.J(false);
+                this.h.H(true);
+            }
+            View g = this.h.g();
+            this.i = g;
+            return g;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wy9
+    public void b(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) && this.e != i) {
+            this.e = i;
+            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0204);
+            dt dtVar = this.h;
+            if (dtVar != null) {
+                dtVar.onChangeSkinType(tbPageContext, i);
+            }
         }
     }
 }

@@ -17,7 +17,7 @@ import com.baidu.tieba.filedownloader.TbDownloadManager;
 import com.baidu.tieba.filedownloader.logs.DownloaderLog;
 import com.baidu.tieba.filedownloader.utils.PermissionUtil;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.qna;
+import com.baidu.tieba.rna;
 import com.baidu.tieba.util.AdApkInstallHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -119,7 +119,7 @@ public final class AdApkInstallHelper {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, params)) == null) {
                     Intrinsics.checkNotNullParameter(params, "params");
-                    qna j = new TbDownloadManager().m().j(this.a, this.b);
+                    rna j = new TbDownloadManager().m().j(this.a, this.b);
                     ItemData itemData = new ItemData();
                     itemData.parseJson(j.c());
                     cu4.b().a(this.c, String.valueOf(j.p()), itemData.mTitle, j.d(), itemData.mTbFileDownloaderType);

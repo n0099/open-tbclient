@@ -1,7 +1,7 @@
 package com.baidu.tieba;
+
+import com.yy.transvod.player.common.NetRequestStatusInfo;
 /* loaded from: classes7.dex */
 public interface pcc {
-    void onPlayerPlayCompletion(zcc zccVar);
-
-    void onPlayerPlayCompletionOneLoop(zcc zccVar);
+    void a(adc adcVar, int i, NetRequestStatusInfo netRequestStatusInfo);
 }

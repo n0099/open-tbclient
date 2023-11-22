@@ -1,23 +1,41 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.User;
+import tbclient.VoiceRoom;
 /* loaded from: classes7.dex */
 public class o58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, long j, String str2, j58 j58Var, int i) {
+    public static List<k58> a(List<VoiceRoom> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), str2, j58Var, Integer.valueOf(i)}) == null) {
-            StatisticItem param = new StatisticItem(str).param("fid", j).param("fname", str2).param("obj_param1", UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE).param(TiebaStatic.Params.OBJ_PARAM2, i);
-            if (j58Var != null) {
-                param.param(TiebaStatic.Params.OBJ_PARAM3, j58Var.e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (VoiceRoom voiceRoom : list) {
+                if (voiceRoom != null) {
+                    ArrayList arrayList2 = new ArrayList();
+                    k58 k58Var = new k58();
+                    k58Var.a = voiceRoom.room_name;
+                    k58Var.c = String.valueOf(voiceRoom.talker_num);
+                    k58Var.d = String.valueOf(voiceRoom.joined_num);
+                    k58Var.e = voiceRoom.room_id.longValue();
+                    for (User user : voiceRoom.talker) {
+                        if (user != null) {
+                            arrayList2.add(user.portrait);
+                        }
+                    }
+                    k58Var.b = arrayList2;
+                    arrayList.add(k58Var);
+                }
             }
-            param.eventStat();
+            return arrayList;
         }
+        return (List) invokeL.objValue;
     }
 }

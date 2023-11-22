@@ -3,9 +3,9 @@ package com.baidu.tieba.forum.viewmodel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gh7;
 import com.baidu.tieba.hh7;
-import com.baidu.tieba.oh7;
+import com.baidu.tieba.ih7;
+import com.baidu.tieba.ph7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,9 +17,9 @@ import kotlin.Metadata;
 public final class ForumViewModel extends ViewModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MutableLiveData<gh7> a;
-    public MutableLiveData<hh7> b;
-    public MutableLiveData<oh7> c;
+    public MutableLiveData<hh7> a;
+    public MutableLiveData<ih7> b;
+    public MutableLiveData<ph7> c;
     public MutableLiveData<Boolean> d;
 
     public ForumViewModel() {
@@ -41,7 +41,7 @@ public final class ForumViewModel extends ViewModel {
         this.d = new MutableLiveData<>(Boolean.FALSE);
     }
 
-    public final MutableLiveData<hh7> a() {
+    public final MutableLiveData<ih7> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -50,7 +50,7 @@ public final class ForumViewModel extends ViewModel {
         return (MutableLiveData) invokeV.objValue;
     }
 
-    public final MutableLiveData<gh7> c() {
+    public final MutableLiveData<hh7> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -59,7 +59,7 @@ public final class ForumViewModel extends ViewModel {
         return (MutableLiveData) invokeV.objValue;
     }
 
-    public final MutableLiveData<oh7> e() {
+    public final MutableLiveData<ph7> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

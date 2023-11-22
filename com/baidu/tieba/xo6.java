@@ -1,14 +1,13 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import tbclient.Personalized.LiveAnswer;
 /* loaded from: classes9.dex */
-public class xo6 implements i87<Message> {
+public class xo6 implements j87<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,22 +25,18 @@ public class xo6 implements i87<Message> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i87
-    /* renamed from: a */
-    public za7<?> b(Message message) {
+    @Override // com.baidu.tieba.j87
+    public ab7<?> b(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            if (!(message instanceof LiveAnswer)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof ThreadData)) {
                 return null;
             }
-            pe8 pe8Var = new pe8();
-            pe8Var.c((LiveAnswer) message);
-            c77 c77Var = new c77();
-            c77Var.a = pe8Var;
-            return new ab7(new s27(c77Var), "recommend_banner");
+            d77 d77Var = new d77();
+            d77Var.a = obj;
+            return new bb7(new t27(d77Var), "fake_wall");
         }
-        return (za7) invokeL.objValue;
+        return (ab7) invokeL.objValue;
     }
 }

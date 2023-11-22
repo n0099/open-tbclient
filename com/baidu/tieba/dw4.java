@@ -186,7 +186,7 @@ public class dw4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (d16.a().b("ad_feature_strict_mode_check_switch", 0) != 1) {
+            if (e16.a().b("ad_feature_strict_mode_check_switch", 0) != 1) {
                 return false;
             }
             return true;

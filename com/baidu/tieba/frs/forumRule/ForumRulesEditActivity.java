@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.data.ForumRuleBaseData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.forumRule.model.ForumRuleEditModel;
-import com.baidu.tieba.jv7;
-import com.baidu.tieba.rv7;
+import com.baidu.tieba.kv7;
+import com.baidu.tieba.sv7;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,11 +24,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity> implements jv7 {
+public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity> implements kv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-    public rv7 b;
+    public sv7 b;
     public ForumRuleEditModel c;
     public String d;
     public String e;
@@ -75,7 +75,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         }
     }
 
-    @Override // com.baidu.tieba.jv7
+    @Override // com.baidu.tieba.kv7
     public void F0(int i, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
@@ -97,7 +97,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         }
     }
 
-    @Override // com.baidu.tieba.jv7
+    @Override // com.baidu.tieba.kv7
     public void w0(int i, ForumRuleBaseData forumRuleBaseData, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048587, this, i, forumRuleBaseData, str) == null) {
@@ -156,14 +156,14 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
-            rv7 rv7Var = this.b;
-            if (rv7Var != null) {
-                rv7Var.x(i);
+            sv7 sv7Var = this.b;
+            if (sv7Var != null) {
+                sv7Var.x(i);
             }
         }
     }
 
-    @Override // com.baidu.tieba.jv7
+    @Override // com.baidu.tieba.kv7
     public void f0(ForumRuleBaseData forumRuleBaseData, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048580, this, forumRuleBaseData, z) == null) {
@@ -182,7 +182,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
             super.onCreate(bundle);
             J0(bundle);
             this.a = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d031c, (ViewGroup) null);
-            this.b = new rv7(getPageContext(), this, this.a, this.d, this.e, this.f, this.g, this.h, this);
+            this.b = new sv7(getPageContext(), this, this.a, this.d, this.e, this.f, this.g, this.h, this);
             this.c = new ForumRuleEditModel(getPageContext(), this, this.d);
             setContentView(this.a);
             setSwipeBackEnabled(false);

@@ -3,8 +3,8 @@ package com.baidu.tieba.themeCenter.background;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.pya;
-import com.baidu.tieba.sxa;
+import com.baidu.tieba.qya;
+import com.baidu.tieba.txa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +21,8 @@ import tbclient.GetBgByCategory.ThemeBgInMain;
 public class BackgroundGroupHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<sxa> mBackgroundGroupList;
-    public pya mRecommand;
+    public List<txa> mBackgroundGroupList;
+    public qya mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackgroundGroupHttpResponseMessage(int i) {
@@ -60,24 +60,24 @@ public class BackgroundGroupHttpResponseMessage extends TbHttpResponsedMessage {
         DataRes dataRes = getBgByCategoryResIdl.data;
         if (dataRes != null) {
             if (dataRes.recommend != null) {
-                pya pyaVar = new pya();
-                this.mRecommand = pyaVar;
-                pyaVar.d(getBgByCategoryResIdl.data.recommend);
+                qya qyaVar = new qya();
+                this.mRecommand = qyaVar;
+                qyaVar.d(getBgByCategoryResIdl.data.recommend);
             }
             if (getBgByCategoryResIdl.data.bgs != null) {
                 this.mBackgroundGroupList = new ArrayList();
                 for (ThemeBgInMain themeBgInMain : getBgByCategoryResIdl.data.bgs) {
                     if (themeBgInMain != null && !StringUtils.isNull(themeBgInMain.bg_category)) {
-                        sxa sxaVar = new sxa();
-                        sxaVar.c(themeBgInMain);
-                        this.mBackgroundGroupList.add(sxaVar);
+                        txa txaVar = new txa();
+                        txaVar.c(themeBgInMain);
+                        this.mBackgroundGroupList.add(txaVar);
                     }
                 }
             }
         }
     }
 
-    public List<sxa> getGroupList() {
+    public List<txa> getGroupList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -86,12 +86,12 @@ public class BackgroundGroupHttpResponseMessage extends TbHttpResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public pya getRecommand() {
+    public qya getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mRecommand;
         }
-        return (pya) invokeV.objValue;
+        return (qya) invokeV.objValue;
     }
 }

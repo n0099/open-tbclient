@@ -34,12 +34,12 @@ public class fk3 implements zk3<Exception> {
 
         /* renamed from: com.baidu.tieba.fk3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0286a implements Runnable {
+        public class RunnableC0285a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0286a(a aVar) {
+            public RunnableC0285a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class fk3 implements zk3<Exception> {
                     if (this.a.c != null) {
                         this.a.b.removeCallbacks(this.a.c);
                     }
-                    this.a.c = new RunnableC0286a(this);
+                    this.a.c = new RunnableC0285a(this);
                     long a = mi4.a(300) * 1000;
                     this.a.b.postDelayed(this.a.c, a);
                     if (fk3.e) {

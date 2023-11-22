@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tieba.g45;
 import com.baidu.tieba.h45;
-import com.baidu.tieba.os5;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
+import com.baidu.tieba.ps5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -489,7 +489,7 @@ public class ImageViewerConfig extends IntentConfig {
         intent.putExtra("from_forum_id", builder.fromFormId);
         intent.putExtra("skin_type", TbadkCoreApplication.getInst().getSkinType());
         intent.putExtra(IS_YOUNGSTER_MODE, false);
-        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, os5.c());
+        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, ps5.c());
         if (g45.a() != null && g45.a().a != null) {
             intent.putExtra(REMIND_LIVE_DATA, g45.a().a);
         }

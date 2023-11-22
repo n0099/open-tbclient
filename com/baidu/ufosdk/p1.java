@@ -133,7 +133,7 @@ public class p1 {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:59:0x007f  */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x0096 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x0097 A[ORIG_RETURN, RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -330,30 +330,30 @@ public class p1 {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            } catch (IOException unused) {
-                inputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                inputStream = null;
-            }
-            try {
-                byte[] a2 = a(inputStream);
-                bitmap = BitmapFactory.decodeByteArray(a2, 0, a2.length, null);
-            } catch (IOException unused2) {
-                if (inputStream != null) {
-                    inputStream.close();
+                try {
+                    byte[] a2 = a(inputStream);
+                    bitmap = BitmapFactory.decodeByteArray(a2, 0, a2.length, null);
+                } catch (IOException unused) {
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                    return bitmap;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                    throw th;
                 }
-                return bitmap;
+            } catch (IOException unused2) {
+                inputStream = null;
             } catch (Throwable th3) {
                 th = th3;
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
-                    }
-                }
-                throw th;
+                inputStream = null;
             }
             if (inputStream != null) {
                 inputStream.close();
@@ -385,29 +385,29 @@ public class p1 {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            } catch (IOException unused) {
-                inputStream = null;
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                bArr = a(inputStream);
-            } catch (IOException unused2) {
-                if (inputStream != null) {
-                    inputStream.close();
+                try {
+                    bArr = a(inputStream);
+                } catch (IOException unused) {
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                    return bArr;
+                } catch (Throwable th) {
+                    th = th;
+                    inputStream2 = inputStream;
+                    if (inputStream2 != null) {
+                        try {
+                            inputStream2.close();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                    throw th;
                 }
-                return bArr;
+            } catch (IOException unused2) {
+                inputStream = null;
             } catch (Throwable th2) {
                 th = th2;
-                inputStream2 = inputStream;
-                if (inputStream2 != null) {
-                    try {
-                        inputStream2.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
-                    }
-                }
-                throw th;
             }
             if (inputStream != null) {
                 inputStream.close();

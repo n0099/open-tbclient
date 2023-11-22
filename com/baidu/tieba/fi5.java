@@ -1,6 +1,9 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,66 +14,38 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* loaded from: classes5.dex */
-public class fi5 extends mi5 {
+public class fi5 extends ii5<gi5, hi5> {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThreadLocal<byte[]> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947765111, "Lcom/baidu/tieba/fi5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947765111, "Lcom/baidu/tieba/fi5;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947765111, "Lcom/baidu/tieba/fi5;")) == null) {
+            return;
         }
-        b = new ThreadLocal<>();
-    }
-
-    public static byte[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            byte[] bArr = b.get();
-            if (bArr == null) {
-                byte[] bArr2 = new byte[4];
-                b.set(bArr2);
-                return bArr2;
-            }
-            return bArr;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public short f() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            byte[] b2 = b();
-            read(b2, 0, 2);
-            return (short) (((b2[0] & 255) << 8) | (b2[1] & 255));
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947765111, "Lcom/baidu/tieba/fi5;");
         }
-        return invokeV.shortValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fi5(ni5 ni5Var) {
-        super(ni5Var);
+    public fi5(gi5 gi5Var) {
+        super(gi5Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ni5Var};
+            Object[] objArr = {gi5Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ni5) newInitContext.callArgs[0]);
+                super((oi5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -78,43 +53,45 @@ public class fi5 extends mi5 {
         }
     }
 
-    public boolean c(String str) throws IOException {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ii5
+    /* renamed from: b */
+    public Bitmap a(Canvas canvas, Paint paint, int i, Bitmap bitmap, hi5 hi5Var) {
+        InterceptResult invokeCommon;
+        Bitmap decodeStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || str.length() != 4) {
-                return false;
-            }
-            int d = d();
-            for (int i = 0; i < 4; i++) {
-                if (((d >> (i * 8)) & 255) != str.charAt(i)) {
-                    return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, paint, Integer.valueOf(i), bitmap, hi5Var})) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = false;
+            options.inSampleSize = i;
+            options.inMutable = true;
+            options.inBitmap = bitmap;
+            Bitmap bitmap2 = null;
+            try {
+                ((gi5) this.a).reset();
+                try {
+                    decodeStream = BitmapFactory.decodeStream(((gi5) this.a).a(), null, options);
+                } catch (IllegalArgumentException unused) {
+                    BitmapFactory.Options options2 = new BitmapFactory.Options();
+                    options2.inJustDecodeBounds = false;
+                    options2.inSampleSize = i;
+                    options2.inMutable = true;
+                    decodeStream = BitmapFactory.decodeStream(((gi5) this.a).a(), null, options2);
                 }
+            } catch (IOException e) {
+                e = e;
             }
-            return true;
+            try {
+                paint.setXfermode(null);
+                canvas.drawBitmap(decodeStream, 0.0f, 0.0f, paint);
+                return decodeStream;
+            } catch (IOException e2) {
+                e = e2;
+                bitmap2 = decodeStream;
+                e.printStackTrace();
+                return bitmap2;
+            }
         }
-        return invokeL.booleanValue;
-    }
-
-    public int d() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            byte[] b2 = b();
-            read(b2, 0, 4);
-            return ((b2[3] & 255) << 24) | (b2[0] & 255) | ((b2[1] & 255) << 8) | ((b2[2] & 255) << 16);
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            byte[] b2 = b();
-            read(b2, 0, 4);
-            return ((b2[0] & 255) << 24) | (b2[3] & 255) | ((b2[2] & 255) << 8) | ((b2[1] & 255) << 16);
-        }
-        return invokeV.intValue;
+        return (Bitmap) invokeCommon.objValue;
     }
 }

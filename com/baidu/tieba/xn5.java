@@ -2,18 +2,20 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mvc.message.WriteCacheMessage;
-import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-import com.baidu.tieba.nn5;
+import com.baidu.tbadk.mvc.message.ReadCacheMessage;
+import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
+import com.baidu.tieba.ca;
+import com.baidu.tieba.on5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes9.dex */
-public class xn5<T extends nn5> extends un5<T> {
+public class xn5<T extends on5> extends vn5<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,67 +40,135 @@ public class xn5<T extends nn5> extends un5<T> {
         }
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:102:0x0073 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:90:0x00d6 */
+    /* JADX DEBUG: Type inference failed for r1v3. Raw type applied. Possible types: T */
+    /* JADX DEBUG: Type inference failed for r2v12. Raw type applied. Possible types: T */
+    /* JADX DEBUG: Type inference failed for r2v9. Raw type applied. Possible types: T */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v10, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r1v8, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r1v9 */
+    /* JADX WARN: Type inference failed for: r7v10 */
+    /* JADX WARN: Type inference failed for: r7v12 */
+    /* JADX WARN: Type inference failed for: r7v17, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r7v18 */
+    /* JADX WARN: Type inference failed for: r7v36 */
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
         InterceptResult invokeL;
+        String str;
+        ?? arrayList;
+        String str2;
+        on5 on5Var;
+        byte[] bArr;
+        on5 on5Var2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof WriteCacheMessage)) {
-                WriteCacheRespMsg writeCacheRespMsg = new WriteCacheRespMsg(this.a);
-                WriteCacheMessage writeCacheMessage = (WriteCacheMessage) customMessage;
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                nn5 nn5Var = (nn5) a();
-                if (nn5Var != null) {
-                    if (nn5Var instanceof mn5) {
-                        yz4.l();
-                        ca<byte[]> k = yz4.k(this.b, currentAccount);
-                        if (writeCacheMessage.isClear()) {
-                            nn5 nn5Var2 = (nn5) writeCacheMessage.getData();
-                            if (nn5Var2 == null) {
-                                BdCacheService.o().m(k);
-                            } else {
-                                k.remove(nn5Var2.getCacheKey());
-                            }
-                            writeCacheRespMsg.setSuccess(true);
-                        } else {
-                            nn5 nn5Var3 = (nn5) writeCacheMessage.getData();
-                            if (nn5Var3 == null) {
-                                return writeCacheRespMsg;
-                            }
-                            k.g(nn5Var3.getCacheKey(), ((mn5) nn5Var3).toCacheByteArray());
-                            writeCacheRespMsg.setSuccess(true);
+            on5 on5Var3 = null;
+            if (customMessage == null || !(customMessage instanceof ReadCacheMessage)) {
+                return null;
+            }
+            ReadCacheMessage readCacheMessage = (ReadCacheMessage) customMessage;
+            on5 on5Var4 = (on5) a();
+            try {
+                try {
+                    if (readCacheMessage.isNeedUid()) {
+                        str = TbadkCoreApplication.getCurrentAccount();
+                        if (str == null) {
+                            str = "";
                         }
-                    } else if (nn5Var instanceof pn5) {
-                        yz4.l();
-                        ca<String> n = yz4.n(this.b, currentAccount);
-                        if (writeCacheMessage.isClear()) {
-                            nn5 nn5Var4 = (nn5) writeCacheMessage.getData();
-                            if (nn5Var4 == null) {
-                                BdCacheService.o().m(n);
-                            } else {
-                                n.remove(nn5Var4.getCacheKey());
+                    } else {
+                        str = null;
+                    }
+                    if (on5Var4 != null) {
+                        if (readCacheMessage.getRequestData() == null) {
+                            try {
+                                if (on5Var4 instanceof nn5) {
+                                    yz4.l();
+                                    List<ca.b<byte[]>> a = vd.a(yz4.k(this.b, str));
+                                    if (a != null) {
+                                        arrayList = new ArrayList(a.size());
+                                        for (ca.b<byte[]> bVar : a) {
+                                            if (bVar != null && (bArr = bVar.b) != null && (on5Var2 = (on5) a()) != null) {
+                                                ((nn5) on5Var2).initByByteArray(bArr);
+                                                arrayList.add(on5Var2);
+                                            }
+                                        }
+                                        on5Var3 = arrayList;
+                                    }
+                                } else if (on5Var4 instanceof qn5) {
+                                    yz4.l();
+                                    List<ca.b<String>> b = vd.b(yz4.n(this.b, str));
+                                    if (b != null) {
+                                        arrayList = new ArrayList(b.size());
+                                        for (ca.b<String> bVar2 : b) {
+                                            if (bVar2 != null && (str2 = bVar2.b) != null && (on5Var = (on5) a()) != null) {
+                                                ((qn5) on5Var).initByString(str2);
+                                                arrayList.add(on5Var);
+                                            }
+                                        }
+                                        on5Var3 = arrayList;
+                                    }
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                on5Var3 = on5Var4;
+                                e.printStackTrace();
+                                return new ReadCacheRespMsg(this.a, on5Var3);
+                            } catch (Throwable th) {
+                                th = th;
+                                on5Var3 = on5Var4;
+                                new ReadCacheRespMsg(this.a, on5Var3);
+                                throw th;
                             }
-                            writeCacheRespMsg.setSuccess(true);
                         } else {
-                            nn5 nn5Var5 = (nn5) writeCacheMessage.getData();
-                            if (nn5Var5 == null) {
-                                return writeCacheRespMsg;
-                            }
-                            String cacheString = ((pn5) nn5Var5).toCacheString();
-                            if (cacheString != null) {
-                                n.g(nn5Var5.getCacheKey(), cacheString);
-                                writeCacheRespMsg.setSuccess(true);
+                            String cacheKey = readCacheMessage.getRequestData().getCacheKey();
+                            String cacheTableName = readCacheMessage.getRequestData().getCacheTableName();
+                            try {
+                                if (on5Var4 instanceof nn5) {
+                                    yz4.l();
+                                    byte[] bArr2 = yz4.k(cacheTableName, str).get(cacheKey);
+                                    if (bArr2 != null) {
+                                        ((nn5) on5Var4).initByByteArray(bArr2);
+                                        ArrayList arrayList2 = new ArrayList();
+                                        arrayList2.add(on5Var4);
+                                        cacheTableName = arrayList2;
+                                        on5Var3 = cacheTableName;
+                                    }
+                                } else if (on5Var4 instanceof qn5) {
+                                    yz4.l();
+                                    String str3 = yz4.n(cacheTableName, str).get(cacheKey);
+                                    if (str3 != null) {
+                                        ((qn5) on5Var4).initByString(str3);
+                                        ?? arrayList3 = new ArrayList();
+                                        arrayList3.add(on5Var4);
+                                        cacheTableName = arrayList3;
+                                        on5Var3 = cacheTableName;
+                                    }
+                                }
+                            } catch (Exception e2) {
+                                on5Var3 = cacheTableName;
+                                e = e2;
+                                e.printStackTrace();
+                                return new ReadCacheRespMsg(this.a, on5Var3);
+                            } catch (Throwable th2) {
+                                on5Var3 = cacheTableName;
+                                th = th2;
+                                new ReadCacheRespMsg(this.a, on5Var3);
+                                throw th;
                             }
                         }
                     }
+                    return new ReadCacheRespMsg(this.a, on5Var3);
+                } catch (Exception e3) {
+                    e = e3;
                 }
-                return writeCacheRespMsg;
+            } catch (Throwable th3) {
+                th = th3;
             }
-            return null;
+        } else {
+            return (CustomResponsedMessage) invokeL.objValue;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

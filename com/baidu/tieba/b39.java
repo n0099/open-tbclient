@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class b39 extends bi<z29, CardViewHolder<c39>> {
+public class b39 extends bi<a39, CardViewHolder<f39>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public xl6 b;
+    public yl6 b;
     public String c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,16 +54,16 @@ public class b39 extends bi<z29, CardViewHolder<c39>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bi
     /* renamed from: t */
-    public CardViewHolder<c39> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<f39> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            c39 c39Var = new c39(this.a, viewGroup);
-            xl6 xl6Var = this.b;
-            if (xl6Var != null) {
-                c39Var.m(xl6Var);
+            f39 f39Var = new f39(this.a, viewGroup);
+            yl6 yl6Var = this.b;
+            if (yl6Var != null) {
+                f39Var.m(yl6Var);
             }
-            return new CardViewHolder<>(c39Var);
+            return new CardViewHolder<>(f39Var);
         }
         return (CardViewHolder) invokeL.objValue;
     }
@@ -75,16 +75,31 @@ public class b39 extends bi<z29, CardViewHolder<c39>> {
         }
     }
 
+    public void y(yl6 yl6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, yl6Var) == null) {
+            this.b = yl6Var;
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bi
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, z29 z29Var, CardViewHolder<c39> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, a39 a39Var, CardViewHolder<f39> cardViewHolder) {
         InterceptResult invokeCommon;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, z29Var, cardViewHolder})) == null) {
-            if (z29Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().A(this.c);
-                cardViewHolder.a().k(z29Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, a39Var, cardViewHolder})) == null) {
+            if (a39Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
+                cardViewHolder.a().B(this.c);
+                f39 a = cardViewHolder.a();
+                if (i == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                a.C(z);
+                cardViewHolder.a().k(a39Var);
                 return cardViewHolder.getView();
             }
             return null;

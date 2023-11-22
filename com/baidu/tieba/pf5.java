@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,11 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import kotlin.Unit;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class pf5 {
     public static /* synthetic */ Interceptable $ic;
     public static final pf5 a;
+    public static ad5 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,6 +31,7 @@ public final class pf5 {
             }
         }
         a = new pf5();
+        b = new ad5();
     }
 
     public pf5() {
@@ -47,49 +48,29 @@ public final class pf5 {
         }
     }
 
-    public final void a(qf5 data) {
+    public final ad5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            StatisticItem statisticItem = new StatisticItem("c15544");
-            statisticItem.param("obj_type", data.f());
-            statisticItem.param("obj_name", data.c());
-            statisticItem.param("fname", data.a());
-            statisticItem.param("tid", data.e());
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.eventStat();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
         }
+        return (ad5) invokeV.objValue;
     }
 
-    public final void c(qf5 data) {
+    public final void b(String str) {
+        Unit unit;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            StatisticItem statisticItem = new StatisticItem("c15542");
-            statisticItem.param("obj_type", data.f());
-            statisticItem.param("obj_source", data.d());
-            statisticItem.param("fname", data.a());
-            statisticItem.param("tid", data.e());
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.eventStat();
-        }
-    }
-
-    public final void b(qf5 data) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            StatisticItem statisticItem = new StatisticItem("c15543");
-            statisticItem.param("obj_type", data.f());
-            statisticItem.param("obj_name", data.c());
-            if (data.f() != 3) {
-                statisticItem.param("obj_id", data.b());
-                statisticItem.param("obj_source", data.d());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            JSONObject a2 = cn6.a.a(str);
+            if (a2 != null) {
+                b.m(a2);
+                unit = Unit.INSTANCE;
+            } else {
+                unit = null;
             }
-            statisticItem.param("fname", data.a());
-            statisticItem.param("tid", data.e());
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.eventStat();
+            if (unit == null) {
+                b.m(new JSONObject());
+            }
         }
     }
 }

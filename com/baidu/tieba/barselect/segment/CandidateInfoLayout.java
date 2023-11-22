@@ -21,9 +21,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.view.BazhuHeadView;
-import com.baidu.tieba.pe6;
-import com.baidu.tieba.re6;
-import com.baidu.tieba.ye6;
+import com.baidu.tieba.qe6;
+import com.baidu.tieba.se6;
+import com.baidu.tieba.ze6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -67,10 +67,10 @@ public class CandidateInfoLayout extends CardBasicLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            pe6 pe6Var;
+            qe6 qe6Var;
             boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (pe6Var = this.a.c) != null && pe6Var.l() != 0) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (qe6Var = this.a.c) != null && qe6Var.l() != 0) {
                 long j = JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
                 long l = this.a.c.l();
                 if ((this.a.getContext() instanceof Activity) && this.a.c.f() != 2) {
@@ -167,9 +167,9 @@ public class CandidateInfoLayout extends CardBasicLayout {
             SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
             SkinManager.setViewTextColor(this.h, R.color.CAM_X0109, 1, i);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0109, 1, i);
-            pe6 pe6Var = this.c;
-            if (pe6Var != null) {
-                setGrade(pe6Var.d());
+            qe6 qe6Var = this.c;
+            if (qe6Var != null) {
+                setGrade(qe6Var.d());
             }
         }
     }
@@ -182,14 +182,14 @@ public class CandidateInfoLayout extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, re6 re6Var) {
+    public void setData(int i, se6 se6Var) {
         int i2;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, re6Var) == null) {
-            super.setData(i, re6Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, se6Var) == null) {
+            super.setData(i, se6Var);
             if (this.b != null && this.c != null && (i2 = this.a) >= 0) {
-                if (i2 == ye6.c) {
+                if (i2 == ze6.c) {
                     int dimens = BdUtilHelper.getDimens(this.d, R.dimen.tbds191);
                     int dimens2 = BdUtilHelper.getDimens(this.d, R.dimen.tbds157);
                     int dimens3 = BdUtilHelper.getDimens(this.d, R.dimen.tbds6);

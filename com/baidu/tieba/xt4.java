@@ -32,7 +32,7 @@ public class xt4 {
     public final View b;
     public final ThreadAchievementShareInfo.ParamBean c;
     public TbRichTextView d;
-    public dy5 e;
+    public ey5 e;
     public TbImageView f;
     public TextView g;
     public TextView h;
@@ -136,9 +136,9 @@ public class xt4 {
             this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            dy5 dy5Var = new dy5();
-            this.e = dy5Var;
-            dy5Var.u(BdUtilHelper.getDimens(this.a, R.dimen.tbds38));
+            ey5 ey5Var = new ey5();
+            this.e = ey5Var;
+            ey5Var.u(BdUtilHelper.getDimens(this.a, R.dimen.tbds38));
             this.e.x(BdUtilHelper.getDimens(this.a, R.dimen.tbds42));
             this.e.k(BdUtilHelper.getDimens(this.a, R.dimen.tbds23));
             this.e.p(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12), 1.0f);

@@ -1,340 +1,292 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
+import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Intent;
+import android.content.IntentFilter;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.chatmessage.request.params.FetchMsgParam;
+import com.baidu.android.imsdk.chatmessage.request.params.SendMsgParam;
+import com.baidu.android.imsdk.chatmessage.response.FetchMsgResponse;
+import com.baidu.android.imsdk.chatmessage.response.SendMsgResponse;
+import com.baidu.android.imsdk.group.BIMValueCallBack;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.module.alalivesdk.imSdkPersonService.data.PersonFetchMsgResponse;
+import com.baidu.tieba.livesdk.AlaLiveSdkStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class od9 {
+public class od9 extends bg1<lk5> {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<ud9> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948028549, "Lcom/baidu/tieba/od9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements lk5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: com.baidu.tieba.od9$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0420a implements SendMsgParam.SendMsgParamConstruct {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ok5 a;
+            public final /* synthetic */ Context b;
+
+            public C0420a(a aVar, ok5 ok5Var, Context context) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, ok5Var, context};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = ok5Var;
+                this.b = context;
+            }
+
+            @Override // com.baidu.android.imsdk.chatmessage.request.params.SendMsgParam.SendMsgParamConstruct
+            public void construct(SendMsgParam sendMsgParam) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048576, this, sendMsgParam) == null) && sendMsgParam != null && sendMsgParam.getChatMsg() != null) {
+                    this.a.a(sendMsgParam.getChatMsg());
+                    BIMManager.saveMessage(this.b, sendMsgParam.getChatMsg());
+                    BIMManager.sendChatMsg(this.b, sendMsgParam);
+                }
+            }
+        }
+
+        /* loaded from: classes7.dex */
+        public class b implements BIMValueCallBack<SendMsgResponse> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ok5 a;
+
+            public b(a aVar, ok5 ok5Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, ok5Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = ok5Var;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.android.imsdk.group.BIMValueCallBack
+            /* renamed from: a */
+            public void onResult(int i, String str, SendMsgResponse sendMsgResponse) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, sendMsgResponse) == null) && str != null && sendMsgResponse != null && sendMsgResponse.msg != null) {
+                    this.a.b(i, str, sendMsgResponse);
+                }
+            }
+        }
+
+        /* loaded from: classes7.dex */
+        public class c extends BroadcastReceiver {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a this$1;
+            public final /* synthetic */ nk5 val$listener;
+
+            public c(a aVar, nk5 nk5Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, nk5Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$1 = aVar;
+                this.val$listener = nk5Var;
+            }
+
+            @Override // android.content.BroadcastReceiver
+            public void onReceive(Context context, Intent intent) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && IMConstants.MESSAGE_ACTION.equals(intent.getAction())) {
+                    this.val$listener.onReceiveMessage(0, 0, intent.getParcelableArrayListExtra(IMConstants.MESSAGE));
+                }
+            }
+        }
+
+        /* loaded from: classes7.dex */
+        public class d implements FetchMsgParam.FetchMsgParamConstruct {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Context a;
+
+            public d(a aVar, Context context) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, context};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = context;
+            }
+
+            @Override // com.baidu.android.imsdk.chatmessage.request.params.FetchMsgParam.FetchMsgParamConstruct
+            public void construct(FetchMsgParam fetchMsgParam) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, fetchMsgParam) == null) {
+                    BIMManager.fetchMsg(this.a, fetchMsgParam);
+                }
+            }
+        }
+
+        /* loaded from: classes7.dex */
+        public class e implements BIMValueCallBack<FetchMsgResponse> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ mk5 a;
+
+            public e(a aVar, mk5 mk5Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, mk5Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = mk5Var;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.android.imsdk.group.BIMValueCallBack
+            /* renamed from: a */
+            public void onResult(int i, String str, FetchMsgResponse fetchMsgResponse) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, fetchMsgResponse) == null) && fetchMsgResponse != null) {
+                    this.a.a(i, str, new PersonFetchMsgResponse(fetchMsgResponse));
+                }
+            }
+        }
+
+        public a(od9 od9Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948028549, "Lcom/baidu/tieba/od9;");
-                return;
-            }
-        }
-        a = new ArrayList();
-    }
-
-    public static void a(Context context, String str, HashMap<String, Object> hashMap) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, context, str, hashMap) == null) {
-            if (hashMap != null) {
-                String str3 = (String) hashMap.get("enterroom_type");
-                String str4 = (String) hashMap.get("live_activity_type");
-                String str5 = (String) hashMap.get("extra");
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("live_activity_type", str4);
-                    jSONObject.put("extra", str5);
-                    str2 = jSONObject.toString();
-                } catch (JSONException unused) {
-                    str2 = "";
-                }
-                if ("1".equals(str3)) {
-                    of9.j().H(context, str2);
-                    return;
-                } else {
-                    of9.j().D(context, "");
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {od9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            of9.j().D(context, "");
+            AlaLiveSdkStatic.n();
         }
-    }
 
-    public static void d(Context context, zd9 zd9Var, ud9 ud9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, zd9Var, ud9Var) != null) || context == null) {
-            return;
+        @Override // com.baidu.tieba.lk5
+        public BroadcastReceiver a(@NonNull Context context, @NonNull nk5 nk5Var) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, nk5Var)) == null) {
+                IntentFilter intentFilter = new IntentFilter(IMConstants.MESSAGE_ACTION);
+                c cVar = new c(this, nk5Var);
+                context.registerReceiver(cVar, intentFilter);
+                return cVar;
+            }
+            return (BroadcastReceiver) invokeLL.objValue;
         }
-        JSONObject jSONObject = new JSONObject();
-        if (zd9Var != null) {
-            try {
-                if (!TextUtils.isEmpty(zd9Var.a)) {
-                    jSONObject.put(WebChromeClient.KEY_ARG_CALLBACK, zd9Var.a);
-                    if (ud9Var != null) {
-                        a.add(ud9Var);
-                    }
-                }
-                jSONObject.put("isTranslucent", zd9Var.b);
-                if (!TextUtils.isEmpty(zd9Var.c)) {
-                    jSONObject.put("from", zd9Var.c);
-                }
-            } catch (JSONException unused) {
+
+        @Override // com.baidu.tieba.lk5
+        public void c(@NonNull Context context, @NonNull BroadcastReceiver broadcastReceiver) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, broadcastReceiver) == null) {
+                context.unregisterReceiver(broadcastReceiver);
             }
         }
-        of9.j().B(context, jSONObject.toString());
-    }
 
-    /* JADX WARN: Removed duplicated region for block: B:58:0x017e  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x0190  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void b(Context context, String str, Map<String, Object> map) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, context, str, map) == null) {
-            String str3 = (String) map.get("enterroom_type");
-            String str4 = (String) map.get("room_id");
-            String str5 = (String) map.get("live_id");
-            String str6 = (String) map.get("username");
-            String str7 = (String) map.get("userrec");
-            String str8 = (String) map.get(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-            String str9 = (String) map.get(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY);
-            String str10 = (String) map.get("screen_direction");
-            String str11 = (String) map.get("open_giftlist");
-            String str12 = (String) map.get("tab");
-            String str13 = (String) map.get("tag");
-            String str14 = (String) map.get("source");
-            String str15 = (String) map.get("from");
-            String str16 = (String) map.get("extra");
-            String str17 = (String) map.get("audioUrl");
-            String str18 = (String) map.get("audio_bg");
-            String str19 = (String) map.get("chat_mcast_id");
-            String str20 = (String) map.get("open_msgpanel");
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (!TextUtils.isEmpty(str12)) {
-                    jSONObject.put("tab", str12);
-                }
-                if (!TextUtils.isEmpty(str13)) {
-                    jSONObject.put("tag", str13);
-                }
-                if (!TextUtils.isEmpty(str14)) {
-                    jSONObject.put("source", str14);
-                }
-                if (!TextUtils.isEmpty(str15)) {
-                    jSONObject.put("from", str15);
-                }
-                if (!TextUtils.isEmpty(str8)) {
-                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, str8);
-                }
-                if (!TextUtils.isEmpty(str9)) {
-                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY, str9);
-                }
-                if (!TextUtils.isEmpty(str10)) {
-                    jSONObject.put("screen_direction", str10);
-                }
-                if (!TextUtils.isEmpty(str4)) {
-                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_ROOM_ID_KEY, str4);
-                }
-                if (!TextUtils.isEmpty(str5)) {
-                    str2 = str5;
-                    try {
-                        jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_LIVE_ID_KEY, str2);
-                    } catch (JSONException e) {
-                        e = e;
-                        e.printStackTrace();
-                        if (!"1".equals(str3)) {
-                        }
-                    }
-                } else {
-                    str2 = str5;
-                }
-                if (!TextUtils.isEmpty(str16)) {
-                    jSONObject.put("extra", str16);
-                }
-                if (!TextUtils.isEmpty(str17)) {
-                    jSONObject.put("audioUrl", str17);
-                }
-                if (!TextUtils.isEmpty(str18)) {
-                    jSONObject.put("audio_bg", str18);
-                }
-                if (!TextUtils.isEmpty(str19)) {
-                    jSONObject.put("chat_mcast_id", str19);
-                }
-                if (!TextUtils.isEmpty(str20)) {
-                    jSONObject.put("open_msgpanel", str20);
-                }
-            } catch (JSONException e2) {
-                e = e2;
-                str2 = str5;
+        @Override // com.baidu.tieba.lk5
+        public void b(@NonNull Context context, long j, long j2, int i, long j3, mk5 mk5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Long.valueOf(j3), mk5Var}) == null) {
+                FetchMsgParam.newInstanceByPa(context, j, j2, i, 0, j3, "", new e(this, mk5Var), new d(this, context));
             }
-            if (!"1".equals(str3)) {
-                of9.j().y(context, str, jSONObject.toString(), map);
-                return;
+        }
+
+        @Override // com.baidu.tieba.lk5
+        public void d(@NonNull Context context, @NonNull ChatMsg chatMsg, long j, @NonNull ok5 ok5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, chatMsg, Long.valueOf(j), ok5Var}) == null) {
+                SendMsgParam.newInstanceByPa(context, chatMsg, j, new b(this, ok5Var), new C0420a(this, ok5Var, context));
             }
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("user_name", str6);
-                jSONObject2.put("open_giftlist", str11);
-            } catch (JSONException e3) {
-                e3.printStackTrace();
+        }
+    }
+
+    public od9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject3.put("live_id", str2);
-                jSONObject3.put("useRecommend", true);
-                jSONObject3.put("otherParams", jSONObject);
-            } catch (JSONException e4) {
-                e4.printStackTrace();
-            }
-            of9.j().x(context, jSONObject3.toString());
         }
     }
 
-    public static void c(Context context, String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bg1
+    /* renamed from: a */
+    public lk5 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
-            of9.j().h(context, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-    }
-
-    public static void i(Activity activity, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, activity, map) == null) {
-            g68.i().o(activity, map);
-        }
-    }
-
-    public static void m(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) {
-            of9.j().A(context, str);
-        }
-    }
-
-    public static void p(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65552, null, str, z) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("uid", str);
-            hashMap.put("isSubscribe", Boolean.valueOf(z));
-            of9.j().g(TbadkCoreApplication.getInst(), "setAttentionChanged", hashMap);
-        }
-    }
-
-    public static void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
-            of9.j().q(context);
-        }
-    }
-
-    public static void h(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
-            of9.j().t(context);
-        }
-    }
-
-    public static void l(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
-            of9.j().z(context);
-        }
-    }
-
-    public static void o(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, jSONObject) == null) {
-            for (int i = 0; i < a.size(); i++) {
-                a.get(i).onCallback(jSONObject);
-            }
-            a.clear();
-        }
-    }
-
-    public static void q(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65553, null, j) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("uid", Long.valueOf(j));
-            of9.j().g(TbadkCoreApplication.getInst(), "shareSuccess", hashMap);
-        }
-    }
-
-    public static void f(Context context, long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            of9.j().v(context, j, i);
-        }
-    }
-
-    public static void g(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65543, null, context, str, i) == null) {
-            of9.j().s(context, str, i);
-        }
-    }
-
-    public static void j(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, str2) == null) {
-            of9.j().u(context, str, str2);
-        }
-    }
-
-    public static void n(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65550, null, context, str, str2) == null) {
-            of9.j().C(context, str, str2);
-        }
-    }
-
-    public static void r(Application application, String str, Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65554, null, application, str, uri) == null) {
-            of9.j().r(application, str, uri);
-        }
-    }
-
-    public static void k(Context context, String str, AlaLiveInfoCoreData alaLiveInfoCoreData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65547, null, context, str, alaLiveInfoCoreData) == null) && alaLiveInfoCoreData != null) {
-            long j = alaLiveInfoCoreData.liveID;
-            String str2 = alaLiveInfoCoreData.userName;
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", str);
-                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, alaLiveInfoCoreData.liveCover);
-                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_LIVE_ID_KEY, j);
-                jSONObject.put("user_name", str2);
-                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY, alaLiveInfoCoreData.rtmpUrl);
-                jSONObject.put("screen_direction", alaLiveInfoCoreData.screenDirection);
-                jSONObject.put("open_giftlist", "0");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("live_id", j);
-                jSONObject2.put("useRecommend", true);
-                jSONObject2.put("otherParams", jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            of9.j().x(context, jSONObject2.toString());
-        }
+        return (lk5) invokeV.objValue;
     }
 }

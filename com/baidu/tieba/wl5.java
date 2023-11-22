@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes8.dex */
-public interface wl5 extends ek5 {
-    public static final String a = "com.baidu.tieba.wl5";
+public interface wl5 {
+    void a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
 
-    @NonNull
-    vl5 b(@NonNull TbPageContext tbPageContext);
+    void b(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
 }

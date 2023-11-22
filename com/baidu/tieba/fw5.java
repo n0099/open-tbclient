@@ -1,13 +1,15 @@
 package com.baidu.tieba;
+
+import android.content.Context;
 /* loaded from: classes6.dex */
-public interface fw5 extends xp5 {
-    void R1(String str, boolean z);
+public interface fw5 {
+    void a();
 
-    boolean goBack();
+    void b(int i, int i2, int i3, int i4);
 
-    void onDestroy();
+    Context getContext();
 
-    void onPause();
+    boolean post(Runnable runnable);
 
-    void onResume();
+    boolean removeCallbacks(Runnable runnable);
 }

@@ -33,16 +33,16 @@ import com.baidu.tbadk.mutiprocess.MutiProcessManager;
 import com.baidu.tbadk.mutiprocess.live.LiveRemindDataEvent;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.cra;
+import com.baidu.tieba.dra;
 import com.baidu.tieba.e45;
 import com.baidu.tieba.g45;
 import com.baidu.tieba.h45;
 import com.baidu.tieba.im.message.ResponsedGroupChatListCompleteMessage;
-import com.baidu.tieba.kh5;
-import com.baidu.tieba.nc5;
+import com.baidu.tieba.lh5;
+import com.baidu.tieba.oc5;
 import com.baidu.tieba.s05;
-import com.baidu.tieba.t95;
-import com.baidu.tieba.xt5;
+import com.baidu.tieba.u95;
+import com.baidu.tieba.yt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,14 +85,14 @@ public class PollingModel extends BdBaseModel {
     public ChatRoomEntranceData mChatRoomEntranceData;
     public TbPageContext mContext;
     public s05 mDialogTime;
-    public nc5 mFestivalConfigData;
+    public oc5 mFestivalConfigData;
     public NetMessageListener mGetPollingListener;
     public IconPopData mIconPopData;
     public LevePopData mLevePopData;
     public LiveRemindData mLiveRemindData;
     public MemberBroadcastData mMemberBroadcastData;
     public String mUniqueLoopId;
-    public final xt5 retry;
+    public final yt5 retry;
     public BdUniqueId uniqueId;
 
     /* loaded from: classes4.dex */
@@ -271,7 +271,7 @@ public class PollingModel extends BdBaseModel {
                     }
                 }
                 if (this.a.mFestivalConfigData != null) {
-                    kh5.b().c(this.a.mFestivalConfigData);
+                    lh5.b().c(this.a.mFestivalConfigData);
                 }
                 this.a.processLiveData();
                 PollingModel pollingModel3 = this.a;
@@ -357,12 +357,12 @@ public class PollingModel extends BdBaseModel {
         this.liveIndexSecondFloor = new ArrayList();
         this.livePicSecondFloor = new ArrayList();
         this.mChatRoomEntranceData = new ChatRoomEntranceData();
-        this.retry = xt5.g();
+        this.retry = yt5.g();
         this.mGetPollingListener = new a(this, CmdConfigHttp.CMD_HTTP_POLLING_INTERFACE, 309732);
         this.mContext = tbPageContext;
         setUniqueId(bdUniqueId);
         this.uniqueId = bdUniqueId;
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_POLLING_INTERFACE, cra.a(TbConfig.GET_POLLING_DATA, 309732));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_POLLING_INTERFACE, dra.a(TbConfig.GET_POLLING_DATA, 309732));
         tbHttpMessageTask.setResponsedClass(PollingHttpResMessage.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -578,7 +578,7 @@ public class PollingModel extends BdBaseModel {
                 hashMap.put("view_top_params_key_yyext", c2.getYyExtData());
                 hashMap.put("view_top_params_key_type", Integer.valueOf(i));
                 hashMap.put("view_top_params_is_breathe", Boolean.FALSE);
-                if (t95.f(null, tbPageContext, hashMap, 0L, 4000L) != null) {
+                if (u95.f(null, tbPageContext, hashMap, 0L, 4000L) != null) {
                     h45.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
                 }
             }

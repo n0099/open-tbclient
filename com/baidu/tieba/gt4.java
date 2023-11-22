@@ -24,7 +24,7 @@ import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.xqa;
+import com.baidu.tieba.yqa;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -39,7 +39,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class gt4 extends be5 {
+public final class gt4 extends ce5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> b;
@@ -51,7 +51,7 @@ public final class gt4 extends be5 {
     public String h;
     public String i;
     public final NewWriteModel.d j;
-    public xqa.h k;
+    public yqa.h k;
 
     static {
         InterceptResult invokeClinit;
@@ -96,18 +96,18 @@ public final class gt4 extends be5 {
             public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-            public final void callback(boolean z, PostWriteCallBackData postWriteCallBackData, g95 g95Var, WriteData writeData, AntiData antiData) {
+            public final void callback(boolean z, PostWriteCallBackData postWriteCallBackData, h95 h95Var, WriteData writeData, AntiData antiData) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, g95Var, writeData, antiData}) == null) {
-                    gt4.j(gt4.this, z, postWriteCallBackData, g95Var, writeData, antiData);
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, h95Var, writeData, antiData}) == null) {
+                    gt4.j(gt4.this, z, postWriteCallBackData, h95Var, writeData, antiData);
                 }
             }
         };
-        this.k = new xqa.h() { // from class: com.baidu.tieba.at4
+        this.k = new yqa.h() { // from class: com.baidu.tieba.at4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.xqa.h
+            @Override // com.baidu.tieba.yqa.h
             public final void d(WriteData writeData) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, writeData) == null) {
@@ -132,12 +132,12 @@ public final class gt4 extends be5 {
                 String content = writeData.getContent();
                 Intrinsics.checkNotNullExpressionValue(content, "draftData.content");
                 this$0.e = content;
-                editorTools.K(new xd5(6, 40, writeData.getContent()));
+                editorTools.K(new yd5(6, 40, writeData.getContent()));
             }
         }
     }
 
-    public static final void j(gt4 this$0, boolean z, PostWriteCallBackData postWriteCallBackData, g95 g95Var, WriteData writeData, AntiData antiData) {
+    public static final void j(gt4 this$0, boolean z, PostWriteCallBackData postWriteCallBackData, h95 h95Var, WriteData writeData, AntiData antiData) {
         WriteData writeData2;
         Integer num;
         String str;
@@ -150,7 +150,7 @@ public final class gt4 extends be5 {
         String str8;
         String str9;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{this$0, Boolean.valueOf(z), postWriteCallBackData, g95Var, writeData, antiData}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{this$0, Boolean.valueOf(z), postWriteCallBackData, h95Var, writeData, antiData}) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             String str10 = null;
             if (writeData == null) {
@@ -234,7 +234,7 @@ public final class gt4 extends be5 {
                     ft4Var = null;
                 }
                 jSONObject.put("replyUName", ft4Var.a().get("replyUName"));
-                dj6.a().h("webviewPage.replyResult", jSONObject);
+                ej6.a().h("webviewPage.replyResult", jSONObject);
             } catch (Exception unused) {
             }
             if (z) {
@@ -243,15 +243,15 @@ public final class gt4 extends be5 {
                 this$0.n();
                 return;
             }
-            if (g95Var != null) {
-                str10 = g95Var.d();
+            if (h95Var != null) {
+                str10 = h95Var.d();
             }
             if (!TextUtils.isEmpty(str10)) {
-                writeData2.setVcodeMD5(g95Var.b());
-                writeData2.setVcodeUrl(g95Var.c());
-                writeData2.setVcodeExtra(g95Var.a());
-                if (VcodeTool.needVcode(g95Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this$0.e().getPageActivity(), 12006, writeData2, false, g95Var.d())));
+                writeData2.setVcodeMD5(h95Var.b());
+                writeData2.setVcodeUrl(h95Var.c());
+                writeData2.setVcodeExtra(h95Var.a());
+                if (VcodeTool.needVcode(h95Var.d())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this$0.e().getPageActivity(), 12006, writeData2, false, h95Var.d())));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this$0.e().getPageActivity(), writeData2, 12006)));
                 }
@@ -347,9 +347,9 @@ public final class gt4 extends be5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!TextUtils.isEmpty(this.h)) {
-                xqa.C(this.h, null);
+                yqa.C(this.h, null);
             } else if (!TextUtils.isEmpty(this.i)) {
-                xqa.E(this.i, null);
+                yqa.E(this.i, null);
             }
         }
     }
@@ -372,9 +372,9 @@ public final class gt4 extends be5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (!TextUtils.isEmpty(this.h)) {
-                xqa.r(this.h, this.k);
+                yqa.r(this.h, this.k);
             } else if (!TextUtils.isEmpty(this.i)) {
-                xqa.t(this.i, this.k);
+                yqa.t(this.i, this.k);
             }
         }
     }
@@ -428,13 +428,13 @@ public final class gt4 extends be5 {
                 if (i == 25004 && intent != null) {
                     String stringExtra = intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING);
                     if (a() != null) {
-                        a().K(new xd5(44, 40, stringExtra));
+                        a().K(new yd5(44, 40, stringExtra));
                     }
                 }
             } else if (intent != null) {
                 ArrayList parcelableArrayListExtra = intent.getParcelableArrayListExtra(IntentConfig.AT_SELECT_LIST_DATA);
                 if (a() != null) {
-                    a().K(new xd5(17, 40, parcelableArrayListExtra));
+                    a().K(new yd5(17, 40, parcelableArrayListExtra));
                 }
             }
         }
@@ -502,7 +502,7 @@ public final class gt4 extends be5 {
             e0.setContent(this.e);
             if (!TextUtils.isEmpty(this.h)) {
                 e0.setType(1);
-                xqa.C(this.h, e0);
+                yqa.C(this.h, e0);
             } else if (!TextUtils.isEmpty(this.i)) {
                 e0.setType(2);
                 e0.setReplyId(h("replyUid"));
@@ -511,7 +511,7 @@ public final class gt4 extends be5 {
                 e0.setName(h("name"));
                 e0.setReSubPostId(h("reSubPostId"));
                 e0.setSubPbReplyPrefix(h("subPbReplyPrefix"));
-                xqa.E(this.i, e0);
+                yqa.E(this.i, e0);
             }
         }
     }
@@ -519,8 +519,8 @@ public final class gt4 extends be5 {
     public final void p() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && a() != null) {
-            a().K(new xd5(9, -1, Boolean.TRUE));
-            a().K(new xd5(4, -1, ""));
+            a().K(new yd5(9, -1, Boolean.TRUE));
+            a().K(new yd5(4, -1, ""));
             a().v();
         }
     }
@@ -558,7 +558,7 @@ public final class gt4 extends be5 {
         if (interceptable == null || interceptable.invokeL(1048593, this, config) == null) {
             Intrinsics.checkNotNullParameter(config, "config");
             this.c = config;
-            ke5 u = a().u(40);
+            le5 u = a().u(40);
             Intrinsics.checkNotNullExpressionValue(u, "editorTools.findToolById…rToolsID.TOOL_ID_WEBVIEW)");
             if (u instanceof it4) {
                 ((it4) u).j(config);
@@ -603,7 +603,7 @@ public final class gt4 extends be5 {
             HybridLog.getInstance().i("WebViewEditor", "updateConfig " + z2 + WebvttCueParser.CHAR_SPACE + this.g + WebvttCueParser.CHAR_SPACE + h + WebvttCueParser.CHAR_SPACE + h2);
             if (z2) {
                 this.e = "";
-                a().K(new xd5(6, 40, ""));
+                a().K(new yd5(6, 40, ""));
                 f();
             }
         }

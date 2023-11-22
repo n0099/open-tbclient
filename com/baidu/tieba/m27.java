@@ -1,141 +1,112 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class m27 {
+public class m27 implements ra7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<Integer> d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public TbPageContext b;
+    public String c;
 
-    public static String c() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947920855, "Lcom/baidu/tieba/m27;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947920855, "Lcom/baidu/tieba/m27;");
+                return;
+            }
+        }
+        ArrayList arrayList = new ArrayList();
+        d = arrayList;
+        arrayList.add(2);
+        d.add(8);
+        d.add(6);
+        d.add(7);
+        d.add(14);
+    }
+
+    public m27(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = i;
+    }
+
+    @Override // com.baidu.tieba.ra7
+    @NonNull
+    public List<za7<?, ?>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "frs_empty_advert" : (String) invokeV.objValue;
-    }
-
-    public static ICardInfo a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("card_type", i);
-                return wb9.h().b(jSONObject, i);
-            } catch (CardParseException | JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (ICardInfo) invokeI.objValue;
-    }
-
-    public static String d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            return e(i, 0);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static boolean h(AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, advertAppInfo)) == null) {
-            if (advertAppInfo == null) {
-                return true;
-            }
-            return advertAppInfo.b();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static ICardInfo b(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("goods_style", i2);
-                jSONObject2.put("card_type", i);
-                jSONObject.put("ad_common", jSONObject2);
-                jSONObject.put("card_type", i);
-                return wb9.h().b(jSONObject, i);
-            } catch (CardParseException | JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (ICardInfo) invokeII.objValue;
-    }
-
-    public static String e(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) {
-            return "ad_card_" + i + "_" + i2;
-        }
-        return (String) invokeII.objValue;
-    }
-
-    public static int f(@NonNull List<za7<?>> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
-            int i = 0;
-            if (ic9.e(list)) {
-                return 0;
-            }
-            for (int i2 = ic9.i(list) - 1; i2 >= 0; i2--) {
-                za7 za7Var = (za7) ic9.d(list, i2);
-                if (za7Var != null) {
-                    if (za7Var.b() instanceof tx4) {
-                        break;
-                    }
-                    i++;
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static String g(List<za7<?>> list, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, list, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (!z && !ic9.e(list)) {
-                int i = 0;
-                for (int i2 = ic9.i(list) - 1; i2 >= 0 && i < 6; i2--) {
-                    za7 za7Var = (za7) ic9.d(list, i2);
-                    if (za7Var != null && (za7Var.b() instanceof tx4)) {
-                        tx4 tx4Var = (tx4) za7Var.b();
-                        if (!h(tx4Var.B())) {
-                            sb.append(tx4Var.m() + 1);
-                            sb.append(",");
-                            i++;
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < zb9.a.size(); i++) {
+                int keyAt = zb9.a.keyAt(i);
+                if (keyAt != 17 && keyAt != 33 && keyAt != 34) {
+                    o27 o27Var = new o27(keyAt, this.a);
+                    o27Var.f(this.b);
+                    o27Var.e(this.c);
+                    arrayList.add(o27Var);
+                } else {
+                    for (Integer num : d) {
+                        o27 o27Var2 = new o27(keyAt, num.intValue(), this.a);
+                        o27Var2.f(this.b);
+                        o27Var2.e(this.c);
+                        arrayList.add(o27Var2);
                     }
                 }
-                if (sb.length() <= 1) {
-                    return sb.toString();
-                }
-                sb.deleteCharAt(sb.length() - 1);
-                return sb.toString();
             }
-            return sb.toString();
+            arrayList.add(new p27());
+            return arrayList;
         }
-        return (String) invokeLZ.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    public m27 b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            this.c = str;
+            return this;
+        }
+        return (m27) invokeL.objValue;
+    }
+
+    public m27 c(TbPageContext tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext)) == null) {
+            this.b = tbPageContext;
+            return this;
+        }
+        return (m27) invokeL.objValue;
     }
 }

@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dz5;
-import com.baidu.tieba.sy5;
-import com.baidu.tieba.uy5;
+import com.baidu.tieba.ez5;
+import com.baidu.tieba.ty5;
+import com.baidu.tieba.vy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +34,7 @@ public class PersonConstellationActivity extends BaseActivity {
     public View c;
     public ImageView d;
     public BdSwitchView e;
-    public dz5 f;
+    public ez5 f;
     public RelativeLayout g;
     public RelativeLayout h;
     public TextView i;
@@ -49,7 +49,7 @@ public class PersonConstellationActivity extends BaseActivity {
     public OnTimeSelectListener r;
 
     /* loaded from: classes7.dex */
-    public class c implements uy5 {
+    public class c implements vy5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonConstellationActivity a;
@@ -139,7 +139,7 @@ public class PersonConstellationActivity extends BaseActivity {
             this.a = personConstellationActivity;
         }
 
-        @Override // com.baidu.tieba.uy5
+        @Override // com.baidu.tieba.vy5
         public void a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
@@ -313,22 +313,22 @@ public class PersonConstellationActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.f == null) {
-                sy5 sy5Var = new sy5(getActivity(), this.r);
-                sy5Var.k(R.layout.person_birthday_select_layout, new c(this));
-                sy5Var.f(18);
-                sy5Var.p(new boolean[]{true, true, true, false, false, false});
-                sy5Var.j("年", "月", "日", "时", "分", "秒");
-                sy5Var.l(2.0f);
-                sy5Var.o(0, 0, 0, 0, 0, 0);
-                sy5Var.b(false);
-                sy5Var.i(SkinManager.getColor(R.color.CAM_X0206));
-                sy5Var.m(SkinManager.getColor(R.color.CAM_X0105));
-                sy5Var.n(SkinManager.getColor(R.color.CAM_X0109));
-                sy5Var.d(SkinManager.getColor(R.color.black_alpha30));
-                sy5Var.e(SkinManager.getColor(R.color.CAM_X0201));
-                sy5Var.c(false);
-                sy5Var.h(this.h);
-                this.f = sy5Var.a();
+                ty5 ty5Var = new ty5(getActivity(), this.r);
+                ty5Var.k(R.layout.person_birthday_select_layout, new c(this));
+                ty5Var.f(18);
+                ty5Var.p(new boolean[]{true, true, true, false, false, false});
+                ty5Var.j("年", "月", "日", "时", "分", "秒");
+                ty5Var.l(2.0f);
+                ty5Var.o(0, 0, 0, 0, 0, 0);
+                ty5Var.b(false);
+                ty5Var.i(SkinManager.getColor(R.color.CAM_X0206));
+                ty5Var.m(SkinManager.getColor(R.color.CAM_X0105));
+                ty5Var.n(SkinManager.getColor(R.color.CAM_X0109));
+                ty5Var.d(SkinManager.getColor(R.color.black_alpha30));
+                ty5Var.e(SkinManager.getColor(R.color.CAM_X0201));
+                ty5Var.c(false);
+                ty5Var.h(this.h);
+                this.f = ty5Var.a();
             }
             this.f.x();
         }

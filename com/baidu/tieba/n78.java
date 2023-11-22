@@ -1,60 +1,69 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tieba.da8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.squareup.wire.Message;
 /* loaded from: classes7.dex */
-public class n78 extends uf8 {
+public class n78 implements hd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vc9 c;
+    public da8.c a;
 
-    public n78() {
+    @Override // com.baidu.tieba.hd9
+    public void c(long j, String str, Message message, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, message, Boolean.valueOf(z)}) == null) {
+        }
+    }
+
+    public n78(da8.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = cVar;
+    }
+
+    @Override // com.baidu.tieba.hd9
+    public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
+            o78 o78Var = new o78();
+            ad9 ad9Var = new ad9();
+            ad9Var.a = j;
+            ad9Var.b = str;
+            wc9 a = fd9.d().a(ad9Var);
+            if (a != null) {
+                a.b(z, message, z2, i);
+            }
+            o78Var.b(a);
+            da8.c cVar = this.a;
+            if (cVar != null) {
+                cVar.d(z, o78Var, z2, "", str, true);
             }
         }
     }
 
-    public final void a() {
-        List<Object> list;
+    @Override // com.baidu.tieba.hd9
+    public void b(long j, String str, String str2, int i) {
+        da8.c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.a) != null) {
-            uqa.e(list, 2);
-        }
-    }
-
-    public void b(vc9 vc9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vc9Var) == null) {
-            this.c = vc9Var;
-            c();
-            a();
-        }
-    }
-
-    public final void c() {
-        vc9 vc9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (vc9Var = this.c) != null && vc9Var.d()) {
-            List<ICardInfo> c = this.c.c();
-            ArrayList arrayList = new ArrayList();
-            this.a = arrayList;
-            arrayList.addAll(c);
-            this.c.hasMore();
-            this.c.a();
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)}) == null) && (cVar = this.a) != null) {
+            cVar.b(str, str2, i, true, 1);
         }
     }
 }

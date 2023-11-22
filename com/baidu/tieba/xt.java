@@ -53,9 +53,9 @@ public class xt extends us {
         if (interceptable == null || interceptable.invokeL(1048581, this, bw4Var) == null) {
             if (!y(bw4Var) && bw4Var != null && bw4Var.getThreadData() != null && !x(bw4Var) && ListUtils.getCount(bw4Var.getThreadData().getLinkDataList()) + ListUtils.getCount(bw4Var.getThreadData().getGoodsDataList()) == 1) {
                 if (bw4Var.getThreadData().getLinkDataList().size() >= 1) {
-                    this.h.a((gm6) ListUtils.getItem(bw4Var.getThreadData().getLinkDataList(), 0));
+                    this.h.a((hm6) ListUtils.getItem(bw4Var.getThreadData().getLinkDataList(), 0));
                 } else if (bw4Var.getThreadData().getGoodsDataList().size() >= 1) {
-                    this.h.a((gm6) ListUtils.getItem(bw4Var.getThreadData().getGoodsDataList(), 0));
+                    this.h.a((hm6) ListUtils.getItem(bw4Var.getThreadData().getGoodsDataList(), 0));
                 }
                 this.h.setVisibility(0);
                 return;

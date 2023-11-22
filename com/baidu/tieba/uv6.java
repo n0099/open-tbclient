@@ -1,136 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tieba.easteregg.data.EasterEggAdData;
-import com.baidu.tieba.easteregg.data.EasterEggAdDataHolder;
-import com.baidu.tieba.log.TbLog;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.Unit;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+@Service
 /* loaded from: classes8.dex */
-public final class uv6 implements w15 {
+public final class uv6 implements i15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948224500, "Lcom/baidu/tieba/uv6;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948224500, "Lcom/baidu/tieba/uv6;");
+        }
+    }
+
+    @Override // com.baidu.tieba.i15
+    public Class<? extends g15> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? tv6.class : (Class) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i15
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "easterEgg" : (String) invokeV.objValue;
+    }
 
     public uv6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.w15
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap(strategyData);
-            hashMap.put("dialogName", "easterEgg");
-            hashMap.putAll(strategyData);
-            hashMap.putAll(extraData);
-            return hashMap;
-        }
-        return (Map) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.w15
-    public boolean b(Map<String, Object> map) {
-        InterceptResult invokeL;
-        int i;
-        Unit unit;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            DefaultLog.getInstance().i("easterEgg", "彩蛋广告触发云弹窗判断逻辑");
-            if (k35.a().b() != 3) {
-                TbLog defaultLog = DefaultLog.getInstance();
-                defaultLog.e("easterEgg", "彩蛋广告不展示，非用户启动，启动类型：" + k35.a().b());
-                return false;
-            }
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null) {
-                currentAccount = StringUtil.NULL_STRING;
-            }
-            Integer num = gxa.i.a().c().get(currentAccount);
-            if (num != null) {
-                i = num.intValue();
-            } else {
-                i = 0;
-            }
-            if (i >= 1) {
-                TbLog defaultLog2 = DefaultLog.getInstance();
-                defaultLog2.e("easterEgg", "彩蛋广告不展示，当前用户：" + currentAccount + "已经展示过彩蛋广告");
-                return false;
-            }
-            try {
-                if (EasterEggAdDataHolder.b.a().b() == null) {
-                    rv6 rv6Var = new rv6();
-                    JSONObject syncJson = TbSingleton.getInstance().getSyncJson();
-                    Intrinsics.checkNotNullExpressionValue(syncJson, "getInstance().syncJson");
-                    rv6Var.parseJson(syncJson);
-                }
-            } catch (Exception unused) {
-                DefaultLog.getInstance().i("easterEgg", "获取彩蛋广告数据失败");
-            }
-            EasterEggAdData b = EasterEggAdDataHolder.b.a().b();
-            if (b == null) {
-                return false;
-            }
-            DefaultLog.getInstance().i("easterEgg", "彩蛋广告数据不为空");
-            if (!b.isValidData()) {
-                DefaultLog.getInstance().e("easterEgg", "彩蛋广告不展示，数据不合法");
-                return false;
-            }
-            String url = b.getUrl();
-            if (url != null) {
-                if (c(url)) {
-                    DefaultLog.getInstance().e("easterEgg", "彩蛋广告不展示，已经被手动关闭");
-                    return false;
-                }
-                unit = Unit.INSTANCE;
-            } else {
-                unit = null;
-            }
-            if (unit == null) {
-                DefaultLog.getInstance().e("easterEgg", "彩蛋广告不展示，广告url为空");
-                return false;
-            }
-            DefaultLog.getInstance().i("easterEgg", "彩蛋广告可以展示");
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            return sharedPrefHelper.getBoolean(EasterEggAdData.KEY_EASTER_EGG_AD + TbadkCoreApplication.getCurrentAccount() + str, false);
-        }
-        return invokeL.booleanValue;
     }
 }

@@ -5,22 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.WorldCupPk;
+import tbclient.FrsPage.WorldCupNews;
 /* loaded from: classes9.dex */
-public class yxc extends poc {
+public class yxc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull WorldCupPk worldCupPk) {
+    public static JSONObject b(@NonNull WorldCupNews worldCupNews) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, worldCupPk)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, worldCupNews)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "sum_game", worldCupPk.sum_game);
-            poc.a(jSONObject, "sum_bonus", worldCupPk.sum_bonus);
-            poc.a(jSONObject, "prize_url", worldCupPk.prize_url);
-            poc.a(jSONObject, "url", worldCupPk.url);
+            qoc.a(jSONObject, "title", worldCupNews.title);
+            qoc.a(jSONObject, "url", worldCupNews.url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -51,14 +51,14 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class js4 implements cj6 {
+public class js4 implements dj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AliAuthHttpProxy a;
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        bj6.a(this, webView, str, jSONObject);
+        cj6.a(this, webView, str, jSONObject);
     }
 
     /* loaded from: classes6.dex */
@@ -101,7 +101,7 @@ public class js4 implements cj6 {
                 hashMap.put("authWidgetURL", checkCertificationResult.authWidgetURL);
                 hashMap.put("realNameStatus", Integer.valueOf(checkCertificationResult.getRealNameStatus()));
                 hashMap.put(StatConstants.KEY_EXT_ERR_CODE, Integer.valueOf(checkCertificationResult.code));
-                dj6.a().d(this.a, "authStateResult", hashMap);
+                ej6.a().d(this.a, "authStateResult", hashMap);
             }
         }
     }
@@ -142,7 +142,7 @@ public class js4 implements cj6 {
                 linkedHashMap.put("status", Integer.valueOf(tbAccountRealNameResult.getStatus()));
                 linkedHashMap.put("callbackkey", tbAccountRealNameResult.callbackkey);
                 if (this.a != null) {
-                    dj6.a().d(this.a, "realNameAuthResult", linkedHashMap);
+                    ej6.a().d(this.a, "realNameAuthResult", linkedHashMap);
                 }
             }
         }
@@ -162,7 +162,7 @@ public class js4 implements cj6 {
         }
     }
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public void onDestroy() {
         AliAuthHttpProxy aliAuthHttpProxy;
         Interceptable interceptable = $ic;
@@ -171,7 +171,7 @@ public class js4 implements cj6 {
         }
     }
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -211,22 +211,22 @@ public class js4 implements cj6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public nsa c(WebView webView) {
+    public osa c(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, z75.b()));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, a85.b()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeL.objValue;
+        return (osa) invokeL.objValue;
     }
 
-    public nsa f(WebView webView) {
+    public osa f(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, webView)) == null) {
@@ -235,11 +235,11 @@ public class js4 implements cj6 {
             }
             return this.a.l();
         }
-        return (nsa) invokeL.objValue;
+        return (osa) invokeL.objValue;
     }
 
     public /* synthetic */ void h(WebView webView) {
-        dj6.a().d(webView, "commonLogin", new HashMap<String, Object>(this) { // from class: com.baidu.tbadk.browser.bridge.AccountJsBridgePlugin$1
+        ej6.a().d(webView, "commonLogin", new HashMap<String, Object>(this) { // from class: com.baidu.tbadk.browser.bridge.AccountJsBridgePlugin$1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ js4 this$0;
@@ -266,17 +266,17 @@ public class js4 implements cj6 {
         });
     }
 
-    public nsa d(WebView webView, String str) {
+    public osa d(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             HashMap hashMap = new HashMap();
             hashMap.put("scene", m(str));
             MessageManager.getInstance().runTask(2921709, String.class, new CertificationCheckParams(hashMap, new a(this, webView)));
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 
     public final String i(WebView webView, String str) {
@@ -297,12 +297,12 @@ public class js4 implements cj6 {
         return (String) invokeLL.objValue;
     }
 
-    public nsa r(WebView webView, String str) {
+    public osa r(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, webView, str)) == null) {
-            nsa nsaVar = new nsa();
-            Activity a2 = ri6.a(webView.getContext());
+            osa osaVar = new osa();
+            Activity a2 = si6.a(webView.getContext());
             if (a2 != null) {
                 ViewHelper.checkUpIsLoginFromH5(a2, webView.getOriginalUrl(), str);
             }
@@ -310,51 +310,51 @@ public class js4 implements cj6 {
             jSResultData.setStatus(1);
             jSResultData.setErrorCode("0");
             jSResultData.setErrorMsg("");
-            nsaVar.o(OrmObject.jsonStrWithObject(jSResultData));
-            return nsaVar;
+            osaVar.o(OrmObject.jsonStrWithObject(jSResultData));
+            return osaVar;
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 
-    public nsa e(WebView webView, HashMap<String, Object> hashMap) {
+    public osa e(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, hashMap)) == null) {
-            nsa nsaVar = new nsa();
-            nsaVar.o(j(hashMap).toString());
-            return nsaVar;
+            osa osaVar = new osa();
+            osaVar.o(j(hashMap).toString());
+            return osaVar;
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 
-    public nsa o(WebView webView, HashMap<String, Object> hashMap) {
+    public osa o(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, webView, hashMap)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             if (hashMap != null && !hashMap.isEmpty()) {
-                nsaVar.o(j(hashMap).toString());
+                osaVar.o(j(hashMap).toString());
             }
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 
-    public nsa g(WebView webView, int i, String str) {
+    public osa g(WebView webView, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048582, this, webView, i, str)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             JSONObject jSONObject = new JSONObject();
-            Activity a2 = ri6.a(webView.getContext());
+            Activity a2 = si6.a(webView.getContext());
             if (a2 == null) {
                 try {
                     jSONObject.put("resultCode", 0);
                 } catch (JSONException e) {
                     BdLog.e(e);
                 }
-                nsaVar.o(jSONObject.toString());
-                return nsaVar;
+                osaVar.o(jSONObject.toString());
+                return osaVar;
             }
             LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) a2, true);
             loginActivityConfig.setThirdPartyLoginForResult(i, str);
@@ -365,10 +365,10 @@ public class js4 implements cj6 {
             } catch (JSONException e2) {
                 BdLog.e(e2);
             }
-            nsaVar.o(jSONObject.toString());
-            return nsaVar;
+            osaVar.o(jSONObject.toString());
+            return osaVar;
         }
-        return (nsa) invokeLIL.objValue;
+        return (osa) invokeLIL.objValue;
     }
 
     public final JSONObject j(Map<String, Object> map) {
@@ -423,23 +423,23 @@ public class js4 implements cj6 {
         return (String) invokeL.objValue;
     }
 
-    public nsa k(WebView webView, HashMap<String, String> hashMap) {
+    public osa k(WebView webView, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, webView, hashMap)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             int i2 = -1;
             try {
                 i2 = Integer.parseInt(hashMap.get("status"));
-                nsaVar.y(i2);
-                nsaVar.u(hashMap.get("message"));
+                osaVar.y(i2);
+                osaVar.u(hashMap.get("message"));
                 if (i2 == 0) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("avatar", hashMap.get("avatar"));
                     jSONObject.put("nick_name", hashMap.get("nick_name"));
                     jSONObject.put("alipay_user_id", hashMap.get("alipay_user_id"));
-                    nsaVar.o(jSONObject.toString());
+                    osaVar.o(jSONObject.toString());
                 }
             } catch (Exception e) {
                 BdLog.e(e);
@@ -451,46 +451,46 @@ public class js4 implements cj6 {
                 i = 1;
             }
             TiebaStatic.log(statisticItem.param("obj_param1", i));
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 
-    public nsa q(WebView webView, String str) {
+    public osa q(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, webView, str)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             JSONObject jSONObject = new JSONObject();
             if (!qd.isEmpty(str)) {
                 try {
                     if (qd.isEmpty(str)) {
                         jSONObject.put("resultCode", 0);
-                        nsaVar.o(jSONObject.toString());
-                        return nsaVar;
+                        osaVar.o(jSONObject.toString());
+                        return osaVar;
                     }
                     String customLoginCssFileName = FileHelper.getCustomLoginCssFileName(str);
                     String customLoginCssStoragePath = FileHelper.getCustomLoginCssStoragePath(str);
                     if (!FileHelper.checkIsCssFile(customLoginCssStoragePath)) {
                         jSONObject.put("resultCode", 0);
-                        nsaVar.o(jSONObject.toString());
-                        return nsaVar;
+                        osaVar.o(jSONObject.toString());
+                        return osaVar;
                     }
                     DownloadData downloadData = new DownloadData(customLoginCssFileName, customLoginCssFileName, str, null);
                     downloadData.setPath(customLoginCssStoragePath);
-                    md5.k().l(downloadData);
+                    nd5.k().l(downloadData);
                     jSONObject.put("resultCode", 1);
                 } catch (JSONException e) {
                     BdLog.e(e);
                 }
             }
-            nsaVar.o(jSONObject.toString());
-            return nsaVar;
+            osaVar.o(jSONObject.toString());
+            return osaVar;
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 
-    public nsa l(WebView webView, HashMap hashMap) {
+    public osa l(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Object obj;
         Interceptable interceptable = $ic;
@@ -510,31 +510,31 @@ public class js4 implements cj6 {
                 e.printStackTrace();
             }
             a(webView, CommonTbJsBridge.LOGIN_RESULT_TO_H5, jSONObject);
-            nsa nsaVar = new nsa();
-            nsaVar.o(jSONObject.toString());
-            return nsaVar;
+            osa osaVar = new osa();
+            osaVar.o(jSONObject.toString());
+            return osaVar;
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 
-    public nsa n(WebView webView, String str, boolean z, String str2, int i) {
+    public osa n(WebView webView, String str, boolean z, String str2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{webView, str, Boolean.valueOf(z), str2, Integer.valueOf(i)})) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             MessageManager.getInstance().runTask(2921710, String.class, new CertificationRequestParams(m(str), z, i, str2, new b(this, webView)));
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeCommon.objValue;
+        return (osa) invokeCommon.objValue;
     }
 
-    public nsa p(final WebView webView, String str, String str2, String str3, String str4) {
+    public osa p(final WebView webView, String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048592, this, webView, str, str2, str3, str4)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             if (TbadkCoreApplication.isLogin()) {
-                ui6.a().c(new Runnable() { // from class: com.baidu.tieba.es4
+                vi6.a().c(new Runnable() { // from class: com.baidu.tieba.es4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -546,10 +546,10 @@ public class js4 implements cj6 {
                         }
                     }
                 });
-                return nsaVar;
+                return osaVar;
             }
             if ((str.equals("0") || str.equals("")) && str4 != null) {
-                Activity a2 = ri6.a(webView.getContext());
+                Activity a2 = si6.a(webView.getContext());
                 if (a2 != null) {
                     ViewHelper.checkUpIsLoginFromH5(a2, webView.getOriginalUrl(), str4);
                 }
@@ -557,11 +557,11 @@ public class js4 implements cj6 {
                 jSResultData.setStatus(1);
                 jSResultData.setErrorCode("0");
                 jSResultData.setErrorMsg("");
-                nsaVar.o(OrmObject.jsonStrWithObject(jSResultData));
+                osaVar.o(OrmObject.jsonStrWithObject(jSResultData));
             }
             if ((str3 != null && !StringUtils.isNull(str) && (str.equals("1") || str.equals("2"))) || str.equals("3") || str.equals(YYOption.UrlProtocol.USER)) {
                 JSONObject jSONObject = new JSONObject();
-                Activity a3 = ri6.a(webView.getContext());
+                Activity a3 = si6.a(webView.getContext());
                 if (a3 == null) {
                     try {
                         jSONObject.put("resultCode", 0);
@@ -569,11 +569,11 @@ public class js4 implements cj6 {
                     } catch (JSONException e) {
                         BdLog.e(e);
                     }
-                    nsaVar.o(jSONObject.toString());
-                    return nsaVar;
+                    osaVar.o(jSONObject.toString());
+                    return osaVar;
                 }
                 if (!StringUtils.isNull(str) && str.equals(YYOption.UrlProtocol.USER)) {
-                    DialogLoginHelper.checkUpIsLogin(new LoginDialogData(ri6.a(webView.getContext()), LoginDialogData.SCHEMA_LOGIN));
+                    DialogLoginHelper.checkUpIsLogin(new LoginDialogData(si6.a(webView.getContext()), LoginDialogData.SCHEMA_LOGIN));
                 }
                 if (!StringUtils.isNull(str) && (str.equals("1") || str.equals("2") || str.equals("3"))) {
                     LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) a3, true);
@@ -586,18 +586,18 @@ public class js4 implements cj6 {
                 } catch (JSONException e2) {
                     BdLog.e(e2);
                 }
-                nsaVar.o(jSONObject.toString());
+                osaVar.o(jSONObject.toString());
             }
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeLLLLL.objValue;
+        return (osa) invokeLLLLL.objValue;
     }
 
-    public nsa s(WebView webView, HashMap<String, Object> hashMap) {
+    public osa s(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, webView, hashMap)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             JSONObject jSONObject = new JSONObject();
             if (hashMap != null && hashMap.get("hasLogin") != null && Boolean.TRUE.equals(hashMap.get("hasLogin"))) {
                 try {
@@ -605,8 +605,8 @@ public class js4 implements cj6 {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                nsaVar.o(jSONObject.toString());
-                return nsaVar;
+                osaVar.o(jSONObject.toString());
+                return osaVar;
             } else if (hashMap != null && hashMap.get("isLogin") != null && Boolean.TRUE.equals(hashMap.get("isLogin")) && (!hashMap.containsKey("resultCode") || ((Integer) hashMap.get("resultCode")).intValue() != 0)) {
                 try {
                     jSONObject.put("resultCode", 1);
@@ -616,19 +616,19 @@ public class js4 implements cj6 {
                     e2.printStackTrace();
                 }
                 a(webView, CommonTbJsBridge.RESULT_THIRD_PARTY_LOGIN, jSONObject);
-                nsaVar.o(jSONObject.toString());
-                return nsaVar;
+                osaVar.o(jSONObject.toString());
+                return osaVar;
             } else {
                 try {
                     jSONObject.put("resultCode", 0);
                 } catch (JSONException e3) {
                     e3.printStackTrace();
                 }
-                nsaVar.o(jSONObject.toString());
-                nsaVar.q(403, "登录失败！");
-                return nsaVar;
+                osaVar.o(jSONObject.toString());
+                osaVar.q(403, "登录失败！");
+                return osaVar;
             }
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 }

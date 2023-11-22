@@ -36,13 +36,13 @@ public class n54 extends m54 {
 
         /* renamed from: com.baidu.tieba.n54$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0408a implements Runnable {
+        public class RunnableC0394a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ s54 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0408a(a aVar, s54 s54Var) {
+            public RunnableC0394a(a aVar, s54 s54Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -133,7 +133,7 @@ public class n54 extends m54 {
                 if (m54.a) {
                     Log.d("CheckAdvisedToRestApi", "on success");
                 }
-                this.c.b.post(new RunnableC0408a(this, s54Var));
+                this.c.b.post(new RunnableC0394a(this, s54Var));
             }
         }
 

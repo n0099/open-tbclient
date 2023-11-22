@@ -15,7 +15,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.angcyo.tablayout.DslTabLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.ecommerce.activity.InvoiceBuildActivity;
-import com.baidu.tieba.de7;
+import com.baidu.tieba.ee7;
 import com.baidu.tieba.r0;
 import com.baidu.tieba.t0;
 import com.baidu.tieba.u0;
@@ -499,7 +499,7 @@ public class DslTabLayoutConfig extends DslSelectorConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, context, attributeSet) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, de7.DslTabLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ee7.DslTabLayout);
             this.l = obtainStyledAttributes.getColor(113, this.l);
             this.m = obtainStyledAttributes.getColor(36, this.m);
             this.r = obtainStyledAttributes.getColor(69, -2);

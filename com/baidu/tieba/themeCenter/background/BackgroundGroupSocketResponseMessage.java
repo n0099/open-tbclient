@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pya;
-import com.baidu.tieba.sxa;
+import com.baidu.tieba.qya;
+import com.baidu.tieba.txa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +22,8 @@ import tbclient.GetBgByCategory.ThemeBgInMain;
 public class BackgroundGroupSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<sxa> mBackgroundGroupList;
-    public pya mRecommand;
+    public List<txa> mBackgroundGroupList;
+    public qya mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackgroundGroupSocketResponseMessage() {
@@ -43,7 +43,7 @@ public class BackgroundGroupSocketResponseMessage extends SocketResponsedMessage
         }
     }
 
-    public List<sxa> getGroupList() {
+    public List<txa> getGroupList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -52,13 +52,13 @@ public class BackgroundGroupSocketResponseMessage extends SocketResponsedMessage
         return (List) invokeV.objValue;
     }
 
-    public pya getRecommand() {
+    public qya getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mRecommand;
         }
-        return (pya) invokeV.objValue;
+        return (qya) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -79,17 +79,17 @@ public class BackgroundGroupSocketResponseMessage extends SocketResponsedMessage
             DataRes dataRes = getBgByCategoryResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    pya pyaVar = new pya();
-                    this.mRecommand = pyaVar;
-                    pyaVar.d(getBgByCategoryResIdl.data.recommend);
+                    qya qyaVar = new qya();
+                    this.mRecommand = qyaVar;
+                    qyaVar.d(getBgByCategoryResIdl.data.recommend);
                 }
                 if (getBgByCategoryResIdl.data.bgs != null) {
                     this.mBackgroundGroupList = new ArrayList();
                     for (ThemeBgInMain themeBgInMain : getBgByCategoryResIdl.data.bgs) {
                         if (themeBgInMain != null && !StringUtils.isNull(themeBgInMain.bg_category)) {
-                            sxa sxaVar = new sxa();
-                            sxaVar.c(themeBgInMain);
-                            this.mBackgroundGroupList.add(sxaVar);
+                            txa txaVar = new txa();
+                            txaVar.c(themeBgInMain);
+                            this.mBackgroundGroupList.add(txaVar);
                         }
                     }
                 }

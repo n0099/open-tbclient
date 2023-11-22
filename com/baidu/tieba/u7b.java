@@ -1,37 +1,42 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes8.dex */
 public class u7b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public float c;
-    public long d;
-    public Bitmap e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public s7b j;
+    public boolean a;
+    public z7b b;
+    public p7b c;
 
     /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u7b a;
+    }
 
-        public a(u7b u7bVar) {
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public int c;
+        public z7b d;
+        public p7b e;
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u7bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,41 +46,65 @@ public class u7b {
                     return;
                 }
             }
-            this.a = u7bVar;
+            this.a = "";
+            this.b = true;
+            this.c = 0;
+            this.d = null;
+            this.e = null;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Bitmap bitmap;
+        public u7b d() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                u7b u7bVar = this.a;
-                if (u7bVar.j != null && (bitmap = u7bVar.e) != null && !bitmap.isRecycled()) {
-                    u7b u7bVar2 = this.a;
-                    u7bVar2.j.a(u7bVar2.f, u7bVar2.e);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                e();
+                return new u7b(this, null);
+            }
+            return (u7b) invokeV.objValue;
+        }
+
+        public final void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (TextUtils.isEmpty(this.a)) {
+                    this.a = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
+                }
+                if (this.c <= 0) {
+                    this.c = ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8;
+                }
+                if (this.d == null) {
+                    this.d = new z7b(this.c);
+                }
+                if (this.e == null) {
+                    this.e = new p7b(this.a);
                 }
             }
         }
     }
 
-    public u7b() {
+    public u7b(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        String unused = bVar.a;
+        this.a = bVar.b;
+        int unused2 = bVar.c;
+        this.b = bVar.d;
+        this.c = bVar.e;
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            osb.a().post(new a(this));
-        }
+    public /* synthetic */ u7b(b bVar, a aVar) {
+        this(bVar);
     }
 }

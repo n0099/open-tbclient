@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.newinterest.model.InterestedForumModel;
-import com.baidu.tieba.t55;
-import com.baidu.tieba.uo9;
-import com.baidu.tieba.v55;
+import com.baidu.tieba.u55;
+import com.baidu.tieba.vo9;
+import com.baidu.tieba.w55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
     public View j;
     public LinearLayout k;
     public View l;
-    public uo9 m;
+    public vo9 m;
 
     public InterestedForumStyleAFragment() {
         Interceptable interceptable = $ic;
@@ -69,9 +69,9 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
             this.i.setOnClickListener(null);
-            uo9 uo9Var = this.m;
-            if (uo9Var != null) {
-                uo9Var.f();
+            vo9 vo9Var = this.m;
+            if (vo9Var != null) {
+                vo9Var.f();
             }
         }
     }
@@ -111,19 +111,19 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
                 textView.setText(strArr[0]);
                 this.h.setText(this.b[2]);
             }
-            t55 t55Var = new t55();
+            u55 u55Var = new u55();
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f0911a4);
             this.i = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.T_X06);
-            this.i.setConfig(t55Var);
+            this.i.setConfig(u55Var);
             this.i.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0b00));
             this.i.setEnabled(false);
-            v55 v55Var = new v55();
+            w55 w55Var = new w55();
             TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f0921c5);
             this.f = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.T_X06);
-            v55Var.t(R.color.CAM_X0105);
-            this.f.setConfig(v55Var);
+            w55Var.t(R.color.CAM_X0105);
+            this.f.setConfig(w55Var);
             this.f.setText(getString(R.string.obfuscated_res_0x7f0f0b08));
             this.j = this.d.findViewById(R.id.obfuscated_res_0x7f0911a5);
             this.k = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0911a6);
@@ -137,7 +137,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
             View view2 = new View(this.e.getContext());
             view2.setLayoutParams(new LinearLayout.LayoutParams(-2, y2(R.dimen.tbds78)));
             this.e.addHeaderView(view2);
-            this.m = new uo9(this, this.e, this.i, this.f, getPageContext(), new InterestedForumModel(getUniqueId()), this.a);
+            this.m = new vo9(this, this.e, this.i, this.f, getPageContext(), new InterestedForumModel(getUniqueId()), this.a);
         }
     }
 
@@ -153,9 +153,9 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
             EMManager.from(this.j).setGradientColor(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
             EMManager.from(this.l).setGradientColor(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
             this.f.k();
-            uo9 uo9Var = this.m;
-            if (uo9Var != null) {
-                uo9Var.m(i);
+            vo9 vo9Var = this.m;
+            if (vo9Var != null) {
+                vo9Var.m(i);
             }
         }
     }

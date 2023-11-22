@@ -1,33 +1,27 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.chromium.base.Callback;
-/* compiled from: Callback.java */
+import org.chromium.base.Promise;
+/* compiled from: lambda */
 /* loaded from: classes7.dex */
-public final /* synthetic */ class ohc {
+public final /* synthetic */ class ohc implements Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ Promise a;
 
-    /* JADX DEBUG: Incorrect args count in method signature: (TT;)Ljava/lang/Runnable; */
-    public static Runnable $default$bind(final Callback callback, final Object obj) {
-        InterceptResult invokeLL;
+    @Override // org.chromium.base.Callback
+    public /* synthetic */ Runnable bind(T t) {
+        return phc.$default$bind(this, t);
+    }
+
+    @Override // org.chromium.base.Callback
+    public final void onResult(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, callback, obj)) == null) {
-            return new Runnable() { // from class: com.baidu.tieba.dhc
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        Callback.this.onResult(obj);
-                    }
-                }
-            };
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            this.a.reject((Exception) obj);
         }
-        return (Runnable) invokeLL.objValue;
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tm8;
+import com.baidu.tieba.um8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BaseTagItemViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tm8 a;
+    public um8 a;
     public CustomMessageListener b;
 
-    public void f(tm8 tm8Var, Context context, int i) {
+    public void f(um8 um8Var, Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048580, this, tm8Var, context, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048580, this, um8Var, context, i) == null) {
         }
     }
 
@@ -153,40 +153,40 @@ public class BaseTagItemViewHolder extends RecyclerView.ViewHolder {
         }
     }
 
-    public final void b(tm8 tm8Var, Context context, int i) {
+    public final void b(um8 um8Var, Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, tm8Var, context, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, um8Var, context, i) == null) {
             if (this.a != null) {
-                l(tm8Var, context, i);
+                l(um8Var, context, i);
             } else {
-                c(tm8Var, context, i);
+                c(um8Var, context, i);
             }
         }
     }
 
-    public final void c(tm8 tm8Var, Context context, int i) {
+    public final void c(um8 um8Var, Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tm8Var, context, i) == null) {
-            this.a = tm8Var;
-            f(tm8Var, context, i);
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, um8Var, context, i) == null) {
+            this.a = um8Var;
+            f(um8Var, context, i);
         }
     }
 
-    public void l(tm8 tm8Var, Context context, int i) {
+    public void l(um8 um8Var, Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, tm8Var, context, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, um8Var, context, i) == null) {
             m();
-            c(tm8Var, context, i);
+            c(um8Var, context, i);
         }
     }
 
-    public tm8 d() {
+    public um8 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
-        return (tm8) invokeV.objValue;
+        return (um8) invokeV.objValue;
     }
 
     public final void m() {

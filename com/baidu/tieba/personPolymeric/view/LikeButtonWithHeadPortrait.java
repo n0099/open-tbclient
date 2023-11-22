@@ -21,14 +21,14 @@ import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.pageStayDuration.IPageStayDuration;
 import com.baidu.tieba.R;
 import com.baidu.tieba.qd;
-import com.baidu.tieba.v65;
+import com.baidu.tieba.w65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class LikeButtonWithHeadPortrait extends FrameLayout implements v65 {
+public class LikeButtonWithHeadPortrait extends FrameLayout implements w65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -38,7 +38,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements v65 {
     public boolean e;
     public Animation.AnimationListener f;
 
-    @Override // com.baidu.tieba.v65
+    @Override // com.baidu.tieba.w65
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -160,7 +160,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements v65 {
         f(context);
     }
 
-    @Override // com.baidu.tieba.v65
+    @Override // com.baidu.tieba.w65
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
@@ -178,7 +178,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements v65 {
         }
     }
 
-    @Override // com.baidu.tieba.v65
+    @Override // com.baidu.tieba.w65
     public void b(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -186,7 +186,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements v65 {
         }
     }
 
-    @Override // com.baidu.tieba.v65
+    @Override // com.baidu.tieba.w65
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -194,7 +194,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements v65 {
         }
     }
 
-    @Override // com.baidu.tieba.v65
+    @Override // com.baidu.tieba.w65
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {

@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardAppView;
+import com.baidu.tieba.feed.component.CardAbstractView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class pb7 extends ia7<CardAppView, u37> {
+public class pb7 extends ja7<CardAbstractView, u37> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class pb7 extends ia7<CardAppView, u37> {
         }
     }
 
-    @Override // com.baidu.tieba.ia7, com.baidu.tieba.ya7
+    @Override // com.baidu.tieba.ja7, com.baidu.tieba.za7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            rc7.j(a);
+            sc7.l(a, null, 0);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ya7
+    @Override // com.baidu.tieba.za7
     /* renamed from: e */
-    public void b(@NonNull CardAppView cardAppView, @NonNull u37 u37Var) {
+    public void b(@NonNull CardAbstractView cardAbstractView, @NonNull u37 u37Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardAppView, u37Var) == null) {
-            cardAppView.a(u37Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardAbstractView, u37Var) == null) {
+            cardAbstractView.b(u37Var);
         }
     }
 }

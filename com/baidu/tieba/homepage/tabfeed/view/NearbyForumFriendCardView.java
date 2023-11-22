@@ -18,19 +18,19 @@ import com.baidu.tbadk.core.atomData.NearbyFriendsActivityConfig;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hm9;
+import com.baidu.tieba.ag8;
 import com.baidu.tieba.ht;
 import com.baidu.tieba.im9;
 import com.baidu.tieba.it;
-import com.baidu.tieba.uc5;
-import com.baidu.tieba.zf8;
+import com.baidu.tieba.jm9;
+import com.baidu.tieba.vc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class NearbyForumFriendCardView extends LinearLayout implements it, ht<im9>, View.OnClickListener {
+public class NearbyForumFriendCardView extends LinearLayout implements it, ht<jm9>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -42,8 +42,8 @@ public class NearbyForumFriendCardView extends LinearLayout implements it, ht<im
     public View g;
     public LinearLayout h;
     public BdTypeRecyclerView i;
-    public hm9 j;
-    public im9 k;
+    public im9 j;
+    public jm9 k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NearbyForumFriendCardView(Context context) {
@@ -69,18 +69,18 @@ public class NearbyForumFriendCardView extends LinearLayout implements it, ht<im
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ht
     /* renamed from: c */
-    public void onBindDataToView(im9 im9Var) {
+    public void onBindDataToView(jm9 jm9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, im9Var) == null) {
-            this.k = im9Var;
-            hm9 hm9Var = this.j;
-            if (hm9Var != null) {
-                hm9Var.E(im9Var.a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jm9Var) == null) {
+            this.k = jm9Var;
+            im9 im9Var = this.j;
+            if (im9Var != null) {
+                im9Var.E(jm9Var.a);
             }
-            this.i.setData(im9Var.b);
-            if (im9Var.c) {
+            this.i.setData(jm9Var.b);
+            if (jm9Var.c) {
                 this.d.setVisibility(0);
-                zf8.q();
+                ag8.q();
                 return;
             }
             this.d.setVisibility(4);
@@ -92,7 +92,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements it, ht<im
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091985 && getContext() != null && this.k != null) {
             new NearbyFriendsActivityConfig(getContext(), this.k.a).start();
-            zf8.j();
+            ag8.j();
         }
     }
 
@@ -164,7 +164,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements it, ht<im
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.j = new hm9(context, uc5.l, 1);
+            this.j = new im9(context, vc5.l, 1);
             LinkedList linkedList = new LinkedList();
             linkedList.add(this.j);
             this.i.addAdapters(linkedList);
@@ -174,13 +174,13 @@ public class NearbyForumFriendCardView extends LinearLayout implements it, ht<im
     public void setNeedCompleteProfile(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            im9 im9Var = this.k;
-            if (im9Var != null) {
-                im9Var.a = z;
+            jm9 jm9Var = this.k;
+            if (jm9Var != null) {
+                jm9Var.a = z;
             }
-            hm9 hm9Var = this.j;
-            if (hm9Var != null) {
-                hm9Var.E(z);
+            im9 im9Var = this.j;
+            if (im9Var != null) {
+                im9Var.E(z);
             }
         }
     }

@@ -1,67 +1,44 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.component.CardSocialBarView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class oc7 implements qa7 {
+public class oc7 extends ja7<CardSocialBarView, t47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public oc7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oc7(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.qa7
-    public List<ya7<?, ?>> a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.za7
+    /* renamed from: e */
+    public void b(@NonNull CardSocialBarView cardSocialBarView, @NonNull t47 t47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new pb7("mount_app"));
-            arrayList.add(new mc7("recommend_card_person_attention"));
-            arrayList.add(new vb7("origin_card"));
-            arrayList.add(new qb7("feed_entrybar"));
-            arrayList.add(new zb7("reply"));
-            arrayList.add(new lc7("sideway_card"));
-            arrayList.add(new ic7("delegate-layout"));
-            arrayList.add(new hc7("common_card"));
-            arrayList.add(new ac7("card_single_link"));
-            arrayList.add(new jc7("img_text"));
-            arrayList.add(new tb7("mount"));
-            arrayList.add(new ub7("card_multi_link"));
-            arrayList.add(new nc7("social_bar"));
-            arrayList.add(new dc7("video"));
-            arrayList.add(new rb7("feed_head"));
-            arrayList.add(new gc7("card_vote"));
-            arrayList.add(new cc7("video_ad"));
-            arrayList.add(new pc7("video_card"));
-            arrayList.add(new ob7("abstract"));
-            arrayList.add(new kc7("live_card"));
-            arrayList.add(new wb7("pei_wan"));
-            arrayList.add(new nb7("browse_location"));
-            arrayList.add(new fc7("feed_voice"));
-            arrayList.add(new yb7("recommend_info"));
-            arrayList.add(new bc7("title"));
-            arrayList.add(new sb7("live"));
-            arrayList.add(new ec7("virtual_head"));
-            arrayList.add(new xb7("pic"));
-            return arrayList;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cardSocialBarView, t47Var) == null) {
+            cardSocialBarView.b(t47Var);
         }
-        return (List) invokeV.objValue;
     }
 }

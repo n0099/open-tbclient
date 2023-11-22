@@ -5,24 +5,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
+import tbclient.Ranking;
 import tbclient.RankingParam;
 /* loaded from: classes5.dex */
-public class f2d extends poc {
+public class f2d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RankingParam rankingParam) {
+    public static JSONObject b(@NonNull Ranking ranking) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, rankingParam)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ranking)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "rank_type", rankingParam.rank_type);
-            poc.a(jSONObject, "rank_code", rankingParam.rank_code);
-            poc.a(jSONObject, "sort_type", rankingParam.sort_type);
-            poc.a(jSONObject, "tab_id", rankingParam.tab_id);
-            poc.a(jSONObject, "pn", rankingParam.pn);
-            poc.a(jSONObject, "rn", rankingParam.rn);
+            qoc.a(jSONObject, "name", ranking.name);
+            qoc.a(jSONObject, "rank_num", ranking.rank_num);
+            RankingParam rankingParam = ranking.ranking_param;
+            if (rankingParam != null) {
+                qoc.a(jSONObject, "ranking_param", g2d.b(rankingParam));
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

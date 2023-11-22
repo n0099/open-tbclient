@@ -197,14 +197,14 @@ public class TiebaBaseApplication extends TbadkApplication {
             super.attachBaseContext(context);
             AppRuntimeInit.onApplicationattachBaseContext(this);
             uf1.b(this);
-            boolean a2 = uya.a(this, "NPS_DEBUG_MODE");
+            boolean a2 = vya.a(this, "NPS_DEBUG_MODE");
             AppConfig.init(false, false, a2, false);
             if (a2) {
                 CloudControlUrlConfig.setDebugHost("http://showcase.baidu.com");
                 lh.b("http://showcase.baidu.com");
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(1003);
-            mib.b(this);
+            nib.b(this);
             SpeedStatsManager.getInstance().addStatsTimeStamp(1004);
             f();
             SpeedStatsManager.getInstance().addStatsTimeStamp(1011);
@@ -271,7 +271,7 @@ public class TiebaBaseApplication extends TbadkApplication {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(2002);
                 a();
                 SpeedStatsManager.getInstance().addStatsTimeStamp(2003);
-                ip5.a().E(System.currentTimeMillis());
+                jp5.a().E(System.currentTimeMillis());
                 if (isMainProcess(false)) {
                     GrowthFunnelHelper.logAppCreateEnd();
                 }

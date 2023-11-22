@@ -4,7 +4,7 @@ import com.baidu.adp.framework.cmdRouter.CmdRouter;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.g35;
-import com.baidu.tieba.ip5;
+import com.baidu.tieba.jp5;
 /* loaded from: classes4.dex */
 public class InitCmdRouterAndStaticTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -20,7 +20,7 @@ public class InitCmdRouterAndStaticTask extends LaunchTask {
     private void initTasks() {
         long currentTimeMillis = System.currentTimeMillis();
         g35.a();
-        ip5.a().t(System.currentTimeMillis() - currentTimeMillis);
+        jp5.a().t(System.currentTimeMillis() - currentTimeMillis);
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask

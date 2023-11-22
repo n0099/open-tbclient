@@ -54,7 +54,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
 import com.baidu.tieba.g45;
 import com.baidu.tieba.h45;
-import com.baidu.tieba.r95;
+import com.baidu.tieba.s95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -1106,7 +1106,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
                 M();
                 return;
             }
-            String b2 = r95.b(liveRemindRecommendData);
+            String b2 = s95.b(liveRemindRecommendData);
             if (StringUtils.isNull(b2)) {
                 z("");
             } else {
@@ -1277,7 +1277,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             LiveRemindNormalConfigData liveRemindNormalConfigData = this.l;
             if (liveRemindNormalConfigData != null && !StringUtils.isNull(liveRemindNormalConfigData.getNormalIconScheme())) {
-                z(r95.a(this.l.getNormalIconScheme(), this.n));
+                z(s95.a(this.l.getNormalIconScheme(), this.n));
             } else {
                 z("");
             }
@@ -1384,7 +1384,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             if (K()) {
-                r95.e();
+                s95.e();
             } else if (H()) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_YY_ENTRANCE_BIGPIC_RECOMMON_CLICK);
                 statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());

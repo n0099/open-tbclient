@@ -15,14 +15,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bsa;
 import com.baidu.tieba.ca;
+import com.baidu.tieba.csa;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileRequestMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
-import com.baidu.tieba.rh5;
 import com.baidu.tieba.setting.more.MoreActivity;
 import com.baidu.tieba.setting.person.PersonPostListData;
+import com.baidu.tieba.sh5;
 import com.baidu.tieba.yz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,7 +44,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public NicknameInfo b;
     public final Context c;
     public Handler d;
-    public bsa e;
+    public csa e;
     public boolean f;
     public NetMessageListener g;
 
@@ -240,7 +240,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.a = null;
         this.c = moreActivity.getPageContext().getContext();
         this.d = new Handler(Looper.getMainLooper());
-        this.e = new bsa("profileStat");
+        this.e = new csa("profileStat");
         registerListener(this.g);
     }
 
@@ -326,9 +326,9 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public final void e0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.e == null) {
-            bsa bsaVar = new bsa("profileStat");
-            this.e = bsaVar;
-            bsaVar.f();
+            csa csaVar = new csa("profileStat");
+            this.e = csaVar;
+            csaVar.f();
         }
     }
 
@@ -382,7 +382,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
                     getUser().setIosBImgFormat(TbadkCoreApplication.getInst().getDefaultIosBImgFormat());
                     getUser().setIosBUrl(TbadkCoreApplication.getInst().getDefaultIosBUrl());
                 }
-                rh5.d().i(getUser());
+                sh5.d().i(getUser());
                 this.mLoadDataMode = 1;
                 this.mLoadDataCallBack.c(Boolean.TRUE);
                 return;

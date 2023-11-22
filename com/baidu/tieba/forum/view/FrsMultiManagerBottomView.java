@@ -22,11 +22,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b16;
 import com.baidu.tieba.c16;
-import com.baidu.tieba.gp7;
+import com.baidu.tieba.d16;
+import com.baidu.tieba.hp7;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.y06;
+import com.baidu.tieba.z06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,13 +39,13 @@ import tbclient.ForumRuleStatus;
 public class FrsMultiManagerBottomView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final y06 a;
+    public final z06 a;
     public TextView b;
     public TextView c;
     public TextView d;
     public View e;
     public View f;
-    public c16 g;
+    public d16 g;
     public TbPageContext h;
     public boolean i;
     public FrsViewData j;
@@ -94,9 +94,9 @@ public class FrsMultiManagerBottomView extends RelativeLayout implements View.On
                     textView4.setText(R.string.delete_and_forbidden_one_day);
                 }
             }
-            c16 c16Var = this.g;
-            if (c16Var != null) {
-                c16Var.G(this.i);
+            d16 d16Var = this.g;
+            if (d16Var != null) {
+                d16Var.G(this.i);
             }
         }
     }
@@ -121,7 +121,7 @@ public class FrsMultiManagerBottomView extends RelativeLayout implements View.On
             }
         }
         a();
-        this.a = new y06("0");
+        this.a = new z06("0");
     }
 
     public final void a() {
@@ -178,13 +178,13 @@ public class FrsMultiManagerBottomView extends RelativeLayout implements View.On
             } else {
                 i = 0;
             }
-            b16 b16Var = new b16(intValue, intValue2, i);
-            b16Var.i(this.j.getForum().getId(), this.j.getForum().getName());
-            b16Var.h(this.j.getForum().getImage_url());
-            b16Var.j(this.j.getForum().getUser_level());
-            c16 c16Var = new c16(this.h, this, b16Var, this.j.getUserData());
-            this.g = c16Var;
-            c16Var.G(this.i);
+            c16 c16Var = new c16(intValue, intValue2, i);
+            c16Var.i(this.j.getForum().getId(), this.j.getForum().getName());
+            c16Var.h(this.j.getForum().getImage_url());
+            c16Var.j(this.j.getForum().getUser_level());
+            d16 d16Var = new d16(this.h, this, c16Var, this.j.getUserData());
+            this.g = d16Var;
+            d16Var.G(this.i);
         }
         this.g.K(str);
     }
@@ -195,16 +195,16 @@ public class FrsMultiManagerBottomView extends RelativeLayout implements View.On
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             this.a.e();
             if (view2 == this.b) {
-                gp7.f().m();
+                hp7.f().m();
                 if (this.i) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FRS_MULTI_MUSK_VIEW_CANCEL_CLICK);
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.param("fid", gp7.f().d());
-                    statisticItem.param("fname", gp7.f().e());
+                    statisticItem.param("fid", hp7.f().d());
+                    statisticItem.param("fname", hp7.f().e());
                     TiebaStatic.log(statisticItem);
                 }
             } else if (view2 == this.c) {
-                if (ListUtils.isEmpty(gp7.f().g())) {
+                if (ListUtils.isEmpty(hp7.f().g())) {
                     return;
                 }
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", 1).param("obj_source", "1"));
@@ -213,11 +213,11 @@ public class FrsMultiManagerBottomView extends RelativeLayout implements View.On
                 if (this.i) {
                     StatisticItem statisticItem2 = new StatisticItem(CommonStatisticKey.KEY_FRS_MULTI_MUSK_VIEW_MUSK_CLICK);
                     statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem2.param("fid", gp7.f().d());
-                    statisticItem2.param("fname", gp7.f().e());
+                    statisticItem2.param("fid", hp7.f().d());
+                    statisticItem2.param("fname", hp7.f().e());
                     TiebaStatic.log(statisticItem2);
                 }
-            } else if (view2 != this.d || ListUtils.isEmpty(gp7.f().g())) {
+            } else if (view2 != this.d || ListUtils.isEmpty(hp7.f().g())) {
             } else {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", 2).param("obj_source", "1"));
                 setData(2);
@@ -225,13 +225,13 @@ public class FrsMultiManagerBottomView extends RelativeLayout implements View.On
                 if (this.i) {
                     StatisticItem statisticItem3 = new StatisticItem(CommonStatisticKey.KEY_FRS_MULTI_MUSK_VIEW_MUSK_AND_FORBIDDEN_CLICK);
                     statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem3.param("fid", gp7.f().d());
-                    statisticItem3.param("fname", gp7.f().e());
+                    statisticItem3.param("fid", hp7.f().d());
+                    statisticItem3.param("fname", hp7.f().e());
                     TiebaStatic.log(statisticItem3);
                     StatisticItem statisticItem4 = new StatisticItem(CommonStatisticKey.KEY_FRS_MUSK_REASON_DIALOG_SHOW);
                     statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem4.param("fid", gp7.f().d());
-                    statisticItem4.param("fname", gp7.f().e());
+                    statisticItem4.param("fid", hp7.f().d());
+                    statisticItem4.param("fname", hp7.f().e());
                     statisticItem4.param("obj_source", 2);
                     TiebaStatic.log(statisticItem4);
                 }
@@ -255,16 +255,16 @@ public class FrsMultiManagerBottomView extends RelativeLayout implements View.On
             } else {
                 i2 = 0;
             }
-            b16 b16Var = new b16(intValue, intValue2, i2);
-            b16Var.i(this.j.getForum().getId(), this.j.getForum().getName());
-            b16Var.h(this.j.getForum().getImage_url());
-            b16Var.j(this.j.getForum().getUser_level());
-            c16 c16Var = new c16(this.h, this, b16Var, this.j.getUserData());
-            this.g = c16Var;
-            c16Var.G(this.i);
+            c16 c16Var = new c16(intValue, intValue2, i2);
+            c16Var.i(this.j.getForum().getId(), this.j.getForum().getName());
+            c16Var.h(this.j.getForum().getImage_url());
+            c16Var.j(this.j.getForum().getUser_level());
+            d16 d16Var = new d16(this.h, this, c16Var, this.j.getUserData());
+            this.g = d16Var;
+            d16Var.G(this.i);
         }
         SparseArray<String> sparseArray = new SparseArray<>();
-        AntiData c = gp7.f().c();
+        AntiData c = hp7.f().c();
         if (c != null && c.getDelThreadInfoList() != null) {
             List<DeleteThreadInfo> delThreadInfoList = c.getDelThreadInfoList();
             for (int i3 = 0; i3 < delThreadInfoList.size(); i3++) {
@@ -275,7 +275,7 @@ public class FrsMultiManagerBottomView extends RelativeLayout implements View.On
         }
         JSONArray jSONArray = new JSONArray();
         JSONArray jSONArray2 = new JSONArray();
-        List<ThreadData> g = gp7.f().g();
+        List<ThreadData> g = hp7.f().g();
         for (int i4 = 0; i4 < g.size(); i4++) {
             if (g.get(i4) != null) {
                 jSONArray.put(g.get(i4).getTid());
@@ -293,18 +293,18 @@ public class FrsMultiManagerBottomView extends RelativeLayout implements View.On
         negativeFeedBackData.setDeleteType(i);
         negativeFeedBackData.setTidArray(jSONArray);
         negativeFeedBackData.setMaskTidArray(jSONArray2);
-        negativeFeedBackData.setFid(gp7.f().d());
+        negativeFeedBackData.setFid(hp7.f().d());
         this.g.I(new String[]{getContext().getString(R.string.delete_thread_reason_1), getContext().getString(R.string.delete_thread_reason_2), getContext().getString(R.string.delete_thread_reason_3), getContext().getString(R.string.delete_thread_reason_4), getContext().getString(R.string.delete_thread_reason_5)});
         this.g.H(negativeFeedBackData);
     }
 
-    public void setDeleteCallback(y06.c cVar) {
-        y06 y06Var;
+    public void setDeleteCallback(z06.c cVar) {
+        z06 z06Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, cVar) != null) || (y06Var = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, cVar) != null) || (z06Var = this.a) == null) {
             return;
         }
-        y06Var.f(cVar);
+        z06Var.f(cVar);
     }
 
     public void setFrsViewData(FrsViewData frsViewData) {

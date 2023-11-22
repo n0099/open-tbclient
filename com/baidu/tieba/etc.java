@@ -1,40 +1,42 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.Agree;
-import tbclient.FeedSocialComponent;
-import tbclient.LayoutManageInfo;
+import tbclient.FeedRoomComponent;
+import tbclient.ThreadRecommendTag;
+import tbclient.Voice;
 /* loaded from: classes5.dex */
-public class etc extends poc {
+public class etc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedSocialComponent feedSocialComponent) {
+    public static JSONObject b(@NonNull FeedRoomComponent feedRoomComponent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedSocialComponent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedRoomComponent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            Agree agree = feedSocialComponent.agree;
-            if (agree != null) {
-                poc.a(jSONObject, "agree", gpc.b(agree));
+            qoc.a(jSONObject, "top_label", feedRoomComponent.top_label);
+            qoc.a(jSONObject, "status", feedRoomComponent.status);
+            Voice voice = feedRoomComponent.voice;
+            if (voice != null) {
+                qoc.a(jSONObject, "voice", f6d.b(voice));
             }
-            poc.a(jSONObject, "comment_num", feedSocialComponent.comment_num);
-            poc.a(jSONObject, "share_num", feedSocialComponent.share_num);
-            poc.a(jSONObject, "tid", feedSocialComponent.tid);
-            poc.a(jSONObject, "fid", feedSocialComponent.fid);
-            if (feedSocialComponent.manage_list != null) {
+            if (feedRoomComponent.bottom_labels != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (LayoutManageInfo layoutManageInfo : feedSocialComponent.manage_list) {
-                    jSONArray.put(kzc.b(layoutManageInfo));
+                for (ThreadRecommendTag threadRecommendTag : feedRoomComponent.bottom_labels) {
+                    jSONArray.put(y4d.b(threadRecommendTag));
                 }
-                poc.a(jSONObject, "manage_list", jSONArray);
+                qoc.a(jSONObject, "bottom_labels", jSONArray);
             }
+            qoc.a(jSONObject, "scheme", feedRoomComponent.scheme);
+            qoc.a(jSONObject, NetDiskFileMsg.NetDiskFile.JSON_KEY_COVER_URL, feedRoomComponent.cover_url);
+            qoc.a(jSONObject, "room_id", feedRoomComponent.room_id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

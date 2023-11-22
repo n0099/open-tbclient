@@ -43,7 +43,7 @@ import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.controller.TransmitShareController;
 import com.baidu.tieba.j05;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.w4b;
+import com.baidu.tieba.x4b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -83,11 +83,11 @@ public class as4 {
     public boolean v;
     public boolean w;
     public boolean x;
-    public f2a y;
+    public g2a y;
     public h05 z;
 
     /* loaded from: classes5.dex */
-    public class a implements w4b.c {
+    public class a implements x4b.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ as4 a;
@@ -110,7 +110,7 @@ public class as4 {
             this.a = as4Var;
         }
 
-        @Override // com.baidu.tieba.w4b.c
+        @Override // com.baidu.tieba.x4b.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.y == null) {
@@ -436,7 +436,7 @@ public class as4 {
     }
 
     /* loaded from: classes5.dex */
-    public class k implements w4b.d {
+    public class k implements x4b.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ as4 a;
@@ -459,7 +459,7 @@ public class as4 {
             this.a = as4Var;
         }
 
-        @Override // com.baidu.tieba.w4b.d
+        @Override // com.baidu.tieba.x4b.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.y != null && this.a.a != null) {
@@ -811,16 +811,16 @@ public class as4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             if (this.y == null) {
-                w4b w4bVar = new w4b(this.a);
+                x4b x4bVar = new x4b(this.a);
                 ArrayList arrayList = new ArrayList();
-                w4b.b bVar = new w4b.b(this.a.getString(R.string.report_text), w4bVar);
+                x4b.b bVar = new x4b.b(this.a.getString(R.string.report_text), x4bVar);
                 bVar.h(new k(this));
                 arrayList.add(bVar);
-                w4bVar.h(new a(this));
-                w4bVar.g(arrayList);
-                f2a f2aVar = new f2a(this.a, w4bVar.b());
-                this.y = f2aVar;
-                f2aVar.a(0.7f);
+                x4bVar.h(new a(this));
+                x4bVar.g(arrayList);
+                g2a g2aVar = new g2a(this.a, x4bVar.b());
+                this.y = g2aVar;
+                g2aVar.a(0.7f);
             }
             this.y.show();
         }

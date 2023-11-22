@@ -2,7 +2,6 @@ package com.baidu.tieba;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -14,7 +13,6 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.im.base.core.inputtool.GroupInputTool;
 import com.baidu.tieba.im.base.core.inputtool.callback.uistate.ViewState;
 import com.baidu.tieba.im.base.core.inputtool.robotfloor.GroupChatUserReplyView;
-import com.baidu.tieba.im.base.core.inputtool.robotfloor.data.UserReplyInfoData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -164,7 +162,7 @@ public class ol8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 super.onAnimationEnd(animator);
-                this.b.k(false);
+                this.b.j(false);
                 if (this.b.a != null && this.b.a.I() != null) {
                     this.b.a.I().d(true);
                 }
@@ -201,6 +199,19 @@ public class ol8 {
         f();
     }
 
+    public final boolean c(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (this.a != null && !TextUtils.isEmpty(str)) {
+                this.b.setData(str);
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
@@ -215,18 +226,10 @@ public class ol8 {
         }
     }
 
-    public void j(@Nullable d dVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) && e() && this.c != null) {
-            h(true);
-            this.c.b(d(), 0, 200L, new c(this, dVar), false);
-        }
-    }
-
-    public void k(boolean z) {
+    public void j(boolean z) {
         GroupChatUserReplyView groupChatUserReplyView;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) != null) || (groupChatUserReplyView = this.b) == null) {
+        if ((interceptable != null && interceptable.invokeZ(1048583, this, z) != null) || (groupChatUserReplyView = this.b) == null) {
             return;
         }
         if (z) {
@@ -236,21 +239,12 @@ public class ol8 {
         }
     }
 
-    public final boolean c(@NonNull UserReplyInfoData userReplyInfoData) {
-        InterceptResult invokeL;
+    public void k(@Nullable d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, userReplyInfoData)) == null) {
-            GroupInputTool groupInputTool = this.a;
-            if (groupInputTool != null && groupInputTool.J() != null && !TextUtils.isEmpty(userReplyInfoData.getmNameShow()) && !TextUtils.isEmpty(userReplyInfoData.getmContent())) {
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                spannableStringBuilder.append((CharSequence) (this.a.J().getResources().getString(R.string.obfuscated_res_0x7f0f0969) + this.a.J().getResources().getString(R.string.obfuscated_res_0x7f0f0976)));
-                spannableStringBuilder.append(userReplyInfoData.getmContent());
-                this.b.setData(spannableStringBuilder);
-                return true;
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dVar) == null) && e() && this.c != null) {
+            h(true);
+            this.c.b(d(), 0, 200L, new c(this, dVar), false);
         }
-        return invokeL.booleanValue;
     }
 
     public final int d() {
@@ -293,13 +287,13 @@ public class ol8 {
         return invokeV.booleanValue;
     }
 
-    public void l(@Nullable d dVar, @NonNull UserReplyInfoData userReplyInfoData) {
+    public void l(@Nullable d dVar, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, dVar, userReplyInfoData) == null) && this.c != null && this.a != null && c(userReplyInfoData) && !e()) {
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, dVar, str) == null) && this.c != null && this.a != null && c(str) && !e()) {
             if (this.d != null) {
                 this.d.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             }
-            k(true);
+            j(true);
             if (this.a.I() != null) {
                 this.a.I().d(false);
             }

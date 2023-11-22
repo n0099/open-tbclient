@@ -1,99 +1,48 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.PreLoadImageProvider;
+import android.view.View;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public final class k27<T> extends ja7<T> implements o67, w97, PreLoadImageProvider {
+public final class k27 {
     public static /* synthetic */ Interceptable $ic;
+    public static final View.OnClickListener a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T c;
-    public final String d;
 
-    public k27(@NonNull T t, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947861273, "Lcom/baidu/tieba/k27;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947861273, "Lcom/baidu/tieba/k27;");
                 return;
             }
         }
-        this.c = t;
-        this.d = str;
-    }
+        a = new View.OnClickListener() { // from class: com.baidu.tieba.i27
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.za7
-    @NonNull
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.za7
-    @NonNull
-    public T b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
-    public ArrayList<PreLoadImageInfo> getImages() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            T t = this.c;
-            if (t instanceof PreLoadImageProvider) {
-                return ((PreLoadImageProvider) t).getImages();
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    k27.a(view2);
+                }
             }
-            return null;
-        }
-        return (ArrayList) invokeV.objValue;
+        };
     }
 
-    @Override // com.baidu.tieba.w97
-    public void d(@NonNull Object obj) {
+    public static final void a(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) && (obj instanceof a87)) {
-            T t = this.c;
-            if (t instanceof i27) {
-                ((i27) t).d(((a87) obj).c());
-            } else if (t instanceof AdvertAppInfo) {
-                ((AdvertAppInfo) t).w = ((a87) obj).c();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.o67
-    public void setPosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            T t = this.c;
-            if (t instanceof o67) {
-                ((o67) t).setPosition(i);
-            }
+        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
+            nq6.b().c(new p95("recommend_fun_ad", null));
         }
     }
 }

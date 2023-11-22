@@ -1,78 +1,68 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.common.param.CommonUrlParamManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.novel.ReadRecordsData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class ho5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, int i, String str2, String str3, String str4) {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), str2, str3, str4}) == null) {
-            b(str, -1, str2, str3, str4, 0, "", "", "");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return TbadkCoreApplication.getCurrentAccount();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b(String str, String str2) {
+        InterceptResult invokeLL;
+        ca<String> o;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if ((!TbadkCoreApplication.isLogin() && StringUtils.isNull(str)) || !TextUtils.equals(a(), str2) || (o = yz4.o("tb.novel_thread_read_record", a(), str)) == null || StringUtils.isNull(o.get(str))) {
+                return null;
+            }
+            return o.get(str);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921697, Boolean.TRUE));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921658, Boolean.TRUE));
         }
     }
 
-    public static void b(String str, int i, String str2, String str3, String str4, int i2, String str5, String str6, String str7) {
+    public static void d(String str, ReadRecordsData readRecordsData) {
+        ca<String> o;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), str2, str3, str4, Integer.valueOf(i2), str5, str6, str7}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_source", str2);
-            statisticItem.param("thread_type", i2);
-            if (i > 0) {
-                statisticItem.param("obj_locate", i);
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, readRecordsData) == null) {
+            if ((TbadkCoreApplication.isLogin() || !StringUtils.isNull(str)) && (o = yz4.o("tb.novel_thread_read_record", a(), str)) != null && readRecordsData != null) {
+                o.g(str, OrmObject.jsonStrWithObject(readRecordsData));
             }
-            if (!StringUtils.isNull(str3)) {
-                statisticItem.param("tid", str3);
-            }
-            if (!StringUtils.isNull(str4)) {
-                statisticItem.param("fid", str4);
-            }
-            if (str5 == null) {
-                str5 = "";
-            }
-            statisticItem.addParam("obj_id", str5);
-            if (str6 == null) {
-                str6 = "";
-            }
-            statisticItem.addParam("obj_name", str6);
-            if (str7 == null) {
-                str7 = "";
-            }
-            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, str7);
-            TiebaStatic.log(statisticItem);
         }
     }
 
-    public static void c(String str, String str2, String str3, String str4, String str5, String str6) {
+    public static String e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, str4, str5, str6}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            if (str4 == null) {
-                str4 = "";
-            }
-            statisticItem.addParam("obj_id", str4);
-            if (str5 == null) {
-                str5 = "";
-            }
-            statisticItem.addParam("obj_name", str5);
-            if (str2 == null) {
-                str2 = "";
-            }
-            statisticItem.param("resource_id", str2);
-            if (str6 == null) {
-                str6 = "";
-            }
-            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, str6);
-            if (str3 == null) {
-                str3 = "";
-            }
-            statisticItem.param("tid", str3);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return CommonUrlParamManager.getInstance().processUrl(str) + "&ctv=2&cen=ua_ut_uid";
         }
+        return (String) invokeL.objValue;
     }
 }

@@ -38,17 +38,17 @@ public class yu4 {
     }
 
     /* loaded from: classes9.dex */
-    public static class a extends CustomMessageListener {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tieba.yu4$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class RunnableC0540a implements Runnable {
+        public class RunnableC0539a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0540a(a aVar) {
+            public RunnableC0539a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,7 +109,7 @@ public class yu4 {
                     j = currentTimeMillis;
                 }
                 if (currentTimeMillis - j > yu4.a) {
-                    ar6.a(new RunnableC0540a(this), "clearResource", 3);
+                    br6.a(new RunnableC0539a(this), "clearResource", 3);
                     SharedPrefHelper.getInstance().putLong("key_clear_resource", currentTimeMillis);
                 }
             }

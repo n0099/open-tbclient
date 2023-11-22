@@ -19,13 +19,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.feed.component.CardLiveView;
-import com.baidu.tieba.ib7;
-import com.baidu.tieba.m77;
-import com.baidu.tieba.sa7;
-import com.baidu.tieba.t67;
+import com.baidu.tieba.jb7;
+import com.baidu.tieba.n77;
 import com.baidu.tieba.ta7;
-import com.baidu.tieba.u27;
-import com.baidu.tieba.x37;
+import com.baidu.tieba.u67;
+import com.baidu.tieba.ua7;
+import com.baidu.tieba.v27;
+import com.baidu.tieba.y37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,10 +38,10 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000`\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0002\u0018\u00002\b\u0012\u0004\u0012\u00020\u00020\u00012\u00020\u0003B\u001b\b\u0007\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0007¢\u0006\u0002\u0010\bJ\u0010\u0010\u001a\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u0002H\u0014J\b\u0010\u001d\u001a\u00020\u001bH\u0016J\u0018\u0010\u001e\u001a\u00020\u001b2\u0006\u0010\u001f\u001a\u00020 2\u0006\u0010!\u001a\u00020 H\u0002R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u0016\u0010\u0015\u001a\n \u0017*\u0004\u0018\u00010\u00160\u0016X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\""}, d2 = {"Lcom/baidu/tieba/feed/component/CardLiveView;", "Lcom/baidu/tieba/feed/component/CardRelativeView;", "Lcom/baidu/tieba/feed/component/uistate/CardLiveUiState;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "coverView", "Landroid/view/View;", "labelBottomLeft", "Lcom/baidu/tbadk/core/elementsMaven/view/EMTextView;", "labelBottomRight", "labelTopLeft", "Landroid/widget/LinearLayout;", "labelTopLeftText", "lottieView", "Lcom/baidu/tbadk/widget/lottie/TBLottieAnimationView;", "lottieViewContainer", "Landroid/widget/FrameLayout;", "resolver", "Lcom/baidu/tieba/feed/compat/WidgetResolver$NetImageViewCreator;", "kotlin.jvm.PlatformType", "thumbnailImg", "Landroid/widget/ImageView;", "doUpdateState", "", "state", "onChangeSkin", "setCoverViewLp", "width", "", "height", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class CardLiveView extends CardRelativeView<x37> implements sa7 {
+public final class CardLiveView extends CardRelativeView<y37> implements ta7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final u27.e d;
+    public final v27.e d;
     public final LinearLayout e;
     public final FrameLayout f;
     public final TBLottieAnimationView g;
@@ -138,7 +138,7 @@ public final class CardLiveView extends CardRelativeView<x37> implements sa7 {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.d = u27.a().a();
+        this.d = v27.a().a();
         this.e = new LinearLayout(context);
         this.f = new FrameLayout(context);
         this.g = new TBLottieAnimationView(context);
@@ -152,7 +152,7 @@ public final class CardLiveView extends CardRelativeView<x37> implements sa7 {
             this.k.setId(R.id.obfuscated_res_0x7f09063a);
             this.k.setScaleType(ImageView.ScaleType.CENTER_CROP);
             addView(this.k, new RelativeLayout.LayoutParams(-1, -1));
-            u27.d dVar = new u27.d();
+            v27.d dVar = new v27.d();
             dVar.a = R.string.J_X05;
             dVar.b = 15;
             this.d.c(this.k, dVar);
@@ -215,20 +215,20 @@ public final class CardLiveView extends CardRelativeView<x37> implements sa7 {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public static final void e(x37 state, CardLiveView this$0, View view2) {
+    public static final void e(y37 state, CardLiveView this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, state, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (state.m().f != null) {
-                Function2<Context, x37, Unit> n = state.n();
+                Function2<Context, y37, Unit> n = state.n();
                 Context context = this$0.getContext();
                 Intrinsics.checkNotNullExpressionValue(context, "context");
                 n.invoke(context, state);
             }
-            for (m77 m77Var : state.l()) {
-                ib7.a.f(m77Var, state.k() + 1);
-                state.j().invoke(m77Var);
+            for (n77 n77Var : state.l()) {
+                jb7.a.f(n77Var, state.k() + 1);
+                state.j().invoke(n77Var);
             }
         }
     }
@@ -236,14 +236,14 @@ public final class CardLiveView extends CardRelativeView<x37> implements sa7 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.feed.component.CardRelativeView
     /* renamed from: d */
-    public void a(final x37 state) {
+    public void a(final y37 state) {
         int width;
         int i;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
-            t67 m = state.m();
+            u67 m = state.m();
             boolean isFeedLiveCardStyleA = UbsABTestHelper.isFeedLiveCardStyleA();
             int equipmentWidth = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
             if (isFeedLiveCardStyleA) {
@@ -279,11 +279,11 @@ public final class CardLiveView extends CardRelativeView<x37> implements sa7 {
                     this.i.setVisibility(8);
                 }
                 this.j.setText(m.c);
-                m77 m77Var = m.e;
-                if (m77Var != null) {
-                    state.j().invoke(m77Var);
+                n77 n77Var = m.e;
+                if (n77Var != null) {
+                    state.j().invoke(n77Var);
                 }
-                this.k.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.g37
+                this.k.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.h37
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -291,7 +291,7 @@ public final class CardLiveView extends CardRelativeView<x37> implements sa7 {
                     public final void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            CardLiveView.e(x37.this, this, view2);
+                            CardLiveView.e(y37.this, this, view2);
                         }
                     }
                 });
@@ -312,10 +312,10 @@ public final class CardLiveView extends CardRelativeView<x37> implements sa7 {
         }
     }
 
-    @Override // com.baidu.tieba.sa7
+    @Override // com.baidu.tieba.ta7
     public void r() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || ta7.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || ua7.a(this)) {
             return;
         }
         SkinManager.setLottieAnimation(this.g, R.raw.lottie_ala_live);

@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.era;
+import com.baidu.tieba.fra;
 import com.baidu.tieba.j05;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
@@ -35,7 +35,7 @@ public class ws extends ps implements ht<ThreadData>, it {
     public transient /* synthetic */ FieldHolder $fh;
     public FollowForumDecorView a;
     public LikeModel b;
-    public era c;
+    public fra c;
     public ThreadData d;
     public TbPageContext e;
     public h05 f;
@@ -199,7 +199,7 @@ public class ws extends ps implements ht<ThreadData>, it {
     }
 
     /* loaded from: classes8.dex */
-    public class d implements era.a {
+    public class d implements fra.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ws a;
@@ -222,7 +222,7 @@ public class ws extends ps implements ht<ThreadData>, it {
             this.a = wsVar;
         }
 
-        @Override // com.baidu.tieba.era.a
+        @Override // com.baidu.tieba.fra.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -230,7 +230,7 @@ public class ws extends ps implements ht<ThreadData>, it {
             }
         }
 
-        @Override // com.baidu.tieba.era.a
+        @Override // com.baidu.tieba.fra.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -429,9 +429,9 @@ public class ws extends ps implements ht<ThreadData>, it {
                 return;
             }
             if (this.c == null) {
-                era eraVar = new era();
-                this.c = eraVar;
-                eraVar.b(new d(this));
+                fra fraVar = new fra();
+                this.c = fraVar;
+                fraVar.b(new d(this));
             }
             this.c.c(this.d.getForumData().d(), Integer.parseInt(this.d.getForumData().b()));
         }
@@ -514,10 +514,10 @@ public class ws extends ps implements ht<ThreadData>, it {
     public final void s(boolean z, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            em6 em6Var = new em6();
-            em6Var.d(z);
-            em6Var.c(j);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921806, em6Var));
+            fm6 fm6Var = new fm6();
+            fm6Var.d(z);
+            fm6Var.c(j);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921806, fm6Var));
         }
     }
 }

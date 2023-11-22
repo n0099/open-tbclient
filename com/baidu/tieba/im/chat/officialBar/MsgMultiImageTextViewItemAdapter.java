@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.gu8;
+import com.baidu.tieba.hu8;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
@@ -101,9 +101,9 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
             a2.n0(this.a, chatMessage, viewGroup);
             this.a.getLayoutMode().setNightMode(false);
             this.a.getLayoutMode().onModeChanged(view2);
-            gu8.c().e(chatMessage, this.a.getPageActivity());
-            gu8.c().f(chatMessage, this.a.getPageActivity());
-            gu8.c().d(chatMessage);
+            hu8.c().e(chatMessage, this.a.getPageActivity());
+            hu8.c().f(chatMessage, this.a.getPageActivity());
+            hu8.c().d(chatMessage);
             return view2;
         }
         return (View) invokeCommon.objValue;

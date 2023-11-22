@@ -43,7 +43,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ko4;
 import com.baidu.tieba.lo4;
 import com.baidu.tieba.qd;
-import com.baidu.tieba.t06;
+import com.baidu.tieba.u06;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.danmu.DanmuProgressManager;
 import com.baidu.tieba.videoplay.fragment.VideoVerticalPageFragment;
@@ -75,7 +75,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
     public VideoVerticalPageFragment o;
     public NavigationBar p;
     public TextView q;
-    public t06 r;
+    public u06 r;
     public CustomMessageListener s;
     public CustomMessageListener t;
 
@@ -430,7 +430,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO);
             this.d = System.currentTimeMillis();
             setContentView(R.layout.obfuscated_res_0x7f0d09ff);
-            this.r = new t06(getPageContext(), "client_videomiddle");
+            this.r = new u06(getPageContext(), "client_videomiddle");
             w1();
             x1();
             addNoAdjustSoftInputHeightListener();
@@ -458,9 +458,9 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            t06 t06Var = this.r;
-            if (t06Var != null) {
-                t06Var.h();
+            u06 u06Var = this.r;
+            if (u06Var != null) {
+                u06Var.h();
             }
             if (!TextUtils.isEmpty(this.f)) {
                 str = "1";

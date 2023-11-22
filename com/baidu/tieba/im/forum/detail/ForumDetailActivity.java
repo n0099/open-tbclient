@@ -27,13 +27,13 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gr8;
+import com.baidu.tieba.aa5;
+import com.baidu.tieba.hr8;
 import com.baidu.tieba.im.forum.detail.BarEmotionResponseMessage;
 import com.baidu.tieba.im.forum.detail.ForumDetailModel;
 import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
 import com.baidu.tieba.im.message.SettingChangeMessage;
 import com.baidu.tieba.im.settingcache.OfficialSettingCache;
-import com.baidu.tieba.z95;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -51,7 +51,7 @@ import tbclient.SimpleThreadInfo;
 public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> implements ForumDetailModel.f, BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gr8 a;
+    public hr8 a;
     public ForumDetailModel b;
     public RecommendForumInfo c;
     public List<SimpleThreadInfo> d;
@@ -417,7 +417,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         if (interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) {
             if (switchState == BdSwitchView.SwitchState.OFF) {
                 this.b.subscribeBar(false, this.k);
-            } else if (z95.e().A() && z95.e().x()) {
+            } else if (aa5.e().A() && aa5.e().x()) {
                 this.b.subscribeBar(true, this.k);
             } else {
                 zz4 zz4Var = new zz4(getActivity());
@@ -690,9 +690,9 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         if (interceptable == null || interceptable.invokeL(1048595, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d02ff);
-            gr8 gr8Var = new gr8(this);
-            this.a = gr8Var;
-            gr8Var.z().addNetworkChangeListener(new f(this));
+            hr8 hr8Var = new hr8(this);
+            this.a = hr8Var;
+            hr8Var.z().addNetworkChangeListener(new f(this));
             this.a.I(new g(this));
             this.b = new ForumDetailModel(this);
             this.k = getIntent().getStringExtra("forum_id");

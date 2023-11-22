@@ -9,20 +9,20 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.retrieve.inter.statistics.IStatTask;
 import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
 import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadResult;
-import com.baidu.tieba.iub;
+import com.baidu.tieba.jub;
 import java.util.Arrays;
 import java.util.List;
 import org.json.JSONObject;
 @Singleton
 @Service
 /* loaded from: classes4.dex */
-public class AcUploadResultObserver implements iub {
+public class AcUploadResultObserver implements jub {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String TAG = "FetchAcUploadResult";
     public static final String TYPE_ACTIVE_UPLOAD = "acupload";
     public ActiveUploadObserver mActiveUploadObserver;
 
-    @Override // com.baidu.tieba.iub
+    @Override // com.baidu.tieba.jub
     public String getBizType() {
         return "acupload";
     }
@@ -73,7 +73,7 @@ public class AcUploadResultObserver implements iub {
         }
     }
 
-    @Override // com.baidu.tieba.iub
+    @Override // com.baidu.tieba.jub
     public void onReceiveResult(boolean z, String str, final String str2, JSONObject jSONObject, final JSONObject jSONObject2) {
         String jSONObject3;
         if (jSONObject2 != null && jSONObject2.length() != 0) {

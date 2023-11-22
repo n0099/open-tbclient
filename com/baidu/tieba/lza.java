@@ -1,110 +1,69 @@
 package com.baidu.tieba;
 
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Lifecycle;
+import androidx.annotation.MainThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qza;
-import com.baidu.tieba.tracker.core.monitors.PageTraceMonitor;
+import com.baidu.tieba.rza;
+import com.baidu.tieba.tracker.core.data.AbsEventNode;
+import com.baidu.tieba.tracker.core.data.TraceEventNode;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import kotlin.Pair;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class lza<R extends qza> extends PageTraceMonitor<R> {
+public final class lza<R extends rza> extends nza<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Fragment f;
-    public final Function1<R, dza> g;
+    public final Function1<R, eza> f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lza(Fragment fragment, R thisRef, gza traceType, Function1<? super R, dza> traceHolderFactory) {
-        super(thisRef, traceType);
+    public lza(R obj, hza traceType, Function1<? super R, eza> traceHolderFactory) {
+        super(obj, traceType);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fragment, thisRef, traceType, traceHolderFactory};
+            Object[] objArr = {obj, traceType, traceHolderFactory};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((qza) objArr2[0], (gza) objArr2[1]);
+                super((rza) objArr2[0], (hza) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(fragment, "fragment");
-        Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+        Intrinsics.checkNotNullParameter(obj, "obj");
         Intrinsics.checkNotNullParameter(traceType, "traceType");
         Intrinsics.checkNotNullParameter(traceHolderFactory, "traceHolderFactory");
-        this.f = fragment;
-        this.g = traceHolderFactory;
+        this.f = traceHolderFactory;
     }
 
-    @Override // com.baidu.tieba.mza
-    public dza c(R thisRef) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.nza
+    @MainThread
+    public AbsEventNode a(R thisRef, hza traceType) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, thisRef)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, thisRef, traceType)) == null) {
             Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            return this.g.invoke(thisRef);
+            Intrinsics.checkNotNullParameter(traceType, "traceType");
+            return new TraceEventNode(thisRef.n2(), thisRef.Z1(), traceType);
         }
-        return (dza) invokeL.objValue;
+        return (AbsEventNode) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
-    public Lifecycle h(R thisRef) {
+    @Override // com.baidu.tieba.nza
+    public eza c(R thisRef) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thisRef)) == null) {
             Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            try {
-                Lifecycle lifecycle = this.f.getLifecycle();
-                Intrinsics.checkNotNullExpressionValue(lifecycle, "fragment.lifecycle");
-                return lifecycle;
-            } catch (IllegalStateException e) {
-                throw new IllegalStateException("Fragment doesn 't have view associated with it or the view has been destroyed!", e);
-            }
+            return this.f.invoke(thisRef);
         }
-        return (Lifecycle) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
-    public void j(Pair<String, String>... params) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, params) == null) {
-            Intrinsics.checkNotNullParameter(params, "params");
-            pza.a(this.f, (Pair[]) Arrays.copyOf(params, params.length));
-        }
-    }
-
-    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
-    public String i(R thisRef) {
-        InterceptResult invokeL;
-        qza qzaVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, thisRef)) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            Fragment parentFragment = this.f.getParentFragment();
-            if (parentFragment != null) {
-                if (parentFragment instanceof qza) {
-                    qzaVar = (qza) parentFragment;
-                } else {
-                    qzaVar = null;
-                }
-                if (qzaVar != null) {
-                    return qzaVar.n2();
-                }
-            }
-            return thisRef.n2();
-        }
-        return (String) invokeL.objValue;
+        return (eza) invokeL.objValue;
     }
 }

@@ -1,8 +1,5 @@
 package com.baidu.tieba;
-
-import java.util.concurrent.Callable;
 /* loaded from: classes9.dex */
-public interface zf6<R> extends Callable<R> {
-    @Override // java.util.concurrent.Callable
-    R call();
+public interface zf6<T1, T2> {
+    void a(T1 t1, T2 t2);
 }

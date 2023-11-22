@@ -1,10 +1,12 @@
 package com.baidu.tieba;
 
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class c8b {
     public static /* synthetic */ Interceptable $ic;
@@ -13,7 +15,8 @@ public class c8b {
     public int b;
     public int c;
     public int d;
-    public MultiMediaData e;
+    public List<MediaSegment> e;
+    public List<MultiMediaData> f;
 
     public c8b() {
         Interceptable interceptable = $ic;

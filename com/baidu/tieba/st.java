@@ -32,12 +32,12 @@ public class st extends ju {
     }
 
     @Override // com.baidu.tieba.ju
-    public k9a t() {
+    public l9a t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new n9a(this.b, this.i);
+            return new o9a(this.b, this.i);
         }
-        return (k9a) invokeV.objValue;
+        return (l9a) invokeV.objValue;
     }
 }

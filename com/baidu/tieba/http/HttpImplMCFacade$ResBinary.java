@@ -5,9 +5,9 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.oj8;
 import com.baidu.tieba.pj8;
 import com.baidu.tieba.qj8;
+import com.baidu.tieba.rj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -48,7 +48,7 @@ public final class HttpImplMCFacade$ResBinary extends HttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
             Message<?> orginalMessage = getOrginalMessage();
-            oj8 oj8Var = null;
+            pj8 pj8Var = null;
             if (orginalMessage instanceof HttpMessage) {
                 httpMessage = (HttpMessage) orginalMessage;
             } else {
@@ -59,17 +59,17 @@ public final class HttpImplMCFacade$ResBinary extends HttpResponsedMessage {
             } else {
                 obj = null;
             }
-            if (obj instanceof oj8) {
-                oj8Var = obj;
+            if (obj instanceof pj8) {
+                pj8Var = obj;
             }
-            if (oj8Var == null) {
-                z = pj8.a;
+            if (pj8Var == null) {
+                z = qj8.a;
                 if (z) {
                     throw new IllegalStateException();
                 }
                 return;
             }
-            qj8 a = oj8Var.a();
+            rj8 a = pj8Var.a();
             if (a != null) {
                 a.b(data);
             }

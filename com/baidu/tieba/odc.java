@@ -1,304 +1,137 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.media.AudioManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.log.TLog;
-import java.lang.ref.WeakReference;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.Map;
+import java.util.TreeMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class odc {
     public static /* synthetic */ Interceptable $ic;
-    public static AtomicBoolean a;
-    public static AtomicBoolean b;
-    public static Context c;
-    public static final LinkedList<WeakReference<b>> d;
-    public static AtomicBoolean e;
-    public static final LinkedList<WeakReference<fcc>> f;
-    public static AudioManager.OnAudioFocusChangeListener g;
     public transient /* synthetic */ FieldHolder $fh;
+    public TreeMap<String, String> a;
+    public TreeMap<String, String> b;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void c(boolean z);
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a implements AudioManager.OnAudioFocusChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.media.AudioManager.OnAudioFocusChangeListener
-        public void onAudioFocusChange(int i) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i != -2 && i != -1) {
-                    if (i == 1) {
-                        odc.a.set(true);
-                        odc.b.set(true);
-                        odc.j(true);
-                        TLog.h("[AudioFocusListener]", "mOnAudioFocusChangeListener AUDIOFOCUS_GAIN,mIsFocusGain=" + odc.a.get());
-                    }
-                } else {
-                    odc.a.set(false);
-                    odc.b.set(false);
-                    odc.j(false);
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("mOnAudioFocusChangeListener ");
-                    if (i == -1) {
-                        str = "AUDIOFOCUS_LOSS";
-                    } else {
-                        str = "AUDIOFOCUS_LOSS_TRANSIENT";
-                    }
-                    sb.append(str);
-                    sb.append(", pause audio rendering,mIsFocusGain=");
-                    sb.append(odc.a.get());
-                    TLog.h("[AudioFocusListener]", sb.toString());
-                }
-                synchronized (odc.e) {
-                    Iterator it = odc.f.iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        WeakReference weakReference = (WeakReference) it.next();
-                        if (weakReference.get() != null) {
-                            TLog.h("[AudioFocusListener]", "mOnAudioFocusChangeListener mExtraListener: " + weakReference.get() + ",mIsFocusGain:" + odc.a.get() + ",focusChange:" + i);
-                            ((fcc) weakReference.get()).onAudioFocusChange(i);
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948029851, "Lcom/baidu/tieba/odc;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948029851, "Lcom/baidu/tieba/odc;");
-                return;
-            }
-        }
-        a = new AtomicBoolean(false);
-        b = new AtomicBoolean(false);
-        c = null;
-        d = new LinkedList<>();
-        e = new AtomicBoolean(false);
-        f = new LinkedList<>();
-        g = new a();
-    }
-
-    public odc() {
+    public odc(TreeMap<String, String> treeMap, TreeMap<String, String> treeMap2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {treeMap, treeMap2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a.set(false);
-            b.set(false);
-            Context context = c;
-            if (context == null) {
-                TLog.d("[AudioFocusListener]", "abandonAudioFocus called,mAppContext==null,mIsFocusGain:" + a.get());
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            ((AudioManager) context.getSystemService("audio")).abandonAudioFocus(g);
-            TLog.h("[AudioFocusListener]", "abandonAudioFocus called.,mIsFocusGain:" + a.get() + ",mIsRequestFocusGain:" + b.get());
         }
+        this.a = treeMap;
+        this.b = treeMap2;
     }
 
-    public static void g(Context context, b bVar) {
-        boolean z;
+    public static odc a(String str) {
+        InterceptResult invokeL;
+        TreeMap<String, String> treeMap;
+        TreeMap<String, String> treeMap2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, context, bVar) == null) {
-            synchronized (odc.class) {
-                if (c == null) {
-                    c = context;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            TreeMap<String, String> treeMap3 = null;
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("mText");
+                if (optString != null && !optString.isEmpty()) {
+                    treeMap2 = c(optString);
+                } else {
+                    treeMap2 = null;
                 }
-                Iterator<WeakReference<b>> it = d.iterator();
-                while (true) {
-                    if (it.hasNext()) {
-                        if (bVar == it.next().get()) {
-                            z = false;
-                            break;
-                        }
-                    } else {
-                        z = true;
-                        break;
+                try {
+                    String optString2 = jSONObject.optString("mImages");
+                    if (optString2 != null && !optString2.isEmpty()) {
+                        treeMap3 = c(optString2);
+                    }
+                } catch (JSONException e) {
+                    treeMap = treeMap2;
+                    e = e;
+                    e.printStackTrace();
+                    treeMap2 = treeMap;
+                    return new odc(treeMap2, treeMap3);
+                }
+            } catch (JSONException e2) {
+                e = e2;
+                treeMap = null;
+            }
+            return new odc(treeMap2, treeMap3);
+        }
+        return (odc) invokeL.objValue;
+    }
+
+    public static String b(TreeMap<String, String> treeMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, treeMap)) == null) {
+            if (treeMap != null && !treeMap.isEmpty()) {
+                JSONObject jSONObject = new JSONObject();
+                for (Map.Entry<String, String> entry : treeMap.entrySet()) {
+                    try {
+                        jSONObject.put(entry.getKey(), entry.getValue());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
-                if (z) {
-                    d.add(new WeakReference<>(bVar));
-                }
+                return jSONObject.toString();
             }
+            return "";
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void h(boolean z) {
+    public static TreeMap<String, String> c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
-            e.set(z);
-            TLog.h("AudioFocus", " enableAutoControl:" + z + ",mIsFocusGain:" + a.get());
-        }
-    }
-
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            TLog.h("AudioFocus", " forceGainFocus start enableAutoControl:" + e.get() + ",mIsFocusGain:" + a.get() + " mIsRequestFocusGain:" + b.get());
-            if (!e.get()) {
-                a.set(true);
-                TLog.h("AudioFocus", " forceGainFocus enableAutoControl:" + e.get() + ",mIsFocusGain:" + a.get());
-                return;
-            }
-            synchronized (odc.class) {
-                if (!b.get()) {
-                    a();
-                    l();
-                }
-            }
-            TLog.h("AudioFocus", " forceGainFocus end enableAutoControl:" + e.get() + ",mIsFocusGain:" + a.get() + " mIsRequestFocusGain:" + b.get());
-        }
-    }
-
-    public static void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
-            LinkedList linkedList = new LinkedList();
-            synchronized (odc.class) {
-                Iterator<WeakReference<b>> it = d.iterator();
-                while (it.hasNext()) {
-                    b bVar = it.next().get();
-                    if (bVar != null) {
-                        linkedList.add(bVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str != null && !str.isEmpty()) {
+                TreeMap<String, String> treeMap = new TreeMap<>();
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        treeMap.put(next, (String) jSONObject.get(next));
                     }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
+                return treeMap;
             }
-            if (!linkedList.isEmpty()) {
-                Iterator it2 = linkedList.iterator();
-                while (it2.hasNext()) {
-                    ((b) it2.next()).c(z);
-                }
-            }
+            return null;
         }
+        return (TreeMap) invokeL.objValue;
     }
 
-    public static synchronized void k(b bVar) {
-        WeakReference<b> weakReference;
+    public static String d(odc odcVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, bVar) == null) {
-            synchronized (odc.class) {
-                Iterator<WeakReference<b>> it = d.iterator();
-                while (true) {
-                    if (it.hasNext()) {
-                        weakReference = it.next();
-                        if (weakReference.get() == bVar) {
-                            break;
-                        }
-                    } else {
-                        weakReference = null;
-                        break;
-                    }
-                }
-                if (weakReference != null) {
-                    d.remove(weakReference);
-                }
-                if (d.isEmpty()) {
-                    if (c == null) {
-                        return;
-                    }
-                    if (e.get()) {
-                        a();
-                    }
-                    c = null;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, odcVar)) == null) {
+            if (odcVar == null) {
+                return null;
             }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("mText", b(odcVar.a));
+                jSONObject.put("mImages", b(odcVar.b));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
         }
-    }
-
-    public static void m(fcc fccVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, fccVar) == null) {
-            synchronized (e) {
-                TLog.h("AudioFocus", " setFocusChangeExtraListener:" + fccVar);
-                boolean z = true;
-                Iterator<WeakReference<fcc>> it = f.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    } else if (fccVar == it.next().get()) {
-                        z = false;
-                        break;
-                    }
-                }
-                if (z) {
-                    f.add(new WeakReference<>(fccVar));
-                }
-            }
-        }
-    }
-
-    public static void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            Context context = c;
-            if (context == null) {
-                TLog.d("[AudioFocusListener]", "requestAudioFocus called,mAppContext==null,mIsFocusGain:" + a.get());
-                return;
-            }
-            AudioManager audioManager = (AudioManager) context.getSystemService("audio");
-            if (audioManager == null) {
-                TLog.d("[AudioFocusListener]", "requestAudioFocus called,audioManager==null,mIsFocusGain:" + a.get());
-            } else if (audioManager.requestAudioFocus(g, 3, 1) != 1) {
-                a.set(false);
-                b.set(false);
-                TLog.h("[AudioFocusListener]", "reqeustAudioFocus result != AUDIOFOCUS_REQUEST_GRANTED, pause audio render.,mIsFocusGain:" + a.get());
-            } else {
-                a.set(true);
-                b.set(true);
-                j(true);
-                TLog.h("[AudioFocusListener]", "reqeustAudioFocus AUDIOFOCUS_REQUEST_GRANTED.,mIsFocusGain:" + a.get());
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

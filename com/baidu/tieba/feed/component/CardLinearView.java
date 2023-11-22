@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s37;
+import com.baidu.tieba.t37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +19,7 @@ import kotlin.jvm.internal.Intrinsics;
 public abstract class CardLinearView<T> extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s37 a;
+    public t37 a;
     public int b;
     public T c;
 
@@ -121,9 +121,9 @@ public abstract class CardLinearView<T> extends LinearLayout {
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
             if (i != this.b) {
-                s37 s37Var = this.a;
-                if (s37Var != null) {
-                    s37Var.a();
+                t37 t37Var = this.a;
+                if (t37Var != null) {
+                    t37Var.a();
                 }
                 this.b = i;
             }

@@ -2,14 +2,14 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mutiprocess.live.LiveStartClickDataEvent;
+import com.baidu.tbadk.mutiprocess.live.LiveRemindDataEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wm5 implements cm5<LiveStartClickDataEvent> {
+public class wm5 implements dm5<LiveRemindDataEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,16 +28,17 @@ public class wm5 implements cm5<LiveStartClickDataEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cm5
+    @Override // com.baidu.tieba.dm5
     /* renamed from: a */
-    public boolean onEvent(LiveStartClickDataEvent liveStartClickDataEvent) {
+    public boolean onEvent(LiveRemindDataEvent liveRemindDataEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, liveStartClickDataEvent)) == null) {
-            if (liveStartClickDataEvent == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, liveRemindDataEvent)) == null) {
+            if (liveRemindDataEvent == null) {
                 return false;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921734, liveStartClickDataEvent.viewTag));
+            g45.a().d(liveRemindDataEvent.liveRemindData);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921733));
             return true;
         }
         return invokeL.booleanValue;

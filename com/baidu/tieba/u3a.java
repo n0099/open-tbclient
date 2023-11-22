@@ -10,12 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.NamoaixudEntry;
 /* loaded from: classes8.dex */
 public class u3a extends BaseCardInfo implements oi {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public cd5 a;
+    public NamoaixudEntry a;
 
     static {
         InterceptResult invokeClinit;
@@ -47,13 +48,13 @@ public class u3a extends BaseCardInfo implements oi {
         }
     }
 
-    public cd5 c() {
+    public NamoaixudEntry c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (cd5) invokeV.objValue;
+        return (NamoaixudEntry) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.oi
@@ -66,10 +67,10 @@ public class u3a extends BaseCardInfo implements oi {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void d(cd5 cd5Var) {
+    public void d(NamoaixudEntry namoaixudEntry) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cd5Var) == null) {
-            this.a = cd5Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, namoaixudEntry) == null) {
+            this.a = namoaixudEntry;
         }
     }
 }

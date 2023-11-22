@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.forum.hybrid.manager.WrapListener;
+import android.content.Intent;
 /* loaded from: classes8.dex */
 public interface ti7 {
-    WrapListener[] a();
+    void a(int i, Intent intent);
 
-    si7[] b();
+    Integer[] b();
 }

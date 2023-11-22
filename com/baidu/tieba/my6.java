@@ -27,10 +27,10 @@ public class my6 extends bi<hz4, ThreadCardViewHolder<ThreadData>> {
     public TbPageContext<?> c;
     public boolean d;
     public ui e;
-    public xl6<ThreadData> f;
+    public yl6<ThreadData> f;
 
     /* loaded from: classes7.dex */
-    public class a extends xl6<ThreadData> {
+    public class a extends yl6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ my6 b;
@@ -54,13 +54,13 @@ public class my6 extends bi<hz4, ThreadCardViewHolder<ThreadData>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xl6
+        @Override // com.baidu.tieba.yl6
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                pl6.b().d(true);
-                rw6.a(view2, threadData, this.b.b);
+                ql6.b().d(true);
+                sw6.a(view2, threadData, this.b.b);
             }
         }
     }
@@ -131,9 +131,16 @@ public class my6 extends bi<hz4, ThreadCardViewHolder<ThreadData>> {
         this.b = str;
     }
 
+    public void setFromCDN(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.d = z;
+        }
+    }
+
     public void z(ui uiVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, uiVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, uiVar) == null) {
             this.e = uiVar;
         }
     }
@@ -144,12 +151,9 @@ public class my6 extends bi<hz4, ThreadCardViewHolder<ThreadData>> {
     public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             bu.b bVar = new bu.b(this.c.getPageActivity(), false);
-            qt qtVar = new qt(this.c.getPageActivity());
-            qtVar.setFrom("index");
-            qtVar.u(this.d);
-            bVar.n(qtVar);
+            bVar.n(pt.s(this.c.getPageActivity(), "index", this.d));
             bu k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.e);
             k.t(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
@@ -167,14 +171,15 @@ public class my6 extends bi<hz4, ThreadCardViewHolder<ThreadData>> {
         InterceptResult invokeCommon;
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hz4Var, threadCardViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hz4Var, threadCardViewHolder})) == null) {
             if (hz4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = hz4Var.t) != null) {
                 threadData.statFloor = getPositionByType(i) + 1;
                 threadCardViewHolder.a().s(i);
                 threadCardViewHolder.e(hz4Var.t);
                 threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.a().r(this.f);
-                rw6.b(hz4Var, this.b);
+                sw6.b(hz4Var, this.b);
+                sl6.a(threadCardViewHolder.a().g(), hz4Var.u, hz4Var.v);
                 return threadCardViewHolder.getView();
             }
             return null;

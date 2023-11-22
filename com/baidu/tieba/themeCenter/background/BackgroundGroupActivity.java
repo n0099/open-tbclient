@@ -6,11 +6,11 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
-import com.baidu.tieba.pya;
-import com.baidu.tieba.sxa;
+import com.baidu.tieba.qya;
 import com.baidu.tieba.themeCenter.background.BackgroundGroupModel;
 import com.baidu.tieba.txa;
 import com.baidu.tieba.uxa;
+import com.baidu.tieba.vxa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,8 +23,8 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public BackgroundGroupModel b;
-    public txa c;
-    public uxa d;
+    public uxa c;
+    public vxa d;
     public BackgroundGroupModel.c e;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.pageStayDuration.IPageStayDuration
@@ -59,9 +59,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.c
-        public void a(int i, String str, pya pyaVar, List<sxa> list) {
+        public void a(int i, String str, qya qyaVar, List<txa> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, pyaVar, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, qyaVar, list}) == null) {
                 BackgroundGroupActivity backgroundGroupActivity = this.a;
                 backgroundGroupActivity.hideLoadingView(backgroundGroupActivity.c.d());
                 this.a.c.i();
@@ -70,7 +70,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
                     this.a.c.j();
                     return;
                 }
-                this.a.c.k(pyaVar, list, this.a.b.X());
+                this.a.c.k(qyaVar, list, this.a.b.X());
             }
         }
     }
@@ -124,10 +124,10 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        txa txaVar;
+        uxa uxaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.b != null && (txaVar = this.c) != null) {
-            showLoadingView(txaVar.d());
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.b != null && (uxaVar = this.c) != null) {
+            showLoadingView(uxaVar.d());
             this.b.loadData();
         }
     }
@@ -137,9 +137,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            txa txaVar = this.c;
-            if (txaVar != null) {
-                txaVar.f();
+            uxa uxaVar = this.c;
+            if (uxaVar != null) {
+                uxaVar.f();
             }
         }
     }
@@ -154,12 +154,12 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
             BackgroundGroupModel backgroundGroupModel = new BackgroundGroupModel(this);
             this.b = backgroundGroupModel;
             backgroundGroupModel.a0(this.e);
-            uxa uxaVar = new uxa(this.a, this.b.getUniqueId());
-            this.d = uxaVar;
-            uxaVar.c(1);
-            txa txaVar = new txa(this, this.d);
-            this.c = txaVar;
-            txaVar.e();
+            vxa vxaVar = new vxa(this.a, this.b.getUniqueId());
+            this.d = vxaVar;
+            vxaVar.c(1);
+            uxa uxaVar = new uxa(this, this.d);
+            this.c = uxaVar;
+            uxaVar.e();
             showLoadingView(this.c.d());
             this.b.loadData();
         }

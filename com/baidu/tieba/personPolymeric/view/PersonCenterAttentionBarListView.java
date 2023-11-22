@@ -15,8 +15,8 @@ import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ob;
 import com.baidu.tieba.pb;
-import com.baidu.tieba.r6a;
-import com.baidu.tieba.u6a;
+import com.baidu.tieba.s6a;
+import com.baidu.tieba.v6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public r6a b;
+    public s6a b;
     public TextView c;
     public ListViewPager d;
     public View e;
@@ -185,7 +185,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-                List<u6a> e = this.a.e(i);
+                List<v6a> e = this.a.e(i);
                 if (!ListUtils.isEmpty(e)) {
                     PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(this.a.a);
                     personCommonForumCardView.setForumItemViewBdObjectPool(this.a.g);
@@ -285,18 +285,18 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         f(context);
     }
 
-    public final List<u6a> e(int i) {
+    public final List<v6a> e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            r6a r6aVar = this.b;
-            if (r6aVar != null && !ListUtils.isEmpty(r6aVar.a)) {
+            s6a s6aVar = this.b;
+            if (s6aVar != null && !ListUtils.isEmpty(s6aVar.a)) {
                 ArrayList arrayList = new ArrayList();
                 int i2 = i * 4;
                 for (int i3 = i2; i3 < i2 + 4; i3++) {
-                    u6a u6aVar = (u6a) ListUtils.getItem(this.b.a, i3);
-                    if (u6aVar != null) {
-                        arrayList.add(u6aVar);
+                    v6a v6aVar = (v6a) ListUtils.getItem(this.b.a, i3);
+                    if (v6aVar != null) {
+                        arrayList.add(v6aVar);
                     }
                 }
                 return arrayList;

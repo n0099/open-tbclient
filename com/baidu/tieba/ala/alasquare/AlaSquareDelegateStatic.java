@@ -39,7 +39,7 @@ import com.baidu.tieba.ala.alasquare.special_forum.message.AlaSpecialConcernResp
 import com.baidu.tieba.ala.alasquare.special_forum.message.AlaSpecialRecommendResponse;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListResponseMessage;
 import com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListActivity;
-import com.baidu.tieba.lp7;
+import com.baidu.tieba.mp7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -248,12 +248,12 @@ public class AlaSquareDelegateStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            lp7 lp7Var;
+            mp7 mp7Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof lp7) && (lp7Var = (lp7) customResponsedMessage.getData()) != null && !ListUtils.isEmpty(lp7Var.e())) {
-                for (FrsTabInfo frsTabInfo : lp7Var.e()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof mp7) && (mp7Var = (mp7) customResponsedMessage.getData()) != null && !ListUtils.isEmpty(mp7Var.e())) {
+                for (FrsTabInfo frsTabInfo : mp7Var.e()) {
                     if (frsTabInfo.tab_id.intValue() == 1120) {
-                        AlaSquareDelegateStatic.b(lp7Var);
+                        AlaSquareDelegateStatic.b(mp7Var);
                     }
                 }
             }
@@ -264,7 +264,7 @@ public class AlaSquareDelegateStatic {
     public class f extends FragmentDelegate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lp7 a;
+        public final /* synthetic */ mp7 a;
 
         @Override // com.baidu.tbadk.mainTab.FragmentDelegate
         public TbFragmentTabIndicator getTabIndicator(Context context) {
@@ -286,12 +286,12 @@ public class AlaSquareDelegateStatic {
             return invokeV.booleanValue;
         }
 
-        public f(lp7 lp7Var) {
+        public f(mp7 mp7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lp7Var};
+                Object[] objArr = {mp7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -301,7 +301,7 @@ public class AlaSquareDelegateStatic {
                     return;
                 }
             }
-            this.a = lp7Var;
+            this.a = mp7Var;
         }
 
         @Override // com.baidu.tbadk.mainTab.FragmentDelegate
@@ -422,10 +422,10 @@ public class AlaSquareDelegateStatic {
         }
     }
 
-    public static void b(lp7 lp7Var) {
+    public static void b(mp7 mp7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, lp7Var) == null) && lp7Var != null) {
-            lp7Var.a(new f(lp7Var));
+        if ((interceptable == null || interceptable.invokeL(65539, null, mp7Var) == null) && mp7Var != null) {
+            mp7Var.a(new f(mp7Var));
         }
     }
 

@@ -26,7 +26,7 @@ import com.baidu.tbadk.core.view.CustomPushPremissionDialogView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a05;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.z85;
+import com.baidu.tieba.a95;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -49,7 +49,7 @@ public class DialogUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements View.OnClickListener {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -88,7 +88,7 @@ public class DialogUtil {
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements View.OnClickListener {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int[] a;
@@ -124,7 +124,7 @@ public class DialogUtil {
     }
 
     /* loaded from: classes5.dex */
-    public static class c implements DialogInterface.OnDismissListener {
+    public class c implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -475,7 +475,7 @@ public class DialogUtil {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65554, null, context, i)) == null) {
-            z85 pushStrategyConfig = TbSingleton.getInstance().getPushStrategyConfig();
+            a95 pushStrategyConfig = TbSingleton.getInstance().getPushStrategyConfig();
             if (pushStrategyConfig != null && pushStrategyConfig.d()) {
                 i2 = pushStrategyConfig.b();
             } else {

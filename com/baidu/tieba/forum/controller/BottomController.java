@@ -20,9 +20,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ForumBroadcastHelper;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.aj6;
-import com.baidu.tieba.dj6;
-import com.baidu.tieba.eh7;
+import com.baidu.tieba.ag6;
+import com.baidu.tieba.bj6;
+import com.baidu.tieba.ej6;
+import com.baidu.tieba.fh7;
 import com.baidu.tieba.forum.controller.BottomController;
 import com.baidu.tieba.forum.databinding.ActivityForumBinding;
 import com.baidu.tieba.forum.hybrid.biz.AcitvityHeadJumpBiz;
@@ -37,15 +38,14 @@ import com.baidu.tieba.forum.hybrid.biz.ShowBubbleStateBiz;
 import com.baidu.tieba.forum.hybrid.manager.InteractLayer;
 import com.baidu.tieba.forum.view.BottomWebView;
 import com.baidu.tieba.forum.viewmodel.BottomViewModel;
-import com.baidu.tieba.fqa;
-import com.baidu.tieba.ij6;
-import com.baidu.tieba.ji7;
-import com.baidu.tieba.og7;
-import com.baidu.tieba.sh7;
-import com.baidu.tieba.tg7;
-import com.baidu.tieba.wl7;
+import com.baidu.tieba.gqa;
+import com.baidu.tieba.jj6;
+import com.baidu.tieba.ki7;
+import com.baidu.tieba.pg7;
+import com.baidu.tieba.th7;
+import com.baidu.tieba.ug7;
 import com.baidu.tieba.xl7;
-import com.baidu.tieba.zf6;
+import com.baidu.tieba.yl7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,7 +59,7 @@ import tbclient.FrsPage.BusinessPromot;
 import tbclient.FrsPage.ForumInfo;
 @Metadata(d1 = {"\u0000b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0016\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\n2\u0006\u0010\u0015\u001a\u00020\u0016J\b\u0010\u0017\u001a\u00020\u0018H\u0002J\b\u0010\u0019\u001a\u00020\u0013H\u0002J\b\u0010\u001a\u001a\u00020\u0013H\u0002J\"\u0010\u001b\u001a\u00020\u00132\u0006\u0010\u001c\u001a\u00020\u001d2\u0006\u0010\u001e\u001a\u00020\u001d2\b\u0010\u001f\u001a\u0004\u0018\u00010 H\u0016J\u001a\u0010!\u001a\u00020\u00132\b\u0010\"\u001a\u0004\u0018\u00010#2\u0006\u0010$\u001a\u00020%H\u0016J\b\u0010&\u001a\u00020\u0013H\u0016J\b\u0010'\u001a\u00020\u0013H\u0016J\b\u0010(\u001a\u00020\u0013H\u0002J\u0006\u0010)\u001a\u00020\u0013R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\u000e\u0010\u0007\u001a\u00020\bX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u0016\u0010\u000b\u001a\n \f*\u0004\u0018\u00010\n0\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006*"}, d2 = {"Lcom/baidu/tieba/forum/controller/BottomController;", "Lcom/baidu/tieba/forum/controller/BaseActivityController;", "activity", "Landroidx/fragment/app/FragmentActivity;", "(Landroidx/fragment/app/FragmentActivity;)V", "getActivity", "()Landroidx/fragment/app/FragmentActivity;", "bottomWebView", "Lcom/baidu/tieba/forum/view/BottomWebView;", ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME, "", "host", "kotlin.jvm.PlatformType", "interactLayer", "Lcom/baidu/tieba/forum/hybrid/manager/InteractLayer;", "rootContainer", "Landroid/widget/FrameLayout;", "testUrl", "dispatchJsEvent", "", "eventName", "params", "Lorg/json/JSONObject;", "getRootView", "Landroid/view/ViewGroup;", "initData", "injectBizData", "onActivityResultOK", "requestCode", "", "resultCode", "data", "Landroid/content/Intent;", "onCreate", "savedInstanceState", "Landroid/os/Bundle;", "binding", "Lcom/baidu/tieba/forum/databinding/ActivityForumBinding;", MissionEvent.MESSAGE_DESTROY, "onResume", "registerBiz", "reload", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class BottomController extends og7 {
+public final class BottomController extends pg7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final FragmentActivity b;
@@ -99,7 +99,7 @@ public final class BottomController extends og7 {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, this$0, webView, url)) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             UrlManager urlManager = UrlManager.getInstance();
-            TbPageContext<?> a = xl7.a(this$0.b);
+            TbPageContext<?> a = yl7.a(this$0.b);
             Intrinsics.checkNotNullExpressionValue(url, "url");
             if (urlManager.dealOneLinkWithOutJumpWebView(a, new String[]{url}) != 3) {
                 return true;
@@ -124,9 +124,9 @@ public final class BottomController extends og7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, data)) == null) {
             Intrinsics.checkNotNullParameter(data, "$data");
-            eh7 eh7Var = (eh7) data.getValue();
-            if (eh7Var != null) {
-                return sh7.a(eh7Var);
+            fh7 fh7Var = (fh7) data.getValue();
+            if (fh7Var != null) {
+                return th7.a(fh7Var);
             }
             return null;
         }
@@ -145,22 +145,22 @@ public final class BottomController extends og7 {
         return invokeI.objValue;
     }
 
-    public static final void t(BottomController this$0, eh7 eh7Var) {
+    public static final void t(BottomController this$0, fh7 fh7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, this$0, eh7Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(65539, null, this$0, fh7Var) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            if (eh7Var != null) {
+            if (fh7Var != null) {
                 PrintStream printStream = System.out;
                 printStream.println("通知H5渲染数据 -> " + System.currentTimeMillis());
-                this$0.h.e(eh7Var);
-                aj6 a = dj6.a();
+                this$0.h.e(fh7Var);
+                bj6 a = ej6.a();
                 BottomWebView bottomWebView = this$0.f;
                 if (bottomWebView == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("bottomWebView");
                     bottomWebView = null;
                 }
                 a.i(bottomWebView, "frsPageNa.frsPageRes", new JSONObject());
-                tg7.j(this$0.b).q();
+                ug7.j(this$0.b).q();
             }
         }
     }
@@ -169,7 +169,7 @@ public final class BottomController extends og7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return Integer.valueOf(wl7.a());
+            return Integer.valueOf(xl7.a());
         }
         return invokeV.objValue;
     }
@@ -186,7 +186,7 @@ public final class BottomController extends og7 {
         }
     }
 
-    @Override // com.baidu.tieba.og7
+    @Override // com.baidu.tieba.pg7
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -195,12 +195,12 @@ public final class BottomController extends og7 {
         }
     }
 
-    @Override // com.baidu.tieba.og7
+    @Override // com.baidu.tieba.pg7
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.n();
-            aj6 a = dj6.a();
+            bj6 a = ej6.a();
             BottomWebView bottomWebView = this.f;
             if (bottomWebView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("bottomWebView");
@@ -227,7 +227,7 @@ public final class BottomController extends og7 {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ((BottomViewModel) new ViewModelProvider(this.b).get(BottomViewModel.class)).a().observe(this.b, new Observer() { // from class: com.baidu.tieba.xf7
+            ((BottomViewModel) new ViewModelProvider(this.b).get(BottomViewModel.class)).a().observe(this.b, new Observer() { // from class: com.baidu.tieba.yf7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -235,7 +235,7 @@ public final class BottomController extends og7 {
                 public final void onChanged(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                        BottomController.t(BottomController.this, (eh7) obj);
+                        BottomController.t(BottomController.this, (fh7) obj);
                     }
                 }
             });
@@ -252,21 +252,21 @@ public final class BottomController extends og7 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, data, this$0)) == null) {
             Intrinsics.checkNotNullParameter(data, "$data");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            fqa fqaVar = new fqa();
-            eh7 eh7Var = (eh7) data.getValue();
+            gqa gqaVar = new gqa();
+            fh7 fh7Var = (fh7) data.getValue();
             Long l = null;
-            if (eh7Var != null) {
-                businessPromot = eh7Var.c();
+            if (fh7Var != null) {
+                businessPromot = fh7Var.c();
             } else {
                 businessPromot = null;
             }
-            fqaVar.t(businessPromot);
-            if (!tg7.b(this$0.b).y() && !tg7.b(this$0.b).M0()) {
-                eh7 eh7Var2 = (eh7) data.getValue();
-                if (eh7Var2 != null && (e = eh7Var2.e()) != null) {
+            gqaVar.t(businessPromot);
+            if (!ug7.b(this$0.b).y() && !ug7.b(this$0.b).M0()) {
+                fh7 fh7Var2 = (fh7) data.getValue();
+                if (fh7Var2 != null && (e = fh7Var2.e()) != null) {
                     l = e.id;
                 }
-                if (!ji7.e(fqaVar, String.valueOf(l))) {
+                if (!ki7.e(gqaVar, String.valueOf(l))) {
                     i = 0;
                     return Integer.valueOf(i);
                 }
@@ -366,7 +366,7 @@ public final class BottomController extends og7 {
         }
     }
 
-    @Override // com.baidu.tieba.og7
+    @Override // com.baidu.tieba.pg7
     public void g(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
@@ -374,7 +374,7 @@ public final class BottomController extends og7 {
         }
     }
 
-    @Override // com.baidu.tieba.og7
+    @Override // com.baidu.tieba.pg7
     public void k(Bundle bundle, ActivityForumBinding binding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, bundle, binding) == null) {
@@ -433,11 +433,11 @@ public final class BottomController extends og7 {
             } else {
                 bottomWebView3 = bottomWebView7;
             }
-            bottomWebView3.setOnLoadUrlListener(new ij6() { // from class: com.baidu.tieba.rf7
+            bottomWebView3.setOnLoadUrlListener(new jj6() { // from class: com.baidu.tieba.sf7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.ij6
+                @Override // com.baidu.tieba.jj6
                 public final boolean shouldOverrideUrlLoading(WebView webView, String str) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
@@ -452,7 +452,7 @@ public final class BottomController extends og7 {
         if (interceptable == null || interceptable.invokeLL(1048582, this, eventName, params) == null) {
             Intrinsics.checkNotNullParameter(eventName, "eventName");
             Intrinsics.checkNotNullParameter(params, "params");
-            aj6 a = dj6.a();
+            bj6 a = ej6.a();
             BottomWebView bottomWebView = this.f;
             if (bottomWebView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("bottomWebView");
@@ -465,18 +465,18 @@ public final class BottomController extends og7 {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            final MutableLiveData<eh7> a = ((BottomViewModel) new ViewModelProvider(this.b).get(BottomViewModel.class)).a();
+            final MutableLiveData<fh7> a = ((BottomViewModel) new ViewModelProvider(this.b).get(BottomViewModel.class)).a();
             BottomWebView bottomWebView = this.f;
             BottomWebView bottomWebView2 = null;
             if (bottomWebView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("bottomWebView");
                 bottomWebView = null;
             }
-            bottomWebView.I(ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME, new zf6() { // from class: com.baidu.tieba.nf7
+            bottomWebView.I(ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME, new ag6() { // from class: com.baidu.tieba.of7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.zf6, java.util.concurrent.Callable
+                @Override // com.baidu.tieba.ag6, java.util.concurrent.Callable
                 public final Object call() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -488,11 +488,11 @@ public final class BottomController extends og7 {
                 Intrinsics.throwUninitializedPropertyAccessException("bottomWebView");
                 bottomWebView3 = null;
             }
-            bottomWebView3.I("frsPageRes", new zf6() { // from class: com.baidu.tieba.jf7
+            bottomWebView3.I("frsPageRes", new ag6() { // from class: com.baidu.tieba.kf7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.zf6, java.util.concurrent.Callable
+                @Override // com.baidu.tieba.ag6, java.util.concurrent.Callable
                 public final Object call() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -504,11 +504,11 @@ public final class BottomController extends og7 {
                 Intrinsics.throwUninitializedPropertyAccessException("bottomWebView");
                 bottomWebView4 = null;
             }
-            bottomWebView4.I("networkStatus", new zf6() { // from class: com.baidu.tieba.df7
+            bottomWebView4.I("networkStatus", new ag6() { // from class: com.baidu.tieba.ef7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.zf6, java.util.concurrent.Callable
+                @Override // com.baidu.tieba.ag6, java.util.concurrent.Callable
                 public final Object call() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -521,11 +521,11 @@ public final class BottomController extends og7 {
                 Intrinsics.throwUninitializedPropertyAccessException("bottomWebView");
                 bottomWebView5 = null;
             }
-            bottomWebView5.I("videoAutoPlay", new zf6() { // from class: com.baidu.tieba.hg7
+            bottomWebView5.I("videoAutoPlay", new ag6() { // from class: com.baidu.tieba.ig7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.zf6, java.util.concurrent.Callable
+                @Override // com.baidu.tieba.ag6, java.util.concurrent.Callable
                 public final Object call() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -538,11 +538,11 @@ public final class BottomController extends og7 {
             } else {
                 bottomWebView2 = bottomWebView6;
             }
-            bottomWebView2.I("bannerPrompt", new zf6() { // from class: com.baidu.tieba.cg7
+            bottomWebView2.I("bannerPrompt", new ag6() { // from class: com.baidu.tieba.dg7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.zf6, java.util.concurrent.Callable
+                @Override // com.baidu.tieba.ag6, java.util.concurrent.Callable
                 public final Object call() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;

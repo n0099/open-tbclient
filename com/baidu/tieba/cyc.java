@@ -1,30 +1,28 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.core.graphics.drawable.IconCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.Zhibo;
+import tbclient.FrsPage.Yule;
+import tbclient.FrsPage.YuleActivity;
 /* loaded from: classes5.dex */
-public class cyc extends poc {
+public class cyc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Zhibo zhibo) {
+    public static JSONObject b(@NonNull Yule yule) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, zhibo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, yule)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "forum", zhibo.forum);
-            poc.a(jSONObject, "tid", zhibo.tid);
-            poc.a(jSONObject, "status", zhibo.status);
-            poc.a(jSONObject, "type", zhibo.type);
-            poc.a(jSONObject, IconCompat.EXTRA_INT1, zhibo.int1);
-            poc.a(jSONObject, "has_lpost", zhibo.has_lpost);
-            poc.a(jSONObject, "lpost_type", zhibo.lpost_type);
+            YuleActivity yuleActivity = yule.yule_activity;
+            if (yuleActivity != null) {
+                qoc.a(jSONObject, "yule_activity", byc.b(yuleActivity));
+            }
+            qoc.a(jSONObject, "activity_show", yule.activity_show);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

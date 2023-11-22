@@ -1,28 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.activity.LegoListFragment;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface qc9<T extends ICardInfo> {
-    void b();
+public class qc9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void d();
+    public static pc9 a(TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) {
+            if (tbPageContext != null && (tbPageContext.getPageActivity() instanceof fb9)) {
+                return ((fb9) tbPageContext.getPageActivity()).R();
+            }
+            return null;
+        }
+        return (pc9) invokeL.objValue;
+    }
 
-    void f();
+    public static LegoListFragment b(TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbPageContext)) == null) {
+            if (tbPageContext != null && (tbPageContext.getPageActivity() instanceof fb9)) {
+                return ((fb9) tbPageContext.getPageActivity()).c0();
+            }
+            return null;
+        }
+        return (LegoListFragment) invokeL.objValue;
+    }
 
-    void g(BdUniqueId bdUniqueId);
-
-    void h(Object obj);
-
-    void i();
-
-    void setAfterClickSchemeListener(vb9 vb9Var);
-
-    void setBusinessType(int i);
-
-    void setFromCDN(boolean z);
-
-    void setMulDel(boolean z);
-
-    void setPosition(int i);
+    public static uc9 c(TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tbPageContext)) == null) {
+            if (tbPageContext != null && (tbPageContext.getPageActivity() instanceof fb9)) {
+                return ((fb9) tbPageContext.getPageActivity()).V0();
+            }
+            return null;
+        }
+        return (uc9) invokeL.objValue;
+    }
 }

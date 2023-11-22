@@ -1,7 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes9.dex */
 public interface zq7 {
-    void J0();
-
-    void O1();
+    NavigationBar u();
 }

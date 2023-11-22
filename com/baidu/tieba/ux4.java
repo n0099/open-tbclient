@@ -63,7 +63,7 @@ public class ux4 extends BaseCardInfo {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ICardInfo i = wb9.i(this.b);
+            ICardInfo i = xb9.i(this.b);
             this.c = i;
             if (i != null) {
                 z = true;

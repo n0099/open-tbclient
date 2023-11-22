@@ -14,16 +14,16 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l85;
+import com.baidu.tieba.m85;
 import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
-import com.baidu.tieba.sk9;
 import com.baidu.tieba.tk9;
-import com.baidu.tieba.uj9;
-import com.baidu.tieba.xd5;
-import com.baidu.tieba.xj9;
+import com.baidu.tieba.uk9;
+import com.baidu.tieba.vj9;
 import com.baidu.tieba.yd5;
 import com.baidu.tieba.yj9;
+import com.baidu.tieba.zd5;
+import com.baidu.tieba.zj9;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,19 +34,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TailEditActivity extends BaseActivity<TailEditActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xj9 a;
-    public yj9 b;
+    public yj9 a;
+    public zj9 b;
     public View c;
-    public sk9<Integer> d;
-    public sk9<Integer> e;
+    public tk9<Integer> d;
+    public tk9<Integer> e;
     public View.OnClickListener f;
     public View.OnClickListener g;
     public View.OnTouchListener h;
     public TextWatcher i;
-    public yd5 j;
+    public zd5 j;
 
     /* loaded from: classes7.dex */
-    public class a implements sk9<Integer> {
+    public class a implements tk9<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailEditActivity a;
@@ -70,7 +70,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sk9
+        @Override // com.baidu.tieba.tk9
         /* renamed from: b */
         public void a(boolean z, String str, Integer num) {
             Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements sk9<Integer> {
+    public class b implements tk9<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailEditActivity a;
@@ -105,7 +105,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sk9
+        @Override // com.baidu.tieba.tk9
         /* renamed from: b */
         public void a(boolean z, String str, Integer num) {
             Interceptable interceptable = $ic;
@@ -281,7 +281,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     }
 
     /* loaded from: classes7.dex */
-    public class g implements yd5 {
+    public class g implements zd5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailEditActivity a;
@@ -304,13 +304,13 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             this.a = tailEditActivity;
         }
 
-        @Override // com.baidu.tieba.yd5
-        public void S(xd5 xd5Var) {
+        @Override // com.baidu.tieba.zd5
+        public void S(yd5 yd5Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, xd5Var) != null) || xd5Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, yd5Var) != null) || yd5Var == null) {
                 return;
             }
-            int i = xd5Var.a;
+            int i = yd5Var.a;
             if (i != 24) {
                 if (i != 26) {
                     if (i == 3) {
@@ -319,10 +319,10 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                     }
                     return;
                 }
-                this.a.U0(xd5Var.c);
+                this.a.U0(yd5Var.c);
                 return;
             }
-            this.a.T0(xd5Var.c);
+            this.a.T0(yd5Var.c);
         }
     }
 
@@ -479,11 +479,11 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
             this.a.i().setContent(this.b.g());
-            xj9 xj9Var = this.a;
-            if (xj9Var.l(xj9Var.e(xj9Var.i().getContent()))) {
+            yj9 yj9Var = this.a;
+            if (yj9Var.l(yj9Var.e(yj9Var.i().getContent()))) {
                 showToast(R.string.over_limit_tip);
-            } else if (obj != null && (obj instanceof l85)) {
-                new tk9().b(this, this.b.h(), (l85) obj);
+            } else if (obj != null && (obj instanceof m85)) {
+                new uk9().b(this, this.b.h(), (m85) obj);
             }
         }
     }
@@ -496,8 +496,8 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             setContentView(R.layout.obfuscated_res_0x7f0d097b);
             setActivityBgTransparent();
             setSwipeBackEnabled(false);
-            this.b = new yj9(this, this.f, this.g);
-            this.a = new xj9(getPageContext());
+            this.b = new zj9(this, this.f, this.g);
+            this.a = new yj9(getPageContext());
             this.c = findViewById(R.id.obfuscated_res_0x7f092488);
             a1();
             b1();
@@ -559,9 +559,9 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                 tailData.setId(num.intValue());
                 tailData.setContent(this.a.i().getContent());
                 tailData.setFontColor(this.a.g());
-                uj9 uj9Var = new uj9(1, tailData);
+                vj9 vj9Var = new vj9(1, tailData);
                 if (!z) {
-                    uj9Var.a = 2;
+                    vj9Var.a = 2;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001348, null));
                 Intent intent = new Intent();
@@ -570,7 +570,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                 intent.putExtra("tailContent", tailData.getContent());
                 setResult(-1, intent);
                 finish();
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001340, uj9Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001340, vj9Var));
             }
         }
     }

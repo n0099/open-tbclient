@@ -7,18 +7,18 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.l47;
-import com.baidu.tieba.sa7;
-import com.baidu.tieba.t27;
+import com.baidu.tieba.m47;
+import com.baidu.tieba.ta7;
+import com.baidu.tieba.u27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class CardPlayVoiceView extends LinearLayout implements sa7 {
+public class CardPlayVoiceView extends LinearLayout implements ta7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final t27.m a;
+    public final u27.m a;
     public ViewGroup b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -39,7 +39,7 @@ public class CardPlayVoiceView extends LinearLayout implements sa7 {
                 return;
             }
         }
-        this.a = t27.a().j();
+        this.a = u27.a().j();
         a(context);
     }
 
@@ -62,7 +62,7 @@ public class CardPlayVoiceView extends LinearLayout implements sa7 {
                 return;
             }
         }
-        this.a = t27.a().j();
+        this.a = u27.a().j();
         a(context);
     }
 
@@ -85,7 +85,7 @@ public class CardPlayVoiceView extends LinearLayout implements sa7 {
                 return;
             }
         }
-        this.a = t27.a().j();
+        this.a = u27.a().j();
         a(context);
     }
 
@@ -98,14 +98,14 @@ public class CardPlayVoiceView extends LinearLayout implements sa7 {
         }
     }
 
-    public void b(@NonNull l47 l47Var) {
+    public void b(@NonNull m47 m47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l47Var) == null) {
-            this.a.a(this.b, l47Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m47Var) == null) {
+            this.a.a(this.b, m47Var);
         }
     }
 
-    @Override // com.baidu.tieba.sa7
+    @Override // com.baidu.tieba.ta7
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {

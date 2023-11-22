@@ -8,9 +8,9 @@ import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.ar6;
-import com.baidu.tieba.js5;
-import com.baidu.tieba.q58;
+import com.baidu.tieba.br6;
+import com.baidu.tieba.ks5;
+import com.baidu.tieba.r58;
 /* loaded from: classes4.dex */
 public class InitBearTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -32,16 +32,16 @@ public class InitBearTask extends LaunchTask {
         if (!TbadkCoreApplication.getInst().isMainProcess(false) || !PermissionUtil.isAgreePrivacyPolicy()) {
             return;
         }
-        boolean p = js5.p();
+        boolean p = ks5.p();
         SpeedStatsManager.getInstance().setIsNeedBear(p);
-        SpeedStatsManager.getInstance().setIsNeedPlg(js5.v());
+        SpeedStatsManager.getInstance().setIsNeedPlg(ks5.v());
         if (p) {
-            q58.m().u(new q58.k() { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
-                @Override // com.baidu.tieba.q58.k
+            r58.m().u(new r58.k() { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
+                @Override // com.baidu.tieba.r58.k
                 public void initComplete() {
                     if (PermissionUtil.isAgreePrivacyPolicy()) {
                         if (BdUtilHelper.isMainThread()) {
-                            ar6.a(new Runnable() { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1.1
+                            br6.a(new Runnable() { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_PRELOAD_BEAR_START_STAMP_KEY);

@@ -4,28 +4,21 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.AbstractComponent;
-import tbclient.FeedContentResource;
+import tbclient.AbilityConf;
 /* loaded from: classes8.dex */
-public class roc extends poc {
+public class roc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull AbstractComponent abstractComponent) {
+    public static JSONObject b(@NonNull AbilityConf abilityConf) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, abstractComponent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, abilityConf)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (abstractComponent.data != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (FeedContentResource feedContentResource : abstractComponent.data) {
-                    jSONArray.put(fsc.b(feedContentResource));
-                }
-                poc.a(jSONObject, "data", jSONArray);
-            }
+            qoc.a(jSONObject, "bot_uk", abilityConf.bot_uk);
+            qoc.a(jSONObject, "skill_id", abilityConf.skill_id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

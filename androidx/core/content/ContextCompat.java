@@ -77,6 +77,7 @@ import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.tieba.nfc;
 import java.io.File;
 import java.util.HashMap;
 import java.util.concurrent.Executor;
@@ -140,7 +141,7 @@ public class ContextCompat {
             SERVICES.put(KeyguardManager.class, "keyguard");
             SERVICES.put(LayoutInflater.class, "layout_inflater");
             SERVICES.put(LocationManager.class, "location");
-            SERVICES.put(NfcManager.class, "nfc");
+            SERVICES.put(NfcManager.class, nfc.a);
             SERVICES.put(NotificationManager.class, "notification");
             SERVICES.put(PowerManager.class, "power");
             SERVICES.put(SearchManager.class, "search");

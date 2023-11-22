@@ -55,13 +55,13 @@ import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n9b;
+import com.baidu.tieba.adb;
+import com.baidu.tieba.o9b;
 import com.baidu.tieba.qd;
 import com.baidu.tieba.si;
-import com.baidu.tieba.u9b;
+import com.baidu.tieba.v9b;
 import com.baidu.tieba.write.write.AtSelectFriendList;
-import com.baidu.tieba.yp5;
-import com.baidu.tieba.zcb;
+import com.baidu.tieba.zp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,7 +71,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
 /* loaded from: classes8.dex */
-public class AtListActivity extends SuspendedActivity implements yp5, AdapterView.OnItemClickListener, zcb.c {
+public class AtListActivity extends SuspendedActivity implements zp5, AdapterView.OnItemClickListener, adb.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View A;
@@ -118,12 +118,12 @@ public class AtListActivity extends SuspendedActivity implements yp5, AdapterVie
     public LinearLayout t;
     public Button u;
     public l v;
-    public u9b w;
-    public zcb x;
+    public v9b w;
+    public adb x;
     public String y;
     public RelativeLayout z;
 
-    @Override // com.baidu.tieba.yp5
+    @Override // com.baidu.tieba.zp5
     public void D(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
@@ -138,12 +138,12 @@ public class AtListActivity extends SuspendedActivity implements yp5, AdapterVie
 
         /* renamed from: com.baidu.tieba.write.write.AtListActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class View$OnClickListenerC0522a implements View.OnClickListener {
+        public class View$OnClickListenerC0521a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0522a(a aVar) {
+            public View$OnClickListenerC0521a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -199,7 +199,7 @@ public class AtListActivity extends SuspendedActivity implements yp5, AdapterVie
                 this.a.C.setVisibility(8);
                 if (this.a.e == null) {
                     AtListActivity atListActivity = this.a;
-                    atListActivity.e = atListActivity.m.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0598), new View$OnClickListenerC0522a(this));
+                    atListActivity.e = atListActivity.m.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0598), new View$OnClickListenerC0521a(this));
                 }
             }
         }
@@ -629,7 +629,7 @@ public class AtListActivity extends SuspendedActivity implements yp5, AdapterVie
     }
 
     /* loaded from: classes8.dex */
-    public class l extends BdAsyncTask<String, Integer, n9b> {
+    public class l extends BdAsyncTask<String, Integer, o9b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -661,7 +661,7 @@ public class AtListActivity extends SuspendedActivity implements yp5, AdapterVie
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public n9b doInBackground(String... strArr) {
+        public o9b doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
@@ -706,21 +706,21 @@ public class AtListActivity extends SuspendedActivity implements yp5, AdapterVie
                 }
                 String postNetData = this.a.postNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    n9b n9bVar = new n9b();
-                    n9bVar.d(postNetData);
-                    return n9bVar;
+                    o9b o9bVar = new o9b();
+                    o9bVar.d(postNetData);
+                    return o9bVar;
                 }
                 return null;
             }
-            return (n9b) invokeL.objValue;
+            return (o9b) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(n9b n9bVar) {
+        public void onPostExecute(o9b o9bVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n9bVar) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o9bVar) == null) {
                 this.b.v = null;
                 AtListActivity atListActivity = this.b;
                 atListActivity.hideNetRefreshView(atListActivity.I);
@@ -728,14 +728,14 @@ public class AtListActivity extends SuspendedActivity implements yp5, AdapterVie
                     this.b.A.setVisibility(0);
                 }
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    this.b.w.b(n9bVar);
+                    this.b.w.b(o9bVar);
                     if (this.b.x == null) {
                         return;
                     }
-                    if (n9bVar != null) {
+                    if (o9bVar != null) {
                         AtListActivity atListActivity2 = this.b;
-                        atListActivity2.k = atListActivity2.J2(n9bVar);
-                        this.b.l = n9bVar.b();
+                        atListActivity2.k = atListActivity2.J2(o9bVar);
+                        this.b.l = o9bVar.b();
                     }
                     this.b.x.h(this.b.k);
                     this.b.x.notifyDataSetInvalidated();
@@ -745,7 +745,7 @@ public class AtListActivity extends SuspendedActivity implements yp5, AdapterVie
                     AtListActivity atListActivity3 = this.b;
                     atListActivity3.showNetRefreshView(atListActivity3.I, this.b.getString(R.string.refresh_view_title_text), null, this.b.getString(R.string.refresh_view_button_text), true, this.b.getNetRefreshListener());
                 }
-                super.onPostExecute(n9bVar);
+                super.onPostExecute(o9bVar);
             }
         }
 
@@ -893,7 +893,7 @@ public class AtListActivity extends SuspendedActivity implements yp5, AdapterVie
         }
     }
 
-    @Override // com.baidu.tieba.zcb.c
+    @Override // com.baidu.tieba.adb.c
     public void I0(View view2, MetaData metaData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, metaData) != null) || metaData == null) {
@@ -903,7 +903,7 @@ public class AtListActivity extends SuspendedActivity implements yp5, AdapterVie
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public yp5 n1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public zp5 n1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, linearLayout, navigationBar)) == null) {
@@ -912,7 +912,7 @@ public class AtListActivity extends SuspendedActivity implements yp5, AdapterVie
             LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0130, (ViewGroup) this.p, true);
             return this;
         }
-        return (yp5) invokeLL.objValue;
+        return (zp5) invokeLL.objValue;
     }
 
     private void t1() {
@@ -967,7 +967,7 @@ public class AtListActivity extends SuspendedActivity implements yp5, AdapterVie
         return (MetaData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yp5
+    @Override // com.baidu.tieba.zp5
     public boolean Q() {
         InterceptResult invokeV;
         View childAt;
@@ -982,7 +982,7 @@ public class AtListActivity extends SuspendedActivity implements yp5, AdapterVie
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yp5
+    @Override // com.baidu.tieba.zp5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1089,7 +1089,7 @@ public class AtListActivity extends SuspendedActivity implements yp5, AdapterVie
     public final void F2(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            this.w = new u9b();
+            this.w = new v9b();
             if (bundle != null) {
                 this.J = bundle.getBoolean(IntentConfig.IS_NEED_MULTIPLE);
                 this.K = bundle.getBoolean(AtListActivityConfig.IS_FOR_CHAT, false);
@@ -1139,9 +1139,9 @@ public class AtListActivity extends SuspendedActivity implements yp5, AdapterVie
             this.q = (LinearLayout) findViewById(R.id.bt_search_left);
             this.I = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0907db);
             this.r = (BdListView) findViewById(R.id.obfuscated_res_0x7f091596);
-            zcb zcbVar = new zcb(this, this.J);
-            this.x = zcbVar;
-            zcbVar.i(this);
+            adb adbVar = new adb(this, this.J);
+            this.x = adbVar;
+            adbVar.i(this);
             this.x.g(new e(this));
             this.r.setAdapter((ListAdapter) this.x);
             this.r.setOnItemClickListener(this);
@@ -1186,7 +1186,7 @@ public class AtListActivity extends SuspendedActivity implements yp5, AdapterVie
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yp5
+    @Override // com.baidu.tieba.zp5
     public boolean s1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1205,14 +1205,14 @@ public class AtListActivity extends SuspendedActivity implements yp5, AdapterVie
         return invokeV.booleanValue;
     }
 
-    public final ArrayList<MetaData> J2(@NonNull n9b n9bVar) {
+    public final ArrayList<MetaData> J2(@NonNull o9b o9bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, n9bVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, o9bVar)) == null) {
             ArrayList<MetaData> arrayList = new ArrayList<>();
-            if (!ListUtils.isEmpty(n9bVar.c()) && !ListUtils.isEmpty(n9bVar.a())) {
-                ArrayList<MetaData> a2 = n9bVar.a();
-                ArrayList<MetaData> c2 = n9bVar.c();
+            if (!ListUtils.isEmpty(o9bVar.c()) && !ListUtils.isEmpty(o9bVar.a())) {
+                ArrayList<MetaData> a2 = o9bVar.a();
+                ArrayList<MetaData> c2 = o9bVar.c();
                 if (I2()) {
                     arrayList.add(D2());
                 }
@@ -1221,11 +1221,11 @@ public class AtListActivity extends SuspendedActivity implements yp5, AdapterVie
                 }
                 arrayList.addAll(c2);
             } else {
-                if (!ListUtils.isEmpty(n9bVar.c())) {
+                if (!ListUtils.isEmpty(o9bVar.c())) {
                     if (I2()) {
                         arrayList.add(D2());
                     }
-                    arrayList.addAll(n9bVar.c());
+                    arrayList.addAll(o9bVar.c());
                 }
                 return arrayList;
             }

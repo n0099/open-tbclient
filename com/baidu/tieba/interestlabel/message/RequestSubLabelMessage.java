@@ -22,7 +22,7 @@ public class RequestSubLabelMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1122common;
+    public CommonReq f1121common;
     public List<Integer> labelList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -50,7 +50,7 @@ public class RequestSubLabelMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1493common = this.f1122common;
+            builder.f1493common = this.f1121common;
             builder.arr_tag_id = this.labelList;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
                 NetMessageHelper.bindCommonParamsToProtobufData(builder, true);
@@ -65,7 +65,7 @@ public class RequestSubLabelMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f1122common = commonReq;
+            this.f1121common = commonReq;
         }
     }
 

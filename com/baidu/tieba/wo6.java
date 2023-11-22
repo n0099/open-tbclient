@@ -1,13 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
+import tbclient.Userlike.UserFollowLive;
 /* loaded from: classes8.dex */
-public class wo6 implements i87<Object> {
+public class wo6 implements j87<Message> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,18 +27,23 @@ public class wo6 implements i87<Object> {
         }
     }
 
-    @Override // com.baidu.tieba.i87
-    public za7<?> b(Object obj) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.j87
+    /* renamed from: a */
+    public ab7<?> b(Message message) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (!(obj instanceof ThreadData)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+            if (!(message instanceof UserFollowLive)) {
                 return null;
             }
-            c77 c77Var = new c77();
-            c77Var.a = obj;
-            return new ab7(new s27(c77Var), "fake_wall");
+            h98 h98Var = new h98();
+            h98Var.d((UserFollowLive) message);
+            cm6 cm6Var = new cm6(null, h98Var.c(), ImageViewerConfig.FROM_CONCERN);
+            d77 d77Var = new d77();
+            d77Var.a = cm6Var;
+            return new bb7(new t27(d77Var), "ala_live_attention");
         }
-        return (za7) invokeL.objValue;
+        return (ab7) invokeL.objValue;
     }
 }

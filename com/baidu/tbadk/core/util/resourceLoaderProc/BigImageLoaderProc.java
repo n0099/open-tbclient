@@ -21,10 +21,10 @@ import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gt5;
+import com.baidu.tieba.ht5;
 import com.baidu.tieba.j7;
-import com.baidu.tieba.jt5;
 import com.baidu.tieba.kd;
+import com.baidu.tieba.kt5;
 import com.baidu.tieba.mb;
 import com.baidu.tieba.n7;
 import com.baidu.tieba.rb;
@@ -216,7 +216,7 @@ public class BigImageLoaderProc implements sb<BdImage> {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str != null && gt5.a(str)) {
+            if (str != null && ht5.a(str)) {
                 String[] split2 = str.split("/");
                 if (split2.length > 3) {
                     try {
@@ -243,7 +243,7 @@ public class BigImageLoaderProc implements sb<BdImage> {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (str != null && gt5.a(str)) {
+            if (str != null && ht5.a(str)) {
                 int lastIndexOf = str.lastIndexOf("/");
                 int lastIndexOf2 = str.lastIndexOf(".");
                 int lastIndexOf3 = str.lastIndexOf(".jpg");
@@ -380,8 +380,8 @@ public class BigImageLoaderProc implements sb<BdImage> {
             } else {
                 str3 = TbConfig.IMAGE_ADDRESS + ((str + "&imgtype=0") + "&qulity=" + TbImageHelper.getInstance().getUrlQuality());
             }
-            jt5.e(booleanValue, str3, str);
-            Pair<Boolean, String> d = jt5.d(str3);
+            kt5.e(booleanValue, str3, str);
+            Pair<Boolean, String> d = kt5.d(str3);
             if (((Boolean) d.first).booleanValue()) {
                 str4 = (String) d.second;
                 z = true;
@@ -412,7 +412,7 @@ public class BigImageLoaderProc implements sb<BdImage> {
             if (webClient.IsRequestSuccess() || webClient.responseCode == 302) {
                 bitmap = BitmapHelper.Bytes2Bitmap(downloadImageBytes);
                 if (z && bitmap == null) {
-                    jt5.b(str4);
+                    kt5.b(str4);
                     downloadImageBytes = webClient.downloadImageBytes(str3, !booleanValue);
                     needCache = webClient.needCache();
                     if (downloadImageBytes != null && webClient.IsRequestSuccess()) {

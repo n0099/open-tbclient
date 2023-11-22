@@ -16,14 +16,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bp8;
 import com.baidu.tieba.cp8;
+import com.baidu.tieba.dp8;
 import com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseImageMsg;
 import com.baidu.tieba.im.under.common.uiliststyle.group.item.BaseImageItem;
-import com.baidu.tieba.yv8;
+import com.baidu.tieba.zv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ import java.util.List;
 public class ImageAdapter extends BaseStyleNormalAdapter<BaseImageItem<TbBaseImageMsg>, Holder, BaseNormalAdapter.NonExtraHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bp8 m;
+    public cp8 m;
     public String n;
 
     /* loaded from: classes6.dex */
@@ -122,8 +122,8 @@ public class ImageAdapter extends BaseStyleNormalAdapter<BaseImageItem<TbBaseIma
                 }
                 TbBaseImageMsg tbBaseImageMsg = (TbBaseImageMsg) this.a.getTbMsg();
                 long sessionId = tbBaseImageMsg.getSessionId();
-                long a = yv8.a(tbBaseImageMsg);
-                this.b.m = new bp8(this.b.mContext, this.b.n, a, null, sessionId, false);
+                long a = zv8.a(tbBaseImageMsg);
+                this.b.m = new cp8(this.b.mContext, this.b.n, a, null, sessionId, false);
                 this.b.m.execute(new String[0]);
             }
         }
@@ -162,7 +162,7 @@ public class ImageAdapter extends BaseStyleNormalAdapter<BaseImageItem<TbBaseIma
                 } else {
                     chatImageWithTailView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 }
-                tbBaseImageMsg.setThumbSize(cp8.d(chatImageWithTailView, thumbUrl, n0.second, R.drawable.icon_pic_im_image_default));
+                tbBaseImageMsg.setThumbSize(dp8.d(chatImageWithTailView, thumbUrl, n0.second, R.drawable.icon_pic_im_image_default));
             }
         }
     }

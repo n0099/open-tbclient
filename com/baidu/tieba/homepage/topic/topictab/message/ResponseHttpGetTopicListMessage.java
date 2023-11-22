@@ -5,9 +5,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.mh8;
-import com.baidu.tieba.oh8;
+import com.baidu.tieba.nh8;
 import com.baidu.tieba.oi;
+import com.baidu.tieba.ph8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,16 +68,16 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
             int i2 = 1;
             for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
                 if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
-                    mh8 mh8Var = new mh8();
-                    mh8Var.R = i2;
-                    mh8Var.H(newTopicList);
-                    this.mTopicDataList.add(mh8Var);
-                    this.mTopicDataList.add(new oh8());
+                    nh8 nh8Var = new nh8();
+                    nh8Var.R = i2;
+                    nh8Var.H(newTopicList);
+                    this.mTopicDataList.add(nh8Var);
+                    this.mTopicDataList.add(new ph8());
                     i2++;
                 }
             }
             List<oi> list = this.mTopicDataList;
-            ((oh8) ListUtils.getItem(list, list.size() - 1)).a = 0;
+            ((ph8) ListUtils.getItem(list, list.size() - 1)).a = 0;
         }
     }
 }

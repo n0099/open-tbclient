@@ -40,18 +40,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
 /* loaded from: classes7.dex */
-public class ms4 implements cj6 {
+public class ms4 implements dj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        bj6.a(this, webView, str, jSONObject);
+        cj6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public /* synthetic */ void onDestroy() {
-        bj6.b(this);
+        cj6.b(this);
     }
 
     public ms4() {
@@ -71,7 +71,7 @@ public class ms4 implements cj6 {
     public static /* synthetic */ void l(WebView webView) {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(CommonTbJsBridge.DEVICE_DISPLAY_REFRESH, Float.valueOf(RefreshRateManager.getInstance().getRefreshRate()));
-        dj6.a().d(webView, "deviceRefreshRate", hashMap);
+        ej6.a().d(webView, "deviceRefreshRate", hashMap);
     }
 
     public final void c(String str) {
@@ -85,7 +85,7 @@ public class ms4 implements cj6 {
         }
     }
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -119,7 +119,7 @@ public class ms4 implements cj6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public nsa d(WebView webView, String str, String str2) {
+    public osa d(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, webView, str, str2)) == null) {
@@ -129,65 +129,65 @@ public class ms4 implements cj6 {
             } else {
                 SensorAccelerometerManager.getSensor().stop();
             }
-            nsa nsaVar = new nsa();
-            nsaVar.j = true;
-            return nsaVar;
+            osa osaVar = new osa();
+            osaVar.j = true;
+            return osaVar;
         }
-        return (nsa) invokeLLL.objValue;
+        return (osa) invokeLLL.objValue;
     }
 
-    public nsa e(WebView webView, HashMap<String, Object> hashMap) {
+    public osa e(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("x", hashMap.get(CommonTbJsBridge.SENSOR_GYROSCOPE_EVENT_Y));
                 jSONObject.put("y", hashMap.get(CommonTbJsBridge.SENSOR_GYROSCOPE_EVENT_X));
                 jSONObject.put("z", hashMap.get(CommonTbJsBridge.SENSOR_GYROSCOPE_EVENT_Z));
-                nsaVar.o(jSONObject.toString());
-                nsaVar.j = true;
-                return nsaVar;
+                osaVar.o(jSONObject.toString());
+                osaVar.j = true;
+                return osaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return nsaVar;
+                return osaVar;
             }
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 
-    public nsa f(WebView webView, HashMap<String, Object> hashMap) {
+    public osa f(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("refreshRate", hashMap.get(CommonTbJsBridge.DEVICE_DISPLAY_REFRESH));
-                nsaVar.o(jSONObject.toString());
-                return nsaVar;
+                osaVar.o(jSONObject.toString());
+                return osaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return nsaVar;
+                return osaVar;
             }
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 
-    public nsa g(final WebView webView, String str) {
+    public osa g(final WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) {
             if (TextUtils.equals(str, "1")) {
                 RefreshRateManager.getInstance().start();
-                ui6.a().c(new Runnable() { // from class: com.baidu.tieba.fs4
+                vi6.a().c(new Runnable() { // from class: com.baidu.tieba.fs4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -202,12 +202,12 @@ public class ms4 implements cj6 {
             } else {
                 RefreshRateManager.getInstance().stop();
             }
-            return new nsa();
+            return new osa();
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 
-    public nsa h(WebView webView) {
+    public osa h(WebView webView) {
         InterceptResult invokeL;
         String str;
         String str2;
@@ -222,7 +222,7 @@ public class ms4 implements cj6 {
         String str10;
         String str11;
         String str12;
-        nsa nsaVar;
+        osa osaVar;
         String l;
         String valueOf;
         String str13;
@@ -247,7 +247,7 @@ public class ms4 implements cj6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, webView)) == null) {
             String str14 = "model";
-            nsa nsaVar2 = new nsa();
+            osa osaVar2 = new osa();
             StringBuilder sb2 = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb2.append("imei=");
@@ -468,15 +468,15 @@ public class ms4 implements cj6 {
                                                     jSONObject2.put("baiduId", str8);
                                                     jSONObject2.put("publicParams", jSONObject);
                                                     jSONObject2.put("sign", c);
-                                                    nsaVar = nsaVar2;
+                                                    osaVar = osaVar2;
                                                     try {
-                                                        nsaVar.o(jSONObject2.toString());
-                                                        return nsaVar;
+                                                        osaVar.o(jSONObject2.toString());
+                                                        return osaVar;
                                                     } catch (JSONException e6) {
                                                         e = e6;
                                                         BdLog.e(e);
-                                                        nsaVar.o("");
-                                                        return nsaVar;
+                                                        osaVar.o("");
+                                                        return osaVar;
                                                     }
                                                 }
                                             } catch (JSONException e7) {
@@ -516,9 +516,9 @@ public class ms4 implements cj6 {
                                                 jSONObject22.put("baiduId", str8);
                                                 jSONObject22.put("publicParams", jSONObject);
                                                 jSONObject22.put("sign", c2);
-                                                nsaVar = nsaVar2;
-                                                nsaVar.o(jSONObject22.toString());
-                                                return nsaVar;
+                                                osaVar = osaVar2;
+                                                osaVar.o(jSONObject22.toString());
+                                                return osaVar;
                                             }
                                         } catch (JSONException e8) {
                                             e = e8;
@@ -567,9 +567,9 @@ public class ms4 implements cj6 {
                                     jSONObject222.put("baiduId", str8);
                                     jSONObject222.put("publicParams", jSONObject);
                                     jSONObject222.put("sign", c22);
-                                    nsaVar = nsaVar2;
-                                    nsaVar.o(jSONObject222.toString());
-                                    return nsaVar;
+                                    osaVar = osaVar2;
+                                    osaVar.o(jSONObject222.toString());
+                                    return osaVar;
                                 }
                             } catch (JSONException e11) {
                                 e = e11;
@@ -615,9 +615,9 @@ public class ms4 implements cj6 {
                             jSONObject2222.put("baiduId", str8);
                             jSONObject2222.put("publicParams", jSONObject);
                             jSONObject2222.put("sign", c222);
-                            nsaVar = nsaVar2;
-                            nsaVar.o(jSONObject2222.toString());
-                            return nsaVar;
+                            osaVar = osaVar2;
+                            osaVar.o(jSONObject2222.toString());
+                            return osaVar;
                         }
                     } catch (JSONException e13) {
                         e = e13;
@@ -659,9 +659,9 @@ public class ms4 implements cj6 {
                         jSONObject22222.put("baiduId", str8);
                         jSONObject22222.put("publicParams", jSONObject);
                         jSONObject22222.put("sign", c2222);
-                        nsaVar = nsaVar2;
-                        nsaVar.o(jSONObject22222.toString());
-                        return nsaVar;
+                        osaVar = osaVar2;
+                        osaVar.o(jSONObject22222.toString());
+                        return osaVar;
                     }
                 } catch (JSONException e14) {
                     e = e14;
@@ -731,9 +731,9 @@ public class ms4 implements cj6 {
                             jSONObject222222.put("baiduId", str8);
                             jSONObject222222.put("publicParams", jSONObject);
                             jSONObject222222.put("sign", c22222);
-                            nsaVar = nsaVar2;
-                            nsaVar.o(jSONObject222222.toString());
-                            return nsaVar;
+                            osaVar = osaVar2;
+                            osaVar.o(jSONObject222222.toString());
+                            return osaVar;
                         }
                     } catch (JSONException e17) {
                         e = e17;
@@ -768,9 +768,9 @@ public class ms4 implements cj6 {
                         jSONObject2222222.put("baiduId", str8);
                         jSONObject2222222.put("publicParams", jSONObject);
                         jSONObject2222222.put("sign", c222222);
-                        nsaVar = nsaVar2;
-                        nsaVar.o(jSONObject2222222.toString());
-                        return nsaVar;
+                        osaVar = osaVar2;
+                        osaVar.o(jSONObject2222222.toString());
+                        return osaVar;
                     }
                 } catch (JSONException e18) {
                     e = e18;
@@ -806,9 +806,9 @@ public class ms4 implements cj6 {
                     jSONObject22222222.put("baiduId", str8);
                     jSONObject22222222.put("publicParams", jSONObject);
                     jSONObject22222222.put("sign", c2222222);
-                    nsaVar = nsaVar2;
-                    nsaVar.o(jSONObject22222222.toString());
-                    return nsaVar;
+                    osaVar = osaVar2;
+                    osaVar.o(jSONObject22222222.toString());
+                    return osaVar;
                 }
                 JSONObject jSONObject222222222 = new JSONObject();
                 jSONObject222222222.put("imei", str6);
@@ -836,65 +836,65 @@ public class ms4 implements cj6 {
                 jSONObject222222222.put("baiduId", str8);
                 jSONObject222222222.put("publicParams", jSONObject);
                 jSONObject222222222.put("sign", c2222222);
-                nsaVar = nsaVar2;
-                nsaVar.o(jSONObject222222222.toString());
-                return nsaVar;
+                osaVar = osaVar2;
+                osaVar.o(jSONObject222222222.toString());
+                return osaVar;
             } catch (JSONException e19) {
                 e = e19;
-                nsaVar = nsaVar2;
+                osaVar = osaVar2;
             }
             StringBuilder sb322222222 = sb;
             sb322222222.append("tiebaclient!!!");
             String c22222222 = wd.c(sb322222222.toString());
         } else {
-            return (nsa) invokeL.objValue;
+            return (osa) invokeL.objValue;
         }
     }
 
-    public nsa i(WebView webView) {
+    public osa i(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("hdid", TbadkCoreApplication.getInst().getHdid());
-                nsaVar.o(jSONObject.toString());
-                return nsaVar;
+                osaVar.o(jSONObject.toString());
+                return osaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return nsaVar;
+                return osaVar;
             }
         }
-        return (nsa) invokeL.objValue;
+        return (osa) invokeL.objValue;
     }
 
-    public nsa k(WebView webView) {
+    public osa k(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, webView)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             String zid = TbadkCoreApplication.getInst().getZid();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("zid", zid);
-                nsaVar.o(jSONObject.toString());
-                return nsaVar;
+                osaVar.o(jSONObject.toString());
+                return osaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return nsaVar;
+                return osaVar;
             }
         }
-        return (nsa) invokeL.objValue;
+        return (osa) invokeL.objValue;
     }
 
-    public nsa j(WebView webView) {
+    public osa j(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, webView)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             StringBuilder sb = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb.append("imei=");
@@ -928,22 +928,22 @@ public class ms4 implements cj6 {
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
                 jSONObject.put("sign", c);
-                nsaVar.o(jSONObject.toString());
-                return nsaVar;
+                osaVar.o(jSONObject.toString());
+                return osaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                nsaVar.o("");
-                return nsaVar;
+                osaVar.o("");
+                return osaVar;
             }
         }
-        return (nsa) invokeL.objValue;
+        return (osa) invokeL.objValue;
     }
 
-    public nsa m(WebView webView, int i, String str, String str2, String str3, String str4, int i2) {
+    public osa m(WebView webView, int i, String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{webView, Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 builder.can_post = Integer.valueOf(i);
@@ -953,13 +953,13 @@ public class ms4 implements cj6 {
                 builder.ok_info = str4;
                 builder.ahead_type = Integer.valueOf(i2);
                 BlockPopInfo build = builder.build(false);
-                yza.h(build);
-                yza.g(build);
+                zza.h(build);
+                zza.g(build);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeCommon.objValue;
+        return (osa) invokeCommon.objValue;
     }
 }

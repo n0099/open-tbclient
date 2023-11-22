@@ -60,7 +60,7 @@ public class yr4 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
-    public static class a extends CustomMessageListener {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -96,7 +96,7 @@ public class yr4 {
     }
 
     /* loaded from: classes9.dex */
-    public static class b implements UrlManager.UrlWebDealListener {
+    public class b implements UrlManager.UrlWebDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -128,7 +128,7 @@ public class yr4 {
     }
 
     /* loaded from: classes9.dex */
-    public static class c implements UrlManager.UrlDealListener {
+    public class c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -196,7 +196,7 @@ public class yr4 {
                         if (StringHelper.equals(queryParameter3, "1")) {
                             new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter, queryParameter2, queryParameter3, str5).start();
                         } else {
-                            qt5.f(tbPageContext, queryParameter, queryParameter2);
+                            rt5.f(tbPageContext, queryParameter, queryParameter2);
                         }
                         return 0;
                     } else if (str4.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
@@ -217,7 +217,7 @@ public class yr4 {
                         BrowserHelper.startExternWebActivity(tbPageContext.getPageActivity(), str4);
                         return 1;
                     } else if (UtilHelper.isNativeAdURL(str4)) {
-                        zca.a(tbPageContext.getPageActivity(), str4, null, null, null);
+                        ada.a(tbPageContext.getPageActivity(), str4, null, null, null);
                         return 1;
                     } else if (!str4.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE) && !str4.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE_2)) {
                         if ((str4.contains(UrlSchemaHelper.SCHEMA_TYPE_FINISH_THIS_PAGE) || str4.startsWith(UrlSchemaHelper.SCHEMA_TYPE_CLOSE_WEBVIEW)) && tbPageContext.getPageActivity() != null) {
@@ -318,7 +318,7 @@ public class yr4 {
     }
 
     /* loaded from: classes9.dex */
-    public static class d implements zz4.e {
+    public class d implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -358,7 +358,7 @@ public class yr4 {
     }
 
     /* loaded from: classes9.dex */
-    public static class e implements zz4.e {
+    public class e implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -386,7 +386,7 @@ public class yr4 {
     }
 
     /* loaded from: classes9.dex */
-    public static class f implements UrlManager.UrlDealListener {
+    public class f implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -459,14 +459,14 @@ public class yr4 {
                             if (StringHelper.equals(queryParameter9, "1")) {
                                 new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter7, queryParameter8, queryParameter9, null).start();
                             } else {
-                                qt5.f(tbPageContext, queryParameter7, queryParameter8);
+                                rt5.f(tbPageContext, queryParameter7, queryParameter8);
                             }
                             return 1;
                         } else if (queryParameter7 != null) {
                             if (StringHelper.equals(queryParameter9, "1")) {
                                 new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter7, null, queryParameter9, null).start();
                             } else {
-                                qt5.f(tbPageContext, queryParameter7, null);
+                                rt5.f(tbPageContext, queryParameter7, null);
                             }
                             return 1;
                         }
@@ -479,7 +479,7 @@ public class yr4 {
     }
 
     /* loaded from: classes9.dex */
-    public static class g implements UrlManager.UrlDealListener {
+    public class g implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

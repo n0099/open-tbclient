@@ -6,20 +6,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 /* loaded from: classes7.dex */
-public class mi5 implements ni5 {
+public class mi5 implements qi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ni5 a;
+    public ByteBuffer a;
 
-    public mi5(ni5 ni5Var) {
+    @Override // com.baidu.tieba.qi5
+    public void close() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public mi5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ni5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,83 +34,58 @@ public class mi5 implements ni5 {
                 return;
             }
         }
-        this.a = ni5Var;
+        d(10240);
     }
 
-    @Override // com.baidu.tieba.ni5
-    public long skip(long j) throws IOException {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
-            return this.a.skip(j);
-        }
-        return invokeJ.longValue;
-    }
-
-    @Override // com.baidu.tieba.ni5
-    public InputStream a() throws IOException {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            reset();
-            return this.a.a();
-        }
-        return (InputStream) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ni5
-    public int available() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.available();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ni5
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.close();
-        }
-    }
-
-    @Override // com.baidu.tieba.ni5
-    public byte peek() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.peek();
-        }
-        return invokeV.byteValue;
-    }
-
-    @Override // com.baidu.tieba.ni5
-    public int position() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.a.position();
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ni5
-    public void reset() throws IOException {
+    public byte[] f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a.reset();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a.array();
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public void b(byte b) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeB(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b) == null) {
+            this.a.put(b);
         }
     }
 
-    @Override // com.baidu.tieba.ni5
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
+    public void c(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bArr, i, i2)) == null) {
-            return this.a.read(bArr, i, i2);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
+            this.a.put(bArr);
         }
-        return invokeLII.intValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            ByteBuffer byteBuffer = this.a;
+            if (byteBuffer == null || i > byteBuffer.capacity()) {
+                ByteBuffer allocate = ByteBuffer.allocate(i);
+                this.a = allocate;
+                allocate.order(ByteOrder.LITTLE_ENDIAN);
+            }
+            this.a.clear();
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.a.position(i + a());
+        }
     }
 }

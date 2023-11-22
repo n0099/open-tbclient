@@ -1,81 +1,551 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.NetMessageListener;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.searchbox.live.frame.PageInfo;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
+import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.task.TbSocketMessageTask;
+import com.baidu.tieba.homepage.concern.ConcernFragment;
+import com.baidu.tieba.homepage.concern.message.ConcernPageHttpResMessage;
+import com.baidu.tieba.homepage.concern.message.ConcernPageRequestMessage;
+import com.baidu.tieba.homepage.concern.message.ConcernPageSocketResMessage;
+import com.baidu.tieba.mb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
+import com.xiaomi.mipush.sdk.PushMessageHelper;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import kotlin.Pair;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.LayoutFactory;
+import tbclient.Userlike.ConcernData;
+import tbclient.Userlike.DataRes;
+import tbclient.Userlike.PageData;
 /* loaded from: classes9.dex */
-public final class zo6 implements gb7 {
+public final class zo6 extends mb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, String> a;
+    public String d;
+    public final Map<String, hb7> e;
+    public final Map<String, String> f;
+    public ConcernFragment g;
+    public final NetMessageListener h;
 
-    @Override // com.baidu.tieba.gb7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK : (String) invokeV.objValue;
+    /* loaded from: classes9.dex */
+    public static final class a extends NetMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zo6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(zo6 zo6Var) {
+            super(CmdConfigHttp.CMD_CONCERN_PAGE, 309474);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zo6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zo6Var;
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:20:0x0055  */
+        /* JADX WARN: Removed duplicated region for block: B:23:0x00aa  */
+        /* JADX WARN: Removed duplicated region for block: B:32:0x00d5  */
+        /* JADX WARN: Removed duplicated region for block: B:38:? A[RETURN, SYNTHETIC] */
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            boolean z;
+            mb7.a d;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                this.a.i(false);
+                if (responsedMessage == null) {
+                    ConcernFragment o = this.a.o();
+                    if (o != null) {
+                        qza.a(o, new Pair(PushMessageHelper.ERROR_TYPE, "home_follow"), new Pair("error_info", "concern tab network data null"));
+                        return;
+                    }
+                    return;
+                }
+                if (responsedMessage.getOrginalMessage() != null) {
+                    Object extra = responsedMessage.getOrginalMessage().getExtra();
+                    if ((extra instanceof ConcernPageRequestMessage) && ((ConcernPageRequestMessage) extra).getLoadType() == 1) {
+                        z = true;
+                        if (responsedMessage.getError() == 0) {
+                            this.a.b().d = responsedMessage.getError();
+                            this.a.b().e = responsedMessage.getErrorString();
+                            ConcernFragment o2 = this.a.o();
+                            if (o2 != null) {
+                                qza.a(o2, new Pair(PushMessageHelper.ERROR_TYPE, "home_follow"), new Pair("error_info", "concern tab network data wrong, error code: " + responsedMessage.getError() + " error msg " + responsedMessage.getErrorString()));
+                            }
+                        } else {
+                            this.a.b().d = 0;
+                            DataRes dataRes = null;
+                            if (responsedMessage instanceof ConcernPageSocketResMessage) {
+                                dataRes = ((ConcernPageSocketResMessage) responsedMessage).getResultData();
+                            } else if (responsedMessage instanceof ConcernPageHttpResMessage) {
+                                dataRes = ((ConcernPageHttpResMessage) responsedMessage).getResultData();
+                            }
+                            this.a.t(dataRes, z);
+                        }
+                        d = this.a.d();
+                        if (d == null) {
+                            d.a(this.a.b());
+                            return;
+                        }
+                        return;
+                    }
+                }
+                z = false;
+                if (responsedMessage.getError() == 0) {
+                }
+                d = this.a.d();
+                if (d == null) {
+                }
+            }
+        }
     }
 
-    public zo6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zo6(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
+        Intrinsics.checkNotNullParameter(context, "context");
+        this.e = new HashMap();
+        this.f = new HashMap();
+        this.h = new a(this);
+        v();
+        w();
+        MessageManager.getInstance().registerListener(this.h);
+        x();
+        m();
+        u();
     }
 
-    @Override // com.baidu.tieba.gb7
-    public Map<String, String> a(d57 businessInfo) {
+    public final void r(Object data) {
+        ab7<?> ab7Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            try {
+                j87 j87Var = s67.a().get("fake_wall");
+                if (j87Var != null) {
+                    ab7Var = j87Var.b(data);
+                } else {
+                    ab7Var = null;
+                }
+                int i = 0;
+                for (ab7<?> ab7Var2 : b().a) {
+                    if (!(ab7Var2.b() instanceof t27)) {
+                        break;
+                    }
+                    Object b = ab7Var2.b();
+                    if (b != null) {
+                        if (!(((t27) b).a().a instanceof cm6)) {
+                            break;
+                        }
+                        i++;
+                    } else {
+                        throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.feed.card.uistate.OtherTemplateUiState");
+                    }
+                }
+                if (ab7Var != null) {
+                    b().a.add(i, ab7Var);
+                }
+                mb7.a d = d();
+                if (d != null) {
+                    d.a(b());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                if (!GlobalBuildConfig.isDebug()) {
+                    return;
+                }
+                throw e;
+            }
+        }
+    }
+
+    public final boolean z(String userId) {
+        InterceptResult invokeL;
+        mb7.a d;
+        f57<?> f57Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, userId)) == null) {
+            Intrinsics.checkNotNullParameter(userId, "userId");
+            Iterator<ab7<?>> it = b().a.iterator();
+            boolean z = false;
+            while (it.hasNext()) {
+                ab7<?> next = it.next();
+                Intrinsics.checkNotNullExpressionValue(next, "iterator.next()");
+                if ((next instanceof w47) && (f57Var = ((w47) next).c) != null && Intrinsics.areEqual(userId, f57Var.n())) {
+                    it.remove();
+                    z = true;
+                }
+            }
+            if (z && (d = d()) != null) {
+                d.a(b());
+            }
+            if (z && b().a.size() < 9) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void y(ConcernFragment concernFragment) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, concernFragment) == null) {
+            this.g = concernFragment;
+        }
+    }
+
+    @Override // com.baidu.tieba.mb7
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.h);
+        }
+    }
+
+    @Override // com.baidu.tieba.mb7
+    public void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !e()) {
+            i(true);
+            ConcernPageRequestMessage concernPageRequestMessage = new ConcernPageRequestMessage();
+            concernPageRequestMessage.setPageTag("0");
+            concernPageRequestMessage.setLoadType(1);
+            concernPageRequestMessage.setIsNewFeed(1);
+            MessageManager.getInstance().sendMessage(concernPageRequestMessage);
+        }
+    }
+
+    @Override // com.baidu.tieba.mb7
+    public void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !e()) {
+            i(true);
+            ConcernPageRequestMessage concernPageRequestMessage = new ConcernPageRequestMessage();
+            concernPageRequestMessage.setPageTag(this.d);
+            concernPageRequestMessage.setLoadType(2);
+            concernPageRequestMessage.setIsNewFeed(1);
+            MessageManager.getInstance().sendMessage(concernPageRequestMessage);
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f.put("page_from", ImageViewerConfig.FROM_CONCERN);
+        }
+    }
+
+    public final ConcernFragment o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return (ConcernFragment) invokeV.objValue;
+    }
+
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return b().c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_PAGE, dra.a(TbConfig.URL_CONCERN_PAGE, 309474));
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setResponsedClass(ConcernPageHttpResMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public final void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            TbSocketMessageTask tbSocketMessageTask = new TbSocketMessageTask(309474);
+            tbSocketMessageTask.setResponsedClass(ConcernPageSocketResMessage.class);
+            tbSocketMessageTask.setNeedAck(true);
+            MessageManager.getInstance().registerTask(tbSocketMessageTask);
+        }
+    }
+
+    public final Map<String, ThreadData> l(List<ConcernData> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            Map<String, String> a = businessInfo.a();
-            this.a.put("obj_type", fp6.a.a(businessInfo));
-            this.a.put("obj_source", "1");
-            this.a.put("obj_param1", "1");
-            HashMap<String, String> hashMap = this.a;
-            String str = a.get("live_type");
-            String str2 = "";
-            if (str == null) {
-                str = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+            HashMap hashMap = new HashMap();
+            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && list != null) {
+                for (ConcernData concernData : list) {
+                    if (concernData.thread_list != null) {
+                        ThreadData threadData = new ThreadData();
+                        threadData.setFromConcern(true);
+                        AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
+                        threadData.parserProtobuf(concernData.thread_list);
+                        if (s(threadData)) {
+                            hashMap.put(threadData.tid, threadData);
+                        }
+                    }
+                }
             }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str);
-            HashMap<String, String> hashMap2 = this.a;
-            String str3 = a.get("thread_id");
-            if (str3 != null) {
-                str2 = str3;
-            }
-            hashMap2.put("obj_id", str2);
-            return this.a;
+            return hashMap;
         }
         return (Map) invokeL.objValue;
     }
 
-    public final zo6 b(String locate) {
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            Iterator<ab7<?>> it = b().a.iterator();
+            while (it.hasNext()) {
+                ab7<?> next = it.next();
+                if (next != null && (next.b() instanceof q47)) {
+                    Object b = next.b();
+                    if (b != null) {
+                        c67 l = ((q47) b).l();
+                        if (l != null && Intrinsics.areEqual("recommend_user", l.d())) {
+                            it.remove();
+                        }
+                    } else {
+                        throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.feed.component.uistate.RecommendCardUiState");
+                    }
+                }
+            }
+            mb7.a d = d();
+            if (d != null) {
+                d.a(b());
+            }
+        }
+    }
+
+    public final void q(ab7<?> ab7Var, Map<String, ? extends ThreadData> map) {
+        w47 w47Var;
+        f57<?> f57Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ab7Var, map) == null) && (ab7Var instanceof w47) && (f57Var = (w47Var = (w47) ab7Var).c) != null) {
+            String m = f57Var.m();
+            if (!TextUtils.isEmpty(m)) {
+                w47Var.c.s(map.get(m));
+            }
+        }
+    }
+
+    public final boolean s(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locate)) == null) {
-            Intrinsics.checkNotNullParameter(locate, "locate");
-            this.a.put("obj_locate", locate);
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, threadData)) == null) {
+            if (threadData == null || threadData.isShareThread || threadData.itemData != null || threadData.itemStarData != null) {
+                return false;
+            }
+            int i = threadData.threadType;
+            if (i != 0 && i != 11 && i != 40) {
+                return threadData.isUgcThreadType();
+            }
+            return true;
         }
-        return (zo6) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public final void t(Message message, boolean z) {
+        j87 j87Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048587, this, message, z) == null) {
+            boolean z2 = false;
+            if (!(message instanceof DataRes)) {
+                ConcernFragment concernFragment = this.g;
+                if (concernFragment != null) {
+                    qza.a(concernFragment, new Pair(PushMessageHelper.ERROR_TYPE, "home_follow"), new Pair("error_info", "concern tab parse data wrong data type"));
+                    return;
+                }
+                return;
+            }
+            if (z) {
+                b().a.clear();
+            }
+            DataRes dataRes = (DataRes) message;
+            PageData pageData = dataRes.page_data;
+            if (pageData != null && !ListUtils.isEmpty(pageData.feed_list)) {
+                Map<String, ThreadData> l = l(dataRes.thread_info);
+                try {
+                    for (LayoutFactory layoutFactory : ((DataRes) message).page_data.feed_list) {
+                        if (layoutFactory != null) {
+                            j87 j87Var2 = s67.a().get(layoutFactory.layout);
+                            if (j87Var2 != null) {
+                                if (j87Var2 instanceof gb7) {
+                                    ((gb7) j87Var2).d(this.e);
+                                }
+                                if (j87Var2 instanceof da7) {
+                                    ((da7) j87Var2).a(this.f);
+                                }
+                                ab7<?> b = j87Var2.b(layoutFactory);
+                                q(b, l);
+                                if (b != null) {
+                                    b().a.add(b);
+                                }
+                            } else {
+                                BdLog.e("no layout for " + layoutFactory.layout);
+                            }
+                        }
+                    }
+                    if (z && ((DataRes) message).user_follow_live != null && !ListUtils.isEmpty(((DataRes) message).user_follow_live.user_follow_live) && (j87Var = s67.a().get("ala_live_attention")) != null) {
+                        b().a.add(0, j87Var.b(((DataRes) message).user_follow_live));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    ConcernFragment concernFragment2 = this.g;
+                    if (concernFragment2 != null) {
+                        qza.a(concernFragment2, new Pair(PushMessageHelper.ERROR_TYPE, "home_follow"), new Pair("error_info", "concern tab parse data empty exception " + e.getMessage()));
+                    }
+                    if (GlobalBuildConfig.isDebug()) {
+                        throw e;
+                    }
+                }
+                z57 b2 = b();
+                Integer num = dataRes.has_more;
+                if (num != null && num.intValue() == 1) {
+                    z2 = true;
+                }
+                b2.c = z2;
+                this.d = dataRes.page_tag;
+                if (b().a.size() > 1) {
+                    hb7 hb7Var = this.e.get("concern_reco_show");
+                    if (hb7Var instanceof fp6) {
+                        ((fp6) hb7Var).b("1");
+                        return;
+                    }
+                    return;
+                }
+                return;
+            }
+            ConcernFragment concernFragment3 = this.g;
+            if (concernFragment3 != null) {
+                qza.a(concernFragment3, new Pair(PushMessageHelper.ERROR_TYPE, "home_follow"), new Pair("error_info", "concern tab parse data empty list"));
+            }
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            HashMap<String, j87> a2 = s67.a();
+            Intrinsics.checkNotNullExpressionValue(a2, "getItemDataMap()");
+            a2.put("ala_live_attention", new wo6());
+            HashMap<String, j87> a3 = s67.a();
+            Intrinsics.checkNotNullExpressionValue(a3, "getItemDataMap()");
+            a3.put("fake_wall", new xo6());
+        }
+    }
+
+    public final void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.e.put(PageInfo.KEY, new op6());
+            this.e.put("image_click", new lp6());
+            this.e.put("head_click_selector1", new ip6());
+            this.e.put("head_click_selector2", new jp6());
+            this.e.put("head_click_selector3", new kp6());
+            this.e.put("user_head_click1", new sp6(3));
+            Map<String, hb7> map = this.e;
+            ap6 ap6Var = new ap6();
+            ap6Var.b("1");
+            map.put("user_head_click2", ap6Var);
+            this.e.put("live_user_head_click", new mp6());
+            Map<String, hb7> map2 = this.e;
+            ap6 ap6Var2 = new ap6();
+            ap6Var2.b("4");
+            map2.put("video_click", ap6Var2);
+            Map<String, hb7> map3 = this.e;
+            ap6 ap6Var3 = new ap6();
+            ap6Var3.b("5");
+            map3.put("rich_text_at_click", ap6Var3);
+            Map<String, hb7> map4 = this.e;
+            ap6 ap6Var4 = new ap6();
+            ap6Var4.b("6");
+            map4.put("origin_card_click", ap6Var4);
+            Map<String, hb7> map5 = this.e;
+            ap6 ap6Var5 = new ap6();
+            ap6Var5.b("8");
+            map5.put("comment_btn_click", ap6Var5);
+            this.e.put("enter_forum_btn_click", new hp6("2"));
+            this.e.put("live_head_show", new np6());
+            this.e.put("rich_text_topic_click", new qp6());
+            Map<String, hb7> map6 = this.e;
+            pp6 pp6Var = new pp6();
+            pp6Var.b("2");
+            map6.put("rich_text_item_click", pp6Var);
+            this.e.put("rich_text_video_topic_click", new rp6());
+            this.e.put("concern_reco_show", new fp6());
+            this.e.put("concern_reco_click_head", new cp6());
+            this.e.put("concern_reco_follow_btn", new dp6());
+            this.e.put("concern_reco_unfollow_btn", new ep6());
+            Map<String, hb7> map7 = this.e;
+            tp6 tp6Var = new tp6();
+            tp6Var.d("2");
+            tp6Var.b("6");
+            map7.put("virtual_head_show", tp6Var);
+            Map<String, hb7> map8 = this.e;
+            tp6 tp6Var2 = new tp6();
+            tp6Var2.d("1");
+            tp6Var2.b("6");
+            map8.put("virtual_head_click", tp6Var2);
+        }
     }
 }

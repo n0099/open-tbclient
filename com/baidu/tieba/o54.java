@@ -40,13 +40,13 @@ public class o54 extends m54 {
 
         /* renamed from: com.baidu.tieba.o54$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0419a implements Runnable {
+        public class RunnableC0417a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONObject a;
             public final /* synthetic */ a b;
 
-            public RunnableC0419a(a aVar, JSONObject jSONObject) {
+            public RunnableC0417a(a aVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -153,7 +153,7 @@ public class o54 extends m54 {
                 if (m54.a) {
                     Log.d("OpenDataApi", "on success");
                 }
-                this.c.b.post(new RunnableC0419a(this, jSONObject));
+                this.c.b.post(new RunnableC0417a(this, jSONObject));
             }
         }
 
@@ -237,12 +237,12 @@ public class o54 extends m54 {
 
         /* renamed from: com.baidu.tieba.o54$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0420b implements Runnable {
+        public class RunnableC0418b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0420b(b bVar) {
+            public RunnableC0418b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -350,7 +350,7 @@ public class o54 extends m54 {
                     u54Var.errNo = YYOption.UrlProtocol.USER;
                     u54Var.errMsg = String.format("%s: fail Error: %s", "removeUserCloudStorage", exc.getMessage());
                 }
-                this.c.b.post(new RunnableC0420b(this));
+                this.c.b.post(new RunnableC0418b(this));
             }
         }
     }

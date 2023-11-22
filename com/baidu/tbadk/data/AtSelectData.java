@@ -40,7 +40,7 @@ public class AtSelectData implements Parcelable {
     }
 
     /* loaded from: classes5.dex */
-    public static class a implements Parcelable.Creator<AtSelectData> {
+    public class a implements Parcelable.Creator<AtSelectData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

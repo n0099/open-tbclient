@@ -38,7 +38,7 @@ public class AlaBroadcastGiftToastData extends rw4 implements Parcelable {
     }
 
     /* loaded from: classes4.dex */
-    public static class a implements Parcelable.Creator<AlaBroadcastGiftToastData> {
+    public class a implements Parcelable.Creator<AlaBroadcastGiftToastData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

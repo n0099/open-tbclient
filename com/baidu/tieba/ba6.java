@@ -14,7 +14,7 @@ public class ba6 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
 
     static {
         InterceptResult invokeClinit;

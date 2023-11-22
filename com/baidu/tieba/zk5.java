@@ -1,7 +1,8 @@
 package com.baidu.tieba;
+
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 /* loaded from: classes9.dex */
 public interface zk5 {
-    void a(long j);
-
-    void b(long j, int i, String str);
+    void onSendMessageResult(int i, @Nullable ChatMsg chatMsg);
 }

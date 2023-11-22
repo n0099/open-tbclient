@@ -1,40 +1,38 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.tbadkCore.LikeReturnData;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.frs.recommend.FrsLikeRecommendHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class yz7 {
+public class yz7 extends bi<kqa, FrsLikeRecommendHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<?> a;
-    public final String b;
-    public final String c;
-    public LikeModel d;
-    public b08 e;
 
     /* loaded from: classes9.dex */
-    public class a extends w4 {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yz7 a;
+        public final /* synthetic */ kqa a;
+        public final /* synthetic */ ViewGroup b;
+        public final /* synthetic */ FrsLikeRecommendHolder c;
+        public final /* synthetic */ yz7 d;
 
-        public a(yz7 yz7Var) {
+        public a(yz7 yz7Var, kqa kqaVar, ViewGroup viewGroup, FrsLikeRecommendHolder frsLikeRecommendHolder) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yz7Var};
+                Object[] objArr = {yz7Var, kqaVar, viewGroup, frsLikeRecommendHolder};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,122 +42,72 @@ public class yz7 {
                     return;
                 }
             }
-            this.a = yz7Var;
+            this.d = yz7Var;
+            this.a = kqaVar;
+            this.b = viewGroup;
+            this.c = frsLikeRecommendHolder;
         }
 
-        @Override // com.baidu.tieba.w4
-        public void c(Object obj) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if ((obj instanceof LikeReturnData) && this.a.d.getErrorCode() == 0) {
-                    if (this.a.e != null) {
-                        this.a.e.a();
-                    }
-                } else if (AntiHelper.m(this.a.d.getErrorCode(), this.a.d.getErrorString())) {
-                    AntiHelper.u(this.a.a.getPageActivity(), this.a.d.getErrorString());
-                } else {
-                    this.a.a.showToast(this.a.d.getErrorString());
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.d.getOnAdapterItemClickListener() != null) {
+                this.d.getOnAdapterItemClickListener().b(view2, this.a, kqa.g, this.b, this.c.getAdapterPosition(), view2.getId());
             }
         }
     }
 
-    public yz7(TbPageContext<?> tbPageContext, String str, String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yz7(@NonNull Context context) {
+        super(context, kqa.g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, str, str2};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = str;
-        this.c = str2;
     }
 
-    public final void e(jqa jqaVar, int i, b08 b08Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bi
+    /* renamed from: t */
+    public FrsLikeRecommendHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jqaVar, i, b08Var) == null) && this.a != null && jqaVar != null) {
-            this.e = b08Var;
-            if (this.d == null) {
-                f();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new FrsLikeRecommendHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d039b, viewGroup, false));
+        }
+        return (FrsLikeRecommendHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.bi
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, kqa kqaVar, FrsLikeRecommendHolder frsLikeRecommendHolder) {
+        u(i, view2, viewGroup, kqaVar, frsLikeRecommendHolder);
+        return view2;
+    }
+
+    public View u(int i, View view2, ViewGroup viewGroup, kqa kqaVar, FrsLikeRecommendHolder frsLikeRecommendHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, kqaVar, frsLikeRecommendHolder})) == null) {
+            if (kqaVar != null && frsLikeRecommendHolder != null) {
+                frsLikeRecommendHolder.a(kqaVar);
+                frsLikeRecommendHolder.c(new a(this, kqaVar, viewGroup, frsLikeRecommendHolder));
+                frsLikeRecommendHolder.b();
             }
-            if (this.d.e0()) {
-                TbPageContext<?> tbPageContext = this.a;
-                tbPageContext.showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f003a));
-                return;
-            }
-            this.d.g0(jqaVar.c, jqaVar.a);
-            k(jqaVar.a, jqaVar.c);
+            return view2;
         }
-    }
-
-    public void d() {
-        LikeModel likeModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (likeModel = this.d) != null) {
-            likeModel.c0();
-        }
-    }
-
-    public final void f() {
-        TbPageContext<?> tbPageContext;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (tbPageContext = this.a) == null) {
-            return;
-        }
-        LikeModel likeModel = new LikeModel(tbPageContext);
-        this.d = likeModel;
-        likeModel.setLoadDataCallBack(new a(this));
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            zz7.c("c15527", this.b, this.c);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            zz7.c("c15526", this.b, this.c);
-        }
-    }
-
-    public void g(jqa jqaVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, jqaVar) == null) && this.a != null && jqaVar != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getPageActivity()).createNormalCfg(jqaVar.c, null)));
-            j(jqaVar.a, jqaVar.c);
-        }
-    }
-
-    public void h(jqa jqaVar, int i, b08 b08Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(1048580, this, jqaVar, i, b08Var) == null) && jqaVar != null && !jqaVar.f) {
-            e(jqaVar, i, b08Var);
-        }
-    }
-
-    public void j(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-            zz7.b("c15529", this.b, this.c, str, str2);
-        }
-    }
-
-    public void k(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-            zz7.b("c15530", this.b, this.c, str, str2);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

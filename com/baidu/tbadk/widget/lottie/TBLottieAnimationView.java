@@ -17,9 +17,9 @@ import com.baidu.permissionhelper.context.ContextCompat;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ex5;
 import com.baidu.tieba.fx5;
 import com.baidu.tieba.gx5;
+import com.baidu.tieba.hx5;
 import com.baidu.tieba.md;
 import com.baidu.tieba.n;
 import com.baidu.tieba.qd;
@@ -46,8 +46,8 @@ public class TBLottieAnimationView extends LottieAnimationView implements Defaul
     public Lifecycle lifecycle;
     public boolean lifecycleEnable;
     public boolean mDisableRestoreInstanceState;
-    public gx5.a mLoadCallback;
-    public gx5 mLoader;
+    public hx5.a mLoadCallback;
+    public hx5 mLoader;
     public String mUrl;
 
     @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
@@ -66,7 +66,7 @@ public class TBLottieAnimationView extends LottieAnimationView implements Defaul
     }
 
     /* loaded from: classes5.dex */
-    public class a implements gx5.a {
+    public class a implements hx5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TBLottieAnimationView a;
@@ -89,7 +89,7 @@ public class TBLottieAnimationView extends LottieAnimationView implements Defaul
             this.a = tBLottieAnimationView;
         }
 
-        @Override // com.baidu.tieba.gx5.a
+        @Override // com.baidu.tieba.hx5.a
         public void a(boolean z, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) && z && !qd.isEmpty(str)) {
@@ -450,10 +450,10 @@ public class TBLottieAnimationView extends LottieAnimationView implements Defaul
         if ((interceptable != null && interceptable.invokeL(65544, this, str) != null) || qd.isEmpty(str)) {
             return;
         }
-        fx5 fx5Var = new fx5();
-        fx5Var.d(str);
-        fx5Var.c(getFristLoadInternal());
-        setImageAssetDelegate(fx5Var);
+        gx5 gx5Var = new gx5();
+        gx5Var.d(str);
+        gx5Var.c(getFristLoadInternal());
+        setImageAssetDelegate(gx5Var);
     }
 
     @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
@@ -538,7 +538,7 @@ public class TBLottieAnimationView extends LottieAnimationView implements Defaul
                 lifecycle.removeObserver(this);
             }
             if (z) {
-                Lifecycle a2 = ex5.a(getContext());
+                Lifecycle a2 = fx5.a(getContext());
                 this.lifecycle = a2;
                 if (a2 != null) {
                     a2.addObserver(this);
@@ -566,9 +566,9 @@ public class TBLottieAnimationView extends LottieAnimationView implements Defaul
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048591, this, str) == null) && !qd.isEmpty(str) && !str.equals(this.mUrl)) {
             this.mUrl = str;
-            gx5 gx5Var = new gx5(getAnimationPath(), str, this.mLoadCallback);
-            this.mLoader = gx5Var;
-            gx5Var.execute(new Void[0]);
+            hx5 hx5Var = new hx5(getAnimationPath(), str, this.mLoadCallback);
+            this.mLoader = hx5Var;
+            hx5Var.execute(new Void[0]);
         }
     }
 

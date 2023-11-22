@@ -1,133 +1,27 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.AbstractComponent;
-import tbclient.ComponentFactory;
-import tbclient.FeedEntrybarComponent;
-import tbclient.FeedHeadComponent;
-import tbclient.FeedHeadFigureComponent;
-import tbclient.FeedItem;
-import tbclient.FeedLinkComponent;
-import tbclient.FeedLiveComponent;
-import tbclient.FeedOriginComponent;
-import tbclient.FeedPicComponent;
-import tbclient.FeedPostExpose;
-import tbclient.FeedRoomComponent;
-import tbclient.FeedSocialComponent;
-import tbclient.FeedToutiao;
-import tbclient.FeedVideoAdComponent;
-import tbclient.FeedVideoComponent;
-import tbclient.FrsTopThreadComponent;
-import tbclient.PollInfo;
-import tbclient.SidewayRecomComponent;
-import tbclient.ThreadRecommendInfo;
-import tbclient.TitleComponent;
-import tbclient.Voice;
+import tbclient.ClickBackCardItem;
 /* loaded from: classes5.dex */
-public class drc extends poc {
+public class drc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ComponentFactory componentFactory) {
+    public static JSONObject b(@NonNull ClickBackCardItem clickBackCardItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, componentFactory)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, clickBackCardItem)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "component", componentFactory.component);
-            TitleComponent titleComponent = componentFactory.feed_title;
-            if (titleComponent != null) {
-                poc.a(jSONObject, "feed_title", c5d.b(titleComponent));
-            }
-            AbstractComponent abstractComponent = componentFactory.feed_abstract;
-            if (abstractComponent != null) {
-                poc.a(jSONObject, "feed_abstract", roc.b(abstractComponent));
-            }
-            FeedHeadComponent feedHeadComponent = componentFactory.feed_head;
-            if (feedHeadComponent != null) {
-                poc.a(jSONObject, "feed_head", lsc.b(feedHeadComponent));
-            }
-            FeedHeadFigureComponent feedHeadFigureComponent = componentFactory.feed_head_figure;
-            if (feedHeadFigureComponent != null) {
-                poc.a(jSONObject, "feed_head_figure", msc.b(feedHeadFigureComponent));
-            }
-            FeedPicComponent feedPicComponent = componentFactory.feed_pic;
-            if (feedPicComponent != null) {
-                poc.a(jSONObject, "feed_pic", btc.b(feedPicComponent));
-            }
-            FeedSocialComponent feedSocialComponent = componentFactory.feed_social;
-            if (feedSocialComponent != null) {
-                poc.a(jSONObject, "feed_social", etc.b(feedSocialComponent));
-            }
-            FeedVideoComponent feedVideoComponent = componentFactory.feed_video;
-            if (feedVideoComponent != null) {
-                poc.a(jSONObject, "feed_video", htc.b(feedVideoComponent));
-            }
-            FeedEntrybarComponent feedEntrybarComponent = componentFactory.feed_entrybar;
-            if (feedEntrybarComponent != null) {
-                poc.a(jSONObject, "feed_entrybar", hsc.b(feedEntrybarComponent));
-            }
-            Voice voice = componentFactory.feed_voice;
-            if (voice != null) {
-                poc.a(jSONObject, "feed_voice", e6d.b(voice));
-            }
-            FeedLiveComponent feedLiveComponent = componentFactory.feed_live;
-            if (feedLiveComponent != null) {
-                poc.a(jSONObject, "feed_live", wsc.b(feedLiveComponent));
-            }
-            poc.a(jSONObject, "base_text", componentFactory.base_text);
-            SidewayRecomComponent sidewayRecomComponent = componentFactory.sideway_recom;
-            if (sidewayRecomComponent != null) {
-                poc.a(jSONObject, "sideway_recom", b3d.b(sidewayRecomComponent));
-            }
-            FeedItem feedItem = componentFactory.feed_item;
-            if (feedItem != null) {
-                poc.a(jSONObject, "feed_item", ssc.b(feedItem));
-            }
-            FeedOriginComponent feedOriginComponent = componentFactory.feed_origin;
-            if (feedOriginComponent != null) {
-                poc.a(jSONObject, "feed_origin", ysc.b(feedOriginComponent));
-            }
-            FeedLinkComponent feedLinkComponent = componentFactory.feed_link;
-            if (feedLinkComponent != null) {
-                poc.a(jSONObject, "feed_link", vsc.b(feedLinkComponent));
-            }
-            if (componentFactory.feed_recomtag != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (ThreadRecommendInfo threadRecommendInfo : componentFactory.feed_recomtag) {
-                    jSONArray.put(w4d.b(threadRecommendInfo));
-                }
-                poc.a(jSONObject, "feed_recomtag", jSONArray);
-            }
-            FeedVideoAdComponent feedVideoAdComponent = componentFactory.feed_videoad;
-            if (feedVideoAdComponent != null) {
-                poc.a(jSONObject, "feed_videoad", gtc.b(feedVideoAdComponent));
-            }
-            FeedPostExpose feedPostExpose = componentFactory.feed_postexpose;
-            if (feedPostExpose != null) {
-                poc.a(jSONObject, "feed_postexpose", ctc.b(feedPostExpose));
-            }
-            FeedRoomComponent feedRoomComponent = componentFactory.feed_room;
-            if (feedRoomComponent != null) {
-                poc.a(jSONObject, "feed_room", dtc.b(feedRoomComponent));
-            }
-            PollInfo pollInfo = componentFactory.feed_poll;
-            if (pollInfo != null) {
-                poc.a(jSONObject, "feed_poll", j1d.b(pollInfo));
-            }
-            FeedToutiao feedToutiao = componentFactory.feed_toutiao;
-            if (feedToutiao != null) {
-                poc.a(jSONObject, "feed_toutiao", ftc.b(feedToutiao));
-            }
-            FrsTopThreadComponent frsTopThreadComponent = componentFactory.frs_top_thread;
-            if (frsTopThreadComponent != null) {
-                poc.a(jSONObject, "frs_top_thread", gyc.b(frsTopThreadComponent));
-            }
+            qoc.a(jSONObject, "text", clickBackCardItem.text);
+            qoc.a(jSONObject, BigdayActivityConfig.JUMP_URL, clickBackCardItem.jump_url);
+            qoc.a(jSONObject, "business_id", clickBackCardItem.business_id);
+            qoc.a(jSONObject, "business_type", clickBackCardItem.business_type);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -27,10 +27,10 @@ public class kg8 extends bi<hz4, ThreadCardViewHolder<ThreadData>> {
     public TbPageContext<?> c;
     public boolean d;
     public ui e;
-    public xl6<ThreadData> f;
+    public yl6<ThreadData> f;
 
     /* loaded from: classes7.dex */
-    public class a extends xl6<ThreadData> {
+    public class a extends yl6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ kg8 b;
@@ -54,13 +54,13 @@ public class kg8 extends bi<hz4, ThreadCardViewHolder<ThreadData>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xl6
+        @Override // com.baidu.tieba.yl6
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                pl6.b().d(true);
-                zf8.k(view2, threadData, this.b.b);
+                ql6.b().d(true);
+                ag8.k(view2, threadData, this.b.b);
             }
         }
     }
@@ -146,7 +146,10 @@ public class kg8 extends bi<hz4, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             bu.b bVar = new bu.b(this.c.getPageActivity(), false);
-            bVar.n(pt.s(this.c.getPageActivity(), "index", this.d));
+            nt ntVar = new nt(this.c.getPageActivity());
+            ntVar.setFrom("index");
+            ntVar.x(this.d);
+            bVar.n(ntVar);
             bu k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.e);
             k.t(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
@@ -171,8 +174,7 @@ public class kg8 extends bi<hz4, ThreadCardViewHolder<ThreadData>> {
                 threadCardViewHolder.e(hz4Var.t);
                 threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.a().r(this.f);
-                zf8.r(hz4Var, this.b);
-                rl6.a(threadCardViewHolder.a().g(), hz4Var.u, hz4Var.v);
+                ag8.r(hz4Var, this.b);
                 return threadCardViewHolder.getView();
             }
             return null;

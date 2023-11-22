@@ -5,12 +5,12 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bt5;
-import com.baidu.tieba.fs8;
+import com.baidu.tieba.ct5;
 import com.baidu.tieba.gs8;
+import com.baidu.tieba.hs8;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.l07;
-import com.baidu.tieba.nr8;
+import com.baidu.tieba.m07;
+import com.baidu.tieba.or8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,13 +34,13 @@ public class TbTextMsg extends TbNormalMsg {
     public static final a Companion;
     public static final int MSG_TYPE = 1;
     public transient /* synthetic */ FieldHolder $fh;
+    @gs8
     @SerializedName("robot_params")
-    @fs8
     public Map<String, ? extends Object> robotParams;
     @gs8
-    @fs8
+    @hs8
     public String text;
-    @bt5(serialize = false)
+    @ct5(serialize = false)
     public SpannableStringBuilder thumbnailText;
 
     static {
@@ -91,12 +91,12 @@ public class TbTextMsg extends TbNormalMsg {
 
         /* renamed from: com.baidu.tieba.im.lib.socket.msg.TbTextMsg$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static final class C0338a implements l07.i {
+        public static final class C0336a implements m07.i {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SpannableStringBuilder a;
 
-            public C0338a(SpannableStringBuilder spannableStringBuilder) {
+            public C0336a(SpannableStringBuilder spannableStringBuilder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public class TbTextMsg extends TbNormalMsg {
                 this.a = spannableStringBuilder;
             }
 
-            @Override // com.baidu.tieba.l07.i
+            @Override // com.baidu.tieba.m07.i
             public void a(SpannableStringBuilder spannableStringBuilder) {
                 boolean z;
                 Interceptable interceptable = $ic;
@@ -199,7 +199,7 @@ public class TbTextMsg extends TbNormalMsg {
                     return spannableStringBuilder;
                 }
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
-                l07.e(nr8.a.e(), str, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new C0338a(spannableStringBuilder2));
+                m07.e(or8.a.e(), str, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new C0336a(spannableStringBuilder2));
                 if (spannableStringBuilder2.length() == 0) {
                     z2 = true;
                 }

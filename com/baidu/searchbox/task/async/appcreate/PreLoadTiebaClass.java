@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.tieba.lo4;
-import com.baidu.tieba.pt5;
+import com.baidu.tieba.qt5;
 /* loaded from: classes4.dex */
 public class PreLoadTiebaClass extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -30,7 +30,7 @@ public class PreLoadTiebaClass extends LaunchTask {
         }
         lo4.w();
         ItemCardHelper.i();
-        pt5.b();
+        qt5.b();
         BdUtilHelper.initDeviceData(TbadkCoreApplication.getInst());
     }
 }

@@ -10,11 +10,11 @@ import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a75;
 import com.baidu.tieba.b75;
+import com.baidu.tieba.c75;
 import com.baidu.tieba.oi;
-import com.baidu.tieba.x65;
 import com.baidu.tieba.y65;
+import com.baidu.tieba.z65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,8 +26,8 @@ public class BannerFlowView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public ViewPager a;
     public IndicatorView b;
-    public x65 c;
-    public b75 d;
+    public y65 c;
+    public c75 d;
     public View e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -89,8 +89,8 @@ public class BannerFlowView extends FrameLayout {
             this.b = indicatorView;
             indicatorView.setSpacing(0);
             a();
-            this.c = new x65(context, this.a, this.b, null);
-            this.d = new b75(context, a75.a);
+            this.c = new y65(context, this.a, this.b, null);
+            this.d = new c75(context, b75.a);
             this.c.j(5000L);
             this.c.i(context, this.d);
             addView(this.a, new FrameLayout.LayoutParams(-1, -1));
@@ -122,11 +122,11 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setOnItemClickListener(y65.a<a75, b75.a> aVar) {
-        b75 b75Var;
+    public void setOnItemClickListener(z65.a<b75, c75.a> aVar) {
+        c75 c75Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && (b75Var = this.d) != null) {
-            b75Var.f(aVar);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && (c75Var = this.d) != null) {
+            c75Var.f(aVar);
         }
     }
 }

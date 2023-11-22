@@ -1,44 +1,82 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.editortools.EditorTools;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.util.DataExt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.annotations.SerializedName;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class kfb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @SerializedName("n")
+    public String a;
+    @SerializedName("t")
+    public String b;
+    @SerializedName("c")
+    public String c;
+    @SerializedName("cs")
+    public List<a> d;
+    @SerializedName("e")
+    public List<String> e;
 
-    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull yd5 yd5Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, tbPageContext, editorTools, yd5Var, str) == null) {
-            if ("e1".equals(str)) {
-                sfb.h(tbPageContext, editorTools, yd5Var);
-            } else if (Config.SESSTION_TRACK_END_TIME.equals(str)) {
-                sfb.j(tbPageContext, editorTools, yd5Var);
-            } else if ("e3".equals(str)) {
-                sfb.k(tbPageContext, editorTools, yd5Var);
-            } else if ("e4".equals(str)) {
-                sfb.g(tbPageContext, editorTools, yd5Var);
-            } else if ("e5".equals(str)) {
-                sfb.d(editorTools, yd5Var);
-            } else if ("e6".equals(str)) {
-                sfb.a(tbPageContext, editorTools, yd5Var);
-            } else if ("e7".equals(str)) {
-                sfb.l(tbPageContext, editorTools, yd5Var);
-            } else if ("e8".equals(str)) {
-                sfb.b(tbPageContext, editorTools, yd5Var);
-            } else if ("e9".equals(str)) {
-                sfb.i(tbPageContext, editorTools);
-            } else if ("e10".equals(str)) {
-                sfb.c(tbPageContext, editorTools, yd5Var);
-            } else if ("e11".equals(str)) {
-                sfb.f(tbPageContext, editorTools, yd5Var);
-            } else if ("e12".equals(str)) {
-                sfb.e(tbPageContext, editorTools, yd5Var);
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @SerializedName("id")
+        public String a;
+        @SerializedName("ext")
+        public String b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
+    }
+
+    public kfb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Nullable
+    public static kfb a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            try {
+                return (kfb) DataExt.toEntity(str, kfb.class);
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (kfb) invokeL.objValue;
     }
 }

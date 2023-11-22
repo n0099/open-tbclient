@@ -86,8 +86,8 @@ public class os extends ns<bw4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    il6.a(this.a.g.getThreadData().getId());
-                    il6.l(this.a.f.getTitle(), this.a.g.getThreadData().getId(), R.color.CAM_X0101, R.color.CAM_X0109);
+                    jl6.a(this.a.g.getThreadData().getId());
+                    jl6.l(this.a.f.getTitle(), this.a.g.getThreadData().getId(), R.color.CAM_X0101, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -120,11 +120,11 @@ public class os extends ns<bw4> {
     }
 
     @Override // com.baidu.tieba.ns
-    public void n(xl6<bw4> xl6Var) {
+    public void n(yl6<bw4> yl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xl6Var) == null) {
-            super.n(xl6Var);
-            this.f.setSubClickListener(xl6Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yl6Var) == null) {
+            super.n(yl6Var);
+            this.f.setSubClickListener(yl6Var);
         }
     }
 
@@ -171,20 +171,20 @@ public class os extends ns<bw4> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, oiVar) == null) {
             bw4 bw4Var = this.g;
-            if ((!(bw4Var instanceof im6) && !(bw4Var instanceof ThreadData)) || !(view2.getTag() instanceof ThreadCardViewHolder)) {
+            if ((!(bw4Var instanceof jm6) && !(bw4Var instanceof ThreadData)) || !(view2.getTag() instanceof ThreadCardViewHolder)) {
                 return;
             }
             ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-            if (oiVar instanceof im6) {
-                im6 im6Var = (im6) this.g;
-                im6Var.f = 1;
+            if (oiVar instanceof jm6) {
+                jm6 jm6Var = (jm6) this.g;
+                jm6Var.f = 1;
                 Context context = view2.getContext();
-                if (im6Var.a.isFromHomPage) {
+                if (jm6Var.a.isFromHomPage) {
                     i = 2;
                 } else {
                     i = 1;
                 }
-                ThreadCardUtils.jumpToPB((bw4) im6Var, context, i, false);
+                ThreadCardUtils.jumpToPB((bw4) jm6Var, context, i, false);
                 threadCardViewHolder.a().q(new mu.a(1));
             } else if (oiVar instanceof ThreadData) {
                 ThreadData threadData = (ThreadData) this.g;

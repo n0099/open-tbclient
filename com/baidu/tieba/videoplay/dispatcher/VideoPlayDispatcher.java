@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.util.ForumBroadcastHelper;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
-import com.baidu.tieba.lt5;
-import com.baidu.tieba.qha;
+import com.baidu.tieba.mt5;
+import com.baidu.tieba.rha;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class VideoPlayDispatcher implements qha {
+public class VideoPlayDispatcher implements rha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,7 +44,7 @@ public class VideoPlayDispatcher implements qha {
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x0185  */
     /* JADX WARN: Removed duplicated region for block: B:40:0x0195  */
-    @Override // com.baidu.tieba.qha
+    @Override // com.baidu.tieba.rha
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -55,6 +55,7 @@ public class VideoPlayDispatcher implements qha {
         JSONObject jSONObject3;
         Rect rect;
         String str;
+        String str2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
             ArrayList arrayList = new ArrayList();
@@ -138,11 +139,17 @@ public class VideoPlayDispatcher implements qha {
                         str = "index";
                     } else if (ImageViewerConfig.FROM_CONCERN.equals(optString2)) {
                         str = "concern_tab";
+                    } else if ("frs".equals(optString2)) {
+                        str2 = "frs";
+                        Rect rect2 = rect;
+                        mt5.f(context, arrayList, videoItemData.nid, z, 0, rect2, "from_nani_video", "personalize_page", "", str2, "", z2, "1".equals(jSONObject.optString("isFrsVideoTab")), false, JavaTypesHelper.toLong(videoItemData.forum_id, 0L), "1".equals(jSONObject.optString("isTopThread")));
+                        return;
                     } else {
                         str = VideoPlayActivityConfig.FROM_H5_SEARCH;
                     }
-                    Rect rect2 = rect;
-                    lt5.f(context, arrayList, videoItemData.nid, z, 0, rect2, "from_nani_video", "personalize_page", "", str, "", z2, "1".equals(jSONObject.optString("isFrsVideoTab")), false, JavaTypesHelper.toLong(videoItemData.forum_id, 0L), "1".equals(jSONObject.optString("isTopThread")));
+                    str2 = str;
+                    Rect rect22 = rect;
+                    mt5.f(context, arrayList, videoItemData.nid, z, 0, rect22, "from_nani_video", "personalize_page", "", str2, "", z2, "1".equals(jSONObject.optString("isFrsVideoTab")), false, JavaTypesHelper.toLong(videoItemData.forum_id, 0L), "1".equals(jSONObject.optString("isTopThread")));
                     return;
                 }
             }

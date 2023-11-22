@@ -13,7 +13,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.angcyo.tablayout.DslTabLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tieba.de7;
+import com.baidu.tieba.ee7;
 import com.baidu.tieba.j0;
 import com.baidu.tieba.q0;
 import com.baidu.tieba.r0;
@@ -1023,7 +1023,7 @@ public class DslTabIndicator extends j0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048599, this, context, attributeSet) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, de7.DslTabLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ee7.DslTabLayout);
             q0(obtainStyledAttributes.getDrawable(77));
             p0(obtainStyledAttributes.getColor(72, this.A));
             if (this.s.k()) {

@@ -12,11 +12,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.editortools.meme.muti.MutiSpriteMemeEvent;
 import com.baidu.tbadk.mutiprocess.MutiProcessManager;
-import com.baidu.tieba.au5;
+import com.baidu.tieba.bu5;
 import com.baidu.tieba.ca;
-import com.baidu.tieba.eu5;
+import com.baidu.tieba.fu5;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.of5;
+import com.baidu.tieba.pf5;
 import com.baidu.tieba.yz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -145,7 +145,7 @@ public final class SpriteMemeShowStrategy {
     }
 
     /* loaded from: classes5.dex */
-    public static final class c extends au5<Object> {
+    public static final class c extends bu5<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -163,7 +163,7 @@ public final class SpriteMemeShowStrategy {
             }
         }
 
-        @Override // com.baidu.tieba.au5
+        @Override // com.baidu.tieba.bu5
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -213,7 +213,7 @@ public final class SpriteMemeShowStrategy {
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && k() && !c) {
             MutiProcessManager.publishEvent(new MutiSpriteMemeEvent(b, f()));
             DefaultLog.getInstance().e("sprite_meme_log", "开始更新 SpriteMeme 本地缓存配置");
-            eu5.b(new c(), null);
+            fu5.b(new c(), null);
         }
     }
 
@@ -244,7 +244,7 @@ public final class SpriteMemeShowStrategy {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return of5.a.a().a();
+            return pf5.a.a().a();
         }
         return invokeV.longValue;
     }
@@ -253,7 +253,7 @@ public final class SpriteMemeShowStrategy {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return of5.a.a().b();
+            return pf5.a.a().b();
         }
         return invokeV.intValue;
     }

@@ -10,7 +10,7 @@ import com.baidu.searchbox.ruka.ubc.LooperPerfSampleCallback;
 import com.baidu.tieba.lf1;
 import com.baidu.tieba.nf1;
 import com.baidu.tieba.pf1;
-import com.baidu.tieba.tka;
+import com.baidu.tieba.uka;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -33,7 +33,7 @@ public class PerfSampleManager {
             arrayList.add(new FpsPerfSampleCallback());
             arrayList.add(new ExceptionPerfSampleCallback());
             arrayList.add(new LooperPerfSampleCallback());
-            arrayList.add(new tka());
+            arrayList.add(new uka());
             return arrayList;
         }
     }

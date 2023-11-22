@@ -1,25 +1,25 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.MangaCategoryActivityConfig;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.CategoryInfo;
+import tbclient.CartoonThread;
 /* loaded from: classes8.dex */
-public class uqc extends poc {
+public class uqc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull CategoryInfo categoryInfo) {
+    public static JSONObject b(@NonNull CartoonThread cartoonThread) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, categoryInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cartoonThread)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, MangaCategoryActivityConfig.CATEGORY_ID, categoryInfo.category_id);
-            poc.a(jSONObject, MangaCategoryActivityConfig.CATEGORY_NAME, categoryInfo.category_name);
+            qoc.a(jSONObject, MangaBrowserActivityConfig.CARTOON_ID, cartoonThread.cartoon_id);
+            qoc.a(jSONObject, MangaBrowserActivityConfig.CHAPTER_ID, cartoonThread.chapter_id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

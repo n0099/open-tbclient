@@ -79,7 +79,7 @@ public class UserIconBox extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements pb<TbImageView> {
+    public class b implements pb<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;

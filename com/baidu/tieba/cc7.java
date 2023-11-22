@@ -3,15 +3,16 @@ package com.baidu.tieba;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardVideoAdView;
+import com.baidu.tieba.feed.component.CardTitleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cc7 extends ia7<CardVideoAdView, i47> {
+public class cc7 extends ja7<CardTitleView, h47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +36,26 @@ public class cc7 extends ia7<CardVideoAdView, i47> {
         }
     }
 
-    @Override // com.baidu.tieba.ia7, com.baidu.tieba.ya7
+    @Override // com.baidu.tieba.ja7, com.baidu.tieba.za7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            rc7.j(a);
+            sc7.l(a, null, Integer.valueOf(BdUtilHelper.getDimens(h27.a, R.dimen.M_H_X001)));
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ya7
+    @Override // com.baidu.tieba.za7
     /* renamed from: e */
-    public void b(@NonNull CardVideoAdView cardVideoAdView, @NonNull i47 i47Var) {
+    public void b(@NonNull CardTitleView cardTitleView, @NonNull h47 h47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardVideoAdView, i47Var) == null) {
-            cardVideoAdView.b(i47Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardTitleView, h47Var) == null) {
+            cardTitleView.b(h47Var);
         }
     }
 }

@@ -71,6 +71,12 @@ public class SmartLaunchScheduler {
         return mIsScheduleInterrupted;
     }
 
+    public static /* synthetic */ int access$212(SmartLaunchScheduler smartLaunchScheduler, int i) {
+        int i2 = smartLaunchScheduler.idleDelayTaskCount + i;
+        smartLaunchScheduler.idleDelayTaskCount = i2;
+        return i2;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void schedule(SmartLaunchTask smartLaunchTask, int i) {
         if (smartLaunchTask != null && !smartLaunchTask.isExecuted()) {
@@ -187,7 +193,7 @@ public class SmartLaunchScheduler {
                                 return true;
                             }
                         } else {
-                            SmartLaunchScheduler.this.idleDelayTaskCount++;
+                            SmartLaunchScheduler.access$212(SmartLaunchScheduler.this, 1);
                             if (SmartLaunchScheduler.mIsScheduleInterrupted) {
                                 return false;
                             }

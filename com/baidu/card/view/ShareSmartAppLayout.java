@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.view.AppletsCellView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bw4;
 import com.baidu.tieba.ht;
-import com.baidu.tieba.xl6;
+import com.baidu.tieba.yl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class ShareSmartAppLayout extends LinearLayout implements ht<bw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AppletsCellView a;
-    public xl6<bw4> b;
+    public yl6<bw4> b;
 
     public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
@@ -102,19 +102,19 @@ public class ShareSmartAppLayout extends LinearLayout implements ht<bw4> {
         }
     }
 
-    public xl6<bw4> getSubClickListener() {
+    public yl6<bw4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
-        return (xl6) invokeV.objValue;
+        return (yl6) invokeV.objValue;
     }
 
-    public void setSubClickListener(xl6<bw4> xl6Var) {
+    public void setSubClickListener(yl6<bw4> yl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, xl6Var) == null) {
-            this.b = xl6Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, yl6Var) == null) {
+            this.b = yl6Var;
         }
     }
 }

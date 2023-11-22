@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.fragment.app.Fragment;
-import com.baidu.tieba.gza;
+import androidx.fragment.app.FragmentActivity;
 import com.baidu.tieba.tracker.Monitor;
-import com.baidu.tieba.tracker.core.data.EventParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Arrays;
@@ -15,55 +13,54 @@ public final class pza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(Fragment fragment, Pair<String, String>... params) {
-        qza qzaVar;
-        mza<qza> d;
+    public static final void a(FragmentActivity fragmentActivity, Pair<String, String>... params) {
+        rza rzaVar;
+        nza<rza> d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, fragment, params) == null) {
-            Intrinsics.checkNotNullParameter(fragment, "<this>");
+        if (interceptable == null || interceptable.invokeLL(65536, null, fragmentActivity, params) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
             Intrinsics.checkNotNullParameter(params, "params");
-            if (fragment instanceof qza) {
-                qzaVar = (qza) fragment;
+            if (fragmentActivity instanceof rza) {
+                rzaVar = (rza) fragmentActivity;
             } else {
-                qzaVar = null;
+                rzaVar = null;
             }
-            if (qzaVar != null && (d = Monitor.a.d(qzaVar)) != null) {
+            if (rzaVar != null && (d = Monitor.a.d(rzaVar)) != null) {
                 d.b(MapsKt__MapsKt.mapOf((Pair[]) Arrays.copyOf(params, params.length)));
             }
         }
     }
 
-    public static final void b(Fragment fragment, Pair<String, ? extends Object>... params) {
-        qza qzaVar;
+    public static final void c(FragmentActivity fragmentActivity, Pair<String, String>... params) {
+        rza rzaVar;
+        nza<rza> d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, fragment, params) == null) {
-            Intrinsics.checkNotNullParameter(fragment, "<this>");
+        if (interceptable == null || interceptable.invokeLL(65538, null, fragmentActivity, params) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
             Intrinsics.checkNotNullParameter(params, "params");
-            if (fragment instanceof qza) {
-                qzaVar = (qza) fragment;
+            if (fragmentActivity instanceof rza) {
+                rzaVar = (rza) fragmentActivity;
             } else {
-                qzaVar = null;
+                rzaVar = null;
             }
-            if (qzaVar != null) {
-                Monitor.a.a(fragment, qzaVar, gza.c.a).e().fillTrackParams(new EventParams((Pair[]) Arrays.copyOf(params, params.length)));
+            if (rzaVar != null && (d = Monitor.a.d(rzaVar)) != null) {
+                d.g(MapsKt__MapsKt.mapOf((Pair[]) Arrays.copyOf(params, params.length)));
             }
         }
     }
 
-    public static final void c(Fragment fragment, Pair<String, String>... params) {
-        qza qzaVar;
-        mza<qza> d;
+    public static final void b(FragmentActivity fragmentActivity) {
+        rza rzaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, fragment, params) == null) {
-            Intrinsics.checkNotNullParameter(fragment, "<this>");
-            Intrinsics.checkNotNullParameter(params, "params");
-            if (fragment instanceof qza) {
-                qzaVar = (qza) fragment;
+        if (interceptable == null || interceptable.invokeL(65537, null, fragmentActivity) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if (fragmentActivity instanceof rza) {
+                rzaVar = (rza) fragmentActivity;
             } else {
-                qzaVar = null;
+                rzaVar = null;
             }
-            if (qzaVar != null && (d = Monitor.a.d(qzaVar)) != null) {
-                d.g(MapsKt__MapsKt.mapOf((Pair[]) Arrays.copyOf(params, params.length)));
+            if (rzaVar != null) {
+                Monitor.a.b(fragmentActivity, rzaVar).e();
             }
         }
     }

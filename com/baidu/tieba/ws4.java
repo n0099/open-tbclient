@@ -28,18 +28,18 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ws4 implements cj6 {
+public class ws4 implements dj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        bj6.a(this, webView, str, jSONObject);
+        cj6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public /* synthetic */ void onDestroy() {
-        bj6.b(this);
+        cj6.b(this);
     }
 
     public ws4() {
@@ -56,7 +56,7 @@ public class ws4 implements cj6 {
         }
     }
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -79,11 +79,11 @@ public class ws4 implements cj6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public nsa c(WebView webView, String str, String str2, String str3, String str4) {
+    public osa c(WebView webView, String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, str3, str4)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("gameId", str);
@@ -96,52 +96,52 @@ public class ws4 implements cj6 {
             String jSONObject2 = jSONObject.toString();
             if (!TextUtils.isEmpty(jSONObject2)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921404, jSONObject2));
-                return nsaVar;
+                return osaVar;
             }
-            nsaVar.p();
-            return nsaVar;
+            osaVar.p();
+            return osaVar;
         }
-        return (nsa) invokeLLLLL.objValue;
+        return (osa) invokeLLLLL.objValue;
     }
 
     @NonNull
-    public nsa d(WebView webView, @NonNull String str, @Nullable String str2) {
+    public osa d(WebView webView, @NonNull String str, @Nullable String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, webView, str, str2)) == null) {
-            nsa nsaVar = new nsa();
-            nsaVar.y(0);
-            nsaVar.o(yu5.b().c(str, str2));
-            return nsaVar;
+            osa osaVar = new osa();
+            osaVar.y(0);
+            osaVar.o(zu5.b().c(str, str2));
+            return osaVar;
         }
-        return (nsa) invokeLLL.objValue;
+        return (osa) invokeLLL.objValue;
     }
 
-    public nsa e(WebView webView) {
+    public osa e(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, webView)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             String string = SharedPrefHelper.getInstance().getString("key_match_id_list_football", "");
             String string2 = SharedPrefHelper.getInstance().getString("key_match_id_list_basketball", "");
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("football", PreferencesUtil.LEFT_MOUNT + string + PreferencesUtil.RIGHT_MOUNT);
                 jSONObject.put("basketball", PreferencesUtil.LEFT_MOUNT + string2 + PreferencesUtil.RIGHT_MOUNT);
-                nsaVar.o(jSONObject.toString());
+                osaVar.o(jSONObject.toString());
             } catch (JSONException e) {
                 BdLog.e(e);
             }
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeL.objValue;
+        return (osa) invokeL.objValue;
     }
 
-    public nsa f(WebView webView, String str, String str2, boolean z) {
+    public osa f(WebView webView, String str, String str2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{webView, str, str2, Boolean.valueOf(z)})) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             if (!str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_CREATE) && !str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_DISSLOVE) && !str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_MANAGE)) {
                 if (CommonTbJsBridge.KEY_GROUP_CHAT_CHANGE_NAME.equals(str)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921779, str2));
@@ -211,14 +211,14 @@ public class ws4 implements cj6 {
             MutiProcessManager.publishEvent(hybridNotifyEvent);
             if (z) {
                 try {
-                    dj6.a().g(str, new JSONObject(str2), webView);
+                    ej6.a().g(str, new JSONObject(str2), webView);
                 } catch (Exception e4) {
                     TbLog hybridLog = HybridLog.getInstance();
                     hybridLog.e("NotifyDataChanged", "H5通知H5异常:" + e4);
                 }
             }
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeCommon.objValue;
+        return (osa) invokeCommon.objValue;
     }
 }

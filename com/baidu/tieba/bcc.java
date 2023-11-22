@@ -1,7 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface bcc {
-    void a(int i, int i2, int i3, int i4);
 
-    void b(int i, int i2, String str);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes5.dex */
+public abstract class bcc {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

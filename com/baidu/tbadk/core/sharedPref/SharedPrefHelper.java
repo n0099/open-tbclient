@@ -16,18 +16,26 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.KVStorageFactory;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.searchbox.downloads.DownloadConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.UniKVTestSwitch;
 import com.baidu.tieba.compatible.EditorHelper;
 import com.baidu.tieba.q45;
+import com.baidu.tieba.r45;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -35,6 +43,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes4.dex */
 public class SharedPrefHelper {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<String> DOWNGRADE_SET;
     public static ContentResolver mContentResolver;
     public static HashMap<String, String> mProcessMap;
     public static SharedPrefHelper spHelper;
@@ -117,11 +126,31 @@ public class SharedPrefHelper {
         public Void doInBackground(Void... voidArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                this.b.deleteValueInner(this.a);
-                return null;
+            if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) != null) {
+                return (Void) invokeL.objValue;
             }
-            return (Void) invokeL.objValue;
+            this.b.deleteValueInner(this.a);
+            return null;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(45735691, "Lcom/baidu/tbadk/core/sharedPref/SharedPrefHelper;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(45735691, "Lcom/baidu/tbadk/core/sharedPref/SharedPrefHelper;");
+                return;
+            }
+        }
+        DOWNGRADE_SET = new HashSet();
+        if (r45.a()) {
+            DOWNGRADE_SET.add("key_splash_shake_ad_open");
+            DOWNGRADE_SET.add("video_auto_play_new");
         }
     }
 
@@ -129,12 +158,12 @@ public class SharedPrefHelper {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
@@ -151,10 +180,10 @@ public class SharedPrefHelper {
         mContentResolver = TbadkCoreApplication.getInst().getContext().getContentResolver();
     }
 
-    public synchronized SharedPreferences getSharedPreferences() {
+    private synchronized SharedPreferences getSharedPreferences() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
             synchronized (this) {
                 if (!PermissionUtil.isBrowseMode() && PermissionUtil.isAgreePrivacyPolicy()) {
                     if (this.mFile == null || this.mFile.length() == 0) {
@@ -175,10 +204,10 @@ public class SharedPrefHelper {
         return (SharedPreferences) invokeV.objValue;
     }
 
-    public synchronized SharedPreferences getSharedPreferencesKV() {
+    private synchronized SharedPreferences getSharedPreferencesKV() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
             synchronized (this) {
                 if (!PermissionUtil.isBrowseMode() && PermissionUtil.isAgreePrivacyPolicy()) {
                     if (this.mFile == null || this.mFile.length() == 0) {
@@ -201,7 +230,7 @@ public class SharedPrefHelper {
 
     private void putBooleanInternal(String str, boolean z, SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{str, Boolean.valueOf(z), sharedPreferences}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{str, Boolean.valueOf(z), sharedPreferences}) == null) {
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.putBoolean(str, z);
             edit.commit();
@@ -210,7 +239,7 @@ public class SharedPrefHelper {
 
     private void putFloatInternal(String str, float f, SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{str, Float.valueOf(f), sharedPreferences}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65553, this, new Object[]{str, Float.valueOf(f), sharedPreferences}) == null) {
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.putFloat(str, f);
             edit.commit();
@@ -219,7 +248,7 @@ public class SharedPrefHelper {
 
     private void putIntInternal(String str, int i, SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65551, this, str, i, sharedPreferences) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65554, this, str, i, sharedPreferences) == null) {
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.putInt(str, i);
             edit.commit();
@@ -228,7 +257,7 @@ public class SharedPrefHelper {
 
     private void putLongInternal(String str, long j, SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65552, this, new Object[]{str, Long.valueOf(j), sharedPreferences}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{str, Long.valueOf(j), sharedPreferences}) == null) {
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.putLong(str, j);
             edit.commit();
@@ -237,7 +266,7 @@ public class SharedPrefHelper {
 
     private void putStringInternal(String str, String str2, SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65553, this, str, str2, sharedPreferences) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65556, this, str, str2, sharedPreferences) == null) {
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.putString(str, str2);
             edit.commit();
@@ -246,7 +275,7 @@ public class SharedPrefHelper {
 
     private void syncPutIntInternal(String str, int i, SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65562, this, str, i, sharedPreferences) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65565, this, str, i, sharedPreferences) == null) {
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.putInt(str, i);
             edit.commit();
@@ -255,7 +284,7 @@ public class SharedPrefHelper {
 
     private void syncPutLongInternal(String str, long j, SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65563, this, new Object[]{str, Long.valueOf(j), sharedPreferences}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65566, this, new Object[]{str, Long.valueOf(j), sharedPreferences}) == null) {
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.putLong(str, j);
             edit.commit();
@@ -264,7 +293,7 @@ public class SharedPrefHelper {
 
     private void putData(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65549, this, str, obj) == null) && str != null && obj != null) {
+        if ((interceptable == null || interceptable.invokeLL(65552, this, str, obj) == null) && str != null && obj != null) {
             this.kvMap.put(str, obj);
             commit();
         }
@@ -272,7 +301,7 @@ public class SharedPrefHelper {
 
     private void putValue(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65557, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65560, this, str, str2) == null) {
             Uri parse = Uri.parse(getContentPrefix() + str);
             ContentValues contentValues = new ContentValues();
             contentValues.put(str, str2);
@@ -283,7 +312,7 @@ public class SharedPrefHelper {
     /* JADX INFO: Access modifiers changed from: private */
     public void setValueInner(Uri uri, ContentValues contentValues) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65560, this, uri, contentValues) == null) {
+        if (interceptable == null || interceptable.invokeLL(65563, this, uri, contentValues) == null) {
             try {
                 mContentResolver.insert(uri, contentValues);
             } catch (Exception e) {
@@ -294,14 +323,14 @@ public class SharedPrefHelper {
 
     public void removeInternal(String str, SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, str, sharedPreferences) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048595, this, str, sharedPreferences) == null) {
             EditorHelper.remove(sharedPreferences, str);
         }
     }
 
     public void setValue(Uri uri, ContentValues contentValues) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048598, this, uri, contentValues) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048596, this, uri, contentValues) == null) {
             if (BdUtilHelper.isMainThread()) {
                 new a(this, uri, contentValues).execute(new Void[0]);
             } else {
@@ -313,7 +342,7 @@ public class SharedPrefHelper {
     private boolean checkIsCommon(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
             if (str != null && str.length() != 0) {
                 int length = q45.n.length;
                 for (int i = 0; i < length; i++) {
@@ -330,7 +359,7 @@ public class SharedPrefHelper {
     private void clearInternal(SharedPreferences sharedPreferences) {
         SharedPreferences.Editor edit;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, this, sharedPreferences) == null) && (edit = sharedPreferences.edit()) != null) {
+        if ((interceptable == null || interceptable.invokeL(65542, this, sharedPreferences) == null) && (edit = sharedPreferences.edit()) != null) {
             edit.clear();
             edit.commit();
         }
@@ -339,7 +368,7 @@ public class SharedPrefHelper {
     /* JADX INFO: Access modifiers changed from: private */
     public void deleteValueInner(Uri uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, this, uri) == null) {
+        if (interceptable == null || interceptable.invokeL(65544, this, uri) == null) {
             try {
                 mContentResolver.delete(uri, null, null);
             } catch (SecurityException e) {
@@ -351,7 +380,7 @@ public class SharedPrefHelper {
     public static String getSharedPrefKeyWithAccount(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
             return str + "_" + TbadkCoreApplication.getCurrentAccount();
         }
         return (String) invokeL.objValue;
@@ -360,7 +389,7 @@ public class SharedPrefHelper {
     private String getValue(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, this, str)) == null) {
             return getValue(Uri.parse(getContentPrefix() + str));
         }
         return (String) invokeL.objValue;
@@ -368,7 +397,7 @@ public class SharedPrefHelper {
 
     private void removeValue(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65559, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65562, this, str) == null) {
             deleteValue(Uri.parse(getContentPrefix() + str));
         }
     }
@@ -386,7 +415,7 @@ public class SharedPrefHelper {
 
     private void clearByAccountInternal(String str, SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, sharedPreferences) == null) && !TextUtils.isEmpty(str) && sharedPreferences != null) {
+        if ((interceptable == null || interceptable.invokeLL(65541, this, str, sharedPreferences) == null) && !TextUtils.isEmpty(str) && sharedPreferences != null) {
             Set<String> keySet = sharedPreferences.getAll().keySet();
             SharedPreferences.Editor edit = sharedPreferences.edit();
             for (String str2 : keySet) {
@@ -400,36 +429,6 @@ public class SharedPrefHelper {
                 edit.commit();
             }
         }
-    }
-
-    public boolean getBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) {
-            if (checkIsCommon(str)) {
-                String value = getValue(str);
-                if (value == null) {
-                    return z;
-                }
-                try {
-                    return Boolean.parseBoolean(value);
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                    return z;
-                }
-            }
-            Object obj = this.kvMap.get(str);
-            if (obj instanceof Boolean) {
-                return ((Boolean) obj).booleanValue();
-            }
-            if (!UniKVTestSwitch.isTypeSp() && !UniKVTestSwitch.isTypeDoubleSp()) {
-                this.mSP = getSharedPreferencesKV();
-            } else {
-                this.mSP = getSharedPreferences();
-            }
-            return this.mSP.getBoolean(str, z);
-        }
-        return invokeLZ.booleanValue;
     }
 
     public float getFloat(String str, float f) {
@@ -460,36 +459,6 @@ public class SharedPrefHelper {
             return this.mSP.getFloat(str, f);
         }
         return invokeLF.floatValue;
-    }
-
-    public int getInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i)) == null) {
-            if (checkIsCommon(str)) {
-                String value = getValue(str);
-                if (value == null) {
-                    return i;
-                }
-                try {
-                    return Integer.parseInt(value);
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                    return i;
-                }
-            }
-            Object obj = this.kvMap.get(str);
-            if (obj instanceof Integer) {
-                return ((Integer) obj).intValue();
-            }
-            if (!UniKVTestSwitch.isTypeSp() && !UniKVTestSwitch.isTypeDoubleSp()) {
-                this.mSP = getSharedPreferencesKV();
-            } else {
-                this.mSP = getSharedPreferences();
-            }
-            return this.mSP.getInt(str, i);
-        }
-        return invokeLI.intValue;
     }
 
     public long getLong(String str, long j) {
@@ -530,7 +499,7 @@ public class SharedPrefHelper {
     public String getString(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) {
             if (checkIsCommon(str)) {
                 String value = getValue(str);
                 if (value != null) {
@@ -554,7 +523,7 @@ public class SharedPrefHelper {
 
     public void putBoolean(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048591, this, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048589, this, str, z) == null) {
             if (checkIsCommon(str)) {
                 putValue(str, z);
             } else if (BdUtilHelper.isMainThread()) {
@@ -572,7 +541,7 @@ public class SharedPrefHelper {
 
     public void putFloat(String str, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048592, this, str, f) == null) {
+        if (interceptable == null || interceptable.invokeLF(1048590, this, str, f) == null) {
             if (checkIsCommon(str)) {
                 putValue(str, f);
             } else if (BdUtilHelper.isMainThread()) {
@@ -590,7 +559,7 @@ public class SharedPrefHelper {
 
     public void putInt(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048593, this, str, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048591, this, str, i) == null) {
             if (checkIsCommon(str)) {
                 putValue(str, i);
             } else if (BdUtilHelper.isMainThread()) {
@@ -608,7 +577,7 @@ public class SharedPrefHelper {
 
     public void putLong(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048594, this, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048592, this, str, j) == null) {
             if (checkIsCommon(str)) {
                 putValue(str, j);
             } else if (BdUtilHelper.isMainThread()) {
@@ -626,7 +595,7 @@ public class SharedPrefHelper {
 
     public void putString(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048593, this, str, str2) == null) {
             if (checkIsCommon(str)) {
                 putValue(str, str2);
             } else if (StringUtil.NULL_STRING.equals(str2)) {
@@ -647,7 +616,7 @@ public class SharedPrefHelper {
     private void commitInternal(SharedPreferences sharedPreferences) {
         SharedPreferences.Editor edit;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, this, sharedPreferences) != null) || sharedPreferences == null || (edit = sharedPreferences.edit()) == null) {
+        if ((interceptable != null && interceptable.invokeL(65543, this, sharedPreferences) != null) || sharedPreferences == null || (edit = sharedPreferences.edit()) == null) {
             return;
         }
         for (Map.Entry<String, Object> entry : this.kvMap.entrySet()) {
@@ -677,7 +646,7 @@ public class SharedPrefHelper {
     private void syncCommitInternal(SharedPreferences sharedPreferences) {
         SharedPreferences.Editor edit;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65561, this, sharedPreferences) != null) || sharedPreferences == null || (edit = sharedPreferences.edit()) == null) {
+        if ((interceptable != null && interceptable.invokeL(65564, this, sharedPreferences) != null) || sharedPreferences == null || (edit = sharedPreferences.edit()) == null) {
             return;
         }
         for (Map.Entry<String, Object> entry : this.kvMap.entrySet()) {
@@ -704,7 +673,7 @@ public class SharedPrefHelper {
         InterceptResult invokeV;
         SharedPrefHelper sharedPrefHelper;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             synchronized (SharedPrefHelper.class) {
                 if (spHelper == null) {
                     spHelper = new SharedPrefHelper();
@@ -728,7 +697,7 @@ public class SharedPrefHelper {
     private String getProcessName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
                 return Application.getProcessName();
             }
@@ -750,6 +719,19 @@ public class SharedPrefHelper {
             return str;
         }
         return (String) invokeV.objValue;
+    }
+
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (UniKVTestSwitch.isTypeSp() || UniKVTestSwitch.isTypeDoubleKv() || UniKVTestSwitch.isTypeDoubleSp()) {
+                clearInternal(getSharedPreferences());
+            }
+            if (UniKVTestSwitch.isTypeDoubleSp() || UniKVTestSwitch.isTypeDoubleKv()) {
+                clearInternal(getSharedPreferencesKV());
+            }
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_type", "shake_switch_check").param("obj_source", DownloadStatisticConstants.UBC_VALUE_CLEAR));
+        }
     }
 
     public void commit() {
@@ -785,7 +767,7 @@ public class SharedPrefHelper {
 
     public void syncCommit() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048599, this) != null) || this.kvMap.isEmpty()) {
+        if ((interceptable != null && interceptable.invokeV(1048597, this) != null) || this.kvMap.isEmpty()) {
             return;
         }
         if (UniKVTestSwitch.isTypeSp() || UniKVTestSwitch.isTypeDoubleKv() || UniKVTestSwitch.isTypeDoubleSp()) {
@@ -799,7 +781,7 @@ public class SharedPrefHelper {
 
     private void putValue(String str, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65554, this, str, f) == null) {
+        if (interceptable == null || interceptable.invokeLF(65557, this, str, f) == null) {
             Uri parse = Uri.parse(getContentPrefix() + str);
             ContentValues contentValues = new ContentValues();
             contentValues.put(str, String.valueOf(f));
@@ -809,7 +791,7 @@ public class SharedPrefHelper {
 
     public void syncPutInt(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048600, this, str, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048598, this, str, i) == null) {
             if (UniKVTestSwitch.isTypeSp() || UniKVTestSwitch.isTypeDoubleKv() || UniKVTestSwitch.isTypeDoubleSp()) {
                 syncPutIntInternal(str, i, getSharedPreferences());
             }
@@ -821,7 +803,7 @@ public class SharedPrefHelper {
 
     public void syncPutLong(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048601, this, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048599, this, str, j) == null) {
             if (UniKVTestSwitch.isTypeSp() || UniKVTestSwitch.isTypeDoubleKv() || UniKVTestSwitch.isTypeDoubleSp()) {
                 syncPutLongInternal(str, j, getSharedPreferences());
             }
@@ -833,7 +815,7 @@ public class SharedPrefHelper {
 
     private void putValue(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65555, this, str, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65558, this, str, i) == null) {
             Uri parse = Uri.parse(getContentPrefix() + str);
             ContentValues contentValues = new ContentValues();
             contentValues.put(str, String.valueOf(i));
@@ -843,7 +825,7 @@ public class SharedPrefHelper {
 
     private void putValue(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65556, this, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65559, this, str, j) == null) {
             Uri parse = Uri.parse(getContentPrefix() + str);
             ContentValues contentValues = new ContentValues();
             contentValues.put(str, String.valueOf(j));
@@ -853,23 +835,11 @@ public class SharedPrefHelper {
 
     private void putValue(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65558, this, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65561, this, str, z) == null) {
             Uri parse = Uri.parse(getContentPrefix() + str);
             ContentValues contentValues = new ContentValues();
             contentValues.put(str, String.valueOf(z));
             setValue(parse, contentValues);
-        }
-    }
-
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (UniKVTestSwitch.isTypeSp() || UniKVTestSwitch.isTypeDoubleKv() || UniKVTestSwitch.isTypeDoubleSp()) {
-                clearInternal(getSharedPreferences());
-            }
-            if (UniKVTestSwitch.isTypeDoubleSp() || UniKVTestSwitch.isTypeDoubleKv()) {
-                clearInternal(getSharedPreferencesKV());
-            }
         }
     }
 
@@ -885,10 +855,76 @@ public class SharedPrefHelper {
         }
     }
 
+    public boolean getBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) {
+            if (checkIsCommon(str)) {
+                String value = getValue(str);
+                if (value == null) {
+                    return z;
+                }
+                try {
+                    return Boolean.parseBoolean(value);
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                    return z;
+                }
+            }
+            Object obj = this.kvMap.get(str);
+            if (obj instanceof Boolean) {
+                return ((Boolean) obj).booleanValue();
+            }
+            if (!UniKVTestSwitch.isTypeSp() && !UniKVTestSwitch.isTypeDoubleSp()) {
+                this.mSP = getSharedPreferencesKV();
+            } else {
+                this.mSP = getSharedPreferences();
+            }
+            if (DOWNGRADE_SET.contains(str)) {
+                this.mSP = getSharedPreferences();
+            }
+            return this.mSP.getBoolean(str, z);
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public int getInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i)) == null) {
+            if (checkIsCommon(str)) {
+                String value = getValue(str);
+                if (value == null) {
+                    return i;
+                }
+                try {
+                    return Integer.parseInt(value);
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                    return i;
+                }
+            }
+            Object obj = this.kvMap.get(str);
+            if (obj instanceof Integer) {
+                return ((Integer) obj).intValue();
+            }
+            if (!UniKVTestSwitch.isTypeSp() && !UniKVTestSwitch.isTypeDoubleSp()) {
+                this.mSP = getSharedPreferencesKV();
+            } else {
+                this.mSP = getSharedPreferences();
+            }
+            if (DOWNGRADE_SET.contains(str)) {
+                this.mSP = getSharedPreferences();
+            }
+            return this.mSP.getInt(str, i);
+        }
+        return invokeLI.intValue;
+    }
+
     public String getValue(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, uri)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, uri)) == null) {
             try {
                 return mContentResolver.getType(uri);
             } catch (SecurityException e) {
@@ -902,7 +938,7 @@ public class SharedPrefHelper {
     public boolean isContains(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
             if (checkIsCommon(str)) {
                 return false;
             }
@@ -922,7 +958,7 @@ public class SharedPrefHelper {
 
     public void remove(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             if (checkIsCommon(str)) {
                 removeValue(str);
             } else if (this.kvMap.containsKey(str)) {

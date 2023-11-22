@@ -37,19 +37,19 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ak5;
-import com.baidu.tieba.bi7;
+import com.baidu.tieba.bk5;
 import com.baidu.tieba.browser.TbWebView;
+import com.baidu.tieba.ci7;
 import com.baidu.tieba.cs4;
-import com.baidu.tieba.dj6;
-import com.baidu.tieba.lj6;
-import com.baidu.tieba.lq6;
+import com.baidu.tieba.ej6;
+import com.baidu.tieba.mj6;
 import com.baidu.tieba.mq6;
-import com.baidu.tieba.pq6;
-import com.baidu.tieba.ql7;
+import com.baidu.tieba.nq6;
+import com.baidu.tieba.qq6;
+import com.baidu.tieba.rl7;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.vq7;
-import com.baidu.tieba.wp5;
+import com.baidu.tieba.wq7;
+import com.baidu.tieba.xp5;
 import com.baidu.tieba.xr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -62,7 +62,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class NewFrsTabWebFragment extends BaseWebViewFragment implements vq7, ql7 {
+public class NewFrsTabWebFragment extends BaseWebViewFragment implements wq7, rl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String e;
@@ -81,14 +81,14 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements vq7, ql
     public CustomMessageListener r;
     public final View.OnClickListener s;
 
-    @Override // com.baidu.tieba.vq7
+    @Override // com.baidu.tieba.wq7
     public void A0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.vq7
+    @Override // com.baidu.tieba.wq7
     public void c0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -143,7 +143,7 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements vq7, ql
     }
 
     /* loaded from: classes6.dex */
-    public class b extends pq6<bi7> {
+    public class b extends qq6<ci7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFrsTabWebFragment b;
@@ -170,11 +170,11 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements vq7, ql
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pq6
-        public void onEvent(@NonNull bi7 bi7Var) {
+        @Override // com.baidu.tieba.qq6
+        public void onEvent(@NonNull ci7 ci7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bi7Var) == null) {
-                if (bi7Var.a()) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, ci7Var) == null) {
+                if (ci7Var.a()) {
                     this.b.j.setVisibility(0);
                 } else if (!this.b.isResumed()) {
                     this.b.j.setVisibility(8);
@@ -184,7 +184,7 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements vq7, ql
     }
 
     /* loaded from: classes6.dex */
-    public class c implements lj6 {
+    public class c implements mj6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFrsTabWebFragment a;
@@ -207,7 +207,7 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements vq7, ql
             this.a = newFrsTabWebFragment;
         }
 
-        @Override // com.baidu.tieba.lj6
+        @Override // com.baidu.tieba.mj6
         public void a(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLIL(1048576, this, webView, webResourceRequest, i, charSequence) == null) {
@@ -490,7 +490,7 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements vq7, ql
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            wp5.a(getPageContext(), this.i);
+            xp5.a(getPageContext(), this.i);
             G0();
         }
     }
@@ -522,32 +522,32 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements vq7, ql
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048604, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            mq6.b().b(new lq6(getUniqueId(), this.q), new b(this, bi7.class));
+            nq6.b().b(new mq6(getUniqueId(), this.q), new b(this, ci7.class));
         }
     }
 
-    @Override // com.baidu.tieba.ql7
+    @Override // com.baidu.tieba.rl7
     public void q2(@NonNull ThreadData threadData, @NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048605, this, threadData, jSONObject) == null) && this.h == 102) {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("threadInfo", jSONObject);
-            dj6.a().d(this.j, CommonTbJsBridge.CHANGE_POST_WALL, hashMap);
+            ej6.a().d(this.j, CommonTbJsBridge.CHANGE_POST_WALL, hashMap);
         }
     }
 
-    @Override // com.baidu.tieba.vq7
+    @Override // com.baidu.tieba.wq7
     public void G0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setBackgroundColor(this.j, R.color.CAM_X0202);
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             linkedHashMap.put("skin", SkinManager.getCurrentSkinTypeString());
-            dj6.a().d(this.j, CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
+            ej6.a().d(this.j, CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
         }
     }
 
-    @Override // com.baidu.tieba.vq7
+    @Override // com.baidu.tieba.wq7
     public void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -602,7 +602,7 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements vq7, ql
             if (tbWebView != null) {
                 tbWebView.onDestroy();
             }
-            ak5.e().b();
+            bk5.e().b();
         }
     }
 

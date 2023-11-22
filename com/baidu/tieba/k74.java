@@ -98,7 +98,7 @@ public class k74 implements wn1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, v0b.c);
+            return new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, w0b.c);
         }
         return (File) invokeV.objValue;
     }

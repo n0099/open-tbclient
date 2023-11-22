@@ -116,7 +116,7 @@ public final class NotificationView extends LinearLayout implements View.OnClick
     /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final C0347a g;
+        public static final C0345a g;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
         public RelativeLayout b;
@@ -138,20 +138,20 @@ public final class NotificationView extends LinearLayout implements View.OnClick
                     return;
                 }
             }
-            g = new C0347a(null);
+            g = new C0345a(null);
         }
 
         /* renamed from: com.baidu.tieba.immessagecenter.mention.base.NotificationView$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static final class C0347a {
+        public static final class C0345a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public /* synthetic */ C0347a(DefaultConstructorMarker defaultConstructorMarker) {
+            public /* synthetic */ C0345a(DefaultConstructorMarker defaultConstructorMarker) {
                 this();
             }
 
-            public C0347a() {
+            public C0345a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -338,9 +338,9 @@ public final class NotificationView extends LinearLayout implements View.OnClick
         this.b = TbadkApplication.getInst().getCurrentPageContext(getContext());
         this.c = 3;
         View rootView = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0772, (ViewGroup) this, true);
-        a.C0347a c0347a = a.g;
+        a.C0345a c0345a = a.g;
         Intrinsics.checkNotNullExpressionValue(rootView, "rootView");
-        a a3 = c0347a.a(rootView);
+        a a3 = c0345a.a(rootView);
         this.a = a3;
         if (a3 != null && (a2 = a3.a()) != null) {
             a2.setOnClickListener(this);

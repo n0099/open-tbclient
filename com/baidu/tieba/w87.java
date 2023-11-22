@@ -1,173 +1,117 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import kotlin.TuplesKt;
 import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.Agree;
-import tbclient.FeedContentResource;
-import tbclient.FeedPostExpose;
-import tbclient.PostExposeHead;
+import tbclient.FeedPicComponent;
+import tbclient.PicDecoration;
+import tbclient.PicInfo;
 /* loaded from: classes8.dex */
 public final class w87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0070  */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0073  */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0078  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x007a  */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0084  */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0087  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x008a  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x008c  */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x0096  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0098  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x00a2  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00a5  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00ec  */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00ef  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00f2  */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00f5  */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x0100  */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x0103  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final void a(FeedPostExpose feedPostExpose, List<za7<?>> dataList, z57 feedExtraData) {
-        boolean z;
-        PostExposeHead postExposeHead;
-        String str;
-        String str2;
-        PostExposeHead postExposeHead2;
-        String str3;
-        String str4;
-        String str5;
-        String str6;
-        String str7;
-        String str8;
-        PostExposeHead postExposeHead3;
-        String str9;
-        String str10;
-        String str11;
-        String str12;
+    public static final List<g77> a(List<PicDecoration> decorationComponentList) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, feedPostExpose, dataList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedPostExpose, "<this>");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, decorationComponentList)) == null) {
+            Intrinsics.checkNotNullParameter(decorationComponentList, "decorationComponentList");
+            ArrayList arrayList = new ArrayList();
+            for (PicDecoration picDecoration : decorationComponentList) {
+                HashMap<String, String> a = ea7.a.a(picDecoration.decoration_info);
+                String str = picDecoration.name;
+                Intrinsics.checkNotNullExpressionValue(str, "decorationComponent.name");
+                String str2 = picDecoration.location;
+                Intrinsics.checkNotNullExpressionValue(str2, "decorationComponent.location");
+                arrayList.add(new g77(str, str2, a));
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static final d47 b(List<PicInfo> picInfoList, String schema, a67 feedExtraData) {
+        InterceptResult invokeLLL;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, picInfoList, schema, feedExtraData)) == null) {
+            Intrinsics.checkNotNullParameter(picInfoList, "picInfoList");
+            Intrinsics.checkNotNullParameter(schema, "schema");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            j57 j57Var = new j57();
+            ArrayList arrayList = new ArrayList();
+            for (PicInfo picInfo : picInfoList) {
+                f77 f77Var = new f77();
+                f77Var.a = picInfo.small_pic_url;
+                Integer num = picInfo.width;
+                Intrinsics.checkNotNullExpressionValue(num, "component.width");
+                f77Var.b = num.intValue();
+                Integer num2 = picInfo.height;
+                Intrinsics.checkNotNullExpressionValue(num2, "component.height");
+                f77Var.c = num2.intValue();
+                Double d = picInfo.crop_point_width_ratio;
+                Intrinsics.checkNotNullExpressionValue(d, "component.crop_point_width_ratio");
+                f77Var.e = d.doubleValue();
+                Double d2 = picInfo.crop_point_height_ratio;
+                Intrinsics.checkNotNullExpressionValue(d2, "component.crop_point_height_ratio");
+                f77Var.f = d2.doubleValue();
+                Integer num3 = picInfo.is_long_pic;
+                if (num3 != null && num3.intValue() == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                f77Var.d = z;
+                f77Var.g = picInfo.scheme;
+                List<PicDecoration> list = picInfo.decoration;
+                if (list != null && !list.isEmpty()) {
+                    z2 = false;
+                } else {
+                    z2 = true;
+                }
+                if (!z2) {
+                    List<PicDecoration> list2 = picInfo.decoration;
+                    Intrinsics.checkNotNullExpressionValue(list2, "component.decoration");
+                    f77Var.h = a(list2);
+                }
+                f77Var.i.addAll(CollectionsKt__CollectionsKt.listOf((Object[]) new n77[]{b67.d(feedExtraData, "image_click", null, 2, null), b67.d(feedExtraData, "image_click2", null, 2, null), b67.d(feedExtraData, "image_click3", null, 2, null), b67.d(feedExtraData, "image_click4", null, 2, null), b67.d(feedExtraData, "image_click5", null, 2, null), b67.c(feedExtraData, "image_click_selector1", b67.a(feedExtraData, MapsKt__MapsKt.mutableMapOf(TuplesKt.to("pic_type", picInfo.pic_type))))}));
+                arrayList.add(f77Var);
+            }
+            j57Var.a = arrayList;
+            return new d47(j57Var, schema, feedExtraData.a().a(), feedExtraData.c().a(), null, 16, null);
+        }
+        return (d47) invokeLLL.objValue;
+    }
+
+    public static final void c(FeedPicComponent feedPicComponent, List<ab7<?>> dataList, a67 feedExtraData) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, feedPicComponent, dataList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedPicComponent, "<this>");
             Intrinsics.checkNotNullParameter(dataList, "dataList");
             Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            List<FeedContentResource> list = feedPostExpose.floor;
-            if (list != null) {
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                x87.a(list, spannableStringBuilder, new z57(), new r47(null, null, 3, null));
-                long j = 0;
-                Agree head_agree = feedPostExpose.head_agree;
-                if (head_agree != null) {
-                    Intrinsics.checkNotNullExpressionValue(head_agree, "head_agree");
-                    Long l = head_agree.agree_num;
-                    Intrinsics.checkNotNullExpressionValue(l, "agree.agree_num");
-                    j = l.longValue();
-                    Integer num = head_agree.has_agree;
-                    if (num != null && num.intValue() == 1) {
-                        z = true;
-                        d57 d57Var = new d57();
-                        d57Var.b(da7.a.a(feedPostExpose.business_info));
-                        x57 x57Var = new x57(j, z, d57Var);
-                        postExposeHead = feedPostExpose.head_img;
-                        if (postExposeHead == null) {
-                            str = postExposeHead.img_url;
-                        } else {
-                            str = null;
-                        }
-                        if (str != null) {
-                            str2 = "";
-                        } else {
-                            Intrinsics.checkNotNullExpressionValue(str, "head_img?.img_url ?: \"\"");
-                            str2 = str;
-                        }
-                        postExposeHead2 = feedPostExpose.head_img;
-                        if (postExposeHead2 == null) {
-                            str3 = postExposeHead2.corner_url;
-                        } else {
-                            str3 = null;
-                        }
-                        if (str3 != null) {
-                            str4 = "";
-                        } else {
-                            Intrinsics.checkNotNullExpressionValue(str3, "head_img?.corner_url ?: \"\"");
-                            str4 = str3;
-                        }
-                        str5 = feedPostExpose.head_text;
-                        if (str5 != null) {
-                            str6 = "";
-                        } else {
-                            Intrinsics.checkNotNullExpressionValue(str5, "head_text ?: \"\"");
-                            str6 = str5;
-                        }
-                        str7 = feedPostExpose.stamp_url;
-                        if (str7 != null) {
-                            str8 = "";
-                        } else {
-                            Intrinsics.checkNotNullExpressionValue(str7, "stamp_url ?: \"\"");
-                            str8 = str7;
-                        }
-                        i77 i77Var = new i77(str2, str4, str6, str8, new SpannableString(spannableStringBuilder), x57Var, d57Var.a().get("toutiao_card_tag"), d57Var.a().get("toutiao_card_tag_color"), Intrinsics.areEqual(d57Var.a().get("shield_icon"), "1"));
-                        postExposeHead3 = feedPostExpose.head_img;
-                        if (postExposeHead3 == null) {
-                            str9 = postExposeHead3.schema;
-                        } else {
-                            str9 = null;
-                        }
-                        if (str9 != null) {
-                            str10 = "";
-                        } else {
-                            Intrinsics.checkNotNullExpressionValue(str9, "head_img?.schema ?: \"\"");
-                            str10 = str9;
-                        }
-                        str11 = feedPostExpose.schema;
-                        if (str11 != null) {
-                            str12 = "";
-                        } else {
-                            Intrinsics.checkNotNullExpressionValue(str11, "schema ?: \"\"");
-                            str12 = str11;
-                        }
-                        dataList.add(new ab7(new e47(i77Var, str10, str12, d57Var.a(), feedExtraData.c().a(), CollectionsKt__CollectionsKt.listOf((Object[]) new m77[]{a67.d(feedExtraData, "reply_user_head_click1", null, 2, null), a67.d(feedExtraData, "reply_user_head_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new m77[]{a67.d(feedExtraData, "reply_user_name_click1", null, 2, null), a67.d(feedExtraData, "reply_user_name_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new m77[]{a67.d(feedExtraData, "reply_card_click1", null, 2, null), a67.d(feedExtraData, "reply_card_click2", null, 2, null)}), null, 256, null), "reply"));
-                    }
-                }
+            List<PicInfo> list = feedPicComponent.pics;
+            if (list != null && !list.isEmpty()) {
                 z = false;
-                d57 d57Var2 = new d57();
-                d57Var2.b(da7.a.a(feedPostExpose.business_info));
-                x57 x57Var2 = new x57(j, z, d57Var2);
-                postExposeHead = feedPostExpose.head_img;
-                if (postExposeHead == null) {
-                }
-                if (str != null) {
-                }
-                postExposeHead2 = feedPostExpose.head_img;
-                if (postExposeHead2 == null) {
-                }
-                if (str3 != null) {
-                }
-                str5 = feedPostExpose.head_text;
-                if (str5 != null) {
-                }
-                str7 = feedPostExpose.stamp_url;
-                if (str7 != null) {
-                }
-                i77 i77Var2 = new i77(str2, str4, str6, str8, new SpannableString(spannableStringBuilder), x57Var2, d57Var2.a().get("toutiao_card_tag"), d57Var2.a().get("toutiao_card_tag_color"), Intrinsics.areEqual(d57Var2.a().get("shield_icon"), "1"));
-                postExposeHead3 = feedPostExpose.head_img;
-                if (postExposeHead3 == null) {
-                }
-                if (str9 != null) {
-                }
-                str11 = feedPostExpose.schema;
-                if (str11 != null) {
-                }
-                dataList.add(new ab7(new e47(i77Var2, str10, str12, d57Var2.a(), feedExtraData.c().a(), CollectionsKt__CollectionsKt.listOf((Object[]) new m77[]{a67.d(feedExtraData, "reply_user_head_click1", null, 2, null), a67.d(feedExtraData, "reply_user_head_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new m77[]{a67.d(feedExtraData, "reply_user_name_click1", null, 2, null), a67.d(feedExtraData, "reply_user_name_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new m77[]{a67.d(feedExtraData, "reply_card_click1", null, 2, null), a67.d(feedExtraData, "reply_card_click2", null, 2, null)}), null, 256, null), "reply"));
+            } else {
+                z = true;
             }
+            if (z) {
+                return;
+            }
+            List<PicInfo> pics = feedPicComponent.pics;
+            Intrinsics.checkNotNullExpressionValue(pics, "pics");
+            String schema = feedPicComponent.schema;
+            Intrinsics.checkNotNullExpressionValue(schema, "schema");
+            dataList.add(new bb7(b(pics, schema, feedExtraData), "pic"));
         }
     }
 }

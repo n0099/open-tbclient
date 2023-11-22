@@ -57,12 +57,12 @@ public class lb3 extends rb3<e> {
 
             /* renamed from: com.baidu.tieba.lb3$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class C0370a implements bb3 {
+            public class C0369a implements bb3 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0370a(a aVar) {
+                public C0369a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +118,7 @@ public class lb3 extends rb3<e> {
                 if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.isFinishing()) {
                     return;
                 }
-                eb3.u(this.a, this.c.c.N(), this.b, null, new C0370a(this));
+                eb3.u(this.a, this.c.c.N(), this.b, null, new C0369a(this));
             }
         }
 

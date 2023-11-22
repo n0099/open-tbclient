@@ -5,10 +5,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class knc<E> extends jnc<E> {
+public abstract class knc<E> extends mnc<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long consumerIndex;
+    public long e;
+    public E[] f;
 
     public knc() {
         Interceptable interceptable = $ic;

@@ -2,8 +2,8 @@ package com.huawei.hms.aaid;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m7c;
 import com.baidu.tieba.n7c;
+import com.baidu.tieba.o7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,15 +93,15 @@ public class HmsInstanceIdEx {
         return (HmsInstanceIdEx) invokeL.objValue;
     }
 
-    public final m7c<TokenResult> a(Exception exc) {
+    public final n7c<TokenResult> a(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, exc)) == null) {
-            n7c n7cVar = new n7c();
-            n7cVar.c(exc);
-            return n7cVar.b();
+            o7c o7cVar = new o7c();
+            o7cVar.c(exc);
+            return o7cVar.b();
         }
-        return (m7c) invokeL.objValue;
+        return (n7c) invokeL.objValue;
     }
 
     public final String a(String str) {
@@ -155,8 +155,8 @@ public class HmsInstanceIdEx {
         return invokeL.longValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v22. Raw type applied. Possible types: com.baidu.tieba.m7c<TResult>, com.baidu.tieba.m7c<com.huawei.hms.aaid.entity.TokenResult> */
-    public m7c<TokenResult> getToken() {
+    /* JADX DEBUG: Type inference failed for r0v22. Raw type applied. Possible types: com.baidu.tieba.n7c<TResult>, com.baidu.tieba.n7c<com.huawei.hms.aaid.entity.TokenResult> */
+    public n7c<TokenResult> getToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -164,9 +164,9 @@ public class HmsInstanceIdEx {
                 try {
                     HMSLog.i(TAG, "use proxy get token, please check HmsMessageService.onNewToken receive result.");
                     ProxyCenter.getProxy().getToken(this.a, null, null);
-                    n7c n7cVar = new n7c();
-                    n7cVar.d(new TokenResult());
-                    return n7cVar.b();
+                    o7c o7cVar = new o7c();
+                    o7cVar.d(new TokenResult());
+                    return o7cVar.b();
                 } catch (ApiException e) {
                     return a(e);
                 } catch (Exception unused) {
@@ -186,6 +186,6 @@ public class HmsInstanceIdEx {
                 return a(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
             }
         }
-        return (m7c) invokeV.objValue;
+        return (n7c) invokeV.objValue;
     }
 }

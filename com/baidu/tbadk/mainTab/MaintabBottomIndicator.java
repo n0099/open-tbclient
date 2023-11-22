@@ -29,8 +29,8 @@ import com.baidu.tbadk.mainTab.dynamicIcon.MainTabBottomDynamicIconManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aqa;
-import com.baidu.tieba.ck5;
+import com.baidu.tieba.bqa;
+import com.baidu.tieba.dk5;
 import com.baidu.tieba.qd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -64,7 +64,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public boolean q;
     public DynamicIconData r;
     public boolean s;
-    public ck5 t;
+    public dk5 t;
     public String u;
 
     public void setShowIconType(int i) {
@@ -250,9 +250,9 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         i();
     }
 
-    public void l(int i, ck5 ck5Var) {
+    public void l(int i, dk5 dk5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048589, this, i, ck5Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048589, this, i, dk5Var) == null) {
             if (this.t != null) {
                 o();
                 SkinManager.setBackgroundColor(this.i, R.color.transparent, i);
@@ -380,12 +380,12 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            ck5 ck5Var = this.t;
-            if (ck5Var != null) {
+            dk5 dk5Var = this.t;
+            if (dk5Var != null) {
                 if (this.s) {
-                    return ck5Var.g();
+                    return dk5Var.g();
                 }
-                return ck5Var.f();
+                return dk5Var.f();
             }
             return null;
         }
@@ -489,14 +489,14 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         }
     }
 
-    public void k(boolean z, ck5 ck5Var) {
+    public void k(boolean z, dk5 dk5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048588, this, z, ck5Var) == null) {
-            this.t = ck5Var;
+        if (interceptable == null || interceptable.invokeZL(1048588, this, z, dk5Var) == null) {
+            this.t = dk5Var;
             if (z) {
-                l(4, ck5Var);
+                l(4, dk5Var);
             } else {
-                l(this.k, ck5Var);
+                l(this.k, dk5Var);
             }
         }
     }
@@ -530,7 +530,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public final void o() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.e != null) {
-            int f = aqa.f(getDynamicTextColor());
+            int f = bqa.f(getDynamicTextColor());
             if (f == 0 || f == Integer.MAX_VALUE) {
                 if (this.s) {
                     f = SkinManager.getColor(R.color.CAM_X0622);

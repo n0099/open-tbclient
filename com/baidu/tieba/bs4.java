@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class bs4 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ksa a;
+    public lsa a;
 
     public bs4() {
         Interceptable interceptable = $ic;
@@ -41,26 +41,26 @@ public class bs4 extends WebChromeClient {
         }
     }
 
-    public void b(ksa ksaVar) {
+    public void b(lsa lsaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ksaVar) == null) {
-            this.a = ksaVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lsaVar) == null) {
+            this.a = lsaVar;
         }
     }
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
-        ksa ksaVar;
+        lsa lsaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!s85.a(str) && str2.startsWith("tiebaapp")) {
-                nsa nsaVar = new nsa();
-                nsaVar.w(rsa.b(str2));
-                nsaVar.y(301);
-                a(webView, nsaVar.c(), nsaVar.d());
+            if (!t85.a(str) && str2.startsWith("tiebaapp")) {
+                osa osaVar = new osa();
+                osaVar.w(ssa.b(str2));
+                osaVar.y(301);
+                a(webView, osaVar.c(), osaVar.d());
             }
-            if ((!s85.a(str) || (ksaVar = this.a) == null || !ksaVar.onJsPrompt(str2, jsPromptResult)) && jsPromptResult != null) {
+            if ((!t85.a(str) || (lsaVar = this.a) == null || !lsaVar.onJsPrompt(str2, jsPromptResult)) && jsPromptResult != null) {
                 jsPromptResult.cancel();
             }
             return true;

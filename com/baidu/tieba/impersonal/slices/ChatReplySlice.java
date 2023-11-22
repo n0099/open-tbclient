@@ -23,20 +23,20 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bk5;
-import com.baidu.tieba.e89;
+import com.baidu.tieba.a89;
+import com.baidu.tieba.ck5;
 import com.baidu.tieba.f89;
-import com.baidu.tieba.i89;
+import com.baidu.tieba.g89;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.impersonal.data.QuickReplyData;
 import com.baidu.tieba.impersonal.databinding.SlicePersonalReplyBinding;
 import com.baidu.tieba.impersonal.reply.ChatReplyAdapter;
 import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
-import com.baidu.tieba.l79;
+import com.baidu.tieba.j89;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.n99;
+import com.baidu.tieba.m79;
+import com.baidu.tieba.o99;
 import com.baidu.tieba.qd;
-import com.baidu.tieba.z79;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +52,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class ChatReplySlice extends Slice {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final n99 j;
+    public final o99 j;
     public final String k;
     public final String l;
     public final String m;
@@ -81,7 +81,7 @@ public final class ChatReplySlice extends Slice {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a extends n99.a {
+    public static final class a extends o99.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatReplySlice a;
@@ -104,15 +104,15 @@ public final class ChatReplySlice extends Slice {
             this.a = chatReplySlice;
         }
 
-        @Override // com.baidu.tieba.n99.b
-        public void a(List<? extends z79> list) {
+        @Override // com.baidu.tieba.o99.b
+        public void a(List<? extends a89> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 Intrinsics.checkNotNullParameter(list, "list");
-                for (z79 z79Var : list) {
+                for (a89 a89Var : list) {
                     TbLog defaultLog = DefaultLog.getInstance();
-                    defaultLog.i("sendSpriteMsg", "新消息返回：" + z79Var.b());
-                    if (qd.isEquals(z79Var.b(), bk5.d())) {
+                    defaultLog.i("sendSpriteMsg", "新消息返回：" + a89Var.b());
+                    if (qd.isEquals(a89Var.b(), ck5.d())) {
                         DefaultLog.getInstance().i("sendSpriteMsg", "命中匹配，是通过sendSpriteMsg发送的");
                         return;
                     }
@@ -170,7 +170,7 @@ public final class ChatReplySlice extends Slice {
                         currentAccount = "";
                     }
                     Intrinsics.checkNotNullExpressionValue(currentAccount, "TbadkApplication.getCurrentAccount() ?: \"\"");
-                    l79.a("c15230", currentAccount, questionData.getQuestion());
+                    m79.a("c15230", currentAccount, questionData.getQuestion());
                 }
             }
         }
@@ -237,7 +237,7 @@ public final class ChatReplySlice extends Slice {
         }
     }
 
-    public ChatReplySlice(n99 repo, String talkType, String talkPrologue, String str) {
+    public ChatReplySlice(o99 repo, String talkType, String talkPrologue, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -267,7 +267,7 @@ public final class ChatReplySlice extends Slice {
     public final void n0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            e89<f89> a2 = i89.a(str);
+            f89<g89> a2 = j89.a(str);
             Intrinsics.checkNotNullExpressionValue(a2, "genTextMsg(text)");
             this.j.t(a2);
         }

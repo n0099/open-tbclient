@@ -51,15 +51,15 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a05;
-import com.baidu.tieba.m75;
 import com.baidu.tieba.n75;
-import com.baidu.tieba.oj5;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.ov4;
+import com.baidu.tieba.pj5;
 import com.baidu.tieba.pv4;
-import com.baidu.tieba.t16;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
-import com.baidu.tieba.v16;
-import com.baidu.tieba.vb5;
+import com.baidu.tieba.u16;
+import com.baidu.tieba.w16;
+import com.baidu.tieba.wb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -73,16 +73,16 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public List<AccountData> b;
-    public t16 c;
+    public u16 c;
     public ListView d;
     public RelativeLayout e;
-    public v16 f;
+    public w16 f;
     public NavigationBar g;
     public TextView h;
     public View.OnClickListener i;
     public l j;
     public i k;
-    public vb5 l;
+    public wb5 l;
     public BdAsyncTask<?, ?, ?> m;
     public CustomMessageListener n;
     public TextView o;
@@ -366,13 +366,13 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     if (this.d.b.size() >= 2) {
                         return (AccountData) this.d.b.get(1);
                     }
-                    n75 b = m75.b();
+                    o75 b = n75.b();
                     if (b != null) {
                         b.a();
                     }
                     this.b = 2;
                 } else {
-                    n75 b2 = m75.b();
+                    o75 b2 = n75.b();
                     if (b2 != null) {
                         b2.c(this.a);
                     }
@@ -392,7 +392,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                 if (accountData != null) {
                     accountData.setIsActive(1);
                     AccountStorage.saveAccountData(accountData);
-                    n75 b = m75.b();
+                    o75 b = n75.b();
                     if (b != null) {
                         b.b(accountData);
                     }
@@ -534,7 +534,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class e implements vb5.e {
+    public class e implements wb5.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AccountActivity a;
@@ -557,7 +557,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             this.a = accountActivity;
         }
 
-        @Override // com.baidu.tieba.vb5.e
+        @Override // com.baidu.tieba.wb5.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
@@ -839,7 +839,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     }
                     this.a.setIsActive(1);
                     AccountStorage.saveAccountData(this.a);
-                    n75 b = m75.b();
+                    o75 b = n75.b();
                     if (b != null) {
                         b.b(this.a);
                     }
@@ -911,7 +911,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d001f);
             J0();
-            this.f = new v16(this);
+            this.f = new w16(this);
             L0();
             registerListener(this.n);
         }
@@ -940,9 +940,9 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, accountData) == null) {
             if (this.l == null) {
-                vb5 vb5Var = new vb5(this);
-                this.l = vb5Var;
-                vb5Var.w(new e(this));
+                wb5 wb5Var = new wb5(this);
+                this.l = wb5Var;
+                wb5Var.w(new e(this));
             }
             this.l.p();
             this.l.u(accountData);
@@ -1009,9 +1009,9 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0620));
             SkinManager.setViewTextColor(this.h, R.color.navi_op_text, 1);
             addCustomView.setOnClickListener(new c(this));
-            t16 t16Var = new t16(this, this.i);
-            this.c = t16Var;
-            t16Var.b(this.b);
+            u16 u16Var = new u16(this, this.i);
+            this.c = u16Var;
+            u16Var.b(this.b);
             this.d = (ListView) findViewById(R.id.obfuscated_res_0x7f091596);
             TextView textView2 = new TextView(getActivity());
             textView2.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
@@ -1035,7 +1035,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             z2 = false;
         }
         if (z2) {
-            oj5.b(0, 0, 0, 2, 3);
+            pj5.b(0, 0, 0, 2, 3);
             p1("account delete");
         }
         showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f0571), new g(this, z2));
@@ -1117,7 +1117,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         if ((interceptable != null && interceptable.invokeL(1048591, this, accountData) != null) || this.j != null) {
             return;
         }
-        oj5.b(0, 0, 0, 2, 2);
+        pj5.b(0, 0, 0, 2, 2);
         p1("account changed");
         showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f0093), new f(this));
         BdAsyncTask<?, ?, ?> bdAsyncTask = this.m;

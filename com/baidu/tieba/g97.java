@@ -1,49 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThemeCardInUserData;
+import com.baidu.tbadk.core.data.ThreadRecommendInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.ThreadRecommendInfo;
 /* loaded from: classes6.dex */
 public final class g97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a(ThemeCardInUserData themeCardInUserData) {
-        InterceptResult invokeL;
-        boolean z;
+    public static final void a(ThreadRecommendInfo threadRecommendInfo, List<ab7<? extends Object>> mutableList, a67 feedExtraData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, themeCardInUserData)) == null) {
-            if (themeCardInUserData == null) {
-                return false;
-            }
-            String cardImageUrlAndroid = themeCardInUserData.getCardImageUrlAndroid();
-            if (cardImageUrlAndroid != null && cardImageUrlAndroid.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, threadRecommendInfo, mutableList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(threadRecommendInfo, "<this>");
+            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            mutableList.add(new bb7(new e47(b(threadRecommendInfo), feedExtraData.a().a(), feedExtraData.c().a(), null, 8, null), "recommend_info"));
         }
-        return invokeL.booleanValue;
     }
 
-    public static final ThemeCardInUserData b(String str) {
+    public static final ThreadRecommendInfoData b(ThreadRecommendInfo threadRecommendInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            JSONObject a = bn6.a.a(str);
-            if (a == null) {
-                return null;
-            }
-            ThemeCardInUserData themeCardInUserData = new ThemeCardInUserData();
-            themeCardInUserData.parser(a);
-            return themeCardInUserData;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadRecommendInfo)) == null) {
+            Intrinsics.checkNotNullParameter(threadRecommendInfo, "<this>");
+            ThreadRecommendInfoData threadRecommendInfoData = new ThreadRecommendInfoData();
+            threadRecommendInfoData.parseProto(threadRecommendInfo);
+            return threadRecommendInfoData;
         }
-        return (ThemeCardInUserData) invokeL.objValue;
+        return (ThreadRecommendInfoData) invokeL.objValue;
     }
 }

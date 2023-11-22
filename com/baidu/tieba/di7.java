@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,61 +8,44 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class di7 extends nq6 {
+public final class di7 extends oq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final boolean b;
+    public final String a;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
-            if (obj instanceof di7) {
-                di7 di7Var = (di7) obj;
-                return Intrinsics.areEqual(this.a, di7Var.a) && this.b == di7Var.b;
-            }
-            return false;
+            return (obj instanceof di7) && Intrinsics.areEqual(this.a, ((di7) obj).a);
         }
         return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Context context = this.a;
-            int hashCode = (context == null ? 0 : context.hashCode()) * 31;
-            boolean z = this.b;
-            int i = z;
-            if (z != 0) {
-                i = 1;
-            }
-            return hashCode + i;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "FrsRefreshBtnVisibleEvent(context=" + this.a + ", showIcon=" + this.b + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "FrsRecommendResultEvent(forumId=" + this.a + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public di7(Context context, boolean z) {
+    public di7(String forumId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
+            Object[] objArr = {forumId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -73,25 +55,16 @@ public final class di7 extends nq6 {
                 return;
             }
         }
-        this.a = context;
-        this.b = z;
+        Intrinsics.checkNotNullParameter(forumId, "forumId");
+        this.a = forumId;
     }
 
-    public final Context a() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (Context) invokeV.objValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

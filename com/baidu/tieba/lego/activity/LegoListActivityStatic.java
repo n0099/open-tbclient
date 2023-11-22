@@ -6,17 +6,17 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tieba.ed9;
+import com.baidu.tieba.fd9;
 import com.baidu.tieba.gq4;
 import com.baidu.tieba.hq4;
-import com.baidu.tieba.ob9;
 import com.baidu.tieba.pb9;
 import com.baidu.tieba.qb9;
 import com.baidu.tieba.rb9;
 import com.baidu.tieba.sb9;
 import com.baidu.tieba.tb9;
-import com.baidu.tieba.wb9;
+import com.baidu.tieba.ub9;
 import com.baidu.tieba.xb9;
+import com.baidu.tieba.yb9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,19 +75,19 @@ public class LegoListActivityStatic {
                 return;
             }
         }
-        ed9.a.set(new ob9());
+        fd9.a.set(new pb9());
         TbConfig.setLegoLibVersion("3.0.0");
-        wb9.h().g(xb9.f());
+        xb9.h().g(yb9.f());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016447, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerStickyMode(2016470);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016470, Boolean.TRUE));
+        rb9.a().b(new ub9());
+        qb9.a().b(new sb9());
         qb9.a().b(new tb9());
-        pb9.a().b(new rb9());
-        pb9.a().b(new sb9());
-        hq4.a.set(qb9.a());
-        gq4.a.set(pb9.a());
+        hq4.a.set(rb9.a());
+        gq4.a.set(qb9.a());
     }
 
     public LegoListActivityStatic() {

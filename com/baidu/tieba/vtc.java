@@ -4,31 +4,21 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.ChatroomList;
-import tbclient.FrsBottomChatroomBase;
+import tbclient.FrsBottomActivityTime;
 /* loaded from: classes8.dex */
-public class vtc extends poc {
+public class vtc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FrsBottomChatroomBase frsBottomChatroomBase) {
+    public static JSONObject b(@NonNull FrsBottomActivityTime frsBottomActivityTime) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsBottomChatroomBase)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsBottomActivityTime)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (frsBottomChatroomBase.room_list != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (ChatroomList chatroomList : frsBottomChatroomBase.room_list) {
-                    jSONArray.put(yqc.b(chatroomList));
-                }
-                poc.a(jSONObject, "room_list", jSONArray);
-            }
-            poc.a(jSONObject, "mid_group_id", frsBottomChatroomBase.mid_group_id);
-            poc.a(jSONObject, "display_chatroom_count", frsBottomChatroomBase.display_chatroom_count);
-            poc.a(jSONObject, "online_nums", frsBottomChatroomBase.online_nums);
+            qoc.a(jSONObject, "start_time", frsBottomActivityTime.start_time);
+            qoc.a(jSONObject, "end_time", frsBottomActivityTime.end_time);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

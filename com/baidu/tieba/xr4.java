@@ -21,7 +21,7 @@ public class xr4 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdPageContext a;
-    public ksa b;
+    public lsa b;
 
     public xr4(BdPageContext bdPageContext) {
         Interceptable interceptable = $ic;
@@ -41,10 +41,10 @@ public class xr4 extends WebChromeClient {
         this.a = bdPageContext;
     }
 
-    public void b(ksa ksaVar) {
+    public void b(lsa lsaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ksaVar) == null) {
-            this.b = ksaVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lsaVar) == null) {
+            this.b = lsaVar;
         }
     }
 
@@ -125,16 +125,16 @@ public class xr4 extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
-        ksa ksaVar;
+        lsa lsaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048583, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!s85.a(str) && str2.startsWith("tiebaapp")) {
-                nsa nsaVar = new nsa();
-                nsaVar.w(rsa.b(str2));
-                nsaVar.y(301);
-                a(webView, nsaVar.c(), nsaVar.d());
+            if (!t85.a(str) && str2.startsWith("tiebaapp")) {
+                osa osaVar = new osa();
+                osaVar.w(ssa.b(str2));
+                osaVar.y(301);
+                a(webView, osaVar.c(), osaVar.d());
             }
-            if (s85.a(str) && (ksaVar = this.b) != null && ksaVar.onJsPrompt(str2, jsPromptResult)) {
+            if (t85.a(str) && (lsaVar = this.b) != null && lsaVar.onJsPrompt(str2, jsPromptResult)) {
                 return true;
             }
             jsPromptResult.cancel();

@@ -216,7 +216,7 @@ public class GamenowRecommendPopView extends RelativeLayout {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:39:0x011b  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x011c  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

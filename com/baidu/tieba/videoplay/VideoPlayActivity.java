@@ -28,12 +28,12 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.vcode.VcodeTool;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cn6;
+import com.baidu.tieba.dn6;
 import com.baidu.tieba.ko4;
 import com.baidu.tieba.lo4;
-import com.baidu.tieba.q58;
 import com.baidu.tieba.qd;
-import com.baidu.tieba.t06;
+import com.baidu.tieba.r58;
+import com.baidu.tieba.u06;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.danmu.DanmuProgressManager;
 import com.baidu.tieba.videoplay.fragment.VideoMiddleFragment;
@@ -52,7 +52,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public boolean b;
     public List<VideoItemData> c;
     public VideoMiddleFragment d;
-    public t06 e;
+    public u06 e;
     public boolean f;
     public Rect g;
     public String h;
@@ -131,12 +131,12 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            t06 t06Var = this.e;
-            if (t06Var != null) {
-                t06Var.h();
+            u06 u06Var = this.e;
+            if (u06Var != null) {
+                u06Var.h();
             }
-            q58.m().c(q58.s());
-            cn6.a();
+            r58.m().c(r58.s());
+            dn6.a();
         }
     }
 
@@ -238,7 +238,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_HOME_PAGE);
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FRS_PAGE);
             setContentView(R.layout.obfuscated_res_0x7f0d09ff);
-            this.e = new t06(getPageContext(), "client_videomiddle");
+            this.e = new u06(getPageContext(), "client_videomiddle");
             p1();
             q1();
             addNoAdjustSoftInputHeightListener();

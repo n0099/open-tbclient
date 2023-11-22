@@ -1,24 +1,24 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class n18 implements y15 {
+public class n18 implements w15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.y15
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_GROUP_CHAT_GUIDE_STRATEGY" : (String) invokeV.objValue;
-    }
 
     public n18() {
         Interceptable interceptable = $ic;
@@ -34,13 +34,44 @@ public class n18 implements y15 {
         }
     }
 
-    @Override // com.baidu.tieba.y15
-    public w15 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.w15
+    @NonNull
+    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new m18();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
+            HashMap hashMap = new HashMap(map);
+            hashMap.put("dialogName", "frsGroupChatGuide");
+            hashMap.putAll(map);
+            hashMap.putAll(map2);
+            return hashMap;
         }
-        return (w15) invokeV.objValue;
+        return (Map) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.w15
+    public boolean b(@NonNull Map<String, Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            boolean z = false;
+            if (currentActivity instanceof c25) {
+                c25 c25Var = (c25) currentActivity;
+                if (c25Var.j1() != null) {
+                    b25 j1 = c25Var.j1();
+                    if (!SharedPrefHelper.getInstance().getBoolean("key_chat_group_guide_show", false) && j1.p()) {
+                        z = true;
+                    }
+                    if (!z) {
+                        YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "群聊引导弹窗策略校验失败：已经显示过");
+                    }
+                    return z;
+                }
+            }
+            YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "吧主弹窗策略校验失败：获取到的IForumDialogExtSupport为空");
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

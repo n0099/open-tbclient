@@ -1,14 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.NetworkAgentService;
+import com.baidu.searchbox.live.interfaces.service.ext.ExtLiveLogService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class ug9 extends bg1<NetworkAgentService> {
+public class ug9 implements ExtLiveLogService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,15 +25,11 @@ public class ug9 extends bg1<NetworkAgentService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bg1
-    /* renamed from: a */
-    public NetworkAgentService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.ext.ExtLiveLogService
+    public void onLivePluginEvent(String str, Map<String, ?> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new vg9();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, map) == null) {
+            zd9.b(map);
         }
-        return (NetworkAgentService) invokeV.objValue;
     }
 }

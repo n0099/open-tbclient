@@ -5,26 +5,31 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
+import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
 /* loaded from: classes7.dex */
-public class q4d extends poc {
+public class q4d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ThemeElement themeElement) {
+    public static JSONObject b(@NonNull ThemeColorInfo themeColorInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, themeElement)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, themeColorInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "common_color", themeElement.common_color);
-            poc.a(jSONObject, "dark_color", themeElement.dark_color);
-            poc.a(jSONObject, "light_color", themeElement.light_color);
-            poc.a(jSONObject, "pattern_image", themeElement.pattern_image);
-            poc.a(jSONObject, "font_color", themeElement.font_color);
-            poc.a(jSONObject, "pattern_image_height", themeElement.pattern_image_height);
-            poc.a(jSONObject, "pattern_image_width", themeElement.pattern_image_width);
-            poc.a(jSONObject, "pattern_text", themeElement.pattern_text);
+            ThemeElement themeElement = themeColorInfo.day;
+            if (themeElement != null) {
+                qoc.a(jSONObject, "day", r4d.b(themeElement));
+            }
+            ThemeElement themeElement2 = themeColorInfo.night;
+            if (themeElement2 != null) {
+                qoc.a(jSONObject, "night", r4d.b(themeElement2));
+            }
+            ThemeElement themeElement3 = themeColorInfo.dark;
+            if (themeElement3 != null) {
+                qoc.a(jSONObject, "dark", r4d.b(themeElement3));
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

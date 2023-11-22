@@ -7,8 +7,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.util.httpNet.HttpResponse;
-import com.baidu.tieba.l95;
-import com.baidu.tieba.mq6;
+import com.baidu.tieba.m95;
+import com.baidu.tieba.nq6;
 import com.baidu.tieba.qd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -117,7 +117,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<UpdateAttenti
     }
 
     /* loaded from: classes5.dex */
-    public static class a extends CustomMessageListener {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -147,7 +147,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<UpdateAttenti
             UpdateAttentionData data;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage) && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null) {
-                mq6.b().c(new l95(data));
+                nq6.b().c(new m95(data));
             }
         }
     }

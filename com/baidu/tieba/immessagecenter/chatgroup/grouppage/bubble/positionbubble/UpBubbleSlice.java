@@ -24,8 +24,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f09;
 import com.baidu.tieba.g09;
+import com.baidu.tieba.h09;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfoMsg;
@@ -51,7 +51,7 @@ public class UpBubbleSlice extends Slice {
     public GroupChatRepo l;
     public GroupChatRepo.u<TreeSet<ChatMsg>> m;
     @NonNull
-    public final g09 n;
+    public final h09 n;
     public String o;
     public boolean p;
     public long q;
@@ -59,7 +59,7 @@ public class UpBubbleSlice extends Slice {
     public final ChatPage s;
 
     /* loaded from: classes6.dex */
-    public class a implements f09 {
+    public class a implements g09 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UpBubbleSlice a;
@@ -82,7 +82,7 @@ public class UpBubbleSlice extends Slice {
             this.a = upBubbleSlice;
         }
 
-        @Override // com.baidu.tieba.f09
+        @Override // com.baidu.tieba.g09
         public void a(BdTypeRecyclerView bdTypeRecyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bdTypeRecyclerView) == null) {
@@ -94,7 +94,7 @@ public class UpBubbleSlice extends Slice {
             }
         }
 
-        @Override // com.baidu.tieba.f09
+        @Override // com.baidu.tieba.g09
         public void b(BdTypeRecyclerView bdTypeRecyclerView, GroupChatRepo groupChatRepo, GroupChatRepo.u<TreeSet<ChatMsg>> uVar) {
             RecyclerViewTypeAdapter recyclerViewTypeAdapter;
             Interceptable interceptable = $ic;
@@ -254,7 +254,7 @@ public class UpBubbleSlice extends Slice {
         this.q = Long.MAX_VALUE;
         this.j = groupChatFragment;
         this.s = chatPage;
-        this.n = new g09();
+        this.n = new h09();
     }
 
     public void r0(ChatRoomDetail chatRoomDetail) {

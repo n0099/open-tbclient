@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bs5;
-import com.baidu.tieba.yy7;
+import com.baidu.tieba.cs5;
+import com.baidu.tieba.zy7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.GameCodeList;
 /* loaded from: classes6.dex */
-public class GameCodeListView extends ConstraintLayout implements bs5 {
+public class GameCodeListView extends ConstraintLayout implements cs5 {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public static final int g;
@@ -89,7 +89,7 @@ public class GameCodeListView extends ConstraintLayout implements bs5 {
         a(context);
     }
 
-    @Override // com.baidu.tieba.bs5
+    @Override // com.baidu.tieba.cs5
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
@@ -200,10 +200,10 @@ public class GameCodeListView extends ConstraintLayout implements bs5 {
         }
     }
 
-    public void b(yy7 yy7Var) {
+    public void b(zy7 zy7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yy7Var) == null) {
-            this.c.o(yy7Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zy7Var) == null) {
+            this.c.o(zy7Var);
         }
     }
 

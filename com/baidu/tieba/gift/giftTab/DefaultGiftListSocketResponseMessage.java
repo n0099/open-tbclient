@@ -5,8 +5,8 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.ox4;
 import com.baidu.tieba.px4;
-import com.baidu.tieba.s68;
-import com.baidu.tieba.w68;
+import com.baidu.tieba.t68;
+import com.baidu.tieba.x68;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,11 +27,11 @@ public class DefaultGiftListSocketResponseMessage extends SocketResponsedMessage
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String addFreeUrl;
-    public ArrayList<s68> categoryList;
+    public ArrayList<t68> categoryList;
     public int currencyType;
     public int freeChance;
     public ArrayList<ox4> giftList;
-    public ArrayList<w68> numberList;
+    public ArrayList<x68> numberList;
     public long sceneId;
     public px4 urlTitleData;
 
@@ -62,7 +62,7 @@ public class DefaultGiftListSocketResponseMessage extends SocketResponsedMessage
         return (String) invokeV.objValue;
     }
 
-    public ArrayList<s68> getCategoryList() {
+    public ArrayList<t68> getCategoryList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -89,7 +89,7 @@ public class DefaultGiftListSocketResponseMessage extends SocketResponsedMessage
         return (ArrayList) invokeV.objValue;
     }
 
-    public ArrayList<w68> getGiftNumberList() {
+    public ArrayList<x68> getGiftNumberList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -166,9 +166,9 @@ public class DefaultGiftListSocketResponseMessage extends SocketResponsedMessage
                     this.categoryList = new ArrayList<>();
                     for (PresentCategoryList presentCategoryList : getGiftListResIdl.data.list) {
                         if (presentCategoryList != null) {
-                            s68 s68Var = new s68();
-                            s68Var.d(presentCategoryList);
-                            this.categoryList.add(s68Var);
+                            t68 t68Var = new t68();
+                            t68Var.d(presentCategoryList);
+                            this.categoryList.add(t68Var);
                         }
                     }
                 }
@@ -177,9 +177,9 @@ public class DefaultGiftListSocketResponseMessage extends SocketResponsedMessage
                     this.numberList = new ArrayList<>();
                     for (PresentNumInfo presentNumInfo : getGiftListResIdl.data.num_info) {
                         if (presentNumInfo != null) {
-                            w68 w68Var = new w68();
-                            w68Var.c(presentNumInfo);
-                            this.numberList.add(w68Var);
+                            x68 x68Var = new x68();
+                            x68Var.c(presentNumInfo);
+                            this.numberList.add(x68Var);
                         }
                     }
                 }

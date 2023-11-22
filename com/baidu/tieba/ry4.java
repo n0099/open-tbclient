@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes8.dex */
-public class ry4 extends bx4 implements ln5 {
+public class ry4 extends bx4 implements mn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long d;

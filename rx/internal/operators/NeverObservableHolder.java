@@ -1,19 +1,19 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.ijc;
-import com.baidu.tieba.ojc;
+import com.baidu.tieba.jjc;
+import com.baidu.tieba.pjc;
 /* loaded from: classes2.dex */
-public enum NeverObservableHolder implements ijc.a<Object> {
+public enum NeverObservableHolder implements jjc.a<Object> {
     INSTANCE;
     
-    public static final ijc<Object> NEVER = ijc.d(INSTANCE);
+    public static final jjc<Object> NEVER = jjc.d(INSTANCE);
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wjc
-    public void call(ojc<? super Object> ojcVar) {
+    @Override // com.baidu.tieba.xjc
+    public void call(pjc<? super Object> pjcVar) {
     }
 
-    public static <T> ijc<T> instance() {
-        return (ijc<T>) NEVER;
+    public static <T> jjc<T> instance() {
+        return (jjc<T>) NEVER;
     }
 }

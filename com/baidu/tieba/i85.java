@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class i85 {
+public class i85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -27,7 +27,7 @@ public final class i85 {
         }
     }
 
-    public final String a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -36,11 +36,15 @@ public final class i85 {
         return (String) invokeV.objValue;
     }
 
-    public final void b(JSONObject jSONObject) {
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.a = jSONObject.optString("ai_write_scheme");
+        try {
+            this.a = jSONObject.optString("client_id");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

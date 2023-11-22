@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.mutiprocess.ResponsedEventListener;
 import com.baidu.tbadk.mutiprocess.event.TopToastEvent;
-import com.baidu.tieba.er8;
-import com.baidu.tieba.vp8;
-import com.baidu.tieba.xs8;
+import com.baidu.tieba.fr8;
+import com.baidu.tieba.wp8;
+import com.baidu.tieba.ys8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,12 +24,12 @@ import java.util.List;
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vp8 a;
+    public wp8 a;
     public OfficialBarFeedMsglistView b;
     public String c;
     public byte d;
     public ResponsedEventListener e;
-    public vp8.d f;
+    public wp8.d f;
 
     /* loaded from: classes6.dex */
     public class a extends ResponsedEventListener<TopToastEvent> {
@@ -56,7 +56,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.mutiprocess.ResponsedEventListener, com.baidu.tieba.cm5
+        @Override // com.baidu.tbadk.mutiprocess.ResponsedEventListener, com.baidu.tieba.dm5
         /* renamed from: g */
         public boolean onEvent(TopToastEvent topToastEvent) {
             InterceptResult invokeL;
@@ -73,7 +73,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements vp8.d {
+    public class b implements wp8.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity a;
@@ -96,16 +96,16 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
             this.a = singleForumBroadcastFeedActivity;
         }
 
-        @Override // com.baidu.tieba.vp8.d
-        public void a(List<xs8> list) {
+        @Override // com.baidu.tieba.wp8.d
+        public void a(List<ys8> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 this.a.b.F(list, null);
             }
         }
 
-        @Override // com.baidu.tieba.vp8.d
-        public void onReadCountLoad(LongSparseArray<er8> longSparseArray) {
+        @Override // com.baidu.tieba.wp8.d
+        public void onReadCountLoad(LongSparseArray<fr8> longSparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, longSparseArray) == null) {
                 this.a.b.G(longSparseArray);
@@ -135,9 +135,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            vp8 vp8Var = this.a;
-            if (vp8Var != null) {
-                vp8Var.e();
+            wp8 wp8Var = this.a;
+            if (wp8Var != null) {
+                wp8Var.e();
             }
             unRegisterResponsedEventListener();
         }
@@ -157,9 +157,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            vp8 vp8Var = new vp8(getPageContext());
-            this.a = vp8Var;
-            vp8Var.i(this.f);
+            wp8 wp8Var = new wp8(getPageContext());
+            this.a = wp8Var;
+            wp8Var.i(this.f);
             this.b = new OfficialBarFeedMsglistView(this, true);
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra("key_uid");

@@ -2,7 +2,7 @@ package com.baidu.tieba.gift.myGiftList;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.z68;
+import com.baidu.tieba.a78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.GetMyGift.GetMyGiftResIdl;
 public class GetPersonalGiftListHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z68 giftListData;
+    public a78 giftListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetPersonalGiftListHttpResponseMessage(int i) {
@@ -50,24 +50,24 @@ public class GetPersonalGiftListHttpResponseMessage extends TbHttpResponsedMessa
             setError(error.errorno.intValue());
             setErrorString(getMyGiftResIdl.error.usermsg);
         }
-        z68 z68Var = new z68();
-        this.giftListData = z68Var;
-        z68Var.f(getMyGiftResIdl.data);
+        a78 a78Var = new a78();
+        this.giftListData = a78Var;
+        a78Var.f(getMyGiftResIdl.data);
     }
 
-    public z68 getGiftListData() {
+    public a78 getGiftListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.giftListData;
         }
-        return (z68) invokeV.objValue;
+        return (a78) invokeV.objValue;
     }
 
-    public void setGiftListData(z68 z68Var) {
+    public void setGiftListData(a78 a78Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, z68Var) == null) {
-            this.giftListData = z68Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, a78Var) == null) {
+            this.giftListData = a78Var;
         }
     }
 }

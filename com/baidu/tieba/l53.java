@@ -36,13 +36,13 @@ public class l53 extends f53 {
 
         /* renamed from: com.baidu.tieba.l53$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class View$OnClickListenerC0369a implements View.OnClickListener {
+        public class View$OnClickListenerC0368a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0369a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0368a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -226,7 +226,7 @@ public class l53 extends f53 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence, onClickListener)) == null) {
                 this.a.a.setText(charSequence);
-                this.a.a.setOnClickListener(new View$OnClickListenerC0369a(this, onClickListener));
+                this.a.a.setOnClickListener(new View$OnClickListenerC0368a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;

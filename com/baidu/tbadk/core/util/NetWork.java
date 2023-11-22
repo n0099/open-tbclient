@@ -22,13 +22,13 @@ import com.baidu.tbadk.core.util.httpNet.NetWorkUtil;
 import com.baidu.tbadk.switchs.EncSigNewSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.StringU;
-import com.baidu.tieba.f78;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.gm5;
+import com.baidu.tieba.g78;
+import com.baidu.tieba.hm5;
 import com.baidu.tieba.lb;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.m75;
 import com.baidu.tieba.n75;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.wd;
 import com.baidu.tieba.xx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -267,13 +267,13 @@ public class NetWork {
             if (TbadkCoreApplication.getInst().isMainProcess(false)) {
                 b = TbadkCoreApplication.getCurrentBduss();
             } else {
-                b = gm5.b();
+                b = hm5.b();
             }
             BasicNameValuePair basicNameValuePair = new BasicNameValuePair(HttpRequest.BDUSS, b);
             if (TbadkCoreApplication.getInst().isMainProcess(false)) {
                 f = TbadkCoreApplication.getInst().getTbs();
             } else {
-                f = gm5.f();
+                f = hm5.f();
             }
             BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair("tbs", f);
             if (b != null) {
@@ -473,7 +473,7 @@ public class NetWork {
                     return null;
                 }
             }
-            f78.b(this);
+            g78.b(this);
             return netString;
         }
         return (String) invokeCommon.objValue;
@@ -495,9 +495,9 @@ public class NetWork {
     }
 
     private void removeAccount(AccountData accountData) {
-        n75 b;
+        o75 b;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65548, this, accountData) == null) && !TextUtils.isEmpty(accountData.getID()) && (b = m75.b()) != null) {
+        if ((interceptable == null || interceptable.invokeL(65548, this, accountData) == null) && !TextUtils.isEmpty(accountData.getID()) && (b = n75.b()) != null) {
             b.c(accountData);
         }
     }

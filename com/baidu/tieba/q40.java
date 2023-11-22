@@ -55,7 +55,7 @@ public class q40 {
 
         /* renamed from: com.baidu.tieba.q40$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0458a extends TimerTask {
+        public class C0459a extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AtomicBoolean a;
@@ -63,7 +63,7 @@ public class q40 {
             public final /* synthetic */ d c;
             public final /* synthetic */ a d;
 
-            public C0458a(a aVar, AtomicBoolean atomicBoolean, String str, d dVar) {
+            public C0459a(a aVar, AtomicBoolean atomicBoolean, String str, d dVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -165,7 +165,7 @@ public class q40 {
                         n50.a("DNSUrlProvider", "bddns > getUrlAsync in... host is " + str);
                     }
                     AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                    timer.schedule(new C0458a(this, atomicBoolean, str, dVar), 3000L);
+                    timer.schedule(new C0459a(this, atomicBoolean, str, dVar), 3000L);
                     DnsHelper dnsHelper = new DnsHelper(this.a);
                     dnsHelper.setHttpDnsState(false, null, false, true);
                     q40.h(dnsHelper.getIpList(str), this.a);

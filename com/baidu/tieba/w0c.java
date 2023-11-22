@@ -1,70 +1,112 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.tieba.h2c;
+import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.AdReporter;
-import com.fun.ad.sdk.internal.api.utils.MD5Utils;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.FunNativeInfo;
+import com.win.opensdk.PBMediaView;
+import com.win.opensdk.PBNative;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class w0c<A extends h2c> extends AdReporter<A> {
+public class w0c implements FunNativeInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean e;
-    public final String f;
+    public final PBNative a;
+    public final Context b;
+    public PBMediaView c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w0c(Ssp.Pid pid) {
-        super(pid.pid, pid.type, pid.ssp.type);
+    public w0c(Context context, PBNative pBNative) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {context, pBNative};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = pid.isBidding;
-        this.f = pid.pid;
+        this.b = context;
+        this.a = pBNative;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
-    public List onReport(Object obj, String str) {
-        InterceptResult invokeLL;
-        double a;
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public ChannelNativeAds getChannelNativeAds() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, str)) == null) {
-            h2c h2cVar = (h2c) obj;
-            if (h2cVar != null && h2cVar.a != 0) {
-                ArrayList arrayList = new ArrayList();
-                if (!this.e) {
-                    a = FunAdSdk.getARPU(this.f);
-                } else {
-                    a = (h2cVar.a() / 100.0d) / 1000.0d;
-                }
-                arrayList.add(Pair.create("rvn", Double.valueOf(a)));
-                arrayList.add(Pair.create("rvnM", MD5Utils.getMD5String(String.valueOf((int) Math.floor(1000000.0d * a)))));
-                arrayList.add(Pair.create(MapBundleKey.MapObjKey.OBJ_BID, Boolean.valueOf(this.e)));
-                return arrayList;
-            }
-            return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ChannelNativeAds.createJy(this.a) : (ChannelNativeAds) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getBody() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getIconUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getIcon() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public List<String> getImageUrls() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(this.a.getIM());
+            return arrayList;
         }
-        return (List) invokeLL.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public FunNativeAd.InteractionType getInteractionType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.isD() ? FunNativeAd.InteractionType.TYPE_DOWNLOAD : FunNativeAd.InteractionType.TYPE_BROWSE : (FunNativeAd.InteractionType) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getHeadline() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public View getVideoView() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String adType = this.a.getAdType();
+            adType.hashCode();
+            if (!adType.equals("h5") && !adType.equals("video")) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z && this.c == null) {
+                this.c = new PBMediaView(this.b.getApplicationContext());
+            }
+            return this.c;
+        }
+        return (View) invokeV.objValue;
     }
 }

@@ -4,33 +4,23 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.TabSkin;
-import tbclient.FrsPage.WorldcupSkin;
+import tbclient.FrsPage.WorldCupPk;
 /* loaded from: classes9.dex */
-public class zxc extends poc {
+public class zxc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull WorldcupSkin worldcupSkin) {
+    public static JSONObject b(@NonNull WorldCupPk worldCupPk) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, worldcupSkin)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, worldCupPk)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "worldcup_icon_height", worldcupSkin.worldcup_icon_height);
-            poc.a(jSONObject, "worldcup_bottom", worldcupSkin.worldcup_bottom);
-            poc.a(jSONObject, "worldcup_bottom_night", worldcupSkin.worldcup_bottom_night);
-            poc.a(jSONObject, "worldcup_top", worldcupSkin.worldcup_top);
-            poc.a(jSONObject, "worldcup_top_night", worldcupSkin.worldcup_top_night);
-            if (worldcupSkin.tab_skin != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (TabSkin tabSkin : worldcupSkin.tab_skin) {
-                    jSONArray.put(hxc.b(tabSkin));
-                }
-                poc.a(jSONObject, "tab_skin", jSONArray);
-            }
+            qoc.a(jSONObject, "sum_game", worldCupPk.sum_game);
+            qoc.a(jSONObject, "sum_bonus", worldCupPk.sum_bonus);
+            qoc.a(jSONObject, "prize_url", worldCupPk.prize_url);
+            qoc.a(jSONObject, "url", worldCupPk.url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

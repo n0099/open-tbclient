@@ -5,30 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.AbilityConf;
-import tbclient.CallRobotEntrance;
-import tbclient.StyleConf;
+import tbclient.CallFansInfo;
 /* loaded from: classes8.dex */
-public class rqc extends poc {
+public class rqc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull CallRobotEntrance callRobotEntrance) {
+    public static JSONObject b(@NonNull CallFansInfo callFansInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, callRobotEntrance)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, callFansInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "ability_type", callRobotEntrance.ability_type);
-            AbilityConf abilityConf = callRobotEntrance.ability_conf;
-            if (abilityConf != null) {
-                poc.a(jSONObject, "ability_conf", qoc.b(abilityConf));
-            }
-            StyleConf styleConf = callRobotEntrance.style_conf;
-            if (styleConf != null) {
-                poc.a(jSONObject, "style_conf", t3d.b(styleConf));
-            }
-            poc.a(jSONObject, "skill_id", callRobotEntrance.skill_id);
+            qoc.a(jSONObject, "can_call", callFansInfo.can_call);
+            qoc.a(jSONObject, "thread_id", callFansInfo.thread_id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

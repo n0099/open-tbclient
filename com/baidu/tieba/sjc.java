@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,13 +8,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class sjc {
+public class sjc {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<sjc> b;
+    public static final sjc a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ljc a;
+
+    public mjc b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (mjc) invokeV.objValue;
+    }
+
+    public wjc c(wjc wjcVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wjcVar)) == null) ? wjcVar : (wjc) invokeL.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,33 +42,7 @@ public final class sjc {
                 return;
             }
         }
-        b = new AtomicReference<>();
-    }
-
-    public static sjc a() {
-        sjc sjcVar;
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            do {
-                sjc sjcVar2 = b.get();
-                if (sjcVar2 != null) {
-                    return sjcVar2;
-                }
-                sjcVar = new sjc();
-            } while (!b.compareAndSet(null, sjcVar));
-            return sjcVar;
-        }
-        return (sjc) invokeV.objValue;
-    }
-
-    public static ljc b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a().a;
-        }
-        return (ljc) invokeV.objValue;
+        a = new sjc();
     }
 
     public sjc() {
@@ -68,14 +55,16 @@ public final class sjc {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        ljc b2 = qjc.a().b().b();
-        if (b2 != null) {
-            this.a = b2;
-        } else {
-            this.a = new tjc(Looper.getMainLooper());
+    }
+
+    public static sjc a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
+        return (sjc) invokeV.objValue;
     }
 }

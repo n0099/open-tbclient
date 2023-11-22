@@ -1,35 +1,52 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.RecommendBook;
+import tbclient.FrsPage.CommonDistance;
+import tbclient.FrsPage.CommonForum;
+import tbclient.FrsPage.PostInfo;
+import tbclient.FrsPage.RecomUserInfo;
+import tbclient.FrsPage.UserInfo;
 /* loaded from: classes8.dex */
-public class twc extends poc {
+public class twc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RecommendBook recommendBook) {
+    public static JSONObject b(@NonNull RecomUserInfo recomUserInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recommendBook)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recomUserInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "type", recommendBook.type);
-            poc.a(jSONObject, "book_id", recommendBook.book_id);
-            poc.a(jSONObject, "title", recommendBook.title);
-            poc.a(jSONObject, "image", recommendBook.image);
-            if (recommendBook.desc != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (String str : recommendBook.desc) {
-                    jSONArray.put(str);
-                }
-                poc.a(jSONObject, "desc", jSONArray);
+            UserInfo userInfo = recomUserInfo.user_info;
+            if (userInfo != null) {
+                qoc.a(jSONObject, SourceConstant.SOURCE_USER_INFO, rxc.b(userInfo));
             }
-            poc.a(jSONObject, "link_url", recommendBook.link_url);
+            if (recomUserInfo.common_forum != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (CommonForum commonForum : recomUserInfo.common_forum) {
+                    jSONArray.put(vuc.b(commonForum));
+                }
+                qoc.a(jSONObject, "common_forum", jSONArray);
+            }
+            if (recomUserInfo.post_info != null) {
+                JSONArray jSONArray2 = new JSONArray();
+                for (PostInfo postInfo : recomUserInfo.post_info) {
+                    jSONArray2.put(jwc.b(postInfo));
+                }
+                qoc.a(jSONObject, "post_info", jSONArray2);
+            }
+            qoc.a(jSONObject, "pos_name", recomUserInfo.pos_name);
+            qoc.a(jSONObject, "message", recomUserInfo.message);
+            CommonDistance commonDistance = recomUserInfo.distanceinfo;
+            if (commonDistance != null) {
+                qoc.a(jSONObject, "distanceinfo", uuc.b(commonDistance));
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

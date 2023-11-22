@@ -311,7 +311,7 @@ public final class NadOperateBar extends XfremodeRoundLayout {
             }
         });
         this.m = new Handler(Looper.getMainLooper());
-        this.n = new Runnable() { // from class: com.baidu.tieba.wea
+        this.n = new Runnable() { // from class: com.baidu.tieba.xea
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -396,7 +396,7 @@ public final class NadOperateBar extends XfremodeRoundLayout {
                 AnimatorSet animatorSet = new AnimatorSet();
                 final ValueAnimator ofInt = ValueAnimator.ofInt(0, t11.c.a(this$0.getContext(), 34.6f));
                 ofInt.setDuration(300L);
-                ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.vea
+                ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.wea
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

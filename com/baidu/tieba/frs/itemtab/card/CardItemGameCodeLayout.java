@@ -19,10 +19,10 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b65;
+import com.baidu.tieba.c65;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeListDialog;
 import com.baidu.tieba.it;
-import com.baidu.tieba.ty7;
+import com.baidu.tieba.uy7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -69,7 +69,7 @@ public class CardItemGameCodeLayout extends RelativeLayout implements it {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !ListUtils.isEmpty(this.a.g)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new b65(14)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new c65(14)));
                 if (this.a.e == null) {
                     this.a.e = new GameCodeListDialog(view2.getContext());
                 }
@@ -199,13 +199,13 @@ public class CardItemGameCodeLayout extends RelativeLayout implements it {
         }
     }
 
-    public void setData(ty7 ty7Var) {
+    public void setData(uy7 uy7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ty7Var) != null) || ty7Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uy7Var) != null) || uy7Var == null) {
             return;
         }
-        this.f = ty7Var.d();
-        this.g = ty7Var.c();
+        this.f = uy7Var.d();
+        this.g = uy7Var.c();
         if (this.f != 0) {
             this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0306), Integer.valueOf(this.f)));
         } else {

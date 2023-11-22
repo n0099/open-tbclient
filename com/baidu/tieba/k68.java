@@ -1,59 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.searchbox.yy.gameassist.interfaces.BZDxmRechargeService;
-import com.baidu.tieba.wallet.WalletPluginManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback;
 /* loaded from: classes7.dex */
-public class k68 implements BZDxmRechargeService {
+public class k68 extends bg1<BZDxmRechargeService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public class a implements IDxmProxyCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BZDxmRechargeService.PluginDxmCallback a;
-
-        public a(k68 k68Var, BZDxmRechargeService.PluginDxmCallback pluginDxmCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k68Var, pluginDxmCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pluginDxmCallback;
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback
-        public void onFail(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                this.a.onFail(i, str);
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback
-        public void onSuccess(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                this.a.onSuccess(i, str);
-            }
-        }
-    }
 
     public k68() {
         Interceptable interceptable = $ic;
@@ -69,11 +26,15 @@ public class k68 implements BZDxmRechargeService {
         }
     }
 
-    @Override // com.baidu.searchbox.yy.gameassist.interfaces.BZDxmRechargeService
-    public void doBZPay(@NonNull String str, @NonNull BZDxmRechargeService.PluginDxmCallback pluginDxmCallback) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bg1
+    /* renamed from: a */
+    public BZDxmRechargeService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, pluginDxmCallback) == null) {
-            WalletPluginManager.getInstance().doYYPay(str, new a(this, pluginDxmCallback));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new l68();
         }
+        return (BZDxmRechargeService) invokeV.objValue;
     }
 }

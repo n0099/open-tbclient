@@ -1,107 +1,296 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.SignData;
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.log.TbLog;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-import tbclient.ChatroomSignInfo;
+import tbclient.AdMixFloor;
+import tbclient.App;
+import tbclient.BannerList;
+import tbclient.FrsBottomSmartBgColor;
 import tbclient.FrsPage.DataRes;
-import tbclient.FrsPage.ForumInfo;
-import tbclient.FrsPage.RankInfo;
-import tbclient.FrsPage.SignForum;
-import tbclient.FrsPage.SignInfo;
-import tbclient.FrsPage.SignUser;
+import tbclient.FrsPage.FrsBottom;
+import tbclient.FrsPage.HeaderCard;
+import tbclient.LayoutFactory;
 /* loaded from: classes8.dex */
-public final class sh7 {
+public abstract class sh7<T> implements nh7<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final JSONObject a(eh7 eh7Var) {
-        InterceptResult invokeL;
+    public abstract rh7 e(Object obj);
+
+    public abstract List<LayoutFactory> f(Object obj);
+
+    public sh7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, eh7Var)) == null) {
-            Intrinsics.checkNotNullParameter(eh7Var, "<this>");
-            JSONObject jSONObject = new JSONObject();
-            DataRes d = eh7Var.d();
-            if (d != null) {
-                DataRes.Builder builder = new DataRes.Builder(d);
-                ForumInfo.Builder builder2 = new ForumInfo.Builder(builder.forum);
-                builder2.banner_list = null;
-                builder.forum = builder2.build(true);
-                builder.thread_list = null;
-                builder.page_data = null;
-                builder.user_list = null;
-                builder.nav_tab_info = null;
-                try {
-                    JSONObject b = wuc.b(builder.build(true));
-                    Intrinsics.checkNotNullExpressionValue(b, "toJSON(data)");
-                    return b;
-                } catch (Exception e) {
-                    TbLog hybridLog = HybridLog.getInstance();
-                    hybridLog.e("BottomData", "frs接口数据转换失败：" + e);
-                    return jSONObject;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
     }
 
-    public static final SignData b(SignInfo signInfo) {
+    @Override // com.baidu.tieba.nh7
+    public List<ab7<?>> c(Object originData, z57 feedData, Map<String, String> schemaLocalInfo, boolean z) {
+        InterceptResult invokeCommon;
+        String str;
+        FrsBottomSmartBgColor frsBottomSmartBgColor;
+        HeaderCard headerCard;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{originData, feedData, schemaLocalInfo, Boolean.valueOf(z)})) == null) {
+            Intrinsics.checkNotNullParameter(originData, "originData");
+            Intrinsics.checkNotNullParameter(feedData, "feedData");
+            Intrinsics.checkNotNullParameter(schemaLocalInfo, "schemaLocalInfo");
+            List<LayoutFactory> f = f(originData);
+            ArrayList arrayList = new ArrayList();
+            for (LayoutFactory layoutFactory : f) {
+                j87 j87Var = s67.a().get(layoutFactory.layout);
+                boolean z2 = false;
+                if (j87Var != null) {
+                    if (j87Var instanceof da7) {
+                        ((da7) j87Var).a(schemaLocalInfo);
+                    }
+                    if (j87Var instanceof q67) {
+                        ((q67) j87Var).c(z);
+                    }
+                    if ((j87Var instanceof h87) && (originData instanceof DataRes)) {
+                        h87 h87Var = (h87) j87Var;
+                        DataRes dataRes = (DataRes) originData;
+                        Integer num = dataRes.forum.is_like;
+                        if (num != null && num.intValue() == 1) {
+                            z2 = true;
+                        }
+                        h87Var.c(z2);
+                        FrsBottom frsBottom = dataRes.frs_bottom;
+                        if (frsBottom != null && (frsBottomSmartBgColor = frsBottom.frs_smart_bg_color) != null) {
+                            str = frsBottomSmartBgColor.tag_color;
+                        } else {
+                            str = null;
+                        }
+                        if (str == null) {
+                            str = "#FF2B87FF";
+                        }
+                        h87Var.d(str);
+                    }
+                    ab7<?> b = j87Var.b(layoutFactory);
+                    if (b != null) {
+                        arrayList.add(b);
+                    }
+                } else if (Intrinsics.areEqual("template_stub_head_card", layoutFactory.layout)) {
+                    if ((originData instanceof DataRes) && (headerCard = ((DataRes) originData).header_card) != null) {
+                        p6b p6bVar = new p6b();
+                        p6bVar.f(headerCard);
+                        if (v6b.p(p6bVar, false)) {
+                            v6b v6bVar = new v6b();
+                            v6bVar.n(2);
+                            v6bVar.h(p6bVar);
+                            arrayList.add(new bb7(v6bVar, "template_stub_head_card"));
+                        }
+                    }
+                } else {
+                    BdLog.e("no layout for " + layoutFactory.layout);
+                }
+            }
+            rh7 e = e(originData);
+            g(feedData, arrayList, e.c(), e.b(), e.a());
+            return arrayList;
+        }
+        return (List) invokeCommon.objValue;
+    }
+
+    public final boolean d(AdvertAppInfo advertAppInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, signInfo)) == null) {
-            Intrinsics.checkNotNullParameter(signInfo, "<this>");
-            SignData signData = new SignData();
-            SignUser user_info = signInfo.user_info;
-            if (user_info != null) {
-                Intrinsics.checkNotNullExpressionValue(user_info, "user_info");
-                Integer num = user_info.is_sign_in;
-                Intrinsics.checkNotNullExpressionValue(num, "user_info.is_sign_in");
-                signData.is_signed = num.intValue();
-                Integer num2 = user_info.user_sign_rank;
-                Intrinsics.checkNotNullExpressionValue(num2, "user_info.user_sign_rank");
-                signData.user_sign_rank = num2.intValue();
-                Integer num3 = user_info.cont_sign_num;
-                Intrinsics.checkNotNullExpressionValue(num3, "user_info.cont_sign_num");
-                signData.count_sign_num = num3.intValue();
-                Integer num4 = user_info.miss_sign_num;
-                Intrinsics.checkNotNullExpressionValue(num4, "user_info.miss_sign_num");
-                signData.miss_sign_num = num4.intValue();
-            }
-            SignForum forum_info = signInfo.forum_info;
-            if (forum_info != null) {
-                Intrinsics.checkNotNullExpressionValue(forum_info, "forum_info");
-                Integer num5 = forum_info.is_on;
-                if (num5 != null && num5.intValue() == 0) {
-                    signData.forum_rank = -2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, advertAppInfo)) == null) {
+            try {
+                if (TextUtils.isEmpty(advertAppInfo.q)) {
+                    oea.h(advertAppInfo, 1, 26);
+                    return true;
+                } else if (zqa.b(TbadkCoreApplication.getInst().getContext(), advertAppInfo.q) && tz5.a().o()) {
+                    oea.h(advertAppInfo, 1, 3);
+                    return true;
                 } else {
-                    RankInfo current_rank_info = forum_info.current_rank_info;
-                    if (current_rank_info != null) {
-                        Intrinsics.checkNotNullExpressionValue(current_rank_info, "current_rank_info");
-                        Integer num6 = current_rank_info.sign_rank;
-                        Intrinsics.checkNotNullExpressionValue(num6, "rank_info.sign_rank");
-                        signData.forum_rank = num6.intValue();
-                        Integer num7 = current_rank_info.sign_count;
-                        Intrinsics.checkNotNullExpressionValue(num7, "rank_info.sign_count");
-                        signData.sign_count = num7.intValue();
+                    return false;
+                }
+            } catch (Exception unused) {
+                oea.h(advertAppInfo, 1, 100);
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void g(z57 z57Var, List<ab7<?>> list, BannerList bannerList, int i, List<AdMixFloor> list2) {
+        T t;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{z57Var, list, bannerList, Integer.valueOf(i), list2}) == null) && i != -1) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (y58.d()) {
+                            h(z57Var, list);
+                            return;
+                        } else {
+                            j(bannerList, list);
+                            return;
+                        }
+                    } else if (list2 != null) {
+                        Iterator<T> it = list2.iterator();
+                        if (it.hasNext()) {
+                            t = it.next();
+                            Integer num = ((AdMixFloor) t).ad_type;
+                            Intrinsics.checkNotNullExpressionValue(num, "it.ad_type");
+                            int intValue = num.intValue();
+                            if (intValue != 1) {
+                                if (intValue == 2) {
+                                    i(list2, list);
+                                }
+                            } else {
+                                j(bannerList, list);
+                            }
+                        } else {
+                            t = null;
+                        }
+                        AdMixFloor adMixFloor = (AdMixFloor) t;
+                        return;
+                    } else {
+                        return;
+                    }
+                }
+                h(z57Var, list);
+                return;
+            }
+            j(bannerList, list);
+        }
+    }
+
+    public final void h(z57 z57Var, List<ab7<?>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, z57Var, list) == null) {
+            int h = r58.m().h();
+            int i = r58.m().i() - 1;
+            int size = z57Var.a.size() - 1;
+            int i2 = 0;
+            int i3 = 0;
+            if (size >= 0) {
+                while (true) {
+                    int i4 = size - 1;
+                    if (Intrinsics.areEqual(r27.a(), z57Var.a.get(size).a()) || (z57Var.a.get(size).b() instanceof AdvertAppInfo)) {
+                        break;
+                    }
+                    i3++;
+                    if (i4 < 0) {
+                        break;
+                    }
+                    size = i4;
+                }
+            }
+            if (i3 <= h) {
+                i = h - i3;
+            }
+            if (!ListUtils.isEmpty(list) && i >= 0 && h >= 1) {
+                ListIterator<ab7<?>> listIterator = list.listIterator();
+                while (listIterator.hasNext()) {
+                    if (i2 == i || (i2 > i && (i2 - i) % h == 0)) {
+                        tra traVar = new tra();
+                        traVar.n(true);
+                        listIterator.add(new l27(new j27(traVar, false, null, 6, null), r27.a()));
+                    }
+                    listIterator.next();
+                    i2++;
+                }
+            }
+        }
+    }
+
+    public final void i(List<AdMixFloor> list, List<ab7<?>> list2) {
+        boolean z;
+        boolean z2;
+        Integer num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, list, list2) == null) {
+            if (list != null && !list.isEmpty()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return;
+            }
+            int i = 0;
+            for (AdMixFloor adMixFloor : list) {
+                if (adMixFloor != null && (num = adMixFloor.ad_type) != null && num.intValue() == 2) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (z2) {
+                    Integer num2 = adMixFloor.floor_num;
+                    Intrinsics.checkNotNullExpressionValue(num2, "mixFloor.floor_num");
+                    int intValue = (num2.intValue() + i) - 1;
+                    if (intValue >= 0 && intValue <= list2.size()) {
+                        tra traVar = new tra();
+                        traVar.n(true);
+                        list2.add(new l27(new j27(traVar, false, null, 6, null), r27.a()));
+                        i++;
                     }
                 }
             }
-            Integer num8 = signInfo.has_chatroom_sign;
-            boolean z = true;
-            signData.showGuideToChatRoom = (num8 == null || num8.intValue() != 1) ? false : false;
-            ChatroomSignInfo chatroom_sign_info = signInfo.chatroom_sign_info;
-            if (chatroom_sign_info != null) {
-                Intrinsics.checkNotNullExpressionValue(chatroom_sign_info, "chatroom_sign_info");
-                signData.chatRoomGuideData = yw4.d.a(chatroom_sign_info);
-            }
-            return signData;
         }
-        return (SignData) invokeL.objValue;
+    }
+
+    public final void j(BannerList bannerList, List<ab7<?>> list) {
+        List<App> list2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, bannerList, list) == null) {
+            if (bannerList != null) {
+                list2 = bannerList.app;
+            } else {
+                list2 = null;
+            }
+            if (list2 != null) {
+                int i = 0;
+                for (App app : bannerList.app) {
+                    AdvertAppInfo advertAppInfo = new AdvertAppInfo();
+                    advertAppInfo.l(app);
+                    if (advertAppInfo.l == null) {
+                        oea.h(advertAppInfo, 1, 100);
+                    } else {
+                        int h = advertAppInfo.h();
+                        if (h != 0) {
+                            oea.h(advertAppInfo, 1, h);
+                        } else if (!advertAppInfo.e() || !d(advertAppInfo)) {
+                            int i2 = advertAppInfo.position + i;
+                            if (i2 >= 0 && list.size() >= i2) {
+                                i++;
+                                if (advertAppInfo.b()) {
+                                    list.add(i2, new bb7(advertAppInfo, n27.c()));
+                                } else {
+                                    list.add(i2, new l27(advertAppInfo, n27.e(advertAppInfo.b, advertAppInfo.c)));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,14 +1,140 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.external.sticker.data.QmStickerItem;
+import com.baidu.tieba.view.widget.recordeffect.RecordEffectLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class j8b {
+public class j8b extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<QmStickerItem> a;
+    public RecordEffectLayout.i b;
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ j8b b;
+
+        public a(j8b j8bVar, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j8bVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = j8bVar;
+            this.a = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !((QmStickerItem) this.b.a.get(this.a * 2)).isSelect && this.b.b != null) {
+                this.b.b.a((QmStickerItem) this.b.a.get(this.a * 2));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ j8b b;
+
+        public b(j8b j8bVar, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j8bVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = j8bVar;
+            this.a = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !((QmStickerItem) this.b.a.get((this.a * 2) + 1)).isSelect && this.b.b != null) {
+                this.b.b.a((QmStickerItem) this.b.a.get((this.a * 2) + 1));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public RelativeLayout a;
+        public RelativeLayout b;
+        public TbImageView c;
+        public TbImageView d;
+        public TbImageView e;
+        public TbImageView f;
+        public ProgressBar g;
+        public ProgressBar h;
+        public ImageView i;
+
+        public c(j8b j8bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j8bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
     public j8b() {
         Interceptable interceptable = $ic;
@@ -24,39 +150,146 @@ public class j8b {
         }
     }
 
-    public static j8b a(int i, float f, float f2, float f3, float f4, float f5) {
-        InterceptResult invokeCommon;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
-            return new j8b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (ListUtils.isEmpty(this.a)) {
+                return 0;
+            }
+            return (int) Math.ceil(this.a.size() / 2.0d);
         }
-        return (j8b) invokeCommon.objValue;
+        return invokeV.intValue;
     }
 
-    public static j8b b(int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: c */
+    public QmStickerItem getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i != 5) {
-                                    return null;
-                                }
-                                return a(i, 0.47f, 3.0f, 2.14f, 1.41f, 1.03f);
-                            }
-                            return a(i, 0.53f, 3.0f, 1.64f, 1.08f, 0.62f);
-                        }
-                        return a(i, 0.59f, 3.0f, 1.11f, 0.71f, 0.67f);
-                    }
-                    return a(i, 0.1f, 2.0f, 0.39f, 0.31f, 0.66f);
-                }
-                return a(i, 0.1f, 1.0f, 0.0f, 0.0f, 0.09f);
-            }
-            return a(i, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return (QmStickerItem) ListUtils.getItem(this.a, i);
         }
-        return (j8b) invokeI.objValue;
+        return (QmStickerItem) invokeI.objValue;
+    }
+
+    public void e(List<QmStickerItem> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
+        }
+    }
+
+    public void f(RecordEffectLayout.i iVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, iVar) == null) {
+            this.b = iVar;
+        }
+    }
+
+    public void d() {
+        List<QmStickerItem> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (list = this.a) != null) {
+            for (QmStickerItem qmStickerItem : list) {
+                if (qmStickerItem.id == -1) {
+                    qmStickerItem.isSelect = true;
+                } else {
+                    qmStickerItem.isSelect = false;
+                    qmStickerItem.isDownLoading = false;
+                }
+            }
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01a2, (ViewGroup) null);
+                cVar = new c(this);
+                cVar.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0926ac);
+                cVar.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09049b);
+                cVar.a = (RelativeLayout) view2.findViewById(R.id.top_container);
+                cVar.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a03);
+                cVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090474);
+                cVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0926a6);
+                cVar.f = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090493);
+                cVar.g = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0926a8);
+                cVar.h = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f090497);
+                view2.setTag(cVar);
+            } else {
+                cVar = (c) view2.getTag();
+            }
+            cVar.c.setAutoChangeStyle(false);
+            cVar.d.setAutoChangeStyle(false);
+            cVar.e.setAutoChangeStyle(false);
+            cVar.f.setAutoChangeStyle(false);
+            cVar.c.setGifIconSupport(false);
+            cVar.d.setGifIconSupport(false);
+            int i2 = i * 2;
+            if (ListUtils.getItem(this.a, i2) instanceof QmStickerItem) {
+                cVar.a.setVisibility(0);
+                if (this.a.get(i2).id == -1) {
+                    cVar.i.setVisibility(0);
+                    cVar.c.setVisibility(8);
+                    cVar.i.setImageResource(R.drawable.obfuscated_res_0x7f080d73);
+                } else {
+                    cVar.i.setVisibility(8);
+                    cVar.c.setVisibility(0);
+                    cVar.c.startLoad(this.a.get(i2).bgurl, 10, true);
+                }
+                cVar.a.setOnClickListener(new a(this, i));
+                if (this.a.get(i2).isDownLoading) {
+                    cVar.g.setVisibility(0);
+                    cVar.e.setVisibility(8);
+                } else {
+                    cVar.g.setVisibility(8);
+                    if (this.a.get(i2).isLocalSource) {
+                        cVar.e.setVisibility(8);
+                    } else {
+                        cVar.e.setVisibility(0);
+                    }
+                }
+                if (this.a.get(i2).isSelect) {
+                    cVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0813a7);
+                } else {
+                    cVar.a.setBackgroundResource(R.color.transparent);
+                }
+            } else {
+                cVar.a.setVisibility(8);
+            }
+            int i3 = i2 + 1;
+            if (ListUtils.getItem(this.a, i3) instanceof QmStickerItem) {
+                cVar.b.setVisibility(0);
+                cVar.d.startLoad(this.a.get(i3).bgurl, 10, true);
+                cVar.b.setOnClickListener(new b(this, i));
+                if (this.a.get(i3).isDownLoading) {
+                    cVar.h.setVisibility(0);
+                    cVar.f.setVisibility(8);
+                } else {
+                    cVar.h.setVisibility(8);
+                    if (this.a.get(i3).isLocalSource) {
+                        cVar.f.setVisibility(8);
+                    } else {
+                        cVar.f.setVisibility(0);
+                    }
+                }
+                if (this.a.get(i3).isSelect) {
+                    cVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f0813a7);
+                } else {
+                    cVar.b.setBackgroundResource(R.color.transparent);
+                }
+            } else {
+                cVar.b.setVisibility(8);
+            }
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

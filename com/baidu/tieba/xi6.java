@@ -1,172 +1,119 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.ProgressBar;
-import androidx.constraintlayout.motion.widget.Key;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.webkit.URLUtil;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.download.model.Downloads;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class xi6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ObjectAnimator a;
-    public ObjectAnimator b;
 
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes9.dex */
-    public static class b extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<ProgressBar> a;
-
-        public b(ProgressBar progressBar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {progressBar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static Set<pi6> a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            HashSet hashSet = new HashSet();
+            if (jSONObject == null) {
+                return hashSet;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject(PrefetchEvent.MODULE);
+            if (optJSONObject == null) {
+                return hashSet;
+            }
+            Iterator<String> keys = optJSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
+                if (optJSONObject2 != null) {
+                    String str = null;
+                    JSONObject optJSONObject3 = optJSONObject2.optJSONObject("since");
+                    if (optJSONObject3 != null) {
+                        str = optJSONObject3.optString("android", "");
+                    }
+                    if (TextUtils.isEmpty(str)) {
+                        str = com.kuaishou.weapon.p0.q1.e;
+                    }
+                    pi6 pi6Var = new pi6(next, optJSONObject2.optString("method", "GET"), str);
+                    JSONObject optJSONObject4 = optJSONObject2.optJSONObject(Downloads.Impl.RequestHeaders.URI_SEGMENT);
+                    if (optJSONObject4 != null) {
+                        Iterator<String> keys2 = optJSONObject4.keys();
+                        while (keys2.hasNext()) {
+                            String next2 = keys2.next();
+                            if (!TextUtils.isEmpty(next2)) {
+                                pi6Var.a(next2, optJSONObject4.optString(next2));
+                            }
+                        }
+                    }
+                    hashSet.add(pi6Var);
                 }
             }
-            this.a = new WeakReference<>(progressBar);
+            return hashSet;
         }
-
-        public /* synthetic */ b(ProgressBar progressBar, a aVar) {
-            this(progressBar);
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            ProgressBar progressBar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && (progressBar = this.a.get()) != null) {
-                progressBar.setProgress(0);
-                dk6.f(progressBar, 8);
-                progressBar.setAlpha(1.0f);
-            }
-        }
+        return (Set) invokeL.objValue;
     }
 
-    /* loaded from: classes9.dex */
-    public static class c implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<ProgressBar> a;
-
-        public c(ProgressBar progressBar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {progressBar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static void b(String str) {
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            oi6.c().b();
+            try {
+                jSONArray = new JSONArray(str);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                jSONArray = null;
+            }
+            if (wj6.c(jSONArray)) {
+                return;
+            }
+            for (int i = 0; i < jSONArray.length(); i++) {
+                try {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    String optString = optJSONObject.optString("url", "");
+                    if (!TextUtils.isEmpty(optString)) {
+                        Set<pi6> a = a(optJSONObject);
+                        ni6 ni6Var = new ni6();
+                        if (!wj6.a(a)) {
+                            ni6Var.a = a;
+                            ni6Var.d = optString;
+                            oi6.c().a(optString, ni6Var);
+                        } else {
+                            oi6.c().a(optString, ni6Var);
+                        }
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
             }
-            this.a = new WeakReference<>(progressBar);
-        }
-
-        public /* synthetic */ c(ProgressBar progressBar, a aVar) {
-            this(progressBar);
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            ProgressBar progressBar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && (progressBar = this.a.get()) != null) {
-                float animatedFraction = valueAnimator.getAnimatedFraction();
-                int progress = progressBar.getProgress();
-                progressBar.setProgress((int) (progress + ((100 - progress) * animatedFraction)));
-            }
         }
     }
 
-    public xi6() {
+    @Nullable
+    public static List<Pair<String, Long>> c(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            gk6 gk6Var = (gk6) ServiceManager.getService(gk6.a);
+            if (gk6Var != null && URLUtil.isNetworkUrl(str)) {
+                return gk6Var.a(str);
             }
+            return null;
         }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ObjectAnimator objectAnimator = this.a;
-            if (objectAnimator != null) {
-                objectAnimator.cancel();
-            }
-            this.a = null;
-            ObjectAnimator objectAnimator2 = this.b;
-            if (objectAnimator2 != null) {
-                objectAnimator2.cancel();
-            }
-            this.b = null;
-        }
-    }
-
-    public void a(ProgressBar progressBar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, progressBar) == null) {
-            ObjectAnimator objectAnimator = this.b;
-            if (objectAnimator != null) {
-                objectAnimator.cancel();
-            }
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(progressBar, Key.ALPHA, 1.0f, 0.0f);
-            this.b = ofFloat;
-            ofFloat.setDuration(150L);
-            this.b.setInterpolator(new DecelerateInterpolator());
-            this.b.addUpdateListener(new c(progressBar, null));
-            this.b.addListener(new b(progressBar, null));
-            this.b.start();
-        }
-    }
-
-    public void b(ProgressBar progressBar, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, progressBar, i) == null) {
-            ObjectAnimator objectAnimator = this.a;
-            if (objectAnimator == null) {
-                ObjectAnimator ofInt = ObjectAnimator.ofInt(progressBar, "progress", 0);
-                this.a = ofInt;
-                ofInt.setDuration(100L);
-                this.a.setInterpolator(new DecelerateInterpolator());
-            } else {
-                objectAnimator.cancel();
-            }
-            this.a.setIntValues(progressBar.getProgress(), i);
-            this.a.start();
-        }
+        return (List) invokeL.objValue;
     }
 }

@@ -13,10 +13,10 @@ import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.a9b;
+import com.baidu.tieba.b9b;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.dj6;
+import com.baidu.tieba.ej6;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
 import com.baidu.tieba.write.WriteWebViewCacheManager$skinChangeListener$2;
@@ -262,7 +262,7 @@ public final class WriteWebViewCacheManager {
                             String currentSkinTypeString = SkinManager.getCurrentSkinTypeString();
                             Intrinsics.checkNotNullExpressionValue(currentSkinTypeString, "getCurrentSkinTypeString()");
                             linkedHashMap.put("skin", currentSkinTypeString);
-                            dj6.a().d(entry.getValue(), CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
+                            ej6.a().d(entry.getValue(), CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
                         }
                     }
                 }
@@ -333,7 +333,7 @@ public final class WriteWebViewCacheManager {
             this.a.remove(url);
             Context context2 = tbWebView.getContext();
             if (context2 instanceof MutableContextWrapper) {
-                ((MutableContextWrapper) context2).setBaseContext(a9b.a.b(context));
+                ((MutableContextWrapper) context2).setBaseContext(b9b.a.b(context));
             }
             return tbWebView;
         }
@@ -351,7 +351,7 @@ public final class WriteWebViewCacheManager {
         } else {
             mutableContextWrapper = new MutableContextWrapper(TbadkCoreApplication.getInst());
         }
-        TbWebView a2 = a9b.a.a(mutableContextWrapper);
+        TbWebView a2 = b9b.a.a(mutableContextWrapper);
         a2.loadUrl(str + "&page_lifecycle_type=preheat_enabled");
         a2.getPerfData().i = true;
         this.a.put(str, a2);

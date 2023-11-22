@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.img.effect.ImageOperation;
-import com.baidu.tieba.jj5;
+import com.baidu.tieba.kj5;
 import com.baidu.tieba.rb;
 import com.baidu.tieba.sb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -185,7 +185,7 @@ public class LocalFileImageLoaderProc implements sb<BdImage> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            ImageOperation g = jj5.g(this.width, this.height);
+            ImageOperation g = kj5.g(this.width, this.height);
             return "image_" + str + ':' + g.actionName + '=' + g.actionParam;
         }
         return (String) invokeL.objValue;

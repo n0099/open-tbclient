@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iu9;
+import com.baidu.tieba.ju9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -119,7 +119,7 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
         if ((interceptable != null && interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bawuRoleInfoPub, headImageView, textView, linearLayout) != null) || bawuRoleInfoPub == null) {
             return;
         }
-        iu9.a(headImageView, bawuRoleInfoPub.avatar_url, bawuRoleInfoPub.portrait, 12);
+        ju9.a(headImageView, bawuRoleInfoPub.avatar_url, bawuRoleInfoPub.portrait, 12);
         headImageView.setTag(bawuRoleInfoPub);
         headImageView.setContentDescription(bawuRoleInfoPub.user_name);
         if (StringUtils.isNull(bawuRoleInfoPub.name_show)) {

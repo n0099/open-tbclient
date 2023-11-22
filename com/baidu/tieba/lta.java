@@ -1,132 +1,40 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class lta extends kta {
+public abstract class lta {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile nta g;
-    public volatile boolean h;
-    public int i;
+    public kta a;
+    public final String b;
+    public final int c;
+    public final long d;
+    public final String e;
+    public final int f;
 
-    /* loaded from: classes7.dex */
-    public class a implements ThreadFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
+    public abstract void a();
 
-        public a(lta ltaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ltaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 0;
-        }
+    public abstract boolean c();
 
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable);
-                thread.setName("VideoUploadThread@" + this.a);
-                this.a = this.a + 1;
-                return thread;
-            }
-            return (Thread) invokeL.objValue;
-        }
-    }
+    public abstract ota g(ArrayList<Integer> arrayList, String str, int i);
 
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ RandomAccessFile a;
-        public final /* synthetic */ ArrayList b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ int f;
-        public final /* synthetic */ CountDownLatch g;
-        public final /* synthetic */ lta h;
-
-        public b(lta ltaVar, RandomAccessFile randomAccessFile, ArrayList arrayList, int i, int i2, String str, int i3, CountDownLatch countDownLatch) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ltaVar, randomAccessFile, arrayList, Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), countDownLatch};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = ltaVar;
-            this.a = randomAccessFile;
-            this.b = arrayList;
-            this.c = i;
-            this.d = i2;
-            this.e = str;
-            this.f = i3;
-            this.g = countDownLatch;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                nta h = this.h.h(this.a, ((Integer) this.b.get(this.c)).intValue(), this.d, this.e);
-                if (h != null) {
-                    if (h.b != 0) {
-                        this.h.g.b = h.b;
-                        this.h.g.c = h.c;
-                    }
-                    if (!StringUtils.isNull(h.a)) {
-                        this.h.g.a = h.a;
-                    }
-                    synchronized (this.h) {
-                        lta.k(this.h);
-                        this.h.d((int) (((this.h.i * 50.0f) / this.f) + 30.0f));
-                    }
-                }
-                this.g.countDown();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public lta(String str, int i, int i2, long j, String str2) {
-        super(str, i, i2, j, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,72 +44,129 @@ public class lta extends kta {
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = new nta();
+        this.b = str;
+        this.c = i2;
+        this.d = j;
+        this.e = str2;
+        this.f = i;
     }
 
-    public static /* synthetic */ int k(lta ltaVar) {
-        int i = ltaVar.i;
-        ltaVar.i = i + 1;
-        return i;
-    }
-
-    @Override // com.baidu.tieba.kta
-    public void a() {
+    public byte[] b(RandomAccessFile randomAccessFile, int i) {
+        InterceptResult invokeLI;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.h = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.kta
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!this.h && this.g.b == 0 && StringUtils.isNull(this.g.a)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.kta
-    public nta g(ArrayList<Integer> arrayList, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, str, i)) == null) {
-            int size = arrayList.size();
-            CountDownLatch countDownLatch = new CountDownLatch(size);
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 3, 2L, TimeUnit.SECONDS, new LinkedBlockingDeque(), new a(this));
-            try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
-                for (int i2 = 0; i2 < size; i2++) {
-                    threadPoolExecutor.execute(new b(this, randomAccessFile, arrayList, i2, i, str, size, countDownLatch));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, randomAccessFile, i)) == null) {
+            if (randomAccessFile != null && i >= 0) {
+                if (i == this.c) {
+                    i2 = (int) (this.d - ((i - 1) * this.f));
+                } else {
+                    i2 = this.f;
                 }
+                byte[] bArr = new byte[i2];
+                boolean z = false;
                 try {
-                    countDownLatch.await();
-                } catch (InterruptedException e) {
+                    synchronized (randomAccessFile) {
+                        randomAccessFile.seek((i - 1) * this.f);
+                        if (randomAccessFile.read(bArr, 0, i2) != -1) {
+                            z = true;
+                        }
+                    }
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
-                threadPoolExecutor.shutdown();
-                try {
-                    randomAccessFile.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                if (z) {
+                    return bArr;
                 }
-                return this.g;
-            } catch (FileNotFoundException unused) {
-                return this.g;
+            }
+            return null;
+        }
+        return (byte[]) invokeLI.objValue;
+    }
+
+    public void d(int i) {
+        kta ktaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (ktaVar = this.a) != null) {
+            ktaVar.onProgressUpdate(i / 100.0f);
+        }
+    }
+
+    public void f(kta ktaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ktaVar) == null) {
+            this.a = ktaVar;
+        }
+    }
+
+    public final String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            try {
+                JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
+                if (optJSONObject != null) {
+                    return optJSONObject.optString("video_url");
+                }
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public ota h(RandomAccessFile randomAccessFile, int i, long j, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{randomAccessFile, Integer.valueOf(i), Long.valueOf(j), str})) == null) {
+            byte[] b = b(randomAccessFile, i);
+            if (b == null) {
+                ota otaVar = new ota();
+                otaVar.b = -1;
+                otaVar.c = "上传文件不存在";
+                return otaVar;
+            } else if (c()) {
+                return null;
+            } else {
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
+                netWork.addPostData("chunk_no", String.valueOf(i));
+                netWork.addPostData("chunk_sum", String.valueOf(this.c));
+                netWork.addPostData("chunk_size", String.valueOf(b.length));
+                netWork.addPostData("video_size", String.valueOf(this.d));
+                netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.e);
+                netWork.addPostData("video_len", String.valueOf(j));
+                netWork.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
+                netWork.addPostData("video_chunk", b);
+                netWork.addPostData("upload_id", str);
+                if (c()) {
+                    return null;
+                }
+                String postMultiNetData = netWork.postMultiNetData();
+                if (c()) {
+                    return null;
+                }
+                ota otaVar2 = new ota();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    otaVar2.a = e(postMultiNetData);
+                } else {
+                    if (netWork.getNetContext().getResponse().isNetSuccess()) {
+                        otaVar2.b = netWork.getNetContext().getResponse().mServerErrorCode;
+                    } else {
+                        otaVar2.b = netWork.getNetContext().getResponse().mNetErrorCode;
+                    }
+                    otaVar2.c = netWork.getNetContext().getResponse().mErrorString;
+                }
+                return otaVar2;
             }
         }
-        return (nta) invokeLLI.objValue;
+        return (ota) invokeCommon.objValue;
     }
 }

@@ -60,14 +60,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.as4;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.dj6;
+import com.baidu.tieba.ej6;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.ou4;
 import com.baidu.tieba.qd;
 import com.baidu.tieba.qt4;
 import com.baidu.tieba.ut4;
 import com.baidu.tieba.vt4;
-import com.baidu.tieba.w75;
+import com.baidu.tieba.x75;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -749,7 +749,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             if (context == null || str == null || (parse = Uri.parse(str)) == null) {
                 return null;
             }
-            List<String> a2 = w75.a();
+            List<String> a2 = x75.a();
             if (ListUtils.isEmpty(a2)) {
                 return null;
             }
@@ -1103,7 +1103,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             } else if (getWebView() instanceof TbWebView) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 linkedHashMap.put("skin", SkinManager.getCurrentSkinTypeString());
-                dj6.a().d(getWebView(), CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
+                ej6.a().d(getWebView(), CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
             }
         }
     }

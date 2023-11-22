@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qb5;
+import com.baidu.tieba.rb5;
 import com.baidu.tieba.tbadkCore.data.FaceGroupInfoData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -326,7 +326,7 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
                 int dimens = (((getResources().getDisplayMetrics().widthPixels - BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds94)) - BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds180)) - BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds75)) - BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds200);
                 TextPaint paint = this.c.getPaint();
                 String name = this.f.getName();
-                this.c.setText(qb5.a(name, "..." + j, dimens, paint));
+                this.c.setText(rb5.a(name, "..." + j, dimens, paint));
                 CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921699, Boolean.class, this.f.getId());
                 if (runTask != null && ((Boolean) runTask.getData()).booleanValue()) {
                     this.f.updateStatus(FaceGroupInfoData.Status.FINISH);

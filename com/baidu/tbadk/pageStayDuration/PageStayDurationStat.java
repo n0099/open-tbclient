@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.k35;
-import com.baidu.tieba.mo5;
+import com.baidu.tieba.no5;
 import com.baidu.tieba.qd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -272,7 +272,7 @@ public class PageStayDurationStat {
                 if (pageStayDurationItem.getAdSource() != 0) {
                     statisticItem.param("ad_source", pageStayDurationItem.getAdSource());
                 }
-                mo5.b(context, statisticItem, pageStayDurationItem);
+                no5.b(context, statisticItem, pageStayDurationItem);
                 TiebaStatic.log(statisticItem);
                 return;
             }
@@ -351,7 +351,7 @@ public class PageStayDurationStat {
                     TbSingleton.getInstance().setFromWhichSearchSource("");
                 }
             }
-            mo5.b(context, statisticItem2, pageStayDurationItem);
+            no5.b(context, statisticItem2, pageStayDurationItem);
             TiebaStatic.log(statisticItem2);
             TiebaStatic.log(new StatisticItem("PushOptTime").param(TiebaStatic.Params.OBJ_DURATION, String.valueOf(pageStayDurationItem.getStayDurationTime())).param("obj_source", PageStayDurationHelper.toSourceTraceString(pageStayDurationItem.getSorceKeyList())).param("obj_locate", pageStayDurationItem.getCurrentPageKey()).param("obj_param1", k35.a().b()));
         }

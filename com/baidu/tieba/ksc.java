@@ -4,29 +4,27 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FeedHeadButton;
-import tbclient.FeedKV;
+import tbclient.FeedForumInfo;
 /* loaded from: classes7.dex */
-public class ksc extends poc {
+public class ksc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedHeadButton feedHeadButton) {
+    public static JSONObject b(@NonNull FeedForumInfo feedForumInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedHeadButton)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedForumInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "type", feedHeadButton.type);
-            if (feedHeadButton.business_info != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (FeedKV feedKV : feedHeadButton.business_info) {
-                    jSONArray.put(tsc.b(feedKV));
-                }
-                poc.a(jSONObject, "business_info", jSONArray);
-            }
+            qoc.a(jSONObject, "forum_id", feedForumInfo.forum_id);
+            qoc.a(jSONObject, "forum_name", feedForumInfo.forum_name);
+            qoc.a(jSONObject, "member_count", feedForumInfo.member_count);
+            qoc.a(jSONObject, "post_num", feedForumInfo.post_num);
+            qoc.a(jSONObject, "avatar", feedForumInfo.avatar);
+            qoc.a(jSONObject, "reason", feedForumInfo.reason);
+            qoc.a(jSONObject, "pos", feedForumInfo.pos);
+            qoc.a(jSONObject, "is_like", feedForumInfo.is_like);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

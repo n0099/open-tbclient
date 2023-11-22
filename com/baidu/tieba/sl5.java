@@ -1,21 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: GroupChatService.java */
+import android.content.Intent;
+import android.view.MotionEvent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tbadk.data.ChatRoomEntranceData;
 /* loaded from: classes8.dex */
-public final /* synthetic */ class sl5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface sl5 {
+    @NonNull
+    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatFloatEntranceService");
 
-    public static tl5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return (tl5) ServiceManager.getService(tl5.a);
-        }
-        return (tl5) invokeV.objValue;
+    /* loaded from: classes8.dex */
+    public interface a {
     }
+
+    /* loaded from: classes8.dex */
+    public interface b {
+        boolean B1();
+
+        void V1(boolean z);
+
+        void Y(ChatRoomEntranceData chatRoomEntranceData);
+
+        void b2();
+
+        void destroy();
+
+        void e1(boolean z);
+
+        boolean f2(String str);
+
+        void g();
+
+        int getState();
+
+        Fragment k();
+
+        boolean m0();
+
+        void onActivityResult(int i, int i2, Intent intent);
+
+        boolean p();
+
+        void p2(long j, String str, boolean z, boolean z2);
+
+        void u1();
+
+        void w1(MotionEvent motionEvent);
+    }
+
+    void a(@Nullable a aVar);
+
+    @NonNull
+    b b(String str, vl5 vl5Var);
+
+    void onChangeSkinType(int i);
 }

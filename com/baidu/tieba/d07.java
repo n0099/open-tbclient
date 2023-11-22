@@ -1,30 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.TbMusicData;
-import com.baidu.tieba.external.music.data.MusicData;
+import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tieba.c07;
 /* loaded from: classes5.dex */
 public interface d07 {
-    void a(float f);
+    boolean a(QmFilterItem qmFilterItem);
 
-    void b();
+    QmFilterItem b();
 
-    String c();
+    void c(QmFilterItem qmFilterItem);
 
-    void d(MusicData musicData, Object obj);
+    void d(c07.b bVar);
 
     void e();
 
-    void f(TbMusicData tbMusicData);
+    String f(String str);
 
-    void g(String str, String str2);
+    void g();
 
-    boolean h();
-
-    void onPause();
-
-    void onResume();
-
-    void pause();
+    void h();
 
     void reset();
 }

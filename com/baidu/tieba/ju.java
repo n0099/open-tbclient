@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class ju extends ns<bw4> implements o8a {
+public abstract class ju extends ns<bw4> implements p8a {
     public static /* synthetic */ Interceptable $ic;
     public static final int v;
     public static int w;
@@ -48,7 +48,7 @@ public abstract class ju extends ns<bw4> implements o8a {
     public RoundCornerFrameLayout i;
     public RoundRelativeLayout j;
     public AbsDownloadGuide k;
-    public k9a l;
+    public l9a l;
     public String m;
     public String n;
     public BdUniqueId o;
@@ -59,7 +59,7 @@ public abstract class ju extends ns<bw4> implements o8a {
     public final View.OnClickListener t;
     public mu.b u;
 
-    public abstract k9a t();
+    public abstract l9a t();
 
     public void x() {
         Interceptable interceptable = $ic;
@@ -148,7 +148,7 @@ public abstract class ju extends ns<bw4> implements o8a {
                 ThreadData threadData = juVar.h.getThreadData();
                 ju juVar2 = this.a;
                 String str = juVar2.m;
-                lt5.c(false, context, threadData, 0, computeViewArea, "from_nani_video", "personalize_page", "", str, str, juVar2.h.getThreadData().isJumpToFrsVideoTabPlay);
+                mt5.c(false, context, threadData, 0, computeViewArea, "from_nani_video", "personalize_page", "", str, str, juVar2.h.getThreadData().isJumpToFrsVideoTabPlay);
             }
         }
     }
@@ -252,26 +252,26 @@ public abstract class ju extends ns<bw4> implements o8a {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (aVar.b() == 1) {
                     ju juVar = this.a;
-                    il6.l(juVar.g, juVar.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    jl6.l(juVar.g, juVar.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                     return false;
                 } else if (aVar.b() == 2) {
-                    k9a k9aVar = this.a.l;
-                    if (k9aVar != null) {
-                        k9aVar.onScroll();
+                    l9a l9aVar = this.a.l;
+                    if (l9aVar != null) {
+                        l9aVar.onScroll();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 3) {
-                    k9a k9aVar2 = this.a.l;
-                    if (k9aVar2 != null) {
-                        k9aVar2.onVolumeUp();
+                    l9a l9aVar2 = this.a.l;
+                    if (l9aVar2 != null) {
+                        l9aVar2.onVolumeUp();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 6) {
-                    k9a k9aVar3 = this.a.l;
-                    if (k9aVar3 != null) {
-                        return k9aVar3.onBackPress();
+                    l9a l9aVar3 = this.a.l;
+                    if (l9aVar3 != null) {
+                        return l9aVar3.onBackPress();
                     }
                     return false;
                 } else if (aVar.b() == 7) {
@@ -346,11 +346,11 @@ public abstract class ju extends ns<bw4> implements o8a {
         }
     }
 
-    public void B(f9a f9aVar) {
-        k9a k9aVar;
+    public void B(g9a g9aVar) {
+        l9a l9aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f9aVar) == null) && (k9aVar = this.l) != null) {
-            k9aVar.setStatistic(f9aVar);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g9aVar) == null) && (l9aVar = this.l) != null) {
+            l9aVar.setStatistic(g9aVar);
         }
     }
 
@@ -366,9 +366,9 @@ public abstract class ju extends ns<bw4> implements o8a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             this.m = str;
-            k9a k9aVar = this.l;
-            if (k9aVar != null) {
-                k9aVar.setFrom(str);
+            l9a l9aVar = this.l;
+            if (l9aVar != null) {
+                l9aVar.setFrom(str);
             }
         }
     }
@@ -377,9 +377,9 @@ public abstract class ju extends ns<bw4> implements o8a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             this.n = str;
-            k9a k9aVar = this.l;
-            if (k9aVar != null) {
-                k9aVar.setStageType(str);
+            l9a l9aVar = this.l;
+            if (l9aVar != null) {
+                l9aVar.setStageType(str);
             }
         }
     }
@@ -405,7 +405,7 @@ public abstract class ju extends ns<bw4> implements o8a {
                 this.g = (TextView) this.f.findViewById(R.id.video_seg_title);
                 this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
                 this.j = (RoundRelativeLayout) this.f.findViewById(R.id.download_guide_layout);
-                k9a t = t();
+                l9a t = t();
                 this.l = t;
                 t.setUniqueId(this.o);
                 this.l.setFrom(this.m);
@@ -416,7 +416,7 @@ public abstract class ju extends ns<bw4> implements o8a {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.o8a
+    @Override // com.baidu.tieba.p8a
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -426,7 +426,7 @@ public abstract class ju extends ns<bw4> implements o8a {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.o8a
+    @Override // com.baidu.tieba.p8a
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -440,7 +440,7 @@ public abstract class ju extends ns<bw4> implements o8a {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.o8a
+    @Override // com.baidu.tieba.p8a
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -450,21 +450,21 @@ public abstract class ju extends ns<bw4> implements o8a {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.o8a
+    @Override // com.baidu.tieba.p8a
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            k9a k9aVar = this.l;
-            if (k9aVar == null) {
+            l9a l9aVar = this.l;
+            if (l9aVar == null) {
                 return false;
             }
-            return k9aVar.isFullScreen();
+            return l9aVar.isFullScreen();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.o8a
+    @Override // com.baidu.tieba.p8a
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -474,7 +474,7 @@ public abstract class ju extends ns<bw4> implements o8a {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.o8a
+    @Override // com.baidu.tieba.p8a
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -484,16 +484,16 @@ public abstract class ju extends ns<bw4> implements o8a {
         return invokeV.booleanValue;
     }
 
-    public k9a s() {
+    public l9a s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.l;
         }
-        return (k9a) invokeV.objValue;
+        return (l9a) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.o8a
+    @Override // com.baidu.tieba.p8a
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
@@ -504,7 +504,7 @@ public abstract class ju extends ns<bw4> implements o8a {
         }
     }
 
-    @Override // com.baidu.tieba.o8a
+    @Override // com.baidu.tieba.p8a
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
@@ -530,7 +530,7 @@ public abstract class ju extends ns<bw4> implements o8a {
         bw4 bw4Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048588, this, tbPageContext, i) == null) && (bw4Var = this.h) != null && bw4Var.getThreadData() != null) {
-            il6.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            jl6.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             this.i.c(i);
             this.i.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
             AbsDownloadGuide absDownloadGuide = this.k;

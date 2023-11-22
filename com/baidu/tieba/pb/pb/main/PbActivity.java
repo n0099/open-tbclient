@@ -21,17 +21,17 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.PriorityOrganizer;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ds9;
-import com.baidu.tieba.ix9;
+import com.baidu.tieba.es9;
 import com.baidu.tieba.j35;
+import com.baidu.tieba.jx9;
 import com.baidu.tieba.ko4;
 import com.baidu.tieba.lo4;
 import com.baidu.tieba.pb.fragment.VideoFragmentController;
-import com.baidu.tieba.qza;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.rza;
 import com.baidu.tieba.s05;
-import com.baidu.tieba.so5;
-import com.baidu.tieba.ww9;
+import com.baidu.tieba.to5;
+import com.baidu.tieba.xw9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
 import kotlin.Pair;
 /* loaded from: classes7.dex */
-public class PbActivity extends AbsPbActivity implements qza {
+public class PbActivity extends AbsPbActivity implements rza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean u;
@@ -69,7 +69,7 @@ public class PbActivity extends AbsPbActivity implements qza {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.qza
+    @Override // com.baidu.tieba.rza
     @NonNull
     public String Z1() {
         InterceptResult invokeV;
@@ -77,7 +77,7 @@ public class PbActivity extends AbsPbActivity implements qza {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "pb_landing_page" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qza
+    @Override // com.baidu.tieba.rza
     @NonNull
     public String n2() {
         InterceptResult invokeV;
@@ -190,7 +190,7 @@ public class PbActivity extends AbsPbActivity implements qza {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onDestroy();
-            so5.a.a(getUniqueId(), new Pair<>(PushMessageHelper.ERROR_TYPE, "pb_page"), new Pair<>("error_info", "pb page unfinished destroy"));
+            to5.a.a(getUniqueId(), new Pair<>(PushMessageHelper.ERROR_TYPE, "pb_page"), new Pair<>("error_info", "pb page unfinished destroy"));
         }
     }
 
@@ -221,23 +221,23 @@ public class PbActivity extends AbsPbActivity implements qza {
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public String D1(ds9 ds9Var) {
+    public String D1(es9 es9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ds9Var)) == null) {
-            if (ds9Var != null && ds9Var.x0()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, es9Var)) == null) {
+            if (es9Var != null && es9Var.x0()) {
                 return "video_pb_fragment_tag";
             }
-            return super.D1(ds9Var);
+            return super.D1(es9Var);
         }
         return (String) invokeL.objValue;
     }
 
-    public final boolean c2(ds9 ds9Var) {
+    public final boolean c2(es9 es9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, ds9Var)) == null) {
-            return "video_pb_fragment_tag".equals(D1(ds9Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, es9Var)) == null) {
+            return "video_pb_fragment_tag".equals(D1(es9Var));
         }
         return invokeL.booleanValue;
     }
@@ -265,13 +265,13 @@ public class PbActivity extends AbsPbActivity implements qza {
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public void x1(ds9 ds9Var) {
+    public void x1(es9 es9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, ds9Var) == null) {
-            super.x1(ds9Var);
-            if (this.a != null && c2(ds9Var)) {
-                this.a.s3(ds9Var);
-                this.b.setArguments(this.x.g(ds9Var));
+        if (interceptable == null || interceptable.invokeL(1048600, this, es9Var) == null) {
+            super.x1(es9Var);
+            if (this.a != null && c2(es9Var)) {
+                this.a.s3(es9Var);
+                this.b.setArguments(this.x.g(es9Var));
                 this.x.l();
             }
         }
@@ -323,7 +323,7 @@ public class PbActivity extends AbsPbActivity implements qza {
         return (PriorityOrganizer) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qza
+    @Override // com.baidu.tieba.rza
     @NonNull
     public String getTraceId() {
         InterceptResult invokeV;
@@ -400,9 +400,9 @@ public class PbActivity extends AbsPbActivity implements qza {
         }
     }
 
-    public void f2(int i, ix9 ix9Var) {
+    public void f2(int i, jx9 jx9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048587, this, i, ix9Var) == null) && !this.u && F1() != null) {
+        if ((interceptable == null || interceptable.invokeIL(1048587, this, i, jx9Var) == null) && !this.u && F1() != null) {
             int i2 = 1;
             this.u = true;
             if (F1() != null && F1().s1() == 7) {
@@ -413,7 +413,7 @@ public class PbActivity extends AbsPbActivity implements qza {
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
             }
-            ix9Var.N2(new b(this, i, i2));
+            jx9Var.N2(new b(this, i, i2));
         }
     }
 
@@ -424,9 +424,9 @@ public class PbActivity extends AbsPbActivity implements qza {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_START_STAMP_KEY);
             super.onCreate(bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_END_STAMP_KEY);
-            registerListener(new ww9(this));
-            so5.a.e(getUniqueId(), this);
-            so5.a.g(getUniqueId());
+            registerListener(new xw9(this));
+            to5.a.e(getUniqueId(), this);
+            to5.a.g(getUniqueId());
         }
     }
 

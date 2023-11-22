@@ -33,13 +33,13 @@ public class rw1 extends nw1 {
 
         /* renamed from: com.baidu.tieba.rw1$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0469a implements fg3.c {
+        public class C0467a implements fg3.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ zw1 a;
             public final /* synthetic */ a b;
 
-            public C0469a(a aVar, zw1 zw1Var) {
+            public C0467a(a aVar, zw1 zw1Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public class rw1 extends nw1 {
                 zw1 zw1Var = new zw1("compassChange", jSONObject, str);
                 fg3 i = fg3.i();
                 i.l(this.a.i());
-                i.o(new C0469a(this, zw1Var));
+                i.o(new C0467a(this, zw1Var));
                 g32.i("CompassApi", "start listen compass");
                 i.p();
                 zw1Var.b(this.a);

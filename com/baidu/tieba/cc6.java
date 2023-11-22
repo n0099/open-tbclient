@@ -1,72 +1,73 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.SwipeBackLayout;
+import com.baidu.ala.view.ForbidParentSwipeBackRelativeLayout;
+import com.baidu.ala.view.ParentDisallowInterceptHListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import com.baidu.tbadk.ala.AlaLiveInfoListCoreData;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.horizonalList.widget.AdapterView;
+import com.baidu.tieba.pb.ThreadSkinView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"ResourceAsColor"})
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class cc6 extends yk6<ThreadData> implements vl6 {
+public class cc6 extends zk6<eqa> implements wl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> i;
-    public RelativeLayout j;
-    public ThreadData k;
-    public View l;
-    public View m;
+    public ThreadSkinView i;
+    public TextView j;
+    public TextView k;
+    public RelativeLayout l;
+    public LinearLayout m;
     public View n;
-    public TextView o;
-    public TextView p;
-    public TextView q;
-    public RelativeLayout r;
-    public final View.OnClickListener s;
+    public ForbidParentSwipeBackRelativeLayout o;
+    public ParentDisallowInterceptHListView p;
+    public sb6 q;
+    public boolean r;
+    public eqa s;
+    public String t;
+    public AdapterView.d u;
 
-    @Override // com.baidu.tieba.vl6
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.yk6
+    @Override // com.baidu.tieba.zk6
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0360 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d035c : invokeV.intValue;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.vl6
+    @Override // com.baidu.tieba.wl6
     public void q(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
         }
     }
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public class a implements SwipeBackLayout.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ cc6 a;
@@ -89,12 +90,63 @@ public class cc6 extends yk6<ThreadData> implements vl6 {
             this.a = cc6Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.adp.widget.SwipeBackLayout.b
+        public void C0() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.k != null && this.a.f() != null) {
-                this.a.f().a(view2, this.a.k);
-                TiebaStatic.log(new StatisticItem("c11844").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.a.k.getFid()));
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.s != null && !ListUtils.isEmpty(this.a.s.a) && this.a.s.a.size() > 1) {
+                if (this.a.b.getOrignalPage() instanceof BaseActivity) {
+                    ((BaseActivity) this.a.b.getOrignalPage()).setSwipeBackEnabled(false);
+                } else if (this.a.b.getOrignalPage() instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) this.a.b.getOrignalPage()).setSwipeBackEnabled(false);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.widget.SwipeBackLayout.b
+        public void U() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (this.a.b.getOrignalPage() instanceof BaseActivity) {
+                    ((BaseActivity) this.a.b.getOrignalPage()).setSwipeBackEnabled(this.a.r);
+                } else if (this.a.b.getOrignalPage() instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) this.a.b.getOrignalPage()).setSwipeBackEnabled(this.a.r);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements AdapterView.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cc6 a;
+
+        public b(cc6 cc6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cc6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cc6Var;
+        }
+
+        @Override // com.baidu.tieba.horizonalList.widget.AdapterView.d
+        public void a(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                ThreadData item = this.a.q.getItem(i);
+                this.a.y(item);
+                cc6 cc6Var = this.a;
+                cc6Var.A(cc6Var.b, item);
             }
         }
     }
@@ -117,73 +169,137 @@ public class cc6 extends yk6<ThreadData> implements vl6 {
                 return;
             }
         }
-        this.s = new a(this);
-        this.i = tbPageContext;
-        View i3 = i();
-        this.l = i3.findViewById(R.id.obfuscated_res_0x7f090925);
-        this.m = i3.findViewById(R.id.obfuscated_res_0x7f091ef0);
-        this.n = i3.findViewById(R.id.obfuscated_res_0x7f091ef3);
-        this.j = (RelativeLayout) i3.findViewById(R.id.obfuscated_res_0x7f090210);
-        this.o = (TextView) i3.findViewById(R.id.obfuscated_res_0x7f090224);
-        this.p = (TextView) i3.findViewById(R.id.obfuscated_res_0x7f09233d);
-        this.r = (RelativeLayout) i3.findViewById(R.id.obfuscated_res_0x7f0901ec);
-        this.q = (TextView) i3.findViewById(R.id.obfuscated_res_0x7f090251);
+        this.r = true;
+        this.u = new b(this);
+        this.o = (ForbidParentSwipeBackRelativeLayout) i().findViewById(R.id.layout_root);
+        this.i = (ThreadSkinView) i().findViewById(R.id.frs_thread_skin);
+        this.j = (TextView) i().findViewById(R.id.obfuscated_res_0x7f090d24);
+        this.k = (TextView) i().findViewById(R.id.obfuscated_res_0x7f090d26);
+        this.l = (RelativeLayout) i().findViewById(R.id.obfuscated_res_0x7f090d27);
+        this.p = (ParentDisallowInterceptHListView) i().findViewById(R.id.obfuscated_res_0x7f090d25);
+        this.m = (LinearLayout) i().findViewById(R.id.obfuscated_res_0x7f090cbd);
+        this.n = i().findViewById(R.id.obfuscated_res_0x7f090939);
+        this.p.setDividerWidth(this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070363));
+        this.p.setBackgroundResource(R.drawable.transparent_bg);
+        this.p.setOnItemClickListener(this.u);
+        this.p.setSelector(tbPageContext.getPageActivity().getResources().getDrawable(R.drawable.transparent_bg));
+        sb6 sb6Var = new sb6(tbPageContext);
+        this.q = sb6Var;
+        this.p.setAdapter((ListAdapter) sb6Var);
+        this.k.setOnClickListener(this);
+        if (this.b.getOrignalPage() instanceof BaseActivity) {
+            this.r = ((BaseActivity) this.b.getOrignalPage()).isSwipeBackEnabled();
+        } else if (this.b.getOrignalPage() instanceof BaseFragmentActivity) {
+            this.r = ((BaseFragmentActivity) this.b.getOrignalPage()).isSwipeBackEnabled();
+        }
+        this.o.setSwipeControlInterface(new a(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yk6
-    /* renamed from: r */
-    public void k(ThreadData threadData) {
+    @Override // com.baidu.tieba.zk6
+    /* renamed from: B */
+    public void k(eqa eqaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, threadData) == null) {
-            this.k = threadData;
-            x();
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eqaVar) != null) || eqaVar == null) {
+            return;
+        }
+        this.s = eqaVar;
+        z();
+        this.q.b(eqaVar.a);
+        l(h(), TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public final AlaLiveInfoCoreData C(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData)) == null) {
+            AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+            alaLiveInfoCoreData.fillWithInfoData(threadData.getThreadAlaInfo());
+            alaLiveInfoCoreData.userName = threadData.getAuthor().getUserName();
+            return alaLiveInfoCoreData;
+        }
+        return (AlaLiveInfoCoreData) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.wl6
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.t = str;
         }
     }
 
-    public void y(BdUniqueId bdUniqueId) {
+    public final void y(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-            this.p.setOnClickListener(this.s);
+        if ((interceptable != null && interceptable.invokeL(1048585, this, threadData) != null) || threadData == null) {
+            return;
+        }
+        CustomMessage customMessage = new CustomMessage(2921018);
+        customMessage.setData(threadData);
+        MessageManager.getInstance().sendMessage(customMessage);
+        TiebaStatic.log(new StatisticItem("c12638"));
+    }
+
+    public void A(TbPageContext<?> tbPageContext, ThreadData threadData) {
+        String str;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, tbPageContext, threadData) == null) && tbPageContext != null && threadData != null && threadData.getAuthor() != null && threadData.getThreadAlaInfo() != null) {
+            if (TbadkCoreApplication.getCurrentAccount() != null) {
+                String userId = threadData.getAuthor().getUserId();
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                z = TextUtils.equals(userId, currentAccount);
+                str = currentAccount;
+            } else {
+                str = "";
+                z = false;
+            }
+            AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+            alaLiveInfoCoreData.fillWithInfoData(threadData.getThreadAlaInfo());
+            if (threadData.getThreadAlaInfo() != null && threadData.getThreadAlaInfo().user_info != null) {
+                alaLiveInfoCoreData.userName = threadData.getThreadAlaInfo().user_info.user_name;
+            }
+            AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
+            alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
+            eqa eqaVar = this.s;
+            if (eqaVar != null && !ListUtils.isEmpty(eqaVar.a)) {
+                for (ThreadData threadData2 : this.s.a) {
+                    alaLiveInfoListCoreData.mLiveInfoList.add(C(threadData2));
+                }
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, alaLiveInfoListCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_FRS_INSERT_LIVE, str, z, null, null, this.t)));
         }
     }
 
-    @Override // com.baidu.tieba.yk6
+    @Override // com.baidu.tieba.zk6
     public void l(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) && this.a != i) {
-            SkinManager.setBackgroundResource(this.p, R.drawable.ala_live_card_start_live_selector);
-            SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0101);
-            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.m, R.color.CAM_X0204);
+        if ((interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) && this.a != i) {
+            SkinManager.setBackgroundResource(this.o, R.drawable.addresslist_item_bg);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0106);
+            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
             SkinManager.setBackgroundColor(this.n, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0108);
-            SkinManager.setBackgroundColor(this.r, R.color.CAM_X0201);
             this.a = i;
         }
     }
 
-    public final void x() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (!this.k.hasRecommend) {
-                this.q.setVisibility(8);
-                this.m.setVisibility(8);
-                this.n.setVisibility(8);
-                ViewGroup.LayoutParams layoutParams = this.r.getLayoutParams();
-                layoutParams.height = BdUtilHelper.getEquipmentHeight(this.i.getPageActivity()) / 4;
-                this.r.setLayoutParams(layoutParams);
-            } else {
-                this.q.setVisibility(0);
-                this.m.setVisibility(0);
-                this.n.setVisibility(0);
-                ViewGroup.LayoutParams layoutParams2 = this.r.getLayoutParams();
-                layoutParams2.height = this.i.getPageActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070201);
-                this.r.setLayoutParams(layoutParams2);
-            }
-            l(this.i, TbadkCoreApplication.getInst().getSkinType());
+        if ((interceptable == null || interceptable.invokeL(1048583, this, view2) == null) && view2 == this.k) {
+            TiebaStatic.log(new StatisticItem("c12637"));
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001627, 10001);
+            customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.b.getUniqueId()));
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+        }
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && !ListUtils.isEmpty(this.s.a)) {
+            CustomMessage customMessage = new CustomMessage(2921017);
+            customMessage.setData(this.s.a.get(0));
+            MessageManager.getInstance().sendMessage(customMessage);
         }
     }
 }

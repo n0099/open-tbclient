@@ -1,26 +1,27 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.Badges;
+import tbclient.FrsPage.AnchorPower;
 /* loaded from: classes6.dex */
-public class fuc extends poc {
+public class fuc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Badges badges) {
+    public static JSONObject b(@NonNull AnchorPower anchorPower) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, badges)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, anchorPower)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "badge_id", badges.badge_id);
-            poc.a(jSONObject, "badge_url", badges.badge_url);
-            poc.a(jSONObject, AlbumActivityConfig.FROM_WEB_VIEW, badges.webview);
+            qoc.a(jSONObject, "have_power", anchorPower.have_power);
+            qoc.a(jSONObject, "anchor_message", anchorPower.anchor_message);
+            qoc.a(jSONObject, "can_add_live_post", anchorPower.can_add_live_post);
+            qoc.a(jSONObject, "can_del_live_post", anchorPower.can_del_live_post);
+            qoc.a(jSONObject, "can_add_live_post_msg", anchorPower.can_add_live_post_msg);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

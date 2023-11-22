@@ -1,41 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.AudioMsg;
-import com.baidu.tieba.impersonal.data.VoiceMsgContent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class ga9 extends aa9<AudioMsg, VoiceMsgContent> {
+public final class ga9 extends ba9<TextMsg, g89> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947787338, "Lcom/baidu/tieba/ga9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947787338, "Lcom/baidu/tieba/ga9;");
-        }
-    }
-
-    @Override // com.baidu.tieba.aa9
+    @Override // com.baidu.tieba.ba9
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 3;
+            return 1;
         }
         return invokeV.intValue;
     }
@@ -44,61 +29,62 @@ public final class ga9 extends aa9<AudioMsg, VoiceMsgContent> {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.aa9
+    @Override // com.baidu.tieba.ba9
     /* renamed from: h */
-    public AudioMsg e(VoiceMsgContent voiceMsgContent) {
+    public TextMsg e(g89 g89Var) {
         InterceptResult invokeL;
-        int i;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, voiceMsgContent)) == null) {
-            String str2 = (voiceMsgContent == null || (str2 = voiceMsgContent.b()) == null) ? "" : "";
-            if (voiceMsgContent != null) {
-                i = voiceMsgContent.a();
-            } else {
-                i = 0;
-            }
-            AudioMsg audioMsg = new AudioMsg(str2, i, 2);
-            if (voiceMsgContent != null) {
-                str = voiceMsgContent.f();
-            } else {
-                str = null;
-            }
-            audioMsg.setRemoteUrl(str);
-            return audioMsg;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, g89Var)) == null) {
+            TextMsg textMsg = new TextMsg();
+            textMsg.setText((g89Var == null || (r5 = g89Var.c()) == null) ? "" : "");
+            return textMsg;
         }
-        return (AudioMsg) invokeL.objValue;
+        return (TextMsg) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.aa9
+    @Override // com.baidu.tieba.ba9
     /* renamed from: i */
-    public VoiceMsgContent g(AudioMsg sdkMsg) {
+    public g89 g(TextMsg sdkMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
             Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            VoiceMsgContent voiceMsgContent = new VoiceMsgContent();
-            String localUrl = sdkMsg.getLocalUrl();
-            Intrinsics.checkNotNullExpressionValue(localUrl, "sdkMsg.localUrl");
-            voiceMsgContent.i(localUrl);
-            String remoteUrl = sdkMsg.getRemoteUrl();
-            Intrinsics.checkNotNullExpressionValue(remoteUrl, "sdkMsg.remoteUrl");
-            voiceMsgContent.k(remoteUrl);
-            voiceMsgContent.h(sdkMsg.getDuration());
-            return voiceMsgContent;
+            g89 g89Var = new g89();
+            String msgContent = sdkMsg.getMsgContent();
+            if (msgContent == null) {
+                msgContent = "";
+            } else {
+                Intrinsics.checkNotNullExpressionValue(msgContent, "sdkMsg.msgContent ?: \"\"");
+            }
+            if (!qd.isEmpty(msgContent)) {
+                try {
+                    g89Var.e(new JSONObject(msgContent).optJSONArray("struct_data"));
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+            }
+            if (g89Var.b() == null) {
+                String text = sdkMsg.getText();
+                Intrinsics.checkNotNullExpressionValue(text, "sdkMsg.getText()");
+                g89Var.f(text);
+            }
+            String text2 = sdkMsg.getText();
+            Intrinsics.checkNotNullExpressionValue(text2, "sdkMsg.getText()");
+            g89Var.d(text2);
+            return g89Var;
         }
-        return (VoiceMsgContent) invokeL.objValue;
+        return (g89) invokeL.objValue;
     }
 }

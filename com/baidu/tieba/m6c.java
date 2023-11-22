@@ -1,49 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public final class m6c {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, a> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public i6c b;
+    public InputStream c;
+    public final Map<String, String> d;
+    public final List<d7c> e;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        String a(k6c k6cVar);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947926063, "Lcom/baidu/tieba/m6c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947926063, "Lcom/baidu/tieba/m6c;");
+    public m6c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new HashMap();
+        this.b = i6c.b;
+        this.d = new HashMap();
+        this.e = new ArrayList();
     }
 
-    public static Map<String, a> a() {
-        InterceptResult invokeV;
+    public l6c a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new t6c(context, this.a, this.b, this.c, this.d, this.e, null) : (l6c) invokeL.objValue;
     }
 
-    public static void b(String str, a aVar) {
+    public m6c b(InputStream inputStream) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, aVar) == null) {
-            a.put(str, aVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream)) == null) {
+            this.c = inputStream;
+            return this;
         }
+        return (m6c) invokeL.objValue;
     }
 }

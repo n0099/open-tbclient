@@ -6,9 +6,9 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tieba.bk;
-import com.baidu.tieba.nsa;
+import com.baidu.tieba.osa;
 import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
-import com.baidu.tieba.vba;
+import com.baidu.tieba.wba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,16 +23,16 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String REQUEST_BY_NATIVE;
-    public vba mProxy;
+    public wba mProxy;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SingleQuickWebViewBridge(Context context, vba vbaVar) {
+    public SingleQuickWebViewBridge(Context context, wba wbaVar) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, vbaVar};
+            Object[] objArr = {context, wbaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,10 +44,10 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
             }
         }
         this.REQUEST_BY_NATIVE = "requestByNative";
-        this.mProxy = vbaVar;
+        this.mProxy = wbaVar;
     }
 
-    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, com.baidu.tieba.jsa
+    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, com.baidu.tieba.ksa
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -71,11 +71,11 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
         return invokeLLLL.booleanValue;
     }
 
-    public nsa requestByNative(String str, String str2, String str3, JSONObject jSONObject) {
+    public osa requestByNative(String str, String str2, String str3, JSONObject jSONObject) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, jSONObject)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             QuickWebViewBridgeData quickWebViewBridgeData = new QuickWebViewBridgeData();
             quickWebViewBridgeData.url = str;
             quickWebViewBridgeData.type = str2;
@@ -90,28 +90,28 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
                 quickWebViewBridgeData.data = hashMap;
             }
             quickWebViewBridgeData.begin = System.currentTimeMillis();
-            vba vbaVar = this.mProxy;
-            if (vbaVar != null) {
-                vbaVar.k(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
+            wba wbaVar = this.mProxy;
+            if (wbaVar != null) {
+                wbaVar.k(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
             }
-            nsaVar.x(str);
-            return nsaVar;
+            osaVar.x(str);
+            return osaVar;
         }
-        return (nsa) invokeLLLL.objValue;
+        return (osa) invokeLLLL.objValue;
     }
 
-    public nsa requestByNativeToH5(HashMap<String, String> hashMap) {
+    public osa requestByNativeToH5(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             if (hashMap != null && hashMap.get("result") != null) {
-                nsaVar.o(hashMap.get("result"));
-                nsaVar.x(hashMap.get("NotificationKey"));
+                osaVar.o(hashMap.get("result"));
+                osaVar.x(hashMap.get("NotificationKey"));
             }
-            nsaVar.A(true);
-            return nsaVar;
+            osaVar.A(true);
+            return osaVar;
         }
-        return (nsa) invokeL.objValue;
+        return (osa) invokeL.objValue;
     }
 }

@@ -7,11 +7,11 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.cra;
+import com.baidu.tieba.dra;
 import com.baidu.tieba.ox4;
 import com.baidu.tieba.px4;
-import com.baidu.tieba.s68;
-import com.baidu.tieba.w68;
+import com.baidu.tieba.t68;
+import com.baidu.tieba.x68;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,9 +22,9 @@ import java.util.ArrayList;
 public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<s68> a;
+    public ArrayList<t68> a;
     public ArrayList<ox4> b;
-    public ArrayList<w68> c;
+    public ArrayList<x68> c;
     public String d;
     public int e;
     public b f;
@@ -32,7 +32,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, int i2, String str2, int i3, px4 px4Var, ArrayList<s68> arrayList, ArrayList<ox4> arrayList2, ArrayList<w68> arrayList3);
+        void a(int i, String str, int i2, String str2, int i3, px4 px4Var, ArrayList<t68> arrayList, ArrayList<ox4> arrayList2, ArrayList<x68> arrayList3);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -186,8 +186,8 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            cra.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
-            cra.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
+            dra.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
+            dra.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

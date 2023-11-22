@@ -8,16 +8,16 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.dbb;
-import com.baidu.tieba.dj6;
-import com.baidu.tieba.gbb;
-import com.baidu.tieba.mbb;
-import com.baidu.tieba.mq6;
-import com.baidu.tieba.sbb;
-import com.baidu.tieba.w8b;
+import com.baidu.tieba.ebb;
+import com.baidu.tieba.ej6;
+import com.baidu.tieba.hbb;
+import com.baidu.tieba.nbb;
+import com.baidu.tieba.nq6;
+import com.baidu.tieba.tbb;
 import com.baidu.tieba.write.webwrite.data.BizBase$makeWrapListener$1;
-import com.baidu.tieba.xd5;
-import com.baidu.tieba.ybb;
+import com.baidu.tieba.x8b;
+import com.baidu.tieba.yd5;
+import com.baidu.tieba.zbb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,18 +32,18 @@ import kotlin.text.StringsKt__StringsKt;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000x\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\b&\u0018\u00002\u00020\u0001B)\u0012\n\u0010\u0002\u001a\u0006\u0012\u0002\b\u00030\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\u0006\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\u0006\u0010\"\u001a\u00020#JF\u0010$\u001a\u00020%2\u0006\u0010&\u001a\u00020'26\u0010(\u001a2\u0012\u0013\u0012\u00110'¢\u0006\f\b\u000e\u0012\b\b\u000f\u0012\u0004\b\b()\u0012\u0013\u0012\u00110*¢\u0006\f\b\u000e\u0012\b\b\u000f\u0012\u0004\b\b(+\u0012\u0004\u0012\u00020\u00130\fJ$\u0010,\u001a\u00020-2\u0006\u0010&\u001a\u00020'2\u0014\u0010.\u001a\u0010\u0012\u0006\u0012\u0004\u0018\u00010/\u0012\u0004\u0012\u00020\u00130\u0017J*\u0010,\u001a\u00020-2\u0006\u0010&\u001a\u00020'2\u001a\u0010.\u001a\u0016\u0012\u0004\u0012\u00020'\u0012\u0006\u0012\u0004\u0018\u00010/\u0012\u0004\u0012\u00020\u00130\fJ\u0006\u00100\u001a\u00020\u0013J\u000e\u00101\u001a\u00020\u00132\u0006\u00102\u001a\u00020\rRA\u0010\u000b\u001a2\u0012\u0013\u0012\u00110\r¢\u0006\f\b\u000e\u0012\b\b\u000f\u0012\u0004\b\b(\u0010\u0012\u0013\u0012\u00110\u0011¢\u0006\f\b\u000e\u0012\b\b\u000f\u0012\u0004\b\b(\u0012\u0012\u0004\u0012\u00020\u00130\f¢\u0006\b\n\u0000\u001a\u0004\b\u0014\u0010\u0015R/\u0010\u0016\u001a \u0012\u0004\u0012\u00020\r\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\r\u0012\u0004\u0012\u00020\u00130\u0017\u0012\u0004\u0012\u00020\u00180\f¢\u0006\b\n\u0000\u001a\u0004\b\u0019\u0010\u0015R\u0015\u0010\u0002\u001a\u0006\u0012\u0002\b\u00030\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u001a\u0010\u001bR\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u001c\u0010\u001dR\u0011\u0010\u0006\u001a\u00020\u0007¢\u0006\b\n\u0000\u001a\u0004\b\u001e\u0010\u001fR\u0011\u0010\b\u001a\u00020\t¢\u0006\b\n\u0000\u001a\u0004\b \u0010!¨\u00063"}, d2 = {"Lcom/baidu/tieba/write/webwrite/data/BizBase;", "Lcom/baidu/tieba/write/webwrite/data/Biz;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "writeData", "Lcom/baidu/tbadk/coreExtra/data/WriteData;", "writePageState", "Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/browser/TbWebView;Lcom/baidu/tbadk/coreExtra/data/WriteData;Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;)V", "dispatchToH5", "Lkotlin/Function2;", "", "Lkotlin/ParameterName;", "name", "eventName", "Lorg/json/JSONObject;", "r", "", "getDispatchToH5", "()Lkotlin/jvm/functions/Function2;", "makeWrapListener", "Lkotlin/Function1;", "Lcom/baidu/tieba/write/webwrite/data/WrapListener;", "getMakeWrapListener", "getPageContext", "()Lcom/baidu/tbadk/TbPageContext;", "getWebView", "()Lcom/baidu/tieba/browser/TbWebView;", "getWriteData", "()Lcom/baidu/tbadk/coreExtra/data/WriteData;", "getWritePageState", "()Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;", "isTextFull", "", "makeActionHandler", "Lcom/baidu/tieba/write/webwrite/data/ActionHandler;", "code", "", "onAction", "id", "", "obj", "makeCodeHandler", "Lcom/baidu/tieba/write/webwrite/data/SimpleRequestCodeHandler;", "onResult", "Landroid/content/Intent;", "refreshPostStatus", PopItemMethodConstant.showToast, "toast", "write_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public abstract class BizBase implements gbb {
+public abstract class BizBase implements hbb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<?> a;
     public final TbWebView b;
     public final WriteData c;
-    public final ybb d;
+    public final zbb d;
     public final Function2<String, Function1<? super String, Unit>, WrapListener> e;
     public final Function2<String, JSONObject, Unit> f;
 
     /* loaded from: classes8.dex */
-    public static final class a implements dbb {
+    public static final class a implements ebb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Function2<Integer, Object, Unit> a;
@@ -68,15 +68,15 @@ public abstract class BizBase implements gbb {
             this.b = i;
         }
 
-        @Override // com.baidu.tieba.dbb
+        @Override // com.baidu.tieba.ebb
         public Integer[] a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new Integer[]{Integer.valueOf(this.b)} : (Integer[]) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.dbb
-        public void b(xd5 action) {
+        @Override // com.baidu.tieba.ebb
+        public void b(yd5 action) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, action) == null) {
                 Intrinsics.checkNotNullParameter(action, "action");
@@ -92,7 +92,7 @@ public abstract class BizBase implements gbb {
     }
 
     /* JADX DEBUG: Type inference failed for r6v1. Raw type applied. Possible types: kotlin.jvm.functions.Function2<java.lang.String, kotlin.jvm.functions.Function1<? super java.lang.String, ? extends kotlin.Unit>, com.baidu.tieba.write.webwrite.data.BizBase$makeWrapListener$1$a>, kotlin.jvm.functions.Function2<java.lang.String, kotlin.jvm.functions.Function1<? super java.lang.String, kotlin.Unit>, com.baidu.tieba.write.webwrite.data.WrapListener> */
-    public BizBase(TbPageContext<?> pageContext, TbWebView webView, WriteData writeData, ybb writePageState) {
+    public BizBase(TbPageContext<?> pageContext, TbWebView webView, WriteData writeData, zbb writePageState) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -238,18 +238,18 @@ public abstract class BizBase implements gbb {
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e, r) == null) {
                     Intrinsics.checkNotNullParameter(e, "e");
                     Intrinsics.checkNotNullParameter(r, "r");
-                    dj6.a().i(this.this$0.j(), e, r);
+                    ej6.a().i(this.this$0.j(), e, r);
                 }
             }
         };
     }
 
-    @Override // com.baidu.tieba.gbb
+    @Override // com.baidu.tieba.hbb
     public Function1<JSONObject, Unit> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return gbb.a.a(this);
+            return hbb.a.a(this);
         }
         return (Function1) invokeV.objValue;
     }
@@ -299,13 +299,13 @@ public abstract class BizBase implements gbb {
         return (WriteData) invokeV.objValue;
     }
 
-    public final ybb l() {
+    public final zbb l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.d;
         }
-        return (ybb) invokeV.objValue;
+        return (zbb) invokeV.objValue;
     }
 
     public final boolean m() {
@@ -317,7 +317,7 @@ public abstract class BizBase implements gbb {
             }
             String content = this.c.getContent();
             Intrinsics.checkNotNullExpressionValue(content, "writeData.content");
-            if (StringsKt__StringsKt.contains$default((CharSequence) content, (CharSequence) w8b.c, false, 2, (Object) null) || this.c.getContent().length() < 5000) {
+            if (StringsKt__StringsKt.contains$default((CharSequence) content, (CharSequence) x8b.c, false, 2, (Object) null) || this.c.getContent().length() < 5000) {
                 return false;
             }
             return true;
@@ -325,22 +325,22 @@ public abstract class BizBase implements gbb {
         return invokeV.booleanValue;
     }
 
-    public final dbb n(int i, Function2<? super Integer, Object, Unit> onAction) {
+    public final ebb n(int i, Function2<? super Integer, Object, Unit> onAction) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, onAction)) == null) {
             Intrinsics.checkNotNullParameter(onAction, "onAction");
             return new a(onAction, i);
         }
-        return (dbb) invokeIL.objValue;
+        return (ebb) invokeIL.objValue;
     }
 
-    public final mbb o(int i, final Function1<? super Intent, Unit> onResult) {
+    public final nbb o(int i, final Function1<? super Intent, Unit> onResult) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i, onResult)) == null) {
             Intrinsics.checkNotNullParameter(onResult, "onResult");
-            return new mbb(new Integer[]{Integer.valueOf(i)}, new Function2<Integer, Intent, Unit>(onResult) { // from class: com.baidu.tieba.write.webwrite.data.BizBase$makeCodeHandler$1
+            return new nbb(new Integer[]{Integer.valueOf(i)}, new Function2<Integer, Intent, Unit>(onResult) { // from class: com.baidu.tieba.write.webwrite.data.BizBase$makeCodeHandler$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Function1<Intent, Unit> $onResult;
@@ -382,17 +382,17 @@ public abstract class BizBase implements gbb {
                 }
             });
         }
-        return (mbb) invokeIL.objValue;
+        return (nbb) invokeIL.objValue;
     }
 
-    public final mbb p(int i, Function2<? super Integer, ? super Intent, Unit> onResult) {
+    public final nbb p(int i, Function2<? super Integer, ? super Intent, Unit> onResult) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, onResult)) == null) {
             Intrinsics.checkNotNullParameter(onResult, "onResult");
-            return new mbb(new Integer[]{Integer.valueOf(i)}, onResult);
+            return new nbb(new Integer[]{Integer.valueOf(i)}, onResult);
         }
-        return (mbb) invokeIL.objValue;
+        return (nbb) invokeIL.objValue;
     }
 
     public final void q() {
@@ -401,13 +401,13 @@ public abstract class BizBase implements gbb {
         if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || !this.d.q()) {
             return;
         }
-        ybb ybbVar = this.d;
-        if (!ybbVar.f() && ((this.c.getWriteImagesInfo() == null || this.c.getWriteImagesInfo().getChosedFiles() == null || this.c.getWriteImagesInfo().size() <= 0) && this.c.getVoiceModel() == null && this.c.getWriteVoteData() == null)) {
+        zbb zbbVar = this.d;
+        if (!zbbVar.f() && ((this.c.getWriteImagesInfo() == null || this.c.getWriteImagesInfo().getChosedFiles() == null || this.c.getWriteImagesInfo().size() <= 0) && this.c.getVoiceModel() == null && this.c.getWriteVoteData() == null)) {
             z = false;
         } else {
             z = true;
         }
-        ybbVar.s(z);
-        mq6.b().c(new sbb(this.d.e()));
+        zbbVar.s(z);
+        nq6.b().c(new tbb(this.d.e()));
     }
 }

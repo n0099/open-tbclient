@@ -5,20 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.ItemDetail;
+import tbclient.IconUrlInfo;
 /* loaded from: classes9.dex */
-public class xyc extends poc {
+public class xyc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ItemDetail itemDetail) {
+    public static JSONObject b(@NonNull IconUrlInfo iconUrlInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, itemDetail)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, iconUrlInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "name", itemDetail.name);
-            poc.a(jSONObject, "value", itemDetail.value);
+            qoc.a(jSONObject, "day", iconUrlInfo.day);
+            qoc.a(jSONObject, "night", iconUrlInfo.night);
+            qoc.a(jSONObject, "dark", iconUrlInfo.dark);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

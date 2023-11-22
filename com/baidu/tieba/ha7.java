@@ -1,13 +1,11 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tieba.feed.widget.AutoDegradeTagView;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,11 +13,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.net.URLEncoder;
+import java.util.Map;
+@Autowired
 /* loaded from: classes6.dex */
-public final class ha7 {
+public class ha7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ha7 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +34,7 @@ public final class ha7 {
                 return;
             }
         }
-        a = new ha7();
+        GlobalBuildConfig.isDebug();
     }
 
     public ha7() {
@@ -52,74 +51,66 @@ public final class ha7 {
         }
     }
 
-    public static final void b(AutoDegradeTagView.a aVar, u57 data, FrameLayout frame, View view2) {
+    @Inject
+    public static ca7 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, null, aVar, data, frame, view2) == null) {
-            Intrinsics.checkNotNullParameter(data, "$data");
-            Intrinsics.checkNotNullParameter(frame, "$frame");
-            if (aVar != null) {
-                aVar.a(data, frame);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return qo6.a();
         }
+        return (ca7) invokeV.objValue;
     }
 
-    public final void a(Context context, LinearLayout container, final u57 data, final AutoDegradeTagView.a aVar) {
-        boolean z;
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, context, container, data, aVar) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(container, "container");
-            Intrinsics.checkNotNullParameter(data, "data");
-            if (!data.g()) {
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(str.trim());
+                try {
+                    sb.append("&");
+                    sb.append(URLEncoder.encode(str2, "UTF-8"));
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(str3, "UTF-8"));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return sb.toString();
             }
-            final FrameLayout frameLayout = new FrameLayout(context);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.rightMargin = u57.m.a();
-            layoutParams.gravity = 16;
-            container.addView(frameLayout, layoutParams);
-            String G = data.G();
-            if (G != null && G.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                frameLayout.setClickable(false);
-                frameLayout.setOnClickListener(null);
-            } else {
-                frameLayout.setClickable(true);
-                frameLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.y97
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
+            return str;
+        }
+        return (String) invokeLLL.objValue;
+    }
 
-                    @Override // android.view.View.OnClickListener
-                    public final void onClick(View view2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            ha7.b(AutoDegradeTagView.a.this, data, frameLayout, view2);
-                        }
+    public static String b(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
+            if (!TextUtils.isEmpty(str) && map != null && !map.isEmpty()) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(str.trim());
+                try {
+                    for (String str2 : map.keySet()) {
+                        sb.append("&");
+                        sb.append(URLEncoder.encode(str2, "UTF-8"));
+                        sb.append("=");
+                        sb.append(URLEncoder.encode(map.get(str2), "UTF-8"));
                     }
-                });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return sb.toString();
             }
-            if (data.j()) {
-                ImageView imageView = new ImageView(context);
-                FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(data.l(u57.m.b(), u57.m.e()), u57.m.e());
-                layoutParams2.gravity = 16;
-                imageView.setBackgroundResource(dx5.a.b(data.h(), Boolean.FALSE));
-                frameLayout.addView(imageView, layoutParams2);
-                return;
-            }
-            TextView textView = new TextView(context);
-            EMManager.from(textView).setTextSize(R.dimen.T_X10).setTextStyle(R.string.F_X02).setTextColor(dx5.a.c(data.h()));
-            textView.setBackgroundResource(dx5.a.b(data.h(), Boolean.TRUE));
-            textView.setText(data.i());
-            textView.setGravity(16);
-            textView.setPadding(u57.m.c(), 0, u57.m.d(), 0);
-            FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, u57.m.e());
-            layoutParams3.gravity = 16;
-            layoutParams3.rightMargin = u57.m.a();
-            frameLayout.addView(textView);
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void c(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
+            d().a(context, str);
         }
     }
 }

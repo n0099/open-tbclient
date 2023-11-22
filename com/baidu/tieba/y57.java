@@ -1,26 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class y57 implements w97 {
+public final class y57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<za7<?>> a;
-    public int b;
-    public boolean c;
-    public int d;
-    public String e;
+    public final long a;
+    public final boolean b;
+    public final e57 c;
 
-    public y57() {
+    public y57(long j, boolean z, e57 businessInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Boolean.valueOf(z), businessInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,19 +30,36 @@ public class y57 implements w97 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.c = true;
+        Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+        this.a = j;
+        this.b = z;
+        this.c = businessInfo;
     }
 
-    @Override // com.baidu.tieba.w97
-    public void d(@NonNull Object obj) {
+    public final long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            for (za7<?> za7Var : this.a) {
-                if (za7Var instanceof w97) {
-                    ((w97) za7Var).d(obj);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return invokeV.longValue;
+    }
+
+    public final e57 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (e57) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bw4;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.js5;
+import com.baidu.tieba.ks5;
 import com.baidu.tieba.oi;
 import com.baidu.tieba.ui;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -175,7 +175,7 @@ public final class CardLinkageManager {
         BaseCardInfo baseCardInfo = (BaseCardInfo) item;
         for (int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition(); firstVisiblePosition <= lastVisiblePosition; firstVisiblePosition++) {
             Object item2 = ListUtils.getItem(data, firstVisiblePosition - headerViewsCount);
-            if (!js5.o(item2)) {
+            if (!ks5.o(item2)) {
                 if (!(item2 instanceof BaseCardInfo)) {
                     if ((item2 instanceof oi) && (findViewByPosition2 = layoutManager.findViewByPosition(firstVisiblePosition)) != null) {
                         findViewByPosition2.setTranslationY(f);

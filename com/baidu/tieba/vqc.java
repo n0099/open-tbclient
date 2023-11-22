@@ -1,25 +1,25 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.MangaCategoryActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.ChatContent;
+import tbclient.CategoryInfo;
 /* loaded from: classes8.dex */
-public class vqc extends poc {
+public class vqc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ChatContent chatContent) {
+    public static JSONObject b(@NonNull CategoryInfo categoryInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatContent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, categoryInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "scheme", chatContent.scheme);
-            poc.a(jSONObject, "btn_text", chatContent.btn_text);
-            poc.a(jSONObject, "bot_uk", chatContent.bot_uk);
+            qoc.a(jSONObject, MangaCategoryActivityConfig.CATEGORY_ID, categoryInfo.category_id);
+            qoc.a(jSONObject, MangaCategoryActivityConfig.CATEGORY_NAME, categoryInfo.category_name);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

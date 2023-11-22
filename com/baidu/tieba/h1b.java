@@ -1,20 +1,38 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class h1b<T> extends g1b<T> {
+public abstract class h1b<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public T b;
+    public T c;
+    public a d;
+    public String e;
+    public Long f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* loaded from: classes6.dex */
+    public interface a<T> {
+        void a(h1b<T> h1bVar, T t, T t2);
+    }
+
+    public abstract long e(String str, long j);
+
+    public abstract T f();
+
+    public abstract void g(String str, long j);
+
+    public abstract void h();
+
     public h1b(String str, T t, String str2) {
-        super(str, t, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -24,46 +42,97 @@ public abstract class h1b<T> extends g1b<T> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = str2;
+        i(t);
+        j(str);
     }
 
-    @Override // com.baidu.tieba.g1b
-    public long e(String str, long j) {
-        InterceptResult invokeLJ;
+    public T a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
-            return SharedPrefHelper.getInstance().getLong(str, j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return invokeLJ.longValue;
+        return (T) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.g1b
-    public void g(String str, long j) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-            SharedPrefHelper.getInstance().putLong(str, j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.f == null && !TextUtils.isEmpty(this.e)) {
+                d();
+            }
+            Long l = this.f;
+            if (l == null) {
+                return 0L;
+            }
+            return l.longValue();
+        }
+        return invokeV.longValue;
+    }
+
+    public T d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.b == null && !TextUtils.isEmpty(this.a)) {
+                this.b = f();
+                if (!TextUtils.isEmpty(this.e)) {
+                    this.f = Long.valueOf(e(this.e, 0L));
+                }
+            }
+            return this.b;
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public void i(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
+            this.c = t;
         }
     }
 
-    public int l(String str, int i) {
-        InterceptResult invokeLI;
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            return SharedPrefHelper.getInstance().getInt(str, i);
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.a = str;
         }
-        return invokeLI.intValue;
     }
 
-    public void m(String str, int i) {
+    public void k(T t) {
+        T t2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
-            SharedPrefHelper.getInstance().putInt(str, i);
+        if ((interceptable == null || interceptable.invokeL(1048586, this, t) == null) && !TextUtils.isEmpty(this.a) && t != (t2 = this.b)) {
+            if (t == null || !t.equals(t2)) {
+                T t3 = this.b;
+                this.b = t;
+                h();
+                if (!TextUtils.isEmpty(this.e)) {
+                    Long valueOf = Long.valueOf(System.currentTimeMillis());
+                    this.f = valueOf;
+                    g(this.e, valueOf.longValue());
+                }
+                a aVar = this.d;
+                if (aVar != null) {
+                    aVar.a(this, t3, t);
+                }
+            }
         }
     }
 }

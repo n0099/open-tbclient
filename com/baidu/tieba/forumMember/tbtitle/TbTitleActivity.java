@@ -17,10 +17,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bo7;
-import com.baidu.tieba.bqa;
+import com.baidu.tieba.ao7;
 import com.baidu.tieba.co7;
-import com.baidu.tieba.cra;
+import com.baidu.tieba.cqa;
+import com.baidu.tieba.do7;
+import com.baidu.tieba.dra;
 import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoHttpResponsedMessage;
 import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoSocketResponsedMessage;
 import com.baidu.tieba.im.message.SettingChangeMessage;
@@ -29,7 +30,6 @@ import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.w4;
-import com.baidu.tieba.zn7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,16 +42,16 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public co7 c;
-    public zn7<TbTitleActivity> d;
+    public do7 c;
+    public ao7<TbTitleActivity> d;
     public LikeModel e;
-    public zn7.c f;
+    public ao7.c f;
     public View.OnClickListener g;
     public NoNetworkView.b h;
     public w4 i;
 
     /* loaded from: classes6.dex */
-    public class a implements zn7.c {
+    public class a implements ao7.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbTitleActivity a;
@@ -74,7 +74,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             this.a = tbTitleActivity;
         }
 
-        @Override // com.baidu.tieba.zn7.c
+        @Override // com.baidu.tieba.ao7.c
         public void a(DataRes dataRes, boolean z, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dataRes, Boolean.valueOf(z), Integer.valueOf(i), str}) == null) {
@@ -249,7 +249,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 boolean z = false;
                 if (obj != null && (obj instanceof LikeReturnData)) {
-                    bqa.i().n(this.a.b, false);
+                    cqa.i().n(this.a.b, false);
                     z = true;
                 }
                 if (z) {
@@ -316,9 +316,9 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     public final void T0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            cra.c(301005, CmdConfigHttp.CMD_GET_LEVLE_INFO, TbConfig.GET_LEVEL_INFO_URL, GetLevelInfoHttpResponsedMessage.class, false, false, true, false);
-            cra.f(301005, GetLevelInfoSocketResponsedMessage.class, false);
-            cra.b(2003007, bo7.class);
+            dra.c(301005, CmdConfigHttp.CMD_GET_LEVLE_INFO, TbConfig.GET_LEVEL_INFO_URL, GetLevelInfoHttpResponsedMessage.class, false, false, true, false);
+            dra.f(301005, GetLevelInfoSocketResponsedMessage.class, false);
+            dra.b(2003007, co7.class);
         }
     }
 
@@ -368,11 +368,11 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            co7 co7Var = new co7(this, this.g);
-            this.c = co7Var;
-            co7Var.H(this.h);
+            do7 do7Var = new do7(this, this.g);
+            this.c = do7Var;
+            do7Var.H(this.h);
             S0();
-            this.d = new zn7<>(this.f, this);
+            this.d = new ao7<>(this.f, this);
             Intent intent = getIntent();
             if (intent != null) {
                 this.a = intent.getStringExtra("forum_id");

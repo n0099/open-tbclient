@@ -22,9 +22,9 @@ import com.baidu.tbadk.mainTab.FragmentTabStructure;
 import com.baidu.tieba.R;
 import com.baidu.tieba.av4;
 import com.baidu.tieba.bp4;
-import com.baidu.tieba.wl9;
 import com.baidu.tieba.xl9;
 import com.baidu.tieba.yl9;
+import com.baidu.tieba.zl9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ import org.apache.commons.codec.language.bm.ResourceConstants;
 public class CollectTabActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wl9 a;
+    public xl9 a;
     public CustomMessageListener b;
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.pageStayDuration.IPageStayDuration
@@ -126,7 +126,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onPause();
-            xl9.b().f(false);
+            yl9.b().f(false);
         }
     }
 
@@ -154,9 +154,9 @@ public class CollectTabActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0217);
-            wl9 wl9Var = new wl9(this);
-            this.a = wl9Var;
-            wl9Var.l();
+            xl9 xl9Var = new xl9(this);
+            this.a = xl9Var;
+            xl9Var.l();
             registerListener(this.b);
             o1();
             n1(getIntent());
@@ -229,9 +229,9 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onResume();
-            yl9.a("c14061");
-            xl9.b().f(true);
-            xl9.b().e(false);
+            zl9.a("c14061");
+            yl9.b().f(true);
+            yl9.b().e(false);
             NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
         }
     }

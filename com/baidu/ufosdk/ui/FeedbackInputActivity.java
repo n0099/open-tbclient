@@ -529,8 +529,8 @@ public class FeedbackInputActivity extends Activity {
             return invokeI.longValue;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:321:0x19e2  */
-        /* JADX WARN: Removed duplicated region for block: B:322:0x19e8  */
+        /* JADX WARN: Removed duplicated region for block: B:321:0x19e6  */
+        /* JADX WARN: Removed duplicated region for block: B:322:0x19ec  */
         @Override // android.widget.Adapter
         /*
             Code decompiled incorrectly, please refer to instructions dump.

@@ -17,11 +17,11 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ada;
 import com.baidu.tieba.az0;
 import com.baidu.tieba.dw4;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.NadCustomAppInfoView;
-import com.baidu.tieba.zca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -295,7 +295,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
                 return (TextView) invokeV.objValue;
             }
         });
-        this.g = new View.OnClickListener() { // from class: com.baidu.tieba.xea
+        this.g = new View.OnClickListener() { // from class: com.baidu.tieba.yea
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -378,7 +378,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
             } else if (id != R.id.ad_author_full_name) {
                 str = "";
                 str2 = str;
-                zca.a(context, str7, null, null, str);
+                ada.a(context, str7, null, null, str);
                 this$0.c(str2);
             } else {
                 dw4 dw4Var5 = this$0.f;
@@ -391,7 +391,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
             String str8 = str7;
             str7 = str3;
             str = str8;
-            zca.a(context, str7, null, null, str);
+            ada.a(context, str7, null, null, str);
             this$0.c(str2);
         }
     }

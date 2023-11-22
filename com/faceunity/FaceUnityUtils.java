@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.hh;
-import com.baidu.tieba.x2b;
+import com.baidu.tieba.y2b;
 import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -60,7 +60,7 @@ public class FaceUnityUtils {
             if (file.exists() && file.isFile()) {
                 FileInputStream fileInputStream = new FileInputStream(b);
                 fileInputStream.close();
-                faceunity.fuSetup(new byte[fileInputStream.available()], null, x2b.a());
+                faceunity.fuSetup(new byte[fileInputStream.available()], null, y2b.a());
             }
             String b2 = hh.b("face_beautification.mp3");
             File file2 = new File(b2);

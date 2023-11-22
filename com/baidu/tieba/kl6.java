@@ -1,61 +1,64 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.util.TopicListUtil;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import com.baidu.tieba.view.TbImageSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class kl6 extends yk6<rm6> {
+public class kl6 implements ht<qm6>, it {
     public static /* synthetic */ Interceptable $ic;
+    public static final int n;
+    public static final int o;
+    public static final int p;
+    public static final int[] q;
+    public static final int[] r;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
+    public TbPageContext<?> a;
+    public View b;
+    public View c;
+    public TBLottieAnimationView d;
+    public TextView e;
+    public TextView f;
+    public TbImageSwitch g;
+    public TextView h;
+    public TextView i;
     public TextView j;
-    public TextView k;
-    public LinearLayout l;
-    public LinearLayout m;
-    public LinearLayout n;
-    public LinearLayout o;
-    public TextView p;
-    public TextView q;
-    public TextView r;
-    public TextView s;
-    public View t;
-    public View u;
-    public View v;
-    public View w;
-    public View x;
-    public rm6 y;
-    public String z;
-
-    @Override // com.baidu.tieba.yk6
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.home_card_hot_topic_item : invokeV.intValue;
-    }
+    public int k;
+    public List<String> l;
+    public TbImageSwitch.b m;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public class a implements TbImageSwitch.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kl6 a;
+
+        @Override // com.baidu.tieba.view.TbImageSwitch.b
+        public void b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            }
+        }
 
         public a(kl6 kl6Var) {
             Interceptable interceptable = $ic;
@@ -69,205 +72,177 @@ public class kl6 extends yk6<rm6> {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = kl6Var;
+        }
+
+        @Override // com.baidu.tieba.view.TbImageSwitch.b
+        public void a(View view2, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
+                ((HeadImageView) view2).startLoad((String) this.a.l.get(i), 12, kl6.n, kl6.n, false);
             }
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.view.TbImageSwitch.b
+        public View c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                TopicListUtil.openWebTopicListPage();
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                HeadImageView headImageView = new HeadImageView(this.a.a.getPageActivity());
+                headImageView.setLayoutParams(new ViewGroup.LayoutParams(kl6.n, kl6.n));
+                headImageView.setBorderWidth(kl6.o);
+                headImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
+                headImageView.setIsRound(true);
+                headImageView.setDrawBorder(true);
+                headImageView.setPlaceHolder(1);
+                return headImageView;
             }
+            return (View) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.view.TbImageSwitch.b
+        public int getCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.a.l.size();
+            }
+            return invokeV.intValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kl6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947916980, "Lcom/baidu/tieba/kl6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947916980, "Lcom/baidu/tieba/kl6;");
+                return;
+            }
+        }
+        n = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds94);
+        o = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2);
+        p = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds30);
+        q = new int[]{-7433746, -10909978};
+        r = new int[]{2005832174, 2002355942};
+    }
+
+    public kl6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        p(i());
+        this.k = 3;
+        this.l = new ArrayList();
+        this.m = new a(this);
+        this.a = tbPageContext;
+        f(e());
     }
 
-    public final void A(TextView textView, int i) {
+    public View e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, textView, i) == null) {
-            qm6 qm6Var = this.y.d.get(i);
-            if (!StringUtils.isNull(qm6Var.b)) {
-                textView.setText(qm6Var.b.trim());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b == null) {
+                this.b = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.card_voice_room_layout, (ViewGroup) null, false);
             }
+            return this.b;
         }
+        return (View) invokeV.objValue;
     }
 
-    public void y(String str, String str2) {
+    public final void f(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
-            this.z = str2;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            this.c = view2.findViewById(R.id.voice_room_talking_layout);
+            this.d = (TBLottieAnimationView) view2.findViewById(R.id.voice_room_talking_lottie);
+            this.e = (TextView) view2.findViewById(R.id.voice_room_talking_text);
+            this.f = (TextView) view2.findViewById(R.id.card_voice_room_title);
+            TbImageSwitch tbImageSwitch = (TbImageSwitch) view2.findViewById(R.id.card_voice_room_talking_user_portrait);
+            this.g = tbImageSwitch;
+            int i = n;
+            tbImageSwitch.l(3, i, i, p);
+            this.g.setAnimationDuration(1);
+            this.g.setCarouselDelayPeriod(2);
+            this.g.setCarouselPeriod(2);
+            this.g.setAdapter(this.m);
+            this.h = (TextView) view2.findViewById(R.id.card_voice_room_talking_num);
+            this.i = (TextView) view2.findViewById(R.id.card_voice_room_online_num);
+            this.j = (TextView) view2.findViewById(R.id.card_voice_room_join);
+            onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
         }
-    }
-
-    public void B(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (z) {
-                this.x.setVisibility(0);
-            } else {
-                this.x.setVisibility(8);
-            }
-        }
-    }
-
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            ViewGroup.LayoutParams layoutParams = this.w.getLayoutParams();
-            layoutParams.height = i;
-            this.w.setLayoutParams(layoutParams);
-        }
-    }
-
-    @Override // com.baidu.tieba.yk6
-    public void l(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
-            if (this.a != i) {
-                SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
-                SkinManager.setViewTextColor(this.j, R.color.CAM_X0109, 1);
-                SkinManager.setViewTextColor(this.k, R.color.CAM_X0109, 1);
-                SkinManager.setViewTextColor(this.p, R.color.CAM_X0105, 1);
-                SkinManager.setViewTextColor(this.q, R.color.CAM_X0105, 1);
-                SkinManager.setViewTextColor(this.r, R.color.CAM_X0105, 1);
-                SkinManager.setViewTextColor(this.s, R.color.CAM_X0105, 1);
-                SkinManager.setBackgroundResource(this.t, R.color.CAM_X0204);
-                SkinManager.setBackgroundResource(this.u, R.color.CAM_X0204);
-                SkinManager.setBackgroundResource(this.v, R.color.CAM_X0204);
-                SkinManager.setBackgroundResource(this.w, R.color.CAM_X0204);
-                SkinManager.setBackgroundResource(this.x, R.color.CAM_X0204);
-                SkinManager.setBackgroundResource(this.l, R.drawable.card_topic_click_selector);
-                SkinManager.setBackgroundResource(this.m, R.drawable.card_topic_click_selector);
-                SkinManager.setBackgroundResource(this.n, R.drawable.card_topic_click_selector);
-                SkinManager.setBackgroundResource(this.o, R.drawable.card_topic_click_selector);
-                r(this.p, 0);
-                r(this.q, 1);
-                r(this.r, 2);
-                r(this.s, 3);
-            }
-            this.a = i;
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            int i = JavaTypesHelper.toInt((String) view2.getTag(), -1);
-            rm6 rm6Var = this.y;
-            if (rm6Var != null && ListUtils.getItem(rm6Var.d, i) != null) {
-                TiebaStatic.log(new StatisticItem(this.z).param("obj_locate", String.valueOf(this.y.f)).param("obj_name", this.y.d.get(i).b));
-                if (i >= 0 && !et5.b(h())) {
-                    if (this.y.d.get(i).a() == 1) {
-                        h().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(h().getPageActivity()).createNormalConfig(String.valueOf(this.y.d.get(i).a), this.y.d.get(i).b, "")));
-                    } else {
-                        qt5.f(this.b, String.valueOf(this.y.d.get(i).a), this.y.d.get(i).b);
-                    }
-                }
-            }
-        }
-    }
-
-    public final void p(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            this.i = view2.findViewById(R.id.home_card_hot_topic_root_view);
-            this.j = (TextView) view2.findViewById(R.id.home_card_topic_title);
-            this.k = (TextView) view2.findViewById(R.id.home_card_topic_more);
-            this.l = (LinearLayout) view2.findViewById(R.id.home_card_topic_group_one);
-            this.m = (LinearLayout) view2.findViewById(R.id.home_card_topic_group_two);
-            this.n = (LinearLayout) view2.findViewById(R.id.home_card_topic_group_three);
-            this.o = (LinearLayout) view2.findViewById(R.id.home_card_topic_group_four);
-            this.p = (TextView) view2.findViewById(R.id.home_card_topic_one);
-            this.q = (TextView) view2.findViewById(R.id.home_card_topic_two);
-            this.r = (TextView) view2.findViewById(R.id.home_card_topic_three);
-            this.s = (TextView) view2.findViewById(R.id.home_card_topic_four);
-            this.t = view2.findViewById(R.id.home_top_div);
-            this.u = view2.findViewById(R.id.home_top_topic_div_one);
-            this.v = view2.findViewById(R.id.home_top_topic_div_two);
-            this.w = view2.findViewById(R.id.home_card_top_divider_line);
-            this.x = view2.findViewById(R.id.home_card_bottom_divider_line);
-            this.l.setOnClickListener(this);
-            this.m.setOnClickListener(this);
-            this.n.setOnClickListener(this);
-            this.o.setOnClickListener(this);
-            this.k.setOnClickListener(new a(this));
-        }
-    }
-
-    public final void r(TextView textView, int i) {
-        rm6 rm6Var;
-        qm6 qm6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048583, this, textView, i) != null) || (rm6Var = this.y) == null || ListUtils.getCount(rm6Var.d) < 4 || (qm6Var = (qm6) ListUtils.getItem(this.y.d, i)) == null) {
-            return;
-        }
-        int i2 = qm6Var.c;
-        if (i2 != 1) {
-            if (i2 != 2) {
-                if (i2 == 3) {
-                    textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_hottopic_tuijian), (Drawable) null);
-                    return;
-                }
-                return;
-            }
-            textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_hottopic_hot), (Drawable) null);
-            return;
-        }
-        textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_hottopic_new), (Drawable) null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yk6
-    /* renamed from: x */
-    public void k(rm6 rm6Var) {
+    @Override // com.baidu.tieba.ht
+    /* renamed from: g */
+    public void onBindDataToView(qm6 qm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rm6Var) == null) {
-            int i = 8;
-            if (rm6Var != null && !StringUtils.isNull(rm6Var.c) && ListUtils.getCount(rm6Var.d) >= 4) {
-                if (this.i.getVisibility() != 0) {
-                    this.i.setVisibility(0);
-                }
-                this.y = rm6Var;
-                View view2 = this.w;
-                if (rm6Var.a) {
-                    i = 0;
-                }
-                view2.setVisibility(i);
-                B(this.y.b);
-                this.j.setText(this.y.c.trim());
-                A(this.p, 0);
-                A(this.q, 1);
-                A(this.r, 2);
-                A(this.s, 3);
-                r(this.p, 0);
-                r(this.q, 1);
-                r(this.r, 2);
-                r(this.s, 3);
-                return;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qm6Var) != null) || qm6Var == null) {
+            return;
+        }
+        this.f.setText(qm6Var.Y());
+        this.h.setText(String.format(this.a.getResources().getString(R.string.voice_room_talking_num), qm6Var.Z()));
+        this.i.setText(String.format(this.a.getResources().getString(R.string.voice_room_online_num), qm6Var.V()));
+        if (!ListUtils.isEmpty(qm6Var.W())) {
+            if (qm6Var.W().size() > 10) {
+                this.l = qm6Var.W().subList(0, 10);
+            } else {
+                this.l = qm6Var.W();
             }
-            this.i.setVisibility(8);
+        }
+        this.g.p();
+        this.d.setRepeatCount(Integer.MAX_VALUE);
+        this.d.setRepeatMode(1);
+        this.d.playAnimation();
+    }
+
+    @Override // com.baidu.tieba.it
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        GradientDrawable gradientDrawable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
+            if (this.k != i) {
+                if (i == 4) {
+                    gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, r);
+                } else {
+                    gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, q);
+                }
+                gradientDrawable.setCornerRadius(25.0f);
+                e().setBackgroundDrawable(gradientDrawable);
+                EMManager.from(this.c).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0605);
+                SkinManager.setLottieAnimation(this.d, R.raw.lottie_voice_room_voicing_icon);
+                EMManager.from(this.e).setTextColor(R.color.CAM_X0101);
+                EMManager.from(this.i).setTextColor(R.color.CAM_X0620).setTextStyle(R.string.F_X02);
+                EMManager.from(this.f).setTextStyle(R.string.F_X02).setTextColor(R.color.CAM_X0101);
+                EMManager.from(this.h).setTextColor(R.color.CAM_X0620).setTextStyle(R.string.F_X02);
+                EMManager.from(this.j).setCorner(R.string.J_X07).setTextColor(R.color.CAM_X0326).setBackGroundColor(R.color.CAM_X0621);
+                if (!ListUtils.isEmpty(this.g.getChildViews())) {
+                    for (View view2 : this.g.getChildViews()) {
+                        if (view2 instanceof HeadImageView) {
+                            ((HeadImageView) view2).setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
+                        }
+                    }
+                }
+            }
+            this.k = i;
         }
     }
 }

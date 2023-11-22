@@ -20,17 +20,17 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tieba.ap0;
-import com.baidu.tieba.d16;
+import com.baidu.tieba.e16;
 import com.baidu.tieba.gf0;
-import com.baidu.tieba.gm5;
 import com.baidu.tieba.gp0;
 import com.baidu.tieba.hm5;
 import com.baidu.tieba.hp0;
-import com.baidu.tieba.i26;
-import com.baidu.tieba.ic9;
-import com.baidu.tieba.ns5;
+import com.baidu.tieba.im5;
+import com.baidu.tieba.j26;
+import com.baidu.tieba.jc9;
 import com.baidu.tieba.oo0;
 import com.baidu.tieba.os5;
+import com.baidu.tieba.ps5;
 import com.baidu.tieba.pv4;
 import com.baidu.tieba.recapp.constants.PlaceId;
 import com.baidu.tieba.yf0;
@@ -122,7 +122,7 @@ public class NadAsyncRequester {
                 if (str == null) {
                     return null;
                 }
-                return i26.a(str);
+                return j26.a(str);
             }
             return (List) invokeLLI.objValue;
         }
@@ -202,7 +202,7 @@ public class NadAsyncRequester {
             replace = sampleId.replace(SignatureImpl.SEP, ',');
         }
         d("eid", replace);
-        d("app_transmit_data", os5.a());
+        d("app_transmit_data", ps5.a());
         d("is_https", "1");
         d("flr", "1");
         d(TbConfig.SW_APID, "0");
@@ -268,8 +268,8 @@ public class NadAsyncRequester {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, map)) == null) {
             JSONArray jSONArray = new JSONArray();
-            if (d16.a().b("tieba_no_oaid_param", 0) != 1) {
-                jSONArray.put(e(AdExtParam.KEY_IADEX, ns5.e()));
+            if (e16.a().b("tieba_no_oaid_param", 0) != 1) {
+                jSONArray.put(e(AdExtParam.KEY_IADEX, os5.e()));
                 String f = yf0.c().f(false);
                 if (!TextUtils.isEmpty(f)) {
                     jSONArray.put(e("oaid_v", f));
@@ -280,7 +280,7 @@ public class NadAsyncRequester {
                 }
             }
             jSONArray.put(e(AdExtParam.KEY_NAD_CORE_VERSION, "5.12.0.110"));
-            if (!ic9.f(map)) {
+            if (!jc9.f(map)) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     jSONArray.put(e(entry.getKey(), entry.getValue()));
                 }
@@ -298,7 +298,7 @@ public class NadAsyncRequester {
             if (currentAccountInfo != null) {
                 b2 = currentAccountInfo.getBDUSS();
             } else if (TbadkCoreApplication.getInst().isRemoteProcess()) {
-                b2 = gm5.b();
+                b2 = hm5.b();
             } else {
                 return;
             }
@@ -324,7 +324,7 @@ public class NadAsyncRequester {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (TextUtils.isEmpty(TbSingleton.getInstance().getSampleId())) {
-                TbSingleton.getInstance().setSampleId(hm5.i("multi_process_sample_id", ""));
+                TbSingleton.getInstance().setSampleId(im5.i("multi_process_sample_id", ""));
             }
             return TbSingleton.getInstance().getSampleId();
         }

@@ -1,37 +1,32 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.appsearchlib.Info;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.HotUserRankEntry;
-import tbclient.ShortUserInfo;
+import tbclient.HotTWThreadInfo;
+import tbclient.User;
 /* loaded from: classes8.dex */
-public class uyc extends poc {
+public class uyc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull HotUserRankEntry hotUserRankEntry) {
+    public static JSONObject b(@NonNull HotTWThreadInfo hotTWThreadInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, hotUserRankEntry)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, hotTWThreadInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (hotUserRankEntry.hot_user != null) {
+            if (hotTWThreadInfo.user_list != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (ShortUserInfo shortUserInfo : hotUserRankEntry.hot_user) {
-                    jSONArray.put(z2d.b(shortUserInfo));
+                for (User user : hotTWThreadInfo.user_list) {
+                    jSONArray.put(n5d.b(user));
                 }
-                poc.a(jSONObject, "hot_user", jSONArray);
+                qoc.a(jSONObject, "user_list", jSONArray);
             }
-            poc.a(jSONObject, Info.kBaiduModuleKey, hotUserRankEntry.module_name);
-            poc.a(jSONObject, "module_icon", hotUserRankEntry.module_icon);
-            poc.a(jSONObject, "today_rank", hotUserRankEntry.today_rank);
-            poc.a(jSONObject, "yesterday_rank", hotUserRankEntry.yesterday_rank);
-            poc.a(jSONObject, "is_in_rank", hotUserRankEntry.is_in_rank);
+            qoc.a(jSONObject, "fans_count", hotTWThreadInfo.fans_count);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

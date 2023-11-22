@@ -1,127 +1,123 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.LinearLayout;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
+import com.baidu.tbadk.core.atomData.WorkPublishOpenHelper;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.PostPrefixData;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.write.WriteVideoUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class wfb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public TbPageContext<?> a;
-    @NonNull
-    public NavigationBar b;
-    @NonNull
-    public LinearLayout c;
-    @NonNull
-    public LinearLayout d;
-    @NonNull
-    public meb e;
-    public EditorTools f;
 
-    public wfb(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull LinearLayout linearLayout2, @NonNull meb mebVar) {
+    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData) {
+        String str;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, navigationBar, linearLayout, linearLayout2, mebVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, writeData) == null) {
+            String str2 = "";
+            if (WriteVideoUtil.hasDraft()) {
+                if (TextUtils.isEmpty(writeData.getTitle())) {
+                    str = "";
+                    i = 1;
+                } else {
+                    str = writeData.getTitle();
+                    i = 5;
+                }
+                if (!TextUtils.isEmpty(writeData.getForumId()) && !TextUtils.isEmpty(writeData.getForumName())) {
+                    WriteVideoUtil.openBottomActionSheet(tbPageContext, str, writeData.getContent(), writeData.getForumId(), writeData.getForumName(), 3, Boolean.FALSE, "", "", "");
+                    return;
+                }
+                WriteVideoUtil.openBottomActionSheet(tbPageContext, str, writeData.getContent(), writeData.getForumId(), writeData.getForumName(), i, Boolean.TRUE, "", "", "");
                 return;
             }
+            if (writeData.getWriteImagesInfo() != null) {
+                str2 = writeData.getWriteImagesInfo().toJsonString();
+            }
+            c(tbPageContext, writeData, str2, writeData.getFrom(), writeData.getDisableAudioMessage(), writeData.isVoiceEnable(), writeData.getPrefixData(), true);
         }
-        this.a = tbPageContext;
-        this.b = navigationBar;
-        this.c = linearLayout;
-        this.d = linearLayout2;
-        this.e = mebVar;
     }
 
-    @Nullable
-    public peb a(int i, boolean z) {
-        InterceptResult invokeCommon;
+    public static void b(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData, @NonNull WriteImagesInfo writeImagesInfo, String str, String str2, boolean z, PostPrefixData postPrefixData) {
+        String str3;
+        JSONObject json;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return c(i, z);
-        }
-        return (peb) invokeCommon.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0035, code lost:
-        if (r6.getBooleanExtra(com.baidu.tbadk.core.atomData.WriteActivityConfig.KEY_NOT_USE_DRAFT, false) != false) goto L8;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x0016, code lost:
-        if (r6.getBoolean(com.baidu.tbadk.core.atomData.WriteActivityConfig.KEY_NOT_USE_DRAFT, false) != false) goto L8;
-     */
-    @Nullable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public peb b(Bundle bundle) {
-        InterceptResult invokeL;
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            int i = 9;
-            boolean z = false;
-            if (bundle != null) {
-                i = bundle.getInt("type", 9);
-            } else {
-                if (this.a.getPageActivity() != null && (intent = this.a.getPageActivity().getIntent()) != null) {
-                    i = intent.getIntExtra("type", 9);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{tbPageContext, writeData, writeImagesInfo, str, str2, Boolean.valueOf(z), postPrefixData}) == null) {
+            String jsonString = writeImagesInfo.toJsonString();
+            if (writeData.getType() == 11 && (json = writeImagesInfo.toJson()) != null) {
+                try {
+                    json.put("maxImagesAllowed", 9 - writeImagesInfo.size());
+                    json.put("chosedFiles", (Object) null);
+                    jsonString = json.toString();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    str3 = null;
                 }
-                z = true;
-                return c(i, z);
             }
-        } else {
-            return (peb) invokeL.objValue;
+            str3 = jsonString;
+            c(tbPageContext, writeData, str3, str, str2, z, postPrefixData, false);
         }
     }
 
-    public final peb c(int i, boolean z) {
-        InterceptResult invokeCommon;
+    public static void c(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData, String str, String str2, String str3, boolean z, PostPrefixData postPrefixData, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (this.a.getPageActivity() == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{tbPageContext, writeData, str, str2, str3, Boolean.valueOf(z), postPrefixData, Boolean.valueOf(z2)}) == null) {
+            AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(tbPageContext.getPageActivity(), str, true, true);
+            albumFloatActivityConfig.getIntent().putExtra("forum_id", writeData.getForumId());
+            albumFloatActivityConfig.getIntent().putExtra("forum_name", writeData.getForumName());
+            albumFloatActivityConfig.getIntent().putExtra("from", str2);
+            albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
+            albumFloatActivityConfig.setAlbumThread(0);
+            albumFloatActivityConfig.setCanSelectVideo(z2);
+            albumFloatActivityConfig.setCanSelectOnlyVideo(z2);
+            albumFloatActivityConfig.setCanEditImage(false);
+            albumFloatActivityConfig.setFromWrite(3);
+            albumFloatActivityConfig.setCallFrom(writeData.getCallFrom());
+            albumFloatActivityConfig.setStatisticFrom(writeData.getStatisticFrom());
+            albumFloatActivityConfig.setFrsTabInfo(writeData.getFrsTabInfoData());
+            if (z2) {
+                if (!TextUtils.isEmpty(writeData.getTitle())) {
+                    albumFloatActivityConfig.setVideoTitle(writeData.getTitle());
+                } else {
+                    albumFloatActivityConfig.setVideoTitle("");
+                }
+                albumFloatActivityConfig.setBarName(writeData.getForumName());
+                albumFloatActivityConfig.setBarID(writeData.getForumId());
+                if (!TextUtils.isEmpty(writeData.getForumId()) && !TextUtils.isEmpty(writeData.getForumName())) {
+                    albumFloatActivityConfig.setCanChangeBarName(false);
+                } else {
+                    albumFloatActivityConfig.setCanChangeBarName(true);
+                }
+                albumFloatActivityConfig.setVideoAbstract(writeData.getContent());
             }
-            this.b.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_LEFT);
-            this.b.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
-            this.c.removeAllViews();
-            this.d.removeAllViews();
-            EditorTools editorTools = new EditorTools(this.a.getPageActivity());
-            this.f = editorTools;
-            this.d.addView(editorTools);
-            switch (i) {
-                case 11:
-                    return new hgb(this.a, this.b, this.c, this.f, this.e, z);
-                case 12:
-                    return new dgb(this.a, this.b, this.c, this.f, this.e, z);
-                case 13:
-                    return new egb(this.a, this.b, this.c, this.f, this.e, z);
-                case 14:
-                    return new ggb(this.a, this.b, this.c, this.f, this.e, z);
-                case 15:
-                    return new cgb(this.a, this.b, this.c, this.f, this.e, z);
-                default:
-                    return new fgb(this.a, this.b, this.c, this.f, this.e, z);
+            AntiData antiData = new AntiData();
+            antiData.voice_message = str3;
+            antiData.setIfVoice(z);
+            albumFloatActivityConfig.setExtraData(antiData, postPrefixData, writeData.getFirstDir(), writeData.getSecondDir());
+            tbPageContext.sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
+        }
+    }
+
+    public static void d(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, tbPageContext, writeData) == null) {
+            int guideStatus = WriteVideoUtil.getGuideStatus();
+            if (WriteVideoUtil.isShowGuide(guideStatus)) {
+                WriteVideoUtil.jumpWorkVideoGuide(tbPageContext.getPageActivity(), guideStatus, WorkPublishOpenHelper.OPEN_WORK_PUBLISH_FROM_FRS_WRITE);
+            } else {
+                a(tbPageContext, writeData);
             }
         }
-        return (peb) invokeCommon.objValue;
     }
 }

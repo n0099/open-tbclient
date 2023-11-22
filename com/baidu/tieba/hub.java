@@ -1,20 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.searchbox.download.util.MigrateStatisticUtils;
-import com.baidu.tieba.fub;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,22 +13,61 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hub extends SQLiteOpenHelper {
+public class hub {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static hub c;
-    public static ReentrantLock d;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public ReentrantReadWriteLock a;
+    public iub a;
+    public long b;
+    public int c;
+    public long d;
+    public LinkedList<gub> e;
+    public ArrayList<String> f;
+
+    /* loaded from: classes6.dex */
+    public class a implements Comparator<gub> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(hub hubVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hubVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(gub gubVar, gub gubVar2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, gubVar, gubVar2)) == null) {
+                int h = gubVar2.h() - gubVar.h();
+                if (h == 0) {
+                    return (int) (gubVar2.i() - gubVar.i());
+                }
+                return h;
+            }
+            return invokeLL.intValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -52,453 +82,372 @@ public class hub extends SQLiteOpenHelper {
                 return;
             }
         }
-        b = AppConfig.isDebug();
-        c = null;
-        d = new ReentrantLock();
+        g = AppConfig.isDebug();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hub(Context context) {
-        super(context, "voyager.db", (SQLiteDatabase.CursorFactory) null, 1);
+    public final void d() {
+        iub iubVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (iubVar = this.a) != null) {
+            iubVar.a();
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.e.size() > 0) {
+            Collections.sort(this.e, new a(this));
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.b = System.currentTimeMillis();
+            if (g) {
+                Log.d("VoyagerTaskModel", "update check task time: " + this.b);
+            }
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.c++;
+        }
+    }
+
+    public hub(Context context, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ReentrantReadWriteLock(true);
+        this.a = iub.f(context);
+        j(z);
     }
 
-    public static hub f(Context context) {
-        InterceptResult invokeL;
+    public void a(gub gubVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (c == null) {
-                d.lock();
-                if (c == null) {
-                    c = new hub(context);
+        if (interceptable == null || interceptable.invokeL(1048576, this, gubVar) == null) {
+            if (gubVar != null) {
+                if (this.e.size() == 0) {
+                    this.e.addFirst(gubVar);
+                } else {
+                    int i = 0;
+                    Iterator<gub> it = this.e.iterator();
+                    while (it.hasNext() && gubVar.h() < it.next().h()) {
+                        i++;
+                    }
+                    this.e.add(i, gubVar);
                 }
-                d.unlock();
             }
-            return c;
-        }
-        return (hub) invokeL.objValue;
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onConfigure(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.enableWriteAheadLogging();
-            super.onConfigure(sQLiteDatabase);
+            if (g) {
+                Log.d("VoyagerTaskModel", "count: " + this.e.size());
+            }
         }
     }
 
-    public boolean a() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.a.writeLock().lock();
-            try {
-                try {
-                    SQLiteDatabase writableDatabase = getWritableDatabase();
-                    writableDatabase.beginTransactionNonExclusive();
-                    try {
-                        long delete = writableDatabase.delete(DownloadStatisticConstants.UBC_VALUE_TASK, null, null);
-                        if (b) {
-                            Log.d("VoyagerDBHelper", "clear task data from table task, count = " + delete);
-                        }
-                        writableDatabase.setTransactionSuccessful();
-                        return true;
-                    } finally {
-                        writableDatabase.endTransaction();
-                    }
-                } catch (SQLException e) {
-                    if (b) {
-                        e.printStackTrace();
-                    }
-                    this.a.writeLock().unlock();
-                    return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.c < xtb.f().m()) {
+                if (g) {
+                    Log.d("VoyagerTaskModel", "current count: " + this.c + ", max: " + xtb.f().m());
                 }
-            } finally {
-                this.a.writeLock().unlock();
+                return true;
             }
+            this.c = 0;
+            if (System.currentTimeMillis() - this.b > xtb.f().l()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x007e A[Catch: all -> 0x009b, SQLException -> 0x009d, Merged into TryCatch #2 {all -> 0x009b, SQLException -> 0x009d, blocks: (B:5:0x0010, B:16:0x007e, B:17:0x0081, B:25:0x0094, B:26:0x0097, B:27:0x009a, B:31:0x009e, B:33:0x00a2), top: B:45:0x0010 }, TRY_ENTER] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String c() {
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            d();
+            pub.b(ztb.g().h());
+            LinkedList<gub> linkedList = this.e;
+            if (linkedList != null && linkedList.size() > 0) {
+                this.e.clear();
+            }
+            ArrayList<String> arrayList = this.f;
+            if (arrayList != null && arrayList.size() > 0) {
+                this.f.clear();
+            }
+            this.b = 0L;
+            this.c = 0;
+            this.d = 0L;
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.g(this.f, this.e);
+            if (this.f.size() > 0) {
+                Iterator<String> it = this.f.iterator();
+                while (it.hasNext()) {
+                    pub.d(ztb.g().h(), it.next());
+                    it.remove();
+                }
+            }
+        }
+    }
+
+    public gub i() {
         InterceptResult invokeV;
-        Cursor cursor;
-        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.a.writeLock().lock();
-            try {
-                SQLiteDatabase writableDatabase = getWritableDatabase();
-                writableDatabase.beginTransactionNonExclusive();
-                try {
-                    cursor = writableDatabase.rawQuery("SELECT * FROM " + DownloadStatisticConstants.UBC_VALUE_TASK + " ORDER BY timestamp LIMIT 1", null);
-                    if (cursor != null) {
-                        try {
-                            if (cursor.getCount() > 0) {
-                                cursor.moveToFirst();
-                                string = cursor.getString(cursor.getColumnIndex("task_id"));
-                                long delete = writableDatabase.delete(DownloadStatisticConstants.UBC_VALUE_TASK, "task_id =? ", new String[]{string});
-                                if (b) {
-                                    Log.d("VoyagerDBHelper", "delete task data count: " + delete);
-                                }
-                                writableDatabase.setTransactionSuccessful();
-                                if (cursor != null) {
-                                    cursor.close();
-                                }
-                                writableDatabase.endTransaction();
-                                return string;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            writableDatabase.endTransaction();
-                            throw th;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            LinkedList<gub> linkedList = this.e;
+            if (linkedList != null && linkedList.size() != 0) {
+                return this.e.getFirst();
+            }
+            if (g) {
+                Log.d("VoyagerTaskModel", "have no task in list");
+            }
+            this.c = 0;
+            return null;
+        }
+        return (gub) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LinkedList<gub> linkedList = this.e;
+            if (linkedList != null && linkedList.size() != 0) {
+                long h = xtb.f().h();
+                File h2 = ztb.g().h();
+                Iterator<gub> it = this.e.iterator();
+                while (it.hasNext()) {
+                    gub next = it.next();
+                    File file = new File(h2, next.j());
+                    if (this.d < h) {
+                        if (file.exists()) {
+                            this.d += file.length();
                         }
+                    } else {
+                        next.r(false);
+                        next.q(System.currentTimeMillis());
+                        n(next);
+                        file.delete();
                     }
-                    string = null;
-                    writableDatabase.setTransactionSuccessful();
-                    if (cursor != null) {
-                    }
-                    writableDatabase.endTransaction();
-                    return string;
-                } catch (Throwable th2) {
-                    th = th2;
-                    cursor = null;
                 }
-            } catch (SQLException e) {
-                if (b) {
-                    e.printStackTrace();
+                if (g) {
+                    Log.d("VoyagerTaskModel", "task count after delete exceed task: " + this.e.size());
                 }
-                return null;
-            } finally {
-                this.a.writeLock().unlock();
+                int g2 = xtb.f().g();
+                int size = this.e.size();
+                if (size <= g2) {
+                    return;
+                }
+                int i = size - g2;
+                for (int i2 = i; i2 > 0; i2--) {
+                    gub removeLast = this.e.removeLast();
+                    removeLast.r(false);
+                    removeLast.q(System.currentTimeMillis());
+                    n(removeLast);
+                    pub.d(ztb.g().h(), removeLast.j());
+                }
+                if (g) {
+                    Log.d("VoyagerTaskModel", "delete count: " + i);
+                }
+            } else if (g) {
+                Log.d("VoyagerTaskModel", "task list length 0");
             }
-        } else {
-            return (String) invokeV.objValue;
         }
     }
 
-    public final ContentValues d(fub fubVar) {
-        InterceptResult invokeL;
+    public final void g() {
+        ArrayList<File> f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fubVar)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("task_id", fubVar.j());
-            contentValues.put("timestamp", Long.valueOf(fubVar.i()));
-            contentValues.put("biz_type", fubVar.a());
-            contentValues.put("file_list", fubVar.g().toString());
-            if (!fubVar.l()) {
-                contentValues.put("zip_src", (Integer) 0);
-            } else {
-                contentValues.put("zip_src", (Integer) 1);
-            }
-            contentValues.put("priority", Integer.valueOf(fubVar.h()));
-            contentValues.put("upload_count", Integer.valueOf(fubVar.k()));
-            contentValues.put("network_type", Integer.valueOf(fubVar.f()));
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONObject b2 = fubVar.b();
-                if (b2 != null) {
-                    jSONObject.put(MigrateStatisticUtils.EXT_INFO, b2);
-                }
-                JSONObject c2 = fubVar.c();
-                if (c2 != null) {
-                    jSONObject.put("file_meta", c2);
-                }
-                jSONObject.put("max_zip_size", fubVar.e());
-            } catch (JSONException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-            }
-            if (jSONObject.length() > 0) {
-                contentValues.put("extend", jSONObject.toString());
-            }
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public boolean h(fub fubVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, fubVar)) == null) {
-            if (fubVar != null && !TextUtils.isEmpty(fubVar.j()) && !TextUtils.isEmpty(fubVar.a())) {
-                this.a.writeLock().lock();
-                try {
-                    ContentValues d2 = d(fubVar);
-                    SQLiteDatabase writableDatabase = getWritableDatabase();
-                    writableDatabase.beginTransactionNonExclusive();
-                    try {
-                        long insert = writableDatabase.insert(DownloadStatisticConstants.UBC_VALUE_TASK, null, d2);
-                        if (b) {
-                            Log.d("VoyagerDBHelper", "insert task data into table task, rowId = " + insert);
-                        }
-                        writableDatabase.setTransactionSuccessful();
-                        return true;
-                    } finally {
-                        writableDatabase.endTransaction();
-                    }
-                } catch (SQLException e) {
-                    if (b) {
-                        e.printStackTrace();
-                    }
-                    return false;
-                } finally {
-                    this.a.writeLock().unlock();
-                }
-            }
-            if (b) {
-                Log.d("VoyagerDBHelper", "insert task data : task id should not null");
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final String e(ArrayList<String> arrayList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, arrayList)) == null) {
-            StringBuilder sb = new StringBuilder();
-            Iterator<String> it = arrayList.iterator();
-            int i = 0;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (f = ztb.g().f()) != null && f.size() != 0) {
+            Iterator<File> it = f.iterator();
             while (it.hasNext()) {
-                String next = it.next();
-                if (i > 0) {
-                    sb.append(",");
+                String name = it.next().getName();
+                Iterator<gub> it2 = this.e.iterator();
+                while (it2.hasNext() && !TextUtils.equals(name, it2.next().j())) {
                 }
-                sb.append(next);
-                i++;
+                it.remove();
             }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, sQLiteDatabase) == null) {
-            if (b) {
-                Log.i("VoyagerDBHelper", "Creating database voyager.db version: 1");
+            if (g) {
+                Log.d("VoyagerTaskModel", "unreference file count: " + f.size());
             }
-            try {
-                sQLiteDatabase.execSQL("CREATE TABLE task (_id INTEGER PRIMARY KEY AUTOINCREMENT,task_id TEXT,timestamp LONG,biz_type TEXT,file_list TEXT,zip_src INTEGER,priority INTEGER,upload_count INTEGER,network_type INTEGER,extend TEXT,reserve1 TEXT);");
-            } catch (Exception e) {
-                if (b) {
-                    Log.w("VoyagerDBHelper", "Error while creating db: " + e.toString());
-                }
+            if (f.size() > 0) {
+                pub.c(f);
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:47:0x0140 A[LOOP:0: B:12:0x003a->B:47:0x0140, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x014c A[Catch: all -> 0x0185, SQLException -> 0x0187, TRY_ENTER, TryCatch #0 {SQLException -> 0x0187, blocks: (B:5:0x0011, B:52:0x014c, B:53:0x014f, B:57:0x015f, B:60:0x0181, B:61:0x0184), top: B:75:0x0011, outer: #2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x0155 A[DONT_GENERATE] */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x015f A[Catch: all -> 0x0185, SQLException -> 0x0187, TRY_ENTER, TryCatch #0 {SQLException -> 0x0187, blocks: (B:5:0x0011, B:52:0x014c, B:53:0x014f, B:57:0x015f, B:60:0x0181, B:61:0x0184), top: B:75:0x0011, outer: #2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:83:0x014a A[EDGE_INSN: B:83:0x014a->B:51:0x014a ?: BREAK  , SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void g(@NonNull ArrayList<String> arrayList, @NonNull LinkedList<fub> linkedList) {
-        SQLiteDatabase writableDatabase;
-        Cursor cursor;
-        long j;
-        ArrayList<String> arrayList2;
+    public final boolean h() {
+        InterceptResult invokeV;
+        LinkedList<gub> linkedList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, arrayList, linkedList) == null) {
-            this.a.writeLock().lock();
-            try {
-                try {
-                    writableDatabase = getWritableDatabase();
-                    cursor = null;
-                } catch (SQLException e) {
-                    if (b) {
-                        e.printStackTrace();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.a == null || (linkedList = this.e) == null || linkedList.size() == 0) {
+                return false;
+            }
+            String c = this.a.c();
+            gub gubVar = null;
+            Iterator<gub> it = this.e.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
                 }
-                try {
-                    Cursor rawQuery = writableDatabase.rawQuery("SELECT * FROM " + DownloadStatisticConstants.UBC_VALUE_TASK, null);
-                    if (rawQuery != null) {
-                        try {
-                            if (rawQuery.getCount() > 0) {
-                                rawQuery.moveToFirst();
-                                long currentTimeMillis = System.currentTimeMillis();
-                                while (true) {
-                                    String string = rawQuery.getString(rawQuery.getColumnIndex("task_id"));
-                                    String string2 = rawQuery.getString(rawQuery.getColumnIndex("biz_type"));
-                                    long j2 = rawQuery.getLong(rawQuery.getColumnIndex("timestamp"));
-                                    long b2 = wtb.f().b(string2);
-                                    int i = rawQuery.getInt(rawQuery.getColumnIndex("upload_count"));
-                                    int e2 = wtb.f().e(string2);
-                                    if (b2 + j2 >= currentTimeMillis) {
-                                        if (i >= e2) {
-                                            arrayList2 = arrayList;
-                                            j = currentTimeMillis;
-                                        } else {
-                                            int i2 = rawQuery.getInt(rawQuery.getColumnIndex("priority"));
-                                            String string3 = rawQuery.getString(rawQuery.getColumnIndex("file_list"));
-                                            int i3 = rawQuery.getInt(rawQuery.getColumnIndex("network_type"));
-                                            boolean z = true;
-                                            j = currentTimeMillis;
-                                            ArrayList arrayList3 = new ArrayList(Arrays.asList(string3));
-                                            if (rawQuery.getInt(rawQuery.getColumnIndex("zip_src")) == 0) {
-                                                z = false;
-                                            }
-                                            fub.b bVar = new fub.b(string, string2, arrayList3, j2);
-                                            bVar.o(i2);
-                                            bVar.n(i3);
-                                            bVar.p(z);
-                                            fub k = bVar.k();
-                                            k.s(i);
-                                            String string4 = rawQuery.getString(rawQuery.getColumnIndex("extend"));
-                                            if (!TextUtils.isEmpty(string4)) {
-                                                try {
-                                                    JSONObject jSONObject = new JSONObject(string4);
-                                                    if (jSONObject.length() > 0) {
-                                                        JSONObject optJSONObject = jSONObject.optJSONObject(MigrateStatisticUtils.EXT_INFO);
-                                                        if (optJSONObject != null && optJSONObject.length() > 0) {
-                                                            k.m(optJSONObject);
-                                                        }
-                                                        JSONObject optJSONObject2 = jSONObject.optJSONObject("file_meta");
-                                                        if (optJSONObject2 != null && optJSONObject2.length() > 0) {
-                                                            k.n(optJSONObject2);
-                                                        }
-                                                        long optLong = jSONObject.optLong("max_zip_size", 0L);
-                                                        if (optLong > 0) {
-                                                            k.o(optLong);
-                                                        }
-                                                    }
-                                                } catch (JSONException e3) {
-                                                    if (b) {
-                                                        e3.printStackTrace();
-                                                    }
-                                                }
-                                            }
-                                            linkedList.addFirst(k);
-                                            if (rawQuery.moveToNext()) {
-                                                break;
-                                            }
-                                            currentTimeMillis = j;
-                                        }
-                                    } else {
-                                        j = currentTimeMillis;
-                                        arrayList2 = arrayList;
-                                    }
-                                    arrayList2.add(string);
-                                    if (rawQuery.moveToNext()) {
-                                    }
-                                }
-                                if (rawQuery != null) {
-                                    rawQuery.close();
-                                }
-                                if (arrayList.size() != 0) {
-                                    return;
-                                }
-                                writableDatabase.delete(DownloadStatisticConstants.UBC_VALUE_TASK, "task_id IN ( " + e(arrayList) + " )", null);
-                                return;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            cursor = rawQuery;
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            throw th;
-                        }
-                    }
-                    if (rawQuery != null) {
-                    }
-                    if (arrayList.size() != 0) {
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
+                gub next = it.next();
+                if (TextUtils.equals(c, next.j())) {
+                    gubVar = next;
+                    break;
                 }
-            } finally {
-                this.a.writeLock().unlock();
+            }
+            if (gubVar != null) {
+                this.e.remove(gubVar);
+            }
+            File file = new File(ztb.g().h(), c);
+            if (file.exists()) {
+                file.delete();
+                this.d -= file.length();
+                return true;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            if (z) {
+                c();
+                return;
+            }
+            this.e = new LinkedList<>();
+            this.f = new ArrayList<>();
+            this.b = 0L;
+            this.c = 0;
+            this.d = 0L;
+            f();
+            g();
+            e();
+            l();
+        }
+    }
+
+    public void k(gub gubVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, gubVar) == null) && gubVar != null) {
+            this.a.h(gubVar);
+        }
+    }
+
+    public void n(gub gubVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, gubVar) == null) && gubVar != null) {
+            this.a.i(gubVar);
+        }
+    }
+
+    public void o(gub gubVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, gubVar) == null) && gubVar != null) {
+            this.a.j(gubVar);
+        }
+    }
+
+    public void q(gub gubVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048592, this, gubVar) == null) && gubVar != null) {
+            this.e.remove(gubVar);
+            this.e.addLast(gubVar);
+        }
+    }
+
+    public void m(boolean z, gub gubVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048588, this, z, gubVar) == null) {
+            gubVar.r(false);
+            gubVar.q(System.currentTimeMillis());
+            n(gubVar);
+            if (z) {
+                this.e.remove(gubVar);
             }
         }
     }
 
-    public void i(fub fubVar) {
+    public void u(boolean z, gub gubVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, fubVar) == null) {
-            if (fubVar != null && !TextUtils.isEmpty(fubVar.j()) && !TextUtils.isEmpty(fubVar.a())) {
-                this.a.writeLock().lock();
-                try {
-                    try {
-                        int delete = getWritableDatabase().delete(DownloadStatisticConstants.UBC_VALUE_TASK, "task_id =? ", new String[]{fubVar.j()});
-                        if (b) {
-                            Log.d("VoyagerDBHelper", "delete data from table task, del count = " + delete);
-                        }
-                    } catch (SQLException e) {
-                        if (b) {
-                            e.printStackTrace();
-                        }
-                    }
-                } finally {
-                    this.a.writeLock().unlock();
-                }
-            } else if (b) {
-                Log.d("VoyagerDBHelper", "task data and task id should not null");
+        if (interceptable == null || interceptable.invokeZL(1048596, this, z, gubVar) == null) {
+            gubVar.r(false);
+            gubVar.q(System.currentTimeMillis());
+            o(gubVar);
+            if (z) {
+                q(gubVar);
+            } else {
+                a(gubVar);
             }
         }
     }
 
-    public void j(fub fubVar) {
+    public void s(boolean z, gub gubVar, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fubVar) == null) {
-            if (fubVar != null && !TextUtils.isEmpty(fubVar.j()) && !TextUtils.isEmpty(fubVar.a())) {
-                this.a.writeLock().lock();
-                try {
-                    try {
-                        long update = getWritableDatabase().update(DownloadStatisticConstants.UBC_VALUE_TASK, d(fubVar), null, null);
-                        if (b) {
-                            Log.d("VoyagerDBHelper", "update data into table task, update count = " + update);
-                        }
-                    } catch (SQLException e) {
-                        if (b) {
-                            e.printStackTrace();
-                        }
-                    }
-                } finally {
-                    this.a.writeLock().unlock();
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), gubVar, Long.valueOf(j)}) == null) {
+            gubVar.r(false);
+            gubVar.s(gubVar.k() + 1);
+            gubVar.q(System.currentTimeMillis());
+            if (z) {
+                if (g) {
+                    Log.d("VoyagerTaskModel", "max upload count: " + gubVar.d() + ", has uploaded " + gubVar.k());
                 }
-            } else if (b) {
-                Log.d("VoyagerDBHelper", "task data and task id should not null");
+                if (gubVar.k() < gubVar.d()) {
+                    o(gubVar);
+                    q(gubVar);
+                    return;
+                }
+                n(gubVar);
+                this.e.remove(gubVar);
+                return;
+            }
+            o(gubVar);
+            a(gubVar);
+            if (g) {
+                Log.d("VoyagerTaskModel", "add task " + gubVar.j() + " to list");
+            }
+            this.d += j;
+            while (this.d > xtb.f().h()) {
+                if (!h()) {
+                    this.d = 0L;
+                    return;
+                }
             }
         }
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    public void t(boolean z, gub gubVar, long j, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048586, this, sQLiteDatabase, i, i2) == null) && b) {
-            Log.d("VoyagerDBHelper", "old version: " + i + ", new version: " + i2);
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Boolean.valueOf(z), gubVar, Long.valueOf(j), str}) == null) {
+            gubVar.r(true);
+            gubVar.q(System.currentTimeMillis());
+            gubVar.p(str);
+            n(gubVar);
+            if (z) {
+                this.e.remove(gubVar);
+                this.d -= j;
+            }
         }
     }
 }

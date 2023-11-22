@@ -1,7 +1,7 @@
 package com.baidu.tieba.forum.controller;
 
 import androidx.fragment.app.FragmentActivity;
-import com.baidu.tieba.og7;
+import com.baidu.tieba.pg7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import kotlin.reflect.KClass;
 /* loaded from: classes6.dex */
 public final class ForumActivityControllerMapKt {
     public static /* synthetic */ Interceptable $ic;
-    public static final Function1<FragmentActivity, Map<KClass<? extends og7>, og7>> a;
+    public static final Function1<FragmentActivity, Map<KClass<? extends pg7>, pg7>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class ForumActivityControllerMapKt {
         a = ForumActivityControllerMapKt$ForumActivityControllerMap$1.INSTANCE;
     }
 
-    public static final Function1<FragmentActivity, Map<KClass<? extends og7>, og7>> a() {
+    public static final Function1<FragmentActivity, Map<KClass<? extends pg7>, pg7>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {

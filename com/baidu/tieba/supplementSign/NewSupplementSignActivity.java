@@ -12,7 +12,7 @@ import com.baidu.tbadk.browser.TBWebContainerActivity;
 import com.baidu.tbadk.core.atomData.SupplementSignActivityConfig;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.jsa;
+import com.baidu.tieba.ksa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ public class NewSupplementSignActivity extends TBWebContainerActivity {
     public int Z;
     public int a0;
     public CustomMessageListener b0;
-    public jsa c0;
+    public ksa c0;
 
     /* loaded from: classes8.dex */
     public class a extends CustomMessageListener {
@@ -84,7 +84,7 @@ public class NewSupplementSignActivity extends TBWebContainerActivity {
         this.Z = 0;
         this.a0 = 0;
         this.b0 = new a(this, 2001194);
-        this.c0 = new jsa(this) { // from class: com.baidu.tieba.supplementSign.NewSupplementSignActivity.2
+        this.c0 = new ksa(this) { // from class: com.baidu.tieba.supplementSign.NewSupplementSignActivity.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ NewSupplementSignActivity this$0;
@@ -107,7 +107,7 @@ public class NewSupplementSignActivity extends TBWebContainerActivity {
                 this.this$0 = this;
             }
 
-            @Override // com.baidu.tieba.jsa
+            @Override // com.baidu.tieba.ksa
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;

@@ -27,8 +27,8 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.t55;
-import com.baidu.tieba.w65;
+import com.baidu.tieba.u55;
+import com.baidu.tieba.x65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public TextView d;
     public ImageView e;
     public FollowUserButton f;
-    public w65 g;
+    public x65 g;
     public UserData h;
 
     /* loaded from: classes6.dex */
@@ -237,9 +237,9 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public void f(BdPageContext<MsglistActivity<?>> bdPageContext) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, bdPageContext) == null) && (bdPageContext instanceof TbPageContext)) {
-            w65 w65Var = new w65((TbPageContext) bdPageContext, this.f);
-            this.g = w65Var;
-            w65Var.i(true);
+            x65 x65Var = new x65((TbPageContext) bdPageContext, this.f);
+            this.g = x65Var;
+            x65Var.i(true);
         }
     }
 
@@ -341,12 +341,12 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public final void j(@NonNull UserData userData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, userData) == null) {
-            t55 t55Var = new t55();
-            t55Var.j(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            t55Var.i(R.color.CAM_X0101);
-            t55Var.h(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
-            t55Var.g(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
-            this.f.setConfig(t55Var);
+            u55 u55Var = new u55();
+            u55Var.j(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            u55Var.i(R.color.CAM_X0101);
+            u55Var.h(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
+            u55Var.g(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
+            this.f.setConfig(u55Var);
             this.f.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             if (userData.getRelation() == 0) {
                 this.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ec));

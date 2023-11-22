@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.af6;
-import com.baidu.tieba.qe6;
+import com.baidu.tieba.bf6;
 import com.baidu.tieba.re6;
+import com.baidu.tieba.se6;
 import com.baidu.tieba.view.NewVoteCountDownView;
 import com.baidu.tieba.wh;
 import com.baidu.tieba.zz4;
@@ -37,8 +37,8 @@ public class VoteStatusCard extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public int b;
-    public re6 c;
-    public qe6 d;
+    public se6 c;
+    public re6 d;
     public TextView e;
     public VoteStatusView f;
     public TextView g;
@@ -207,7 +207,7 @@ public class VoteStatusCard extends LinearLayout {
                 return;
             }
         }
-        this.b = af6.b;
+        this.b = bf6.b;
         this.u = new a(this);
         d();
     }
@@ -288,7 +288,7 @@ public class VoteStatusCard extends LinearLayout {
             }
             TextView textView3 = this.k;
             if (textView3 != null) {
-                if (this.b > af6.a) {
+                if (this.b > bf6.a) {
                     i2 = color;
                 } else {
                     i2 = color2;
@@ -297,7 +297,7 @@ public class VoteStatusCard extends LinearLayout {
             }
             TextView textView4 = this.m;
             if (textView4 != null) {
-                if (this.b <= af6.b) {
+                if (this.b <= bf6.b) {
                     color = color2;
                 }
                 textView4.setTextColor(color);
@@ -336,14 +336,14 @@ public class VoteStatusCard extends LinearLayout {
         }
     }
 
-    public void setData(re6 re6Var) {
+    public void setData(se6 se6Var) {
         long a2;
-        qe6 a3;
+        re6 a3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, re6Var) == null) {
-            this.c = re6Var;
-            if (re6Var != null && re6Var.a() != null) {
-                qe6 a4 = this.c.a();
+        if (interceptable == null || interceptable.invokeL(1048581, this, se6Var) == null) {
+            this.c = se6Var;
+            if (se6Var != null && se6Var.a() != null) {
+                re6 a4 = this.c.a();
                 this.d = a4;
                 int h = a4.h();
                 this.b = h;
@@ -359,7 +359,7 @@ public class VoteStatusCard extends LinearLayout {
                 this.j.setText(StringHelper.getDateStringMdHm(a2 * 1000));
                 this.l.setText(StringHelper.getDateStringMdHm(this.d.i() * 1000));
                 this.n.setText(StringHelper.getDateStringMdHm(this.d.e() * 1000));
-                if (this.b == af6.b) {
+                if (this.b == bf6.b) {
                     this.p.setVisibility(0);
                     NewVoteCountDownView.b bVar = this.u;
                     if (bVar != null) {
@@ -370,14 +370,14 @@ public class VoteStatusCard extends LinearLayout {
                     this.p.setVisibility(8);
                 }
                 int i = this.b;
-                if (i == af6.c) {
+                if (i == bf6.c) {
                     this.q.setVisibility(0);
-                } else if (i == af6.b) {
+                } else if (i == bf6.b) {
                     this.q.setVisibility(8);
                 } else {
                     this.q.setVisibility(8);
                 }
-                if (re6Var.a() != null && (a3 = re6Var.a()) != null) {
+                if (se6Var.a() != null && (a3 = se6Var.a()) != null) {
                     NoticeContent f = a3.f();
                     if (f != null && !TextUtils.isEmpty(f.public_notice)) {
                         g(f.public_notice + "占");

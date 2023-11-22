@@ -7,14 +7,14 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.ForumBroadcastHelper;
-import com.baidu.tieba.qha;
+import com.baidu.tieba.rha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class PbDispatcher implements qha {
+public class PbDispatcher implements rha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,7 +32,7 @@ public class PbDispatcher implements qha {
         }
     }
 
-    @Override // com.baidu.tieba.qha
+    @Override // com.baidu.tieba.rha
     public void dispatch(JSONObject jSONObject, Context context) {
         int i;
         Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class PbDispatcher implements qha {
             createNormalCfg.setSimilarFrom(i);
             createNormalCfg.setQueryKeywordFromSearch(optString2);
             createNormalCfg.setChannelId(optString3);
-            createNormalCfg.setStartFrom(JavaTypesHelper.toInt(jSONObject.optString("from"), 12));
+            createNormalCfg.setStartFrom(JavaTypesHelper.toInt(jSONObject.optString("page_from"), 0));
             createNormalCfg.setHighLightPostId(optString6);
             createNormalCfg.setJumpToCommentArea(equals);
             createNormalCfg.setForumName(optString5);

@@ -70,13 +70,13 @@ public class wt3 extends Dialog {
 
         /* renamed from: com.baidu.tieba.wt3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class View$OnClickListenerC0527a implements View.OnClickListener {
+        public class View$OnClickListenerC0526a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0527a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0526a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -412,7 +412,7 @@ public class wt3 extends Dialog {
                     this.a.i.setVisibility(0);
                 }
                 this.a.e.setText(charSequence);
-                this.a.e.setOnClickListener(new View$OnClickListenerC0527a(this, onClickListener));
+                this.a.e.setOnClickListener(new View$OnClickListenerC0526a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;

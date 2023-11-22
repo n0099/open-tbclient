@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hb7;
+import com.baidu.tieba.ib7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class pfa implements hb7 {
+public final class pfa implements ib7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,28 +28,28 @@ public final class pfa implements hb7 {
         }
     }
 
-    @Override // com.baidu.tieba.gb7
+    @Override // com.baidu.tieba.hb7
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return hb7.a.b(this);
+            return ib7.a.b(this);
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gb7
-    public Map<String, String> a(d57 d57Var) {
+    @Override // com.baidu.tieba.hb7
+    public Map<String, String> a(e57 e57Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d57Var)) == null) {
-            return hb7.a.a(this, d57Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e57Var)) == null) {
+            return ib7.a.a(this, e57Var);
         }
         return (Map) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.hb7
-    public String c(d57 businessInfo) {
+    @Override // com.baidu.tieba.ib7
+    public String c(e57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
@@ -57,7 +57,7 @@ public final class pfa implements hb7 {
             if (!Intrinsics.areEqual(businessInfo.a().get("thread_type"), "74")) {
                 return "";
             }
-            return "live_mix_card_share_click";
+            return "live_mix_card_comment_click";
         }
         return (String) invokeL.objValue;
     }

@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface sc9 {
-    void a(String str);
+    void a(int i);
+
+    void b(float f);
 }

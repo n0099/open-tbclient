@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.cj6;
-import com.baidu.tieba.lsa;
+import com.baidu.tieba.dj6;
 import com.baidu.tieba.msa;
 import com.baidu.tieba.nsa;
-import com.baidu.tieba.psa;
+import com.baidu.tieba.osa;
+import com.baidu.tieba.qsa;
 import com.baidu.tieba.ts4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,7 +24,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class PaymentJsBridgePlugin_Proxy extends lsa {
+public class PaymentJsBridgePlugin_Proxy extends msa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ts4 mJsBridge;
@@ -51,73 +51,73 @@ public class PaymentJsBridgePlugin_Proxy extends lsa {
         hashSet.add(CommonTbJsBridge.OPEN_VIP_SUCCESS);
     }
 
-    @Override // com.baidu.tieba.lsa
-    public nsa dispatch(WebView webView, psa psaVar, nsa nsaVar) {
+    @Override // com.baidu.tieba.msa
+    public osa dispatch(WebView webView, qsa qsaVar, osa osaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, psaVar, nsaVar)) == null) {
-            if (nsaVar == null) {
-                nsaVar = new nsa();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, qsaVar, osaVar)) == null) {
+            if (osaVar == null) {
+                osaVar = new osa();
             }
-            String b = psaVar.b();
-            JSONObject e = psaVar.e();
+            String b = qsaVar.b();
+            JSONObject e = qsaVar.e();
             if (b.equals("payment/openMXDYab")) {
-                nsaVar.s(true);
-                nsa c = this.mJsBridge.c(webView, e.optString(PushConstants.PARAMS));
+                osaVar.s(true);
+                osa c = this.mJsBridge.c(webView, e.optString(PushConstants.PARAMS));
                 if (c != null) {
-                    nsaVar.y(c.f());
-                    nsaVar.u(c.b());
-                    nsaVar.o(c.a());
-                    nsaVar.x(c.e());
+                    osaVar.y(c.f());
+                    osaVar.u(c.b());
+                    osaVar.o(c.a());
+                    osaVar.x(c.e());
                 }
-                nsaVar.z(0);
+                osaVar.z(0);
             }
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeLLL.objValue;
+        return (osa) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.lsa
-    public cj6 getJsBridge() {
+    @Override // com.baidu.tieba.msa
+    public dj6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (cj6) invokeV.objValue;
+        return (dj6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lsa
-    public List<nsa> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.msa
+    public List<osa> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
-            nsa nsaVar = null;
+            osa osaVar = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals(CommonTbJsBridge.OPEN_VIP_SUCCESS)) {
-                nsaVar = this.mJsBridge.d(webView, hashMap);
+                osaVar = this.mJsBridge.d(webView, hashMap);
             }
-            if (nsaVar != null) {
-                nsaVar.z(0);
+            if (osaVar != null) {
+                osaVar.z(0);
             }
-            List<msa> list = this.mAsyncCallBackMethodList.get(str);
-            if (nsaVar != null && list != null) {
-                Iterator<msa> it = list.iterator();
-                if (!TextUtils.isEmpty(nsaVar.e())) {
+            List<nsa> list = this.mAsyncCallBackMethodList.get(str);
+            if (osaVar != null && list != null) {
+                Iterator<nsa> it = list.iterator();
+                if (!TextUtils.isEmpty(osaVar.e())) {
                     while (it.hasNext()) {
-                        msa next = it.next();
-                        if (next.b().equals(nsaVar.e())) {
-                            nsa nsaVar2 = new nsa();
-                            nsaVar2.w(next.a());
-                            nsaVar2.y(nsaVar.f());
-                            nsaVar2.u(nsaVar.b());
-                            nsaVar2.o(nsaVar.a());
-                            nsaVar2.j = nsaVar.j;
-                            nsaVar2.A(nsaVar.l());
-                            arrayList.add(nsaVar2);
+                        nsa next = it.next();
+                        if (next.b().equals(osaVar.e())) {
+                            osa osaVar2 = new osa();
+                            osaVar2.w(next.a());
+                            osaVar2.y(osaVar.f());
+                            osaVar2.u(osaVar.b());
+                            osaVar2.o(osaVar.a());
+                            osaVar2.j = osaVar.j;
+                            osaVar2.A(osaVar.l());
+                            arrayList.add(osaVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -125,15 +125,15 @@ public class PaymentJsBridgePlugin_Proxy extends lsa {
                     }
                 } else {
                     while (it.hasNext()) {
-                        msa next2 = it.next();
-                        nsa nsaVar3 = new nsa();
-                        nsaVar3.w(next2.a());
-                        nsaVar3.y(nsaVar.f());
-                        nsaVar3.u(nsaVar.b());
-                        nsaVar3.o(nsaVar.a());
-                        nsaVar3.j = nsaVar.j;
-                        nsaVar3.A(nsaVar.l());
-                        arrayList.add(nsaVar3);
+                        nsa next2 = it.next();
+                        osa osaVar3 = new osa();
+                        osaVar3.w(next2.a());
+                        osaVar3.y(osaVar.f());
+                        osaVar3.u(osaVar.b());
+                        osaVar3.o(osaVar.a());
+                        osaVar3.j = osaVar.j;
+                        osaVar3.A(osaVar.l());
+                        arrayList.add(osaVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

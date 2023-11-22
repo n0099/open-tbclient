@@ -6,23 +6,30 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.RoundTbImageView;
+import com.baidu.tieba.p26;
+import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tieba.recapp.view.AdAppInfoView;
+import com.baidu.tieba.recapp.widget.ApkDownloadView;
 import com.baidu.tieba.recapp.widget.CountDownTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class rea extends tea {
+public class rea extends uea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RelativeLayout h;
     public RoundTbImageView i;
     public TextView j;
     public TextView k;
-    public TextView l;
+    public ApkDownloadView l;
     public TextView m;
     public CountDownTextView n;
+    public AdAppInfoView o;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -92,15 +99,15 @@ public class rea extends tea {
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eea a;
+        public final /* synthetic */ fea a;
         public final /* synthetic */ rea b;
 
-        public c(rea reaVar, eea eeaVar) {
+        public c(rea reaVar, fea feaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {reaVar, eeaVar};
+                Object[] objArr = {reaVar, feaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -111,7 +118,7 @@ public class rea extends tea {
                 }
             }
             this.b = reaVar;
-            this.a = eeaVar;
+            this.a = feaVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -121,9 +128,9 @@ public class rea extends tea {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                eea eeaVar = this.a;
-                String str2 = eeaVar.d;
-                if (!df0.n(eeaVar.j)) {
+                fea feaVar = this.a;
+                String str2 = feaVar.d;
+                if (!df0.n(feaVar.j)) {
                     z = cf0.b(this.b.e.getPageActivity(), this.b.c.q);
                 } else {
                     z = false;
@@ -136,7 +143,7 @@ public class rea extends tea {
                     } else {
                         str = this.b.c.a;
                     }
-                    i = zca.b(this.b.e, str2, str, str3, this.a.j);
+                    i = ada.b(this.b.e, str2, str, str3, this.a.j);
                 } else {
                     i = 3;
                 }
@@ -146,9 +153,46 @@ public class rea extends tea {
                 ClogBuilder clogBuilder = new ClogBuilder();
                 clogBuilder.y(ClogBuilder.LogType.CLICK).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.b.c.position + 1)).p(this.b.c.g);
                 az0.e(clogBuilder);
-                dc9.c(this.b.c);
+                ec9.c(this.b.c);
                 this.b.n.c();
             }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d implements p26.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rea a;
+
+        public d(rea reaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {reaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = reaVar;
+        }
+
+        @Override // com.baidu.tieba.p26.a
+        public boolean a(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                e26.a(this.a.f.getButtonCmdScheme());
+                ec9.c(this.a.c);
+                return false;
+            }
+            return invokeL.booleanValue;
         }
     }
 
@@ -174,34 +218,39 @@ public class rea extends tea {
         l();
     }
 
-    @Override // com.baidu.tieba.tea
+    @Override // com.baidu.tieba.uea
     public void j(CountDownTextView.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             super.j(cVar);
             this.n.setTimeoutListener(cVar);
         }
     }
 
-    @Override // com.baidu.tieba.tea
-    public void c(eea eeaVar) {
+    @Override // com.baidu.tieba.uea
+    public void c(fea feaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, eeaVar) == null) {
-            super.c(eeaVar);
-            if (eeaVar == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, feaVar) == null) {
+            super.c(feaVar);
+            if (feaVar == null) {
                 return;
             }
-            this.i.startLoad(eeaVar.c, 30, false);
-            this.j.setText(eeaVar.b);
-            this.k.setText(eeaVar.i);
-            this.l.setText(eeaVar.e);
+            this.i.startLoad(feaVar.c, 30, false);
+            this.j.setText(feaVar.b);
+            this.k.setText(feaVar.i);
             this.m.setOnClickListener(new b(this));
             this.n.setFormatString(this.e.getResources().getString(R.string.obfuscated_res_0x7f0f00e6));
-            this.h.setOnClickListener(new c(this, eeaVar));
+            this.h.setOnClickListener(new c(this, feaVar));
+            AdvertAppInfo advertAppInfo = this.c;
+            if (advertAppInfo != null && this.f != null && advertAppInfo.e()) {
+                this.o.setAd(this.c);
+                this.o.setAppInfo(this.c.h.getAppInfoModel());
+                m();
+            }
         }
     }
 
-    @Override // com.baidu.tieba.tea
+    @Override // com.baidu.tieba.uea
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -214,17 +263,43 @@ public class rea extends tea {
         }
     }
 
+    @Override // com.baidu.tieba.uea
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.e();
+        }
+    }
+
     public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b.setOnClickListener(new a(this));
             this.h = (RelativeLayout) a(R.id.obfuscated_res_0x7f0900b9);
             this.i = (RoundTbImageView) a(R.id.user_head);
             this.j = (TextView) a(R.id.user_name);
             this.k = (TextView) a(R.id.obfuscated_res_0x7f09288a);
-            this.l = (TextView) a(R.id.obfuscated_res_0x7f092719);
+            this.l = (ApkDownloadView) a(R.id.download_btn);
             this.m = (TextView) a(R.id.replay_btn);
             this.n = (CountDownTextView) a(R.id.obfuscated_res_0x7f09081b);
+            this.o = (AdAppInfoView) a(R.id.obfuscated_res_0x7f0900e1);
+            this.l.setTextColorInitSkin(R.color.CAM_X0101);
+            this.l.setTextColor(SkinManager.getColor(R.color.CAM_X0101));
+            this.l.setTextSize(R.dimen.T_X06);
+            this.l.setForegroundSkin(R.color.black_alpha15);
+            this.l.setBackgroundSkin(R.drawable.obfuscated_res_0x7f08158c);
+            this.l.setRatio(0);
+            this.l.d();
+        }
+    }
+
+    public final void m() {
+        AdCard adCard;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (adCard = this.f) != null && adCard.downloadInfo != null) {
+            this.l.setInitText(adCard.operate.a);
+            this.l.setOnClickInterceptListener(new d(this));
+            new o26(this.l, gea.d(this.f));
         }
     }
 }

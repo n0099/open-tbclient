@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.searchbox.live.interfaces.service.LiveCustomSettingService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class rh9 implements LiveCustomSettingService {
+public class rh9 extends bg1<LiveCustomSettingService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,13 +26,15 @@ public class rh9 implements LiveCustomSettingService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.LiveCustomSettingService
-    public boolean isFreeTrafficMode() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bg1
+    /* renamed from: a */
+    public LiveCustomSettingService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return o1b.c().d();
+            return new sh9();
         }
-        return invokeV.booleanValue;
+        return (LiveCustomSettingService) invokeV.objValue;
     }
 }

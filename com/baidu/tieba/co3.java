@@ -38,12 +38,12 @@ public class co3 {
 
         /* renamed from: com.baidu.tieba.co3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0250a implements Runnable {
+        public class RunnableC0248a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0250a(a aVar) {
+            public RunnableC0248a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,7 +96,7 @@ public class co3 {
             if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
                 ViewGroup viewGroup = this.a;
                 if (viewGroup != null) {
-                    viewGroup.post(new RunnableC0250a(this));
+                    viewGroup.post(new RunnableC0248a(this));
                 }
                 if (this.c.i(quickLoginInfo)) {
                     this.c.a.putParcelable("quick_login_info", quickLoginInfo);

@@ -33,18 +33,18 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ns4 implements cj6 {
+public class ns4 implements dj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        bj6.a(this, webView, str, jSONObject);
+        cj6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public /* synthetic */ void onDestroy() {
-        bj6.b(this);
+        cj6.b(this);
     }
 
     /* loaded from: classes7.dex */
@@ -94,7 +94,7 @@ public class ns4 implements cj6 {
         }
     }
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -135,22 +135,22 @@ public class ns4 implements cj6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public nsa c(WebView webView, String str, String str2) {
+    public osa c(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2)) == null) {
-            nsa nsaVar = new nsa();
-            Context a2 = ri6.a(webView.getContext());
+            osa osaVar = new osa();
+            Context a2 = si6.a(webView.getContext());
             if (a2 == null) {
                 a2 = webView.getContext();
             }
             UtilHelper.smsTo(a2, str, str2);
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeLLL.objValue;
+        return (osa) invokeLLL.objValue;
     }
 
-    public nsa d(WebView webView, int i, long j, long j2, String str, String str2) {
+    public osa d(WebView webView, int i, long j, long j2, String str, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{webView, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), str, str2})) == null) {
@@ -165,9 +165,9 @@ public class ns4 implements cj6 {
                 BdLog.e(e);
             }
             UiUtils.post(new a(this, jSONObject));
-            return new nsa();
+            return new osa();
         }
-        return (nsa) invokeCommon.objValue;
+        return (osa) invokeCommon.objValue;
     }
 
     public final String e(WebView webView) {
@@ -192,32 +192,32 @@ public class ns4 implements cj6 {
         return (String) invokeL.objValue;
     }
 
-    public final nsa f(HashMap<String, Object> hashMap) {
+    public final osa f(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, hashMap)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             try {
-                nsaVar.o(DataExt.toJson(hashMap));
-                return nsaVar;
+                osaVar.o(DataExt.toJson(hashMap));
+                return osaVar;
             } catch (Exception e) {
                 BdLog.e(e);
-                return nsaVar;
+                return osaVar;
             }
         }
-        return (nsa) invokeL.objValue;
+        return (osa) invokeL.objValue;
     }
 
-    public nsa o(WebView webView) {
+    public osa o(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, webView)) == null) {
-            return new nsa();
+            return new osa();
         }
-        return (nsa) invokeL.objValue;
+        return (osa) invokeL.objValue;
     }
 
-    public nsa g(WebView webView, JSONObject jSONObject, String str, String str2, String str3, ArrayList<String> arrayList, String str4) {
+    public osa g(WebView webView, JSONObject jSONObject, String str, String str2, String str3, ArrayList<String> arrayList, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{webView, jSONObject, str, str2, str3, arrayList, str4})) == null) {
@@ -234,43 +234,43 @@ public class ns4 implements cj6 {
                 BdLog.e(e);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921820, jSONObject2));
-            return new nsa();
+            return new osa();
         }
-        return (nsa) invokeCommon.objValue;
+        return (osa) invokeCommon.objValue;
     }
 
-    public nsa h(WebView webView, HashMap<String, Object> hashMap) {
+    public osa h(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             try {
-                nsaVar.o(DataExt.toJson(hashMap));
+                osaVar.o(DataExt.toJson(hashMap));
             } catch (Exception e) {
                 BdLog.e(e);
             }
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 
-    public nsa i(WebView webView, boolean z) {
+    public osa i(WebView webView, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, z)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             if (z) {
-                go5.c();
+                ho5.c();
             }
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeLZ.objValue;
+        return (osa) invokeLZ.objValue;
     }
 
-    public nsa j(WebView webView, HashMap<String, Object> hashMap) {
+    public osa j(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, webView, hashMap)) == null) {
@@ -279,10 +279,10 @@ public class ns4 implements cj6 {
             }
             return f(hashMap);
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 
-    public nsa k(WebView webView, HashMap<String, Object> hashMap) {
+    public osa k(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, webView, hashMap)) == null) {
@@ -291,33 +291,33 @@ public class ns4 implements cj6 {
             }
             return f(hashMap);
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 
-    public nsa l(WebView webView, HashMap<String, Object> hashMap) {
+    public osa l(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, webView, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             try {
-                nsaVar.o(DataExt.toJson(hashMap));
+                osaVar.o(DataExt.toJson(hashMap));
             } catch (Exception e) {
                 BdLog.e(e);
             }
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 
-    public nsa m(WebView webView, ArrayList<String> arrayList) {
+    public osa m(WebView webView, ArrayList<String> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, webView, arrayList)) == null) {
-            nsa nsaVar = new nsa();
-            Context a2 = ri6.a(webView.getContext());
+            osa osaVar = new osa();
+            Context a2 = si6.a(webView.getContext());
             if (a2 == null) {
                 a2 = webView.getContext();
             }
@@ -327,12 +327,12 @@ public class ns4 implements cj6 {
                     Glide.with(a2).asBitmap().load(it.next()).diskCacheStrategy(DiskCacheStrategy.ALL).preload();
                 }
             }
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 
-    public nsa n(WebView webView, ArrayList<String> arrayList) {
+    public osa n(WebView webView, ArrayList<String> arrayList) {
         InterceptResult invokeLL;
         char c;
         Interceptable interceptable = $ic;
@@ -341,9 +341,9 @@ public class ns4 implements cj6 {
                 Iterator<String> it = arrayList.iterator();
                 c = 65535;
                 while (it.hasNext()) {
-                    String a2 = cv5.a(it.next());
+                    String a2 = dv5.a(it.next());
                     if (a2 != null) {
-                        if (!cv5.d(webView.getContext(), a2, null)) {
+                        if (!dv5.d(webView.getContext(), a2, null)) {
                             c = 2;
                         }
                     } else {
@@ -353,42 +353,42 @@ public class ns4 implements cj6 {
             } else {
                 c = 65535;
             }
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             if (c == 65535) {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("resultCode", 0);
-                    nsaVar.o(jSONObject.toString());
-                    return nsaVar;
+                    osaVar.o(jSONObject.toString());
+                    return osaVar;
                 } catch (JSONException e) {
                     BdLog.e(e);
                 }
             } else if (c == 1) {
-                nsaVar.r("url不支持预热");
+                osaVar.r("url不支持预热");
             } else if (c == 2) {
-                nsaVar.r("预热池已存在该url");
+                osaVar.r("预热池已存在该url");
             } else {
-                nsaVar.r("其它错误");
+                osaVar.r("其它错误");
             }
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 
-    public nsa p(WebView webView, String str, String str2, String str3, String str4, String str5) {
+    public osa p(WebView webView, String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{webView, str, str2, str3, str4, str5})) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             ReadRecordsData readRecordsData = new ReadRecordsData(str, str2, str3, str4, str5);
             readRecordsData.Q(true);
-            go5.d(str2, readRecordsData);
-            return nsaVar;
+            ho5.d(str2, readRecordsData);
+            return osaVar;
         }
-        return (nsa) invokeCommon.objValue;
+        return (osa) invokeCommon.objValue;
     }
 
-    public nsa q(WebView webView, String str, String str2, String str3) {
+    public osa q(WebView webView, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048593, this, webView, str, str2, str3)) == null) {
@@ -401,8 +401,8 @@ public class ns4 implements cj6 {
                 BdLog.e(e);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921816, jSONObject));
-            return new nsa();
+            return new osa();
         }
-        return (nsa) invokeLLLL.objValue;
+        return (osa) invokeLLLL.objValue;
     }
 }

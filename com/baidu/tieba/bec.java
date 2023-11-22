@@ -1,91 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.zcc;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public abstract class bec {
+public class bec {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public zcc a;
-    public boolean b;
 
-    public abstract void A(mcc mccVar);
-
-    public abstract void B(rcc rccVar);
-
-    public abstract void C(scc sccVar);
-
-    public abstract void D(tcc tccVar);
-
-    public abstract void E(int i);
-
-    public abstract void F(int i, long j);
-
-    public abstract void G();
-
-    public abstract void e();
-
-    public abstract void f();
-
-    public abstract long g();
-
-    public abstract long h();
-
-    public abstract Object i();
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "12.1.0.34" : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947643529, "Lcom/baidu/tieba/bec;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947643529, "Lcom/baidu/tieba/bec;");
+        }
     }
 
-    public abstract int k();
-
-    public abstract int l();
-
-    public abstract void m();
-
-    public abstract void n();
-
-    public abstract void o();
-
-    public abstract void p();
-
-    public abstract void q(Executor executor, zcc.d dVar);
-
-    public abstract void r(long j);
-
-    public abstract void s(ecc eccVar);
-
-    public abstract void t(ecc eccVar);
-
-    public abstract void u(int i);
-
-    public abstract void v(int i);
-
-    public abstract void w(Executor executor, gcc gccVar);
-
-    public abstract void x(hcc hccVar);
-
-    public abstract void y(jcc jccVar);
-
-    public abstract void z(lcc lccVar);
-
-    public bec() {
+    public static synchronized void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            synchronized (bec.class) {
+                if (a) {
+                    return;
+                }
+                a = true;
+                Log.i("[cronet]", "cronet_lib load");
             }
         }
     }

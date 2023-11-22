@@ -12,9 +12,9 @@ import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.nb;
 import com.baidu.tieba.ob;
-import com.baidu.tieba.qw5;
-import com.baidu.tieba.vw5;
-import com.baidu.tieba.x16;
+import com.baidu.tieba.rw5;
+import com.baidu.tieba.ww5;
+import com.baidu.tieba.y16;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,11 +29,11 @@ public class TbImageMemoryCache implements LifecycleObserver {
     public transient /* synthetic */ FieldHolder $fh;
     public nb<String, BdImage> a;
     public nb<String, BdImage> b;
-    public x16<String, BdImage> c;
+    public y16<String, BdImage> c;
     public nb<String, Bitmap> d;
     public nb<String, BdImage> e;
-    public ob<qw5> f;
-    public vw5 g;
+    public ob<rw5> f;
+    public ww5 g;
 
     /* loaded from: classes5.dex */
     public class a extends nb<String, BdImage> {
@@ -196,7 +196,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
     }
 
     public void J() {
-        ob<qw5> obVar;
+        ob<rw5> obVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (obVar = this.f) != null) {
             obVar.g(0);
@@ -241,7 +241,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
         this.d = null;
         this.e = null;
         this.a = new a(this, 0);
-        this.c = new x16<>();
+        this.c = new y16<>();
         this.b = new b(this, 0);
         this.d = new c(this, 0);
         this.e = new nb<>(Integer.MAX_VALUE);
@@ -350,20 +350,20 @@ public class TbImageMemoryCache implements LifecycleObserver {
         return (Bitmap) invokeL.objValue;
     }
 
-    public ob<qw5> G(int i) {
+    public ob<rw5> G(int i) {
         InterceptResult invokeI;
-        vw5 vw5Var;
+        ww5 ww5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (this.f != null && (vw5Var = this.g) != null) {
-                if (vw5Var.g() == i) {
+            if (this.f != null && (ww5Var = this.g) != null) {
+                if (ww5Var.g() == i) {
                     return this.f;
                 }
                 this.g.j(i);
                 this.f.c();
             }
             if (this.g == null) {
-                this.g = new vw5(i);
+                this.g = new ww5(i);
             }
             if (this.f == null) {
                 this.f = new ob<>(this.g, 6, 0);

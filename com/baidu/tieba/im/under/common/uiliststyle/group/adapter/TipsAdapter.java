@@ -16,7 +16,7 @@ import com.baidu.tieba.im.base.core.uilist.BaseSysAdapter;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.TbTipsSysMsg;
 import com.baidu.tieba.im.under.common.uiliststyle.group.item.TipsSysItem;
-import com.baidu.tieba.uv8;
+import com.baidu.tieba.vv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -119,7 +119,7 @@ public class TipsAdapter extends BaseSysAdapter<TipsSysItem, Holder> {
             EMManager.from(holder.a).setTextColor(R.color.CAM_X0101).setTextSize(R.dimen.T_X09);
             holder.a.setText(tbMsg.getTips());
             if (-7014 == tbMsg.getType()) {
-                uv8.d("c15095", 1, this.l, this.m, TbadkCoreApplication.getCurrentAccount());
+                vv8.d("c15095", 1, this.l, this.m, TbadkCoreApplication.getCurrentAccount());
             }
         }
     }

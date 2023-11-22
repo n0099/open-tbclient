@@ -11,8 +11,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ms9 implements oi {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public boolean b;
 
     static {
         InterceptResult invokeClinit;
@@ -27,7 +29,7 @@ public class ms9 implements oi {
                 return;
             }
         }
-        a = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
     public ms9() {
@@ -49,7 +51,7 @@ public class ms9 implements oi {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return a;
+            return c;
         }
         return (BdUniqueId) invokeV.objValue;
     }

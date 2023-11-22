@@ -3,6 +3,8 @@ package com.baidu.tieba;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
@@ -15,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ky7 extends pp7<wy7, ThreadCardViewHolder<wy7>> {
+public class ky7 extends qp7<wy7, ThreadCardViewHolder<wy7>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,7 +67,7 @@ public class ky7 extends pp7<wy7, ThreadCardViewHolder<wy7>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pp7, com.baidu.tieba.bi
+    @Override // com.baidu.tieba.qp7, com.baidu.tieba.bi
     /* renamed from: I */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wy7 wy7Var, ThreadCardViewHolder<wy7> threadCardViewHolder) {
         InterceptResult invokeCommon;
@@ -74,6 +76,7 @@ public class ky7 extends pp7<wy7, ThreadCardViewHolder<wy7>> {
             threadCardViewHolder.a().s(i);
             threadCardViewHolder.e(wy7Var);
             threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new c65(9)));
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

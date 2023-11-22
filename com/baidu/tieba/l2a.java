@@ -7,14 +7,14 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.person.holder.PersonInfoUserPicViewHolder;
+import com.baidu.tieba.person.holder.PersonInfoAddUserPicViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class l2a extends bi<dd5, PersonInfoUserPicViewHolder> {
+public class l2a extends bi<s2a, PersonInfoAddUserPicViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -45,13 +45,13 @@ public class l2a extends bi<dd5, PersonInfoUserPicViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bi
     /* renamed from: t */
-    public PersonInfoUserPicViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public PersonInfoAddUserPicViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new PersonInfoUserPicViewHolder(LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d09df, (ViewGroup) null));
+            return new PersonInfoAddUserPicViewHolder(LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d09de, (ViewGroup) null));
         }
-        return (PersonInfoUserPicViewHolder) invokeL.objValue;
+        return (PersonInfoAddUserPicViewHolder) invokeL.objValue;
     }
 
     public void x(View.OnClickListener onClickListener) {
@@ -64,14 +64,14 @@ public class l2a extends bi<dd5, PersonInfoUserPicViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bi
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, dd5 dd5Var, PersonInfoUserPicViewHolder personInfoUserPicViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, s2a s2aVar, PersonInfoAddUserPicViewHolder personInfoAddUserPicViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dd5Var, personInfoUserPicViewHolder})) == null) {
-            if (personInfoUserPicViewHolder != null && dd5Var != null) {
-                personInfoUserPicViewHolder.d(this.b);
-                personInfoUserPicViewHolder.a(dd5Var);
-                return personInfoUserPicViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, s2aVar, personInfoAddUserPicViewHolder})) == null) {
+            if (personInfoAddUserPicViewHolder != null && s2aVar != null) {
+                personInfoAddUserPicViewHolder.d(this.b);
+                personInfoAddUserPicViewHolder.a(s2aVar);
+                return personInfoAddUserPicViewHolder.getView();
             }
             return null;
         }

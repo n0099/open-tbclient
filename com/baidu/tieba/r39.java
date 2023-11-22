@@ -1,66 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.graphics.Rect;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.view.View;
-import android.widget.PopupWindow;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class r39 extends PopupWindow {
+public final class r39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final String b;
+    public final long c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r39(View contentView, int i, int i2, boolean z) {
-        super(contentView, i, i2, z);
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof r39) {
+                r39 r39Var = (r39) obj;
+                return this.a == r39Var.a && Intrinsics.areEqual(this.b, r39Var.b) && this.c == r39Var.c;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a * 31) + this.b.hashCode()) * 31) + c.a(this.c) : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "OptionData(type=" + this.a + ", showContent=" + this.b + ", value=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public r39(int i, String showContent, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {contentView, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {Integer.valueOf(i), showContent, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((View) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Boolean) objArr2[3]).booleanValue());
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(contentView, "contentView");
+        Intrinsics.checkNotNullParameter(showContent, "showContent");
+        this.a = i;
+        this.b = showContent;
+        this.c = j;
     }
 
-    @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view2) {
-        Integer num;
-        Resources resources;
-        DisplayMetrics displayMetrics;
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                Rect rect = new Rect();
-                if (view2 != null) {
-                    view2.getGlobalVisibleRect(rect);
-                }
-                if (view2 != null && (resources = view2.getResources()) != null && (displayMetrics = resources.getDisplayMetrics()) != null) {
-                    num = Integer.valueOf(displayMetrics.heightPixels - rect.bottom);
-                } else {
-                    num = null;
-                }
-                if (num != null) {
-                    setHeight(num.intValue() + UtilHelper.getStatusBarHeight());
-                }
-            }
-            super.showAsDropDown(view2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public final long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
     }
 }

@@ -38,8 +38,8 @@ import com.baidu.tbadk.core.view.BlueCircleProgressDialog;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aq5;
-import com.baidu.tieba.b55;
-import com.baidu.tieba.zp5;
+import com.baidu.tieba.bq5;
+import com.baidu.tieba.c55;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -57,8 +57,8 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public View c;
     public BdGridView d;
     public LinearLayout e;
-    public zp5 f;
-    public ArrayList<aq5> g;
+    public aq5 f;
+    public ArrayList<bq5> g;
     public int h;
     public h i;
     public BdImage j;
@@ -134,7 +134,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h != -1) {
                 ChangeSystemPhotoActivity changeSystemPhotoActivity = this.a;
-                changeSystemPhotoActivity.c1((aq5) changeSystemPhotoActivity.g.get(this.a.h));
+                changeSystemPhotoActivity.c1((bq5) changeSystemPhotoActivity.g.get(this.a.h));
             }
         }
     }
@@ -232,11 +232,11 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, getPopularPortraitsInfoResult) == null) && getPopularPortraitsInfoResult != null && (list = getPopularPortraitsInfoResult.popularPortraitsInfoList) != null && list.size() > 0) {
                 for (GetPopularPortraitsInfoResult.PopularPortraitsInfo popularPortraitsInfo : getPopularPortraitsInfoResult.popularPortraitsInfoList) {
                     if (popularPortraitsInfo != null && popularPortraitsInfo.url != null) {
-                        aq5 aq5Var = new aq5();
-                        aq5Var.d(popularPortraitsInfo.url);
-                        aq5Var.c(popularPortraitsInfo.num);
-                        aq5Var.b(popularPortraitsInfo.myItem);
-                        this.a.g.add(aq5Var);
+                        bq5 bq5Var = new bq5();
+                        bq5Var.d(popularPortraitsInfo.url);
+                        bq5Var.c(popularPortraitsInfo.num);
+                        bq5Var.b(popularPortraitsInfo.myItem);
+                        this.a.g.add(bq5Var);
                     }
                 }
                 this.a.f.c(this.a.g);
@@ -483,7 +483,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                     MessageManager.getInstance().sendMessage(new UserGrowthTaskRequestMessage(UserGrowthTaskRequestMessage.SET_USER_AVATAR));
                 }
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    new b55().d(this.b.getResources().getString(R.string.reset_success));
+                    new c55().d(this.b.getResources().getString(R.string.reset_success));
                     Intent intent = new Intent();
                     intent.putExtra(ChangeSystemPhotoActivityConfig.NEW_PHOTO_URL, this.b.k);
                     intent.putExtra("upload_image_type", 1);
@@ -495,7 +495,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                     }
                     return;
                 }
-                new b55().c(this.a.getNetContext().getResponse().mErrorString);
+                new c55().c(this.a.getNetContext().getResponse().mErrorString);
                 this.b.finish();
             }
         }
@@ -633,18 +633,18 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             SkinManager.setViewTextColor(this.b, R.color.navbar_btn_color, 1);
             this.b.setOnClickListener(new b(this));
             this.d = (BdGridView) findViewById(R.id.obfuscated_res_0x7f091ef1);
-            zp5 zp5Var = new zp5(getPageContext());
-            this.f = zp5Var;
-            this.d.setAdapter((ListAdapter) zp5Var);
+            aq5 aq5Var = new aq5(getPageContext());
+            this.f = aq5Var;
+            this.d.setAdapter((ListAdapter) aq5Var);
             this.d.setOnItemClickListener(new c(this));
         }
     }
 
-    public void c1(aq5 aq5Var) {
+    public void c1(bq5 bq5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, aq5Var) == null) && aq5Var != null && !StringUtils.isNull(aq5Var.a())) {
-            this.k = aq5Var.a();
-            BdResourceLoader.getInstance().loadResource(aq5Var.a(), 10, this.n, 0, 0, getUniqueId(), new Object[0]);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, bq5Var) == null) && bq5Var != null && !StringUtils.isNull(bq5Var.a())) {
+            this.k = bq5Var.a();
+            BdResourceLoader.getInstance().loadResource(bq5Var.a(), 10, this.n, 0, 0, getUniqueId(), new Object[0]);
         }
     }
 

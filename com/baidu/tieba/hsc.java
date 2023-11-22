@@ -5,20 +5,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FeedEntrybarComponent;
+import tbclient.FeedContentColor;
+import tbclient.FeedContentText;
 /* loaded from: classes6.dex */
-public class hsc extends poc {
+public class hsc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedEntrybarComponent feedEntrybarComponent) {
+    public static JSONObject b(@NonNull FeedContentText feedContentText) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedEntrybarComponent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedContentText)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "text", feedEntrybarComponent.text);
-            poc.a(jSONObject, "schema", feedEntrybarComponent.schema);
+            qoc.a(jSONObject, "text", feedContentText.text);
+            FeedContentColor feedContentColor = feedContentText.color;
+            if (feedContentColor != null) {
+                qoc.a(jSONObject, "color", csc.b(feedContentColor));
+            }
+            FeedContentColor feedContentColor2 = feedContentText.bg_color;
+            if (feedContentColor2 != null) {
+                qoc.a(jSONObject, "bg_color", csc.b(feedContentColor2));
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

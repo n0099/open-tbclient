@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fc9;
-import com.baidu.tieba.qb9;
+import com.baidu.tieba.gc9;
+import com.baidu.tieba.rb9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -101,26 +101,26 @@ public class CommonImageButton extends FrameLayout {
         }
     }
 
-    public void b(fc9 fc9Var) {
+    public void b(gc9 gc9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fc9Var) != null) || fc9Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gc9Var) != null) || gc9Var == null) {
             return;
         }
-        if (!fc9Var.i()) {
-            qb9.a().d(fc9Var, fc9Var.g());
+        if (!gc9Var.i()) {
+            rb9.a().d(gc9Var, gc9Var.g());
         }
-        if (fc9Var.a()) {
-            c(fc9Var);
+        if (gc9Var.a()) {
+            c(gc9Var);
         } else {
-            d(fc9Var);
+            d(gc9Var);
         }
     }
 
-    public final void c(fc9 fc9Var) {
+    public final void c(gc9 gc9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fc9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gc9Var) == null) {
             this.d.setVisibility(8);
-            int e = fc9Var.e();
+            int e = gc9Var.e();
             if (e != 0) {
                 this.c.setVisibility(0);
                 SkinManager.setBackgroundResource(this.c, e);
@@ -130,12 +130,12 @@ public class CommonImageButton extends FrameLayout {
         }
     }
 
-    public final void d(fc9 fc9Var) {
+    public final void d(gc9 gc9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fc9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, gc9Var) == null) {
             this.c.setVisibility(8);
             this.d.setVisibility(0);
-            this.d.startLoad(fc9Var.d(), 10, false);
+            this.d.startLoad(gc9Var.d(), 10, false);
         }
     }
 }

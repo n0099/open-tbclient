@@ -26,18 +26,18 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ak5;
 import com.baidu.tieba.bk5;
+import com.baidu.tieba.ck5;
 import com.baidu.tieba.h70;
-import com.baidu.tieba.j96;
-import com.baidu.tieba.vq7;
+import com.baidu.tieba.k96;
+import com.baidu.tieba.wq7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class AlaLiveTabFeedPageFragment extends BaseFragment implements vq7 {
+public class AlaLiveTabFeedPageFragment extends BaseFragment implements wq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ILiveFeedPageView a;
@@ -107,7 +107,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements vq7 {
         this.h = new a(this, 2921774);
     }
 
-    @Override // com.baidu.tieba.vq7
+    @Override // com.baidu.tieba.wq7
     public void A0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -115,7 +115,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements vq7 {
         }
     }
 
-    @Override // com.baidu.tieba.vq7
+    @Override // com.baidu.tieba.wq7
     public void G0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -124,7 +124,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements vq7 {
         }
     }
 
-    @Override // com.baidu.tieba.vq7
+    @Override // com.baidu.tieba.wq7
     public void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -136,7 +136,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements vq7 {
         }
     }
 
-    @Override // com.baidu.tieba.vq7
+    @Override // com.baidu.tieba.wq7
     public void c0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -165,7 +165,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements vq7 {
             if (iLiveFeedPageView != null) {
                 iLiveFeedPageView.onViewDestroy();
             }
-            ak5.e().b();
+            bk5.e().b();
             MessageManager.getInstance().unRegisterListener(this.h);
         }
     }
@@ -250,7 +250,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements vq7 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(null);
             w2("onCreate");
-            j96.a().c(TbadkCoreApplication.getInst());
+            k96.a().c(TbadkCoreApplication.getInst());
             this.a = new h70();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_END_STAMP_KEY);
             registerListener(this.h);
@@ -273,7 +273,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements vq7 {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
                 layoutParams.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004) + TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
                 layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
-                if (bk5.e()) {
+                if (ck5.e()) {
                     layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) + UtilHelper.getDimenPixelSize(R.dimen.tbds177);
                 } else {
                     layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);

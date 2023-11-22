@@ -1,63 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.net.Uri;
+import android.view.View;
+import android.widget.ImageView;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.util.media.WebpUtils;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.v27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes8.dex */
 public final class uc7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final uc7 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948206272, "Lcom/baidu/tieba/uc7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948206272, "Lcom/baidu/tieba/uc7;");
-                return;
-            }
-        }
-        a = new uc7();
-    }
-
-    public uc7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final int a(String resName) {
+    public static final int a(String str) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, resName)) == null) {
-            Intrinsics.checkNotNullParameter(resName, "resName");
-            try {
-                return g27.a.getResources().getIdentifier(resName, EMABTest.TYPE_STRING, g27.a.getPackageName());
-            } catch (Exception e) {
-                BdLog.e(e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
                 return 0;
             }
+            return BdUtilHelper.getDimens(h27.a, h27.a.getResources().getIdentifier(str, EMABTest.TYPE_DIMEN, h27.a.getPackageName()));
         }
         return invokeL.intValue;
+    }
+
+    public static final void b(View imageView, String iconUrl) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, imageView, iconUrl) == null) {
+            Intrinsics.checkNotNullParameter(imageView, "imageView");
+            Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
+            v27.e a = v27.a().a();
+            boolean z = false;
+            if (StringsKt__StringsJVMKt.startsWith$default(iconUrl, "local://icon/", false, 2, null)) {
+                if (!(imageView instanceof ImageView)) {
+                    return;
+                }
+                Uri parse = Uri.parse(iconUrl);
+                List<String> pathSegments = parse.getPathSegments();
+                if (pathSegments.size() > 0) {
+                    int identifier = h27.a.getResources().getIdentifier(pathSegments.get(pathSegments.size() - 1), ResourceManager.DRAWABLE, h27.a.getPackageName());
+                    String queryParameter = parse.getQueryParameter("type");
+                    String queryParameter2 = parse.getQueryParameter("color");
+                    if ((queryParameter2 == null || queryParameter2.length() == 0) ? true : true) {
+                        SkinManager.setImageResource((ImageView) imageView, identifier);
+                        return;
+                    }
+                    int identifier2 = h27.a.getResources().getIdentifier(queryParameter2, "color", h27.a.getPackageName());
+                    if (Intrinsics.areEqual(queryParameter, WebpUtils.TYPE_IMG_WEBP)) {
+                        ((ImageView) imageView).setImageDrawable(WebPManager.getPureDrawable(identifier, SkinManager.getColor(identifier2), WebPManager.ResourceStateType.NORMAL));
+                        if (imageView instanceof TbImageView) {
+                            ((TbImageView) imageView).setContentColorFilter(new PorterDuffColorFilter(SkinManager.getColor(identifier2), PorterDuff.Mode.SRC_ATOP));
+                        }
+                    } else if (Intrinsics.areEqual(queryParameter, "svg")) {
+                        ((ImageView) imageView).setImageDrawable(SvgManager.getInstance().getPureDrawable(identifier, identifier2, null));
+                        if (imageView instanceof TbImageView) {
+                            ((TbImageView) imageView).setContentColorFilter(new PorterDuffColorFilter(SkinManager.getColor(identifier2), PorterDuff.Mode.SRC_ATOP));
+                        }
+                    } else {
+                        SkinManager.setImageResource((ImageView) imageView, identifier);
+                    }
+                }
+            } else if (a != null) {
+                a.f(imageView, iconUrl);
+            }
+        }
     }
 }

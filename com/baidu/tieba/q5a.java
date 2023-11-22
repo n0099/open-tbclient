@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class q5a extends bi<a7a, CardViewHolder<h8a>> {
+public class q5a extends bi<a7a, CardViewHolder<c8a>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
@@ -44,11 +44,11 @@ public class q5a extends bi<a7a, CardViewHolder<h8a>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bi
     /* renamed from: t */
-    public CardViewHolder<h8a> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<c8a> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new h8a(this.a));
+            return new CardViewHolder<>(new c8a(this.a));
         }
         return (CardViewHolder) invokeL.objValue;
     }
@@ -56,7 +56,7 @@ public class q5a extends bi<a7a, CardViewHolder<h8a>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bi
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, a7a a7aVar, CardViewHolder<h8a> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, a7a a7aVar, CardViewHolder<c8a> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, a7aVar, cardViewHolder})) == null) {

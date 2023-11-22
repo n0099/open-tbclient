@@ -222,7 +222,7 @@ public class ut2 {
 
     /* JADX WARN: Type inference failed for: r6v1 */
     /* JADX WARN: Type inference failed for: r6v2 */
-    /* JADX WARN: Type inference failed for: r6v3, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r6v3, types: [int, boolean] */
     public static void e(Activity activity, String str, int i, boolean z, au2 au2Var) {
         ActivityResultDispatcher resultDispatcher;
         Uri fromFile;

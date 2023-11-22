@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qm6;
 import com.baidu.tieba.rm6;
+import com.baidu.tieba.sm6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +55,7 @@ public class RecommendTopicData {
         }
 
         /* loaded from: classes4.dex */
-        public static class a implements Parcelable.Creator<RecommendTopicListData> {
+        public class a implements Parcelable.Creator<RecommendTopicListData> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -128,18 +128,18 @@ public class RecommendTopicData {
             }
         }
 
-        public qm6 getConvertedCardData() {
+        public rm6 getConvertedCardData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                qm6 qm6Var = new qm6();
-                qm6Var.c = this.tag;
-                qm6Var.a = this.topicId;
-                qm6Var.b = this.topicName;
-                qm6Var.b(this.isVideoTopicInt);
-                return qm6Var;
+                rm6 rm6Var = new rm6();
+                rm6Var.c = this.tag;
+                rm6Var.a = this.topicId;
+                rm6Var.b = this.topicName;
+                rm6Var.b(this.isVideoTopicInt);
+                return rm6Var;
             }
-            return (qm6) invokeV.objValue;
+            return (rm6) invokeV.objValue;
         }
 
         public long getDiscussNum() {
@@ -318,13 +318,13 @@ public class RecommendTopicData {
         return (String) invokeV.objValue;
     }
 
-    public rm6 a() {
+    public sm6 a() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            rm6 rm6Var = new rm6();
-            rm6Var.c = b();
+            sm6 sm6Var = new sm6();
+            sm6Var.c = b();
             if (this.b != null) {
                 arrayList = new ArrayList();
                 for (RecommendTopicListData recommendTopicListData : this.b) {
@@ -335,10 +335,10 @@ public class RecommendTopicData {
             } else {
                 arrayList = null;
             }
-            rm6Var.d = arrayList;
-            return rm6Var;
+            sm6Var.d = arrayList;
+            return sm6Var;
         }
-        return (rm6) invokeV.objValue;
+        return (sm6) invokeV.objValue;
     }
 
     public final boolean c(RecommendTopicListData recommendTopicListData) {

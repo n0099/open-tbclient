@@ -1,221 +1,250 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.sapi2.views.SmsLoginView;
-import com.baidu.tbadk.TbConfig;
+import androidx.core.util.Pair;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.io.Closeables;
+import com.baidu.searchbox.download.util.DownloadErrorLogger;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tieba.browser.exception.UnzipErrorException;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ki6 {
+public class ki6 extends BdAsyncTask<Void, Void, ii6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final String c;
+    public final String d;
 
-    public static hi6 a(String str, String str2) {
-        InterceptResult invokeLL;
+    public ki6(String str, bca bcaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            File m = bi6.n().m();
-            File file = new File(m, str + "/" + str2);
-            if (!file.exists() || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            Map<String, mi6> b = b(file);
-            if (!f(file, b)) {
-                return null;
-            }
-            return new hi6(file, str2, b);
-        }
-        return (hi6) invokeLL.objValue;
-    }
-
-    public static Map<String, mi6> b(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            File file2 = new File(file, "router.json");
-            if (!file2.exists()) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(xj6.d(file2));
-                Map<String, mi6> d = d(jSONObject.optJSONObject("config"));
-                Map<String, mi6> d2 = d(jSONObject.optJSONObject("proxyConfig"));
-                if (!vj6.b(d2)) {
-                    d.putAll(d2);
-                }
-                return d;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, bcaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (Map) invokeL.objValue;
+        this.a = str;
+        this.c = bcaVar.c();
+        this.b = bcaVar.a();
+        this.d = bcaVar.b();
     }
 
-    public static Set<String> c(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static void c(String str, bca bcaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            HashSet hashSet = new HashSet();
-            if (jSONObject == null) {
-                return hashSet;
-            }
-            JSONArray optJSONArray = jSONObject.optJSONArray("data_urls");
-            if (!vj6.c(optJSONArray)) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    hashSet.add(optJSONArray.optString(i, ""));
-                }
-            }
-            return hashSet;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, bcaVar) == null) {
+            ki6 ki6Var = new ki6(str, bcaVar);
+            ki6Var.setPriority(4);
+            ki6Var.execute(new Void[0]);
         }
-        return (Set) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0048 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r10v0, types: [int] */
-    /* JADX WARN: Type inference failed for: r10v1 */
-    /* JADX WARN: Type inference failed for: r10v4, types: [boolean] */
-    public static Map<String, mi6> d(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public ii6 doInBackground(Void... voidArr) {
         InterceptResult invokeL;
         boolean z;
-        JSONObject optJSONObject;
+        ii6 ii6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            HashMap hashMap = new HashMap();
-            if (jSONObject == null) {
-                return hashMap;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+            File file = new File(ci6.n().o(), this.a);
+            HybridLog.getInstance().e("Offline", "离线包开始下载：" + this.a + " 目录：" + file + " 地址：" + this.b);
+            if (!yj6.a(file)) {
+                HybridLog.getInstance().e("newHybrid", "离线包下载失败：" + this.a + "->目录创建失败");
             }
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!TextUtils.isEmpty(next) && !hashMap.containsKey(next)) {
-                    try {
-                        JSONObject jSONObject2 = jSONObject.getJSONObject(next);
-                        String optString = jSONObject2.optString("module", "");
-                        String optString2 = jSONObject2.optString("path", "");
-                        ?? optInt = jSONObject2.optInt("proxyMode", 0);
-                        if (jSONObject2.has("proxySwitch") && (optJSONObject = jSONObject2.optJSONObject("proxySwitch")) != null) {
-                            optInt = ck6.a(optJSONObject.optString("android", ""), TbConfig.getVersion());
-                        }
-                        mi6 mi6Var = new mi6();
-                        if (jSONObject2.optInt("proxyMode", 0) == 1) {
-                            z = true;
-                        } else {
-                            z = false;
-                        }
-                        mi6Var.i = z;
-                        if (optInt == 1) {
-                            mi6Var.h = true;
-                            mi6Var.a = wi6.a(jSONObject2);
-                        } else {
-                            mi6Var.h = false;
-                            mi6Var.b = c(jSONObject2);
-                        }
-                        mi6Var.c = optString;
-                        mi6Var.d = optString2;
-                        mi6Var.f = e(next, jSONObject2);
-                        hashMap.put(next, mi6Var);
-                        xba.a().j(next, next);
-                        xba.a().k(next, optString2);
-                    } catch (JSONException unused) {
-                    }
+            File file2 = new File(file, this.c + ".zip");
+            if (!file2.exists()) {
+                if (this.b.startsWith("http")) {
+                    z = new NetWork(this.b).downloadFile(file2.getAbsolutePath(), null, 0, 3, 0, true);
+                } else {
+                    z = e(this.b, file2);
                 }
+            } else {
+                z = true;
             }
-            return hashMap;
+            if (!z) {
+                yj6.c(file2);
+                HybridLog.getInstance().e("newHybrid", "离线包下载失败:网络下载异常：" + this.a);
+                ci6.y("download bundle", DownloadErrorLogger.LOGGER_SPACE, this.a, this.c, zj6.a(Pair.create("error_code", "-1"), Pair.create(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "网络下载错误")));
+                return null;
+            } else if (!xj6.d(file2, this.d)) {
+                yj6.c(file2);
+                HybridLog.getInstance().e("newHybrid", "离线包目md5验证失败：" + this.a);
+                ci6.y("download bundle", "md5_error", this.a, this.c, zj6.a(Pair.create("detail", this.d + "_" + xj6.b(file2))));
+                return null;
+            } else {
+                File file3 = new File(ci6.n().m(), this.a);
+                if (!f(file2, file3, this.c)) {
+                    HybridLog.getInstance().e("Offline", "离线包zip解压失败：" + this.a);
+                    ci6.y("download bundle", "unzip_error", this.a, this.c, "");
+                    return null;
+                }
+                File file4 = new File(file3, this.c);
+                Map<String, ni6> b = li6.b(file4);
+                if (li6.f(file4, b)) {
+                    ii6Var = new ii6(file4, this.c, b);
+                } else {
+                    ii6Var = null;
+                }
+                if (ii6Var != null && ii6Var.c()) {
+                    ci6.j(ci6.n().m(), this.c, this.a);
+                    ci6.j(ci6.n().o(), this.c + ".zip", this.a);
+                    return ii6Var;
+                }
+                yj6.b(file4);
+                HybridLog.getInstance().e("Offline", "离线包应用失败：" + this.a + "，path：" + file4.getAbsolutePath());
+                return null;
+            }
         }
-        return (Map) invokeL.objValue;
+        return (ii6) invokeL.objValue;
     }
 
-    public static Set<String> e(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public void onPostExecute(ii6 ii6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject)) == null) {
-            HashSet<String> hashSet = new HashSet();
-            if (jSONObject == null) {
-                return hashSet;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ii6Var) == null) {
+            super.onPostExecute(ii6Var);
+            if (ii6Var != null) {
+                ci6.n().A(this.a, ii6Var.b());
+                ci6.n().x();
+                di6.e().k(this.a, ii6Var.a());
+                di6.e().c(this.a);
+                ci6.y("download bundle", "success", this.a, ii6Var.b(), "");
+            } else {
+                ci6.n().i(this.a);
+                ci6.n().x();
+                di6.e().i(this.a);
             }
-            JSONArray optJSONArray = jSONObject.optJSONArray("source");
-            if (!vj6.c(optJSONArray)) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    hashSet.add(optJSONArray.optString(i, ""));
-                }
-            }
-            String optString = jSONObject.optString("staticPrePath", "");
-            for (String str2 : hashSet) {
-                if (!TextUtils.isEmpty(str2)) {
-                    xba a = xba.a();
-                    a.j(optString + "/" + str2, str);
-                    xba a2 = xba.a();
-                    a2.k(optString + "/" + str2, str2);
-                }
-            }
-            return hashSet;
+            bi6.b(ii6Var, this.a);
         }
-        return (Set) invokeLL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0094 A[Catch: Exception -> 0x00e0, TryCatch #0 {Exception -> 0x00e0, blocks: (B:12:0x0023, B:15:0x002e, B:18:0x003c, B:21:0x0045, B:22:0x0052, B:24:0x0058, B:25:0x008e, B:27:0x0094, B:29:0x00a2, B:30:0x00ae, B:32:0x00ba, B:34:0x00c0), top: B:44:0x0023 }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x005f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean f(File file, Map<String, mi6> map) {
+    public boolean e(String str, File file) {
         InterceptResult invokeLL;
-        String d;
-        JSONObject optJSONObject;
+        FileOutputStream fileOutputStream;
+        InputStream open;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, map)) == null) {
-            File file2 = new File(file, "staticSources.json");
-            if (vj6.b(map) || !file2.exists() || !file2.isFile()) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, file)) == null) {
+            InputStream inputStream = null;
+            try {
+                open = TbadkCoreApplication.getInst().getResources().getAssets().open(str);
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                } catch (Exception e) {
+                    e = e;
+                    fileOutputStream = null;
+                } catch (Throwable th) {
+                    th = th;
+                    fileOutputStream = null;
+                }
+            } catch (Exception e2) {
+                e = e2;
+                fileOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream = null;
             }
             try {
-                d = xj6.d(file2);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (TextUtils.isEmpty(d)) {
-                return false;
-            }
-            JSONObject optJSONObject2 = new JSONObject(d).optJSONObject("sources");
-            if (optJSONObject2 == null || (optJSONObject = optJSONObject2.optJSONObject(SmsLoginView.f.j)) == null) {
-                return true;
-            }
-            HashMap hashMap = new HashMap();
-            for (Map.Entry<String, mi6> entry : map.entrySet()) {
-                mi6 value = entry.getValue();
-                HashSet<String> hashSet = new HashSet(value.f);
-                hashSet.add(value.d);
-                Log.e("newHybrid", "-------------------------：" + entry.getKey());
-                for (String str : hashSet) {
-                    String str2 = (String) hashMap.get(str);
-                    if (str2 == null) {
-                        str2 = wj6.b(new File(file, str));
-                        hashMap.put(str, str2);
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = open.read(bArr);
+                    if (-1 == read) {
+                        break;
                     }
-                    String optString = optJSONObject.optString(str, "");
-                    if (TextUtils.isEmpty(optString) || !optString.equalsIgnoreCase(str2)) {
-                        Log.e("newHybrid", str + "," + optString + "_" + str2);
-                        return false;
-                    }
-                    while (r5.hasNext()) {
-                    }
+                    fileOutputStream.write(bArr, 0, read);
                 }
+                Closeables.closeSafely(open);
+                try {
+                    fileOutputStream.flush();
+                    fileOutputStream.close();
+                } catch (IOException unused) {
+                }
+                return true;
+            } catch (Exception e3) {
+                e = e3;
+                inputStream = open;
+                try {
+                    BdLog.e(e.getMessage());
+                    Closeables.closeSafely(inputStream);
+                    if (fileOutputStream != null) {
+                        try {
+                            fileOutputStream.flush();
+                            fileOutputStream.close();
+                        } catch (IOException unused2) {
+                        }
+                    }
+                    return false;
+                } catch (Throwable th3) {
+                    th = th3;
+                    Closeables.closeSafely(inputStream);
+                    if (fileOutputStream != null) {
+                        try {
+                            fileOutputStream.flush();
+                            fileOutputStream.close();
+                        } catch (IOException unused3) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Throwable th4) {
+                th = th4;
+                inputStream = open;
+                Closeables.closeSafely(inputStream);
+                if (fileOutputStream != null) {
+                }
+                throw th;
             }
-            return true;
         }
         return invokeLL.booleanValue;
+    }
+
+    public final boolean f(File file, File file2, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, file, file2, str)) == null) {
+            File file3 = new File(file2, str);
+            if (!file3.exists()) {
+                try {
+                    ck6.c(file, file3);
+                    return true;
+                } catch (UnzipErrorException e) {
+                    yj6.b(file2);
+                    TbLog hybridLog = HybridLog.getInstance();
+                    hybridLog.e("Offline", "离线包资源解压缩失败：" + e);
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
     }
 }

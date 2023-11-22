@@ -21,13 +21,13 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f55;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 import com.baidu.tieba.faceshop.emotioncenter.model.EmotionCenterModel;
-import com.baidu.tieba.t17;
-import com.baidu.tieba.v17;
-import com.baidu.tieba.wn9;
+import com.baidu.tieba.g55;
+import com.baidu.tieba.u17;
+import com.baidu.tieba.w17;
+import com.baidu.tieba.xn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,10 +35,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class EmotionRecommendFragment extends BaseFragment implements t17 {
+public class EmotionRecommendFragment extends BaseFragment implements u17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v17 a;
+    public w17 a;
     public EmotionCenterModel b;
     public boolean c;
     public boolean d;
@@ -47,10 +47,10 @@ public class EmotionRecommendFragment extends BaseFragment implements t17 {
     public final CustomMessageListener g;
     public CustomMessageListener h;
     public CustomMessageListener i;
-    public f55.g j;
+    public g55.g j;
     public BdListView.p k;
 
-    @Override // com.baidu.tieba.t17
+    @Override // com.baidu.tieba.u17
     public void t1(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, emotionCenterData) == null) {
@@ -196,7 +196,7 @@ public class EmotionRecommendFragment extends BaseFragment implements t17 {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements f55.g {
+    public class d implements g55.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionRecommendFragment a;
@@ -219,7 +219,7 @@ public class EmotionRecommendFragment extends BaseFragment implements t17 {
             this.a = emotionRecommendFragment;
         }
 
-        @Override // com.baidu.tieba.f55.g
+        @Override // com.baidu.tieba.g55.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -294,7 +294,7 @@ public class EmotionRecommendFragment extends BaseFragment implements t17 {
         this.k = new e(this);
     }
 
-    @Override // com.baidu.tieba.t17
+    @Override // com.baidu.tieba.u17
     public void d1(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emotionCenterData) == null) {
@@ -320,9 +320,9 @@ public class EmotionRecommendFragment extends BaseFragment implements t17 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            v17 v17Var = this.a;
-            if (v17Var != null) {
-                v17Var.n(i);
+            w17 w17Var = this.a;
+            if (w17Var != null) {
+                w17Var.n(i);
             }
         }
     }
@@ -335,7 +335,7 @@ public class EmotionRecommendFragment extends BaseFragment implements t17 {
         }
     }
 
-    @Override // com.baidu.tieba.t17
+    @Override // com.baidu.tieba.u17
     public void L1(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, emotionCenterData) == null) {
@@ -364,9 +364,9 @@ public class EmotionRecommendFragment extends BaseFragment implements t17 {
         EmotionCenterModel emotionCenterModel2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            v17 v17Var = new v17(getPageContext(), getUniqueId());
-            this.a = v17Var;
-            v17Var.q(this.j);
+            w17 w17Var = new w17(getPageContext(), getUniqueId());
+            this.a = w17Var;
+            w17Var.q(this.j);
             this.a.r(this.k);
             registerListener(this.g);
             registerListener(this.h);
@@ -422,17 +422,17 @@ public class EmotionRecommendFragment extends BaseFragment implements t17 {
     public final void y2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (wn9.l().r()) {
-                v17 v17Var = this.a;
-                if (v17Var != null) {
-                    v17Var.t();
+            if (xn9.l().r()) {
+                w17 w17Var = this.a;
+                if (w17Var != null) {
+                    w17Var.t();
                     return;
                 }
                 return;
             }
-            v17 v17Var2 = this.a;
-            if (v17Var2 != null) {
-                v17Var2.o();
+            w17 w17Var2 = this.a;
+            if (w17Var2 != null) {
+                w17Var2.o();
             }
         }
     }
@@ -441,9 +441,9 @@ public class EmotionRecommendFragment extends BaseFragment implements t17 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            v17 v17Var = this.a;
-            if (v17Var != null) {
-                return v17Var.f();
+            w17 w17Var = this.a;
+            if (w17Var != null) {
+                return w17Var.f();
             }
             return 0;
         }

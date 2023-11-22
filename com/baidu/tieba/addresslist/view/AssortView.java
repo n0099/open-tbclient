@@ -10,7 +10,7 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ua5;
+import com.baidu.tieba.va5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -131,7 +131,7 @@ public class AssortView extends View {
             int height = getHeight();
             int width = getWidth();
             float f = (float) (width / 48.0d);
-            String[] strArr = ua5.a;
+            String[] strArr = va5.a;
             int length = height / strArr.length;
             int length2 = strArr.length;
             for (int i = 0; i < length2; i++) {
@@ -139,7 +139,7 @@ public class AssortView extends View {
                 this.a.setTypeface(Typeface.DEFAULT_BOLD);
                 this.a.setColor(SkinManager.getColor(R.color.CAM_X0108));
                 this.a.setTextSize(26.0f * f);
-                canvas.drawText(ua5.a[i], (width / 2.0f) - (this.a.measureText(ua5.a[i]) / 2.0f), (length * i) + length, this.a);
+                canvas.drawText(va5.a[i], (width / 2.0f) - (this.a.measureText(va5.a[i]) / 2.0f), (length * i) + length, this.a);
                 this.a.reset();
             }
         }
@@ -152,7 +152,7 @@ public class AssortView extends View {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
             super.onTouchEvent(motionEvent);
             float y = motionEvent.getY() / getHeight();
-            String[] strArr = ua5.a;
+            String[] strArr = va5.a;
             int length = (int) (y * strArr.length);
             if (length >= 0 && length < strArr.length) {
                 int action = motionEvent.getAction();
@@ -162,7 +162,7 @@ public class AssortView extends View {
                             this.b = length;
                             a aVar = this.c;
                             if (aVar != null) {
-                                aVar.U1(ua5.a[length]);
+                                aVar.U1(va5.a[length]);
                             }
                         }
                     } else {
@@ -176,7 +176,7 @@ public class AssortView extends View {
                     this.b = length;
                     a aVar3 = this.c;
                     if (aVar3 != null) {
-                        aVar3.U1(ua5.a[length]);
+                        aVar3.U1(va5.a[length]);
                     }
                 }
             } else {

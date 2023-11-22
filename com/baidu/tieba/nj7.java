@@ -1,524 +1,177 @@
 package com.baidu.tieba;
 
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.ViewModelProvider;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdPageContext;
-import com.baidu.adp.base.BdPageContextSupport;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ForumBroadcastHelper;
-import com.baidu.tieba.forum.viewmodel.ForumViewModel;
-import com.baidu.tieba.frs.FrsRecommendResMsg;
-import com.baidu.tieba.frs.broadcast.ForumManagerRightsResMsg;
-import com.baidu.tieba.nj7;
-import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.view.ScreenTopToast;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.Arrays;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.Ref;
+import kotlin.jvm.internal.StringCompanionObject;
 /* loaded from: classes7.dex */
 public final class nj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FragmentActivity a;
-    public long b;
-    public String c;
 
-    /* loaded from: classes7.dex */
-    public static final class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nj7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(nj7 nj7Var) {
-            super(2921469);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nj7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nj7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> responsedMessage) {
-            ex4 ex4Var;
-            TbPageContextSupport tbPageContextSupport;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                Intrinsics.checkNotNullParameter(responsedMessage, "responsedMessage");
-                if ((responsedMessage.getData() instanceof ex4) && !this.a.a().isDestroyed()) {
-                    Object data = responsedMessage.getData();
-                    TbPageContext tbPageContext = null;
-                    if (data instanceof ex4) {
-                        ex4Var = (ex4) data;
-                    } else {
-                        ex4Var = null;
-                    }
-                    if (ex4Var == null) {
-                        return;
-                    }
-                    FragmentActivity a = this.a.a();
-                    if (a instanceof TbPageContextSupport) {
-                        tbPageContextSupport = (TbPageContextSupport) a;
-                    } else {
-                        tbPageContextSupport = null;
-                    }
-                    if (tbPageContextSupport != null) {
-                        tbPageContext = tbPageContextSupport.getPageContext();
-                    }
-                    if (tbPageContext == null) {
-                        return;
-                    }
-                    xs7 xs7Var = new xs7(tbPageContext);
-                    gh7 value = ((ForumViewModel) new ViewModelProvider(this.a.a()).get(ForumViewModel.class)).c().getValue();
-                    if (value == null) {
-                        return;
-                    }
-                    xs7Var.j(ex4Var.a, String.valueOf(value.d()), value.e(), ex4Var.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nj7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(nj7 nj7Var) {
-            super(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE_NUMBER);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nj7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nj7Var;
-        }
-
-        public static final void g(nj7 this$0, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
-                Intrinsics.checkNotNullParameter(this$0, "this$0");
-                HashMap hashMap = new HashMap();
-                hashMap.put("_forumId", Long.valueOf(this$0.b()));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this$0.a(), "ForumGradePage", hashMap)));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage responsedMessage) {
-            ViewGroup viewGroup;
-            boolean z;
-            HashMap<String, Object> params;
-            Object obj;
-            String obj2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                Intrinsics.checkNotNullParameter(responsedMessage, "responsedMessage");
-                if ((responsedMessage instanceof ForumManagerRightsResMsg) && !this.a.a().isDestroyed()) {
-                    Message<?> message = responsedMessage.getmOrginalMessage();
-                    String str = "";
-                    if ((message instanceof HttpMessage) && (params = ((HttpMessage) message).getParams()) != null && (obj = params.get("thread_id")) != null && (obj2 = obj.toString()) != null) {
-                        str = obj2;
-                    }
-                    ForumManagerRightsResMsg forumManagerRightsResMsg = (ForumManagerRightsResMsg) responsedMessage;
-                    if (forumManagerRightsResMsg.broadcastTotalCount - forumManagerRightsResMsg.broadcastUsedCount > 0) {
-                        ForumBroadcastHelper forumBroadcastHelper = new ForumBroadcastHelper(TbadkCoreApplication.getInst());
-                        forumBroadcastHelper.jumpFlutterEditGenear(String.valueOf(this.a.b()), this.a.c(), "6");
-                        if (str.length() > 0) {
-                            z = true;
-                        } else {
-                            z = false;
-                        }
-                        if (z) {
-                            forumBroadcastHelper.clipCopy(str);
-                            forumBroadcastHelper.start();
-                            return;
-                        }
-                        return;
-                    }
-                    View decorView = this.a.a().getWindow().getDecorView();
-                    if (decorView instanceof ViewGroup) {
-                        viewGroup = (ViewGroup) decorView;
-                    } else {
-                        viewGroup = null;
-                    }
-                    if (viewGroup == null) {
-                        return;
-                    }
-                    ScreenTopToast screenTopToast = new ScreenTopToast(this.a.a());
-                    screenTopToast.n(this.a.a().getString(R.string.frs_forum_bawu_send_broadcast_none_tip));
-                    screenTopToast.k(this.a.a().getString(R.string.frs_recommend_fail_tip_btn));
-                    final nj7 nj7Var = this.a;
-                    screenTopToast.j(new View.OnClickListener() { // from class: com.baidu.tieba.cj7
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-
-                        @Override // android.view.View.OnClickListener
-                        public final void onClick(View view2) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                                nj7.b.g(nj7.this, view2);
-                            }
-                        }
-                    });
-                    screenTopToast.p(viewGroup);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class c extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nj7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(nj7 nj7Var) {
-            super(CmdConfigHttp.CMD_FRS_RECOMMEND);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nj7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nj7Var;
-        }
-
-        public static final void g(nj7 this$0, View view2) {
-            String valueOf;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
-                Intrinsics.checkNotNullParameter(this$0, "this$0");
-                if (this$0.b() == 0) {
-                    valueOf = "";
-                } else {
-                    valueOf = String.valueOf(this$0.b());
-                }
-                if (valueOf.length() == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    return;
-                }
-                HashMap hashMap = new HashMap();
-                hashMap.put("_forumId", valueOf);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this$0.a(), "RecommendHistoryPage", hashMap)));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage responsedMessage) {
-            ViewGroup viewGroup;
-            HttpMessage httpMessage;
-            Object obj;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                Intrinsics.checkNotNullParameter(responsedMessage, "responsedMessage");
-                if (!(responsedMessage instanceof FrsRecommendResMsg)) {
-                    return;
-                }
-                View decorView = this.a.a().getWindow().getDecorView();
-                String str = null;
-                if (decorView instanceof ViewGroup) {
-                    viewGroup = (ViewGroup) decorView;
-                } else {
-                    viewGroup = null;
-                }
-                if (viewGroup == null) {
-                    return;
-                }
-                if (responsedMessage.getError() == 0) {
-                    FrsRecommendResMsg frsRecommendResMsg = (FrsRecommendResMsg) responsedMessage;
-                    int pushStatus = frsRecommendResMsg.getPushStatus();
-                    String pushMsg = frsRecommendResMsg.getPushMsg();
-                    Intrinsics.checkNotNullExpressionValue(pushMsg, "responsedMessage.pushMsg");
-                    if (pushStatus == 1) {
-                        ScreenTopToast screenTopToast = new ScreenTopToast(this.a.a());
-                        screenTopToast.n(this.a.a().getString(R.string.frs_recommend_suc_tip_title));
-                        screenTopToast.l(this.a.a().getString(R.string.frs_recommend_suc_tip_content));
-                        screenTopToast.k(this.a.a().getString(R.string.dialog_confirm_see));
-                        final nj7 nj7Var = this.a;
-                        screenTopToast.j(new View.OnClickListener() { // from class: com.baidu.tieba.xi7
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-
-                            @Override // android.view.View.OnClickListener
-                            public final void onClick(View view2) {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                                    nj7.c.g(nj7.this, view2);
-                                }
-                            }
-                        });
-                        screenTopToast.p(viewGroup);
-                        Message<?> orginalMessage = frsRecommendResMsg.getOrginalMessage();
-                        if (orginalMessage instanceof HttpMessage) {
-                            httpMessage = (HttpMessage) orginalMessage;
-                        } else {
-                            httpMessage = null;
-                        }
-                        if (httpMessage != null) {
-                            HashMap<String, Object> params = httpMessage.getParams();
-                            if (params != null) {
-                                obj = params.get("forum_id");
-                            } else {
-                                obj = null;
-                            }
-                            if (obj instanceof String) {
-                                str = obj;
-                            }
-                            if (str != null) {
-                                mq6.b().c(new ci7(str));
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    new BdTopToast(this.a.a()).setIcon(false).setContent(pushMsg).show(viewGroup);
-                    return;
-                }
-                new BdTopToast(this.a.a()).setIcon(false).setContent(responsedMessage.getErrorString()).show(viewGroup);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class d extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nj7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(nj7 nj7Var) {
-            super(2921465);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nj7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nj7Var;
-        }
-
-        public static final void g(nj7 this$0, View view2) {
-            String valueOf;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
-                Intrinsics.checkNotNullParameter(this$0, "this$0");
-                if (this$0.b() == 0) {
-                    valueOf = "";
-                } else {
-                    valueOf = String.valueOf(this$0.b());
-                }
-                if (valueOf.length() == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    return;
-                }
-                HashMap hashMap = new HashMap();
-                hashMap.put("_forumId", valueOf);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this$0.a(), "ForumGradePage", hashMap)));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> responsedMessage) {
-            ViewGroup viewGroup;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                Intrinsics.checkNotNullParameter(responsedMessage, "responsedMessage");
-                View decorView = this.a.a().getWindow().getDecorView();
-                if (decorView instanceof ViewGroup) {
-                    viewGroup = (ViewGroup) decorView;
-                } else {
-                    viewGroup = null;
-                }
-                if (viewGroup == null) {
-                    return;
-                }
-                ScreenTopToast screenTopToast = new ScreenTopToast(this.a.a());
-                screenTopToast.n(this.a.a().getString(R.string.frs_recommend_fail_month_tip));
-                screenTopToast.k(this.a.a().getString(R.string.frs_recommend_fail_tip_btn));
-                final nj7 nj7Var = this.a;
-                screenTopToast.j(new View.OnClickListener() { // from class: com.baidu.tieba.dj7
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // android.view.View.OnClickListener
-                    public final void onClick(View view2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            nj7.d.g(nj7.this, view2);
-                        }
-                    }
-                });
-                screenTopToast.p(viewGroup);
-            }
-        }
-    }
-
-    public nj7(FragmentActivity activity) {
-        BdPageContextSupport bdPageContextSupport;
-        BdPageContext pageContext;
+    public static final void a(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65536, null, bdUniqueId) == null) {
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921465);
+            if (bdUniqueId != null) {
+                customResponsedMessage.setmOrginalMessage(new CustomMessage(2921465, bdUniqueId));
             }
-        }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        this.a = activity;
-        this.c = "";
-        BdUniqueId bdUniqueId = null;
-        if (activity instanceof BdPageContextSupport) {
-            bdPageContextSupport = (BdPageContextSupport) activity;
-        } else {
-            bdPageContextSupport = null;
-        }
-        if (bdPageContextSupport != null && (pageContext = bdPageContextSupport.getPageContext()) != null) {
-            bdUniqueId = pageContext.getUniqueId();
-        }
-        c cVar = new c(this);
-        d dVar = new d(this);
-        b bVar = new b(this);
-        a aVar = new a(this);
-        if (bdUniqueId != null) {
-            cVar.setTag(bdUniqueId);
-            dVar.setTag(bdUniqueId);
-            bVar.setTag(bdUniqueId);
-            aVar.setTag(bdUniqueId);
-            cVar.setSelfListener(true);
-            dVar.setSelfListener(true);
-            bVar.setSelfListener(true);
-        }
-        MessageManager.getInstance().registerListener(cVar);
-        MessageManager.getInstance().registerListener(dVar);
-        MessageManager.getInstance().registerListener(bVar);
-        MessageManager.getInstance().registerListener(aVar);
-    }
-
-    public final FragmentActivity a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (FragmentActivity) invokeV.objValue;
-    }
-
-    public final long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void d(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.b = j;
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         }
     }
 
-    public final void e(String str) {
+    public static final void b(String forumId, String threadId, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.c = str;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, forumId, threadId, bdUniqueId) == null) {
+            Intrinsics.checkNotNullParameter(forumId, "forumId");
+            Intrinsics.checkNotNullParameter(threadId, "threadId");
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_RECOMMEND);
+            httpMessage.addParam("forum_id", forumId);
+            httpMessage.addParam("thread_id", threadId);
+            if (bdUniqueId != null) {
+                httpMessage.setTag(bdUniqueId);
+            }
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    public static final void c(ImageView imageView, boolean z) {
+        Drawable maskDrawable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65538, null, imageView, z) == null) {
+            if (z) {
+                maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_complete16_svg, null);
+            } else {
+                maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_check16_svg, null);
+            }
+            imageView.setImageDrawable(maskDrawable);
+        }
+    }
+
+    public static final void d(final TbPageContext<?> context, final String forumId, final String threadId, z47 bawuThrones, final Function3<? super String, ? super String, ? super BdUniqueId, Unit> onConfirm) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65539, null, context, forumId, threadId, bawuThrones, onConfirm) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(forumId, "forumId");
+            Intrinsics.checkNotNullParameter(threadId, "threadId");
+            Intrinsics.checkNotNullParameter(bawuThrones, "bawuThrones");
+            Intrinsics.checkNotNullParameter(onConfirm, "onConfirm");
+            final zz4 zz4Var = new zz4(context.getPageActivity());
+            zz4Var.setContentViewSize(1);
+            zz4Var.setNegativeTextColor(R.color.CAM_X0105);
+            View inflate = LayoutInflater.from(context.getPageActivity()).inflate(R.layout.call_fans_dialog_content, (ViewGroup) null);
+            Intrinsics.checkNotNullExpressionValue(inflate, "from(context.pageActivit…ans_dialog_content, null)");
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925fe);
+            textView.setText(R.string.frs_recommend_thread_sure_title);
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.call_fans_intro);
+            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
+            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+            String string = context.getString(R.string.frs_recommend_thread_sure_content);
+            Intrinsics.checkNotNullExpressionValue(string, "context.getString(R.stri…mend_thread_sure_content)");
+            String format = String.format(string, Arrays.copyOf(new Object[]{bawuThrones.a(), Integer.valueOf(bawuThrones.b()), Integer.valueOf(bawuThrones.b() - bawuThrones.c())}, 3));
+            Intrinsics.checkNotNullExpressionValue(format, "format(format, *args)");
+            textView2.setText(format);
+            final ImageView noTipAgainCheckBox = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090715);
+            SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.no_tip_again_text), (int) R.color.CAM_X0107);
+            final Ref.BooleanRef booleanRef = new Ref.BooleanRef();
+            Intrinsics.checkNotNullExpressionValue(noTipAgainCheckBox, "noTipAgainCheckBox");
+            c(noTipAgainCheckBox, booleanRef.element);
+            inflate.findViewById(R.id.no_tip_again_group).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.kj7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        nj7.e(Ref.BooleanRef.this, noTipAgainCheckBox, view2);
+                    }
+                }
+            });
+            zz4Var.setContentView(inflate);
+            zz4Var.setPositiveButton(context.getString(R.string.frs_recommend_thread_confirm), new zz4.e() { // from class: com.baidu.tieba.hj7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.zz4.e
+                public final void onClick(zz4 zz4Var2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, zz4Var2) == null) {
+                        nj7.f(Ref.BooleanRef.this, onConfirm, forumId, threadId, context, zz4Var, zz4Var2);
+                    }
+                }
+            });
+            zz4Var.setNegativeButton(context.getString(R.string.next_time), new zz4.e() { // from class: com.baidu.tieba.ij7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.zz4.e
+                public final void onClick(zz4 zz4Var2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, zz4Var2) == null) {
+                        nj7.g(Ref.BooleanRef.this, zz4Var, zz4Var2);
+                    }
+                }
+            });
+            zz4Var.create(context).show();
+        }
+    }
+
+    public static final void e(Ref.BooleanRef isChecked, ImageView noTipAgainCheckBox, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, isChecked, noTipAgainCheckBox, view2) == null) {
+            Intrinsics.checkNotNullParameter(isChecked, "$isChecked");
+            isChecked.element = !isChecked.element;
+            Intrinsics.checkNotNullExpressionValue(noTipAgainCheckBox, "noTipAgainCheckBox");
+            c(noTipAgainCheckBox, isChecked.element);
+        }
+    }
+
+    public static final void g(Ref.BooleanRef isChecked, zz4 alertDialog, zz4 zz4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65542, null, isChecked, alertDialog, zz4Var) == null) {
+            Intrinsics.checkNotNullParameter(isChecked, "$isChecked");
+            Intrinsics.checkNotNullParameter(alertDialog, "$alertDialog");
+            isChecked.element = false;
+            alertDialog.dismiss();
+        }
+    }
+
+    public static final void f(Ref.BooleanRef isChecked, Function3 onConfirm, String forumId, String threadId, TbPageContext context, zz4 alertDialog, zz4 zz4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{isChecked, onConfirm, forumId, threadId, context, alertDialog, zz4Var}) == null) {
+            Intrinsics.checkNotNullParameter(isChecked, "$isChecked");
+            Intrinsics.checkNotNullParameter(onConfirm, "$onConfirm");
+            Intrinsics.checkNotNullParameter(forumId, "$forumId");
+            Intrinsics.checkNotNullParameter(threadId, "$threadId");
+            Intrinsics.checkNotNullParameter(context, "$context");
+            Intrinsics.checkNotNullParameter(alertDialog, "$alertDialog");
+            SharedPrefHelper.getInstance().putBoolean("key_frs_recommend_tip", !isChecked.element);
+            onConfirm.invoke(forumId, threadId, context.getUniqueId());
+            alertDialog.dismiss();
         }
     }
 }

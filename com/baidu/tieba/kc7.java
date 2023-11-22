@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class kc7 extends ia7<FeedCardView, e57<?>> {
+public class kc7 extends ja7<FeedCardView, f57<?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,12 +33,12 @@ public class kc7 extends ia7<FeedCardView, e57<?>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ya7
+    @Override // com.baidu.tieba.za7
     /* renamed from: e */
-    public void b(@NonNull FeedCardView feedCardView, @NonNull e57<?> e57Var) {
+    public void b(@NonNull FeedCardView feedCardView, @NonNull f57<?> f57Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, feedCardView, e57Var) == null) {
-            feedCardView.h(e57Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, feedCardView, f57Var) == null) {
+            feedCardView.h(f57Var);
         }
     }
 }

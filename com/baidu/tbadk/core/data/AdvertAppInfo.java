@@ -11,17 +11,17 @@ import com.baidu.searchbox.download.util.MigrateStatisticUtils;
 import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
 import com.baidu.tbadk.switchs.AppLegoSwitch;
+import com.baidu.tieba.ada;
 import com.baidu.tieba.dw4;
 import com.baidu.tieba.gw4;
-import com.baidu.tieba.ic9;
-import com.baidu.tieba.jda;
+import com.baidu.tieba.jc9;
 import com.baidu.tieba.je0;
+import com.baidu.tieba.kda;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lv4;
 import com.baidu.tieba.tx4;
-import com.baidu.tieba.wb9;
-import com.baidu.tieba.zca;
+import com.baidu.tieba.xb9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ import org.json.JSONObject;
 import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes4.dex */
-public class AdvertAppInfo extends ThreadData implements tx4, jda {
+public class AdvertAppInfo extends ThreadData implements tx4, kda {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId A;
     public static final BdUniqueId B;
@@ -288,7 +288,7 @@ public class AdvertAppInfo extends ThreadData implements tx4, jda {
         return (AdvertAppInfo) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.jda
+    @Override // com.baidu.tieba.kda
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
@@ -305,7 +305,7 @@ public class AdvertAppInfo extends ThreadData implements tx4, jda {
         }
     }
 
-    @Override // com.baidu.tieba.jda
+    @Override // com.baidu.tieba.kda
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -339,7 +339,7 @@ public class AdvertAppInfo extends ThreadData implements tx4, jda {
         if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
             try {
                 jSONObject.putOpt("card_type", Integer.valueOf(this.b));
-                ICardInfo j = wb9.j(jSONObject);
+                ICardInfo j = xb9.j(jSONObject);
                 if (j instanceof ILegoAdvert) {
                     ILegoAdvert iLegoAdvert = (ILegoAdvert) j;
                     this.h = iLegoAdvert;
@@ -416,10 +416,10 @@ public class AdvertAppInfo extends ThreadData implements tx4, jda {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             if (!ThreadData.isRecAppLoaded.get()) {
-                zca.n();
+                ada.n();
                 return 31;
             } else if (!x.get()) {
-                zca.n();
+                ada.n();
                 return 31;
             } else if (!TextUtils.equals("PB_BANNER", this.j) && !TextUtils.equals("PIC_PAGE_BANNER", this.j) && TextUtils.isEmpty(this.f)) {
                 return 23;
@@ -484,7 +484,7 @@ public class AdvertAppInfo extends ThreadData implements tx4, jda {
 
     public void l(App app) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, app) == null) && app != null && SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 1 && !ic9.e(app.goods_info)) {
+        if ((interceptable == null || interceptable.invokeL(1048591, this, app) == null) && app != null && SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 1 && !jc9.e(app.goods_info)) {
             this.l = app;
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {

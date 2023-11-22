@@ -1,9 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.tbadk.core.data.VoiceData;
 /* loaded from: classes7.dex */
 public interface pk8 {
-    void a();
+    void a(String str);
 
-    void b(VoiceData.VoiceModel voiceModel);
+    void isFailed();
 }

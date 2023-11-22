@@ -81,7 +81,7 @@ public class lo0 {
 
         /* renamed from: com.baidu.tieba.lo0$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0378b {
+        public static class C0374b {
             public static /* synthetic */ Interceptable $ic;
             public static final b a;
             public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +124,7 @@ public class lo0 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                return C0378b.a;
+                return C0374b.a;
             }
             return (b) invokeV.objValue;
         }

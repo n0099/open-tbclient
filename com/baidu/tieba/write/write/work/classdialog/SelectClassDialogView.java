@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ez5;
-import com.baidu.tieba.xy5;
-import com.baidu.tieba.yp5;
+import com.baidu.tieba.fz5;
+import com.baidu.tieba.yy5;
+import com.baidu.tieba.zp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,13 +21,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class SelectClassDialogView extends ViewGroup implements yp5 {
+public class SelectClassDialogView extends ViewGroup implements zp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
-    public ez5<String> b;
+    public fz5<String> b;
 
-    @Override // com.baidu.tieba.yp5
+    @Override // com.baidu.tieba.zp5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class SelectClassDialogView extends ViewGroup implements yp5 {
         }
     }
 
-    @Override // com.baidu.tieba.yp5
+    @Override // com.baidu.tieba.zp5
     public boolean s1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public class SelectClassDialogView extends ViewGroup implements yp5 {
         a(context);
     }
 
-    @Override // com.baidu.tieba.yp5
+    @Override // com.baidu.tieba.zp5
     public void D(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -87,7 +87,7 @@ public class SelectClassDialogView extends ViewGroup implements yp5 {
         }
     }
 
-    @Override // com.baidu.tieba.yp5
+    @Override // com.baidu.tieba.zp5
     public boolean Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -104,9 +104,9 @@ public class SelectClassDialogView extends ViewGroup implements yp5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0210, this.a, true);
-            ez5<String> ez5Var = new ez5<>(this.a, true);
-            this.b = ez5Var;
-            ez5Var.t(9);
+            fz5<String> fz5Var = new fz5<>(this.a, true);
+            this.b = fz5Var;
+            fz5Var.t(9);
             this.b.C(UtilHelper.getDimenPixelSize(R.dimen.T_X06) / 3);
             this.b.q(SkinManager.getColor(R.color.CAM_X0203));
             this.b.s(WheelView.DividerType.FILL);
@@ -133,11 +133,11 @@ public class SelectClassDialogView extends ViewGroup implements yp5 {
         }
     }
 
-    public void setOnOptionsSelectChangeListener(xy5 xy5Var) {
-        ez5<String> ez5Var;
+    public void setOnOptionsSelectChangeListener(yy5 yy5Var) {
+        fz5<String> fz5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, xy5Var) == null) && (ez5Var = this.b) != null) {
-            ez5Var.w(xy5Var);
+        if ((interceptable == null || interceptable.invokeL(1048583, this, yy5Var) == null) && (fz5Var = this.b) != null) {
+            fz5Var.w(yy5Var);
         }
     }
 }

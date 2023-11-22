@@ -1,67 +1,66 @@
 package com.baidu.tieba;
 
-import android.os.SystemClock;
-import androidx.annotation.NonNull;
-import androidx.collection.ArrayMap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public class vt5<KEY> {
+public class vt5 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayMap<KEY, Long> a;
-    public final long b;
+    public int a;
+    public int b;
+    public String c;
 
-    public vt5(int i, @NonNull TimeUnit timeUnit) {
+    public vt5(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), timeUnit};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayMap<>();
-        this.b = timeUnit.toMillis(i);
+        this.a = 0;
+        this.b = 0;
+        this.c = null;
+        this.a = i;
+        this.b = i2;
     }
 
-    public static <T> vt5<T> b() {
-        InterceptResult invokeV;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new vt5<>(1000, TimeUnit.MILLISECONDS);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.c = str;
         }
-        return (vt5) invokeV.objValue;
     }
 
-    public synchronized boolean a(@NonNull KEY key) {
-        InterceptResult invokeL;
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
-            synchronized (this) {
-                Long l = this.a.get(key);
-                long uptimeMillis = SystemClock.uptimeMillis();
-                if (l == null) {
-                    this.a.put(key, Long.valueOf(uptimeMillis));
-                    return true;
-                } else if (uptimeMillis - l.longValue() > this.b) {
-                    this.a.put(key, Long.valueOf(uptimeMillis));
-                    return true;
-                } else {
-                    return false;
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.run();
+            if (TbadkCoreApplication.getInst().checkInterrupt()) {
+                return;
             }
+            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
+            netWork.addPostData("img_num", String.valueOf(this.a));
+            netWork.addPostData("img_total", String.valueOf(this.b));
+            String str = this.c;
+            if (str != null) {
+                netWork.addPostData("img_type", str);
+            }
+            netWork.postNetData();
         }
-        return invokeL.booleanValue;
     }
 }

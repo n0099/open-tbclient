@@ -27,13 +27,13 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.horizonalScrollListView.MyHorizontalScrollView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.db9;
-import com.baidu.tieba.lb9;
+import com.baidu.tieba.eb9;
 import com.baidu.tieba.lego.card.model.HorRankCard;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
-import com.baidu.tieba.pl6;
-import com.baidu.tieba.qb9;
-import com.baidu.tieba.uqa;
+import com.baidu.tieba.mb9;
+import com.baidu.tieba.ql6;
+import com.baidu.tieba.rb9;
+import com.baidu.tieba.vqa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -153,9 +153,9 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || TextUtils.isEmpty(this.a.j)) {
                 return;
             }
-            pl6.b().d(true);
-            lb9.e(this.a.l).d(TiebaStatic.Params.OBJ_URL, this.a.j).a(this.a.l);
-            uqa.c(this.b.h, this.a.j);
+            ql6.b().d(true);
+            mb9.e(this.a.l).d(TiebaStatic.Params.OBJ_URL, this.a.j).a(this.a.l);
+            vqa.c(this.b.h, this.a.j);
         }
     }
 
@@ -191,7 +191,7 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.b.getContext())) {
                 return;
             }
-            qb9 a = qb9.a();
+            rb9 a = rb9.a();
             HorRankCard.a aVar = this.a;
             a.e(aVar, aVar.f, null, null);
         }
@@ -391,7 +391,7 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
                     if (i <= 3) {
                         i2 = i;
                     }
-                    SkinManager.setBackgroundColor(itemViewHolder.k, db9.a[i2]);
+                    SkinManager.setBackgroundColor(itemViewHolder.k, eb9.a[i2]);
                 }
             }
             itemViewHolder.f.setRadius(0);

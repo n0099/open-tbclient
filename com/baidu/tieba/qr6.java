@@ -2,6 +2,9 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.danmu.data.ItemState;
+import com.baidu.tieba.danmu.data.state.DrawState;
+import com.baidu.tieba.danmu.ui.DanmakuPlayer;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,28 +14,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt___StringsKt;
 /* loaded from: classes8.dex */
-public final class qr6 implements Comparable<qr6> {
+public class qr6 implements Comparable<qr6> {
     public static /* synthetic */ Interceptable $ic;
-    public static final a p;
-    public static final qr6 q;
+    public static final a i;
+    public static final qr6 j;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final long b;
-    public final String c;
-    public CharSequence d;
-    public final int e;
-    public final int f;
-    public final int g;
-    public final int h;
-    public final int i;
-    public final int j;
-    public Long k;
-    public ura l;
-    public int m;
-    public float n;
-    public float o;
+    public rr6 a;
+    public ItemState b;
+    public long c;
+    public tt6 d;
+    public final h3<es6> e;
+    public final tr6 f;
+    public final DrawState g;
+    public int h;
 
     /* loaded from: classes8.dex */
     public static final class a {
@@ -57,22 +52,13 @@ public final class qr6 implements Comparable<qr6> {
             }
         }
 
-        public final qr6 c() {
+        public final qr6 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
                 return (qr6) invokeV.objValue;
             }
-            return qr6.q;
-        }
-
-        public final qr6 b(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-                return new qr6(Long.MIN_VALUE, j, "", "", 0, 0, 0, 0, 0, 0, null, null, 0, 0.0f, 16256, null);
-            }
-            return (qr6) invokeJ.objValue;
+            return qr6.j;
         }
     }
 
@@ -89,250 +75,171 @@ public final class qr6 implements Comparable<qr6> {
                 return;
             }
         }
-        a aVar = new a(null);
-        p = aVar;
-        q = aVar.b(Long.MAX_VALUE);
+        i = new a(null);
+        j = new qr6(rr6.p.c(), null, 2, null);
     }
 
-    public qr6(long j, long j2, String content, CharSequence contentSpan, int i, int i2, int i3, int i4, int i5, int i6, Long l, ura postData, int i7, float f) {
+    public qr6(rr6 data, DanmakuPlayer danmakuPlayer) {
+        tt6 f;
+        wr6 m;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), content, contentSpan, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), l, postData, Integer.valueOf(i7), Float.valueOf(f)};
+            Object[] objArr = {data, danmakuPlayer};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i8 = newInitContext.flag;
-            if ((i8 & 1) != 0) {
-                int i9 = i8 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(content, "content");
-        Intrinsics.checkNotNullParameter(contentSpan, "contentSpan");
-        Intrinsics.checkNotNullParameter(postData, "postData");
-        this.a = j;
-        this.b = j2;
-        this.c = content;
-        this.d = contentSpan;
-        this.e = i;
-        this.f = i2;
-        this.g = i3;
-        this.h = i4;
-        this.i = i5;
-        this.j = i6;
-        this.k = l;
-        this.l = postData;
-        this.m = i7;
-        this.n = f;
+        Intrinsics.checkNotNullParameter(data, "data");
+        this.a = data;
+        this.b = ItemState.Uninitialized;
+        this.d = (danmakuPlayer == null || (m = danmakuPlayer.m()) == null || (f = m.x()) == null) ? vr6.h.a().f() : f;
+        this.e = new h3<>(0);
+        this.f = new tr6(this.d);
+        this.g = new DrawState();
+        this.h = -1;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ qr6(long j, long j2, String str, CharSequence charSequence, int i, int i2, int i3, int i4, int i5, int i6, Long l, ura uraVar, int i7, float f, int i8, DefaultConstructorMarker defaultConstructorMarker) {
-        this(j, j2, str, charSequence, i, i2, i3, r13, r14, r15, r16, r17, r18, r19);
-        int i9;
-        int i10;
-        int i11;
-        Long l2;
-        ura uraVar2;
-        int i12;
-        float f2;
-        if ((i8 & 128) != 0) {
-            i9 = 0;
-        } else {
-            i9 = i4;
-        }
-        if ((i8 & 256) != 0) {
-            i10 = 1;
-        } else {
-            i10 = i5;
-        }
-        if ((i8 & 512) != 0) {
-            i11 = 0;
-        } else {
-            i11 = i6;
-        }
-        if ((i8 & 1024) != 0) {
-            l2 = null;
-        } else {
-            l2 = l;
-        }
-        if ((i8 & 2048) != 0) {
-            uraVar2 = new ura();
-        } else {
-            uraVar2 = uraVar;
-        }
-        if ((i8 & 4096) != 0) {
-            i12 = 0;
-        } else {
-            i12 = i7;
-        }
-        if ((i8 & 8192) != 0) {
-            f2 = 0.0f;
-        } else {
-            f2 = f;
-        }
+    public /* synthetic */ qr6(rr6 rr6Var, DanmakuPlayer danmakuPlayer, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(rr6Var, (i2 & 2) != 0 ? null : danmakuPlayer);
     }
 
-    public final String c() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g.t();
+            if (this.b.compareTo(ItemState.Measured) > 0) {
+                this.b = ItemState.Measured;
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public final CharSequence d() {
+    public final h3<es6> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+            return this.e;
         }
-        return (CharSequence) invokeV.objValue;
+        return (h3) invokeV.objValue;
     }
 
-    public final float e() {
+    public final rr6 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.o;
+            return this.a;
         }
-        return invokeV.floatValue;
+        return (rr6) invokeV.objValue;
     }
 
-    public final long f() {
+    public final DrawState f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
+            return this.g;
         }
-        return invokeV.longValue;
+        return (DrawState) invokeV.objValue;
     }
 
-    public final int g() {
+    public final long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public final float h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.n;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.m;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public final long k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.b;
+            return this.c;
         }
         return invokeV.longValue;
     }
 
-    public final ura m() {
+    public final int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.l;
-        }
-        return (ura) invokeV.objValue;
-    }
-
-    public final int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
         }
         return invokeV.intValue;
     }
 
-    public final int o() {
+    public final ItemState i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b;
         }
-        return invokeV.intValue;
+        return (ItemState) invokeV.objValue;
     }
 
-    public final Long p() {
+    public final long j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.k;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a.k() + this.f.a();
         }
-        return (Long) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public final boolean q() {
+    public final boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (this.h > 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.f.b();
         }
         return invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
-    /* renamed from: b */
+    /* renamed from: c */
     public int compareTo(qr6 other) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, other)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, other)) == null) {
             Intrinsics.checkNotNullParameter(other, "other");
-            return (int) (this.b - other.b);
+            return this.a.compareTo(other.a);
         }
         return invokeL.intValue;
     }
 
-    public final void r(float f) {
+    public final void m(rr6 rr6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048592, this, f) == null) {
-            this.o = f;
+        if (interceptable == null || interceptable.invokeL(1048587, this, rr6Var) == null) {
+            Intrinsics.checkNotNullParameter(rr6Var, "<set-?>");
+            this.a = rr6Var;
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public final void n(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return "Danmaku{id: " + this.a + ", content: " + StringsKt___StringsKt.take(this.c, 5) + ", position: " + this.b + ", mode: " + this.e + ", rank: " + this.j + '}';
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
+            this.c = j2;
         }
-        return (String) invokeV.objValue;
+    }
+
+    public final void o(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+            this.h = i2;
+        }
+    }
+
+    public final void p(ItemState itemState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, itemState) == null) {
+            Intrinsics.checkNotNullParameter(itemState, "<set-?>");
+            this.b = itemState;
+        }
+    }
+
+    public final void q(tt6 tt6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, tt6Var) == null) {
+            Intrinsics.checkNotNullParameter(tt6Var, "<set-?>");
+            this.d = tt6Var;
+        }
     }
 }

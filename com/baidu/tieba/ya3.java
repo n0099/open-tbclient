@@ -55,13 +55,13 @@ public class ya3 extends d83 {
 
             /* renamed from: com.baidu.tieba.ya3$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes9.dex */
-            public class RunnableC0536a implements Runnable {
+            public class RunnableC0533a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Boolean a;
                 public final /* synthetic */ a b;
 
-                public RunnableC0536a(a aVar, Boolean bool) {
+                public RunnableC0533a(a aVar, Boolean bool) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,14 +123,14 @@ public class ya3 extends d83 {
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
                     b bVar = this.c;
                     bVar.f.O(bVar.e, this.a, bool);
-                    ak3.a0(new RunnableC0536a(this, bool));
+                    ak3.a0(new RunnableC0533a(this, bool));
                 }
             }
         }
 
         /* renamed from: com.baidu.tieba.ya3$b$b  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C0537b implements zk3<String> {
+        public class C0534b implements zk3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ gb3 a;
@@ -142,14 +142,14 @@ public class ya3 extends d83 {
             public class a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0537b a;
+                public final /* synthetic */ C0534b a;
 
-                public a(C0537b c0537b) {
+                public a(C0534b c0534b) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0537b};
+                        Object[] objArr = {c0534b};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -159,21 +159,21 @@ public class ya3 extends d83 {
                             return;
                         }
                     }
-                    this.a = c0537b;
+                    this.a = c0534b;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        C0537b c0537b = this.a;
-                        b bVar = c0537b.c;
-                        bVar.f.P(c0537b.a, c0537b.b, false, bVar.e, bVar.d, bVar.a, bVar.b);
+                        C0534b c0534b = this.a;
+                        b bVar = c0534b.c;
+                        bVar.f.P(c0534b.a, c0534b.b, false, bVar.e, bVar.d, bVar.a, bVar.b);
                     }
                 }
             }
 
-            public C0537b(b bVar, gb3 gb3Var, List list) {
+            public C0534b(b bVar, gb3 gb3Var, List list) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -249,7 +249,7 @@ public class ya3 extends d83 {
                 if (!this.d.N().e(this.e)) {
                     np2.Z().a(this.e, new a(this, y, w));
                 } else {
-                    this.f.z(new C0537b(this, y, w));
+                    this.f.z(new C0534b(this, y, w));
                 }
             }
         }

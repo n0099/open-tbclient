@@ -7,8 +7,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.response.NextActive;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.bt5;
-import com.baidu.tieba.gs8;
+import com.baidu.tieba.ct5;
+import com.baidu.tieba.hs8;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityEffectItem;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.tieba.im.lib.socket.msg.data.BubbleInfo;
@@ -17,8 +17,8 @@ import com.baidu.tieba.im.lib.socket.msg.data.EnableDegradeUserData;
 import com.baidu.tieba.im.lib.socket.msg.data.ExcellentInfo;
 import com.baidu.tieba.im.lib.socket.msg.data.UserExtraInfo;
 import com.baidu.tieba.immessagecenter.im.dispatcher.PersonalMsgSettingDispatcher;
-import com.baidu.tieba.ms8;
 import com.baidu.tieba.ns8;
+import com.baidu.tieba.os8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,16 +48,16 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public static final String FIELD_FORUM_LEVEL = "level";
     public static final String FIELD_MSG_TYPE = "type";
     public transient /* synthetic */ FieldHolder $fh;
-    @bt5(deserialize = false, serialize = false)
+    @ct5(deserialize = false, serialize = false)
     public AbilityEffectItem abilityEffectItem;
-    @bt5(serialize = false)
     @SerializedName("sug_list")
+    @ct5(serialize = false)
     public List<AbilityItem> abilityItems;
-    @gs8
     @SerializedName("at_user_info_list")
+    @hs8
     public List<TbAtUserInfo> atUserInfoList;
-    @gs8
     @SerializedName("uk")
+    @hs8
     public String bdUk;
     @SerializedName("bubble_info")
     public BubbleInfo bubbleInfo;
@@ -69,33 +69,33 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public ExcellentInfo excellentInfo;
     @SerializedName(FIELD_FORUM_EXT)
     public c forumExt;
-    @bt5(deserialize = false, serialize = false)
+    @ct5(deserialize = false, serialize = false)
     public boolean isLocalEmojiReply;
-    @bt5(serialize = false)
+    @ct5(serialize = false)
     public boolean isLocalMsgId;
-    @bt5(serialize = false)
+    @ct5(serialize = false)
     public boolean isMockSender;
     @SerializedName("is_sys_msg")
     public int isSysMsgInt;
     @SerializedName("version")
     public String limitVersion;
-    @gs8
     @SerializedName("msg_id")
+    @hs8
     public long msgId;
-    @gs8
     @SerializedName("msg_key")
+    @hs8
     public String msgKey;
     @SerializedName("origin_msg_key")
     public String originMsgKey;
-    @bt5(serialize = false)
+    @ct5(serialize = false)
     public Object originSdkMsg;
     public String portrait;
-    @bt5(serialize = false)
+    @ct5(serialize = false)
     public TbBaseMsg preTimestampMsg;
     @SerializedName("quick_operate")
     public List<AbilityItem> quickOperate;
-    @gs8
     @SerializedName("re_msg_info")
+    @hs8
     public TbReMsgInfo reMsgInfo;
     @SerializedName(PersonalMsgSettingDispatcher.PERSONAL_ROBOT_ROLE)
     public int robotRole;
@@ -110,8 +110,8 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public long sessionId;
     @SerializedName("struct_data")
     public List<? extends Map<String, ? extends Object>> structData;
-    @gs8
     @SerializedName("task_info")
+    @hs8
     public TbTaskInfo taskInfo;
     @SerializedName("type")
     public int type;
@@ -610,7 +610,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            return ns8.a(this.bdUk);
+            return os8.a(this.bdUk);
         }
         return invokeV.longValue;
     }
@@ -656,7 +656,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
-            return ms8.c(getUserId());
+            return ns8.c(getUserId());
         }
         return invokeV.booleanValue;
     }
@@ -956,7 +956,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public final void setUserId(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048650, this, j) == null) {
-            String b2 = ns8.b(j);
+            String b2 = os8.b(j);
             Intrinsics.checkNotNullExpressionValue(b2, "value.toUk()");
             this.bdUk = b2;
         }

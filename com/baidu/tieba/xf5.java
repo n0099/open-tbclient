@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.editortools.meme.list.GeneratedLoadingData;
+import com.baidu.tbadk.editortools.meme.list.GeneratedLoadedData;
 import com.baidu.tbadk.editortools.meme.list.MemeData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,7 +21,7 @@ public final class xf5 {
     public static /* synthetic */ Interceptable $ic;
     public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    public final int a;
     public final List<MemeData> b;
 
     static {
@@ -65,10 +65,11 @@ public final class xf5 {
 
         public final xf5 a(JSONObject jsonObject) {
             InterceptResult invokeL;
+            JSONArray jSONArray;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsonObject)) == null) {
                 Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
-                String queryId = jsonObject.optString("query_id");
+                int optInt = jsonObject.optInt("status");
                 JSONArray optJSONArray = jsonObject.optJSONArray("meme_list");
                 ArrayList arrayList = new ArrayList();
                 if (optJSONArray != null) {
@@ -80,49 +81,47 @@ public final class xf5 {
                             if (optJSONObject != null) {
                                 Intrinsics.checkNotNullExpressionValue(optJSONObject, "optJSONObject(i)");
                                 long optLong = optJSONObject.optLong("id");
-                                int optInt = optJSONObject.optInt("type");
+                                int optInt2 = optJSONObject.optInt("type");
                                 String src = optJSONObject.optString("src");
-                                int optInt2 = optJSONObject.optInt("obj_source");
-                                if (optInt == 2) {
-                                    arrayList.add(new GeneratedLoadingData());
-                                }
-                                if (optInt == 1) {
-                                    Intrinsics.checkNotNullExpressionValue(src, "src");
-                                    arrayList.add(new MemeData(optLong, optInt, src, optInt2, null, 16, null));
-                                }
+                                int optInt3 = optJSONObject.optInt("obj_source");
+                                GeneratedLoadedData generatedLoadedData = new GeneratedLoadedData();
+                                Intrinsics.checkNotNullExpressionValue(src, "src");
+                                jSONArray = optJSONArray;
+                                arrayList.add(generatedLoadedData.copyWithoutType(new MemeData(optLong, optInt2, src, optInt3, null, 16, null)));
+                            } else {
+                                jSONArray = optJSONArray;
                             }
                             if (i == length) {
                                 break;
                             }
                             i++;
+                            optJSONArray = jSONArray;
                         }
                     }
                 }
-                Intrinsics.checkNotNullExpressionValue(queryId, "queryId");
-                return new xf5(queryId, arrayList);
+                return new xf5(optInt, arrayList);
             }
             return (xf5) invokeL.objValue;
         }
     }
 
-    public xf5(String queryId, List<MemeData> memeList) {
+    public xf5(int i, List<? extends MemeData> memeList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {queryId, memeList};
+            Object[] objArr = {Integer.valueOf(i), memeList};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(queryId, "queryId");
         Intrinsics.checkNotNullParameter(memeList, "memeList");
-        this.a = queryId;
+        this.a = i;
         this.b = memeList;
     }
 
@@ -135,21 +134,12 @@ public final class xf5 {
         return (List) invokeV.objValue;
     }
 
-    public final String b() {
+    public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b.isEmpty();
-        }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 }

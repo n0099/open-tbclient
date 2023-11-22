@@ -12,14 +12,14 @@ public final class sd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public of1<pd5> a;
+    public of1<od5> a;
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             mf1 b = mf1.b();
             this.a = b;
-            b.a(new qd5());
+            b.a(new pd5());
         }
     }
 
@@ -39,7 +39,7 @@ public final class sd5 {
         b();
     }
 
-    public final of1<pd5> a() {
+    public final of1<od5> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

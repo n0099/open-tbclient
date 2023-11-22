@@ -24,9 +24,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eoa;
-import com.baidu.tieba.f55;
+import com.baidu.tieba.foa;
 import com.baidu.tieba.g55;
+import com.baidu.tieba.h55;
 import com.baidu.tieba.square.data.ForumInfoData;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.w4;
@@ -40,12 +40,12 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public BdListView a;
     public ForumRankModel b;
-    public eoa c;
+    public foa c;
     public NavigationBar d;
     public TbImageView e;
     public LikeModel f;
     public LinearLayout g;
-    public g55 h;
+    public h55 h;
     public FrameLayout i;
     public String j;
     public boolean k;
@@ -87,7 +87,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
     }
 
     /* loaded from: classes8.dex */
-    public class b implements f55.g {
+    public class b implements g55.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumRankActivity a;
@@ -110,7 +110,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             this.a = forumRankActivity;
         }
 
-        @Override // com.baidu.tieba.f55.g
+        @Override // com.baidu.tieba.g55.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && !this.a.b.loadData()) {
@@ -168,11 +168,11 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                             this.a.j = forumRankData.pic_url;
                         }
                         this.a.c.f(forumRankData.forumsquare_list);
-                        eoa eoaVar = this.a.c;
+                        foa foaVar = this.a.c;
                         if (forumRankData.is_order == 0) {
                             z = false;
                         }
-                        eoaVar.h(Boolean.valueOf(z));
+                        foaVar.h(Boolean.valueOf(z));
                         this.a.d.setTitleText(forumRankData.title);
                         ForumInfoData[] forumInfoDataArr = forumRankData.forumsquare_list;
                         if (forumInfoDataArr != null && forumInfoDataArr.length > 100 && this.a.a.getAdapter2().l() <= 0) {
@@ -306,9 +306,9 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             }
             this.k = true;
             this.b.setLoadDataCallBack(this.l);
-            eoa eoaVar = new eoa(getPageContext(), 0);
-            this.c = eoaVar;
-            eoaVar.e(100);
+            foa foaVar = new foa(getPageContext(), 0);
+            this.c = foaVar;
+            foaVar.e(100);
             this.c.h(Boolean.TRUE);
             this.c.g(ForumDetailActivityConfig.FromType.BAR_RANK);
             this.a.setAdapter((ListAdapter) this.c);
@@ -358,9 +358,9 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
             this.g = linearLayout;
             linearLayout.setOnClickListener(new a(this));
-            g55 g55Var = new g55(getPageContext());
-            this.h = g55Var;
-            this.a.setPullRefresh(g55Var);
+            h55 h55Var = new h55(getPageContext());
+            this.h = h55Var;
+            this.a.setPullRefresh(h55Var);
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f070282)));
             this.a.w(textView, 0);

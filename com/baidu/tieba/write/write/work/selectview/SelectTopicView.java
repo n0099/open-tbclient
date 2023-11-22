@@ -217,7 +217,7 @@ public class SelectTopicView extends LinearLayout {
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
             setMBottomLine(findViewById6);
             e();
-            getMCenterContent().setOnLabelClickListener(new AutoChangeLineView.c() { // from class: com.baidu.tieba.zhb
+            getMCenterContent().setOnLabelClickListener(new AutoChangeLineView.c() { // from class: com.baidu.tieba.aib
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -229,7 +229,7 @@ public class SelectTopicView extends LinearLayout {
                     }
                 }
             });
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.dib
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.eib
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

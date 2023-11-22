@@ -11,8 +11,8 @@ import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ck5;
 import com.baidu.tieba.dk5;
+import com.baidu.tieba.ek5;
 import com.baidu.tieba.my0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -26,7 +26,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class MainTabBottomDynamicIconManager implements dk5 {
+public class MainTabBottomDynamicIconManager implements ek5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG_CHANNEL = "channel";
     public static final String TAG_ENTER_FORUM = "enterForum";
@@ -169,9 +169,9 @@ public class MainTabBottomDynamicIconManager implements dk5 {
         }
     }
 
-    public ck5 getValidDynamicStyle() {
+    public dk5 getValidDynamicStyle() {
         InterceptResult invokeV;
-        ck5 dynamicStyleData;
+        dk5 dynamicStyleData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             DynamicIconData iconData = getInstance().getIconData("style");
@@ -180,7 +180,7 @@ public class MainTabBottomDynamicIconManager implements dk5 {
             }
             return null;
         }
-        return (ck5) invokeV.objValue;
+        return (dk5) invokeV.objValue;
     }
 
     public void loadImages() {
@@ -205,7 +205,7 @@ public class MainTabBottomDynamicIconManager implements dk5 {
         }
     }
 
-    @Override // com.baidu.tieba.dk5
+    @Override // com.baidu.tieba.ek5
     public void onIconLoadedFinish() {
         boolean z;
         Interceptable interceptable = $ic;

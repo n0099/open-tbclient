@@ -1,154 +1,163 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.stats.BdStatsItem;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class csa {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, esa> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdStatsItem a;
+    public String b;
+    public boolean c;
 
-    public static void d() {
+    public csa(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                csa.a(1);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947686712, "Lcom/baidu/tieba/csa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947686712, "Lcom/baidu/tieba/csa;");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        MessageManager.getInstance().registerListener(new a(2001011));
-        a = new HashMap<>();
+        this.b = null;
+        this.c = false;
+        e(str, false);
     }
 
-    public static void a(int i) {
+    public void a() {
+        fsa c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
-            for (String str : a.keySet()) {
-                b(a.get(str), i);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && (c = c()) != null && c.f != null) {
+            long timeCost = this.a.getTimeCost();
+            if (timeCost > 3000) {
+                esa esaVar = c.f;
+                esaVar.a += timeCost;
+                esaVar.b++;
+                dsa.b(c, 10);
             }
         }
     }
 
-    public static void b(esa esaVar, int i) {
-        String str;
+    public void b(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
+        fsa c;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, esaVar, i) == null) {
-            dsa dsaVar = esaVar.d;
-            dsa dsaVar2 = esaVar.e;
-            dsa dsaVar3 = esaVar.f;
-            if (dsaVar.b + dsaVar2.b + dsaVar3.b >= i) {
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) != null) || this.a == null || (c = c()) == null) {
+            return;
+        }
+        if (z) {
+            esa esaVar = c.d;
+            if (esaVar == null) {
+                return;
+            }
+            esaVar.b++;
+            if (z2) {
+                esaVar.a += j2;
+                esaVar.d += j;
+            } else {
+                esaVar.c++;
+            }
+        } else {
+            esa esaVar2 = c.e;
+            if (esaVar2 == null) {
+                return;
+            }
+            esaVar2.b++;
+            if (z2) {
+                esaVar2.a += j3;
+                esaVar2.d += j;
+            } else {
+                esaVar2.c++;
+            }
+            j2 = j3;
+        }
+        this.a = null;
+        if (z2) {
+            dsa.b(c, 10);
+        }
+        if (this.b == "frsStat") {
+            if (!z2 || j2 > 3000) {
                 BdStatsItem bdStatsItem = new BdStatsItem("dbg");
-                bdStatsItem.append("act", esaVar.c);
-                bdStatsItem.append("httpTimeCost", String.valueOf(dsaVar.a));
-                bdStatsItem.append("httpNum", String.valueOf(dsaVar.b));
-                bdStatsItem.append("httpFailnum", String.valueOf(dsaVar.c));
-                bdStatsItem.append("httpSize", String.valueOf(dsaVar.d));
-                bdStatsItem.append("socketTimeCost", String.valueOf(dsaVar2.a));
-                bdStatsItem.append("socketNum", String.valueOf(dsaVar2.b));
-                bdStatsItem.append("socketFailnum", String.valueOf(dsaVar2.c));
-                bdStatsItem.append("socketSize", String.valueOf(dsaVar2.d));
-                bdStatsItem.append("abortTimeCost", String.valueOf(dsaVar3.a));
-                bdStatsItem.append("abortNum", String.valueOf(dsaVar3.b));
-                bdStatsItem.append("netType", esaVar.b);
-                if (esaVar.a) {
-                    str = "1";
+                bdStatsItem.append("act", "frs");
+                String str3 = "0";
+                if (z2) {
+                    str2 = "0";
                 } else {
-                    str = "0";
+                    str2 = "1";
                 }
-                bdStatsItem.append("isJson", str);
+                bdStatsItem.append("result", str2);
+                if (z) {
+                    str3 = "1";
+                }
+                bdStatsItem.append("isHttp", str3);
+                bdStatsItem.append("timeCost", String.valueOf(j2));
+                bdStatsItem.append(StatConstants.KEY_EXT_ERR_CODE, String.valueOf(i));
+                bdStatsItem.append(StatConstants.KEY_EXT_ERR_MSG, str);
+                bdStatsItem.append("down", String.valueOf(j));
                 BdStatisticsManager.getInstance().debug("frs", bdStatsItem);
-                dsaVar.a();
-                dsaVar2.a();
-                dsaVar3.a();
             }
         }
     }
 
-    public static void c(String str, String str2, boolean z) {
+    public final fsa c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65539, null, str, str2, z) == null) {
-            if (str2 == null) {
-                str2 = "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return dsa.e(this.b, d(), this.c);
+        }
+        return (fsa) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int netType = BdNetTypeUtil.netType();
+            if (netType == 0) {
+                return "N";
             }
-            String str3 = str + str2;
-            if (!a.containsKey(str3)) {
-                a.put(str3, new esa(str, str2, z));
+            if (netType == 1) {
+                return "WIFI";
             }
+            if (netType == 3) {
+                return "3G";
+            }
+            if (netType != 2) {
+                return "N";
+            }
+            return "2G";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.startTimer();
         }
     }
 
-    public static esa e(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
+    public void e(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, str, str2, z)) == null) {
-            if (str2 == null) {
-                str2 = "";
-            }
-            String str3 = str + str2;
-            if (!a.containsKey(str3)) {
-                a.put(str3, new esa(str, str2, z));
-            }
-            return a.get(str3);
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
+            this.b = str;
+            this.c = z;
+            this.a = new BdStatsItem("dbg");
+            dsa.c(str, d(), z);
         }
-        return (esa) invokeLLZ.objValue;
     }
 }

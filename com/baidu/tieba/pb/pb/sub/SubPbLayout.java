@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l0a;
-import com.baidu.tieba.ura;
+import com.baidu.tieba.m0a;
+import com.baidu.tieba.vra;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,9 +36,9 @@ public class SubPbLayout extends ViewGroup {
     public View.OnClickListener a;
     public View.OnLongClickListener b;
     public View.OnTouchListener c;
-    public l0a d;
+    public m0a d;
     public int e;
-    public ura f;
+    public vra f;
     public View g;
     public final Queue<b> h;
     public RelativeLayout i;
@@ -110,8 +110,8 @@ public class SubPbLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             long drawingTime = getDrawingTime();
-            ura uraVar = this.f;
-            if (uraVar != null && uraVar.j0() != null) {
+            vra vraVar = this.f;
+            if (vraVar != null && vraVar.j0() != null) {
                 int i = this.e;
                 for (int i2 = 0; i2 < i; i2++) {
                     if (i < getChildCount()) {
@@ -227,7 +227,7 @@ public class SubPbLayout extends ViewGroup {
         return invokeII.intValue;
     }
 
-    public final int c(List<ura> list, int i) {
+    public final int c(List<vra> list, int i) {
         InterceptResult invokeLI;
         boolean z;
         boolean z2;
@@ -275,9 +275,9 @@ public class SubPbLayout extends ViewGroup {
                         childAt2.setTag(sparseArray);
                     }
                     Object obj = sparseArray.get(R.id.tag_load_sub_data);
-                    ura uraVar = this.f;
-                    if (obj != uraVar) {
-                        sparseArray.put(R.id.tag_load_sub_data, uraVar);
+                    vra vraVar = this.f;
+                    if (obj != vraVar) {
+                        sparseArray.put(R.id.tag_load_sub_data, vraVar);
                     }
                     sparseArray.put(R.id.tag_load_sub_view, this.g);
                     sparseArray.put(R.id.tag_is_subpb, Boolean.TRUE);
@@ -290,9 +290,9 @@ public class SubPbLayout extends ViewGroup {
                         sparseArray.put(R.id.tag_photo_userid, list.get(i4).t().getUserId());
                         sparseArray.put(R.id.tag_clip_board, list.get(i4));
                     }
-                    l0a.b bVar = (l0a.b) sparseArray.get(R.id.tag_holder);
-                    l0a l0aVar = this.d;
-                    ura uraVar2 = list.get(i4);
+                    m0a.b bVar = (m0a.b) sparseArray.get(R.id.tag_holder);
+                    m0a m0aVar = this.d;
+                    vra vraVar2 = list.get(i4);
                     if (this.f.l0() <= list.size() && list.size() - i4 <= 1) {
                         z = false;
                     } else {
@@ -303,7 +303,7 @@ public class SubPbLayout extends ViewGroup {
                     } else {
                         z2 = false;
                     }
-                    l0aVar.c(bVar, uraVar2, z, z2, false);
+                    m0aVar.c(bVar, vraVar2, z, z2, false);
                     bVar.e.setPadding(0, 0, 0, BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds7));
                     e();
                     childAt2.measure(((i - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
@@ -375,18 +375,18 @@ public class SubPbLayout extends ViewGroup {
         }
     }
 
-    public void setSubPbAdapter(l0a l0aVar) {
+    public void setSubPbAdapter(m0a m0aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, l0aVar) == null) {
-            this.d = l0aVar;
+        if (interceptable == null || interceptable.invokeL(1048592, this, m0aVar) == null) {
+            this.d = m0aVar;
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        ura uraVar;
+        vra vraVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && (uraVar = this.f) != null && uraVar.j0() != null) {
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && (vraVar = this.f) != null && vraVar.j0() != null) {
             int size = this.h.size();
             for (int i5 = 0; i5 < size; i5++) {
                 b poll = this.h.poll();
@@ -432,11 +432,11 @@ public class SubPbLayout extends ViewGroup {
 
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
-        ura uraVar;
-        ArrayList<ura> j0;
+        vra vraVar;
+        ArrayList<vra> j0;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
-            if (this.d != null && (uraVar = this.f) != null && uraVar.j0() != null) {
+            if (this.d != null && (vraVar = this.f) != null && vraVar.j0() != null) {
                 int size = View.MeasureSpec.getSize(i);
                 if (this.f.G0()) {
                     j0 = this.f.D();
@@ -450,10 +450,10 @@ public class SubPbLayout extends ViewGroup {
         }
     }
 
-    public void setData(ura uraVar, View view2) {
+    public void setData(vra vraVar, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, uraVar, view2) == null) {
-            this.f = uraVar;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, vraVar, view2) == null) {
+            this.f = vraVar;
             requestLayout();
             this.g = view2;
         }

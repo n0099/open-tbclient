@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.coreExtra.data.ChannelIconConfigFinalData;
 import com.baidu.tbadk.coreExtra.message.ChannelConfigResponseMessage;
-import com.baidu.tieba.c85;
+import com.baidu.tieba.d85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ public class ChannelConfigModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b callback;
-    public c85 mData;
+    public d85 mData;
     public ChannelIconConfigFinalData mFinalData;
     public int mLocalCommonVersion;
     public int mLocalSpecialVersion;
@@ -29,7 +29,7 @@ public class ChannelConfigModel {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(boolean z, c85 c85Var);
+        void a(boolean z, d85 d85Var);
     }
 
     /* loaded from: classes5.dex */
@@ -102,13 +102,13 @@ public class ChannelConfigModel {
         }
     }
 
-    public c85 getData() {
+    public d85 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.mData;
         }
-        return (c85) invokeV.objValue;
+        return (d85) invokeV.objValue;
     }
 
     public void onDestroy() {
@@ -137,16 +137,16 @@ public class ChannelConfigModel {
                 return null;
             }
             ChannelIconConfigFinalData channelIconConfigFinalData2 = new ChannelIconConfigFinalData();
-            c85 c85Var = this.mData;
-            if (c85Var != null && c85Var.b() != null && this.mLocalSpecialVersion < this.mData.b().e()) {
+            d85 d85Var = this.mData;
+            if (d85Var != null && d85Var.b() != null && this.mLocalSpecialVersion < this.mData.b().e()) {
                 channelIconConfigFinalData2.setIcon(this.mData.b().a());
                 channelIconConfigFinalData2.setPopText(this.mData.b().b());
                 channelIconConfigFinalData2.setTabCode(this.mData.b().c());
                 channelIconConfigFinalData2.setTid(this.mData.b().d());
                 channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_SPECIAL);
             } else {
-                c85 c85Var2 = this.mData;
-                if (c85Var2 != null && c85Var2.a() > 0 && this.mLocalCommonVersion < this.mData.a()) {
+                d85 d85Var2 = this.mData;
+                if (d85Var2 != null && d85Var2.a() > 0 && this.mLocalCommonVersion < this.mData.a()) {
                     channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_COMMON);
                 } else {
                     channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_NONE);

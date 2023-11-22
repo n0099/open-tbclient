@@ -1,12 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.core.util.Pair;
+import android.view.View;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.webkit.sdk.WebView;
-import java.util.List;
 /* loaded from: classes5.dex */
 public interface fk6 {
-    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IPrefetchManager");
+    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "EMManagerProvider");
 
-    List<Pair<String, Long>> a(String str);
+    void a(View view2, int i);
 }

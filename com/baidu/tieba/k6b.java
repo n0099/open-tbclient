@@ -1,126 +1,88 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.view.headcard.RecommendCollectLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class k6b {
+public class k6b extends ns<v6b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public n6b c;
+    public RecommendCollectLayout f;
+    public int g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947866450, "Lcom/baidu/tieba/k6b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947866450, "Lcom/baidu/tieba/k6b;");
-        }
-    }
-
-    public k6b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k6b(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.f = new RecommendCollectLayout(tbPageContext);
+    }
+
+    @Override // com.baidu.tieba.ns
+    public View g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ns
+    public void o(BdUniqueId bdUniqueId) {
+        RecommendCollectLayout recommendCollectLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) && (recommendCollectLayout = this.f) != null) {
+            recommendCollectLayout.setPageUniqueId(bdUniqueId);
         }
     }
 
-    public final void a(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ht
+    /* renamed from: r */
+    public void onBindDataToView(v6b v6bVar) {
+        RecommendCollectLayout recommendCollectLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.b = str;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, v6bVar) == null) && (recommendCollectLayout = this.f) != null) {
+            recommendCollectLayout.setData(v6bVar);
+            this.f.setSourceForPb(this.g);
         }
     }
 
-    public final void b(String str) {
+    public void s(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.g = i;
         }
     }
 
-    public final void c(n6b n6bVar) {
+    @Override // com.baidu.tieba.it
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        RecommendCollectLayout recommendCollectLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n6bVar) == null) {
-            this.c = n6bVar;
-        }
-    }
-
-    public final void d(int i) {
-        r6b d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_COMPETE_CARD_CLICK);
-            if (!qd.isEmpty(this.a) && !qd.isEmpty(this.b)) {
-                statisticItem.param("obj_type", 2);
-            } else {
-                statisticItem.param("obj_type", 1);
-            }
-            statisticItem.param("fname", this.a);
-            statisticItem.param("fid", this.b);
-            n6b n6bVar = this.c;
-            if (n6bVar != null && (d = n6bVar.d()) != null) {
-                Long e = d.e();
-                if (e != null) {
-                    statisticItem.param("obj_param1", e.longValue());
-                }
-                Long f = d.f();
-                if (f != null) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, f.longValue());
-                }
-            }
-            statisticItem.param("obj_locate", i);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final void e() {
-        r6b d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_COMPETE_CARD_SHOW);
-            if (!qd.isEmpty(this.a) && !qd.isEmpty(this.b)) {
-                statisticItem.param("obj_type", 2);
-            } else {
-                statisticItem.param("obj_type", 1);
-            }
-            statisticItem.param("fname", this.a);
-            statisticItem.param("fid", this.b);
-            n6b n6bVar = this.c;
-            if (n6bVar != null && (d = n6bVar.d()) != null) {
-                Long e = d.e();
-                if (e != null) {
-                    statisticItem.param("obj_param1", e.longValue());
-                }
-                Long f = d.f();
-                if (f != null) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, f.longValue());
-                }
-            }
-            TiebaStatic.log(statisticItem);
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) && (recommendCollectLayout = this.f) != null) {
+            recommendCollectLayout.onChangeSkinType(tbPageContext, i);
         }
     }
 }

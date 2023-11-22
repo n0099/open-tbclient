@@ -15,21 +15,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tbadk.switchs.FunnySpriteColdStartRequestSwitch;
-import com.baidu.tieba.bk5;
-import com.baidu.tieba.gxa;
+import com.baidu.tieba.ck5;
+import com.baidu.tieba.hxa;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.mq6;
-import com.baidu.tieba.n85;
-import com.baidu.tieba.nna;
-import com.baidu.tieba.pq6;
-import com.baidu.tieba.qva;
+import com.baidu.tieba.nq6;
+import com.baidu.tieba.o85;
+import com.baidu.tieba.ona;
+import com.baidu.tieba.qq6;
+import com.baidu.tieba.rva;
 import com.baidu.tieba.sprite.funnysprite.data.SpriteTipHttpResponseMessage;
 import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager;
 import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
 import com.baidu.tieba.tipview.HomePageSpriteTipController;
 import com.baidu.tieba.tipview.HomePageSpriteTipController$httpListener$2;
-import com.baidu.tieba.tya;
-import com.baidu.tieba.wv6;
+import com.baidu.tieba.uya;
+import com.baidu.tieba.xv6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,14 +70,14 @@ public final class HomePageSpriteTipController {
     }
 
     /* loaded from: classes8.dex */
-    public static final class a extends pq6<wv6> {
+    public static final class a extends qq6<xv6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HomePageSpriteTipController b;
         public final /* synthetic */ HomePageSpriteBottomTipView c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(HomePageSpriteTipController homePageSpriteTipController, HomePageSpriteBottomTipView homePageSpriteBottomTipView, Class<wv6> cls) {
+        public a(HomePageSpriteTipController homePageSpriteTipController, HomePageSpriteBottomTipView homePageSpriteBottomTipView, Class<xv6> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -99,15 +99,15 @@ public final class HomePageSpriteTipController {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pq6
-        public void onEvent(wv6 event) {
+        @Override // com.baidu.tieba.qq6
+        public void onEvent(xv6 event) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
-                SpriteTipHttpResponseMessage b = nna.b.a().b();
+                SpriteTipHttpResponseMessage b = ona.b.a().b();
                 if (b != null) {
                     this.b.j(b, this.c);
-                    nna.b.a().a();
+                    ona.b.a().a();
                 }
             }
         }
@@ -210,7 +210,7 @@ public final class HomePageSpriteTipController {
                 return (a) invokeV.objValue;
             }
         });
-        this.f = new a(this, spriteTipView, wv6.class);
+        this.f = new a(this, spriteTipView, xv6.class);
     }
 
     public static final void e(HomePageSpriteTipController this$0) {
@@ -218,7 +218,7 @@ public final class HomePageSpriteTipController {
         if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (this$0.a) {
-                bk5.i(4);
+                ck5.i(4);
             }
         }
     }
@@ -255,7 +255,7 @@ public final class HomePageSpriteTipController {
         int intValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            n85 funnySpriteConfig = TbSingleton.getInstance().getFunnySpriteConfig();
+            o85 funnySpriteConfig = TbSingleton.getInstance().getFunnySpriteConfig();
             if (funnySpriteConfig != null && (b = funnySpriteConfig.b()) != null && (intValue = b.intValue()) > 0) {
                 return intValue * 1000;
             }
@@ -268,7 +268,7 @@ public final class HomePageSpriteTipController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             MessageManager.getInstance().unRegisterListener(b());
-            mq6.b().a(this);
+            nq6.b().a(this);
         }
     }
 
@@ -298,7 +298,7 @@ public final class HomePageSpriteTipController {
                     j = 0;
                 }
                 DefaultLog.getInstance().i("SpriteTip", "精灵轻互动首次请求延迟 " + j);
-                SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.qya
+                SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.rya
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -312,20 +312,20 @@ public final class HomePageSpriteTipController {
                 }, j);
             }
             this.c = System.currentTimeMillis();
-            mq6.b().b(this, this.f);
+            nq6.b().b(this, this.f);
         }
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && !bk5.m() && tya.f.a() > 0 && System.currentTimeMillis() - tya.f.a() > c()) {
-            if (!this.b && FunnySpriteColdStartRequestSwitch.isOn() && !gxa.i.a().d()) {
-                bk5.i(4);
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && !ck5.m() && uya.f.a() > 0 && System.currentTimeMillis() - uya.f.a() > c()) {
+            if (!this.b && FunnySpriteColdStartRequestSwitch.isOn() && !hxa.i.a().d()) {
+                ck5.i(4);
                 return;
             }
             TbLog defaultLog = DefaultLog.getInstance();
             defaultLog.i("SpriteTip", "requestTip canShowSpriteTip:" + this.a);
-            bk5.i(5);
+            ck5.i(5);
         }
     }
 
@@ -339,7 +339,7 @@ public final class HomePageSpriteTipController {
             } else {
                 j = 1000;
             }
-            SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.sya
+            SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.tya
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -357,7 +357,7 @@ public final class HomePageSpriteTipController {
     public final void j(HttpResponsedMessage httpResponsedMessage, HomePageSpriteBottomTipView homePageSpriteBottomTipView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, httpResponsedMessage, homePageSpriteBottomTipView) == null) {
-            if ((2 == gxa.i.a().b().a().c && 1 == gxa.i.a().b().b().c && 6 == gxa.i.a().b().c().c) || !this.d) {
+            if ((2 == hxa.i.a().b().a().c && 1 == hxa.i.a().b().b().c && 6 == hxa.i.a().b().c().c) || !this.d) {
                 return;
             }
             if (httpResponsedMessage instanceof SpriteTipHttpResponseMessage) {
@@ -365,7 +365,7 @@ public final class HomePageSpriteTipController {
                 if (spriteTipHttpResponseMessage.isSuccess()) {
                     Activity mainActivity = TbadkCoreApplication.getInst().getMainActivity();
                     Intrinsics.checkNotNullExpressionValue(mainActivity, "getInst().mainActivity");
-                    if ((mainActivity instanceof qva) && this.a) {
+                    if ((mainActivity instanceof rva) && this.a) {
                         HomeSpriteEdgeFloatManager.l.c().B(mainActivity, spriteTipHttpResponseMessage, homePageSpriteBottomTipView);
                         return;
                     }

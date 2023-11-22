@@ -1,54 +1,41 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.tieba.feed.log.FeedStat;
+import com.baidu.tieba.forum.data.ForumTabItem;
 import com.baidu.tieba.forum.statistic.ForumStatConstant$TabType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class ok7 implements FeedStat.a {
+public final class ok7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Bundle a;
-    public final ForumStatConstant$TabType b;
-    public final long c;
 
-    public ok7(Bundle bundle) {
+    public static final ForumStatConstant$TabType a(Bundle bundle) {
+        InterceptResult invokeL;
+        ForumStatConstant$TabType forumStatConstant$TabType;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bundle};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bundle)) == null) {
+            Intrinsics.checkNotNullParameter(bundle, "bundle");
+            ForumStatConstant$TabType forumStatConstant$TabType2 = ForumStatConstant$TabType.TAB_TYPE_UNKNOWN;
+            ForumTabItem forumTabItem = (ForumTabItem) bundle.getParcelable("forum_tab_info");
+            if (forumTabItem != null) {
+                if (forumTabItem.getNetType() == 2) {
+                    forumStatConstant$TabType = ForumStatConstant$TabType.TAB_TYPE_HOT;
+                } else if ((forumTabItem.getTabId() == 1 && forumTabItem.getNetType() == 1) || forumTabItem.getTabId() == 503) {
+                    forumStatConstant$TabType = ForumStatConstant$TabType.TAB_TYPE_NEW;
+                } else if (forumTabItem.getTabId() == 301) {
+                    forumStatConstant$TabType = ForumStatConstant$TabType.TAB_TYPE_GOOD;
+                } else if (forumTabItem.isGeneralTab()) {
+                    forumStatConstant$TabType = ForumStatConstant$TabType.TAB_TYPE_GENERAL;
+                } else {
+                    forumStatConstant$TabType = ForumStatConstant$TabType.TAB_TYPE_UNKNOWN;
+                }
+                return forumStatConstant$TabType;
             }
+            return forumStatConstant$TabType2;
         }
-        Intrinsics.checkNotNullParameter(bundle, "bundle");
-        this.a = bundle;
-        this.b = nk7.a(bundle);
-        this.c = this.a.getLong("forum_id");
-    }
-
-    @Override // com.baidu.tieba.feed.log.FeedStat.a
-    public void a(String id, Map<String, String> businessInfo, Map<String, String> logInfo, Map<String, String> runInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, id, businessInfo, logInfo, runInfo) == null) {
-            Intrinsics.checkNotNullParameter(id, "id");
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            Intrinsics.checkNotNullParameter(logInfo, "logInfo");
-            Intrinsics.checkNotNullParameter(runInfo, "runInfo");
-            qk7.a.b(id, businessInfo, this.b, String.valueOf(this.c), JavaTypesHelper.toInt(runInfo.get("get_position"), 0) - 1);
-            pk7.a.a(id, businessInfo, logInfo, runInfo);
-        }
+        return (ForumStatConstant$TabType) invokeL.objValue;
     }
 }

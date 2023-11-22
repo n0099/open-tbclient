@@ -4,23 +4,29 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.VipShowInfo;
+import tbclient.VipCloseAd;
 /* loaded from: classes5.dex */
-public class b6d extends poc {
+public class b6d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull VipShowInfo vipShowInfo) {
+    public static JSONObject b(@NonNull VipCloseAd vipCloseAd) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, vipShowInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, vipCloseAd)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "vip_icon", vipShowInfo.vip_icon);
-            poc.a(jSONObject, "content", vipShowInfo.content);
-            poc.a(jSONObject, "link", vipShowInfo.link);
-            poc.a(jSONObject, "title", vipShowInfo.title);
+            qoc.a(jSONObject, "is_open", vipCloseAd.is_open);
+            qoc.a(jSONObject, "vip_close", vipCloseAd.vip_close);
+            if (vipCloseAd.forum_close != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (Integer num : vipCloseAd.forum_close) {
+                    jSONArray.put(num.intValue());
+                }
+                qoc.a(jSONObject, "forum_close", jSONArray);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

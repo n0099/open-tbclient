@@ -1,99 +1,109 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedLayout;
 /* loaded from: classes5.dex */
 public final class a67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, ? extends hb7> a;
+    public final e57 b;
+    public final w67 c;
+    public Map<String, String> d;
+    public boolean e;
 
-    public static final d57 a(z57 z57Var, Map<String, String> appendMap) {
-        InterceptResult invokeLL;
+    public a67() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, z57Var, appendMap)) == null) {
-            Intrinsics.checkNotNullParameter(z57Var, "<this>");
-            Intrinsics.checkNotNullParameter(appendMap, "appendMap");
-            d57 d57Var = new d57();
-            d57Var.a().putAll(z57Var.a().a());
-            d57Var.a().putAll(appendMap);
-            return d57Var;
-        }
-        return (d57) invokeLL.objValue;
-    }
-
-    public static final void b(z57 z57Var, FeedLayout feedLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, z57Var, feedLayout) == null) {
-            Intrinsics.checkNotNullParameter(z57Var, "<this>");
-            Intrinsics.checkNotNullParameter(feedLayout, "feedLayout");
-            z57Var.a().b(da7.a.a(feedLayout.business_info));
-            z57Var.c().b(da7.a.a(feedLayout.log_info));
-        }
-    }
-
-    public static final Map<String, String> e(z57 z57Var, String statStrategyKey) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, z57Var, statStrategyKey)) == null) {
-            Intrinsics.checkNotNullParameter(z57Var, "<this>");
-            Intrinsics.checkNotNullParameter(statStrategyKey, "statStrategyKey");
-            HashMap hashMap = new HashMap();
-            gb7 gb7Var = z57Var.e().get(statStrategyKey);
-            if (gb7Var != null) {
-                hashMap.putAll(gb7Var.a(z57Var.a()));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return hashMap;
         }
-        return (Map) invokeLL.objValue;
+        this.a = new HashMap();
+        this.b = new e57();
+        this.c = new w67();
+        this.d = new HashMap();
     }
 
-    public static final m77 c(z57 z57Var, String statStrategyKey, d57 d57Var) {
-        InterceptResult invokeLLL;
-        d57 d57Var2;
+    public final e57 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, z57Var, statStrategyKey, d57Var)) == null) {
-            Intrinsics.checkNotNullParameter(z57Var, "<this>");
-            Intrinsics.checkNotNullParameter(statStrategyKey, "statStrategyKey");
-            gb7 gb7Var = z57Var.e().get(statStrategyKey);
-            if (gb7Var instanceof hb7) {
-                hb7 hb7Var = (hb7) gb7Var;
-                if (d57Var == null) {
-                    d57Var2 = z57Var.a();
-                } else {
-                    d57Var2 = d57Var;
-                }
-                statStrategyKey = hb7Var.c(d57Var2);
-            }
-            m77 m77Var = new m77(null, null, null, null, null, 31, null);
-            gb7 gb7Var2 = z57Var.e().get(statStrategyKey);
-            if (gb7Var2 != null) {
-                String key = gb7Var2.getKey();
-                if (d57Var == null) {
-                    d57Var = z57Var.a();
-                }
-                m77Var = new m77(key, gb7Var2.a(d57Var), z57Var.c().a(), null, null, 24, null);
-                if (gb7Var2 instanceof db7) {
-                    m77Var.g(((db7) gb7Var2).b());
-                }
-                if (gb7Var2 instanceof n67) {
-                    m77Var.f(((n67) gb7Var2).d());
-                }
-            }
-            return m77Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (m77) invokeLLL.objValue;
+        return (e57) invokeV.objValue;
     }
 
-    public static /* synthetic */ m77 d(z57 z57Var, String str, d57 d57Var, int i, Object obj) {
-        if ((i & 2) != 0) {
-            d57Var = null;
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
         }
-        return c(z57Var, str, d57Var);
+        return invokeV.booleanValue;
+    }
+
+    public final w67 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (w67) invokeV.objValue;
+    }
+
+    public final Map<String, String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.Map<java.lang.String, ? extends com.baidu.tieba.hb7>, java.util.Map<java.lang.String, com.baidu.tieba.hb7> */
+    public final Map<String, hb7> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public final void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public final void g(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
+            Intrinsics.checkNotNullParameter(map, "<set-?>");
+            this.d = map;
+        }
+    }
+
+    public final void h(Map<String, ? extends hb7> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
+            Intrinsics.checkNotNullParameter(map, "<set-?>");
+            this.a = map;
+        }
     }
 }

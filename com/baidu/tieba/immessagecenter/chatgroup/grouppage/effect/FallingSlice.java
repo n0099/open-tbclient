@@ -13,9 +13,9 @@ import com.baidu.tbadk.widget.falling.FallingEventType;
 import com.baidu.tbadk.widget.falling.FallingView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.base.core.slice.Slice;
-import com.baidu.tieba.u09;
-import com.baidu.tieba.uv8;
-import com.baidu.tieba.xv5;
+import com.baidu.tieba.v09;
+import com.baidu.tieba.vv8;
+import com.baidu.tieba.yv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,13 +29,13 @@ public class FallingSlice extends Slice {
     public final TbPageContext<?> j;
     public c k;
     @Nullable
-    public u09 l;
+    public v09 l;
     public long m;
     public boolean n;
-    public final xv5 o;
+    public final yv5 o;
 
     /* loaded from: classes6.dex */
-    public class a implements xv5 {
+    public class a implements yv5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FallingSlice a;
@@ -58,7 +58,7 @@ public class FallingSlice extends Slice {
             this.a = fallingSlice;
         }
 
-        @Override // com.baidu.tieba.xv5
+        @Override // com.baidu.tieba.yv5
         public void a(FallingEventType fallingEventType, @Nullable Object obj) {
             String str;
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class FallingSlice extends Slice {
                     str = "";
                 }
                 if (fallingEventType == FallingEventType.CLICK) {
-                    uv8.m("c15184", str, this.a.m, this.a.n);
+                    vv8.m("c15184", str, this.a.m, this.a.n);
                 }
             }
         }
@@ -217,16 +217,16 @@ public class FallingSlice extends Slice {
         }
     }
 
-    public void i0(@NonNull FallingData fallingData, long j, boolean z, @Nullable u09 u09Var) {
+    public void i0(@NonNull FallingData fallingData, long j, boolean z, @Nullable v09 v09Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{fallingData, Long.valueOf(j), Boolean.valueOf(z), u09Var}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{fallingData, Long.valueOf(j), Boolean.valueOf(z), v09Var}) == null) {
             this.m = j;
             this.n = z;
-            this.l = u09Var;
+            this.l = v09Var;
             ChatFallingView chatFallingView = this.k.b;
             if (chatFallingView != null) {
                 chatFallingView.x(fallingData, this.j, false);
-                uv8.m("c15183", fallingData.getAffect(), this.m, z);
+                vv8.m("c15183", fallingData.getAffect(), this.m, z);
             }
         }
     }

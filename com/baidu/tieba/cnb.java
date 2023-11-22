@@ -1,53 +1,115 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
-import com.baidu.tieba.bnb;
+import android.os.Build;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Date;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashSet;
+import java.util.Set;
 /* loaded from: classes5.dex */
 public final class cnb {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static bnb.a b;
-    public static bnb.a c;
+    public static final cnb c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Set<a> a;
+    public boolean b;
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        void U();
+
+        void a(Activity activity);
+
+        void b();
+
+        void onActivityDestroyed(Activity activity);
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947681938, "Lcom/baidu/tieba/cnb;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947681938, "Lcom/baidu/tieba/cnb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947681938, "Lcom/baidu/tieba/cnb;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        c = new cnb();
+    }
+
+    public cnb() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947681938, "Lcom/baidu/tieba/cnb;");
+        this.a = new LinkedHashSet();
+    }
+
+    public static cnb a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
+        }
+        return (cnb) invokeV.objValue;
+    }
+
+    public final Set<a> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this.a) {
+                this.a.clear();
+            }
         }
     }
 
-    public static synchronized void a(Context context) {
+    public final void d(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            synchronized (cnb.class) {
-                if (!a) {
-                    onb.b(" ActivityLifeTask   add  " + new Date().toLocaleString());
-                    b = new dnb();
-                    c = new nnb();
-                    bnb.a().c();
-                    bnb.a().d(c);
-                    bnb.a().d(b);
-                    bnb.a().e(context);
-                    a = true;
-                    return;
-                }
-                onb.b(" ActivityLifeTask  is added  " + new Date().toLocaleString());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            synchronized (this.a) {
+                this.a.add(aVar);
             }
+        }
+    }
+
+    public final void e(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && !this.b && Build.VERSION.SDK_INT >= 14) {
+            try {
+                ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new jnb(this));
+            } catch (Exception unused) {
+                xnb.b("registerActivityLifecycleCallbacks encounter exception");
+            }
+            this.b = true;
         }
     }
 }

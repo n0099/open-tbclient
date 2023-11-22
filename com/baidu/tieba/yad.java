@@ -1,7 +1,15 @@
 package com.baidu.tieba;
 
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import android.view.View;
+import android.view.Window;
+import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes9.dex */
-public interface yad extends xad {
-    void setGiftBagsInfo(GiftBagsInfo giftBagsInfo);
+public interface yad {
+    void attachWindow(Window window);
+
+    View getContentView();
+
+    void refreshView();
+
+    void refreshWindow(WindowParams windowParams);
 }

@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.biz.aibot.AibotChatRepo;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.TreeSet;
+import kotlin.collections.CollectionsKt__IterablesKt;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class bo8 {
     public static /* synthetic */ Interceptable $ic;
@@ -48,25 +53,33 @@ public final class bo8 {
         }
     }
 
-    public final void a(int i, String botId) {
+    public final void a(AibotChatRepo repo, JSONObject params, ds8 fetchMsgCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, botId) == null) {
-            Intrinsics.checkNotNullParameter(botId, "botId");
-            StatisticItem statisticItem = new StatisticItem("c15413");
-            statisticItem.param("obj_type", i);
-            statisticItem.param("obj_id", botId);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, repo, params, fetchMsgCallback) == null) {
+            Intrinsics.checkNotNullParameter(repo, "repo");
+            Intrinsics.checkNotNullParameter(params, "params");
+            Intrinsics.checkNotNullParameter(fetchMsgCallback, "fetchMsgCallback");
+            repo.f0(params.optLong("beginMsgId"), params.optLong("endMsgId"), params.optInt("count"), fetchMsgCallback);
         }
     }
 
-    public final void b(int i) {
+    public final HashMap<String, Object> b(TreeSet<TbBaseMsg> fetchedMsgs, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            StatisticItem statisticItem = new StatisticItem("c15439");
-            statisticItem.param("obj_type", i);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fetchedMsgs, j)) == null) {
+            Intrinsics.checkNotNullParameter(fetchedMsgs, "fetchedMsgs");
+            ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(fetchedMsgs, 10));
+            for (TbBaseMsg tbBaseMsg : fetchedMsgs) {
+                arrayList.add(is8.c(tbBaseMsg, false));
+            }
+            HashMap<String, Object> hashMap = new HashMap<>();
+            String a2 = cx.a(DataExt.toJson(arrayList));
+            Intrinsics.checkNotNullExpressionValue(a2, "getEncodeValue(mapList.toJson())");
+            hashMap.put("msgs", a2);
+            hashMap.put("chatType", "AISingleChat");
+            hashMap.put("chatId", Long.valueOf(j));
+            return hashMap;
         }
+        return (HashMap) invokeLJ.objValue;
     }
 }

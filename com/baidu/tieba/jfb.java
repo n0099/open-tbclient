@@ -1,82 +1,226 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.util.DataExt;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tieba.kfb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.annotations.SerializedName;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class jfb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @SerializedName("n")
-    public String a;
-    @SerializedName("t")
-    public String b;
-    @SerializedName("c")
-    public String c;
-    @SerializedName("cs")
-    public List<a> d;
-    @SerializedName("e")
-    public List<String> e;
+    @NonNull
+    public final TbPageContext<?> a;
+    @NonNull
+    public final keb b;
+    @NonNull
+    public final EditorTools c;
+    @NonNull
+    public final ddb d;
+    @NonNull
+    public final vfb e;
+    @NonNull
+    public final zfb f;
+    @NonNull
+    public final WriteData g;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @SerializedName("id")
-        public String a;
-        @SerializedName("ext")
-        public String b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public jfb() {
+    public jfb(@NonNull TbPageContext<?> tbPageContext, @NonNull keb kebVar, @NonNull EditorTools editorTools, @NonNull ddb ddbVar, @NonNull vfb vfbVar, @NonNull zfb zfbVar, @NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, kebVar, editorTools, ddbVar, vfbVar, zfbVar, writeData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
+        this.b = kebVar;
+        this.c = editorTools;
+        this.d = ddbVar;
+        this.e = vfbVar;
+        this.f = zfbVar;
+        this.g = writeData;
     }
 
-    @Nullable
-    public static jfb a(String str) {
+    public List<oeb<?>> a(List<kfb.a> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (kfb.a aVar : list) {
+                oeb<?> b = b(aVar);
+                if (b != null) {
+                    b.h(aVar.b, this.g);
+                    arrayList.add(b);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public oeb<?> b(kfb.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
+            if (aVar == null) {
                 return null;
             }
-            try {
-                return (jfb) DataExt.toEntity(str, jfb.class);
-            } catch (Exception unused) {
-                return null;
+            String str = aVar.a;
+            char c = 65535;
+            int hashCode = str.hashCode();
+            switch (hashCode) {
+                case 3118:
+                    if (str.equals("c1")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 3119:
+                    if (str.equals("c2")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 3120:
+                    if (str.equals("c3")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 3121:
+                    if (str.equals("c4")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 3122:
+                    if (str.equals("c5")) {
+                        c = '\r';
+                        break;
+                    }
+                    break;
+                case 3123:
+                    if (str.equals("c6")) {
+                        c = '\f';
+                        break;
+                    }
+                    break;
+                case 3124:
+                    if (str.equals("c7")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 3125:
+                    if (str.equals("c8")) {
+                        c = 11;
+                        break;
+                    }
+                    break;
+                case 3126:
+                    if (str.equals("c9")) {
+                        c = 14;
+                        break;
+                    }
+                    break;
+                default:
+                    switch (hashCode) {
+                        case 96706:
+                            if (str.equals("c10")) {
+                                c = 15;
+                                break;
+                            }
+                            break;
+                        case 96707:
+                            if (str.equals("c11")) {
+                                c = 6;
+                                break;
+                            }
+                            break;
+                        case 96708:
+                            if (str.equals("c12")) {
+                                c = '\t';
+                                break;
+                            }
+                            break;
+                        case 96709:
+                            if (str.equals("c13")) {
+                                c = '\n';
+                                break;
+                            }
+                            break;
+                        case 96710:
+                            if (str.equals("c14")) {
+                                c = 0;
+                                break;
+                            }
+                            break;
+                        case 96711:
+                            if (str.equals("c15")) {
+                                c = 1;
+                                break;
+                            }
+                            break;
+                        case 96712:
+                            if (str.equals("c16")) {
+                                c = '\b';
+                                break;
+                            }
+                            break;
+                    }
+            }
+            switch (c) {
+                case 0:
+                    return rfb.a(this.a);
+                case 1:
+                    return rfb.b(this.a);
+                case 2:
+                    return rfb.c(this.a, this.b, this.c, this.d, this.e);
+                case 3:
+                    return rfb.e(this.a);
+                case 4:
+                    return rfb.f(this.a);
+                case 5:
+                    return rfb.g(this.a);
+                case 6:
+                    return rfb.h(this.a, this.f);
+                case 7:
+                    return rfb.i(this.a);
+                case '\b':
+                    return rfb.j(this.a);
+                case '\t':
+                    return rfb.k(this.a);
+                case '\n':
+                    return rfb.l(this.a);
+                case 11:
+                    return rfb.m(this.a, this.b, this.c, this.f, this.d, this.e);
+                case '\f':
+                    return rfb.n(this.a, this.b, this.d, this.e);
+                case '\r':
+                    return rfb.o(this.a);
+                case 14:
+                    return rfb.p(this.a);
+                case 15:
+                    return rfb.q(this.a);
+                default:
+                    return null;
             }
         }
-        return (jfb) invokeL.objValue;
+        return (oeb) invokeL.objValue;
     }
 }

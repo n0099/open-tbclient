@@ -3,9 +3,9 @@ package com.baidu.tieba.pbextra;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.jra;
-import com.baidu.tieba.ura;
-import com.baidu.tieba.v1a;
+import com.baidu.tieba.kra;
+import com.baidu.tieba.vra;
+import com.baidu.tieba.w1a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,8 +47,8 @@ public class PbExtraStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof jra)) {
-                ((jra) customResponsedMessage.getData()).a().add(new v1a(null, ura.c1));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof kra)) {
+                ((kra) customResponsedMessage.getData()).a().add(new w1a(null, vra.c1));
             }
         }
     }
@@ -67,7 +67,7 @@ public class PbExtraStatic {
             }
         }
         MessageManager.getInstance().registerListener(new a(2004015));
-        ura.f1 = true;
+        vra.f1 = true;
     }
 
     public PbExtraStatic() {

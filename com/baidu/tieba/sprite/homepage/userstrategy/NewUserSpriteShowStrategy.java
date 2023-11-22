@@ -2,16 +2,16 @@ package com.baidu.tieba.sprite.homepage.userstrategy;
 
 import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fna;
-import com.baidu.tieba.jpa;
-import com.baidu.tieba.mma;
-import com.baidu.tieba.rpa;
+import com.baidu.tieba.gna;
+import com.baidu.tieba.kpa;
+import com.baidu.tieba.nma;
 import com.baidu.tieba.spa;
 import com.baidu.tieba.sprite.edgefloat.SpriteEdgeFloat;
 import com.baidu.tieba.sprite.funnysprite.data.SpriteTipHttpResponseMessage;
 import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager;
 import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
-import com.baidu.tieba.vma;
+import com.baidu.tieba.tpa;
+import com.baidu.tieba.wma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,23 +24,23 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J \u0010\u0007\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\rH\u0016J\b\u0010\u000e\u001a\u00020\u0004H\u0016J\b\u0010\u000f\u001a\u00020\u0010H\u0016J\b\u0010\u0011\u001a\u00020\u0004H\u0016J\u0016\u0010\u0012\u001a\u00020\u00042\f\u0010\u0013\u001a\b\u0012\u0004\u0012\u00020\u00040\u0014H\u0002¨\u0006\u0015"}, d2 = {"Lcom/baidu/tieba/sprite/homepage/userstrategy/NewUserSpriteShowStrategy;", "Lcom/baidu/tieba/sprite/homepage/userstrategy/ISpriteShowStrategy;", "()V", "dispatchSpriteNotification", "", "hotEventShowData", "Lcom/baidu/tieba/statemachine/animationtip/message/HotEventShowData;", "dispatchSpriteTip", "context", "Landroid/app/Activity;", "response", "Lcom/baidu/tieba/sprite/funnysprite/data/SpriteTipHttpResponseMessage;", "spriteTipView", "Lcom/baidu/tieba/sprite/tips/HomePageSpriteBottomTipView;", "hide", "isSpriteEnable", "", "onFragmentCreate", "onSpriteOnceAppear", WebChromeClient.KEY_ARG_CALLBACK, "Lkotlin/Function0;", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public final class NewUserSpriteShowStrategy implements fna {
+public final class NewUserSpriteShowStrategy implements gna {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class a extends rpa {
+    public static final class a extends spa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mma b;
+        public final /* synthetic */ nma b;
         public final /* synthetic */ Function0<Unit> c;
 
-        public a(mma mmaVar, Function0<Unit> function0) {
+        public a(nma nmaVar, Function0<Unit> function0) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mmaVar, function0};
+                Object[] objArr = {nmaVar, function0};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,16 +50,16 @@ public final class NewUserSpriteShowStrategy implements fna {
                     return;
                 }
             }
-            this.b = mmaVar;
+            this.b = nmaVar;
             this.c = function0;
         }
 
-        @Override // com.baidu.tieba.rpa
-        public void b(spa state) {
+        @Override // com.baidu.tieba.spa
+        public void b(tpa state) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, state) == null) {
                 Intrinsics.checkNotNullParameter(state, "state");
-                if (state instanceof vma) {
+                if (state instanceof wma) {
                     this.b.e(this);
                     this.c.invoke();
                 }
@@ -81,7 +81,7 @@ public final class NewUserSpriteShowStrategy implements fna {
         }
     }
 
-    @Override // com.baidu.tieba.fna
+    @Override // com.baidu.tieba.gna
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public final class NewUserSpriteShowStrategy implements fna {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.fna
+    @Override // com.baidu.tieba.gna
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -99,7 +99,7 @@ public final class NewUserSpriteShowStrategy implements fna {
         }
     }
 
-    @Override // com.baidu.tieba.fna
+    @Override // com.baidu.tieba.gna
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -107,8 +107,8 @@ public final class NewUserSpriteShowStrategy implements fna {
         }
     }
 
-    @Override // com.baidu.tieba.fna
-    public void b(jpa hotEventShowData) {
+    @Override // com.baidu.tieba.gna
+    public void b(kpa hotEventShowData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hotEventShowData) == null) {
             Intrinsics.checkNotNullParameter(hotEventShowData, "hotEventShowData");
@@ -119,14 +119,14 @@ public final class NewUserSpriteShowStrategy implements fna {
 
     public final void e(Function0<Unit> function0) {
         SpriteEdgeFloat F;
-        mma e;
+        nma e;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, function0) == null) && (F = HomeSpriteEdgeFloatManager.l.c().F()) != null && (e = F.e()) != null) {
             e.a(new a(e, function0));
         }
     }
 
-    @Override // com.baidu.tieba.fna
+    @Override // com.baidu.tieba.gna
     public void c(Activity context, SpriteTipHttpResponseMessage response, HomePageSpriteBottomTipView spriteTipView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, response, spriteTipView) == null) {

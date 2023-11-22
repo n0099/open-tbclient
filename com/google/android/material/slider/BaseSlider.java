@@ -134,7 +134,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     public static final String TAG = BaseSlider.class.getSimpleName();
     public static final int DEF_STYLE_RES = R.style.obfuscated_res_0x7f100397;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface TooltipDrawableFactory {
         TooltipDrawable createTooltipDrawable();
     }
@@ -539,7 +539,7 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
         return sliderState;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class SliderState extends View.BaseSavedState {
         public static final Parcelable.Creator<SliderState> CREATOR = new Parcelable.Creator<SliderState>() { // from class: com.google.android.material.slider.BaseSlider.SliderState.1
             /* JADX DEBUG: Method merged with bridge method */

@@ -21,10 +21,11 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.FRSRefreshButton;
 import com.baidu.tbadk.widget.OvalActionButton;
-import com.baidu.tieba.a87;
-import com.baidu.tieba.aqa;
-import com.baidu.tieba.di7;
-import com.baidu.tieba.eh7;
+import com.baidu.tieba.a9b;
+import com.baidu.tieba.b87;
+import com.baidu.tieba.bqa;
+import com.baidu.tieba.ei7;
+import com.baidu.tieba.fh7;
 import com.baidu.tieba.forum.controller.ForumButtonController;
 import com.baidu.tieba.forum.data.ForumTabItem;
 import com.baidu.tieba.forum.databinding.ActivityForumBinding;
@@ -32,17 +33,16 @@ import com.baidu.tieba.forum.viewmodel.BottomViewModel;
 import com.baidu.tieba.forum.viewmodel.ForumViewModel;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsTabInfoData;
-import com.baidu.tieba.gh7;
-import com.baidu.tieba.lq6;
+import com.baidu.tieba.hh7;
 import com.baidu.tieba.mq6;
-import com.baidu.tieba.og7;
-import com.baidu.tieba.oh7;
-import com.baidu.tieba.po5;
-import com.baidu.tieba.pq6;
-import com.baidu.tieba.tg7;
-import com.baidu.tieba.u8b;
-import com.baidu.tieba.yza;
-import com.baidu.tieba.z8b;
+import com.baidu.tieba.nq6;
+import com.baidu.tieba.pg7;
+import com.baidu.tieba.ph7;
+import com.baidu.tieba.qo5;
+import com.baidu.tieba.qq6;
+import com.baidu.tieba.ug7;
+import com.baidu.tieba.v8b;
+import com.baidu.tieba.zza;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ import tbclient.FrsPage.FrsBottom;
 import tbclient.ItemInfo;
 @Metadata(d1 = {"\u0000j\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0018\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u00162\u0006\u0010\u0017\u001a\u00020\u0016H\u0002J\b\u0010\u0018\u001a\u00020\u0016H\u0002J\u0010\u0010\u0019\u001a\u00020\u00142\u0006\u0010\u001a\u001a\u00020\u001bH\u0002J\u0010\u0010\u001c\u001a\u00020\u00142\u0006\u0010\u001d\u001a\u00020\u001bH\u0002J\u0006\u0010\u001e\u001a\u00020\u0014J\u0010\u0010\u001f\u001a\u00020\u00142\u0006\u0010 \u001a\u00020!H\u0016J\u001a\u0010\"\u001a\u00020\u00142\b\u0010#\u001a\u0004\u0018\u00010$2\u0006\u0010%\u001a\u00020&H\u0016J\u0010\u0010'\u001a\u00020\u00142\u0006\u0010(\u001a\u00020)H\u0002J\u0006\u0010*\u001a\u00020\u0014J\u0010\u0010+\u001a\u00020\u00142\u0006\u0010(\u001a\u00020)H\u0002J\b\u0010,\u001a\u00020\u0014H\u0002J\b\u0010-\u001a\u00020\u0014H\u0002J\b\u0010.\u001a\u00020\u0014H\u0002R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\u000e\u0010\u0007\u001a\u00020\bX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\u000b\u001a\u0004\u0018\u00010\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\r\u001a\u0004\u0018\u00010\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082.¢\u0006\u0002\n\u0000¨\u0006/"}, d2 = {"Lcom/baidu/tieba/forum/controller/ForumButtonController;", "Lcom/baidu/tieba/forum/controller/BaseActivityController;", "activity", "Landroidx/fragment/app/FragmentActivity;", "(Landroidx/fragment/app/FragmentActivity;)V", "getActivity", "()Landroidx/fragment/app/FragmentActivity;", "buttonLayout", "Landroid/view/View;", "forumViewModel", "Lcom/baidu/tieba/forum/viewmodel/ForumViewModel;", "mUegForwardCheckController", "Lcom/baidu/tieba/ueg/UegForwardCheckController;", "mWriteBottomSheetController", "Lcom/baidu/tieba/write/WriteBottomSheetController;", "refreshView", "Lcom/baidu/tbadk/widget/FRSRefreshButton;", "writeView", "Lcom/baidu/tbadk/widget/OvalActionButton;", "addWriteClickStat", "", "fid", "", "fname", "getWriteTitle", "handleEditModeEvent", "inEditMode", "", "handleRefreshBtnVisibleEvent", "showIcon", "hideRefreshIcon", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "", "onCreate", "savedInstanceState", "Landroid/os/Bundle;", "binding", "Lcom/baidu/tieba/forum/databinding/ActivityForumBinding;", "openWrite", "forumWriteData", "Lcom/baidu/tieba/frs/ForumWriteData;", "showRefreshIcon", "showWriteTab", "showWriteThreadView", "startOpenWrite", "startRefresh", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class ForumButtonController extends og7 {
+public final class ForumButtonController extends pg7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final FragmentActivity b;
@@ -65,17 +65,17 @@ public final class ForumButtonController extends og7 {
     public FRSRefreshButton d;
     public View e;
     public ForumViewModel f;
-    public yza g;
-    public u8b h;
+    public zza g;
+    public v8b h;
 
     /* loaded from: classes6.dex */
-    public static final class a extends pq6<a87> {
+    public static final class a extends qq6<b87> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumButtonController b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ForumButtonController forumButtonController, Class<a87> cls) {
+        public a(ForumButtonController forumButtonController, Class<b87> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -96,8 +96,8 @@ public final class ForumButtonController extends og7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pq6
-        public void onEvent(a87 event) {
+        @Override // com.baidu.tieba.qq6
+        public void onEvent(b87 event) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
@@ -109,13 +109,13 @@ public final class ForumButtonController extends og7 {
     }
 
     /* loaded from: classes6.dex */
-    public static final class b extends pq6<di7> {
+    public static final class b extends qq6<ei7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumButtonController b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ForumButtonController forumButtonController, Class<di7> cls) {
+        public b(ForumButtonController forumButtonController, Class<ei7> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -136,8 +136,8 @@ public final class ForumButtonController extends og7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pq6
-        public void onEvent(di7 event) {
+        @Override // com.baidu.tieba.qq6
+        public void onEvent(ei7 event) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
@@ -187,7 +187,7 @@ public final class ForumButtonController extends og7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
             StatisticItem statisticItem = new StatisticItem("c13604");
-            po5.b(this.b, statisticItem);
+            qo5.b(this.b, statisticItem);
             statisticItem.addParam("fid", str);
             statisticItem.addParam("fname", str2);
             statisticItem.addParam("obj_param1", "100465_3");
@@ -195,7 +195,7 @@ public final class ForumButtonController extends og7 {
         }
     }
 
-    public static final void z(ForumButtonController this$0, eh7 eh7Var) {
+    public static final void z(ForumButtonController this$0, fh7 fh7Var) {
         String str;
         String str2;
         FrsBottom f;
@@ -203,22 +203,22 @@ public final class ForumButtonController extends og7 {
         FrsBottom f2;
         FrsBottomSmartBgColor frsBottomSmartBgColor2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, this$0, eh7Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, this$0, fh7Var) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             OvalActionButton ovalActionButton = null;
-            if (eh7Var != null && (f2 = eh7Var.f()) != null && (frsBottomSmartBgColor2 = f2.frs_smart_bg_color) != null) {
+            if (fh7Var != null && (f2 = fh7Var.f()) != null && (frsBottomSmartBgColor2 = f2.frs_smart_bg_color) != null) {
                 str = frsBottomSmartBgColor2.post_button_color;
             } else {
                 str = null;
             }
-            int f3 = aqa.f(str);
-            if (eh7Var != null && (f = eh7Var.f()) != null && (frsBottomSmartBgColor = f.frs_smart_bg_color) != null) {
+            int f3 = bqa.f(str);
+            if (fh7Var != null && (f = fh7Var.f()) != null && (frsBottomSmartBgColor = f.frs_smart_bg_color) != null) {
                 str2 = frsBottomSmartBgColor.post_button_shadow_color;
             } else {
                 str2 = null;
             }
-            int f4 = aqa.f(str2);
-            if (!aqa.e(f3) && !aqa.e(f4)) {
+            int f4 = bqa.f(str2);
+            if (!bqa.e(f3) && !bqa.e(f4)) {
                 OvalActionButton ovalActionButton2 = this$0.c;
                 if (ovalActionButton2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("writeView");
@@ -249,7 +249,7 @@ public final class ForumButtonController extends og7 {
             if (z) {
                 return;
             }
-            WriteActivityConfig.newInstance(this.b).setType(9).setForumWriteData(forumWriteData).setFrom("frs").setTitle(t()).setCallFrom("2").setStatisticFrom(2).setIsWriteTest(true).setFromArticle(z8b.n).send();
+            WriteActivityConfig.newInstance(this.b).setType(9).setForumWriteData(forumWriteData).setFrom("frs").setTitle(t()).setCallFrom("2").setStatisticFrom(2).setIsWriteTest(true).setFromArticle(a9b.n).send();
         }
     }
 
@@ -262,19 +262,19 @@ public final class ForumButtonController extends og7 {
                 Intrinsics.throwUninitializedPropertyAccessException("forumViewModel");
                 forumViewModel = null;
             }
-            oh7 value = forumViewModel.e().getValue();
+            ph7 value = forumViewModel.e().getValue();
             if (value != null) {
                 itemInfo = value.c();
             }
             if (this.h == null) {
-                this.h = new u8b(this.b, "frs", 2, "2");
+                this.h = new v8b(this.b, "frs", 2, "2");
             }
-            u8b u8bVar = this.h;
-            if (u8bVar != null) {
-                u8bVar.j(forumWriteData);
-                u8bVar.l(t());
-                u8bVar.k(itemInfo);
-                u8bVar.m();
+            v8b v8bVar = this.h;
+            if (v8bVar != null) {
+                v8bVar.j(forumWriteData);
+                v8bVar.l(t());
+                v8bVar.k(itemInfo);
+                v8bVar.m();
             }
         }
     }
@@ -294,7 +294,7 @@ public final class ForumButtonController extends og7 {
     public final void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            tg7.k(this.b).L();
+            ug7.k(this.b).L();
         }
     }
 
@@ -325,10 +325,10 @@ public final class ForumButtonController extends og7 {
         if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || !DialogLoginHelper.checkUpIsLogin(new LoginDialogData(this.b, LoginDialogData.FRS_PUBLISH_RESULT_PAGE))) {
             return;
         }
-        yza yzaVar = this.g;
+        zza zzaVar = this.g;
         boolean z = false;
         int i = 1;
-        if (yzaVar != null && yzaVar.c()) {
+        if (zzaVar != null && zzaVar.c()) {
             z = true;
         }
         if (z) {
@@ -339,9 +339,9 @@ public final class ForumButtonController extends og7 {
             Intrinsics.throwUninitializedPropertyAccessException("forumViewModel");
             forumViewModel = null;
         }
-        oh7 value = forumViewModel.e().getValue();
+        ph7 value = forumViewModel.e().getValue();
         if (value != null && (b2 = value.b()) != null) {
-            ForumTabItem A = tg7.k(this.b).A();
+            ForumTabItem A = ug7.k(this.b).A();
             if (A != null) {
                 int tabId = A.getTabId();
                 FrsTabInfoData frsTabInfoData = b2.frsTabInfo;
@@ -375,7 +375,7 @@ public final class ForumButtonController extends og7 {
             Intrinsics.throwUninitializedPropertyAccessException("forumViewModel");
             forumViewModel = null;
         }
-        gh7 value = forumViewModel.c().getValue();
+        hh7 value = forumViewModel.c().getValue();
         if (value != null) {
             String valueOf = String.valueOf(value.d());
             ForumViewModel forumViewModel3 = this.f;
@@ -384,14 +384,14 @@ public final class ForumButtonController extends og7 {
             } else {
                 forumViewModel2 = forumViewModel3;
             }
-            gh7 value2 = forumViewModel2.c().getValue();
+            hh7 value2 = forumViewModel2.c().getValue();
             if (value2 != null && (e = value2.e()) != null) {
                 r(valueOf, e.toString());
             }
         }
     }
 
-    @Override // com.baidu.tieba.og7
+    @Override // com.baidu.tieba.pg7
     public void i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
@@ -434,7 +434,7 @@ public final class ForumButtonController extends og7 {
         }
     }
 
-    @Override // com.baidu.tieba.og7
+    @Override // com.baidu.tieba.pg7
     public void k(Bundle bundle, ActivityForumBinding binding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, bundle, binding) == null) {
@@ -461,15 +461,15 @@ public final class ForumButtonController extends og7 {
             ovalActionButton2.setIsCircle(true);
             FragmentActivity fragmentActivity = this.b;
             if (fragmentActivity instanceof TbPageContextSupport) {
-                this.g = new yza(((TbPageContextSupport) fragmentActivity).getPageContext());
+                this.g = new zza(((TbPageContextSupport) fragmentActivity).getPageContext());
             }
-            this.h = new u8b(this.b, "frs", 2, "2");
+            this.h = new v8b(this.b, "frs", 2, "2");
             OvalActionButton ovalActionButton3 = this.c;
             if (ovalActionButton3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("writeView");
                 ovalActionButton3 = null;
             }
-            ovalActionButton3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.eg7
+            ovalActionButton3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.fg7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -487,7 +487,7 @@ public final class ForumButtonController extends og7 {
             } else {
                 fRSRefreshButton2 = fRSRefreshButton3;
             }
-            fRSRefreshButton2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gg7
+            fRSRefreshButton2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hg7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -499,8 +499,8 @@ public final class ForumButtonController extends og7 {
                     }
                 }
             });
-            mq6.b().b(new lq6(f(), Reflection.getOrCreateKotlinClass(a87.class)), new a(this, a87.class));
-            mq6.b().b(new lq6(f(), Reflection.getOrCreateKotlinClass(di7.class)), new b(this, di7.class));
+            nq6.b().b(new mq6(f(), Reflection.getOrCreateKotlinClass(b87.class)), new a(this, b87.class));
+            nq6.b().b(new mq6(f(), Reflection.getOrCreateKotlinClass(ei7.class)), new b(this, ei7.class));
             binding.w.addOnPageChangeListener(new ViewPager.OnPageChangeListener(this) { // from class: com.baidu.tieba.forum.controller.ForumButtonController$onCreate$5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -546,7 +546,7 @@ public final class ForumButtonController extends og7 {
                     }
                 }
             });
-            ((BottomViewModel) new ViewModelProvider(this.b).get(BottomViewModel.class)).a().observe(this.b, new Observer() { // from class: com.baidu.tieba.mg7
+            ((BottomViewModel) new ViewModelProvider(this.b).get(BottomViewModel.class)).a().observe(this.b, new Observer() { // from class: com.baidu.tieba.ng7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -554,7 +554,7 @@ public final class ForumButtonController extends og7 {
                 public final void onChanged(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                        ForumButtonController.z(ForumButtonController.this, (eh7) obj);
+                        ForumButtonController.z(ForumButtonController.this, (fh7) obj);
                     }
                 }
             });
@@ -572,7 +572,7 @@ public final class ForumButtonController extends og7 {
                 Intrinsics.throwUninitializedPropertyAccessException("forumViewModel");
                 forumViewModel = null;
             }
-            oh7 value = forumViewModel.e().getValue();
+            ph7 value = forumViewModel.e().getValue();
             if (value != null && (a2 = value.a()) != null) {
                 str = a2.addthread_text;
             }

@@ -31,7 +31,7 @@ public class jo1 implements mq1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
-            return new qgc(inputStream);
+            return new rgc(inputStream);
         }
         return (InputStream) invokeL.objValue;
     }

@@ -9,9 +9,9 @@ import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bea;
-import com.baidu.tieba.fea;
-import com.baidu.tieba.ic9;
+import com.baidu.tieba.cea;
+import com.baidu.tieba.gea;
+import com.baidu.tieba.jc9;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -92,10 +92,10 @@ public class AdCardSinglePicView extends AdCardBaseView {
         }
     }
 
-    public boolean A0(View view2, AdCard adCard, @NonNull bea beaVar) {
+    public boolean A0(View view2, AdCard adCard, @NonNull cea ceaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, view2, adCard, beaVar)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, view2, adCard, ceaVar)) == null) {
             if (adCard == null || view2 == null) {
                 return false;
             }
@@ -105,13 +105,13 @@ public class AdCardSinglePicView extends AdCardBaseView {
             }
             int i = this.x;
             int i2 = (int) (i * d);
-            int b = (int) (fea.b(i) * d);
+            int b = (int) (gea.b(i) * d);
             if (!adCard.isNeedResize()) {
                 B0(view2, b, i2);
                 return true;
             }
-            int i3 = beaVar.e;
-            int i4 = beaVar.d;
+            int i3 = ceaVar.e;
+            int i4 = ceaVar.d;
             if (i2 > 0 && i3 > 0 && i4 > 0) {
                 int i5 = (i3 * i2) / i4;
                 if (i5 > i2) {
@@ -147,10 +147,10 @@ public class AdCardSinglePicView extends AdCardBaseView {
     public void W(AdCard adCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adCard) == null) {
-            bea beaVar = adCard.picInfo;
-            if (beaVar != null && !ic9.e(beaVar.c)) {
-                String str = beaVar.c.get(0);
-                boolean A0 = A0(this.g0, adCard, beaVar);
+            cea ceaVar = adCard.picInfo;
+            if (ceaVar != null && !jc9.e(ceaVar.c)) {
+                String str = ceaVar.c.get(0);
+                boolean A0 = A0(this.g0, adCard, ceaVar);
                 if (!TextUtils.isEmpty(str) && A0) {
                     this.o.setVisibility(0);
                     this.g0.r(str);

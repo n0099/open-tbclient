@@ -3,6 +3,7 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.util.DataExt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,17 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
+import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class lh5 {
     public static /* synthetic */ Interceptable $ic;
     public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Integer> a;
+    public oc5 a;
 
     static {
         InterceptResult invokeClinit;
@@ -36,6 +35,13 @@ public final class lh5 {
             }
         }
         b = new a(null);
+    }
+
+    @JvmStatic
+    public static final lh5 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a() : (lh5) invokeV.objValue;
     }
 
     /* loaded from: classes7.dex */
@@ -61,6 +67,7 @@ public final class lh5 {
             }
         }
 
+        @JvmStatic
         public final lh5 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -133,17 +140,16 @@ public final class lh5 {
                 return;
             }
         }
-        this.a = new HashMap<>();
-        String cache = SharedPrefHelper.getInstance().getString("festival_global_switches_key", "");
-        Intrinsics.checkNotNullExpressionValue(cache, "cache");
-        if (cache.length() > 0) {
+        String cacheData = SharedPrefHelper.getInstance().getString("festival_config_data_key", "");
+        Intrinsics.checkNotNullExpressionValue(cacheData, "cacheData");
+        if (cacheData.length() > 0) {
             z = true;
         } else {
             z = false;
         }
         if (z) {
             try {
-                d(new JSONObject(cache));
+                this.a = (oc5) DataExt.toEntity(cacheData, oc5.class);
             } catch (Exception e) {
                 if (!TbadkCoreApplication.getInst().isDebugMode()) {
                     e.printStackTrace();
@@ -154,50 +160,33 @@ public final class lh5 {
         }
     }
 
-    public final boolean a(String key) {
-        InterceptResult invokeL;
-        Integer num;
+    public final oc5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            Integer num2 = this.a.get("global_switch");
-            if ((num2 != null && num2.intValue() == 0) || (num = this.a.get(key)) == null || num.intValue() != 1) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeL.booleanValue;
+        return (oc5) invokeV.objValue;
     }
 
-    public final void d(JSONObject jSONObject) {
+    public final void c(oc5 oc5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            this.a.clear();
-            if (jSONObject != null) {
-                Iterator<String> keys = jSONObject.keys();
-                Intrinsics.checkNotNullExpressionValue(keys, "keys");
-                while (keys.hasNext()) {
-                    String key = keys.next();
-                    HashMap<String, Integer> hashMap = this.a;
-                    Intrinsics.checkNotNullExpressionValue(key, "key");
-                    hashMap.put(key, Integer.valueOf(jSONObject.optInt(key)));
-                }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oc5Var) == null) {
+            this.a = oc5Var;
+            if (!Intrinsics.areEqual(oc5Var, oc5Var)) {
+                d(oc5Var);
             }
         }
     }
 
-    public final void b(JSONObject jSONObject) {
+    public final void d(oc5 oc5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            d(jSONObject);
-            c(jSONObject);
-        }
-    }
-
-    public final void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            SharedPrefHelper.getInstance().putString("festival_global_switches_key", (jSONObject == null || (r5 = jSONObject.toString()) == null) ? "" : "");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oc5Var) == null) {
+            if (oc5Var == null) {
+                SharedPrefHelper.getInstance().remove("festival_config_data_key");
+            } else {
+                SharedPrefHelper.getInstance().putString("festival_config_data_key", DataExt.toJson(oc5Var));
+            }
         }
     }
 }

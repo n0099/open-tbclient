@@ -1,48 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes9.dex */
 public class y66 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile x66 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
+    public static synchronized x66 a() {
         InterceptResult invokeV;
+        x66 x66Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return np2.M().a();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void b() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            int defaultNightMode = AppCompatDelegate.getDefaultNightMode();
-            if (a()) {
-                i = 2;
-            } else {
-                i = 1;
+            synchronized (y66.class) {
+                if (a == null) {
+                    a = new x66();
+                }
+                x66Var = a;
             }
-            if (defaultNightMode != i) {
-                AppCompatDelegate.setDefaultNightMode(i);
-            }
+            return x66Var;
         }
-    }
-
-    public static void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
-            Intent intent = new Intent("com.baidu.swan.skin.nightmodechanged");
-            intent.putExtra("key_night_mode", z);
-            LocalBroadcastManager.getInstance(AppRuntime.getAppContext()).sendBroadcast(intent);
-        }
+        return (x66) invokeV.objValue;
     }
 }

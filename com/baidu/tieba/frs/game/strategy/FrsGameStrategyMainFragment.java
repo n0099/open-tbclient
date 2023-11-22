@@ -20,13 +20,13 @@ import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.SelectImageHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cw7;
 import com.baidu.tieba.dw7;
 import com.baidu.tieba.ew7;
-import com.baidu.tieba.hw7;
-import com.baidu.tieba.lw7;
+import com.baidu.tieba.fw7;
+import com.baidu.tieba.iw7;
+import com.baidu.tieba.mw7;
 import com.baidu.tieba.oi;
-import com.baidu.tieba.yq7;
+import com.baidu.tieba.zq7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,23 +34,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class FrsGameStrategyMainFragment extends BaseFragment implements ActivityCompat.OnRequestPermissionsResultCallback, yq7 {
+public class FrsGameStrategyMainFragment extends BaseFragment implements ActivityCompat.OnRequestPermissionsResultCallback, zq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
     public String c;
-    public lw7 d;
-    public cw7 e;
+    public mw7 d;
+    public dw7 e;
     public boolean f;
-    public ew7 g;
-    public dw7 h;
+    public fw7 g;
+    public ew7 h;
     public CustomMessageListener i;
     public boolean j;
     public CustomMessageListener k;
 
     /* loaded from: classes6.dex */
-    public class a implements ew7 {
+    public class a implements fw7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsGameStrategyMainFragment a;
@@ -73,8 +73,8 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
             this.a = frsGameStrategyMainFragment;
         }
 
-        @Override // com.baidu.tieba.ew7
-        public void a(int i, int i2, List<oi> list, List<hw7> list2, boolean z, boolean z2, int i3) {
+        @Override // com.baidu.tieba.fw7
+        public void a(int i, int i2, List<oi> list, List<iw7> list2, boolean z, boolean z2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), list, list2, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i3)}) == null) {
                 if (i == 0 && i2 == 0 && ListUtils.isEmpty(list2)) {
@@ -95,7 +95,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
             }
         }
 
-        @Override // com.baidu.tieba.ew7
+        @Override // com.baidu.tieba.fw7
         public void b(int i, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, str) == null) {
@@ -115,7 +115,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
     }
 
     /* loaded from: classes6.dex */
-    public class b implements dw7 {
+    public class b implements ew7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsGameStrategyMainFragment a;
@@ -138,8 +138,8 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
             this.a = frsGameStrategyMainFragment;
         }
 
-        @Override // com.baidu.tieba.dw7
-        public hw7 a(int i) {
+        @Override // com.baidu.tieba.ew7
+        public iw7 a(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -148,10 +148,10 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
                 }
                 return null;
             }
-            return (hw7) invokeI.objValue;
+            return (iw7) invokeI.objValue;
         }
 
-        @Override // com.baidu.tieba.dw7
+        @Override // com.baidu.tieba.ew7
         public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) && this.a.e != null) {
@@ -159,7 +159,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
             }
         }
 
-        @Override // com.baidu.tieba.dw7
+        @Override // com.baidu.tieba.ew7
         public void c(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && this.a.e != null) {
@@ -167,7 +167,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
             }
         }
 
-        @Override // com.baidu.tieba.dw7
+        @Override // com.baidu.tieba.ew7
         public boolean d(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
@@ -180,7 +180,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
             return invokeII.booleanValue;
         }
 
-        @Override // com.baidu.tieba.dw7
+        @Override // com.baidu.tieba.ew7
         public String w() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -303,9 +303,9 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            lw7 lw7Var = this.d;
-            if (lw7Var != null) {
-                lw7Var.h(i);
+            mw7 mw7Var = this.d;
+            if (mw7Var != null) {
+                mw7Var.h(i);
             }
         }
     }
@@ -322,15 +322,15 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
     }
 
     public final void A2() {
-        cw7 cw7Var;
+        dw7 dw7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.j && (cw7Var = this.e) != null) {
-            cw7Var.b(0, 0);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.j && (dw7Var = this.e) != null) {
+            dw7Var.b(0, 0);
             this.j = false;
-            lw7 lw7Var = this.d;
-            if (lw7Var != null) {
+            mw7 mw7Var = this.d;
+            if (mw7Var != null) {
                 this.f = true;
-                showLoadingView(lw7Var.f());
+                showLoadingView(mw7Var.f());
             }
         }
     }
@@ -347,13 +347,13 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            cw7 cw7Var = this.e;
-            if (cw7Var != null) {
-                cw7Var.q();
+            dw7 dw7Var = this.e;
+            if (dw7Var != null) {
+                dw7Var.q();
             }
-            lw7 lw7Var = this.d;
-            if (lw7Var != null) {
-                lw7Var.i();
+            mw7 mw7Var = this.d;
+            if (mw7Var != null) {
+                mw7Var.i();
             }
         }
     }
@@ -362,13 +362,13 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            cw7 cw7Var = this.e;
-            if (cw7Var != null) {
-                cw7Var.b(0, 0);
+            dw7 dw7Var = this.e;
+            if (dw7Var != null) {
+                dw7Var.b(0, 0);
             }
-            lw7 lw7Var = this.d;
-            if (lw7Var != null) {
-                hideNetRefreshView(lw7Var.f());
+            mw7 mw7Var = this.d;
+            if (mw7Var != null) {
+                hideNetRefreshView(mw7Var.f());
                 this.f = true;
                 showLoadingView(this.d.f());
             }
@@ -386,14 +386,14 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         }
     }
 
-    @Override // com.baidu.tieba.yq7
+    @Override // com.baidu.tieba.zq7
     public NavigationBar u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            lw7 lw7Var = this.d;
-            if (lw7Var != null) {
-                return lw7Var.e();
+            mw7 mw7Var = this.d;
+            if (mw7Var != null) {
+                return mw7Var.e();
             }
             return null;
         }
@@ -435,9 +435,9 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
                 this.b = getArguments().getString("name");
                 this.c = getArguments().getString("key_from");
             }
-            cw7 cw7Var = new cw7(getActivity(), getUniqueId(), JavaTypesHelper.toLong(this.a, 0L), this.b);
-            this.e = cw7Var;
-            cw7Var.t(this.g);
+            dw7 dw7Var = new dw7(getActivity(), getUniqueId(), JavaTypesHelper.toLong(this.a, 0L), this.b);
+            this.e = dw7Var;
+            dw7Var.t(this.g);
         }
     }
 
@@ -447,9 +447,9 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0376, (ViewGroup) null);
-            lw7 lw7Var = new lw7(this, inflate);
-            this.d = lw7Var;
-            lw7Var.j(this.c);
+            mw7 mw7Var = new mw7(this, inflate);
+            this.d = mw7Var;
+            mw7Var.j(this.c);
             this.d.k(this.h);
             this.d.h(TbadkCoreApplication.getInst().getSkinType());
             if ("from_single_act".equals(this.c)) {

@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class g77 {
@@ -13,18 +14,18 @@ public final class g77 {
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
     public final String b;
-    public y47 c;
+    public final Map<String, String> c;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
             if (obj instanceof g77) {
                 g77 g77Var = (g77) obj;
-                return Intrinsics.areEqual(this.a, g77Var.a) && Intrinsics.areEqual(this.b, g77Var.b);
+                return Intrinsics.areEqual(this.a, g77Var.a) && Intrinsics.areEqual(this.b, g77Var.b) && Intrinsics.areEqual(this.c, g77Var.c);
             }
             return false;
         }
@@ -34,24 +35,24 @@ public final class g77 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "RecommendThreadItemData(forumId=" + this.a + ", threadId=" + this.b + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "PicDecorationData(decorationName=" + this.a + ", decorationLocation=" + this.b + ", decorationInfo=" + this.c + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public g77(String forumId, String threadId) {
+    public g77(String decorationName, String decorationLocation, Map<String, String> decorationInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {forumId, threadId};
+            Object[] objArr = {decorationName, decorationLocation, decorationInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,26 +62,28 @@ public final class g77 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(forumId, "forumId");
-        Intrinsics.checkNotNullParameter(threadId, "threadId");
-        this.a = forumId;
-        this.b = threadId;
+        Intrinsics.checkNotNullParameter(decorationName, "decorationName");
+        Intrinsics.checkNotNullParameter(decorationLocation, "decorationLocation");
+        Intrinsics.checkNotNullParameter(decorationInfo, "decorationInfo");
+        this.a = decorationName;
+        this.b = decorationLocation;
+        this.c = decorationInfo;
     }
 
-    public final y47 a() {
+    public final Map<String, String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.c;
         }
-        return (y47) invokeV.objValue;
+        return (Map) invokeV.objValue;
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
@@ -89,15 +92,8 @@ public final class g77 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+            return this.a;
         }
         return (String) invokeV.objValue;
-    }
-
-    public final void d(y47 y47Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, y47Var) == null) {
-            this.c = y47Var;
-        }
     }
 }

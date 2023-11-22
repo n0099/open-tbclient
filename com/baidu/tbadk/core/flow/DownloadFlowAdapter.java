@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.st5;
+import com.baidu.tieba.tt5;
 import com.baidu.tieba.v25;
 import com.baidu.tieba.w25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ public class DownloadFlowAdapter<T extends w25> extends PagerAdapter {
     public Context c;
     public View.OnClickListener d;
     public View.OnClickListener e;
-    public st5 f;
+    public tt5 f;
     public Map<String, String> g;
 
     public void d() {
@@ -86,7 +86,7 @@ public class DownloadFlowAdapter<T extends w25> extends PagerAdapter {
         new ArrayList();
         this.g = new HashMap();
         this.c = context;
-        this.f = st5.d();
+        this.f = tt5.d();
         i();
     }
 
@@ -147,10 +147,10 @@ public class DownloadFlowAdapter<T extends w25> extends PagerAdapter {
                     }
                     Map.Entry<String, String> next = it.next();
                     if (next != null && this.g.containsKey(str) && next.getKey().equals(str)) {
-                        if (next.getValue().equals(st5.j)) {
+                        if (next.getValue().equals(tt5.j)) {
                             return true;
                         }
-                        if (next.getValue().equals(st5.k)) {
+                        if (next.getValue().equals(tt5.k)) {
                         }
                     }
                 }
@@ -200,12 +200,12 @@ public class DownloadFlowAdapter<T extends w25> extends PagerAdapter {
     }
 
     public void i() {
-        st5 st5Var;
+        tt5 tt5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (st5Var = this.f) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (tt5Var = this.f) == null) {
             return;
         }
-        this.g = st5Var.f();
+        this.g = tt5Var.f();
         notifyDataSetChanged();
     }
 

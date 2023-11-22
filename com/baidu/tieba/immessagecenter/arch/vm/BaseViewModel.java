@@ -5,13 +5,13 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelKt;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tieba.goc;
-import com.baidu.tieba.ijc;
+import com.baidu.tieba.hoc;
 import com.baidu.tieba.immessagecenter.arch.vm.IUiIntent;
 import com.baidu.tieba.immessagecenter.arch.vm.IUiState;
-import com.baidu.tieba.loc;
-import com.baidu.tieba.nx8;
-import com.baidu.tieba.sjc;
+import com.baidu.tieba.jjc;
+import com.baidu.tieba.moc;
+import com.baidu.tieba.ox8;
+import com.baidu.tieba.tjc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,10 +39,10 @@ import kotlinx.coroutines.flow.FlowCollector;
 import kotlinx.coroutines.flow.FlowKt;
 @Metadata(d1 = {"\u0000J\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u000b\b&\u0018\u0000*\b\b\u0000\u0010\u0001*\u00020\u0002*\b\b\u0001\u0010\u0003*\u00020\u00042\u00020\u00052\u00020\u0006B\u0005¢\u0006\u0002\u0010\u0007J!\u0010\u0016\u001a\u00020\u00172\u0017\u0010\u0018\u001a\u0013\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00000\u0019¢\u0006\u0002\b\u001aH\u0004J\u000f\u0010\u001b\u001a\u0004\u0018\u00018\u0000H\u0004¢\u0006\u0002\u0010\u001cJ\u0015\u0010\u001d\u001a\u00020\u00172\u0006\u0010\u001e\u001a\u00028\u0001H$¢\u0006\u0002\u0010\u001fJ\r\u0010 \u001a\u00028\u0000H$¢\u0006\u0002\u0010\u001cJ\b\u0010!\u001a\u00020\u0017H\u0016J\b\u0010\"\u001a\u00020\u0017H\u0016J\u0013\u0010#\u001a\u00020\u00172\u0006\u0010\u001e\u001a\u00028\u0001¢\u0006\u0002\u0010\u001fJ\n\u0010$\u001a\u0004\u0018\u00010\u0011H$R\u0014\u0010\b\u001a\b\u0012\u0004\u0012\u00028\u00010\tX\u0082\u0004¢\u0006\u0002\n\u0000R!\u0010\n\u001a\b\u0012\u0004\u0012\u00028\u00000\u000b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000e\u0010\u000f\u001a\u0004\b\f\u0010\rR\u0010\u0010\u0010\u001a\u0004\u0018\u00010\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u0017\u0010\u0012\u001a\b\u0012\u0004\u0012\u00028\u00000\u00138F¢\u0006\u0006\u001a\u0004\b\u0014\u0010\u0015¨\u0006%"}, d2 = {"Lcom/baidu/tieba/immessagecenter/arch/vm/BaseViewModel;", "UiState", "Lcom/baidu/tieba/immessagecenter/arch/vm/IUiState;", "UiIntent", "Lcom/baidu/tieba/immessagecenter/arch/vm/IUiIntent;", "Landroidx/lifecycle/ViewModel;", "Lcom/baidu/tieba/immessagecenter/arch/base/IUiLifeCycle;", "()V", "_uiIntentChannel", "Lkotlinx/coroutines/channels/Channel;", "_uiStateBs", "Lrx/subjects/BehaviorSubject;", "get_uiStateBs", "()Lrx/subjects/BehaviorSubject;", "_uiStateBs$delegate", "Lkotlin/Lazy;", "mSubscriptions", "Lrx/subscriptions/CompositeSubscription;", "uiStateSubject", "Lrx/Observable;", "getUiStateSubject", "()Lrx/Observable;", "emitUiState", "", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "Lkotlin/Function1;", "Lkotlin/ExtensionFunctionType;", "getCacheUiState", "()Lcom/baidu/tieba/immessagecenter/arch/vm/IUiState;", "handleUiIntent", "intent", "(Lcom/baidu/tieba/immessagecenter/arch/vm/IUiIntent;)V", "initUiState", "onAttachedUi", "onDetachedUi", "publishUiIntent", "registerSubscribe", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public abstract class BaseViewModel<UiState extends IUiState, UiIntent extends IUiIntent> extends ViewModel implements nx8 {
+public abstract class BaseViewModel<UiState extends IUiState, UiIntent extends IUiIntent> extends ViewModel implements ox8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public loc a;
+    public moc a;
     public final Lazy b;
     public final Channel<UiIntent> c;
 
@@ -50,7 +50,7 @@ public abstract class BaseViewModel<UiState extends IUiState, UiIntent extends I
 
     public abstract UiState j();
 
-    public abstract loc l();
+    public abstract moc l();
 
     @Metadata(d1 = {"\u0000\u0016\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\b\b\u0000\u0010\u0002*\u00020\u0003\"\b\b\u0001\u0010\u0004*\u00020\u0005*\u00020\u0006H\u008a@"}, d2 = {"<anonymous>", "", "UiState", "Lcom/baidu/tieba/immessagecenter/arch/vm/IUiState;", "UiIntent", "Lcom/baidu/tieba/immessagecenter/arch/vm/IUiIntent;", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 6, 0}, xi = 48)
     @DebugMetadata(c = "com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel$1", f = "BaseViewModel.kt", i = {}, l = {111}, m = "invokeSuspend", n = {}, s = {})
@@ -183,7 +183,7 @@ public abstract class BaseViewModel<UiState extends IUiState, UiIntent extends I
                 return;
             }
         }
-        this.b = LazyKt__LazyJVMKt.lazy(new Function0<goc<UiState>>(this) { // from class: com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel$_uiStateBs$2
+        this.b = LazyKt__LazyJVMKt.lazy(new Function0<hoc<UiState>>(this) { // from class: com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel$_uiStateBs$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BaseViewModel<UiState, UiIntent> this$0;
@@ -211,13 +211,13 @@ public abstract class BaseViewModel<UiState extends IUiState, UiIntent extends I
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // kotlin.jvm.functions.Function0
-            public final goc<UiState> invoke() {
+            public final hoc<UiState> invoke() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return goc.R(this.this$0.j());
+                    return hoc.R(this.this$0.j());
                 }
-                return (goc) invokeV.objValue;
+                return (hoc) invokeV.objValue;
             }
         });
         this.c = ChannelKt.Channel$default(Integer.MAX_VALUE, null, null, 6, null);
@@ -228,7 +228,7 @@ public abstract class BaseViewModel<UiState extends IUiState, UiIntent extends I
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, copy) == null) {
             Intrinsics.checkNotNullParameter(copy, "copy");
-            goc<UiState> h = h();
+            hoc<UiState> h = h();
             UiState T2 = h().T();
             Intrinsics.checkNotNullExpressionValue(T2, "_uiStateBs.value");
             h.onNext(copy.invoke(T2));
@@ -243,16 +243,16 @@ public abstract class BaseViewModel<UiState extends IUiState, UiIntent extends I
         }
     }
 
-    @Override // com.baidu.tieba.nx8
+    @Override // com.baidu.tieba.ox8
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            loc locVar = new loc();
-            loc l = l();
+            moc mocVar = new moc();
+            moc l = l();
             if (l != null) {
-                locVar.b(l);
+                mocVar.b(l);
             }
-            this.a = locVar;
+            this.a = mocVar;
         }
     }
 
@@ -265,41 +265,41 @@ public abstract class BaseViewModel<UiState extends IUiState, UiIntent extends I
         return (UiState) invokeV.objValue;
     }
 
-    public final ijc<UiState> f() {
+    public final jjc<UiState> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ijc<UiState> s = h().a().w().s(sjc.b());
+            jjc<UiState> s = h().a().w().s(tjc.b());
             Intrinsics.checkNotNullExpressionValue(s, "_uiStateBs\n             …dSchedulers.mainThread())");
             return s;
         }
-        return (ijc) invokeV.objValue;
+        return (jjc) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.nx8
+    @Override // com.baidu.tieba.ox8
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            loc locVar = this.a;
-            if (locVar != null) {
-                locVar.unsubscribe();
+            moc mocVar = this.a;
+            if (mocVar != null) {
+                mocVar.unsubscribe();
             }
-            loc locVar2 = this.a;
-            if (locVar2 != null) {
-                locVar2.c();
+            moc mocVar2 = this.a;
+            if (mocVar2 != null) {
+                mocVar2.c();
             }
             this.a = null;
         }
     }
 
-    public final goc<UiState> h() {
+    public final hoc<UiState> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             Object value = this.b.getValue();
             Intrinsics.checkNotNullExpressionValue(value, "<get-_uiStateBs>(...)");
-            return (goc) value;
+            return (hoc) value;
         }
-        return (goc) invokeV.objValue;
+        return (hoc) invokeV.objValue;
     }
 }

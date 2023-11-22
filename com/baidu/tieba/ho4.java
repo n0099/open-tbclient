@@ -40,12 +40,12 @@ public final class ho4 implements fj4 {
 
         /* renamed from: com.baidu.tieba.ho4$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0323a implements Runnable {
+        public class RunnableC0321a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0323a(a aVar) {
+            public RunnableC0321a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public final class ho4 implements fj4 {
                             z = false;
                         }
                     }
-                    if (z && f63.M().postDelayed(new RunnableC0323a(this), 1000L)) {
+                    if (z && f63.M().postDelayed(new RunnableC0321a(this), 1000L)) {
                         return;
                     }
                 }

@@ -4,30 +4,21 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.FeedGroupInfo;
-import tbclient.FrsPage.GroupFeedCard;
+import tbclient.FrsPage.Group;
 /* loaded from: classes7.dex */
-public class ovc extends poc {
+public class ovc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull GroupFeedCard groupFeedCard) {
+    public static JSONObject b(@NonNull Group group) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, groupFeedCard)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, group)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "card_title", groupFeedCard.card_title);
-            poc.a(jSONObject, "index", groupFeedCard.index);
-            if (groupFeedCard.group_list != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (FeedGroupInfo feedGroupInfo : groupFeedCard.group_list) {
-                    jSONArray.put(yuc.b(feedGroupInfo));
-                }
-                poc.a(jSONObject, "group_list", jSONArray);
-            }
+            qoc.a(jSONObject, "hide_recommend_group", group.hide_recommend_group);
+            qoc.a(jSONObject, "group_count", group.group_count);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

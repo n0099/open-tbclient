@@ -2,67 +2,20 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.util.ItemClickJumpUtil;
-import com.baidu.tbadk.core.view.ItemCardView;
-import com.baidu.tieba.t27;
+import com.baidu.tieba.v27;
+import com.baidu.tieba.view.TbLayerImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ApkDetail;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class co6 implements t27.i {
+public final class co6 implements v27.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u37 a;
-        public final /* synthetic */ ItemData b;
-
-        public a(co6 co6Var, u37 u37Var, ItemData itemData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {co6Var, u37Var, itemData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u37Var;
-            this.b = itemData;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                int i = 2;
-                int i2 = 0;
-                if (ImageViewerConfig.FROM_CONCERN.equals(this.a.c().b)) {
-                    i2 = 2;
-                } else {
-                    i = 0;
-                }
-                ItemData itemData = this.b;
-                ItemClickJumpUtil.itemClickJump(itemData.forumName, String.valueOf(itemData.itemId), i, Integer.valueOf(i2));
-            }
-        }
-    }
 
     public co6() {
         Interceptable interceptable = $ic;
@@ -78,70 +31,31 @@ public class co6 implements t27.i {
         }
     }
 
-    @Override // com.baidu.tieba.t27.s
-    public void b(@NonNull ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.v27.c
+    public void a(View view2, List<String> list) {
+        TbLayerImageView tbLayerImageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof ItemCardView)) {
-            ((ItemCardView) viewGroup).M();
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, view2, list) != null) || list == null) {
+            return;
+        }
+        if (view2 instanceof TbLayerImageView) {
+            tbLayerImageView = (TbLayerImageView) view2;
+        } else {
+            tbLayerImageView = null;
+        }
+        if (tbLayerImageView != null) {
+            tbLayerImageView.a(list);
         }
     }
 
-    @Override // com.baidu.tieba.t27.i
-    @NonNull
-    public ViewGroup create(Context context) {
+    @Override // com.baidu.tieba.v27.c
+    public View create(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return new ItemCardView(context);
+            Intrinsics.checkNotNullParameter(context, "context");
+            return new TbLayerImageView(context, null, 0, 6, null);
         }
-        return (ViewGroup) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.t27.i
-    public void e(@NonNull ViewGroup viewGroup, @NonNull u37 u37Var) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, u37Var) == null) && viewGroup != null && u37Var != null && u37Var.a() != null) {
-            x47 a2 = u37Var.a();
-            ItemData itemData = new ItemData();
-            itemData.itemId = a2.a;
-            itemData.buttonName = a2.h;
-            itemData.buttonLink = a2.r;
-            itemData.buttonLinkType = 1;
-            itemData.pkgName = a2.n;
-            itemData.appId = a2.l;
-            itemData.mIconUrl = a2.b;
-            itemData.mTitle = a2.m;
-            itemData.mTags = a2.g;
-            itemData.mScore = a2.f;
-            itemData.mStar = a2.e;
-            itemData.mIconSize = a2.c;
-            itemData.forumName = a2.k;
-            ApkDetail.Builder builder = new ApkDetail.Builder();
-            builder.developer = a2.s;
-            builder.publisher = a2.t;
-            builder.version = a2.o;
-            builder.version_code = Integer.valueOf(a2.p);
-            builder.size = String.valueOf(a2.q);
-            builder.authority_url = a2.u;
-            builder.privacy_url = a2.v;
-            builder.pkg_source = Integer.valueOf(a2.w);
-            itemData.apkDetail = builder.build(false);
-            int i = a2.j;
-            if (i != 0) {
-                ((ItemCardView) viewGroup).setBackGroundColor(i);
-            }
-            if (u37Var.c() != null) {
-                str = u37Var.c().a;
-            } else {
-                str = "";
-            }
-            ((ItemCardView) viewGroup).setData(itemData, 13, str);
-            if (u37Var.b()) {
-                viewGroup.setOnClickListener(new a(this, u37Var, itemData));
-            } else {
-                viewGroup.setClickable(false);
-            }
-        }
+        return (View) invokeL.objValue;
     }
 }

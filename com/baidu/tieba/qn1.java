@@ -5,7 +5,7 @@ import android.content.DialogInterface;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface qn1 {
     void a(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener);
 

@@ -127,18 +127,18 @@ public class mt extends ps implements it, ht<ThreadData> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.f != null && this.a.h != null && this.a.g != null && !this.a.h.isTransportThread() && this.a.j) {
-                if (!this.a.h.isMarkToDel() && gp7.f().i()) {
-                    if (gp7.f().a(this.a.h)) {
+                if (!this.a.h.isMarkToDel() && hp7.f().i()) {
+                    if (hp7.f().a(this.a.h)) {
                         this.a.h.setMarkToDel(true);
                     }
-                } else if (!this.a.h.isMarkToMove() && fp7.h().j()) {
-                    if (fp7.h().a(this.a.h)) {
+                } else if (!this.a.h.isMarkToMove() && gp7.h().j()) {
+                    if (gp7.h().a(this.a.h)) {
                         this.a.h.setMarkToMove(true);
                     }
                 } else {
-                    gp7.f().l(this.a.h);
+                    hp7.f().l(this.a.h);
                     this.a.h.setMarkToDel(false);
-                    fp7.h().l(this.a.h);
+                    gp7.h().l(this.a.h);
                     this.a.h.setMarkToMove(false);
                 }
                 this.a.h();
@@ -185,7 +185,7 @@ public class mt extends ps implements it, ht<ThreadData> {
         } else if (context instanceof BaseFragmentActivity) {
             ((BaseFragmentActivity) context).registerListener(this.k);
         }
-        h55.b(this.b);
+        i55.b(this.b);
     }
 
     public void g(boolean z) {
@@ -209,7 +209,7 @@ public class mt extends ps implements it, ht<ThreadData> {
                 z = false;
             }
             this.j = z;
-            if (!gp7.f().i() && !fp7.h().j()) {
+            if (!hp7.f().i() && !gp7.h().j()) {
                 this.threadCard.q(new mu.a(4, Boolean.TRUE));
                 this.c.setVisibility(8);
                 return;

@@ -44,22 +44,22 @@ public class ko1 implements oq1 {
         public boolean c;
         public String d;
         public cu2 e;
-        public HandlerC0364b f;
+        public HandlerC0361b f;
         public a g;
 
         /* loaded from: classes7.dex */
         public class a extends or2 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public HandlerC0364b a;
+            public HandlerC0361b a;
             public final /* synthetic */ b b;
 
-            public a(b bVar, HandlerC0364b handlerC0364b) {
+            public a(b bVar, HandlerC0361b handlerC0361b) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, handlerC0364b};
+                    Object[] objArr = {bVar, handlerC0361b};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -70,7 +70,7 @@ public class ko1 implements oq1 {
                     }
                 }
                 this.b = bVar;
-                this.a = handlerC0364b;
+                this.a = handlerC0361b;
             }
 
             @Override // com.baidu.tieba.or2, android.app.Application.ActivityLifecycleCallbacks
@@ -82,9 +82,9 @@ public class ko1 implements oq1 {
                             this.a.b.cancel();
                             this.a.b = null;
                         }
-                        HandlerC0364b handlerC0364b = this.a;
-                        if (handlerC0364b != null) {
-                            handlerC0364b.removeMessages(1);
+                        HandlerC0361b handlerC0361b = this.a;
+                        if (handlerC0361b != null) {
+                            handlerC0361b.removeMessages(1);
                             this.a.removeMessages(2);
                             this.a = null;
                         }
@@ -96,13 +96,13 @@ public class ko1 implements oq1 {
 
         /* renamed from: com.baidu.tieba.ko1$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class HandlerC0364b extends Handler {
+        public static class HandlerC0361b extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public WeakReference<Context> a;
             public Dialog b;
 
-            public HandlerC0364b(Context context) {
+            public HandlerC0361b(Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class ko1 implements oq1 {
                 this.a = new WeakReference<>(context);
             }
 
-            public /* synthetic */ HandlerC0364b(Context context, a aVar) {
+            public /* synthetic */ HandlerC0361b(Context context, a aVar) {
                 this(context);
             }
 
@@ -183,7 +183,7 @@ public class ko1 implements oq1 {
             this.c = fj3.c(bundle, "compressed", false);
             this.d = fj3.g(bundle, "swanTmpPath");
             this.e = cu2Var;
-            this.f = new HandlerC0364b(context, null);
+            this.f = new HandlerC0361b(context, null);
         }
 
         public final void b(MediaModel mediaModel, int i) {
@@ -254,9 +254,9 @@ public class ko1 implements oq1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 e();
-                HandlerC0364b handlerC0364b = this.f;
-                if (handlerC0364b != null) {
-                    handlerC0364b.sendEmptyMessage(1);
+                HandlerC0361b handlerC0361b = this.f;
+                if (handlerC0361b != null) {
+                    handlerC0361b.sendEmptyMessage(1);
                 }
                 if (this.c) {
                     Iterator<MediaModel> it = this.b.iterator();
@@ -287,9 +287,9 @@ public class ko1 implements oq1 {
                         }
                     }
                 }
-                HandlerC0364b handlerC0364b2 = this.f;
-                if (handlerC0364b2 != null) {
-                    handlerC0364b2.sendEmptyMessage(2);
+                HandlerC0361b handlerC0361b2 = this.f;
+                if (handlerC0361b2 != null) {
+                    handlerC0361b2.sendEmptyMessage(2);
                 }
                 cu2 cu2Var = this.e;
                 if (cu2Var != null) {

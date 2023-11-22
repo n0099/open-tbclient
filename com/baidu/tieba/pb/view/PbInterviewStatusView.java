@@ -22,9 +22,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ds9;
+import com.baidu.tieba.es9;
 import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.ypa;
+import com.baidu.tieba.zpa;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -64,7 +64,7 @@ public class PbInterviewStatusView extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFragment a;
-        public final /* synthetic */ ds9 b;
+        public final /* synthetic */ es9 b;
         public final /* synthetic */ PbInterviewStatusView c;
 
         @Override // android.os.CountDownTimer
@@ -75,13 +75,13 @@ public class PbInterviewStatusView extends FrameLayout {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(PbInterviewStatusView pbInterviewStatusView, long j, long j2, PbFragment pbFragment, ds9 ds9Var) {
+        public a(PbInterviewStatusView pbInterviewStatusView, long j, long j2, PbFragment pbFragment, es9 es9Var) {
             super(j, j2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r3;
-                Object[] objArr = {pbInterviewStatusView, Long.valueOf(j), Long.valueOf(j2), pbFragment, ds9Var};
+                Object[] objArr = {pbInterviewStatusView, Long.valueOf(j), Long.valueOf(j2), pbFragment, es9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -95,7 +95,7 @@ public class PbInterviewStatusView extends FrameLayout {
             }
             this.c = pbInterviewStatusView;
             this.a = pbFragment;
-            this.b = ds9Var;
+            this.b = es9Var;
         }
 
         @Override // android.os.CountDownTimer
@@ -489,10 +489,10 @@ public class PbInterviewStatusView extends FrameLayout {
         this.m = new e(this, TimeUnit.MILLISECONDS.toMillis(3300L), TimeUnit.SECONDS.toMillis(1L), textView, pbFragment).start();
     }
 
-    public final void q(PbFragment pbFragment, ds9 ds9Var) {
+    public final void q(PbFragment pbFragment, es9 es9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, pbFragment, ds9Var) == null) {
-            int taskInfoStatus = ds9Var.O().getTaskInfoStatus();
+        if (interceptable == null || interceptable.invokeLL(1048581, this, pbFragment, es9Var) == null) {
+            int taskInfoStatus = es9Var.O().getTaskInfoStatus();
             if (taskInfoStatus != 1) {
                 if (taskInfoStatus != 2 && taskInfoStatus != 3) {
                     this.a.setVisibility(8);
@@ -524,10 +524,10 @@ public class PbInterviewStatusView extends FrameLayout {
                 this.b.setText(pbFragment.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0b16));
                 return;
             }
-            long millis = TimeUnit.SECONDS.toMillis(ds9Var.O().getTaskInfoData().g()) - System.currentTimeMillis();
+            long millis = TimeUnit.SECONDS.toMillis(es9Var.O().getTaskInfoData().g()) - System.currentTimeMillis();
             if (millis > TimeUnit.SECONDS.toMillis(61L)) {
                 long millis2 = millis - TimeUnit.SECONDS.toMillis(61L);
-                this.k = new a(this, millis2, millis2, pbFragment, ds9Var).start();
+                this.k = new a(this, millis2, millis2, pbFragment, es9Var).start();
                 this.a.setVisibility(8);
                 f fVar2 = this.q;
                 if (fVar2 != null) {
@@ -545,7 +545,7 @@ public class PbInterviewStatusView extends FrameLayout {
                 this.c.setVisibility(8);
                 this.g.setVisibility(8);
                 this.h.setVisibility(8);
-                ypa.e(pbFragment, this.f, n(pbFragment), null);
+                zpa.e(pbFragment, this.f, n(pbFragment), null);
                 CountDownTimer countDownTimer = this.l;
                 if (countDownTimer != null) {
                     countDownTimer.cancel();
@@ -556,16 +556,16 @@ public class PbInterviewStatusView extends FrameLayout {
         }
     }
 
-    public void setData(PbFragment pbFragment, ds9 ds9Var) {
+    public void setData(PbFragment pbFragment, es9 es9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, pbFragment, ds9Var) == null) {
-            String e2 = ds9Var.O().getTaskInfoData().e();
+        if (interceptable == null || interceptable.invokeLL(1048583, this, pbFragment, es9Var) == null) {
+            String e2 = es9Var.O().getTaskInfoData().e();
             this.p = e2;
             if (StringUtils.isNull(e2)) {
-                this.p = ds9Var.O().getTaskInfoData().h();
+                this.p = es9Var.O().getTaskInfoData().h();
             }
             this.n = !"from_interview_live".equals(pbFragment.J6());
-            q(pbFragment, ds9Var);
+            q(pbFragment, es9Var);
         }
     }
 }

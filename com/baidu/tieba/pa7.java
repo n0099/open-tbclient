@@ -1,4 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
-public interface pa7 extends ma7, na7, sa7, pi {
+public interface pa7 {
+    void setOnTemplateClickListener(wa7 wa7Var);
 }

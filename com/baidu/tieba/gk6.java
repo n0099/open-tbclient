@@ -1,22 +1,12 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.UiThread;
+import androidx.core.util.Pair;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.webkit.sdk.WebView;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface gk6 {
-    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IPrerenderManager");
+    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IPrefetchManager");
 
-    @UiThread
-    void a(@NonNull Activity activity, @NonNull String str, boolean z, boolean z2);
-
-    @NonNull
-    @UiThread
-    android.webkit.WebView b(Context context, @NonNull String str);
-
-    @UiThread
-    boolean c(@NonNull String str, android.webkit.WebView webView);
+    List<Pair<String, Long>> a(String str);
 }

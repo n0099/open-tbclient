@@ -1,7 +1,7 @@
 package com.baidu.validation.js.interpreter;
 
-import com.baidu.tieba.ptb;
 import com.baidu.tieba.qtb;
+import com.baidu.tieba.rtb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,14 +28,14 @@ public class SapiActionCheckMethodSupport extends BaseInterpreter {
     }
 
     @Override // com.baidu.validation.js.BaseInterpreter
-    public String interpret(qtb qtbVar) {
+    public String interpret(rtb rtbVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qtbVar)) == null) {
-            if (qtbVar == null || qtbVar.c() == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rtbVar)) == null) {
+            if (rtbVar == null || rtbVar.c() == null) {
                 return null;
             }
-            return ptb.b().a(qtbVar.c().get(0)) != null ? "1" : "0";
+            return qtb.b().a(rtbVar.c().get(0)) != null ? "1" : "0";
         }
         return (String) invokeL.objValue;
     }

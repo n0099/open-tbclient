@@ -1,46 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.StringCompanionObject;
-@JvmName(name = "TbBaseMsgExt")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
 public final class yv8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final yv8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final long a(TbBaseMsg tbBaseMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbBaseMsg)) == null) {
-            Intrinsics.checkNotNullParameter(tbBaseMsg, "<this>");
-            TbBaseMsg.c forumExt = tbBaseMsg.getForumExt();
-            if (forumExt != null) {
-                return forumExt.a();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948343726, "Lcom/baidu/tieba/yv8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return 0L;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948343726, "Lcom/baidu/tieba/yv8;");
+                return;
+            }
         }
-        return invokeL.longValue;
+        a = new yv8();
     }
 
-    public static final CharSequence b(TbBaseMsg tbBaseMsg) {
-        InterceptResult invokeL;
+    public final boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbBaseMsg)) == null) {
-            Intrinsics.checkNotNullParameter(tbBaseMsg, "<this>");
-            String string = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0423);
-            Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(R.st…_reply_msg_prefix_format)");
-            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-            String format = String.format(string, Arrays.copyOf(new Object[]{tbBaseMsg.getUserName()}, 1));
-            Intrinsics.checkNotNullExpressionValue(format, "format(format, *args)");
-            return format;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 1 || i == 10001 : invokeI.booleanValue;
+    }
+
+    public yv8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return (CharSequence) invokeL.objValue;
     }
 }

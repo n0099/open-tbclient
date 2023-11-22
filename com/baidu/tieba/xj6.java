@@ -1,172 +1,137 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.Closeable;
+import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import java.io.InputStream;
+import java.security.MessageDigest;
 /* loaded from: classes9.dex */
 public class xj6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
-            if (file != null && (!file.exists() ? file.mkdirs() : file.isDirectory())) {
-                return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948302341, "Lcom/baidu/tieba/xj6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return false;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948302341, "Lcom/baidu/tieba/xj6;");
+                return;
+            }
         }
-        return invokeL.booleanValue;
+        a = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
-    public static boolean c(File file) {
+    public static String a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            if (file != null && (!file.exists() || (file.isFile() && file.delete()))) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (file == null) {
-                return false;
-            }
-            if (!file.exists()) {
-                return true;
-            }
-            if (!file.isDirectory()) {
-                return false;
-            }
-            File[] listFiles = file.listFiles();
-            if (!vj6.e(listFiles)) {
-                for (File file2 : listFiles) {
-                    if (file2 != null) {
-                        if (file2.isFile()) {
-                            if (!file2.delete()) {
-                                return false;
-                            }
-                        } else if (file2.isDirectory() && !b(file2)) {
-                            return false;
-                        }
-                    }
-                }
-            }
-            return file.delete();
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x004b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0074 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v13, types: [java.io.Closeable[]] */
-    /* JADX WARN: Type inference failed for: r1v6, types: [java.io.Closeable[]] */
-    /* JADX WARN: Type inference failed for: r1v8, types: [java.io.Closeable[]] */
-    /* JADX WARN: Type inference failed for: r6v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
-    /* JADX WARN: Type inference failed for: r6v2 */
-    /* JADX WARN: Type inference failed for: r6v3 */
-    /* JADX WARN: Type inference failed for: r6v4 */
-    /* JADX WARN: Type inference failed for: r6v5 */
-    /* JADX WARN: Type inference failed for: r6v6 */
-    /* JADX WARN: Type inference failed for: r6v7, types: [java.io.FileInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r6v8 */
-    /* JADX WARN: Type inference failed for: r7v0 */
-    /* JADX WARN: Type inference failed for: r7v2 */
-    /* JADX WARN: Type inference failed for: r7v4 */
-    /* JADX WARN: Type inference failed for: r7v5 */
-    /* JADX WARN: Type inference failed for: r7v7 */
-    /* JADX WARN: Type inference failed for: r7v9 */
-    /* JADX WARN: Type inference failed for: r9v0, types: [java.lang.Object, java.io.File] */
-    /* JADX WARN: Type inference failed for: r9v2 */
-    /* JADX WARN: Type inference failed for: r9v4 */
-    /* JADX WARN: Type inference failed for: r9v5 */
-    /* JADX WARN: Type inference failed for: r9v6 */
-    /* JADX WARN: Type inference failed for: r9v8 */
-    /* JADX WARN: Type inference failed for: r9v9, types: [java.io.Reader, java.io.InputStreamReader] */
-    public static String d(File file) {
-        ?? r6;
-        ?? r7;
-        BufferedReader bufferedReader;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            r6 = interceptable;
-            r7 = 65539;
-            InterceptResult invokeL = r6.invokeL(65539, null, file);
-            if (invokeL != null) {
-                return (String) invokeL.objValue;
-            }
-        }
-        if (file == 0 || !file.exists() || !file.canRead()) {
-            return null;
-        }
-        StringBuilder sb = new StringBuilder();
-        try {
-            try {
-                r6 = new FileInputStream((File) file);
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                file = new InputStreamReader(r6);
-            } catch (Exception e) {
-                e = e;
-                file = 0;
-                bufferedReader = null;
-            } catch (Throwable th2) {
-                th = th2;
-                r7 = 0;
-                r6 = r6;
-                th = th;
-                file = r7;
-                zj6.a(new Closeable[]{r6, file, r7});
-                throw th;
-            }
-        } catch (Exception e2) {
-            e = e2;
-            file = 0;
-            r6 = 0;
-            bufferedReader = null;
-        } catch (Throwable th3) {
-            th = th3;
-            r6 = 0;
-            r7 = 0;
-        }
-        try {
-            bufferedReader = new BufferedReader(file);
-            try {
-                for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
-                    sb.append(readLine);
-                }
-                String sb2 = sb.toString();
-                zj6.a(new Closeable[]{r6, file, bufferedReader});
-                return sb2;
-            } catch (Exception e3) {
-                e = e3;
-                e.printStackTrace();
-                zj6.a(new Closeable[]{r6, file, bufferedReader});
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr == null) {
                 return null;
             }
-        } catch (Exception e4) {
-            e = e4;
-            bufferedReader = null;
-        } catch (Throwable th4) {
-            r7 = 0;
-            th = th4;
-            zj6.a(new Closeable[]{r6, file, r7});
-            throw th;
+            StringBuilder sb = new StringBuilder(bArr.length * 2);
+            for (byte b : bArr) {
+                sb.append(a[(b & 240) >>> 4]);
+                sb.append(a[b & 15]);
+            }
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            FileInputStream fileInputStream2 = null;
+            try {
+                fileInputStream = new FileInputStream(file);
+                try {
+                    String c = c(fileInputStream);
+                    ak6.a(fileInputStream);
+                    return c;
+                } catch (Exception unused) {
+                    ak6.a(fileInputStream);
+                    return null;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream2 = fileInputStream;
+                    ak6.a(fileInputStream2);
+                    throw th;
+                }
+            } catch (Exception unused2) {
+                fileInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    public static String c(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
+            if (inputStream == null) {
+                return null;
+            }
+            byte[] bArr = new byte[1024];
+            try {
+                try {
+                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read > 0) {
+                            messageDigest.update(bArr, 0, read);
+                        } else {
+                            String a2 = a(messageDigest.digest());
+                            ak6.a(inputStream);
+                            return a2;
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    ak6.a(inputStream);
+                    return null;
+                }
+            } catch (Throwable th) {
+                ak6.a(inputStream);
+                throw th;
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    public static boolean d(File file, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, str)) == null) {
+            try {
+                String b = b(file);
+                if (b != null) {
+                    if (TextUtils.equals(b.toLowerCase(), str.toLowerCase())) {
+                        return true;
+                    }
+                }
+            } catch (Exception unused) {
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

@@ -5,24 +5,29 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.AlaChallengeInfo;
+import tbclient.AigcFeedbackInfo;
+import tbclient.Toast;
 /* loaded from: classes6.dex */
-public class ipc extends poc {
+public class ipc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull AlaChallengeInfo alaChallengeInfo) {
+    public static JSONObject b(@NonNull AigcFeedbackInfo aigcFeedbackInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, alaChallengeInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aigcFeedbackInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "challenge_id", alaChallengeInfo.challenge_id);
-            poc.a(jSONObject, "winning_num", alaChallengeInfo.winning_num);
-            poc.a(jSONObject, "rival_session", alaChallengeInfo.rival_session);
-            poc.a(jSONObject, "rival_rtmp_url", alaChallengeInfo.rival_rtmp_url);
-            poc.a(jSONObject, "rival_hls_url", alaChallengeInfo.rival_hls_url);
-            poc.a(jSONObject, "ext", alaChallengeInfo.ext);
+            qoc.a(jSONObject, "aigc_chat_id", aigcFeedbackInfo.aigc_chat_id);
+            qoc.a(jSONObject, "feedback_fold", aigcFeedbackInfo.feedback_fold);
+            qoc.a(jSONObject, "feedback_fold_tip", aigcFeedbackInfo.feedback_fold_tip);
+            qoc.a(jSONObject, "positive_text", aigcFeedbackInfo.positive_text);
+            qoc.a(jSONObject, "negative_text", aigcFeedbackInfo.negative_text);
+            qoc.a(jSONObject, "feedback_url", aigcFeedbackInfo.feedback_url);
+            Toast toast = aigcFeedbackInfo.feedback_toast;
+            if (toast != null) {
+                qoc.a(jSONObject, "feedback_toast", f5d.b(toast));
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -5,22 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.PrivateForumShareinfo;
+import tbclient.FrsPage.PostTopic;
 /* loaded from: classes7.dex */
-public class lwc extends poc {
+public class lwc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PrivateForumShareinfo privateForumShareinfo) {
+    public static JSONObject b(@NonNull PostTopic postTopic) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, privateForumShareinfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, postTopic)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "create_time", privateForumShareinfo.create_time);
-            poc.a(jSONObject, "share_url", privateForumShareinfo.share_url);
-            poc.a(jSONObject, "manager_user_name", privateForumShareinfo.manager_user_name);
-            poc.a(jSONObject, "manager_portrait", privateForumShareinfo.manager_portrait);
+            qoc.a(jSONObject, "title_topic", postTopic.title_topic);
+            qoc.a(jSONObject, "content_topic", postTopic.content_topic);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

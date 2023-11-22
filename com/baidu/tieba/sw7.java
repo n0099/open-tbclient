@@ -23,11 +23,12 @@ public class sw7 extends bi<zt6, CardViewHolder<bl6>> {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public bl6 b;
-    public xl6 c;
+    public String c;
     public String d;
+    public yl6 e;
 
     /* loaded from: classes8.dex */
-    public class a extends xl6<zt6> {
+    public class a extends yl6<zt6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ sw7 b;
@@ -51,25 +52,25 @@ public class sw7 extends bi<zt6, CardViewHolder<bl6>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xl6
+        @Override // com.baidu.tieba.yl6
         /* renamed from: d */
         public void a(View view2, zt6 zt6Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, zt6Var) == null) {
-                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 3).param("fid", this.b.d));
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 2).param("fid", this.b.c));
                 this.b.x(view2, zt6Var);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sw7(TbPageContext tbPageContext, String str) {
+    public sw7(TbPageContext tbPageContext, String str, String str2) {
         super(tbPageContext.getPageActivity(), zt6.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, str};
+            Object[] objArr = {tbPageContext, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -81,14 +82,15 @@ public class sw7 extends bi<zt6, CardViewHolder<bl6>> {
                 return;
             }
         }
+        this.c = str;
+        this.d = str2;
         this.a = tbPageContext;
-        this.d = str;
     }
 
-    public void A(xl6 xl6Var) {
+    public void A(yl6 yl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, xl6Var) == null) {
-            this.c = xl6Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, yl6Var) == null) {
+            this.e = yl6Var;
         }
     }
 
@@ -99,7 +101,7 @@ public class sw7 extends bi<zt6, CardViewHolder<bl6>> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            this.b = new bl6(this.a);
+            this.b = new bl6(this.a, this.c, this.d);
             return new CardViewHolder<>(this.b);
         }
         return (CardViewHolder) invokeL.objValue;
@@ -108,15 +110,15 @@ public class sw7 extends bi<zt6, CardViewHolder<bl6>> {
     public final void x(View view2, zt6 zt6Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, view2, zt6Var) == null) {
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.a.getPageActivity()).createFromThreadCfg(zt6Var.getThreadData(), null, il6.g(), 18003, true, false, false);
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.a.getPageActivity()).createFromThreadCfg(zt6Var.getThreadData(), null, jl6.g(), 18003, true, false, false);
             createFromThreadCfg.setForumId(String.valueOf(zt6Var.getThreadData().getFid()));
             createFromThreadCfg.setForumName(zt6Var.getThreadData().getForum_name());
             createFromThreadCfg.setStartFrom(0);
-            il6.a(zt6Var.getThreadData().getTid());
+            jl6.a(zt6Var.getThreadData().getTid());
             this.a.sendMessage(new CustomMessage(2004001, createFromThreadCfg));
-            xl6 xl6Var = this.c;
-            if (xl6Var != null) {
-                xl6Var.a(view2, zt6Var);
+            yl6 yl6Var = this.e;
+            if (yl6Var != null) {
+                yl6Var.a(view2, zt6Var);
             }
         }
     }

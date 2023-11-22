@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface gg5 {
-    void a(boolean z);
+    boolean b();
 
-    int getHeight();
+    void handleHide();
 
-    void refreshHeight(int i);
+    void handleShow();
+
+    boolean isVisible();
 }

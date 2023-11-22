@@ -4,29 +4,24 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.NaGuide;
-import tbclient.RecGuide;
+import tbclient.MyGroupInfo;
 /* loaded from: classes5.dex */
-public class f0d extends poc {
+public class f0d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull NaGuide naGuide) {
+    public static JSONObject b(@NonNull MyGroupInfo myGroupInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, naGuide)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, myGroupInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "dwnl_url", naGuide.dwnl_url);
-            if (naGuide.rec_info != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (RecGuide recGuide : naGuide.rec_info) {
-                    jSONArray.put(g2d.b(recGuide));
-                }
-                poc.a(jSONObject, "rec_info", jSONArray);
-            }
+            qoc.a(jSONObject, "group_id", myGroupInfo.group_id);
+            qoc.a(jSONObject, "group_name", myGroupInfo.group_name);
+            qoc.a(jSONObject, "portrait", myGroupInfo.portrait);
+            qoc.a(jSONObject, "member_num", myGroupInfo.member_num);
+            qoc.a(jSONObject, "max_member_num", myGroupInfo.max_member_num);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

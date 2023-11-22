@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.ca;
-import com.baidu.tieba.joa;
 import com.baidu.tieba.koa;
+import com.baidu.tieba.loa;
 import com.baidu.tieba.yz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -39,15 +39,15 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
 
     /* loaded from: classes8.dex */
     public interface c {
-        void a(boolean z, int i, koa koaVar, String str, boolean z2);
+        void a(boolean z, int i, loa loaVar, String str, boolean z2);
     }
 
     /* loaded from: classes8.dex */
-    public class b extends BdAsyncTask<Object, Integer, joa> {
+    public class b extends BdAsyncTask<Object, Integer, koa> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
-        public joa b;
+        public koa b;
         public final /* synthetic */ DirMenuModel c;
 
         public b(DirMenuModel dirMenuModel) {
@@ -67,7 +67,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             }
             this.c = dirMenuModel;
             this.a = null;
-            this.b = new joa();
+            this.b = new koa();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,7 +90,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public joa doInBackground(Object... objArr) {
+        public koa doInBackground(Object... objArr) {
             InterceptResult invokeL;
             String str;
             String postNetData;
@@ -134,19 +134,19 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                 }
                 return this.b;
             }
-            return (joa) invokeL.objValue;
+            return (koa) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(joa joaVar) {
+        public void onPostExecute(koa koaVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, joaVar) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, koaVar) == null) {
                 if (!this.c.f) {
-                    this.c.b.a(false, -1, null, joaVar.b(), this.c.g);
-                } else if (joaVar.h() != null) {
-                    this.c.b.a(true, joaVar.a(), joaVar.h(), joaVar.b(), this.c.g);
+                    this.c.b.a(false, -1, null, koaVar.b(), this.c.g);
+                } else if (koaVar.h() != null) {
+                    this.c.b.a(true, koaVar.a(), koaVar.h(), koaVar.b(), this.c.g);
                 }
             }
         }

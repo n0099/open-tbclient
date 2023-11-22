@@ -22,13 +22,13 @@ import com.baidu.tbadk.mvc.message.WriteCacheMessage;
 import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
 import com.baidu.tbadk.mvc.model.CacheModel;
 import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.a39;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.k29;
 import com.baidu.tieba.l29;
+import com.baidu.tieba.m29;
 import com.baidu.tieba.oi;
-import com.baidu.tieba.p29;
-import com.baidu.tieba.x95;
-import com.baidu.tieba.z29;
+import com.baidu.tieba.q29;
+import com.baidu.tieba.y95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,15 +38,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class AtMeModelController extends BdBaseModel implements CacheModel.CacheModelCallback<l29>, NetModel.k<k29, l29> {
+public class AtMeModelController extends BdBaseModel implements CacheModel.CacheModelCallback<m29>, NetModel.k<l29, m29> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AtMessageFragment a;
-    public k29 b;
+    public l29 b;
     public AtMeNetModel c;
     public AtMeCacheModel d;
     public FeedData e;
-    public p29 f;
+    public q29 f;
     public final CustomMessageListener g;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -70,7 +70,7 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.CacheModelCallback
-    public void onCacheDataWrite(WriteCacheRespMsg<List<l29>> writeCacheRespMsg, WriteCacheMessage<l29> writeCacheMessage) {
+    public void onCacheDataWrite(WriteCacheRespMsg<List<m29>> writeCacheRespMsg, WriteCacheMessage<m29> writeCacheMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, writeCacheRespMsg, writeCacheMessage) == null) {
         }
@@ -133,24 +133,24 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void I(MvcHttpResponsedMessage<l29> mvcHttpResponsedMessage, MvcHttpMessage<k29, l29> mvcHttpMessage, MvcNetMessage<k29, l29> mvcNetMessage) {
-        l29 l29Var;
+    public void I(MvcHttpResponsedMessage<m29> mvcHttpResponsedMessage, MvcHttpMessage<l29, m29> mvcHttpMessage, MvcNetMessage<l29, m29> mvcNetMessage) {
+        m29 m29Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) {
-            k29 k29Var = null;
+            l29 l29Var = null;
             if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
-                l29Var = mvcHttpResponsedMessage.getData();
+                m29Var = mvcHttpResponsedMessage.getData();
                 if (mvcHttpMessage != null) {
-                    k29Var = mvcHttpMessage.getRequestData();
+                    l29Var = mvcHttpMessage.getRequestData();
                 }
                 if (mvcNetMessage != null) {
-                    k29Var = mvcNetMessage.getRequestData();
+                    l29Var = mvcNetMessage.getRequestData();
                 }
             } else {
-                x95.p0().g0(0);
-                l29Var = null;
+                y95.p0().g0(0);
+                m29Var = null;
             }
-            if (k29Var != null && l29Var != null && T(k29Var, l29Var, Boolean.FALSE)) {
+            if (l29Var != null && m29Var != null && T(l29Var, m29Var, Boolean.FALSE)) {
                 return;
             }
             if (mvcHttpResponsedMessage != null) {
@@ -167,24 +167,24 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void v(MvcSocketResponsedMessage<l29, ?> mvcSocketResponsedMessage, MvcSocketMessage<k29, l29> mvcSocketMessage, MvcNetMessage<k29, l29> mvcNetMessage) {
-        l29 l29Var;
+    public void v(MvcSocketResponsedMessage<m29, ?> mvcSocketResponsedMessage, MvcSocketMessage<l29, m29> mvcSocketMessage, MvcNetMessage<l29, m29> mvcNetMessage) {
+        m29 m29Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048589, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) {
-            k29 k29Var = null;
+            l29 l29Var = null;
             if (mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
-                l29Var = mvcSocketResponsedMessage.getData();
+                m29Var = mvcSocketResponsedMessage.getData();
                 if (mvcSocketMessage != null) {
-                    k29Var = mvcSocketMessage.getRequestData();
+                    l29Var = mvcSocketMessage.getRequestData();
                 }
                 if (mvcNetMessage != null) {
-                    k29Var = mvcNetMessage.getRequestData();
+                    l29Var = mvcNetMessage.getRequestData();
                 }
             } else {
-                x95.p0().g0(0);
-                l29Var = null;
+                y95.p0().g0(0);
+                m29Var = null;
             }
-            if (k29Var != null && l29Var != null && T(k29Var, l29Var, Boolean.FALSE)) {
+            if (l29Var != null && m29Var != null && T(l29Var, m29Var, Boolean.FALSE)) {
                 return;
             }
             if (mvcSocketResponsedMessage != null) {
@@ -206,8 +206,8 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (!TbadkCoreApplication.isLogin()) {
-                p29 p29Var = this.f;
-                if (p29Var != null && (arrayList = p29Var.a) != null) {
+                q29 q29Var = this.f;
+                if (q29Var != null && (arrayList = q29Var.a) != null) {
                     arrayList.clear();
                     AtMessageFragment atMessageFragment = this.a;
                     if (atMessageFragment != null) {
@@ -254,9 +254,9 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
     }
 
     public void P(int i) {
-        p29 p29Var;
+        q29 q29Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (p29Var = this.f) != null && p29Var.a() != null && i < this.f.a().size()) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (q29Var = this.f) != null && q29Var.a() != null && i < this.f.a().size()) {
             this.f.a().remove(i);
         }
     }
@@ -295,7 +295,7 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
     public void R(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            this.b = new k29();
+            this.b = new l29();
             AtMeNetModel atMeNetModel = new AtMeNetModel((TbPageContext) a5.a(this.a.getPageContext().getPageActivity()), this.b);
             this.c = atMeNetModel;
             atMeNetModel.q0(this);
@@ -311,48 +311,48 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
                 atMeCacheModel.setCallback(this);
                 this.d.setUniqueId(this.a.getUniqueId());
             }
-            this.f = new p29();
+            this.f = new q29();
         }
     }
 
-    public boolean T(k29 k29Var, l29 l29Var, Boolean bool) {
+    public boolean T(l29 l29Var, m29 m29Var, Boolean bool) {
         InterceptResult invokeLLL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, k29Var, l29Var, bool)) == null) {
-            if (k29Var.a() != 4) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, l29Var, m29Var, bool)) == null) {
+            if (l29Var.a() != 4) {
                 this.f.a().clear();
             }
-            this.f.c(l29Var);
+            this.f.c(m29Var);
             boolean z2 = true;
-            if (l29Var != null && l29Var.a() != null && l29Var.a().size() > 0) {
-                this.e = l29Var.a().get(l29Var.a().size() - 1);
+            if (m29Var != null && m29Var.a() != null && m29Var.a().size() > 0) {
+                this.e = m29Var.a().get(m29Var.a().size() - 1);
                 if (this.f.b() != null && this.f.b().b() != 1) {
                     z = false;
                 } else {
                     z = true;
                 }
-                if (k29Var != null) {
-                    k29Var.i();
+                if (l29Var != null) {
+                    l29Var.i();
                 }
             } else {
                 this.e = null;
                 z = false;
                 z2 = false;
             }
-            x95.p0().j();
+            y95.p0().j();
             if (!TbadkCoreApplication.isLogin()) {
                 this.f.a().clear();
             }
             ArrayList<oi> arrayList = new ArrayList<>();
             Iterator<FeedData> it = this.f.a.iterator();
             while (it.hasNext()) {
-                z29 z29Var = new z29();
-                z29Var.C(it.next());
+                a39 a39Var = new a39();
+                a39Var.C(it.next());
                 if (bool.booleanValue()) {
-                    z29Var.E(false);
+                    a39Var.E(false);
                 }
-                arrayList.add(z29Var);
+                arrayList.add(a39Var);
             }
             this.a.P2(z, arrayList);
             return z2;
@@ -361,7 +361,7 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.CacheModelCallback
-    public void onCacheDataGet(ReadCacheRespMsg<List<l29>> readCacheRespMsg, ReadCacheMessage<l29> readCacheMessage) {
+    public void onCacheDataGet(ReadCacheRespMsg<List<m29>> readCacheRespMsg, ReadCacheMessage<m29> readCacheMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, readCacheRespMsg, readCacheMessage) == null) {
             if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {

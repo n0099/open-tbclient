@@ -5,24 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.EditInfo;
+import tbclient.EditConfig;
 /* loaded from: classes8.dex */
-public class trc extends poc {
+public class trc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull EditInfo editInfo) {
+    public static JSONObject b(@NonNull EditConfig editConfig) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, editInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, editConfig)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "edit_status", editInfo.edit_status);
-            poc.a(jSONObject, "edit_enable", editInfo.edit_enable);
-            poc.a(jSONObject, "edit_error_msg", editInfo.edit_error_msg);
-            poc.a(jSONObject, "last_edit_time", editInfo.last_edit_time);
-            poc.a(jSONObject, "edit_from", editInfo.edit_from);
-            poc.a(jSONObject, "edit_error_no", editInfo.edit_error_no);
+            qoc.a(jSONObject, "show_edit", editConfig.show_edit);
+            qoc.a(jSONObject, "is_first_edit", editConfig.is_first_edit);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

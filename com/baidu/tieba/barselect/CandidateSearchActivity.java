@@ -30,11 +30,11 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.CommitVoteResMsg;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.model.CandidateSearchHttpResMsg;
-import com.baidu.tieba.bta;
-import com.baidu.tieba.me6;
+import com.baidu.tieba.cta;
+import com.baidu.tieba.ne6;
 import com.baidu.tieba.qd;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.xe6;
+import com.baidu.tieba.ye6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +49,7 @@ public class CandidateSearchActivity extends BaseActivity {
     public NavigationBar a;
     public BdRecyclerView b;
     public CandidateSearchAdapter c;
-    public xe6 d;
+    public ye6 d;
     public String e;
     public View f;
     public View g;
@@ -57,7 +57,7 @@ public class CandidateSearchActivity extends BaseActivity {
     public EditText i;
     public ImageView j;
     public TextView k;
-    public List<me6> l;
+    public List<ne6> l;
     public View.OnClickListener m;
     public NetMessageListener n;
     public TextView.OnEditorActionListener o;
@@ -139,22 +139,22 @@ public class CandidateSearchActivity extends BaseActivity {
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
             }
-            me6 me6Var = null;
+            ne6 ne6Var = null;
             if (responsedMessage instanceof CandidateSearchHttpResMsg) {
-                me6Var = ((CandidateSearchHttpResMsg) responsedMessage).candidateData;
+                ne6Var = ((CandidateSearchHttpResMsg) responsedMessage).candidateData;
             }
-            if (responsedMessage.getError() == 0 && me6Var != null) {
+            if (responsedMessage.getError() == 0 && ne6Var != null) {
                 this.a.b.setVisibility(0);
                 this.a.f.setVisibility(8);
                 if (this.a.i.getText() != null) {
-                    me6Var.j = this.a.i.getText().toString();
+                    ne6Var.j = this.a.i.getText().toString();
                 }
                 if (this.a.l == null) {
                     this.a.l = new ArrayList();
                 } else {
                     this.a.l.clear();
                 }
-                this.a.l.add(me6Var);
+                this.a.l.add(ne6Var);
                 this.a.c.setData(this.a.l);
                 return;
             }
@@ -243,15 +243,15 @@ public class CandidateSearchActivity extends BaseActivity {
             if (error == 0) {
                 BdUtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.bar_manager_vote_success);
                 if (this.a.l != null) {
-                    for (me6 me6Var : this.a.l) {
-                        me6Var.k = true;
+                    for (ne6 ne6Var : this.a.l) {
+                        ne6Var.k = true;
                     }
                 }
             } else if (error == 3250023) {
-                bta.b(error, "", null);
+                cta.b(error, "", null);
             } else if (error == 3250021) {
                 if (httpResponsedMessage instanceof CommitVoteResMsg) {
-                    bta.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    cta.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 }
             } else if (error != 3250002 && error != 3250004) {
                 BdUtilHelper.showToast(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
@@ -445,7 +445,7 @@ public class CandidateSearchActivity extends BaseActivity {
             this.b.setAdapter(candidateSearchAdapter);
             registerListener(this.n);
             registerListener(this.p);
-            this.d = new xe6(getPageContext());
+            this.d = new ye6(getPageContext());
             SafeHandler.getInst().postDelayed(this.r, 100L);
         }
     }

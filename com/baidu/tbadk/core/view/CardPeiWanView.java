@@ -21,12 +21,12 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.CardPeiWanView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aqa;
-import com.baidu.tieba.c1b;
-import com.baidu.tieba.hu5;
+import com.baidu.tieba.bqa;
+import com.baidu.tieba.d1b;
 import com.baidu.tieba.it;
-import com.baidu.tieba.sm6;
+import com.baidu.tieba.iu5;
 import com.baidu.tieba.tbadkCore.voice.VoicePlayBtn;
+import com.baidu.tieba.tm6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -241,7 +241,7 @@ public final class CardPeiWanView extends RelativeLayout implements it {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public static final void c(sm6 it, Function0 function0, View view2) {
+    public static final void c(tm6 it, Function0 function0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, it, function0, view2) == null) {
             Intrinsics.checkNotNullParameter(it, "$it");
@@ -259,7 +259,7 @@ public final class CardPeiWanView extends RelativeLayout implements it {
         }
         TextView textView = new TextView(getContext());
         textView.setGravity(17);
-        textView.setText(hu5.f(threadRecommendTag.text, 10));
+        textView.setText(iu5.f(threadRecommendTag.text, 10));
         textView.setPadding(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X002), BdUtilHelper.getDimens(getContext(), R.dimen.tbds4), BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X002), BdUtilHelper.getDimens(getContext(), R.dimen.tbds4));
         textView.setMaxLines(1);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -317,14 +317,14 @@ public final class CardPeiWanView extends RelativeLayout implements it {
                     ThreadRecommendTag threadRecommendTag2 = threadRecommendTag;
                     ThemeColorInfo themeColorInfo = threadRecommendTag2.text_color;
                     Intrinsics.checkNotNullExpressionValue(themeColorInfo, "tagData.text_color");
-                    int f = aqa.f(c1b.c(themeColorInfo));
-                    if (!aqa.e(f)) {
+                    int f = bqa.f(d1b.c(themeColorInfo));
+                    if (!bqa.e(f)) {
                         this.j = f;
                     }
                     ThemeColorInfo themeColorInfo2 = threadRecommendTag2.background_color;
                     Intrinsics.checkNotNullExpressionValue(themeColorInfo2, "tagData.background_color");
-                    int f2 = aqa.f(c1b.c(themeColorInfo2));
-                    if (!aqa.e(f2)) {
+                    int f2 = bqa.f(d1b.c(themeColorInfo2));
+                    if (!bqa.e(f2)) {
                         this.k = f2;
                     }
                     next.setTextColor(this.j);
@@ -335,24 +335,24 @@ public final class CardPeiWanView extends RelativeLayout implements it {
         }
     }
 
-    public final void setData(final sm6 sm6Var, final Function0<Unit> function0, Function0<Unit> function02) {
+    public final void setData(final tm6 tm6Var, final Function0<Unit> function0, Function0<Unit> function02) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048581, this, sm6Var, function0, function02) == null) && sm6Var != null) {
-            if (TextUtils.isEmpty(sm6Var.f())) {
+        if ((interceptable == null || interceptable.invokeLLL(1048581, this, tm6Var, function0, function02) == null) && tm6Var != null) {
+            if (TextUtils.isEmpty(tm6Var.f())) {
                 this.a.setVisibility(8);
             } else {
                 this.a.setVisibility(0);
             }
-            this.c.setText(hu5.f(sm6Var.f(), 6));
-            this.g.startLoad(sm6Var.c());
-            if (sm6Var.i() == null) {
+            this.c.setText(iu5.f(tm6Var.f(), 6));
+            this.g.startLoad(tm6Var.c());
+            if (tm6Var.i() == null) {
                 this.i.setVisibility(8);
             } else {
-                this.i.setData(sm6Var.i());
+                this.i.setData(tm6Var.i());
                 this.i.setVisibility(0);
             }
             this.i.setMClickCallBack(new a(function02));
-            List<ThreadRecommendTag> h = sm6Var.h();
+            List<ThreadRecommendTag> h = tm6Var.h();
             this.d.removeAllViews();
             this.e.clear();
             this.f.clear();
@@ -364,7 +364,7 @@ public final class CardPeiWanView extends RelativeLayout implements it {
                     a(threadRecommendTag);
                 }
             }
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.y45
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.z45
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -372,7 +372,7 @@ public final class CardPeiWanView extends RelativeLayout implements it {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        CardPeiWanView.c(sm6.this, function0, view2);
+                        CardPeiWanView.c(tm6.this, function0, view2);
                     }
                 }
             });

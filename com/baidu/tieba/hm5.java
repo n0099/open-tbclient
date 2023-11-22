@@ -1,241 +1,257 @@
 package com.baidu.tieba;
 
-import android.content.ContentResolver;
-import android.content.ContentValues;
-import android.net.Uri;
+import android.app.ActivityManager;
+import android.app.Application;
+import android.content.Context;
+import android.os.Build;
+import android.os.Process;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class hm5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ArrayList<String> a;
+    public static String b;
+    public static String c;
+    public static boolean d;
+    public static String e;
+    public static String f;
+    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, uri) == null) {
-            b(uri);
-        }
-    }
-
-    public static String j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            return k(Uri.parse(d() + str));
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void s(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65554, null, str) == null) {
-            t(str);
-        }
-    }
-
-    public static void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
-            a(Uri.parse(d() + str));
-        }
-    }
-
-    public static void b(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, uri) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                e().delete(uri, null, null);
-            } catch (SecurityException e) {
-                BdLog.detailException(e);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947828537, "Lcom/baidu/tieba/hm5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            long currentTimeMillis2 = System.currentTimeMillis();
-            gm5.m("deleteValue uri=" + uri + " Time:" + (currentTimeMillis2 - currentTimeMillis));
-        }
-    }
-
-    public static boolean c(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) {
-            return JavaTypesHelper.toBoolean(j(str), z);
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public static int f(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
-            return JavaTypesHelper.toInt(j(str), i);
-        }
-        return invokeLI.intValue;
-    }
-
-    public static long g(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
-            return JavaTypesHelper.toLong(j(str), j);
-        }
-        return invokeLJ.longValue;
-    }
-
-    public static OrmObject h(String str, Class<?> cls) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, cls)) == null) {
-            if (str != null && cls != null) {
-                return OrmObject.objectWithJsonStr(j(str), cls);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947828537, "Lcom/baidu/tieba/hm5;");
+                return;
             }
-            return null;
         }
-        return (OrmObject) invokeLL.objValue;
+        a = new ArrayList<>();
+        d = false;
     }
 
-    public static String i(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
-            String j = j(str);
-            if (j != null) {
-                return j;
-            }
-            return str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void m(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65548, null, str, z) == null) {
-            r(str, Boolean.valueOf(z));
-        }
-    }
-
-    public static void n(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) {
-            r(str, Integer.valueOf(i));
-        }
-    }
-
-    public static void o(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) {
-            r(str, Long.valueOf(j));
-        }
-    }
-
-    public static void p(String str, OrmObject ormObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65551, null, str, ormObject) == null) && str != null && ormObject != null) {
-            r(str, OrmObject.jsonStrWithObject(ormObject));
-        }
-    }
-
-    public static void q(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65552, null, str, str2) == null) {
-            r(str, str2);
-        }
-    }
-
-    public static void r(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65553, null, str, obj) == null) {
-            u(Uri.parse(d() + str), l(str, obj));
-        }
-    }
-
-    public static void u(Uri uri, ContentValues contentValues) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65556, null, uri, contentValues) == null) {
-            v(uri, contentValues);
-        }
-    }
-
-    public static String d() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return SharedPrefHelper.getInstance().getContentPrefix();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return e;
         }
         return (String) invokeV.objValue;
     }
 
-    public static ContentResolver e() {
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return SharedPrefHelper.getInstance().getContentResolver();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                b = d(TbadkCoreApplication.getInst().getApp());
+            }
+            return b;
         }
-        return (ContentResolver) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static String k(Uri uri) {
-        InterceptResult invokeL;
-        String str;
+    public static String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, uri)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                str = e().getType(uri);
-            } catch (SecurityException e) {
-                BdLog.detailException(e);
-                str = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return j(c());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return h(TbadkCoreApplication.getInst().getPackageName());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (!d) {
+                r(context);
             }
-            long currentTimeMillis2 = System.currentTimeMillis();
-            gm5.m("getValue uri=" + uri + " Time:" + (currentTimeMillis2 - currentTimeMillis));
-            return str;
+            return d;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            String c2 = c();
+            if (str != null && str.equalsIgnoreCase(c2)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void m(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65549, null, str) != null) || !TbadkCoreApplication.getInst().isDebugMode()) {
+            return;
+        }
+        Log.e("MutiProcess", str);
+    }
+
+    public static void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
+            e = str;
+        }
+    }
+
+    public static void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65551, null, z) == null) {
+            d = z;
+        }
+    }
+
+    public static void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
+            f = str;
+        }
+    }
+
+    public static void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
+            g = str;
+        }
+    }
+
+    public static void r(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65554, null, context) == null) && context != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true)));
+        }
+    }
+
+    public static String d(Context context) {
+        InterceptResult invokeL;
+        ActivityManager activityManager;
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 28) {
+                return Application.getProcessName();
+            }
+            if (context == null || (activityManager = (ActivityManager) context.getSystemService("activity")) == null || (runningAppProcesses = activityManager.getRunningAppProcesses()) == null) {
+                return null;
+            }
+            int myPid = Process.myPid();
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
+                }
+            }
+            return null;
         }
         return (String) invokeL.objValue;
     }
 
-    public static ContentValues l(String str, Object obj) {
-        InterceptResult invokeLL;
+    public static void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, str, obj)) == null) {
-            ContentValues contentValues = new ContentValues();
-            String str2 = null;
-            if (obj != null) {
-                if (obj instanceof String) {
-                    str2 = (String) obj;
-                } else if (obj instanceof Boolean) {
-                    str2 = String.valueOf(obj);
-                } else if (obj instanceof Integer) {
-                    str2 = String.valueOf(obj);
-                } else if (obj instanceof Long) {
-                    str2 = String.valueOf(obj);
-                } else if (obj instanceof Float) {
-                    str2 = String.valueOf(obj);
-                } else if (obj instanceof Double) {
-                    str2 = String.valueOf(obj);
-                }
-            }
-            contentValues.put(str, str2);
-            return contentValues;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            String packageName = TbadkCoreApplication.getInst().getPackageName();
+            String str = packageName + ":swan";
+            c = str;
+            a.clear();
+            a.add(packageName);
+            a.add(packageName + ":remote");
+            a.add(packageName + ":cdnTachometer");
+            a.add(packageName + ":daemon");
+            a.add(packageName + ":third");
+            a.add(packageName + ":pluginInstaller");
+            a.add(packageName + ":xiaoying");
+            a.add(packageName + ":media");
+            a.add(packageName + ":kmyas__");
+            a.add(packageName + ":guardService");
+            a.add(packageName + ":warkup");
+            a.add(str);
+            a.add(packageName + ":bdservice_v1");
+            a.add(packageName + ":live");
+            m("initProcess-->CurrentProcessName=" + c());
         }
-        return (ContentValues) invokeLL.objValue;
     }
 
-    public static void v(Uri uri, ContentValues contentValues) {
+    /* JADX WARN: Removed duplicated region for block: B:10:0x0018  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean j(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65557, null, uri, contentValues) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                e().insert(uri, contentValues);
-            } catch (Exception e) {
-                BdLog.detailException(e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            long currentTimeMillis2 = System.currentTimeMillis();
-            gm5.m("setValue uri=" + uri + " Time:" + (currentTimeMillis2 - currentTimeMillis));
+            Iterator<String> it = a.iterator();
+            while (it.hasNext()) {
+                if (str.equalsIgnoreCase(it.next()) || str.toLowerCase().startsWith(c)) {
+                    return true;
+                }
+                while (it.hasNext()) {
+                }
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

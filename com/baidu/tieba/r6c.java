@@ -1,90 +1,148 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class r6c extends i6c {
+public final class r6c {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, i6c> a;
-    public static final Object b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948075018, "Lcom/baidu/tieba/r6c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948075018, "Lcom/baidu/tieba/r6c;");
-                return;
-            }
-        }
-        a = new HashMap();
-        b = new Object();
-    }
-
-    public r6c(Context context, String str) {
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
+            return;
         }
-        n6c.d(context, str);
+        try {
+            closeable.close();
+        } catch (IOException unused) {
+            Log.e("Utils", "Exception when closing the 'Closeable'.");
+        }
     }
 
-    public static i6c a(Context context) {
+    public static void b(Reader reader, Writer writer) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, reader, writer) == null) {
+            c(reader, writer, new char[4096]);
+        }
+    }
+
+    public static void c(Reader reader, Writer writer, char[] cArr) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLL(65538, null, reader, writer, cArr) != null) {
+            return;
+        }
+        while (true) {
+            int read = reader.read(cArr);
+            if (-1 == read) {
+                return;
+            }
+            writer.write(cArr, 0, read);
+        }
+    }
+
+    public static Map<String, String> d(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext != null) {
-                context = applicationContext;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+            HashMap hashMap = new HashMap();
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                hashMap.put(e(entry.getKey()), entry.getValue());
             }
-            String packageName = context.getPackageName();
-            c = packageName;
-            return b(context, packageName);
+            return hashMap;
         }
-        return (i6c) invokeL.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    public static i6c b(Context context, String str) {
-        InterceptResult invokeLL;
-        i6c i6cVar;
+    public static String e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                throw new IllegalArgumentException("packageName can not be empty");
-            }
-            synchronized (b) {
-                i6cVar = a.get(str);
-                if (i6cVar == null) {
-                    a.put(str, new r6c(context, str));
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            int i = 0;
+            if (str.length() > 0) {
+                while (str.charAt(i) == '/') {
+                    i++;
                 }
             }
-            return i6cVar;
+            return "/" + str.substring(i);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static i6c f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            if (str != null) {
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 2155) {
+                    if (hashCode != 2177) {
+                        if (hashCode != 2627) {
+                            if (hashCode == 2644 && str.equals("SG")) {
+                                c = 3;
+                            }
+                        } else if (str.equals("RU")) {
+                            c = 2;
+                        }
+                    } else if (str.equals("DE")) {
+                        c = 1;
+                    }
+                } else if (str.equals("CN")) {
+                    c = 0;
+                }
+                if (c == 0) {
+                    return i6c.c;
+                }
+                if (c == 1) {
+                    return i6c.d;
+                }
+                if (c == 2) {
+                    return i6c.e;
+                }
+                if (c == 3) {
+                    return i6c.f;
+                }
+            }
+            if (str2 != null) {
+                if (str2.contains("connect-drcn")) {
+                    return i6c.c;
+                }
+                if (str2.contains("connect-dre")) {
+                    return i6c.d;
+                }
+                if (str2.contains("connect-drru")) {
+                    return i6c.e;
+                }
+                if (str2.contains("connect-dra")) {
+                    return i6c.f;
+                }
+            }
+            return i6c.b;
         }
         return (i6c) invokeLL.objValue;
+    }
+
+    public static String g(InputStream inputStream, String str) throws UnsupportedEncodingException, IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, inputStream, str)) == null) {
+            StringWriter stringWriter = new StringWriter();
+            b(new InputStreamReader(inputStream, str), stringWriter);
+            return stringWriter.toString();
+        }
+        return (String) invokeLL.objValue;
     }
 }

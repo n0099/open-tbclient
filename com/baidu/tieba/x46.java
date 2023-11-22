@@ -1,44 +1,35 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public final class x46 extends bg1<s01> {
+public class x46 extends bg1<uf0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
-    public static final class a implements s01 {
+    public class a implements uf0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.s01
-        public void a(Context context, int i) {
+        @Override // com.baidu.tieba.uf0
+        public String a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.WEIXIN_SHARE_APP_ID : (String) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.s01
-        public void c(Context context, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, context, i, i2) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-            }
-        }
-
-        public a() {
+        public a(x46 x46Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x46Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,28 +37,6 @@ public final class x46 extends bg1<s01> {
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
-            }
-        }
-
-        @Override // com.baidu.tieba.s01
-        public void b(Context context, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                int i2 = 2000;
-                if (i != 0 && i == 1) {
-                    i2 = 3500;
-                }
-                BdUtilHelper.showToast(str, i2, false);
-            }
-        }
-
-        @Override // com.baidu.tieba.s01
-        public void showToast(Context context, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, context, str) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                BdUtilHelper.showToast(context, str);
             }
         }
     }
@@ -89,12 +58,12 @@ public final class x46 extends bg1<s01> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bg1
     /* renamed from: a */
-    public s01 createService() {
+    public uf0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a();
+            return new a(this);
         }
-        return (s01) invokeV.objValue;
+        return (uf0) invokeV.objValue;
     }
 }

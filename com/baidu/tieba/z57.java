@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes9.dex */
-public final class z57 {
+public class z57 implements x97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, ? extends gb7> a;
-    public final d57 b;
-    public final v67 c;
-    public Map<String, String> d;
-    public boolean e;
+    public List<ab7<?>> a;
+    public int b;
+    public boolean c;
+    public int d;
+    public String e;
 
     public z57() {
         Interceptable interceptable = $ic;
@@ -32,78 +30,19 @@ public final class z57 {
                 return;
             }
         }
-        this.a = new HashMap();
-        this.b = new d57();
-        this.c = new v67();
-        this.d = new HashMap();
+        this.a = new ArrayList();
+        this.c = true;
     }
 
-    public final d57 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.x97
+    public void d(@NonNull Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (d57) invokeV.objValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final v67 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (v67) invokeV.objValue;
-    }
-
-    public final Map<String, String> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.Map<java.lang.String, ? extends com.baidu.tieba.gb7>, java.util.Map<java.lang.String, com.baidu.tieba.gb7> */
-    public final Map<String, gb7> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public final void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public final void g(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
-            Intrinsics.checkNotNullParameter(map, "<set-?>");
-            this.d = map;
-        }
-    }
-
-    public final void h(Map<String, ? extends gb7> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
-            Intrinsics.checkNotNullParameter(map, "<set-?>");
-            this.a = map;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            for (ab7<?> ab7Var : this.a) {
+                if (ab7Var instanceof x97) {
+                    ((x97) ab7Var).d(obj);
+                }
+            }
         }
     }
 }

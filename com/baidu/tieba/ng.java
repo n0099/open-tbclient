@@ -39,7 +39,7 @@ public class ng implements ISignatureVerifier {
                 return true;
             }
             String c = mg.c(signatureArr);
-            if (uya.a(BdBaseApplication.getInst(), "NO_SIGN_CHECK")) {
+            if (vya.a(BdBaseApplication.getInst(), "NO_SIGN_CHECK")) {
                 return true;
             }
             return "YvigAa51R7YgCp8eDveR1g==".equals(c);

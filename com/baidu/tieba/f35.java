@@ -19,7 +19,7 @@ public class f35 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a extends q6 {
+    public class a extends q6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,8 +49,8 @@ public class f35 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketMessage, socketMessageTask)) == null) {
-                if (socketMessage != null && socketMessage.getSelf() != null && (socketMessage.getSelf() instanceof NetMessage) && !zb5.g().i(socketMessage.getCmd())) {
-                    ((NetMessage) socketMessage.getSelf()).setSocketErrNo(zb5.g().h());
+                if (socketMessage != null && socketMessage.getSelf() != null && (socketMessage.getSelf() instanceof NetMessage) && !ac5.g().i(socketMessage.getCmd())) {
+                    ((NetMessage) socketMessage.getSelf()).setSocketErrNo(ac5.g().h());
                     return null;
                 }
                 return socketMessage;
@@ -60,7 +60,7 @@ public class f35 {
     }
 
     /* loaded from: classes5.dex */
-    public static class b extends p6 {
+    public class b extends p6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -98,7 +98,7 @@ public class f35 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
                 if (socketResponsedMessage != null) {
-                    zb5.g().m(socketResponsedMessage.getCmd());
+                    ac5.g().m(socketResponsedMessage.getCmd());
                 }
                 return socketResponsedMessage;
             }
@@ -107,7 +107,7 @@ public class f35 {
     }
 
     /* loaded from: classes5.dex */
-    public static class c extends CustomMessageListener {
+    public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -136,7 +136,7 @@ public class f35 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
-                zb5.g().l(((Integer) customResponsedMessage.getData()).intValue());
+                ac5.g().l(((Integer) customResponsedMessage.getData()).intValue());
             }
         }
     }

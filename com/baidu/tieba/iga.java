@@ -1,16 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hb7;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class iga implements hb7 {
+public abstract class iga implements hb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,57 +30,83 @@ public final class iga implements hb7 {
         }
     }
 
-    @Override // com.baidu.tieba.gb7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return hb7.a.b(this);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gb7
-    public Map<String, String> a(d57 d57Var) {
+    @Override // com.baidu.tieba.hb7
+    public Map<String, String> a(e57 businessInfo) {
         InterceptResult invokeL;
+        String str;
+        String str2;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d57Var)) == null) {
-            return hb7.a.a(this, d57Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            hashMap.put("page_type", "a002");
+            String str3 = a.get("thread_id");
+            String str4 = "";
+            if (str3 == null) {
+                str3 = "";
+            }
+            hashMap.put("obj_id", str3);
+            String str5 = a.get("recom_source");
+            if (str5 == null) {
+                str5 = "";
+            }
+            hashMap.put("list_strategy", str5);
+            r75 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
+            boolean z2 = false;
+            if (adAdSense != null && (str2 = adAdSense.k) != null) {
+                if (str2.length() > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    hashMap.put("ab_tag", str2);
+                }
+            }
+            CharSequence charSequence = (CharSequence) hashMap.get("ab_tag");
+            if ((charSequence == null || charSequence.length() == 0) ? true : true) {
+                String str6 = a.get("abtest_tag");
+                if (str6 == null) {
+                    str6 = "";
+                }
+                hashMap.put("ab_tag", str6);
+            }
+            String str7 = a.get("is_video_work");
+            String str8 = "0";
+            if (str7 == null) {
+                str7 = "0";
+            }
+            hashMap.put(TiebaStatic.Params.IS_ZP, str7);
+            String str9 = a.get(TiebaStatic.Params.GUA_TYPE);
+            if (str9 == null) {
+                str9 = "0";
+            }
+            hashMap.put(TiebaStatic.Params.GUA_TYPE, str9);
+            String str10 = a.get(TiebaStatic.Params.IS_SPECIAL_THREAD);
+            if (str10 == null) {
+                str10 = "0";
+            }
+            hashMap.put(TiebaStatic.Params.IS_SPECIAL_THREAD, str10);
+            String str11 = a.get(TiebaStatic.Params.RECOM_TYPE);
+            if (str11 != null) {
+                str4 = str11;
+            }
+            hashMap.put(TiebaStatic.Params.RECOM_TYPE, str4);
+            if (!PermissionUtil.isBrowseMode()) {
+                str = "0";
+            } else {
+                str = "1";
+            }
+            hashMap.put(TiebaStatic.Params.PURE_BROWSING, str);
+            String str12 = a.get("has_forum_head_pendants");
+            if (str12 != null) {
+                str8 = str12;
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM3, str8);
+            return hashMap;
         }
         return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.hb7
-    public String c(d57 businessInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            if (!Intrinsics.areEqual(businessInfo.a().get("thread_type"), "74")) {
-                return "";
-            }
-            String str = businessInfo.a().get("pic_type");
-            if (str == null) {
-                str = "normal";
-            }
-            int hashCode = str.hashCode();
-            if (hashCode != -1039745817) {
-                if (hashCode != 3322092) {
-                    if (hashCode != 112202875 || !str.equals("video")) {
-                        return "";
-                    }
-                    return "live_mix_card_video_image_click";
-                } else if (!str.equals("live")) {
-                    return "";
-                } else {
-                    return "live_mix_card_live_image_click";
-                }
-            } else if (!str.equals("normal")) {
-                return "";
-            } else {
-                return "live_mix_card_normal_image_click";
-            }
-        }
-        return (String) invokeL.objValue;
     }
 }

@@ -14,9 +14,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.soa;
 import com.baidu.tieba.stamp.model.msg.GetStampResponseMessage;
-import com.baidu.tieba.voa;
+import com.baidu.tieba.toa;
+import com.baidu.tieba.woa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ public class FetchStampModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public voa b;
+    public woa b;
     public int c;
     public BdResourceCallback<BdImage> d;
     public String e;
@@ -67,7 +67,7 @@ public class FetchStampModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003522 && (httpResponsedMessage instanceof GetStampResponseMessage)) {
-                List<soa> stampList = ((GetStampResponseMessage) httpResponsedMessage).getStampList();
+                List<toa> stampList = ((GetStampResponseMessage) httpResponsedMessage).getStampList();
                 if (httpResponsedMessage.getError() == 0) {
                     this.a.R(stampList);
                 }
@@ -79,15 +79,15 @@ public class FetchStampModel extends BdBaseModel {
     public class b extends BdResourceCallback<BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ soa a;
+        public final /* synthetic */ toa a;
         public final /* synthetic */ FetchStampModel b;
 
-        public b(FetchStampModel fetchStampModel, soa soaVar) {
+        public b(FetchStampModel fetchStampModel, toa toaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fetchStampModel, soaVar};
+                Object[] objArr = {fetchStampModel, toaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -98,7 +98,7 @@ public class FetchStampModel extends BdBaseModel {
                 }
             }
             this.b = fetchStampModel;
-            this.a = soaVar;
+            this.a = toaVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -114,12 +114,12 @@ public class FetchStampModel extends BdBaseModel {
         }
     }
 
-    public FetchStampModel(TbPageContext tbPageContext, voa voaVar) {
+    public FetchStampModel(TbPageContext tbPageContext, woa woaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, voaVar};
+            Object[] objArr = {tbPageContext, woaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -132,7 +132,7 @@ public class FetchStampModel extends BdBaseModel {
         this.c = 10;
         this.f = new a(this, CmdConfigHttp.CMD_FETCH_STAMP, true);
         this.a = tbPageContext;
-        this.b = voaVar;
+        this.b = woaVar;
         Q();
         registerListener();
     }
@@ -161,23 +161,23 @@ public class FetchStampModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public final void R(List<soa> list) {
-        soa soaVar;
+    public final void R(List<toa> list) {
+        toa toaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list == null || list.size() <= 0 || (soaVar = list.get(0)) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list == null || list.size() <= 0 || (toaVar = list.get(0)) == null) {
             return;
         }
-        String a2 = soaVar.a();
+        String a2 = toaVar.a();
         this.e = a2;
         if (StringUtils.isNull(a2)) {
             return;
         }
         if (this.d == null) {
-            this.d = new b(this, soaVar);
+            this.d = new b(this, toaVar);
         }
         BdImage bdImage = (BdImage) BdResourceLoader.getInstance().loadResourceFromMemery(this.e, this.c, new Object[0]);
         if (bdImage != null && bdImage.isValidNow()) {
-            this.b.a(soaVar);
+            this.b.a(toaVar);
         } else if (this.a != null) {
             BdResourceLoader.getInstance().loadResource(this.e, this.c, this.d, this.a.getUniqueId());
         }

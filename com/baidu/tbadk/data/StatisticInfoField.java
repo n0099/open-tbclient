@@ -30,7 +30,7 @@ public class StatisticInfoField implements Parcelable {
     }
 
     /* loaded from: classes5.dex */
-    public static class a implements Parcelable.Creator<StatisticInfoField> {
+    public class a implements Parcelable.Creator<StatisticInfoField> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -25,11 +25,12 @@ public class mg8 extends bi<hz4, ThreadCardViewHolder<ThreadData>> {
     public BdUniqueId a;
     public String b;
     public TbPageContext<?> c;
-    public ui d;
-    public xl6<ThreadData> e;
+    public boolean d;
+    public ui e;
+    public yl6<ThreadData> f;
 
     /* loaded from: classes7.dex */
-    public class a extends xl6<ThreadData> {
+    public class a extends yl6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ mg8 b;
@@ -53,13 +54,13 @@ public class mg8 extends bi<hz4, ThreadCardViewHolder<ThreadData>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xl6
+        @Override // com.baidu.tieba.yl6
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                pl6.b().d(true);
-                zf8.k(view2, threadData, this.b.b);
+                ql6.b().d(true);
+                ag8.k(view2, threadData, this.b.b);
             }
         }
     }
@@ -95,8 +96,8 @@ public class mg8 extends bi<hz4, ThreadCardViewHolder<ThreadData>> {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
                 ThreadData threadData = ((hz4) oiVar).t;
                 threadData.objType = 1;
-                if (this.a.e != null) {
-                    this.a.e.a(threadCardViewHolder.getView(), threadData);
+                if (this.a.f != null) {
+                    this.a.f.a(threadCardViewHolder.getView(), threadData);
                 }
                 ThreadCardUtils.jumpToPB((bw4) threadData, view2.getContext(), 0, false);
                 threadCardViewHolder.a().q(new mu.a(1));
@@ -123,7 +124,8 @@ public class mg8 extends bi<hz4, ThreadCardViewHolder<ThreadData>> {
                 return;
             }
         }
-        this.e = new a(this);
+        this.d = true;
+        this.f = new a(this);
         this.c = tbPageContext;
         this.a = bdUniqueId2;
         this.b = str;
@@ -132,7 +134,7 @@ public class mg8 extends bi<hz4, ThreadCardViewHolder<ThreadData>> {
     public void z(ui uiVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, uiVar) == null) {
-            this.d = uiVar;
+            this.e = uiVar;
         }
     }
 
@@ -144,8 +146,11 @@ public class mg8 extends bi<hz4, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             bu.b bVar = new bu.b(this.c.getPageActivity(), false);
-            bVar.h(new ys(this.c.getPageActivity()));
-            bu k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.d);
+            qt qtVar = new qt(this.c.getPageActivity());
+            qtVar.setFrom("index");
+            qtVar.u(this.d);
+            bVar.n(qtVar);
+            bu k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.e);
             k.t(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.i(this.a);
@@ -168,8 +173,8 @@ public class mg8 extends bi<hz4, ThreadCardViewHolder<ThreadData>> {
                 threadCardViewHolder.a().s(i);
                 threadCardViewHolder.e(hz4Var.t);
                 threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-                threadCardViewHolder.a().r(this.e);
-                zf8.r(hz4Var, this.b);
+                threadCardViewHolder.a().r(this.f);
+                ag8.r(hz4Var, this.b);
                 return threadCardViewHolder.getView();
             }
             return null;

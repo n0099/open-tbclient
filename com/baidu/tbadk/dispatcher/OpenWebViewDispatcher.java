@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.data.JSONLikeSerializable;
 import com.baidu.tieba.ku4;
-import com.baidu.tieba.qha;
+import com.baidu.tieba.rha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,7 +25,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class OpenWebViewDispatcher implements qha {
+public class OpenWebViewDispatcher implements rha {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String URL_PREFIX = "com.baidu.tieba://unidispatch/tbwebview";
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class OpenWebViewDispatcher implements qha {
         }
     }
 
-    @Override // com.baidu.tieba.qha
+    @Override // com.baidu.tieba.rha
     public void dispatch(JSONObject jSONObject, Context context) {
         TbPageContext currentPageContext;
         String str;

@@ -1,30 +1,26 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.RemoteException;
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public final class e4c implements Runnable {
+public final class e4c extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Activity a;
+    public final /* synthetic */ b4c a;
     public final /* synthetic */ a4c b;
-    public final /* synthetic */ z3c c;
 
-    public e4c(z3c z3cVar, Activity activity, a4c a4cVar) {
+    public e4c(a4c a4cVar, b4c b4cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {z3cVar, activity, a4cVar};
+            Object[] objArr = {a4cVar, b4cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,30 +30,33 @@ public final class e4c implements Runnable {
                 return;
             }
         }
-        this.c = z3cVar;
-        this.a = activity;
         this.b = a4cVar;
+        this.a = b4cVar;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        com.google.a.b.a.a.a.a aVar;
-        Bundle l;
+    @Override // android.content.BroadcastReceiver
+    public final void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                aVar = this.c.d;
-                String str = this.a.getApplicationInfo().packageName;
-                z3c z3cVar = this.c;
-                l = z3c.l();
-                aVar.a(str, Collections.singletonList(l), new Bundle(), new com.google.ar.core.x(this, atomicBoolean));
-                new Handler().postDelayed(new f4c(this, atomicBoolean), 3000L);
-            } catch (RemoteException e) {
-                Log.w("ARCore-InstallService", "requestInstall threw, launching fullscreen.", e);
-                z3c z3cVar2 = this.c;
-                z3c.n(this.a, this.b);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            String action = intent.getAction();
+            Bundle extras = intent.getExtras();
+            if (!"com.google.android.play.core.install.ACTION_INSTALL_STATUS".equals(action) || extras == null || !extras.containsKey("install.status")) {
+                return;
             }
+            this.b.p();
+            int i = extras.getInt("install.status");
+            if (i != 1 && i != 2 && i != 3) {
+                if (i != 4) {
+                    if (i == 6) {
+                        this.a.a(com.google.ar.core.p.CANCELLED);
+                        return;
+                    }
+                    return;
+                }
+                this.a.a(com.google.ar.core.p.COMPLETED);
+                return;
+            }
+            this.a.a(com.google.ar.core.p.ACCEPTED);
         }
     }
 }

@@ -5,27 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.ActivityConfig;
+import tbclient.FrsPage.AcrossForumIcon;
 /* loaded from: classes9.dex */
-public class ytc extends poc {
+public class ytc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ActivityConfig activityConfig) {
+    public static JSONObject b(@NonNull AcrossForumIcon acrossForumIcon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activityConfig)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, acrossForumIcon)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "type", activityConfig.type);
-            poc.a(jSONObject, "agree_icon", activityConfig.agree_icon);
-            poc.a(jSONObject, "night_agree_icon", activityConfig.night_agree_icon);
-            poc.a(jSONObject, "agreed_icon", activityConfig.agreed_icon);
-            poc.a(jSONObject, "night_agreed_icon", activityConfig.night_agreed_icon);
-            poc.a(jSONObject, "activity_id", activityConfig.activity_id);
-            poc.a(jSONObject, "addthread_icon", activityConfig.addthread_icon);
-            poc.a(jSONObject, "night_addthread_icon", activityConfig.night_addthread_icon);
-            poc.a(jSONObject, "addthread_text", activityConfig.addthread_text);
+            qoc.a(jSONObject, "icon_url", acrossForumIcon.icon_url);
+            qoc.a(jSONObject, "pic_type", acrossForumIcon.pic_type);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

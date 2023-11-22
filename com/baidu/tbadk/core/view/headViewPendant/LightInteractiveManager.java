@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a65;
 import com.baidu.tieba.xb;
-import com.baidu.tieba.y55;
 import com.baidu.tieba.z55;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -51,7 +51,7 @@ public class LightInteractiveManager {
     }
 
     /* loaded from: classes5.dex */
-    public static class a extends CustomMessageListener {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WeakReference a;
@@ -101,7 +101,7 @@ public class LightInteractiveManager {
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements DialogInterface.OnDismissListener {
+    public class b implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CustomMessageListener a;
@@ -141,7 +141,7 @@ public class LightInteractiveManager {
     }
 
     /* loaded from: classes5.dex */
-    public static class c implements z55 {
+    public class c implements a65 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Dialog a;
@@ -164,7 +164,7 @@ public class LightInteractiveManager {
             this.a = dialog;
         }
 
-        @Override // com.baidu.tieba.z55
+        @Override // com.baidu.tieba.a65
         public void onClose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -174,7 +174,7 @@ public class LightInteractiveManager {
     }
 
     /* loaded from: classes5.dex */
-    public static class d implements DialogInterface.OnShowListener {
+    public class d implements DialogInterface.OnShowListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -264,7 +264,7 @@ public class LightInteractiveManager {
             dialog.show();
         }
         if (metaData != null) {
-            y55.b(i4, metaData.getUserId());
+            z55.b(i4, metaData.getUserId());
         }
         MessageManager.getInstance().registerListener(aVar);
     }

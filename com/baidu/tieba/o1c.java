@@ -9,10 +9,8 @@ import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
 import com.kwad.sdk.core.response.model.AdInfo;
-import com.kwad.sdk.core.response.model.AdTemplate;
-import java.lang.reflect.Field;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class o1c extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
@@ -41,31 +39,15 @@ public class o1c extends BaseAdRipper {
     @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
     public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
-        Object obj2;
-        List<AdInfo> list;
-        AdInfo adInfo;
+        Object findField;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             try {
-                h2c h2cVar = (h2c) obj;
-                if (h2cVar != null) {
-                    Object obj3 = h2cVar.a;
-                    String[] strArr = {"mAdTemplate"};
-                    Field field = null;
-                    for (int i = 0; i < 1; i++) {
-                        try {
-                            field = obj3.getClass().getDeclaredField(strArr[i]);
-                            field.setAccessible(true);
-                            break;
-                        } catch (NoSuchFieldException unused) {
-                        }
-                    }
-                    if (field == null || (obj2 = field.get(obj3)) == null || !(obj2 instanceof AdTemplate) || (list = ((AdTemplate) obj2).adInfoList) == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
-                        return null;
-                    }
-                    return u1c.a(adInfo);
+                i2c i2cVar = (i2c) obj;
+                if (i2cVar == null || (findField = ReflectionUtils.findField("com.kwad.sdk.core.response.model.AdInfo", i2cVar.a)) == null) {
+                    return null;
                 }
-                return null;
+                return v1c.a((AdInfo) findField);
             } catch (Exception e) {
                 LogPrinter.e(e);
                 return null;

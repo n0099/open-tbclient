@@ -1,17 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes7.dex */
-public class k18 extends g15 {
+public class k18 implements y15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.y15
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_EXAM_STRATEGY" : (String) invokeV.objValue;
+    }
 
     public k18() {
         Interceptable interceptable = $ic;
@@ -27,24 +34,13 @@ public class k18 extends g15 {
         }
     }
 
-    @Override // com.baidu.tieba.g15
-    public void a(@NonNull Context context, @NonNull u05 u05Var) {
+    @Override // com.baidu.tieba.y15
+    public w15 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, u05Var) == null) {
-            if (context instanceof c25) {
-                c25 c25Var = (c25) context;
-                if (c25Var.j1() != null) {
-                    b25 j1 = c25Var.j1();
-                    if (!j1.r1()) {
-                        j1.G1(true);
-                        YunDialogManager.unMarkShowingDialogName("frsGroupChatGuide");
-                        return;
-                    }
-                    return;
-                }
-            }
-            YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "展示群聊引导弹窗失败：获取到的IForumDialogExtSupport为空");
-            YunDialogManager.unMarkShowingDialogName("frsGroupChatGuide");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new j18();
         }
+        return (w15) invokeV.objValue;
     }
 }

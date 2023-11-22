@@ -38,8 +38,8 @@ import com.baidu.tbadk.mutiprocess.MutiProcessManager;
 import com.baidu.tbadk.mutiprocess.live.LiveStartClickDataEvent;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tpa;
-import com.baidu.tieba.ub5;
+import com.baidu.tieba.upa;
+import com.baidu.tieba.vb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,7 +72,7 @@ public class MultiImageView extends RelativeLayout {
     public Map<String, ImageUrlData> s;
     public boolean t;
     public boolean u;
-    public ub5 v;
+    public vb5 v;
     public LiveRoomEntranceButton w;
 
     /* loaded from: classes5.dex */
@@ -106,14 +106,14 @@ public class MultiImageView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (view2 != this.a.b) {
                     if (view2 == this.a.c && (currentImageView = this.a.getCurrentImageView()) != null) {
-                        currentImageView.u0();
+                        currentImageView.v0();
                         return;
                     }
                     return;
                 }
                 DragImageView currentImageView2 = this.a.getCurrentImageView();
                 if (currentImageView2 != null) {
-                    currentImageView2.t0();
+                    currentImageView2.u0();
                 }
             }
         }
@@ -256,7 +256,7 @@ public class MultiImageView extends RelativeLayout {
                         }
                     }
                 }
-                dragImageView.h0();
+                dragImageView.i0();
             }
         }
     }
@@ -293,7 +293,7 @@ public class MultiImageView extends RelativeLayout {
                     UrlDragImageView urlDragImageView = (UrlDragImageView) obj;
                     DragImageView imageView = urlDragImageView.getImageView();
                     if (imageView != null) {
-                        imageView.p0();
+                        imageView.q0();
                         if (this.a.e != null) {
                             this.a.e.setCurrentView(imageView);
                         }
@@ -574,16 +574,16 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void J(boolean z) {
-        ub5 ub5Var;
+        vb5 vb5Var;
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (ub5Var = this.v) != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (vb5Var = this.v) != null) {
             if (z) {
                 i = 0;
             } else {
                 i = 8;
             }
-            ub5Var.p(i);
+            vb5Var.p(i);
         }
     }
 
@@ -734,10 +734,10 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setOnDownloadImageListener(ImageViewerBottomLayout.b bVar) {
-        ub5 ub5Var;
+        vb5 vb5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048623, this, bVar) == null) && (ub5Var = this.v) != null) {
-            ub5Var.l(bVar);
+        if ((interceptable == null || interceptable.invokeL(1048623, this, bVar) == null) && (vb5Var = this.v) != null) {
+            vb5Var.l(bVar);
         }
     }
 
@@ -749,10 +749,10 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setOnReplyClickListener(View.OnClickListener onClickListener) {
-        ub5 ub5Var;
+        vb5 vb5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048625, this, onClickListener) == null) && (ub5Var = this.v) != null) {
-            ub5Var.m(onClickListener);
+        if ((interceptable == null || interceptable.invokeL(1048625, this, onClickListener) == null) && (vb5Var = this.v) != null) {
+            vb5Var.m(onClickListener);
         }
     }
 
@@ -765,10 +765,10 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setOnShareImageListener(ImageViewerBottomLayout.c cVar) {
-        ub5 ub5Var;
+        vb5 vb5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048627, this, cVar) == null) && (ub5Var = this.v) != null) {
-            ub5Var.n(cVar);
+        if ((interceptable == null || interceptable.invokeL(1048627, this, cVar) == null) && (vb5Var = this.v) != null) {
+            vb5Var.n(cVar);
         }
     }
 
@@ -832,10 +832,10 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setYoungterCoverSomeView(boolean z) {
-        ub5 ub5Var;
+        vb5 vb5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048636, this, z) == null) && (ub5Var = this.v) != null) {
-            ub5Var.r(z);
+        if ((interceptable == null || interceptable.invokeZ(1048636, this, z) == null) && (vb5Var = this.v) != null) {
+            vb5Var.r(z);
         }
     }
 
@@ -882,7 +882,7 @@ public class MultiImageView extends RelativeLayout {
         GalleryViewPager galleryViewPager;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (galleryViewPager = this.e) != null && galleryViewPager.getCurrentView() != null) {
-            this.e.getCurrentView().g0();
+            this.e.getCurrentView().h0();
         }
     }
 
@@ -896,11 +896,11 @@ public class MultiImageView extends RelativeLayout {
 
     public int getBottomHeight() {
         InterceptResult invokeV;
-        ub5 ub5Var;
+        vb5 vb5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.u && (ub5Var = this.v) != null) {
-                return ub5Var.c();
+            if (this.u && (vb5Var = this.v) != null) {
+                return vb5Var.c();
             }
             return 0;
         }
@@ -1077,11 +1077,11 @@ public class MultiImageView extends RelativeLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) {
-            ub5 ub5Var = this.v;
-            if (ub5Var == null) {
+            vb5 vb5Var = this.v;
+            if (vb5Var == null) {
                 return false;
             }
-            return ub5Var.g();
+            return vb5Var.g();
         }
         return invokeV.booleanValue;
     }
@@ -1109,7 +1109,7 @@ public class MultiImageView extends RelativeLayout {
             statisticItem.addParam("fid", imageUrlData.forumId).addParam("fname", imageUrlData.forumName).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("tid", imageUrlData.threadId).addParam("obj_source", "2");
             AlaInfoData alaInfoData = imageUrlData.alaInfoData;
             if (alaInfoData != null && alaInfoData.mYyExtData != null) {
-                statisticItem.addParam("obj_type", YYLiveUtil.calculateLiveType(alaInfoData)).addParam(TiebaStatic.Params.OBJ_PARAM3, tpa.l(alaInfoData)).addParam("hdid", TbadkCoreApplication.getInst().getHdid()).addParam(TiebaStatic.YYParams.YYSID, alaInfoData.mYyExtData.mSid).addParam(TiebaStatic.YYParams.YYSSID, alaInfoData.mYyExtData.mSsid).addParam("yyuid", alaInfoData.mYyExtData.mYyUid).addParam(TiebaStatic.YYParams.YYLIVEID, tpa.r(alaInfoData.mYyExtData)).addParam("template_id", alaInfoData.mYyExtData.mTemplateId);
+                statisticItem.addParam("obj_type", YYLiveUtil.calculateLiveType(alaInfoData)).addParam(TiebaStatic.Params.OBJ_PARAM3, upa.l(alaInfoData)).addParam("hdid", TbadkCoreApplication.getInst().getHdid()).addParam(TiebaStatic.YYParams.YYSID, alaInfoData.mYyExtData.mSid).addParam(TiebaStatic.YYParams.YYSSID, alaInfoData.mYyExtData.mSsid).addParam("yyuid", alaInfoData.mYyExtData.mYyUid).addParam(TiebaStatic.YYParams.YYLIVEID, upa.r(alaInfoData.mYyExtData)).addParam("template_id", alaInfoData.mYyExtData.mTemplateId);
             }
             statisticItem.eventStat();
         }
@@ -1118,9 +1118,9 @@ public class MultiImageView extends RelativeLayout {
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ub5 ub5Var = this.v;
-            if (ub5Var != null) {
-                ub5Var.j();
+            vb5 vb5Var = this.v;
+            if (vb5Var != null) {
+                vb5Var.j();
             }
             GalleryViewPager galleryViewPager = this.e;
             if (galleryViewPager == null) {
@@ -1192,7 +1192,7 @@ public class MultiImageView extends RelativeLayout {
                 }
             }
             if (this.e.getCurrentView() != null) {
-                this.e.getCurrentView().h0();
+                this.e.getCurrentView().i0();
             }
         }
     }
@@ -1214,10 +1214,10 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void H(ImageUrlData imageUrlData) {
-        ub5 ub5Var;
+        vb5 vb5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, imageUrlData) == null) && (ub5Var = this.v) != null) {
-            ub5Var.k(imageUrlData);
+        if ((interceptable == null || interceptable.invokeL(1048583, this, imageUrlData) == null) && (vb5Var = this.v) != null) {
+            vb5Var.k(imageUrlData);
             if (!this.t && imageUrlData != null) {
                 if (!this.v.g()) {
                     this.v.s(false);
@@ -1281,9 +1281,9 @@ public class MultiImageView extends RelativeLayout {
                 ((UrlDragImageView) childAt).setUserId(str);
             }
         }
-        ub5 ub5Var = this.v;
-        if (ub5Var != null) {
-            ub5Var.o(str);
+        vb5 vb5Var = this.v;
+        if (vb5Var != null) {
+            vb5Var.o(str);
         }
     }
 
@@ -1291,12 +1291,12 @@ public class MultiImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048637, this, dragImageView) == null) {
             if (dragImageView != null) {
-                if (dragImageView.Q()) {
+                if (dragImageView.R()) {
                     this.b.setEnabled(true);
                 } else {
                     this.b.setEnabled(false);
                 }
-                if (dragImageView.R()) {
+                if (dragImageView.S()) {
                     this.c.setEnabled(true);
                     return;
                 } else {
@@ -1331,10 +1331,10 @@ public class MultiImageView extends RelativeLayout {
                 this.w.setLiveRoomEntranceData(new LiveRoomEntranceButton.a(text, guideInfo.getScheme()));
                 this.w.setLogData(imageUrlData);
                 A(imageUrlData, CommonStatisticKey.KEY_LIVE_ROOM_ENTRANCE_SHOW, 0);
-                ub5 ub5Var = this.v;
-                if (ub5Var != null) {
+                vb5 vb5Var = this.v;
+                if (vb5Var != null) {
                     LiveRoomEntranceButton liveRoomEntranceButton2 = this.w;
-                    if (ub5Var.g()) {
+                    if (vb5Var.g()) {
                         i = 0;
                     }
                     liveRoomEntranceButton2.setVisibility(i);
@@ -1346,16 +1346,16 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void K(boolean z, int i) {
-        ub5 ub5Var;
+        vb5 vb5Var;
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && this.u && (ub5Var = this.v) != null) {
+        if ((interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && this.u && (vb5Var = this.v) != null) {
             if (z) {
                 i2 = 0;
             } else {
                 i2 = 8;
             }
-            ub5Var.q(i2, i);
+            vb5Var.q(i2, i);
         }
     }
 
@@ -1410,7 +1410,7 @@ public class MultiImageView extends RelativeLayout {
             this.f = imagePagerAdapter;
             imagePagerAdapter.x(this.l);
             setAdapter(this.f);
-            this.v = new ub5(getContext(), this);
+            this.v = new vb5(getContext(), this);
             n();
         }
     }

@@ -2,10 +2,10 @@ package com.baidu.tieba;
 
 import android.view.Surface;
 import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface qm2 extends sm2 {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
     }
 

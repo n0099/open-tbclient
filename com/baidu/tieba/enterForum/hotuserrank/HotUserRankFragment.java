@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.qd;
-import com.baidu.tieba.ux6;
-import com.baidu.tieba.wx6;
+import com.baidu.tieba.vx6;
+import com.baidu.tieba.xx6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,9 +33,9 @@ public class HotUserRankFragment extends BaseFragment {
     public String c;
     public long d;
     public boolean e;
-    public wx6 f;
+    public xx6 f;
     public BdListView.p g;
-    public wx6.b h;
+    public xx6.b h;
 
     /* loaded from: classes5.dex */
     public class a implements BdListView.p {
@@ -72,7 +72,7 @@ public class HotUserRankFragment extends BaseFragment {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements wx6.b {
+    public class b implements xx6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotUserRankFragment a;
@@ -95,32 +95,32 @@ public class HotUserRankFragment extends BaseFragment {
             this.a = hotUserRankFragment;
         }
 
-        @Override // com.baidu.tieba.wx6.b
-        public void a(ux6 ux6Var) {
+        @Override // com.baidu.tieba.xx6.b
+        public void a(vx6 vx6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ux6Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, vx6Var) == null) {
                 if (this.a.isLoadingViewAttached()) {
                     HotUserRankFragment hotUserRankFragment = this.a;
                     hotUserRankFragment.hideLoadingView(hotUserRankFragment.a);
                 }
-                if (ux6Var != null) {
+                if (vx6Var != null) {
                     if (this.a.f.f() == 2) {
                         if (this.a.d <= 0 && !TextUtils.isEmpty(this.a.c)) {
-                            if (ux6Var.a != null) {
+                            if (vx6Var.a != null) {
                                 if (this.a.e) {
-                                    ux6Var.a.a = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f092e), this.a.c);
+                                    vx6Var.a.a = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f092e), this.a.c);
                                 } else {
-                                    ux6Var.a.a = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a4b), this.a.c);
+                                    vx6Var.a.a = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a4b), this.a.c);
                                 }
                             }
                         } else {
-                            ux6Var.a.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f07ae);
+                            vx6Var.a.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f07ae);
                         }
-                        this.a.b.g(ux6Var.a, !qd.isEmpty(this.a.c));
+                        this.a.b.g(vx6Var.a, !qd.isEmpty(this.a.c));
                         if (this.a.isResumed() || this.a.getBaseFragmentActivity() != null) {
                             CustomMessage customMessage = new CustomMessage(2921447);
                             customMessage.setTag(this.a.getBaseFragmentActivity().getUniqueId());
-                            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921447, ux6Var);
+                            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921447, vx6Var);
                             customResponsedMessage.setOrginalMessage(customMessage);
                             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                         }
@@ -135,7 +135,7 @@ public class HotUserRankFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.wx6.b
+        @Override // com.baidu.tieba.xx6.b
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -164,13 +164,13 @@ public class HotUserRankFragment extends BaseFragment {
         this.h = new b(this);
     }
 
-    public wx6 E2() {
+    public xx6 E2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.f;
         }
-        return (wx6) invokeV.objValue;
+        return (xx6) invokeV.objValue;
     }
 
     public final void F2() {
@@ -242,9 +242,9 @@ public class HotUserRankFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            wx6 wx6Var = new wx6(getUniqueId());
-            this.f = wx6Var;
-            wx6Var.m(this.h);
+            xx6 xx6Var = new xx6(getUniqueId());
+            this.f = xx6Var;
+            xx6Var.m(this.h);
         }
     }
 

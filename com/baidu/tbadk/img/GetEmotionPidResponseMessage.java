@@ -2,7 +2,7 @@ package com.baidu.tbadk.img;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.aj5;
+import com.baidu.tieba.bj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class GetEmotionPidResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public aj5 mPid;
+    public bj5 mPid;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetEmotionPidResponseMessage(int i) {
@@ -42,17 +42,17 @@ public class GetEmotionPidResponseMessage extends JsonHttpResponsedMessage {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null) {
-                this.mPid = aj5.a(jSONObject);
+                this.mPid = bj5.a(jSONObject);
             }
         }
     }
 
-    public aj5 getImageInfo() {
+    public bj5 getImageInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mPid;
         }
-        return (aj5) invokeV.objValue;
+        return (bj5) invokeV.objValue;
     }
 }

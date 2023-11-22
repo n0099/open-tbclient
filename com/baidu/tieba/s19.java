@@ -1,61 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class s19 {
+public class s19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948098702, "Lcom/baidu/tieba/s19;")) == null) {
+    public static void a(Activity activity, Boolean bool, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65536, null, activity, bool, str) != null) || activity == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        View findViewById = activity.findViewById(16908290);
+        if (!(findViewById instanceof ViewGroup)) {
+            return;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948098702, "Lcom/baidu/tieba/s19;");
-        }
+        new BdTopToast(activity, 3000).setIcon(bool.booleanValue()).setContent(str).show((ViewGroup) findViewById);
     }
 
-    @JvmStatic
-    public static final vk8 a(ChatRoomDetail.BasicInfo info) {
-        InterceptResult invokeL;
+    public static void b(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, info)) == null) {
-            Intrinsics.checkNotNullParameter(info, "info");
-            vk8 vk8Var = new vk8(0L, null, 3, null);
-            vk8Var.c(info.getForumId());
-            vk8Var.d(info.getForumName());
-            return vk8Var;
+        if ((interceptable != null && interceptable.invokeL(65537, null, activity) != null) || activity == null) {
+            return;
         }
-        return (vk8) invokeL.objValue;
+        View findViewById = activity.findViewById(16908290);
+        if (!(findViewById instanceof ViewGroup)) {
+            return;
+        }
+        new BdTopToast(activity, 3000).setIcon(true).setContent(TbadkCoreApplication.getInst().getString(R.string.chat_msg_gone_top_excellent_tips)).show((ViewGroup) findViewById);
     }
 
-    @JvmStatic
-    public static final yk8 b(long j, ChatRoomDetail roomDetail) {
-        InterceptResult invokeJL;
+    public static void c(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65538, null, j, roomDetail)) == null) {
-            Intrinsics.checkNotNullParameter(roomDetail, "roomDetail");
-            yk8 yk8Var = new yk8(0L, 0, 0, null, null, 31, null);
-            yk8Var.i(j);
-            yk8Var.f(roomDetail.getUserInfo().getIdentityRole());
-            yk8Var.j(roomDetail.getExtraInfo().getTalkThresholdLevel());
-            yk8Var.g(roomDetail.getMaskInfoList());
-            yk8Var.h(roomDetail.getQuickTalk());
-            return yk8Var;
+        if ((interceptable != null && interceptable.invokeL(65538, null, activity) != null) || activity == null) {
+            return;
         }
-        return (yk8) invokeJL.objValue;
+        View findViewById = activity.findViewById(16908290);
+        if (!(findViewById instanceof ViewGroup)) {
+            return;
+        }
+        new BdTopToast(activity, 3000).setIcon(true).setContent(TbadkCoreApplication.getInst().getString(R.string.add_group_success_toast)).show((ViewGroup) findViewById);
+    }
+
+    public static void d(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, activity) != null) || activity == null) {
+            return;
+        }
+        View findViewById = activity.findViewById(16908290);
+        if (!(findViewById instanceof ViewGroup)) {
+            return;
+        }
+        new BdTopToast(activity, 3000).setIcon(true).setContent(TbadkCoreApplication.getInst().getString(R.string.delete_group_success_toast)).show((ViewGroup) findViewById);
     }
 }

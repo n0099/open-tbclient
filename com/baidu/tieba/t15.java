@@ -67,7 +67,7 @@ public final class t15 extends g15 {
         }
 
         @Override // com.baidu.tieba.qs4
-        public nsa a(WebView webView, String nextPage, String source) {
+        public osa a(WebView webView, String nextPage, String source) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, nextPage, source)) == null) {
@@ -75,20 +75,20 @@ public final class t15 extends g15 {
                 Intrinsics.checkNotNullParameter(nextPage, "nextPage");
                 Intrinsics.checkNotNullParameter(source, "source");
                 this.a.g();
-                return new nsa();
+                return new osa();
             }
-            return (nsa) invokeLLL.objValue;
+            return (osa) invokeLLL.objValue;
         }
 
         @Override // com.baidu.tieba.qs4
-        public nsa b(WebView webView, String link, int i) {
+        public osa b(WebView webView, String link, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, link, i)) == null) {
                 Intrinsics.checkNotNullParameter(webView, "webView");
                 Intrinsics.checkNotNullParameter(link, "link");
                 if (!TextUtils.isEmpty(link)) {
-                    Context a = ri6.a(webView.getContext());
+                    Context a = si6.a(webView.getContext());
                     if (a == null) {
                         a = webView.getContext();
                     }
@@ -97,9 +97,9 @@ public final class t15 extends g15 {
                         this.a.g();
                     }
                 }
-                return new nsa();
+                return new osa();
             }
-            return (nsa) invokeLLI.objValue;
+            return (osa) invokeLLI.objValue;
         }
     }
 
@@ -291,17 +291,17 @@ public final class t15 extends g15 {
     }
 
     public static final void k(t15 this$0, WebView webView) {
-        sk6 sk6Var;
+        tk6 tk6Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, this$0, webView) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            if (webView instanceof sk6) {
-                sk6Var = (sk6) webView;
+            if (webView instanceof tk6) {
+                tk6Var = (tk6) webView;
             } else {
-                sk6Var = null;
+                tk6Var = null;
             }
-            if (sk6Var != null) {
-                sk6Var.setJSPromptRedirector(new a(this$0));
+            if (tk6Var != null) {
+                tk6Var.setJSPromptRedirector(new a(this$0));
             }
         }
     }
@@ -311,11 +311,11 @@ public final class t15 extends g15 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && (tbWebView = this.b) != null) {
             tbWebView.setWebViewClient(new b(this, str));
-            tbWebView.F(new xf6() { // from class: com.baidu.tieba.e15
+            tbWebView.F(new yf6() { // from class: com.baidu.tieba.e15
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.xf6
+                @Override // com.baidu.tieba.yf6
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {

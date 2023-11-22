@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
+import android.graphics.Rect;
 import android.text.SpannableString;
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.style.ImageSpan;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tieba.wi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,20 +14,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes8.dex */
-public class w0a implements x0a {
+public class w0a implements y0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SpannableString a;
-    public String b;
-    public TbPageContext<?> c;
+    public ExcContent a;
+    public SpannableString b;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // com.baidu.tieba.x0a
+    @Override // com.baidu.tieba.y0a
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -38,68 +30,22 @@ public class w0a implements x0a {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.y0a
+    @Override // com.baidu.tieba.z0a
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 2;
         }
         return invokeV.intValue;
     }
 
-    /* loaded from: classes8.dex */
-    public class b extends ClickableSpan {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w0a a;
-
-        public b(w0a w0aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w0aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = w0aVar;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a.c, new String[]{this.a.b});
-            }
-        }
-
-        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-        public void updateDrawState(TextPaint textPaint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                super.updateDrawState(textPaint);
-                textPaint.setUnderlineText(false);
-            }
-        }
-
-        public /* synthetic */ b(w0a w0aVar, a aVar) {
-            this(w0aVar);
-        }
-    }
-
-    public w0a(TbPageContext<?> tbPageContext, ExcContent excContent) {
+    public w0a(ExcContent excContent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, excContent};
+            Object[] objArr = {excContent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -109,22 +55,41 @@ public class w0a implements x0a {
                 return;
             }
         }
-        if (excContent == null || excContent.type.longValue() != 1 || StringUtils.isNull(excContent.text)) {
-            return;
-        }
-        this.c = tbPageContext;
-        this.a = new SpannableString(excContent.text);
-        this.a.setSpan(new b(this, null), 0, excContent.text.length(), 17);
-        this.b = excContent.link;
+        this.a = excContent;
     }
 
-    @Override // com.baidu.tieba.x0a
+    @Override // com.baidu.tieba.y0a
     public CharSequence b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return c(this.a);
         }
         return (CharSequence) invokeV.objValue;
+    }
+
+    public final SpannableString c(ExcContent excContent) {
+        InterceptResult invokeL;
+        wi5.a f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, excContent)) == null) {
+            if (this.b == null) {
+                String str = excContent.text;
+                if (TbFaceManager.i().o(str)) {
+                    String str2 = SmallTailInfo.EMOTION_PREFIX + TbFaceManager.i().j(str) + SmallTailInfo.EMOTION_SUFFIX;
+                    this.b = new SpannableString(str2 + " ");
+                    hy5 c = TbFaceManager.i().c(str);
+                    if (TbFaceManager.i().f(str) != null) {
+                        int a = (int) (f.a() * 0.6d);
+                        c.setBounds(new Rect(0, 0, a, a));
+                    } else {
+                        c.setBounds(new Rect(0, 0, 0, 0));
+                    }
+                    this.b.setSpan(new ImageSpan(c, 0), 0, str2.length(), 33);
+                }
+            }
+            return this.b;
+        }
+        return (SpannableString) invokeL.objValue;
     }
 }

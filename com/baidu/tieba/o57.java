@@ -1,203 +1,94 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.PreLoadImageProvider;
+import com.baidu.tieba.feed.log.FeedStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public final class o57 {
+public class o57 extends w47 implements p67, x97, PreLoadImageProvider, fb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
-    public final String d;
-    public final List<q57> e;
-    public final int f;
-    public final int g;
-    public final int h;
-    public final String i;
-    public final int j;
-    public final int k;
-    public final String l;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof o57) {
-                o57 o57Var = (o57) obj;
-                return Intrinsics.areEqual(this.a, o57Var.a) && Intrinsics.areEqual(this.b, o57Var.b) && Intrinsics.areEqual(this.c, o57Var.c) && Intrinsics.areEqual(this.d, o57Var.d) && Intrinsics.areEqual(this.e, o57Var.e) && this.f == o57Var.f && this.g == o57Var.g && this.h == o57Var.h && Intrinsics.areEqual(this.i, o57Var.i) && this.j == o57Var.j && this.k == o57Var.k && Intrinsics.areEqual(this.l, o57Var.l);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
+    @Override // com.baidu.tieba.ab7
+    @NonNull
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (((((((((((((((((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode()) * 31) + this.f) * 31) + this.g) * 31) + this.h) * 31) + this.i.hashCode()) * 31) + this.j) * 31) + this.k) * 31) + this.l.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "common_card" : (String) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return "DeleteThreadItemData(forumId=" + this.a + ", forumName=" + this.b + ", threadId=" + this.c + ", uid=" + this.d + ", reasonList=" + this.e + ", isGraysCaleForum=" + this.f + ", isBoomGrow=" + this.g + ", hasForumRule=" + this.h + ", forumHeadUrl=" + this.i + ", userLevel=" + this.j + ", isManager=" + this.k + ", maskDelete=" + this.l + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public o57(String forumId, String forumName, String threadId, String uid, List<q57> reasonList, int i, int i2, int i3, String forumHeadUrl, int i4, int i5, String maskDelete) {
+    public o57() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {forumId, forumName, threadId, uid, reasonList, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), forumHeadUrl, Integer.valueOf(i4), Integer.valueOf(i5), maskDelete};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(forumId, "forumId");
-        Intrinsics.checkNotNullParameter(forumName, "forumName");
-        Intrinsics.checkNotNullParameter(threadId, "threadId");
-        Intrinsics.checkNotNullParameter(uid, "uid");
-        Intrinsics.checkNotNullParameter(reasonList, "reasonList");
-        Intrinsics.checkNotNullParameter(forumHeadUrl, "forumHeadUrl");
-        Intrinsics.checkNotNullParameter(maskDelete, "maskDelete");
-        this.a = forumId;
-        this.b = forumName;
-        this.c = threadId;
-        this.d = uid;
-        this.e = reasonList;
-        this.f = i;
-        this.g = i2;
-        this.h = i3;
-        this.i = forumHeadUrl;
-        this.j = i4;
-        this.k = i5;
-        this.l = maskDelete;
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.x97
+    public void d(@NonNull Object obj) {
+        f57<?> f57Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (f57Var = this.c) != null) {
+            f57Var.d(obj);
         }
-        return (String) invokeV.objValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.fb7
+    public void e(@NonNull FeedStat.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            for (ab7<? extends Object> ab7Var : this.c.c()) {
+                if (ab7Var.b() instanceof fb7) {
+                    ((fb7) ab7Var.b()).e(aVar);
+                }
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public final String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.p67
+    public void setPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c.t(i);
+            for (ab7<? extends Object> ab7Var : this.c.c()) {
+                if (ab7Var.b() instanceof p67) {
+                    ((p67) ab7Var.b()).setPosition(i);
+                }
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public final int d() {
+    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
+    public ArrayList<PreLoadImageInfo> getImages() {
         InterceptResult invokeV;
+        ArrayList<PreLoadImageInfo> images;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
+            if (this.c != null) {
+                ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
+                for (ab7<? extends Object> ab7Var : this.c.c()) {
+                    if ((ab7Var instanceof PreLoadImageProvider) && (images = ((PreLoadImageProvider) ab7Var).getImages()) != null && images.size() > 0) {
+                        arrayList.addAll(images);
+                    }
+                }
+                return arrayList;
+            }
+            return null;
         }
-        return invokeV.intValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.l;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final List<q57> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
+        return (ArrayList) invokeV.objValue;
     }
 }

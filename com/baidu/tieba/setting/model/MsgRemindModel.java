@@ -24,10 +24,10 @@ import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskMessage;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.aa5;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.FriendAndStrangerReqMsg;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.FriendAndStrangerSwitchResMsg;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.GetFriendAndStrangerSwitchModel;
-import com.baidu.tieba.z95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -121,47 +121,47 @@ public class MsgRemindModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
                 if (i == 2) {
                     if (z) {
-                        z95.e().O(z2);
+                        aa5.e().O(z2);
                     }
                 } else if (i == 3) {
                     if (z) {
-                        z95.e().S(z2);
+                        aa5.e().S(z2);
                     }
                 } else if (i == 1) {
                     if (z) {
-                        z95.e().T(z2);
+                        aa5.e().T(z2);
                     }
                 } else if (i == 20) {
                     if (z) {
-                        z95.e().W(z2);
+                        aa5.e().W(z2);
                     }
                 } else if (i == 30) {
                     if (z) {
-                        z95.e().Y(z2);
+                        aa5.e().Y(z2);
                     }
                 } else if (i != 10) {
                     if (i == 7) {
                         if (z) {
-                            z95.e().b0(z2);
+                            aa5.e().b0(z2);
                         }
                     } else if (i == 35) {
                         if (z) {
-                            z95.e().M(z2);
+                            aa5.e().M(z2);
                         }
                     } else if (i == 6) {
                         if (z) {
-                            z95.e().a0(z2);
+                            aa5.e().a0(z2);
                         }
                     } else if (i == 33) {
                         if (z) {
-                            z95.e().c0(z2);
+                            aa5.e().c0(z2);
                         }
                     } else if (i == 34) {
                         if (z) {
-                            z95.e().L(z2);
+                            aa5.e().L(z2);
                         }
                     } else if (i == 36 && z) {
-                        z95.e().K(z2);
+                        aa5.e().K(z2);
                     }
                 }
                 if (this.a.c != null) {
@@ -475,7 +475,7 @@ public class MsgRemindModel extends BdBaseModel {
             if (z) {
                 this.b.a(i, true, z2);
                 if (i != 14) {
-                    if (!z95.e().w() && !z95.e().x() && !z95.e().z() && !z95.e().B() && !z95.e().E() && !z95.e().v() && !z95.e().H() && !z95.e().u()) {
+                    if (!aa5.e().w() && !aa5.e().x() && !aa5.e().z() && !aa5.e().B() && !aa5.e().E() && !aa5.e().v() && !aa5.e().H() && !aa5.e().u()) {
                         this.b.a(14, true, false);
                         return;
                     }

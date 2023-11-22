@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class b3a extends bi<x3a, CardViewHolder<q4a>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public q4a b;
+    public TbPageContext a;
+    public yl6<x3a> b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b3a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -48,10 +48,18 @@ public class b3a extends bi<x3a, CardViewHolder<q4a>> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new q4a(this.a, this.mType);
-            return new CardViewHolder<>(this.b);
+            q4a q4aVar = new q4a(this.a);
+            q4aVar.m(this.b);
+            return new CardViewHolder<>(q4aVar);
         }
         return (CardViewHolder) invokeL.objValue;
+    }
+
+    public void x(yl6<x3a> yl6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, yl6Var) == null) {
+            this.b = yl6Var;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */

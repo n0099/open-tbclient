@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.atomData.EditHeadActivityConfig;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tu5;
+import com.baidu.tieba.uu5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -161,7 +161,7 @@ public class TiebaPrepareImageService extends BdBaseService {
                 boolean z2 = false;
                 try {
                     if (TextUtils.isEmpty(this.e)) {
-                        bitmap = tu5.c(this.a, this.f, this.b, this.c, this.f.mMaxSize);
+                        bitmap = uu5.c(this.a, this.f, this.b, this.c, this.f.mMaxSize);
                     } else {
                         bitmap = (Bitmap) Glide.with(TbadkCoreApplication.getInst()).asBitmap().load((Object) new GlideUrl(this.e)).skipMemoryCache(true).submit().get();
                     }

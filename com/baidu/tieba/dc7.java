@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardVideoView;
+import com.baidu.tieba.feed.component.CardVideoAdView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dc7 extends ia7<CardVideoView, j47> {
+public class dc7 extends ja7<CardVideoAdView, j47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class dc7 extends ia7<CardVideoView, j47> {
         }
     }
 
-    @Override // com.baidu.tieba.ia7, com.baidu.tieba.ya7
+    @Override // com.baidu.tieba.ja7, com.baidu.tieba.za7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            rc7.j(a);
+            sc7.j(a);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ya7
+    @Override // com.baidu.tieba.za7
     /* renamed from: e */
-    public void b(@NonNull CardVideoView cardVideoView, @NonNull j47 j47Var) {
+    public void b(@NonNull CardVideoAdView cardVideoAdView, @NonNull j47 j47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardVideoView, j47Var) == null) {
-            cardVideoView.b(j47Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardVideoAdView, j47Var) == null) {
+            cardVideoAdView.b(j47Var);
         }
     }
 }

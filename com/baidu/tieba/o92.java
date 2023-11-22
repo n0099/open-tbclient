@@ -9,7 +9,7 @@ import com.baidu.swan.apps.core.pms.PMSDownloadType;
 import com.baidu.swan.apps.core.pms.PkgDownloadError;
 import com.baidu.swan.pms.model.PMSException;
 import com.baidu.tieba.c92;
-import com.baidu.tieba.ijc;
+import com.baidu.tieba.jjc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,13 +24,13 @@ public abstract class o92 extends k92 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean j;
     public transient /* synthetic */ FieldHolder $fh;
-    public ojc<? super df4> c;
-    public ojc<? super bf4> d;
+    public pjc<? super df4> c;
+    public pjc<? super bf4> d;
     public oj4 e;
     public zk3<Exception> f;
     public xd4<df4> g;
     public xd4<bf4> h;
-    public ojc<ef4> i;
+    public pjc<ef4> i;
 
     public abstract int U();
 
@@ -390,7 +390,7 @@ public abstract class o92 extends k92 {
     }
 
     /* loaded from: classes7.dex */
-    public class e implements ijc.a<df4> {
+    public class e implements jjc.a<df4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ o92 a;
@@ -414,19 +414,19 @@ public abstract class o92 extends k92 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wjc
+        @Override // com.baidu.tieba.xjc
         /* renamed from: a */
-        public void call(ojc<? super df4> ojcVar) {
+        public void call(pjc<? super df4> pjcVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, ojcVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, pjcVar) != null) {
                 return;
             }
-            this.a.c = ojcVar;
+            this.a.c = pjcVar;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class f implements ijc.a<bf4> {
+    public class f implements jjc.a<bf4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ o92 a;
@@ -450,19 +450,19 @@ public abstract class o92 extends k92 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wjc
+        @Override // com.baidu.tieba.xjc
         /* renamed from: a */
-        public void call(ojc<? super bf4> ojcVar) {
+        public void call(pjc<? super bf4> pjcVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, ojcVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, pjcVar) != null) {
                 return;
             }
-            this.a.d = ojcVar;
+            this.a.d = pjcVar;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class g extends ojc<ef4> {
+    public class g extends pjc<ef4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ o92 e;
@@ -486,7 +486,7 @@ public abstract class o92 extends k92 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jjc
+        @Override // com.baidu.tieba.kjc
         /* renamed from: g */
         public void onNext(ef4 ef4Var) {
             Interceptable interceptable = $ic;
@@ -495,7 +495,7 @@ public abstract class o92 extends k92 {
             }
         }
 
-        @Override // com.baidu.tieba.jjc
+        @Override // com.baidu.tieba.kjc
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -504,7 +504,7 @@ public abstract class o92 extends k92 {
             }
         }
 
-        @Override // com.baidu.tieba.jjc
+        @Override // com.baidu.tieba.kjc
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -551,7 +551,7 @@ public abstract class o92 extends k92 {
         }
     }
 
-    public final ojc<ef4> Y() {
+    public final pjc<ef4> Y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -560,7 +560,7 @@ public abstract class o92 extends k92 {
             }
             return this.i;
         }
-        return (ojc) invokeV.objValue;
+        return (pjc) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.be4
@@ -677,13 +677,13 @@ public abstract class o92 extends k92 {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             ArrayList arrayList = new ArrayList();
             if (this.e.e()) {
-                arrayList.add(ijc.d(new e(this)));
+                arrayList.add(jjc.d(new e(this)));
             }
             if (this.e.d()) {
-                arrayList.add(ijc.d(new f(this)));
+                arrayList.add(jjc.d(new f(this)));
             }
             if (!arrayList.isEmpty()) {
-                ijc.q(arrayList).F(Y());
+                jjc.q(arrayList).F(Y());
             }
         }
     }

@@ -1,34 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.videoplay.service.VideoVerticalPageFragmentService;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Intent;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.BaseFragment;
 /* loaded from: classes5.dex */
-public class am5 implements lf1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface am5 {
+    void B(int i, int i2, Intent intent);
 
-    public am5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    boolean E();
 
-    @Override // com.baidu.tieba.lf1
-    public Object get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new VideoVerticalPageFragmentService() : invokeV.objValue;
-    }
+    BaseFragment F();
+
+    void G(boolean z);
+
+    void setUniqueId(BdUniqueId bdUniqueId);
+
+    void setUserVisibleHint(boolean z);
+
+    long t();
 }

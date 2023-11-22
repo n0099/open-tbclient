@@ -1,48 +1,52 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.vip.models.VipUserInfoKt;
-import com.baidu.tbadk.core.util.ForumBroadcastHelper;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
 import org.json.JSONObject;
-import tbclient.AnchorInfo;
-import tbclient.ZhiBoInfoTW;
+import tbclient.AlaUserInfo;
+import tbclient.YyExt;
 /* loaded from: classes7.dex */
-public class ppc extends poc {
+public class ppc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull AnchorInfo anchorInfo) {
+    public static JSONObject b(@NonNull AlaUserInfo alaUserInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, anchorInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, alaUserInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "portrait", anchorInfo.portrait);
-            poc.a(jSONObject, "name", anchorInfo.name);
-            poc.a(jSONObject, "start_time", anchorInfo.start_time);
-            poc.a(jSONObject, "status", anchorInfo.status);
-            poc.a(jSONObject, "author_id", anchorInfo.author_id);
-            poc.a(jSONObject, NativeUnifiedADAppInfoImpl.Keys.AUTHOR_NAME, anchorInfo.author_name);
-            poc.a(jSONObject, "listeners", anchorInfo.listeners);
-            poc.a(jSONObject, "likers", anchorInfo.likers);
-            poc.a(jSONObject, "group_id", anchorInfo.group_id);
-            poc.a(jSONObject, "intro", anchorInfo.intro);
-            poc.a(jSONObject, "publisherPortrait", anchorInfo.publisherPortrait);
-            poc.a(jSONObject, "publisherName", anchorInfo.publisherName);
-            poc.a(jSONObject, "publisherId", anchorInfo.publisherId);
-            poc.a(jSONObject, ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME, anchorInfo.forumName);
-            poc.a(jSONObject, "from_type", anchorInfo.from_type);
-            poc.a(jSONObject, VipUserInfoKt.KEY_VIP_MAIN_VIP_STATUS, anchorInfo.is_vip);
-            poc.a(jSONObject, "label_id", anchorInfo.label_id);
-            poc.a(jSONObject, "label_name", anchorInfo.label_name);
-            poc.a(jSONObject, "type", anchorInfo.type);
-            ZhiBoInfoTW zhiBoInfoTW = anchorInfo.twzhibo_info;
-            if (zhiBoInfoTW != null) {
-                poc.a(jSONObject, "twzhibo_info", q6d.b(zhiBoInfoTW));
+            qoc.a(jSONObject, "ala_id", alaUserInfo.ala_id);
+            qoc.a(jSONObject, "user_name", alaUserInfo.user_name);
+            qoc.a(jSONObject, "portrait", alaUserInfo.portrait);
+            qoc.a(jSONObject, "description", alaUserInfo.description);
+            qoc.a(jSONObject, "sex", alaUserInfo.sex);
+            qoc.a(jSONObject, "enter_live", alaUserInfo.enter_live);
+            qoc.a(jSONObject, "anchor_live", alaUserInfo.anchor_live);
+            qoc.a(jSONObject, IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS, alaUserInfo.live_status);
+            qoc.a(jSONObject, "live_id", alaUserInfo.live_id);
+            qoc.a(jSONObject, "location", alaUserInfo.location);
+            qoc.a(jSONObject, SuggestAddrField.KEY_LNG, alaUserInfo.lng);
+            qoc.a(jSONObject, SuggestAddrField.KEY_LAT, alaUserInfo.lat);
+            qoc.a(jSONObject, "update_time", alaUserInfo.update_time);
+            qoc.a(jSONObject, "charm_count", alaUserInfo.charm_count);
+            qoc.a(jSONObject, "level_exp", alaUserInfo.level_exp);
+            qoc.a(jSONObject, "is_official", alaUserInfo.is_official);
+            qoc.a(jSONObject, "verify_status", alaUserInfo.verify_status);
+            qoc.a(jSONObject, "level_id", alaUserInfo.level_id);
+            qoc.a(jSONObject, "great_anchor_icon", alaUserInfo.great_anchor_icon);
+            qoc.a(jSONObject, "great_anchor_desc_grade", alaUserInfo.great_anchor_desc_grade);
+            qoc.a(jSONObject, "great_anchor_desc_role", alaUserInfo.great_anchor_desc_role);
+            qoc.a(jSONObject, "level_name", alaUserInfo.level_name);
+            qoc.a(jSONObject, "user_id", alaUserInfo.user_id);
+            qoc.a(jSONObject, "anchor_fans", alaUserInfo.anchor_fans);
+            YyExt yyExt = alaUserInfo.yy_ext;
+            if (yyExt != null) {
+                qoc.a(jSONObject, "yy_ext", p6d.b(yyExt));
             }
             return jSONObject;
         }

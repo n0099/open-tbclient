@@ -1,22 +1,24 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.PbGoodsData;
-import com.baidu.tbadk.core.data.PbLinkData;
-import com.baidu.tbadk.core.view.MultiLinkCardView;
-import com.baidu.tieba.t27;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.PollData;
+import com.baidu.tbadk.core.data.PollOptionData;
+import com.baidu.tbadk.core.view.VoteView;
+import com.baidu.tieba.u27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class fo6 implements t27.l {
+public final class fo6 implements u27.k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,58 +36,101 @@ public class fo6 implements t27.l {
         }
     }
 
-    @Override // com.baidu.tieba.t27.s
-    public void b(@NonNull ViewGroup viewGroup) {
+    public static final void l(ViewGroup view2, n47 state, View view3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof MultiLinkCardView)) {
-            ((MultiLinkCardView) viewGroup).b();
+        if (interceptable == null || interceptable.invokeLLL(65537, null, view2, state, view3) == null) {
+            Intrinsics.checkNotNullParameter(view2, "$view");
+            Intrinsics.checkNotNullParameter(state, "$state");
+            ha7.c(((VoteView) view2).getContext(), state.d().g());
         }
     }
 
-    @Override // com.baidu.tieba.t27.l
-    @NonNull
+    @Override // com.baidu.tieba.u27.s
+    public void b(ViewGroup view2) {
+        VoteView voteView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            if (view2 instanceof VoteView) {
+                voteView = (VoteView) view2;
+            } else {
+                voteView = null;
+            }
+            if (voteView == null) {
+                return;
+            }
+            voteView.D(TbadkApplication.getInst().getSkinType());
+        }
+    }
+
+    @Override // com.baidu.tieba.u27.k
+    public void c(final ViewGroup view2, final n47 state) {
+        VoteView voteView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, state) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(state, "state");
+            x77 d = state.d();
+            PollData pollData = new PollData();
+            pollData.setIsPolled(d.m());
+            pollData.setTotalNum(d.c());
+            pollData.setOptionsCount(d.e());
+            pollData.setEndTime(d.a());
+            pollData.setIsMulti(d.l());
+            pollData.setLastTime(d.d());
+            pollData.setTitle(d.i());
+            pollData.setEndTime(d.a());
+            pollData.setTotalPoll(d.j());
+            pollData.setPolledValue(d.f());
+            ArrayList arrayList = new ArrayList();
+            for (y77 y77Var : d.k()) {
+                PollOptionData pollOptionData = new PollOptionData();
+                pollOptionData.setId(y77Var.a());
+                pollOptionData.setNum(y77Var.b());
+                pollOptionData.setText(y77Var.c());
+                arrayList.add(pollOptionData);
+            }
+            pollData.setOptions(arrayList);
+            if (view2 instanceof VoteView) {
+                voteView = (VoteView) view2;
+            } else {
+                voteView = null;
+            }
+            if (voteView == null) {
+                return;
+            }
+            voteView.setData(pollData, state.d().h(), state.d().b());
+            voteView.setupLiveThreadVoteInfo(state.e());
+            voteView.setOnItemClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sn6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view3) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
+                        fo6.l(view2, state, view3);
+                    }
+                }
+            });
+        }
+    }
+
+    @Override // com.baidu.tieba.u27.k
     public ViewGroup create(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return new MultiLinkCardView(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            VoteView voteView = new VoteView(context);
+            if (context instanceof TbPageContextSupport) {
+                voteView.setPageContext(((TbPageContextSupport) context).getPageContext());
+            }
+            if (context instanceof gr6) {
+                voteView.setPageContext(((gr6) context).getPageContext());
+            }
+            return voteView;
         }
         return (ViewGroup) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.t27.l
-    public void i(@NonNull ViewGroup viewGroup, @NonNull z37 z37Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, z37Var) == null) && (viewGroup instanceof MultiLinkCardView)) {
-            List<s67> d = z37Var.d();
-            ArrayList arrayList = new ArrayList();
-            ArrayList arrayList2 = new ArrayList();
-            for (s67 s67Var : d) {
-                if (s67Var.i() == 6) {
-                    PbGoodsData pbGoodsData = new PbGoodsData();
-                    pbGoodsData.title = s67Var.h();
-                    pbGoodsData.picUrl = s67Var.f();
-                    pbGoodsData.price = s67Var.c();
-                    pbGoodsData.linkUrl = s67Var.e();
-                    pbGoodsData.sort = s67Var.g();
-                    pbGoodsData.linkFrom = s67Var.d();
-                    pbGoodsData.goodsUrlH5 = s67Var.a();
-                    arrayList2.add(pbGoodsData);
-                } else {
-                    PbLinkData pbLinkData = new PbLinkData();
-                    pbLinkData.title = s67Var.h();
-                    pbLinkData.linkUrl = s67Var.e();
-                    pbLinkData.picUrl = s67Var.f();
-                    pbLinkData.linkFrom = s67Var.d();
-                    pbLinkData.extTxt = s67Var.c();
-                    pbLinkData.sort = s67Var.g();
-                    pbLinkData.urlType = s67Var.i();
-                    pbLinkData.content1 = s67Var.a();
-                    pbLinkData.content2 = s67Var.b();
-                    arrayList.add(pbLinkData);
-                }
-            }
-            ((MultiLinkCardView) viewGroup).a(arrayList, arrayList2);
-        }
     }
 }

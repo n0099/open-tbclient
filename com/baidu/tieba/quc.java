@@ -1,27 +1,27 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.Classify;
+import tbclient.FrsPage.CarrierEnter;
 /* loaded from: classes8.dex */
-public class quc extends poc {
+public class quc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Classify classify) {
+    public static JSONObject b(@NonNull CarrierEnter carrierEnter) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, classify)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, carrierEnter)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "name", classify.name);
-            poc.a(jSONObject, "id", classify.id);
-            poc.a(jSONObject, "class_id", classify.class_id);
-            poc.a(jSONObject, ForumSquareActivityConfig.FORUM_CLASS_NAME, classify.class_name);
+            qoc.a(jSONObject, "title", carrierEnter.title);
+            qoc.a(jSONObject, "text", carrierEnter.text);
+            qoc.a(jSONObject, "headline_cover", carrierEnter.headline_cover);
+            qoc.a(jSONObject, "url", carrierEnter.url);
+            qoc.a(jSONObject, "obj_id", carrierEnter.obj_id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

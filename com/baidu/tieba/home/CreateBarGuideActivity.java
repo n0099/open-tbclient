@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.atomData.CreateBarGuideActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.home.BfbInfoModel;
-import com.baidu.tieba.k78;
+import com.baidu.tieba.l78;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +23,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public k78 b;
+    public l78 b;
     public BfbInfoModel c;
     public BfbInfoModel.b d;
 
@@ -163,9 +163,9 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            k78 k78Var = this.b;
-            if (k78Var != null) {
-                k78Var.g();
+            l78 l78Var = this.b;
+            if (l78Var != null) {
+                l78Var.g();
                 this.b = null;
             }
             this.c.O();
@@ -177,9 +177,9 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.changeSkinType(i);
-            k78 k78Var = this.b;
-            if (k78Var != null) {
-                k78Var.f();
+            l78 l78Var = this.b;
+            if (l78Var != null) {
+                l78Var.f();
             }
         }
     }
@@ -212,9 +212,9 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
             BfbInfoModel bfbInfoModel = new BfbInfoModel(this);
             this.c = bfbInfoModel;
             bfbInfoModel.S(this.d);
-            k78 k78Var = new k78(this);
-            this.b = k78Var;
-            k78Var.e();
+            l78 l78Var = new l78(this);
+            this.b = l78Var;
+            l78Var.e();
             showLoadingView(this.b.d());
             this.c.loadData();
             TiebaStatic.log("c11222");

@@ -10,6 +10,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.bu;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.mu;
@@ -19,17 +20,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class ym9 extends tm9<hz4, ThreadCardViewHolder<ThreadData>> {
+public class ym9 extends um9<hz4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId c;
     public TbPageContext<?> d;
     public boolean e;
     public ui f;
-    public xl6<ThreadData> g;
+    public yl6<ThreadData> g;
 
     /* loaded from: classes9.dex */
-    public class a extends xl6<ThreadData> {
+    public class a extends yl6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ym9 b;
@@ -53,12 +54,12 @@ public class ym9 extends tm9<hz4, ThreadCardViewHolder<ThreadData>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xl6
+        @Override // com.baidu.tieba.yl6
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                pl6.b().d(true);
+                ql6.b().d(true);
                 this.b.C(view2, threadData);
             }
         }
@@ -152,10 +153,7 @@ public class ym9 extends tm9<hz4, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             bu.b bVar = new bu.b(this.d.getPageActivity(), false);
-            qt qtVar = new qt(this.d.getPageActivity());
-            qtVar.setFrom("index");
-            qtVar.u(this.e);
-            bVar.n(qtVar);
+            bVar.n(pt.s(this.d.getPageActivity(), "index", this.e));
             bu k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.f);
             k.t(17);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
@@ -180,7 +178,8 @@ public class ym9 extends tm9<hz4, ThreadCardViewHolder<ThreadData>> {
                 threadCardViewHolder.e(hz4Var.t);
                 threadCardViewHolder.a().onChangeSkinType(this.d, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.a().r(this.g);
-                pm9.c(this, hz4Var);
+                qm9.c(this, hz4Var);
+                sl6.a(threadCardViewHolder.a().g(), hz4Var.u, hz4Var.v);
                 return threadCardViewHolder.getView();
             }
             return null;
@@ -191,7 +190,10 @@ public class ym9 extends tm9<hz4, ThreadCardViewHolder<ThreadData>> {
     public final void C(View view2, ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, threadData) == null) {
-            pm9.b(this, threadData);
+            qm9.b(this, threadData);
+            if (view2 instanceof TbImageView) {
+                qm9.e(threadData);
+            }
         }
     }
 }

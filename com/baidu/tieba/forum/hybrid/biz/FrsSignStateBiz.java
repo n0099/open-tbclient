@@ -42,26 +42,26 @@ import com.baidu.tbadk.coreExtra.messageCenter.SignManager;
 import com.baidu.tbadk.coreExtra.util.PushOpenUtil;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
+import com.baidu.tieba.aa5;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.ci8;
 import com.baidu.tieba.common.JSONKt;
 import com.baidu.tieba.di8;
-import com.baidu.tieba.eh7;
+import com.baidu.tieba.ei8;
+import com.baidu.tieba.fh7;
 import com.baidu.tieba.forum.hybrid.manager.BizBase;
 import com.baidu.tieba.forum.hybrid.manager.WrapListener;
-import com.baidu.tieba.gba;
+import com.baidu.tieba.hba;
 import com.baidu.tieba.homepagecore.data.ForumSignInResultRespondedMessage;
-import com.baidu.tieba.lq6;
 import com.baidu.tieba.mq6;
-import com.baidu.tieba.oq6;
+import com.baidu.tieba.nq6;
 import com.baidu.tieba.pq6;
-import com.baidu.tieba.sh7;
-import com.baidu.tieba.si7;
+import com.baidu.tieba.qq6;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.ui7;
+import com.baidu.tieba.th7;
+import com.baidu.tieba.ti7;
+import com.baidu.tieba.vi7;
 import com.baidu.tieba.yw4;
-import com.baidu.tieba.z95;
 import com.baidu.tieba.zo4;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -84,7 +84,7 @@ import tbclient.FrsPage.SignInfo;
 import tbclient.SignActivityInfo;
 @Metadata(d1 = {"\u0000\u009a\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0010\b\n\u0000\n\u0002\u0010%\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u0000 F2\u00020\u00012\u00020\u0002:\u0001FB)\u0012\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u0004\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\f\u0010\b\u001a\b\u0012\u0004\u0012\u00020\n0\t¢\u0006\u0002\u0010\u000bJ\u000e\u0010.\u001a\u00020/2\u0006\u0010.\u001a\u00020\u0011J\u0006\u00100\u001a\u00020\u0011J\b\u00101\u001a\u00020\u000fH\u0002J\b\u00102\u001a\u00020\u0011H\u0002J\u0006\u00103\u001a\u00020\u001aJ\b\u00104\u001a\u00020\u0011H\u0002J\u0013\u00105\u001a\b\u0012\u0004\u0012\u00020706H\u0016¢\u0006\u0002\u00108J\b\u00109\u001a\u00020/H\u0016J\b\u0010:\u001a\u00020/H\u0016J\u0013\u0010;\u001a\b\u0012\u0004\u0012\u00020<06H\u0016¢\u0006\u0002\u0010=J\b\u0010>\u001a\u00020/H\u0002J\u0010\u0010?\u001a\u00020/2\u0006\u0010@\u001a\u00020\u000fH\u0002J\u0010\u0010A\u001a\u00020/2\u0006\u0010B\u001a\u00020\rH\u0002J\u0012\u0010C\u001a\u00020/2\b\u0010@\u001a\u0004\u0018\u00010DH\u0002J\u0010\u0010E\u001a\u00020/2\u0006\u0010@\u001a\u00020\rH\u0002R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u000fX\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R&\u0010\u0018\u001a\u000e\u0012\u0004\u0012\u00020\u000f\u0012\u0004\u0012\u00020\u001a0\u0019X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001b\u0010\u001c\"\u0004\b\u001d\u0010\u001eR\u000e\u0010\u001f\u001a\u00020 X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\"\u001a\u00020#X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010$\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010%\u001a\u0004\u0018\u00010&X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010'\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020)X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010*\u001a\u00020)X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010+\u001a\u00020)X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010,\u001a\u00020-X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006G"}, d2 = {"Lcom/baidu/tieba/forum/hybrid/biz/FrsSignStateBiz;", "Lcom/baidu/tieba/forum/hybrid/manager/BizBase;", "Lcom/baidu/tieba/forum/hybrid/manager/Clean;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "getRootView", "Lkotlin/Function0;", "Landroid/view/ViewGroup;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/browser/TbWebView;Lkotlin/jvm/functions/Function0;)V", "currentSignData", "Lcom/baidu/tbadk/core/data/SignData;", ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME, "", "hasClickGuideToChatRoom", "", "isProcess", "isShowSign", "isSignShowAdded", "mActivityLink", "mCurScore", "", "mHasShowFollowDialog", "", "Ljava/util/Date;", "getMHasShowFollowDialog", "()Ljava/util/Map;", "setMHasShowFollowDialog", "(Ljava/util/Map;)V", "mInjectListener", "Lcom/baidu/tieba/tbadkCore/util/AntiHelper$AntiDialogInjectClickListener;", "mIsLevelUp", "mLevelRatio", "", "mLevelUpScore", "mSignActivityInfo", "Ltbclient/SignActivityInfo;", "mSignLinkUrl", "mSignTaskListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mSignTimeCheckerListener", "mSignedStateListener", "signStatusListener", "Lcom/baidu/adp/framework/listener/HttpMessageListener;", "canSign", "", "checkForumSign", "getGroupChatSignSchema", "getHaveLike", "isShowFollowDialog", "isWalletSign", "keyListeners", "", "Lcom/baidu/tieba/forum/hybrid/manager/WrapListener;", "()[Lcom/baidu/tieba/forum/hybrid/manager/WrapListener;", "onDataUpdate", MissionEvent.MESSAGE_DESTROY, "requestCodeHandlers", "Lcom/baidu/tieba/forum/hybrid/manager/ActivityRequestCodeHandler;", "()[Lcom/baidu/tieba/forum/hybrid/manager/ActivityRequestCodeHandler;", "startSign", "startSignForum", "data", "updateLevel", "signData", "updateSignByResign", "Landroid/content/Intent;", "updateSignData", "Companion", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class FrsSignStateBiz extends BizBase implements ui7 {
+public final class FrsSignStateBiz extends BizBase implements vi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String f;
@@ -120,7 +120,7 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
         }
     }
 
-    @Override // com.baidu.tieba.ui7
+    @Override // com.baidu.tieba.vi7
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
@@ -128,13 +128,13 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a extends pq6<di8> {
+    public static final class a extends qq6<ei8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsSignStateBiz b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(FrsSignStateBiz frsSignStateBiz, Class<di8> cls) {
+        public a(FrsSignStateBiz frsSignStateBiz, Class<ei8> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -155,14 +155,14 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pq6
-        public void onEvent(di8 event) {
+        @Override // com.baidu.tieba.qq6
+        public void onEvent(ei8 event) {
             ForumInfo e;
             Long l;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
-                eh7 c = this.b.c();
+                fh7 c = this.b.c();
                 if (c != null && (e = c.e()) != null && (l = e.id) != null) {
                     long longValue = l.longValue();
                     HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_FORUM_SIGN_IN_RESULT);
@@ -263,7 +263,7 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof SignMessage)) {
                 return;
             }
-            eh7 c = this.a.c();
+            fh7 c = this.a.c();
             if (c != null) {
                 forumInfo = c.e();
             } else {
@@ -272,7 +272,7 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
             if (forumInfo == null) {
                 return;
             }
-            eh7 c2 = this.a.c();
+            fh7 c2 = this.a.c();
             Intrinsics.checkNotNull(c2);
             ForumInfo e2 = c2.e();
             Intrinsics.checkNotNull(e2);
@@ -393,13 +393,13 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
                             ViewGroup invoke = this.c.invoke();
                             Date E = this.a.E();
                             boolean areNotificationsEnabled = NotificationManagerCompat.from(this.b.getPageActivity()).areNotificationsEnabled();
-                            if (z95.e().G() && areNotificationsEnabled) {
+                            if (aa5.e().G() && areNotificationsEnabled) {
                                 z3 = true;
                             }
                             if (z3 && this.a.k && this.a.A()) {
-                                gba.d.a().h("forum_sign");
+                                hba.d.a().h("forum_sign");
                                 SignManager.getInstance().checkAndShowTimePicker(1, this.b, invoke, true);
-                                eh7 c3 = this.a.c();
+                                fh7 c3 = this.a.c();
                                 if (c3 != null && (e = c3.e()) != null && (l = e.id) != null) {
                                     this.a.D().put(String.valueOf(l.longValue()), E);
                                 }
@@ -420,7 +420,7 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
                     ViewGroup invoke2 = this.c.invoke();
                     Date E2 = this.a.E();
                     boolean areNotificationsEnabled2 = NotificationManagerCompat.from(this.b.getPageActivity()).areNotificationsEnabled();
-                    if (z95.e().G()) {
+                    if (aa5.e().G()) {
                         z3 = true;
                     }
                     if (z3) {
@@ -482,8 +482,8 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
                 ViewGroup invoke = this.b.invoke();
                 if (invoke != null && this.a.k && PushOpenUtil.shouldShowPushOpenView(TbadkCoreApplication.getInst(), 4)) {
                     SignManager.getInstance().checkAndShowTimePicker(1, this.c, invoke, false);
-                    gba.d.a().h("forum_sign");
-                    eh7 c = this.a.c();
+                    hba.d.a().h("forum_sign");
+                    fh7 c = this.a.c();
                     if (c != null && (e = c.e()) != null && (l = e.id) != null) {
                         this.a.D().put(String.valueOf(l.longValue()), E);
                     }
@@ -526,7 +526,7 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
             ForumInfo forumInfo;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData)) {
-                eh7 c = this.a.c();
+                fh7 c = this.a.c();
                 String str = null;
                 if (c != null) {
                     forumInfo = c.e();
@@ -536,7 +536,7 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
                 if (forumInfo == null) {
                     return;
                 }
-                eh7 c2 = this.a.c();
+                fh7 c2 = this.a.c();
                 Intrinsics.checkNotNull(c2);
                 ForumInfo e = c2.e();
                 Intrinsics.checkNotNull(e);
@@ -609,13 +609,13 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Long l;
-            ci8.b b;
+            di8.b b;
             ForumInfo e;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003577 && (httpResponsedMessage instanceof ForumSignInResultRespondedMessage)) {
                 ForumSignInResultRespondedMessage forumSignInResultRespondedMessage = (ForumSignInResultRespondedMessage) httpResponsedMessage;
                 if (!forumSignInResultRespondedMessage.hasError()) {
-                    eh7 c = this.a.c();
+                    fh7 c = this.a.c();
                     if (c != null && (e = c.e()) != null) {
                         l = e.id;
                     } else {
@@ -625,7 +625,7 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
                         return;
                     }
                     long longValue = l.longValue();
-                    ci8 data = forumSignInResultRespondedMessage.getData();
+                    di8 data = forumSignInResultRespondedMessage.getData();
                     if (data != null && (b = data.b(longValue)) != null) {
                         FrsSignStateBiz frsSignStateBiz = this.a;
                         SignData signData = frsSignStateBiz.l;
@@ -680,10 +680,10 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
         pageContext.registerListener(this.u);
         pageContext.registerListener(this.s);
         pageContext.registerListener(this.v);
-        oq6 b2 = mq6.b();
+        pq6 b2 = nq6.b();
         BdUniqueId uniqueId = pageContext.getUniqueId();
         Intrinsics.checkNotNullExpressionValue(uniqueId, "pageContext.uniqueId");
-        b2.b(new lq6(uniqueId, di8.class), new a(this, di8.class));
+        b2.b(new mq6(uniqueId, ei8.class), new a(this, ei8.class));
     }
 
     public final boolean A() {
@@ -693,23 +693,23 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
             if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
                 return PushOpenUtil.shouldShowPushOpenView(TbadkCoreApplication.getInst(), 4);
             }
-            return gba.d.a().b("forum_sign");
+            return hba.d.a().b("forum_sign");
         }
         return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.forum.hybrid.manager.BizBase
     public void i() {
-        eh7 c2;
+        fh7 c2;
         ForumInfo e2;
         SignInfo signInfo;
         String str;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (c2 = c()) != null && (e2 = c2.e()) != null && (signInfo = e2.sign_in_info) != null) {
-            SignData b2 = sh7.b(signInfo);
+            SignData b2 = th7.b(signInfo);
             this.l = b2;
             Intrinsics.checkNotNull(b2);
-            eh7 c3 = c();
+            fh7 c3 = c();
             Intrinsics.checkNotNull(c3);
             ForumInfo e3 = c3.e();
             Intrinsics.checkNotNull(e3);
@@ -742,7 +742,7 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            eh7 c2 = c();
+            fh7 c2 = c();
             if (c2 != null && c2.n() == 1) {
                 return true;
             }
@@ -769,18 +769,18 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ti7
+    @Override // com.baidu.tieba.ui7
     public WrapListener[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? new WrapListener[]{e().invoke("frsPage.frsSign", new FrsSignStateBiz$keyListeners$1(this))} : (WrapListener[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.forum.hybrid.manager.BizBase, com.baidu.tieba.ti7
-    public si7[] b() {
+    @Override // com.baidu.tieba.forum.hybrid.manager.BizBase, com.baidu.tieba.ui7
+    public ti7[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new si7[]{h(24002, new FrsSignStateBiz$requestCodeHandlers$1(this))} : (si7[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new ti7[]{h(24002, new FrsSignStateBiz$requestCodeHandlers$1(this))} : (ti7[]) invokeV.objValue;
     }
 
     public final Date E() {
@@ -794,7 +794,7 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
             Intrinsics.checkNotNullExpressionValue(hasShowTip, "getInstance().hasShowTip");
             this.j = hasShowTip;
             Date date = new Date(System.currentTimeMillis());
-            eh7 c2 = c();
+            fh7 c2 = c();
             if (c2 != null && (e2 = c2.e()) != null && (l = e2.id) != null && (valueOf = String.valueOf(l)) != null) {
                 if ((!this.j.isEmpty()) && this.j.containsKey(valueOf)) {
                     if (TimeHelper.getDayDifference(this.j.get(valueOf), date) >= 1) {
@@ -817,7 +817,7 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
         Long l;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            eh7 c2 = c();
+            fh7 c2 = c();
             if (c2 != null && (k = c2.k()) != null && (l = k.activity_id) != null) {
                 TbSingleton.getInstance().setActivityId(String.valueOf(l.longValue()));
             }
@@ -831,7 +831,7 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
                 TbadkCoreApplication.getInst().login(f(), new CustomMessage<>(2002001, new LoginActivityConfig(f().getPageActivity(), true, 11014)));
                 return;
             }
-            eh7 c3 = c();
+            fh7 c3 = c();
             ForumInfo forumInfo2 = null;
             if (c3 != null) {
                 forumInfo = c3.e();
@@ -842,7 +842,7 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
                 return;
             }
             ForumData forumData = new ForumData();
-            eh7 c4 = c();
+            fh7 c4 = c();
             if (c4 != null) {
                 forumInfo2 = c4.e();
             }
@@ -871,7 +871,7 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
         yw4 yw4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            eh7 c2 = c();
+            fh7 c2 = c();
             Intrinsics.checkNotNull(c2);
             if (c2.n() != 1) {
                 return;
@@ -896,7 +896,7 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
                         j = 0;
                     }
                     StatisticItem param = new StatisticItem("c15205").param("obj_type", 2).param("uid", TbadkCoreApplication.getCurrentAccount());
-                    eh7 c3 = c();
+                    fh7 c3 = c();
                     String str2 = null;
                     if (c3 != null && (e4 = c3.e()) != null) {
                         l2 = e4.id;
@@ -907,7 +907,7 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
                         j2 = l2.longValue();
                     }
                     StatisticItem param2 = param.param("fid", j2);
-                    eh7 c4 = c();
+                    fh7 c4 = c();
                     if (c4 != null && (e3 = c4.e()) != null) {
                         str2 = e3.name;
                     }
@@ -927,7 +927,7 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
                     StatisticItem.make("c13560").param("obj_type", 2).eventStat();
                 } else if (TbadkCoreApplication.getInst().getUseNewResign() == 1) {
                     Activity pageActivity = f().getPageActivity();
-                    eh7 c5 = c();
+                    fh7 c5 = c();
                     if (c5 != null && (e2 = c5.e()) != null && (l = e2.id) != null) {
                         j2 = l.longValue();
                     }
@@ -953,7 +953,7 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
         int intExtra3 = intent.getIntExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, 0);
         int intExtra4 = intent.getIntExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, 0);
         HybridLog.getInstance().i("FrsSignStateBiz", "从补签页面回来 " + intExtra + WebvttCueParser.CHAR_SPACE + intExtra2 + WebvttCueParser.CHAR_SPACE + intExtra3 + WebvttCueParser.CHAR_SPACE + intExtra4);
-        eh7 c2 = c();
+        fh7 c2 = c();
         if (c2 != null && (e4 = c2.e()) != null) {
             long j = intExtra;
             Long l = e4.id;
@@ -972,7 +972,7 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
             K(signData);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001222, signData));
             int i = -1;
-            eh7 c3 = c();
+            fh7 c3 = c();
             if (c3 != null && (e3 = c3.e()) != null && (num = e3.user_level) != null) {
                 int intValue = num.intValue();
                 if (this.m) {
@@ -980,7 +980,7 @@ public final class FrsSignStateBiz extends BizBase implements ui7 {
                 }
             }
             TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-            eh7 c4 = c();
+            fh7 c4 = c();
             if (c4 != null && (e2 = c4.e()) != null) {
                 str = e2.name;
             } else {

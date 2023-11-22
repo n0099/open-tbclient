@@ -29,8 +29,8 @@ import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
 import com.baidu.tieba.fy4;
-import com.baidu.tieba.hy5;
-import com.baidu.tieba.ll5;
+import com.baidu.tieba.iy5;
+import com.baidu.tieba.ml5;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
@@ -146,7 +146,7 @@ public class VideoItemData implements Serializable, Parcelable {
     }
 
     /* loaded from: classes8.dex */
-    public static class a implements Parcelable.Creator<VideoItemData> {
+    public class a implements Parcelable.Creator<VideoItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1095,14 +1095,14 @@ public class VideoItemData implements Serializable, Parcelable {
             if (this.threadData != null && (list = this.richTitle) != null && !list.isEmpty()) {
                 for (PbContent pbContent : this.richTitle) {
                     if (pbContent.type.intValue() == 18) {
-                        ll5 h = ll5.h(pbContent.text, pbContent.link);
+                        ml5 h = ml5.h(pbContent.text, pbContent.link);
                         h.e(this.threadData);
                         h.d(R.color.CAM_X0101);
                         h.g(R.color.CAM_X0113);
                         h.b(HotTopicStat.Locate.VIDEO_MIDDLE);
-                        p = hy5.q(h);
+                        p = iy5.q(h);
                     } else {
-                        p = hy5.p(this.threadData, pbContent);
+                        p = iy5.p(this.threadData, pbContent);
                     }
                     this.titleSsb.append(p);
                 }

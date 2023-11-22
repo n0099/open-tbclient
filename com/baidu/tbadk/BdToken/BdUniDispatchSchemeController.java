@@ -22,7 +22,7 @@ import com.baidu.tieba.eq4;
 import com.baidu.tieba.ko4;
 import com.baidu.tieba.lo4;
 import com.baidu.tieba.qd;
-import com.baidu.tieba.rs5;
+import com.baidu.tieba.ss5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -241,8 +241,8 @@ public class BdUniDispatchSchemeController {
     private void processSchemeFrom(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && !TextUtils.isEmpty(str) && "shoubai".equals(str)) {
-            rs5.m().u(true);
-            rs5.m().k();
+            ss5.m().u(true);
+            ss5.m().k();
         }
     }
 

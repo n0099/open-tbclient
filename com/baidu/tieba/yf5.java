@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.editortools.meme.list.GeneratedLoadingData;
+import com.baidu.tbadk.editortools.meme.list.MemeData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,15 +10,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
+import java.util.ArrayList;
+import java.util.List;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-@Singleton
-@Service
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public final class yf5 extends ja {
+public final class yf5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
+    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final List<MemeData> b;
 
     static {
         InterceptResult invokeClinit;
@@ -34,59 +37,7 @@ public final class yf5 extends ja {
                 return;
             }
         }
-        a = new a(null);
-    }
-
-    @JvmStatic
-    public static final boolean isOn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ja
-    public void changeSettingByType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ja
-    /* renamed from: getCrashKeys */
-    public String[] mo131getCrashKeys() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ja
-    public int getDefaultType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ja
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "sprite_meme_global_switch_android" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ja
-    public int getOffType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
+        c = new a(null);
     }
 
     /* loaded from: classes9.dex */
@@ -112,41 +63,93 @@ public final class yf5 extends ja {
             }
         }
 
-        @JvmStatic
-        public final boolean a() {
-            InterceptResult invokeV;
+        public final yf5 a(JSONObject jsonObject) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (SwitchManager.getInstance().findType("sprite_meme_global_switch_android") == 1) {
-                    return true;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsonObject)) == null) {
+                Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
+                String queryId = jsonObject.optString("query_id");
+                JSONArray optJSONArray = jsonObject.optJSONArray("meme_list");
+                ArrayList arrayList = new ArrayList();
+                if (optJSONArray != null) {
+                    int i = 0;
+                    int length = optJSONArray.length();
+                    if (length >= 0) {
+                        while (true) {
+                            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                            if (optJSONObject != null) {
+                                Intrinsics.checkNotNullExpressionValue(optJSONObject, "optJSONObject(i)");
+                                long optLong = optJSONObject.optLong("id");
+                                int optInt = optJSONObject.optInt("type");
+                                String src = optJSONObject.optString("src");
+                                int optInt2 = optJSONObject.optInt("obj_source");
+                                if (optInt == 2) {
+                                    arrayList.add(new GeneratedLoadingData());
+                                }
+                                if (optInt == 1) {
+                                    Intrinsics.checkNotNullExpressionValue(src, "src");
+                                    arrayList.add(new MemeData(optLong, optInt, src, optInt2, null, 16, null));
+                                }
+                            }
+                            if (i == length) {
+                                break;
+                            }
+                            i++;
+                        }
+                    }
                 }
-                return false;
+                Intrinsics.checkNotNullExpressionValue(queryId, "queryId");
+                return new yf5(queryId, arrayList);
             }
-            return invokeV.booleanValue;
+            return (yf5) invokeL.objValue;
         }
     }
 
-    public yf5() {
+    public yf5(String queryId, List<MemeData> memeList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {queryId, memeList};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(queryId, "queryId");
+        Intrinsics.checkNotNullParameter(memeList, "memeList");
+        this.a = queryId;
+        this.b = memeList;
     }
 
-    @Override // com.baidu.tieba.ja
-    public int getMaxCrashTimes() {
+    public final List<MemeData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mMaxCrashTimes;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return invokeV.intValue;
+        return (List) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b.isEmpty();
+        }
+        return invokeV.booleanValue;
     }
 }

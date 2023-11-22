@@ -7,7 +7,7 @@ import com.baidu.pyramid.annotation.Service;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.tieba.common.JSONKt;
-import com.baidu.tieba.era;
+import com.baidu.tieba.fra;
 import com.baidu.tieba.gu4;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -54,18 +54,18 @@ public final class ForumUnLikeHybridNotify implements gu4.d {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a implements era.a {
+    public static final class a implements fra.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.era.a
+        @Override // com.baidu.tieba.fra.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.era.a
+        @Override // com.baidu.tieba.fra.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -181,9 +181,9 @@ public final class ForumUnLikeHybridNotify implements gu4.d {
                 z = true;
             }
             if (!z && longRef.element != 0) {
-                era eraVar = new era();
-                eraVar.b(new a());
-                eraVar.c((String) objectRef.element, longRef.element);
+                fra fraVar = new fra();
+                fraVar.b(new a());
+                fraVar.c((String) objectRef.element, longRef.element);
                 return;
             }
             TbLog hybridLog = HybridLog.getInstance();

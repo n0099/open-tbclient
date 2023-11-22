@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e77;
+import com.baidu.tieba.f77;
 import com.baidu.tieba.forum.databinding.CardMutiImageViewBinding;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -140,8 +140,8 @@ public final class CardMutiImageView extends LinearLayout {
         }
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('+' char), (wrap: int : 0x00a0: ARITH  (r8v18 int A[REMOVE]) = (wrap: int : 0x009a: INVOKE  (r8v17 int A[REMOVE]) = (r8v0 'pics' java.util.List<? extends com.baidu.tieba.e77>) type: INTERFACE call: java.util.List.size():int) - (wrap: int : 0x009e: IGET  (r2v2 int A[REMOVE]) = (r7v0 'this' com.baidu.tieba.forum.view.CardMutiImageView A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.forum.view.CardMutiImageView.b int))] */
-    public final void setData(List<? extends e77> pics) {
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('+' char), (wrap: int : 0x00a0: ARITH  (r8v18 int A[REMOVE]) = (wrap: int : 0x009a: INVOKE  (r8v17 int A[REMOVE]) = (r8v0 'pics' java.util.List<? extends com.baidu.tieba.f77>) type: INTERFACE call: java.util.List.size():int) - (wrap: int : 0x009e: IGET  (r2v2 int A[REMOVE]) = (r7v0 'this' com.baidu.tieba.forum.view.CardMutiImageView A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.forum.view.CardMutiImageView.b int))] */
+    public final void setData(List<? extends f77> pics) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pics) == null) {
             Intrinsics.checkNotNullParameter(pics, "pics");

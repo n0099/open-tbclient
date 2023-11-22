@@ -54,7 +54,7 @@ import com.baidu.tieba.passaccount.framework.PassManagerStatic;
 import com.baidu.tieba.pf;
 import com.baidu.tieba.qd;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
-import com.baidu.tieba.vb5;
+import com.baidu.tieba.wb5;
 import com.baidu.tieba.xb;
 import com.baidu.tieba.yb;
 import com.baidu.tieba.yv4;
@@ -74,7 +74,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public int b;
     public WebAuthResult c;
     public Activity d;
-    public vb5 e;
+    public wb5 e;
     public String f;
     public int g;
     public boolean h;
@@ -438,7 +438,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* loaded from: classes7.dex */
-    public class f implements vb5.e {
+    public class f implements wb5.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoginActivity a;
@@ -461,7 +461,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             this.a = loginActivity;
         }
 
-        @Override // com.baidu.tieba.vb5.e
+        @Override // com.baidu.tieba.wb5.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
@@ -812,9 +812,9 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         if (interceptable == null || interceptable.invokeL(1048592, this, accountData) == null) {
             this.f = TbadkCoreApplication.getCurrentTbs();
             if (this.e == null) {
-                vb5 vb5Var = new vb5(this.d);
-                this.e = vb5Var;
-                vb5Var.x(this.y);
+                wb5 wb5Var = new wb5(this.d);
+                this.e = wb5Var;
+                wb5Var.x(this.y);
                 this.e.v(new f(this));
             }
             this.e.p();
@@ -845,9 +845,9 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             if (bdAsyncTask != null) {
                 bdAsyncTask.cancel();
             }
-            vb5 vb5Var = this.e;
-            if (vb5Var != null) {
-                vb5Var.s();
+            wb5 wb5Var = this.e;
+            if (wb5Var != null) {
+                wb5Var.s();
             }
             this.y = null;
             this.c = null;

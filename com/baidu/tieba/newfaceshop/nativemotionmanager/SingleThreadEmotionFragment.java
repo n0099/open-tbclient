@@ -12,9 +12,9 @@ import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.faceshop.EmotionPackageData;
-import com.baidu.tieba.go9;
-import com.baidu.tieba.mo9;
+import com.baidu.tieba.ho9;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.SingleThreadEmotionModel;
+import com.baidu.tieba.no9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,14 +22,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class SingleThreadEmotionFragment extends BaseFragment implements go9<List<EmotionPackageData>> {
+public class SingleThreadEmotionFragment extends BaseFragment implements ho9<List<EmotionPackageData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mo9 a;
+    public no9 a;
     public SingleThreadEmotionModel b;
     public CustomMessageListener c;
 
-    @Override // com.baidu.tieba.go9
+    @Override // com.baidu.tieba.ho9
     public void z1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -173,7 +173,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements go9<Lis
         }
     }
 
-    @Override // com.baidu.tieba.go9
+    @Override // com.baidu.tieba.ho9
     public void onFail() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -190,10 +190,10 @@ public class SingleThreadEmotionFragment extends BaseFragment implements go9<Lis
     }
 
     public final void y2() {
-        mo9 mo9Var;
+        no9 no9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (mo9Var = this.a) != null) {
-            mo9Var.b();
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (no9Var = this.a) != null) {
+            no9Var.b();
         }
     }
 
@@ -202,15 +202,15 @@ public class SingleThreadEmotionFragment extends BaseFragment implements go9<Lis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            mo9 mo9Var = this.a;
-            if (mo9Var != null) {
-                mo9Var.d(i);
+            no9 no9Var = this.a;
+            if (no9Var != null) {
+                no9Var.d(i);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.go9
+    @Override // com.baidu.tieba.ho9
     /* renamed from: z2 */
     public void onSuccess(List<EmotionPackageData> list) {
         Interceptable interceptable = $ic;
@@ -224,7 +224,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements go9<Lis
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.a = new mo9(getPageContext());
+            this.a = new no9(getPageContext());
             SingleThreadEmotionModel singleThreadEmotionModel = new SingleThreadEmotionModel();
             this.b = singleThreadEmotionModel;
             singleThreadEmotionModel.W(this);

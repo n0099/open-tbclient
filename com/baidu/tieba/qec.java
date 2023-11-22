@@ -1,233 +1,185 @@
 package com.baidu.tieba;
 
-import android.os.Message;
+import android.media.MediaFormat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.transvod.player.common.AVframe;
-import com.yy.transvod.player.common.AudioSendStamp;
 import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.FrameInfo;
-import com.yy.transvod.player.mediacodec.MediaInfo;
 import com.yy.transvod.player.mediacodec.MediaSample;
-import com.yy.transvod.player.mediacodec.NativeFfmpeg;
 import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.TreeMap;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public abstract class qec extends lec {
+public final class qec extends pec {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NativeFfmpeg A;
-    public ByteBuffer B;
-    public ByteBuffer C;
-    public TreeMap<Integer, Object> D;
-    public int E;
-    public FrameInfo F;
-    public sdc G;
+    public AtomicBoolean l;
+    public MediaFormat m;
+    public long n;
+    public long o;
+    public boolean p;
 
-    public qec() {
+    @Override // com.baidu.tieba.pec
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public qec(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.A = new NativeFfmpeg();
-        this.B = null;
-        this.C = null;
-        this.D = new TreeMap<>();
-        this.E = 0;
-        this.F = new FrameInfo();
-        this.G = new sdc(200);
+        this.l = new AtomicBoolean(false);
+        this.m = null;
+        this.n = -1L;
+        this.o = -1L;
+        this.p = false;
+        this.b = i;
     }
 
-    @Override // com.baidu.tieba.lec
-    public void B() {
+    @Override // com.baidu.tieba.nec
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            while (!this.r.b() && K() == 1) {
-                TLog.g(this, "handleEndOfStream");
-                try {
-                    Thread.sleep(20L);
-                } catch (Exception unused) {
-                    TLog.g(this, "handleEndOfStream error");
-                }
-            }
+            TLog.g(this, "MediaInputFilter.setup enter");
+            this.l.set(true);
+            this.j = false;
         }
     }
 
-    public void L() {
+    @Override // com.baidu.tieba.pec
+    public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TLog.g(this, "NativeFfmpegFilter.stopCodec enter.");
-            this.A.k();
-            this.B = null;
-            this.C = null;
-            this.E = 0;
-            this.F.a = 0L;
-            this.v = 0L;
-            G();
-            TLog.g(this, "NativeFfmpegFilter.stopCodec leave.");
+            TLog.g(this, "MediaInputFilter.stop enter");
+            this.n = -1L;
+            this.o = -1L;
+            this.m = null;
+            this.p = false;
+            this.l.set(false);
         }
     }
 
-    @Override // com.baidu.tieba.lec
-    public int D(MediaSample mediaSample) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.pec, com.baidu.tieba.nec
+    public void d(String str, Object obj, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaSample)) == null) {
-            K();
-            int J = J(mediaSample);
-            K();
-            return J;
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // com.baidu.tieba.lec, com.baidu.tieba.uec, com.baidu.tieba.cdc.a
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, message) == null) {
-            if (message.what != 1002) {
-                super.handleMessage(message);
-            } else {
-                L();
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, obj, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && !this.j) {
+            synchronized (this.k) {
+                if (this.d != null) {
+                    this.d.d("setFormat", (MediaFormat) obj, i, true);
+                }
             }
+            this.j = true;
         }
     }
 
-    public final int J(MediaSample mediaSample) {
-        InterceptResult invokeL;
-        AVframe aVframe;
-        MediaInfo mediaInfo;
+    /* JADX WARN: Removed duplicated region for block: B:96:0x0158 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // com.baidu.tieba.pec, com.baidu.tieba.nec
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void f(MediaSample mediaSample) {
+        int g;
+        MediaFormat mediaFormat;
         ByteBuffer byteBuffer;
-        byte[] bArr;
-        byte[] bArr2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaSample)) == null) {
-            if (mediaSample == null || (aVframe = mediaSample.g) == null || (mediaInfo = mediaSample.i) == null || (byteBuffer = this.B) == null || mediaInfo.k == null || mediaInfo.a == 0) {
-                return -1;
-            }
-            int i = aVframe.e;
-            int i2 = this.a;
-            if (i > i2) {
-                long j = this.v + 1;
-                this.v = j;
-                if (j < 10 || j % 1000 == 0) {
-                    TLog.c(this, String.format("ffmepg::sample.avFrame.playTaskID: %d > mPlayTaskID %d", Integer.valueOf(mediaSample.g.e), Integer.valueOf(this.a)));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaSample) == null) {
+            if (this.e.g() != 9) {
+                if (!this.l.get()) {
+                    TLog.g(this, "render processAVFrame error");
+                    return;
                 }
-                return 0;
-            } else if (i < i2) {
-                long j2 = this.v + 1;
-                this.v = j2;
-                if (j2 < 10 || j2 % 1000 == 0) {
-                    TLog.c(this, String.format("ffmpeg::sample.avFrame.playTaskID: %d < mPlayTaskID %d", Integer.valueOf(mediaSample.g.e), Integer.valueOf(this.a)));
+                if (mediaSample.f && mediaSample.g != null) {
+                    TLog.g(this, "got bForVideoCodecConfigfOnly, playTaskId=" + mediaSample.g.e);
                 }
-                return -1;
-            } else {
-                byteBuffer.clear();
-                boolean z = mediaSample.g.c;
-                int capacity = mediaSample.i.k.capacity();
-                if (mediaSample.d && (bArr2 = mediaSample.g.q) != null) {
-                    capacity += bArr2.length + 7;
-                }
-                ByteBuffer byteBuffer2 = this.B;
-                if (byteBuffer2 == null || byteBuffer2.capacity() < capacity) {
-                    int i3 = (int) (capacity * 1.5d);
-                    if (i3 > 2000000 || i3 < capacity) {
-                        i3 = capacity;
+                boolean z = false;
+                if (mediaSample.G && mediaSample.d && !this.p) {
+                    this.p = true;
+                    wec wecVar = (wec) this.d;
+                    if (wecVar != null) {
+                        wecVar.y();
                     }
-                    this.B = ByteBuffer.allocateDirect(i3);
+                    TLog.g(this, "MediaInputFilter forceToSoftDecode");
+                    z = true;
                 }
-                if (this.B.capacity() >= capacity) {
-                    if (mediaSample.d && (bArr = mediaSample.g.q) != null) {
-                        hec.d(bArr, this.B);
-                    }
-                    this.B.put(mediaSample.i.k).flip();
-                    if (this.A.o(this.B, mediaSample.d, mediaSample.l, mediaSample.k) < 0) {
-                        TLog.c(this, "mCodec.send_packet() failed.");
-                        m(51);
-                        return -1;
-                    }
-                }
-                this.G.b(mediaSample.t);
-                this.r.a(mediaSample);
-                return 1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public final int K() {
-        InterceptResult invokeV;
-        MediaInfo mediaInfo;
-        AVframe aVframe;
-        AVframe aVframe2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ByteBuffer byteBuffer = this.C;
-            if (byteBuffer != null) {
-                byteBuffer.clear();
-                this.D.clear();
-                FrameInfo frameInfo = this.F;
-                frameInfo.a = 0L;
-                frameInfo.b = 0L;
-                if (this.A.n(this.C, this.D, frameInfo) > 0) {
-                    MediaSample c = this.r.c();
-                    if (c != null && c.g != null && (mediaInfo = c.i) != null) {
-                        mediaInfo.c(this.q);
-                        c.i.k = this.C;
-                        FrameInfo frameInfo2 = this.F;
-                        c.l = frameInfo2.a;
-                        E(c, frameInfo2.b);
-                        this.u++;
-                        c.I = NativeFfmpeg.l(this.D);
-                        ArrayList<Long> m = NativeFfmpeg.m(this.D);
-                        if (m != null && !m.isEmpty()) {
-                            c.J = new ArrayList<>();
-                            Iterator<Long> it = m.iterator();
-                            while (it.hasNext()) {
-                                c.J.add(new AudioSendStamp(this.G.a(), it.next().longValue()));
+                ByteBuffer byteBuffer2 = null;
+                MediaFormat mediaFormat2 = null;
+                byteBuffer2 = null;
+                if (mediaSample.c) {
+                    AVframe aVframe = mediaSample.g;
+                    int i = aVframe.f;
+                    if (i != this.o) {
+                        this.o = i;
+                        if (iec.i(i)) {
+                            mediaFormat2 = iec.a(aVframe);
+                            this.j = true;
+                        }
+                        MediaFormat mediaFormat3 = this.m;
+                        if (mediaFormat3 == null || !mediaFormat3.equals(mediaFormat2)) {
+                            this.m = mediaFormat2;
+                            synchronized (this.k) {
+                                if (this.d != null) {
+                                    this.d.d("setFormat", mediaFormat2, aVframe.e, true);
+                                    TLog.g(this, "MediaInputFilter audioConfig taskId " + aVframe.e + " netCodec " + aVframe.f);
+                                }
                             }
                         }
-                        n(c);
-                        if (!c.c) {
-                            udc udcVar = this.s.get();
-                            if (udcVar != null && (aVframe2 = c.g) != null) {
-                                udcVar.t((int) aVframe2.l);
-                            }
-                        } else {
-                            udc udcVar2 = this.s.get();
-                            if (udcVar2 != null && (aVframe = c.g) != null) {
-                                udcVar2.s((int) aVframe.l);
-                            }
-                        }
-                        this.D.clear();
-                        ydc.c(c, 6);
                         synchronized (this.k) {
                             if (this.d != null) {
-                                this.d.f(c);
+                                this.d.f(mediaSample);
                             }
                         }
-                        return 1;
+                        return;
                     }
-                    return -1;
                 }
-                return 0;
+                if (!mediaSample.c && (mediaSample.g.f != this.n || z)) {
+                    AVframe aVframe2 = mediaSample.g;
+                    if (aVframe2.f == 2000) {
+                        if (aVframe2.a && !aVframe2.b) {
+                            byteBuffer = ByteBuffer.wrap(aVframe2.q);
+                        } else {
+                            byteBuffer = null;
+                        }
+                        mediaFormat = iec.b((int) aVframe2.j, (int) aVframe2.k, byteBuffer, true);
+                        this.n = aVframe2.f;
+                    } else {
+                        mediaFormat = null;
+                    }
+                    if (aVframe2.f == 2002) {
+                        if (aVframe2.a && !aVframe2.b) {
+                            byteBuffer2 = ByteBuffer.wrap(aVframe2.q);
+                        }
+                        mediaFormat = iec.c((int) aVframe2.j, (int) aVframe2.k, byteBuffer2, true);
+                        this.n = aVframe2.f;
+                    }
+                    synchronized (this.k) {
+                        if (this.d != null) {
+                            this.d.b(aVframe2.f);
+                            this.d.d("setFormat", mediaFormat, aVframe2.e, true);
+                            TLog.g(this, "MediaInputFilter videoConfig taskId " + aVframe2.e + " netCodec " + aVframe2.f);
+                        }
+                    }
+                }
+                synchronized (this.k) {
+                }
+            } else {
+                mediaSample.g.a();
+                TLog.c(this, "fatal error, ignore all frames. mCurrentState:" + kdc.a[g]);
             }
-            return 0;
         }
-        return invokeV.intValue;
     }
 }

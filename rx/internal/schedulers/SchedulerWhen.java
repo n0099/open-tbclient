@@ -1,47 +1,47 @@
 package rx.internal.schedulers;
 
-import com.baidu.tieba.bkc;
-import com.baidu.tieba.gjc;
+import com.baidu.tieba.ckc;
 import com.baidu.tieba.hjc;
 import com.baidu.tieba.ijc;
 import com.baidu.tieba.jjc;
-import com.baidu.tieba.ljc;
-import com.baidu.tieba.ooc;
-import com.baidu.tieba.pjc;
-import com.baidu.tieba.tnc;
-import com.baidu.tieba.vjc;
+import com.baidu.tieba.kjc;
+import com.baidu.tieba.mjc;
+import com.baidu.tieba.poc;
+import com.baidu.tieba.qjc;
+import com.baidu.tieba.unc;
+import com.baidu.tieba.wjc;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.internal.operators.BufferUntilSubscriber;
 import rx.subjects.PublishSubject;
 /* loaded from: classes2.dex */
-public class SchedulerWhen extends ljc implements pjc {
-    public static final pjc d = new c();
-    public static final pjc e = ooc.c();
-    public final ljc a;
-    public final jjc<ijc<gjc>> b;
-    public final pjc c;
+public class SchedulerWhen extends mjc implements qjc {
+    public static final qjc d = new c();
+    public static final qjc e = poc.c();
+    public final mjc a;
+    public final kjc<jjc<hjc>> b;
+    public final qjc c;
 
     /* loaded from: classes2.dex */
-    public static class c implements pjc {
-        @Override // com.baidu.tieba.pjc
+    public static class c implements qjc {
+        @Override // com.baidu.tieba.qjc
         public boolean isUnsubscribed() {
             return false;
         }
 
-        @Override // com.baidu.tieba.pjc
+        @Override // com.baidu.tieba.qjc
         public void unsubscribe() {
         }
     }
 
     /* loaded from: classes2.dex */
-    public class a implements bkc<ScheduledAction, gjc> {
-        public final /* synthetic */ ljc.a a;
+    public class a implements ckc<ScheduledAction, hjc> {
+        public final /* synthetic */ mjc.a a;
 
         /* renamed from: rx.internal.schedulers.SchedulerWhen$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0732a implements gjc.f {
+        public class C0732a implements hjc.f {
             public final /* synthetic */ ScheduledAction a;
 
             public C0732a(ScheduledAction scheduledAction) {
@@ -49,93 +49,93 @@ public class SchedulerWhen extends ljc implements pjc {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.wjc
+            @Override // com.baidu.tieba.xjc
             /* renamed from: a */
-            public void call(hjc hjcVar) {
-                hjcVar.onSubscribe(this.a);
-                this.a.call(a.this.a, hjcVar);
+            public void call(ijc ijcVar) {
+                ijcVar.onSubscribe(this.a);
+                this.a.call(a.this.a, ijcVar);
             }
         }
 
-        public a(SchedulerWhen schedulerWhen, ljc.a aVar) {
+        public a(SchedulerWhen schedulerWhen, mjc.a aVar) {
             this.a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bkc
+        @Override // com.baidu.tieba.ckc
         /* renamed from: a */
-        public gjc call(ScheduledAction scheduledAction) {
-            return gjc.b(new C0732a(scheduledAction));
+        public hjc call(ScheduledAction scheduledAction) {
+            return hjc.b(new C0732a(scheduledAction));
         }
     }
 
     /* loaded from: classes2.dex */
     public static class DelayedAction extends ScheduledAction {
-        public final vjc action;
+        public final wjc action;
         public final long delayTime;
         public final TimeUnit unit;
 
-        public DelayedAction(vjc vjcVar, long j, TimeUnit timeUnit) {
-            this.action = vjcVar;
+        public DelayedAction(wjc wjcVar, long j, TimeUnit timeUnit) {
+            this.action = wjcVar;
             this.delayTime = j;
             this.unit = timeUnit;
         }
 
         @Override // rx.internal.schedulers.SchedulerWhen.ScheduledAction
-        public pjc callActual(ljc.a aVar, hjc hjcVar) {
-            return aVar.c(new d(this.action, hjcVar), this.delayTime, this.unit);
+        public qjc callActual(mjc.a aVar, ijc ijcVar) {
+            return aVar.c(new d(this.action, ijcVar), this.delayTime, this.unit);
         }
     }
 
     /* loaded from: classes2.dex */
     public static class ImmediateAction extends ScheduledAction {
-        public final vjc action;
+        public final wjc action;
 
-        public ImmediateAction(vjc vjcVar) {
-            this.action = vjcVar;
+        public ImmediateAction(wjc wjcVar) {
+            this.action = wjcVar;
         }
 
         @Override // rx.internal.schedulers.SchedulerWhen.ScheduledAction
-        public pjc callActual(ljc.a aVar, hjc hjcVar) {
-            return aVar.b(new d(this.action, hjcVar));
+        public qjc callActual(mjc.a aVar, ijc ijcVar) {
+            return aVar.b(new d(this.action, ijcVar));
         }
     }
 
     /* loaded from: classes2.dex */
-    public static abstract class ScheduledAction extends AtomicReference<pjc> implements pjc {
-        public abstract pjc callActual(ljc.a aVar, hjc hjcVar);
+    public static abstract class ScheduledAction extends AtomicReference<qjc> implements qjc {
+        public abstract qjc callActual(mjc.a aVar, ijc ijcVar);
 
         public ScheduledAction() {
             super(SchedulerWhen.d);
         }
 
-        @Override // com.baidu.tieba.pjc
+        @Override // com.baidu.tieba.qjc
         public boolean isUnsubscribed() {
             return get().isUnsubscribed();
         }
 
-        @Override // com.baidu.tieba.pjc
+        @Override // com.baidu.tieba.qjc
         public void unsubscribe() {
-            pjc pjcVar;
-            pjc pjcVar2 = SchedulerWhen.e;
+            qjc qjcVar;
+            qjc qjcVar2 = SchedulerWhen.e;
             do {
-                pjcVar = get();
-                if (pjcVar == SchedulerWhen.e) {
+                qjcVar = get();
+                if (qjcVar == SchedulerWhen.e) {
                     return;
                 }
-            } while (!compareAndSet(pjcVar, pjcVar2));
-            if (pjcVar != SchedulerWhen.d) {
-                pjcVar.unsubscribe();
+            } while (!compareAndSet(qjcVar, qjcVar2));
+            if (qjcVar != SchedulerWhen.d) {
+                qjcVar.unsubscribe();
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void call(ljc.a aVar, hjc hjcVar) {
-            pjc pjcVar = get();
-            if (pjcVar == SchedulerWhen.e || pjcVar != SchedulerWhen.d) {
+        public void call(mjc.a aVar, ijc ijcVar) {
+            qjc qjcVar = get();
+            if (qjcVar == SchedulerWhen.e || qjcVar != SchedulerWhen.d) {
                 return;
             }
-            pjc callActual = callActual(aVar, hjcVar);
+            qjc callActual = callActual(aVar, ijcVar);
             if (!compareAndSet(SchedulerWhen.d, callActual)) {
                 callActual.unsubscribe();
             }
@@ -143,36 +143,36 @@ public class SchedulerWhen extends ljc implements pjc {
     }
 
     /* loaded from: classes2.dex */
-    public class b extends ljc.a {
+    public class b extends mjc.a {
         public final AtomicBoolean a = new AtomicBoolean();
-        public final /* synthetic */ ljc.a b;
-        public final /* synthetic */ jjc c;
+        public final /* synthetic */ mjc.a b;
+        public final /* synthetic */ kjc c;
 
-        public b(SchedulerWhen schedulerWhen, ljc.a aVar, jjc jjcVar) {
+        public b(SchedulerWhen schedulerWhen, mjc.a aVar, kjc kjcVar) {
             this.b = aVar;
-            this.c = jjcVar;
+            this.c = kjcVar;
         }
 
-        @Override // com.baidu.tieba.ljc.a
-        public pjc c(vjc vjcVar, long j, TimeUnit timeUnit) {
-            DelayedAction delayedAction = new DelayedAction(vjcVar, j, timeUnit);
+        @Override // com.baidu.tieba.mjc.a
+        public qjc c(wjc wjcVar, long j, TimeUnit timeUnit) {
+            DelayedAction delayedAction = new DelayedAction(wjcVar, j, timeUnit);
             this.c.onNext(delayedAction);
             return delayedAction;
         }
 
-        @Override // com.baidu.tieba.ljc.a
-        public pjc b(vjc vjcVar) {
-            ImmediateAction immediateAction = new ImmediateAction(vjcVar);
+        @Override // com.baidu.tieba.mjc.a
+        public qjc b(wjc wjcVar) {
+            ImmediateAction immediateAction = new ImmediateAction(wjcVar);
             this.c.onNext(immediateAction);
             return immediateAction;
         }
 
-        @Override // com.baidu.tieba.pjc
+        @Override // com.baidu.tieba.qjc
         public boolean isUnsubscribed() {
             return this.a.get();
         }
 
-        @Override // com.baidu.tieba.pjc
+        @Override // com.baidu.tieba.qjc
         public void unsubscribe() {
             if (this.a.compareAndSet(false, true)) {
                 this.b.unsubscribe();
@@ -182,16 +182,16 @@ public class SchedulerWhen extends ljc implements pjc {
     }
 
     /* loaded from: classes2.dex */
-    public static class d implements vjc {
-        public hjc a;
-        public vjc b;
+    public static class d implements wjc {
+        public ijc a;
+        public wjc b;
 
-        public d(vjc vjcVar, hjc hjcVar) {
-            this.b = vjcVar;
-            this.a = hjcVar;
+        public d(wjc wjcVar, ijc ijcVar) {
+            this.b = wjcVar;
+            this.a = ijcVar;
         }
 
-        @Override // com.baidu.tieba.vjc
+        @Override // com.baidu.tieba.wjc
         public void call() {
             try {
                 this.b.call();
@@ -201,33 +201,33 @@ public class SchedulerWhen extends ljc implements pjc {
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.baidu.tieba.jjc<com.baidu.tieba.ijc<com.baidu.tieba.gjc>> */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.baidu.tieba.kjc<com.baidu.tieba.jjc<com.baidu.tieba.hjc>> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tieba.ljc
-    public ljc.a createWorker() {
-        ljc.a createWorker = this.a.createWorker();
+    @Override // com.baidu.tieba.mjc
+    public mjc.a createWorker() {
+        mjc.a createWorker = this.a.createWorker();
         BufferUntilSubscriber Q = BufferUntilSubscriber.Q();
-        tnc tncVar = new tnc(Q);
+        unc uncVar = new unc(Q);
         Object p = Q.p(new a(this, createWorker));
-        b bVar = new b(this, createWorker, tncVar);
+        b bVar = new b(this, createWorker, uncVar);
         this.b.onNext(p);
         return bVar;
     }
 
-    @Override // com.baidu.tieba.pjc
+    @Override // com.baidu.tieba.qjc
     public boolean isUnsubscribed() {
         return this.c.isUnsubscribed();
     }
 
-    @Override // com.baidu.tieba.pjc
+    @Override // com.baidu.tieba.qjc
     public void unsubscribe() {
         this.c.unsubscribe();
     }
 
-    public SchedulerWhen(bkc<ijc<ijc<gjc>>, gjc> bkcVar, ljc ljcVar) {
-        this.a = ljcVar;
+    public SchedulerWhen(ckc<jjc<jjc<hjc>>, hjc> ckcVar, mjc mjcVar) {
+        this.a = mjcVar;
         PublishSubject Q = PublishSubject.Q();
-        this.b = new tnc(Q);
-        this.c = bkcVar.call(Q.v()).f();
+        this.b = new unc(Q);
+        this.c = ckcVar.call(Q.v()).f();
     }
 }

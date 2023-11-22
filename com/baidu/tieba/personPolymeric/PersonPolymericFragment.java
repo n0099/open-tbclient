@@ -45,13 +45,14 @@ import com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.al9;
 import com.baidu.tieba.bp4;
-import com.baidu.tieba.bu9;
-import com.baidu.tieba.e5a;
-import com.baidu.tieba.k6a;
+import com.baidu.tieba.cu9;
+import com.baidu.tieba.f5a;
+import com.baidu.tieba.l6a;
 import com.baidu.tieba.model.SetPrivacyModel;
-import com.baidu.tieba.p6a;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.tieba.q6a;
 import com.baidu.tieba.qd;
 import com.baidu.tieba.rate.RateManager;
 import com.baidu.tieba.redtip.PersonRedTipManager;
@@ -59,7 +60,6 @@ import com.baidu.tieba.tbadkCore.model.ForumManageModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.view.Thread2GroupShareView;
-import com.baidu.tieba.zk9;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -89,7 +89,7 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
     public ShareSuccessReplyToServerModel h;
     public boolean i;
     public String j;
-    public k6a k;
+    public l6a k;
     public long l;
     public String m;
     public String n;
@@ -152,7 +152,7 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
             public void run() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a.getPageContext().getPageActivity() != null) {
-                    bu9.a(this.b.a.getPageContext(), this.a).show();
+                    cu9.a(this.b.a.getPageContext(), this.a).show();
                 }
             }
         }
@@ -380,7 +380,7 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
             if (data instanceof String) {
                 String str = (String) data;
                 if (!TextUtils.isEmpty(str) && this.a.k != null) {
-                    p6a p = this.a.k.p(true);
+                    q6a p = this.a.k.p(true);
                     this.a.j = str;
                     if (p != null && (j = p.j()) != null) {
                         j.setName_show(str);
@@ -629,8 +629,8 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null) {
             try {
                 PostWriteCallBackData postWriteCallBackData = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
-                k6a k6aVar = this.k;
-                if (k6aVar != null && !k6aVar.k(postWriteCallBackData)) {
+                l6a l6aVar = this.k;
+                if (l6aVar != null && !l6aVar.k(postWriteCallBackData)) {
                     this.k.y(postWriteCallBackData);
                 }
             } catch (Exception e2) {
@@ -654,9 +654,9 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
             super.onChangeSkinType(i2);
-            k6a k6aVar = this.k;
-            if (k6aVar != null) {
-                k6aVar.s(i2);
+            l6a l6aVar = this.k;
+            if (l6aVar != null) {
+                l6aVar.s(i2);
             }
         }
     }
@@ -801,9 +801,9 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                 voiceManager.onDestory(getPageContext());
             }
             this.e = null;
-            k6a k6aVar = this.k;
-            if (k6aVar != null) {
-                k6aVar.t();
+            l6a l6aVar = this.k;
+            if (l6aVar != null) {
+                l6aVar.t();
             }
             BdAsyncTask.removeAllTask(SetPrivacyModel.UNIQUE_ID_SET_PRIVACY_TASK);
             BdAsyncTask.removeAllTask(ForumManageModel.UNIQUE_ID_DEL_POST_TASK);
@@ -959,9 +959,9 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            this.k = new k6a(this, this.g, getUniqueId(), this.a, this.b, this.f, this.c);
+            this.k = new l6a(this, this.g, getUniqueId(), this.a, this.b, this.f, this.c);
             this.h = new ShareSuccessReplyToServerModel();
-            e5a.d().k(System.currentTimeMillis() - e5a.d().a());
+            f5a.d().k(System.currentTimeMillis() - f5a.d().a());
         }
     }
 
@@ -983,8 +983,8 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, bundle) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            e5a.d().i();
-            e5a.d().j(currentTimeMillis);
+            f5a.d().i();
+            f5a.d().j(currentTimeMillis);
             super.onCreate(bundle);
             VoiceManager X0 = X0();
             this.e = X0;
@@ -996,11 +996,11 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
 
     @Override // androidx.fragment.app.Fragment
     public void onActivityResult(int i2, int i3, Intent intent) {
-        k6a k6aVar;
-        k6a k6aVar2;
+        l6a l6aVar;
+        l6a l6aVar2;
         String str;
         ShareSuccessReplyToServerModel shareSuccessReplyToServerModel;
-        k6a k6aVar3;
+        l6a l6aVar3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048587, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
@@ -1018,15 +1018,15 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                                                 }
                                                 int intExtra = intent.getIntExtra("upload_image_type", 0);
                                                 if (intExtra == 1) {
-                                                    k6a k6aVar4 = this.k;
-                                                    if (k6aVar4 != null) {
-                                                        k6aVar4.n().b().M().q();
+                                                    l6a l6aVar4 = this.k;
+                                                    if (l6aVar4 != null) {
+                                                        l6aVar4.n().b().M().q();
                                                         this.k.a();
                                                         return;
                                                     }
                                                     return;
-                                                } else if (intExtra == 2 && (k6aVar3 = this.k) != null) {
-                                                    k6aVar3.i();
+                                                } else if (intExtra == 2 && (l6aVar3 = this.k) != null) {
+                                                    l6aVar3.i();
                                                     return;
                                                 } else {
                                                     return;
@@ -1051,9 +1051,9 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                                                 return;
                                             }
                                             return;
-                                        } else if (intent != null && (this.k.n() instanceof zk9)) {
-                                            ((zk9) this.k.n()).resetData();
-                                            ((zk9) this.k.n()).c();
+                                        } else if (intent != null && (this.k.n() instanceof al9)) {
+                                            ((al9) this.k.n()).resetData();
+                                            ((al9) this.k.n()).c();
                                             return;
                                         } else {
                                             return;
@@ -1070,21 +1070,21 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                         } else {
                             int intExtra4 = intent.getIntExtra("upload_image_type", 0);
                             if (intExtra4 == 1) {
-                                k6a k6aVar5 = this.k;
-                                if (k6aVar5 != null) {
-                                    k6aVar5.n().b().M().q();
+                                l6a l6aVar5 = this.k;
+                                if (l6aVar5 != null) {
+                                    l6aVar5.n().b().M().q();
                                     this.k.a();
                                 }
-                            } else if (intExtra4 == 2 && (k6aVar2 = this.k) != null) {
-                                k6aVar2.i();
+                            } else if (intExtra4 == 2 && (l6aVar2 = this.k) != null) {
+                                l6aVar2.i();
                             }
                         }
-                    } else if (intent != null && (k6aVar = this.k) != null) {
-                        k6aVar.n().b().M().A(intent);
+                    } else if (intent != null && (l6aVar = this.k) != null) {
+                        l6aVar.n().b().M().A(intent);
                     }
-                } else if (this.k.n() instanceof zk9) {
-                    ((zk9) this.k.n()).resetData();
-                    ((zk9) this.k.n()).c();
+                } else if (this.k.n() instanceof al9) {
+                    ((al9) this.k.n()).resetData();
+                    ((al9) this.k.n()).c();
                 }
             }
         }

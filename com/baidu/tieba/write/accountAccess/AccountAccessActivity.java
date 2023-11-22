@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.b9b;
 import com.baidu.tieba.c9b;
+import com.baidu.tieba.d9b;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,8 +29,8 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static final String j;
     public static final String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public c9b a;
-    public b9b b;
+    public d9b a;
+    public c9b b;
     public NewWriteModel c;
     public AccessState d;
     public WriteData e;
@@ -130,7 +130,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new c9b(this);
+            this.a = new d9b(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
@@ -151,9 +151,9 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                     }
                     newWriteModel2.k0(z);
                 }
-                b9b b9bVar = new b9b(this.a, this.c);
-                this.b = b9bVar;
-                this.a.m(b9bVar);
+                c9b c9bVar = new c9b(this.a, this.c);
+                this.b = c9bVar;
+                this.a.m(c9bVar);
                 this.b.h(J0());
                 return;
             }

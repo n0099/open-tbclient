@@ -1,9 +1,0 @@
-package com.baidu.tieba;
-/* loaded from: classes7.dex */
-public interface lo8 {
-    int h();
-
-    int q();
-
-    void reset();
-}

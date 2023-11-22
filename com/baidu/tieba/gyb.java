@@ -1,39 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.sdk.api.SplashAd;
-import com.baidu.searchbox.player.model.YYOption;
-import com.baidu.tieba.zyb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.AdReporter;
-import java.util.HashMap;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class gyb<A extends zyb> extends ReporterPidLoader<A> {
+public class gyb extends pyb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public gyb(FunAdType funAdType, Ssp.Pid pid) {
-        this(funAdType, pid, true);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gyb(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,126 +34,51 @@ public abstract class gyb<A extends zyb> extends ReporterPidLoader<A> {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public gyb(FunAdType funAdType, Ssp.Pid pid, boolean z) {
-        this(funAdType, pid, z, false);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public gyb(FunAdType funAdType, Ssp.Pid pid, boolean z, boolean z2) {
-        this(funAdType, pid, z, z2, false);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gyb(FunAdType funAdType, Ssp.Pid pid, boolean z, boolean z2, boolean z3) {
-        super(funAdType, pid, z, z2, z3);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.ReporterPidLoader
-    public AdReporter<A> createAdReporter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new sxb(this.mPid) : (AdReporter) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public double getAdBiddingPrices(Object obj) {
+    @Override // com.baidu.tieba.pyb
+    public JSONObject c(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             try {
-                return Double.parseDouble(((zyb) obj).a()) / 100.0d;
+                if (obj instanceof zxb) {
+                    Field declaredField = obj.getClass().getSuperclass().getDeclaredField("mAdProd");
+                    declaredField.setAccessible(true);
+                    Object obj2 = declaredField.get(obj);
+                    if (obj2 == null) {
+                        return null;
+                    }
+                    Field declaredField2 = obj2.getClass().getSuperclass().getSuperclass().getDeclaredField("k");
+                    declaredField2.setAccessible(true);
+                    Object obj3 = declaredField2.get(obj2);
+                    if (obj3 == null) {
+                        return null;
+                    }
+                    Field declaredField3 = obj3.getClass().getDeclaredField("adProdTemplate");
+                    declaredField3.setAccessible(true);
+                    Object obj4 = declaredField3.get(obj3);
+                    if (obj4 == null) {
+                        return null;
+                    }
+                    Field declaredField4 = obj4.getClass().getSuperclass().getDeclaredField("f");
+                    declaredField4.setAccessible(true);
+                    Object obj5 = declaredField4.get(obj4);
+                    if (obj5 == null) {
+                        return null;
+                    }
+                    Field declaredField5 = obj5.getClass().getDeclaredField("p");
+                    declaredField5.setAccessible(true);
+                    Object obj6 = declaredField5.get(obj5);
+                    if (obj6 instanceof JSONObject) {
+                        return (JSONObject) obj6;
+                    }
+                    return null;
+                }
+                return null;
             } catch (Exception unused) {
-                return 0.0d;
+                LogPrinter.d();
+                return null;
             }
         }
-        return invokeL.doubleValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void setAdBiddingResult(Object obj, String str, double d, double d2, boolean z, int i) {
-        int i2;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{obj, str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            zyb zybVar = (zyb) obj;
-            String valueOf = String.valueOf(d2 * 100.0d);
-            if (z) {
-                zybVar.a(valueOf);
-                return;
-            }
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put(SplashAd.KEY_BIDFAIL_ECPM, Integer.valueOf((int) (d * 100.0d)));
-            if (str.equals(FunAdSdk.PLATFORM_CSJ)) {
-                i2 = 1;
-            } else if (str.equals(FunAdSdk.PLATFORM_GDT)) {
-                i2 = 2;
-            } else if (str.equals(FunAdSdk.PLATFORM_KS)) {
-                i2 = 3;
-            } else if (str.equals(FunAdSdk.PLATFORM_SIG)) {
-                i2 = 4;
-            } else if (str.equals("baidu") && !this.mPid.isBidding) {
-                i2 = 9;
-            } else {
-                i2 = 10;
-            }
-            hashMap.put(SplashAd.KEY_BIDFAIL_ADN, Integer.valueOf(i2));
-            if (i == 3) {
-                str2 = YYOption.UrlProtocol.USER;
-            } else if (i == 5) {
-                str2 = "900";
-            } else {
-                str2 = "203";
-            }
-            zybVar.a(str2, hashMap);
-        }
+        return (JSONObject) invokeL.objValue;
     }
 }

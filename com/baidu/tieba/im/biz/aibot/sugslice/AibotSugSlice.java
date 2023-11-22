@@ -16,15 +16,15 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cn8;
-import com.baidu.tieba.co8;
+import com.baidu.tieba.dn8;
+import com.baidu.tieba.do8;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.im.biz.aibot.data.AibotChatDetail;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.tieba.impersonal.databinding.ImSugSliceLayoutBinding;
-import com.baidu.tieba.n0b;
-import com.baidu.tieba.rn8;
-import com.baidu.tieba.tn8;
+import com.baidu.tieba.o0b;
+import com.baidu.tieba.sn8;
+import com.baidu.tieba.un8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,12 +41,12 @@ import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000\u0081\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\f*\u0001%\u0018\u0000 F2\u00020\u00012\u00020\u0002:\u0001FB#\u0012\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u0004\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\u0006\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\b\u0010-\u001a\u00020.H\u0002J\u0006\u0010/\u001a\u00020.J\b\u00100\u001a\u00020\u0012H\u0002J\u0016\u00101\u001a\u00020.2\f\u0010\u001e\u001a\b\u0012\u0004\u0012\u00020 0\u001fH\u0007J\u0010\u00102\u001a\u00020.2\u0006\u00103\u001a\u00020\u001aH\u0016J\b\u00104\u001a\u00020.H\u0016J\"\u00105\u001a\u00020\u00072\u0006\u00106\u001a\u0002072\u0006\u00108\u001a\u0002092\b\u0010:\u001a\u0004\u0018\u00010;H\u0016J\b\u0010<\u001a\u00020.H\u0016J\u0010\u0010=\u001a\u00020.2\u0006\u0010>\u001a\u00020\"H\u0016J\u0018\u0010?\u001a\u00020.2\u0006\u0010@\u001a\u00020\u001a2\u0006\u0010A\u001a\u00020\u0012H\u0016J\u001c\u0010B\u001a\u00020.2\b\u0010C\u001a\u0004\u0018\u00010\u00072\b\u0010:\u001a\u0004\u0018\u00010;H\u0016J\u0010\u0010D\u001a\u00020.2\u0006\u0010E\u001a\u00020\u001aH\u0002R\u001b\u0010\u000b\u001a\u00020\f8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000f\u0010\u0010\u001a\u0004\b\r\u0010\u000eR\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010\u0013\u001a\u0004\u0018\u00010\u0014X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0015\u0010\u0016\"\u0004\b\u0017\u0010\u0018R\u001b\u0010\u0019\u001a\u00020\u001a8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001d\u0010\u0010\u001a\u0004\b\u001b\u0010\u001cR\u0016\u0010\u001e\u001a\n\u0012\u0004\u0012\u00020 \u0018\u00010\u001fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010!\u001a\u0004\u0018\u00010\"X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010#\u001a\u00020\u001aX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010$\u001a\u00020%X\u0082\u0004¢\u0006\u0004\n\u0002\u0010&R\u0014\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u0011\u0010\b\u001a\u00020\t¢\u0006\b\n\u0000\u001a\u0004\b'\u0010(R\u000e\u0010)\u001a\u00020*X\u0082.¢\u0006\u0002\n\u0000R\u0011\u0010\u0006\u001a\u00020\u0007¢\u0006\b\n\u0000\u001a\u0004\b+\u0010,¨\u0006G"}, d2 = {"Lcom/baidu/tieba/im/biz/aibot/sugslice/AibotSugSlice;", "Lcom/baidu/tieba/im/base/core/slice/Slice;", "Lcom/baidu/tieba/im/biz/aibot/IPageChangeNotify;", "pageContent", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "sugContainer", "Landroid/view/View;", "processor", "Lcom/baidu/tieba/im/base/core/uilist/AbilityProcessor;", "(Lcom/baidu/tbadk/TbPageContext;Landroid/view/View;Lcom/baidu/tieba/im/base/core/uilist/AbilityProcessor;)V", "adapter", "Lcom/baidu/tieba/im/biz/aibot/sugslice/ImSugAdapter;", "getAdapter", "()Lcom/baidu/tieba/im/biz/aibot/sugslice/ImSugAdapter;", "adapter$delegate", "Lkotlin/Lazy;", "changePageNeedShowDefaultSug", "", "currTopicInfo", "Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$TopicInfo;", "getCurrTopicInfo", "()Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$TopicInfo;", "setCurrTopicInfo", "(Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$TopicInfo;)V", "fadingDuration", "", "getFadingDuration", "()I", "fadingDuration$delegate", "items", "", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem;", "mChatDetail", "Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail;", "mPageState", "onNotifyUpdateSug", "com/baidu/tieba/im/biz/aibot/sugslice/AibotSugSlice$onNotifyUpdateSug$1", "Lcom/baidu/tieba/im/biz/aibot/sugslice/AibotSugSlice$onNotifyUpdateSug$1;", "getProcessor", "()Lcom/baidu/tieba/im/base/core/uilist/AbilityProcessor;", "rootViewBinding", "Lcom/baidu/tieba/impersonal/databinding/ImSugSliceLayoutBinding;", "getSugContainer", "()Landroid/view/View;", "executeShowSugAnimation", "", "hideSug", "isChatPageState", "notifySugUI", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onCreate", "onCreateView", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", "savedInstanceState", "Landroid/os/Bundle;", MissionEvent.MESSAGE_DESTROY, "onSetChatDetail", "chatDetail", "onSetPageState", "state", "refreshPage", "onViewCreated", "view", "processTopicSugInfo", "index", "Companion", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class AibotSugSlice extends Slice implements tn8 {
+public final class AibotSugSlice extends Slice implements un8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<BaseFragmentActivity> j;
     public final View k;
-    public final cn8 l;
+    public final dn8 l;
     public final Lazy m;
     public ImSugSliceLayoutBinding n;
     public List<AbilityItem> o;
@@ -73,7 +73,7 @@ public final class AibotSugSlice extends Slice implements tn8 {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a extends co8 {
+    public static final class a extends do8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AibotSugSlice c;
@@ -105,7 +105,7 @@ public final class AibotSugSlice extends Slice implements tn8 {
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
                 int i = 0;
-                rn8.a.a("AibotSugSlice onNotifyUpdateSug");
+                sn8.a.a("AibotSugSlice onNotifyUpdateSug");
                 if (this.c.m0()) {
                     return;
                 }
@@ -113,8 +113,8 @@ public final class AibotSugSlice extends Slice implements tn8 {
                     i = new JSONObject(data).optInt("index");
                 } catch (Exception e) {
                     if (!TbadkApplication.getInst().isDebugMode()) {
-                        rn8 rn8Var = rn8.a;
-                        rn8Var.a("AibotSugSlice AibotSugSlice" + e.getMessage());
+                        sn8 sn8Var = sn8.a;
+                        sn8Var.a("AibotSugSlice AibotSugSlice" + e.getMessage());
                     } else {
                         throw new IllegalArgumentException("index解析异常 " + e.getMessage());
                     }
@@ -124,7 +124,7 @@ public final class AibotSugSlice extends Slice implements tn8 {
         }
     }
 
-    public AibotSugSlice(TbPageContext<BaseFragmentActivity> pageContent, View sugContainer, cn8 processor) {
+    public AibotSugSlice(TbPageContext<BaseFragmentActivity> pageContent, View sugContainer, dn8 processor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -208,7 +208,7 @@ public final class AibotSugSlice extends Slice implements tn8 {
         }
     }
 
-    @Override // com.baidu.tieba.tn8
+    @Override // com.baidu.tieba.un8
     public void N(AibotChatDetail chatDetail) {
         boolean z;
         Interceptable interceptable = $ic;
@@ -253,7 +253,7 @@ public final class AibotSugSlice extends Slice implements tn8 {
         }
     }
 
-    @Override // com.baidu.tieba.tn8
+    @Override // com.baidu.tieba.un8
     public void S1(int i, boolean z) {
         AibotChatDetail aibotChatDetail;
         Interceptable interceptable = $ic;
@@ -323,7 +323,7 @@ public final class AibotSugSlice extends Slice implements tn8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.k.setVisibility(0);
-            n0b.d(this.k, j0());
+            o0b.d(this.k, j0());
         }
     }
 
@@ -354,13 +354,13 @@ public final class AibotSugSlice extends Slice implements tn8 {
         return invokeV.intValue;
     }
 
-    public final cn8 k0() {
+    public final dn8 k0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.l;
         }
-        return (cn8) invokeV.objValue;
+        return (dn8) invokeV.objValue;
     }
 
     public final void l0() {
@@ -387,7 +387,7 @@ public final class AibotSugSlice extends Slice implements tn8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onDestroy();
-            co8.b.b(this.u);
+            do8.b.b(this.u);
         }
     }
 
@@ -396,7 +396,7 @@ public final class AibotSugSlice extends Slice implements tn8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.w();
-            co8.b.a(this.u);
+            do8.b.a(this.u);
         }
     }
 

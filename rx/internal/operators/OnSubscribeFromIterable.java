@@ -1,105 +1,105 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.hkc;
-import com.baidu.tieba.ijc;
-import com.baidu.tieba.kjc;
-import com.baidu.tieba.ojc;
-import com.baidu.tieba.ujc;
+import com.baidu.tieba.ikc;
+import com.baidu.tieba.jjc;
+import com.baidu.tieba.ljc;
+import com.baidu.tieba.pjc;
+import com.baidu.tieba.vjc;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes2.dex */
-public final class OnSubscribeFromIterable<T> implements ijc.a<T> {
+public final class OnSubscribeFromIterable<T> implements jjc.a<T> {
     public final Iterable<? extends T> a;
 
     /* loaded from: classes2.dex */
-    public static final class IterableProducer<T> extends AtomicLong implements kjc {
+    public static final class IterableProducer<T> extends AtomicLong implements ljc {
         public static final long serialVersionUID = -8730475647105475802L;
         public final Iterator<? extends T> it;
-        public final ojc<? super T> o;
+        public final pjc<? super T> o;
 
-        public IterableProducer(ojc<? super T> ojcVar, Iterator<? extends T> it) {
-            this.o = ojcVar;
+        public IterableProducer(pjc<? super T> pjcVar, Iterator<? extends T> it) {
+            this.o = pjcVar;
             this.it = it;
         }
 
         /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
         public void fastPath() {
-            ojc<? super T> ojcVar = this.o;
+            pjc<? super T> pjcVar = this.o;
             Iterator<? extends T> it = this.it;
-            while (!ojcVar.isUnsubscribed()) {
+            while (!pjcVar.isUnsubscribed()) {
                 try {
-                    ojcVar.onNext((T) it.next());
-                    if (ojcVar.isUnsubscribed()) {
+                    pjcVar.onNext((T) it.next());
+                    if (pjcVar.isUnsubscribed()) {
                         return;
                     }
                     try {
                         if (!it.hasNext()) {
-                            if (!ojcVar.isUnsubscribed()) {
-                                ojcVar.onCompleted();
+                            if (!pjcVar.isUnsubscribed()) {
+                                pjcVar.onCompleted();
                                 return;
                             }
                             return;
                         }
                     } catch (Throwable th) {
-                        ujc.f(th, ojcVar);
+                        vjc.f(th, pjcVar);
                         return;
                     }
                 } catch (Throwable th2) {
-                    ujc.f(th2, ojcVar);
+                    vjc.f(th2, pjcVar);
                     return;
                 }
             }
         }
 
-        @Override // com.baidu.tieba.kjc
+        @Override // com.baidu.tieba.ljc
         public void request(long j) {
             if (get() == Long.MAX_VALUE) {
                 return;
             }
             if (j == Long.MAX_VALUE && compareAndSet(0L, Long.MAX_VALUE)) {
                 fastPath();
-            } else if (j > 0 && hkc.b(this, j) == 0) {
+            } else if (j > 0 && ikc.b(this, j) == 0) {
                 slowPath(j);
             }
         }
 
         /* JADX DEBUG: Type inference failed for r6v2. Raw type applied. Possible types: T, ? super T */
         public void slowPath(long j) {
-            ojc<? super T> ojcVar = this.o;
+            pjc<? super T> pjcVar = this.o;
             Iterator<? extends T> it = this.it;
             do {
                 long j2 = 0;
                 while (true) {
                     if (j2 != j) {
-                        if (ojcVar.isUnsubscribed()) {
+                        if (pjcVar.isUnsubscribed()) {
                             return;
                         }
                         try {
-                            ojcVar.onNext((T) it.next());
-                            if (ojcVar.isUnsubscribed()) {
+                            pjcVar.onNext((T) it.next());
+                            if (pjcVar.isUnsubscribed()) {
                                 return;
                             }
                             try {
                                 if (!it.hasNext()) {
-                                    if (!ojcVar.isUnsubscribed()) {
-                                        ojcVar.onCompleted();
+                                    if (!pjcVar.isUnsubscribed()) {
+                                        pjcVar.onCompleted();
                                         return;
                                     }
                                     return;
                                 }
                                 j2++;
                             } catch (Throwable th) {
-                                ujc.f(th, ojcVar);
+                                vjc.f(th, pjcVar);
                                 return;
                             }
                         } catch (Throwable th2) {
-                            ujc.f(th2, ojcVar);
+                            vjc.f(th2, pjcVar);
                             return;
                         }
                     } else {
                         j = get();
                         if (j2 == j) {
-                            j = hkc.g(this, j2);
+                            j = ikc.g(this, j2);
                         }
                     }
                 }
@@ -116,21 +116,21 @@ public final class OnSubscribeFromIterable<T> implements ijc.a<T> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wjc
+    @Override // com.baidu.tieba.xjc
     /* renamed from: a */
-    public void call(ojc<? super T> ojcVar) {
+    public void call(pjc<? super T> pjcVar) {
         try {
             Iterator<? extends T> it = this.a.iterator();
             boolean hasNext = it.hasNext();
-            if (!ojcVar.isUnsubscribed()) {
+            if (!pjcVar.isUnsubscribed()) {
                 if (!hasNext) {
-                    ojcVar.onCompleted();
+                    pjcVar.onCompleted();
                 } else {
-                    ojcVar.f(new IterableProducer(ojcVar, it));
+                    pjcVar.f(new IterableProducer(pjcVar, it));
                 }
             }
         } catch (Throwable th) {
-            ujc.f(th, ojcVar);
+            vjc.f(th, pjcVar);
         }
     }
 }

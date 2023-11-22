@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bw4;
-import com.baidu.tieba.qt5;
-import com.baidu.tieba.tpa;
+import com.baidu.tieba.rt5;
+import com.baidu.tieba.upa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -71,11 +71,11 @@ public class RecommendInfoLayout extends RelativeLayout {
                 return;
             }
             if (view2.getContext() instanceof BaseActivity) {
-                qt5.f(((BaseActivity) view2.getContext()).getPageContext(), String.valueOf(this.a), null);
+                rt5.f(((BaseActivity) view2.getContext()).getPageContext(), String.valueOf(this.a), null);
             } else {
                 new HotTopicActivityConfig(this.c.getContext()).createNormalConfig(String.valueOf(this.a), null, null, "2").start();
             }
-            tpa.w(this.b, 2, 1);
+            upa.w(this.b, 2, 1);
         }
     }
 

@@ -7,7 +7,7 @@ import android.os.IBinder;
 import androidx.annotation.Nullable;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ar6;
+import com.baidu.tieba.br6;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.qh;
 import com.baidu.tieba.sh;
@@ -159,7 +159,7 @@ public class TitanDownloadService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, i, i2)) == null) {
             this.mContext = getApplicationContext();
-            ar6.a(new a(this, new b(this, i2)), "titan_sandbox_downloader", 0);
+            br6.a(new a(this, new b(this, i2)), "titan_sandbox_downloader", 0);
             return super.onStartCommand(intent, i, i2);
         }
         return invokeLII.intValue;

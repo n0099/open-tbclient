@@ -3,24 +3,71 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.PollData;
-import com.baidu.tbadk.core.data.PollOptionData;
-import com.baidu.tbadk.core.view.VoteView;
-import com.baidu.tieba.t27;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.util.ItemClickJumpUtil;
+import com.baidu.tbadk.core.view.ItemCardView;
+import com.baidu.tieba.u27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class eo6 implements t27.k {
+public class eo6 implements u27.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z37 a;
+        public final /* synthetic */ ItemData b;
+
+        public a(eo6 eo6Var, z37 z37Var, ItemData itemData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eo6Var, z37Var, itemData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z37Var;
+            this.b = itemData;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                int i = 1;
+                int i2 = 2;
+                if (this.a.c() != null) {
+                    if (ImageViewerConfig.FROM_CONCERN.equals(this.a.c().b)) {
+                        i = 2;
+                    } else if ("recommend".equals(this.a.c().b)) {
+                        i2 = 1;
+                    }
+                    ItemData itemData = this.b;
+                    ItemClickJumpUtil.itemClickJump(itemData.forumName, String.valueOf(itemData.itemId), i, Integer.valueOf(i2));
+                }
+                i = 0;
+                i2 = 0;
+                ItemData itemData2 = this.b;
+                ItemClickJumpUtil.itemClickJump(itemData2.forumName, String.valueOf(itemData2.itemId), i, Integer.valueOf(i2));
+            }
+        }
+    }
 
     public eo6() {
         Interceptable interceptable = $ic;
@@ -36,101 +83,71 @@ public final class eo6 implements t27.k {
         }
     }
 
-    public static final void l(ViewGroup view2, m47 state, View view3) {
+    @Override // com.baidu.tieba.u27.s
+    public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, view2, state, view3) == null) {
-            Intrinsics.checkNotNullParameter(view2, "$view");
-            Intrinsics.checkNotNullParameter(state, "$state");
-            ga7.c(((VoteView) view2).getContext(), state.d().g());
+        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof ItemCardView)) {
+            ((ItemCardView) viewGroup).M();
         }
     }
 
-    @Override // com.baidu.tieba.t27.s
-    public void b(ViewGroup view2) {
-        VoteView voteView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            if (view2 instanceof VoteView) {
-                voteView = (VoteView) view2;
-            } else {
-                voteView = null;
-            }
-            if (voteView == null) {
-                return;
-            }
-            voteView.D(TbadkApplication.getInst().getSkinType());
-        }
-    }
-
-    @Override // com.baidu.tieba.t27.k
-    public void c(final ViewGroup view2, final m47 state) {
-        VoteView voteView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, state) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            Intrinsics.checkNotNullParameter(state, "state");
-            w77 d = state.d();
-            PollData pollData = new PollData();
-            pollData.setIsPolled(d.m());
-            pollData.setTotalNum(d.c());
-            pollData.setOptionsCount(d.e());
-            pollData.setEndTime(d.a());
-            pollData.setIsMulti(d.l());
-            pollData.setLastTime(d.d());
-            pollData.setTitle(d.i());
-            pollData.setEndTime(d.a());
-            pollData.setTotalPoll(d.j());
-            pollData.setPolledValue(d.f());
-            ArrayList arrayList = new ArrayList();
-            for (x77 x77Var : d.k()) {
-                PollOptionData pollOptionData = new PollOptionData();
-                pollOptionData.setId(x77Var.a());
-                pollOptionData.setNum(x77Var.b());
-                pollOptionData.setText(x77Var.c());
-                arrayList.add(pollOptionData);
-            }
-            pollData.setOptions(arrayList);
-            if (view2 instanceof VoteView) {
-                voteView = (VoteView) view2;
-            } else {
-                voteView = null;
-            }
-            if (voteView == null) {
-                return;
-            }
-            voteView.setData(pollData, state.d().h(), state.d().b());
-            voteView.setupLiveThreadVoteInfo(state.e());
-            voteView.setOnItemClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.rn6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view3) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                        eo6.l(view2, state, view3);
-                    }
-                }
-            });
-        }
-    }
-
-    @Override // com.baidu.tieba.t27.k
+    @Override // com.baidu.tieba.u27.j
+    @NonNull
     public ViewGroup create(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            VoteView voteView = new VoteView(context);
-            if (context instanceof TbPageContextSupport) {
-                voteView.setPageContext(((TbPageContextSupport) context).getPageContext());
-            }
-            if (context instanceof fr6) {
-                voteView.setPageContext(((fr6) context).getPageContext());
-            }
-            return voteView;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return new ItemCardView(context);
         }
         return (ViewGroup) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.u27.j
+    public void d(@NonNull ViewGroup viewGroup, @NonNull z37 z37Var) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, z37Var) == null) && viewGroup != null && z37Var != null && z37Var.a() != null) {
+            x67 a2 = z37Var.a();
+            ItemData itemData = new ItemData();
+            itemData.itemId = a2.a;
+            itemData.buttonName = a2.h;
+            itemData.buttonLink = a2.i;
+            int i = 2;
+            itemData.buttonLinkType = 2;
+            itemData.mIconUrl = a2.b;
+            itemData.mTitle = a2.d;
+            itemData.mTags = a2.g;
+            itemData.mScore = a2.f;
+            itemData.mStar = a2.e;
+            itemData.mIconSize = a2.c;
+            itemData.forumName = a2.k;
+            int i2 = a2.j;
+            if (i2 != 0) {
+                ((ItemCardView) viewGroup).setBackGroundColor(i2);
+            }
+            if (z37Var.c() != null) {
+                str = z37Var.c().a;
+            } else {
+                str = "";
+            }
+            if (z37Var.c() != null) {
+                if (!ImageViewerConfig.FROM_CONCERN.equals(z37Var.c().b)) {
+                    if ("recommend".equals(z37Var.c().b)) {
+                        i = 1;
+                    } else {
+                        i = 0;
+                    }
+                }
+                ((ItemCardView) viewGroup).setPosition(i);
+            }
+            ItemCardView itemCardView = (ItemCardView) viewGroup;
+            itemCardView.setIsShowRightBtn(true);
+            itemCardView.setData(itemData, 13, str);
+            if (z37Var.b()) {
+                viewGroup.setOnClickListener(new a(this, z37Var, itemData));
+            } else {
+                viewGroup.setClickable(false);
+            }
+        }
     }
 }

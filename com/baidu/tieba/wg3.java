@@ -55,12 +55,12 @@ public class wg3 extends ku1 {
 
         /* renamed from: com.baidu.tieba.wg3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0516a implements zk3<gh3<fh3>> {
+        public class C0517a implements zk3<gh3<fh3>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0516a(a aVar) {
+            public C0517a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,7 +135,7 @@ public class wg3 extends ku1 {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                dh3.s(this.a).a(this.b, new C0516a(this));
+                dh3.s(this.a).a(this.b, new C0517a(this));
             }
         }
 

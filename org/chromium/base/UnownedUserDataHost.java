@@ -74,7 +74,7 @@ public final class UnownedUserDataHost {
         this.mThreadChecker.assertOnValidThreadAndState();
         WeakReference<? extends UnownedUserData> remove = this.mUnownedUserDataMap.remove(unownedUserDataKey);
         if (remove != null && (unownedUserData = remove.get()) != null && unownedUserData.informOnDetachmentFromHost()) {
-            this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.mhc
+            this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.nhc
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

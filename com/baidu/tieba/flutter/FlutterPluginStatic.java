@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.fg;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.op5;
 import com.baidu.tieba.pf;
+import com.baidu.tieba.pp5;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -84,8 +84,8 @@ public class FlutterPluginStatic {
                     }
                     if (customResponsedMessage.getData() instanceof IntentConfig) {
                         FlutterPluginManager.getInstance().init((IntentConfig) customResponsedMessage.getData());
-                    } else if (customResponsedMessage.getData() instanceof op5) {
-                        FlutterPluginManager.getInstance().init((op5) customResponsedMessage.getData());
+                    } else if (customResponsedMessage.getData() instanceof pp5) {
+                        FlutterPluginManager.getInstance().init((pp5) customResponsedMessage.getData());
                     } else if (customResponsedMessage.getData() instanceof FlutterOpenData) {
                         FlutterPluginManager.getInstance().init((FlutterOpenData) customResponsedMessage.getData());
                     } else {

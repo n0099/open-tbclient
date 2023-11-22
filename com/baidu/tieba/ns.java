@@ -22,7 +22,7 @@ public abstract class ns<T extends bw4> implements it, ht<T> {
     public bu a;
     public Context b;
     public Boolean c;
-    public xl6<T> d;
+    public yl6<T> d;
     public a e;
 
     /* loaded from: classes7.dex */
@@ -75,13 +75,13 @@ public abstract class ns<T extends bw4> implements it, ht<T> {
         this.b = context;
     }
 
-    public xl6<T> d() {
+    public yl6<T> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.d;
         }
-        return (xl6) invokeV.objValue;
+        return (yl6) invokeV.objValue;
     }
 
     public Boolean f() {
@@ -141,10 +141,10 @@ public abstract class ns<T extends bw4> implements it, ht<T> {
         }
     }
 
-    public void n(xl6<T> xl6Var) {
+    public void n(yl6<T> yl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, xl6Var) == null) {
-            this.d = xl6Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, yl6Var) == null) {
+            this.d = yl6Var;
         }
     }
 

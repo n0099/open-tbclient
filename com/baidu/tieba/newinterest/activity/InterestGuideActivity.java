@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ip9;
+import com.baidu.tieba.jp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ip9 a;
+    public jp9 a;
     public int b;
     public String[] c;
     public boolean d;
@@ -90,9 +90,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             m1();
-            ip9 ip9Var = new ip9(this, this.b, this.c, this.d);
-            this.a = ip9Var;
-            setContentView(ip9Var.d());
+            jp9 jp9Var = new jp9(this, this.b, this.c, this.d);
+            this.a = jp9Var;
+            setContentView(jp9Var.d());
             n1();
         }
     }

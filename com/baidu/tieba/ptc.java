@@ -4,30 +4,26 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
 import org.json.JSONObject;
+import tbclient.ForumShowInfo;
 import tbclient.ForumShowInfoTag;
-import tbclient.ThemeColorInfo;
 /* loaded from: classes7.dex */
-public class ptc extends poc {
+public class ptc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ForumShowInfoTag forumShowInfoTag) {
+    public static JSONObject b(@NonNull ForumShowInfo forumShowInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumShowInfoTag)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumShowInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "text", forumShowInfoTag.text);
-            ThemeColorInfo themeColorInfo = forumShowInfoTag.text_color;
-            if (themeColorInfo != null) {
-                poc.a(jSONObject, MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR, p4d.b(themeColorInfo));
+            qoc.a(jSONObject, "content", forumShowInfo.content);
+            ForumShowInfoTag forumShowInfoTag = forumShowInfo.tag;
+            if (forumShowInfoTag != null) {
+                qoc.a(jSONObject, "tag", qtc.b(forumShowInfoTag));
             }
-            ThemeColorInfo themeColorInfo2 = forumShowInfoTag.bg_color;
-            if (themeColorInfo2 != null) {
-                poc.a(jSONObject, "bg_color", p4d.b(themeColorInfo2));
-            }
+            qoc.a(jSONObject, "show_type", forumShowInfo.show_type);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -5,12 +5,12 @@ import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.tieba.jjb;
 import com.baidu.tieba.kjb;
-import com.baidu.tieba.njb;
-import com.baidu.tieba.pjb;
-import com.baidu.tieba.tib;
-import com.baidu.tieba.wib;
+import com.baidu.tieba.ljb;
+import com.baidu.tieba.ojb;
+import com.baidu.tieba.qjb;
+import com.baidu.tieba.uib;
+import com.baidu.tieba.xib;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ import org.chromium.base.annotations.NativeClassQualifiedName;
 @JNINamespace("cronet")
 @VisibleForTesting
 /* loaded from: classes9.dex */
-public final class CronetUrlRequest extends njb {
+public final class CronetUrlRequest extends ojb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
@@ -55,10 +55,10 @@ public final class CronetUrlRequest extends njb {
     public String E;
     public String F;
     public CronetUploadDataStream G;
-    public pjb H;
+    public qjb H;
     public int I;
     public CronetException J;
-    public tib K;
+    public uib K;
     public j L;
     @GuardedBy("mUrlRequestAdapterLock")
     public Runnable M;
@@ -275,16 +275,16 @@ public final class CronetUrlRequest extends njb {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pjb a;
+        public final /* synthetic */ qjb a;
         public final /* synthetic */ String b;
         public final /* synthetic */ CronetUrlRequest c;
 
-        public b(CronetUrlRequest cronetUrlRequest, pjb pjbVar, String str) {
+        public b(CronetUrlRequest cronetUrlRequest, qjb qjbVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cronetUrlRequest, pjbVar, str};
+                Object[] objArr = {cronetUrlRequest, qjbVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -295,7 +295,7 @@ public final class CronetUrlRequest extends njb {
                 }
             }
             this.c = cronetUrlRequest;
-            this.a = pjbVar;
+            this.a = qjbVar;
             this.b = str;
         }
 
@@ -476,7 +476,7 @@ public final class CronetUrlRequest extends njb {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(njb.o(this.b));
+                this.a.a(ojb.o(this.b));
             }
         }
     }
@@ -655,7 +655,7 @@ public final class CronetUrlRequest extends njb {
                     this.D = null;
                     this.E = null;
                     this.F = null;
-                    this.H = new pjb(new ArrayList(this.i), 0, "", new HeadersList(null), false, "", "");
+                    this.H = new qjb(new ArrayList(this.i), 0, "", new HeadersList(null), false, "", "");
                     return;
                 }
                 throw new NullPointerException("Executor is required");
@@ -780,7 +780,7 @@ public final class CronetUrlRequest extends njb {
         }
     }
 
-    @Override // com.baidu.tieba.njb
+    @Override // com.baidu.tieba.ojb
     public void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
@@ -801,7 +801,7 @@ public final class CronetUrlRequest extends njb {
         }
     }
 
-    @Override // com.baidu.tieba.njb
+    @Override // com.baidu.tieba.ojb
     public void n(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048601, this, str, str2) == null) {
@@ -817,7 +817,7 @@ public final class CronetUrlRequest extends njb {
         }
     }
 
-    @Override // com.baidu.tieba.njb
+    @Override // com.baidu.tieba.ojb
     public void q(UploadDataProvider uploadDataProvider, Executor executor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048603, this, uploadDataProvider, executor) == null) {
@@ -846,9 +846,9 @@ public final class CronetUrlRequest extends njb {
     private void onError(int i2, int i3, int i4, String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Long.valueOf(j2)}) == null) {
-            pjb pjbVar = this.H;
-            if (pjbVar != null) {
-                pjbVar.j(j2);
+            qjb qjbVar = this.H;
+            if (qjbVar != null) {
+                qjbVar.j(j2);
             }
             int M = M(i2);
             K(new NetworkExceptionImpl("Exception in CronetUrlRequest: " + str, M, i3));
@@ -898,7 +898,7 @@ public final class CronetUrlRequest extends njb {
     public final void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            wib.v().o(this.b, this);
+            xib.v().o(this.b, this);
         }
     }
 
@@ -927,7 +927,7 @@ public final class CronetUrlRequest extends njb {
         if (interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(j7), Long.valueOf(j8), Long.valueOf(j9), Long.valueOf(j10), Long.valueOf(j11), Long.valueOf(j12), Long.valueOf(j13), Long.valueOf(j14), Boolean.valueOf(z), Long.valueOf(j15), Long.valueOf(j16)}) == null) {
             synchronized (this.f) {
                 if (this.K == null) {
-                    this.K = new tib(j2, j3, j4, j5, j6, j7, j8, j9, j10, j11, j12, j13, j14, z, j15, j16);
+                    this.K = new uib(j2, j3, j4, j5, j6, j7, j8, j9, j10, j11, j12, j13, j14, z, j15, j16);
                 } else {
                     throw new IllegalStateException("Metrics collection should only happen once.");
                 }
@@ -978,7 +978,7 @@ public final class CronetUrlRequest extends njb {
                     if (L()) {
                         return;
                     }
-                    wib.v().k(this.b, this);
+                    xib.v().k(this.b, this);
                     return;
                 }
                 throw new IllegalStateException("No redirect to follow.");
@@ -1009,7 +1009,7 @@ public final class CronetUrlRequest extends njb {
     private void onRedirectReceived(String str, int i2, String str2, String[] strArr, boolean z, String str3, String str4, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{str, Integer.valueOf(i2), str2, strArr, Boolean.valueOf(z), str3, str4, Long.valueOf(j2)}) == null) {
-            pjb R = R(i2, str2, strArr, z, str3, str4, j2);
+            qjb R = R(i2, str2, strArr, z, str3, str4, j2);
             this.i.add(str);
             Q(new b(this, R, str));
         }
@@ -1032,19 +1032,19 @@ public final class CronetUrlRequest extends njb {
             if (this.b == 0) {
                 return;
             }
-            wib.v().s(this.b, this).isEmpty();
-            wib.v().j(this.b, this).isEmpty();
-            wib.v().r(this.b, this).isEmpty();
+            xib.v().s(this.b, this).isEmpty();
+            xib.v().j(this.b, this).isEmpty();
+            xib.v().r(this.b, this).isEmpty();
             boolean z = false;
-            wib.v().e(this.b, this, false).isEmpty();
-            wib.v().e(this.b, this, true).isEmpty();
-            wib.v().t(this.b, this).isEmpty();
-            int i3 = (wib.v().g(this.b, this, 1) > 0L ? 1 : (wib.v().g(this.b, this, 1) == 0L ? 0 : -1));
-            int i4 = (wib.v().g(this.b, this, 2) > 0L ? 1 : (wib.v().g(this.b, this, 2) == 0L ? 0 : -1));
-            int i5 = (wib.v().g(this.b, this, 3) > 0L ? 1 : (wib.v().g(this.b, this, 3) == 0L ? 0 : -1));
-            int i6 = (wib.v().g(this.b, this, 4) > 0L ? 1 : (wib.v().g(this.b, this, 4) == 0L ? 0 : -1));
-            int i7 = (wib.v().g(this.b, this, 5) > 0L ? 1 : (wib.v().g(this.b, this, 5) == 0L ? 0 : -1));
-            RequestTimeInfo i8 = wib.v().i(this.b, this);
+            xib.v().e(this.b, this, false).isEmpty();
+            xib.v().e(this.b, this, true).isEmpty();
+            xib.v().t(this.b, this).isEmpty();
+            int i3 = (xib.v().g(this.b, this, 1) > 0L ? 1 : (xib.v().g(this.b, this, 1) == 0L ? 0 : -1));
+            int i4 = (xib.v().g(this.b, this, 2) > 0L ? 1 : (xib.v().g(this.b, this, 2) == 0L ? 0 : -1));
+            int i5 = (xib.v().g(this.b, this, 3) > 0L ? 1 : (xib.v().g(this.b, this, 3) == 0L ? 0 : -1));
+            int i6 = (xib.v().g(this.b, this, 4) > 0L ? 1 : (xib.v().g(this.b, this, 4) == 0L ? 0 : -1));
+            int i7 = (xib.v().g(this.b, this, 5) > 0L ? 1 : (xib.v().g(this.b, this, 5) == 0L ? 0 : -1));
+            RequestTimeInfo i8 = xib.v().i(this.b, this);
             this.x = i8;
             if (i8 == null) {
                 this.x = new RequestTimeInfo();
@@ -1053,7 +1053,7 @@ public final class CronetUrlRequest extends njb {
                 this.g.y(this);
             }
             this.g.t();
-            i v = wib.v();
+            i v = xib.v();
             long j2 = this.b;
             if (i2 == 2) {
                 z = true;
@@ -1103,15 +1103,15 @@ public final class CronetUrlRequest extends njb {
     public void e(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, byteBuffer) == null) {
-            jjb.b(byteBuffer);
-            jjb.a(byteBuffer);
+            kjb.b(byteBuffer);
+            kjb.a(byteBuffer);
             synchronized (this.f) {
                 if (this.e) {
                     this.e = false;
                     if (L()) {
                         return;
                     }
-                    if (wib.v().d(this.b, this, byteBuffer, byteBuffer.position(), byteBuffer.limit())) {
+                    if (xib.v().d(this.b, this, byteBuffer, byteBuffer.position(), byteBuffer.limit())) {
                         return;
                     }
                     this.e = true;
@@ -1123,15 +1123,15 @@ public final class CronetUrlRequest extends njb {
     }
 
     public final void N() {
-        tib tibVar;
+        uib uibVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (tibVar = this.K) != null) {
-            kjb kjbVar = new kjb(this.k, this.p, tibVar, this.I, this.H, this.J);
-            this.g.z(kjbVar);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (uibVar = this.K) != null) {
+            ljb ljbVar = new ljb(this.k, this.p, uibVar, this.I, this.H, this.J);
+            this.g.z(ljbVar);
             VersionSafeCallbacks.e eVar = this.w;
             if (eVar != null) {
                 try {
-                    eVar.a().execute(new h(this, kjbVar));
+                    eVar.a().execute(new h(this, ljbVar));
                 } catch (RejectedExecutionException e2) {
                     Log.e(CronetUrlRequestContext.s, "Exception posting task to executor", e2);
                 }
@@ -1139,7 +1139,7 @@ public final class CronetUrlRequest extends njb {
         }
     }
 
-    public final pjb R(int i2, String str, String[] strArr, boolean z, String str2, String str3, long j2) {
+    public final qjb R(int i2, String str, String[] strArr, boolean z, String str2, String str3, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), str, strArr, Boolean.valueOf(z), str2, str3, Long.valueOf(j2)})) == null) {
@@ -1147,14 +1147,14 @@ public final class CronetUrlRequest extends njb {
             for (int i3 = 0; i3 < strArr.length; i3 += 2) {
                 headersList.add(new AbstractMap.SimpleImmutableEntry(strArr[i3], strArr[i3 + 1]));
             }
-            return new pjb(new ArrayList(this.i), i2, str, headersList, z, str2, str3, j2);
+            return new qjb(new ArrayList(this.i), i2, str, headersList, z, str2, str3, j2);
         }
-        return (pjb) invokeCommon.objValue;
+        return (qjb) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:107:0x0230 */
     /* JADX WARN: Code restructure failed: missing block: B:79:0x01f1, code lost:
-        if (com.baidu.tieba.wib.v().l(r19.b, r19, "X-From-H3-TRNet", com.baidu.searchbox.player.model.YYOption.IsLive.VALUE_TRUE) == false) goto L84;
+        if (com.baidu.tieba.xib.v().l(r19.b, r19, "X-From-H3-TRNet", com.baidu.searchbox.player.model.YYOption.IsLive.VALUE_TRUE) == false) goto L84;
      */
     /* JADX WARN: Code restructure failed: missing block: B:82:0x01fb, code lost:
         throw new java.lang.IllegalArgumentException("Invalid value for header X-From-H3-TRNet.");
@@ -1199,7 +1199,7 @@ public final class CronetUrlRequest extends njb {
                     Log.i(CronetUrlRequestContext.s, "****** Request start, url is: %s", this.k);
                     G();
                     try {
-                        i v = wib.v();
+                        i v = xib.v();
                         long p = this.g.p();
                         String str = this.k;
                         int i3 = this.l;
@@ -1210,7 +1210,7 @@ public final class CronetUrlRequest extends njb {
                                 z = false;
                                 this.b = v.q(this, p, str, i3, z4, z5, z, this.s, this.t, this.u, this.v, this.m);
                                 this.g.u();
-                                if (this.n != null && !wib.v().f(this.b, this, this.n)) {
+                                if (this.n != null && !xib.v().f(this.b, this, this.n)) {
                                     throw new IllegalArgumentException("Invalid http method " + this.n);
                                 }
                                 if (this.D != null) {
@@ -1219,7 +1219,7 @@ public final class CronetUrlRequest extends njb {
                                 i2 = 1;
                                 if (this.y) {
                                     try {
-                                        wib.v().c(this.b, this);
+                                        xib.v().c(this.b, this);
                                     } catch (RuntimeException e2) {
                                         e = e2;
                                         J(i2);
@@ -1227,22 +1227,22 @@ public final class CronetUrlRequest extends njb {
                                     }
                                 }
                                 if (this.z > 0) {
-                                    wib.v().m(this.b, this, this.z);
+                                    xib.v().m(this.b, this, this.z);
                                 }
                                 if (this.A > 0) {
-                                    wib.v().b(this.b, this, this.A);
+                                    xib.v().b(this.b, this, this.A);
                                 }
                                 if (this.B > 0) {
-                                    wib.v().p(this.b, this, this.B);
+                                    xib.v().p(this.b, this, this.B);
                                 }
                                 if (this.C > 0) {
-                                    wib.v().h(this.b, this, this.C);
+                                    xib.v().h(this.b, this, this.C);
                                 }
                                 if (!TextUtils.isEmpty(this.E)) {
-                                    wib.v().u(this.b, this, this.E);
+                                    xib.v().u(this.b, this, this.E);
                                 }
                                 if (!TextUtils.isEmpty(this.F)) {
-                                    wib.v().a(this.b, this, this.F);
+                                    xib.v().a(this.b, this, this.F);
                                 }
                                 it = this.o.iterator();
                                 boolean z6 = false;
@@ -1258,11 +1258,11 @@ public final class CronetUrlRequest extends njb {
                                     if (next.getKey().equalsIgnoreCase("X-From-H3-TRNet") && !next.getValue().isEmpty()) {
                                         z6 = true;
                                     }
-                                    if (!wib.v().l(this.b, this, next.getKey(), next.getValue())) {
+                                    if (!xib.v().l(this.b, this, next.getKey(), next.getValue())) {
                                         throw new IllegalArgumentException("Invalid header " + next.getKey() + "=" + next.getValue());
                                     }
                                 }
-                                if (!z2 && !wib.v().l(this.b, this, HttpRequest.EXT_HEADER_TRACE_ID, UUID.randomUUID().toString().replace("-", "").toLowerCase())) {
+                                if (!z2 && !xib.v().l(this.b, this, HttpRequest.EXT_HEADER_TRACE_ID, UUID.randomUUID().toString().replace("-", "").toLowerCase())) {
                                     throw new IllegalArgumentException("Invalid value for header X-Bd-Traceid .");
                                 }
                                 if (this.G == null) {

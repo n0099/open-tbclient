@@ -170,11 +170,11 @@ public class iu extends us {
     }
 
     @Override // com.baidu.tieba.ns
-    public void n(xl6<bw4> xl6Var) {
+    public void n(yl6<bw4> yl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, xl6Var) == null) {
-            super.n(xl6Var);
-            this.m.setOnCardSubClickListener(xl6Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, yl6Var) == null) {
+            super.n(yl6Var);
+            this.m.setOnCardSubClickListener(yl6Var);
         }
     }
 

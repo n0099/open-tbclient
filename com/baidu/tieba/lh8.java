@@ -1,17 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class lh8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface lh8 {
+    void H0(int i, List<oi> list);
 
-    public abstract void a();
-
-    public abstract void b(List<oi> list);
-
-    public abstract void c(BdUniqueId bdUniqueId);
+    void c();
 }

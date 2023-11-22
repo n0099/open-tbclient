@@ -21,12 +21,12 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a19;
+import com.baidu.tieba.b19;
 import com.baidu.tieba.im.lib.socket.msg.data.EmojiData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.adapter.EmojiDetailRecyclerAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiDetailUserInfo;
-import com.baidu.tieba.vj5;
-import com.baidu.tieba.w09;
+import com.baidu.tieba.wj5;
+import com.baidu.tieba.x09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,13 +35,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class EmojiDetailFragment extends BaseFragment implements w09 {
+public class EmojiDetailFragment extends BaseFragment implements x09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EmojiDetailRecyclerAdapter a;
     public final TbPageContext<BaseFragmentActivity> b;
     @NonNull
-    public final a19 c;
+    public final b19 c;
     public final BdUniqueId d;
     public boolean e;
     public View f;
@@ -120,17 +120,17 @@ public class EmojiDetailFragment extends BaseFragment implements w09 {
     }
 
     /* loaded from: classes6.dex */
-    public static class c implements w09 {
+    public static class c implements x09 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<w09> a;
+        public final WeakReference<x09> a;
 
-        public c(w09 w09Var) {
+        public c(x09 x09Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {w09Var};
+                Object[] objArr = {x09Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -140,24 +140,24 @@ public class EmojiDetailFragment extends BaseFragment implements w09 {
                     return;
                 }
             }
-            this.a = new WeakReference<>(w09Var);
+            this.a = new WeakReference<>(x09Var);
         }
 
-        @Override // com.baidu.tieba.w09
+        @Override // com.baidu.tieba.x09
         public void a(boolean z, @Nullable List<EmojiDetailUserInfo> list) {
-            w09 w09Var;
+            x09 x09Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) && (w09Var = this.a.get()) != null) {
-                w09Var.a(z, list);
+            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) && (x09Var = this.a.get()) != null) {
+                x09Var.a(z, list);
             }
         }
 
-        @Override // com.baidu.tieba.w09
+        @Override // com.baidu.tieba.x09
         public void onFailure(int i, String str) {
-            w09 w09Var;
+            x09 x09Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && (w09Var = this.a.get()) != null) {
-                w09Var.onFailure(i, str);
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && (x09Var = this.a.get()) != null) {
+                x09Var.onFailure(i, str);
             }
         }
     }
@@ -181,7 +181,7 @@ public class EmojiDetailFragment extends BaseFragment implements w09 {
         this.e = false;
         this.k = new a(this);
         this.b = tbPageContext;
-        this.c = new a19(tbPageContext, emojiData, j, this.d);
+        this.c = new b19(tbPageContext, emojiData, j, this.d);
         this.j = new c(this);
     }
 
@@ -202,9 +202,9 @@ public class EmojiDetailFragment extends BaseFragment implements w09 {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             hideLoading();
             showNetRefreshView(this.g.a, null, false);
-            vj5 vj5Var = this.mRefreshView;
-            if (vj5Var != null) {
-                vj5Var.getAttachedView().setClickable(false);
+            wj5 wj5Var = this.mRefreshView;
+            if (wj5Var != null) {
+                wj5Var.getAttachedView().setClickable(false);
                 this.mRefreshView.e(R.color.transparent);
             }
         }
@@ -237,7 +237,7 @@ public class EmojiDetailFragment extends BaseFragment implements w09 {
         }
     }
 
-    @Override // com.baidu.tieba.w09
+    @Override // com.baidu.tieba.x09
     public void a(boolean z, @Nullable List<EmojiDetailUserInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, list) == null) {
@@ -268,7 +268,7 @@ public class EmojiDetailFragment extends BaseFragment implements w09 {
         return (View) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.w09
+    @Override // com.baidu.tieba.x09
     public void onFailure(int i, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) && isLoadingViewAttached()) {

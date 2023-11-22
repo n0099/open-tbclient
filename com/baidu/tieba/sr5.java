@@ -1,18 +1,18 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tbadk.template.state.ViewType;
-import com.baidu.tieba.tr5;
+import com.baidu.tieba.ur5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class sr5 extends pr5<LoadingView, tr5.d> {
+public class sr5 extends qr5<wj5, ur5.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> e;
@@ -36,26 +36,37 @@ public class sr5 extends pr5<LoadingView, tr5.d> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pr5
-    /* renamed from: g */
-    public void d(ViewType viewType, LoadingView loadingView, tr5.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, loadingView, dVar) == null) {
-            loadingView.setTopMargin(dVar.b);
-            loadingView.getLoadingTextView().setText(dVar.a);
-            loadingView.onChangeSkinType();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pr5
+    @Override // com.baidu.tieba.qr5
     /* renamed from: h */
-    public LoadingView f(ViewType viewType, ViewGroup viewGroup) {
+    public wj5 f(ViewType viewType, ViewGroup viewGroup) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) {
-            return new LoadingView(this.e.getPageActivity());
+            return new wj5(this.e.getPageActivity(), null);
         }
-        return (LoadingView) invokeLL.objValue;
+        return (wj5) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qr5
+    /* renamed from: g */
+    public void d(ViewType viewType, wj5 wj5Var, ur5.b bVar) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, wj5Var, bVar) == null) {
+            if (bVar.b && !TextUtils.isEmpty(bVar.a)) {
+                str = bVar.a;
+            } else {
+                str = bVar.g;
+            }
+            wj5Var.l(str);
+            wj5Var.j(bVar.d);
+            wj5Var.h(bVar.c);
+            wj5Var.m(bVar.f);
+            wj5Var.f(bVar.e);
+            wj5Var.o();
+            wj5Var.onChangeSkinType();
+            wj5Var.b().setOnClickListener(bVar.h);
+        }
     }
 }

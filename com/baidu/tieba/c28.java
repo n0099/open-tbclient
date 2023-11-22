@@ -1,24 +1,24 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tieba.log.TbLog;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+@Service
 /* loaded from: classes5.dex */
-public class c28 implements w15 {
+public class c28 implements i15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.i15
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsShield" : (String) invokeV.objValue;
+    }
 
     public c28() {
         Interceptable interceptable = $ic;
@@ -34,56 +34,13 @@ public class c28 implements w15 {
         }
     }
 
-    @Override // com.baidu.tieba.w15
-    @NonNull
-    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.i15
+    public Class<? extends g15> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
-            HashMap hashMap = new HashMap(map);
-            hashMap.put("dialogName", "frsShield");
-            hashMap.putAll(map);
-            hashMap.putAll(map2);
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b28.class;
         }
-        return (Map) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.w15
-    public boolean b(@NonNull Map<String, Object> map) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            boolean z2 = false;
-            if (currentActivity instanceof c25) {
-                c25 c25Var = (c25) currentActivity;
-                if (c25Var.j1() != null) {
-                    b25 j1 = c25Var.j1();
-                    if (!j1.M0() && j1.U() != null) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (!z) {
-                        TbLog yunDialogLog = YunDialogLog.getInstance();
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("吧内屏蔽弹窗策略校验失败：Frs是否展示过弹窗->");
-                        sb.append(j1.M0());
-                        sb.append("|是否存在FRS数据->");
-                        if (j1.U() != null) {
-                            z2 = true;
-                        }
-                        sb.append(z2);
-                        yunDialogLog.e(YunDialogManager.LOG_KEY, sb.toString());
-                    }
-                    return z;
-                }
-            }
-            YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "吧内屏蔽弹窗策略校验失败：获取到的IForumDialogExtSupport为空");
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (Class) invokeV.objValue;
     }
 }

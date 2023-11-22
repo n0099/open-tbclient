@@ -49,7 +49,7 @@ import com.baidu.tbadk.data.UserGrowthTaskListData;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yi5;
+import com.baidu.tieba.zi5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -119,7 +119,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     }
 
     /* loaded from: classes7.dex */
-    public class a implements yi5.d {
+    public class a implements zi5.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditHeadActivity a;
@@ -142,7 +142,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             this.a = editHeadActivity;
         }
 
-        @Override // com.baidu.tieba.yi5.d
+        @Override // com.baidu.tieba.zi5.d
         public void a(String str, ImageUploadResult imageUploadResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, imageUploadResult) == null) {
@@ -260,7 +260,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public void a(DragImageView dragImageView, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dragImageView, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.a.g != null && this.a.g.getVisibility() == 0) {
-                this.a.f.setImageBitmap(this.a.c.v0(false));
+                this.a.f.setImageBitmap(this.a.c.w0(false));
             }
         }
     }
@@ -293,7 +293,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public void a(DragImageView dragImageView, int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLII(1048576, this, dragImageView, i, i2) == null) && this.a.g != null && this.a.g.getVisibility() == 0) {
-                this.a.f.setImageBitmap(this.a.c.v0(false));
+                this.a.f.setImageBitmap(this.a.c.w0(false));
             }
         }
     }
@@ -455,8 +455,8 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 } else {
                     z = true;
                 }
-                Bitmap v0 = editHeadsImageView.v0(z);
-                if (v0 == null || !this.a.y1(str, v0)) {
+                Bitmap w0 = editHeadsImageView.w0(z);
+                if (w0 == null || !this.a.y1(str, w0)) {
                     return;
                 }
                 if (this.a.i == 0 && !EditHeadActivityConfig.FROM_FORUM_BACKGROUND.equals(this.a.b)) {
@@ -625,7 +625,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 this.e.k.setEnabled(true);
                 if (bitmap != null && !bitmap.isRecycled()) {
                     if (!this.c.booleanValue() && !this.d.booleanValue()) {
-                        this.e.c.m0(bitmap);
+                        this.e.c.n0(bitmap);
                     } else {
                         this.e.c.setImageBitmap(bitmap);
                         if (this.e.h.getWidth() > 1800 || this.e.h.getHeight() > 1800) {
@@ -1054,11 +1054,11 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             } else {
                 str2 = "head";
             }
-            yi5 yi5Var = new yi5(FileHelper.getFileDireciory(str), str2);
-            yi5Var.j();
-            yi5Var.l(new a(this));
-            yi5Var.n(this.A);
-            yi5Var.g(false);
+            zi5 zi5Var = new zi5(FileHelper.getFileDireciory(str), str2);
+            zi5Var.j();
+            zi5Var.l(new a(this));
+            zi5Var.n(this.A);
+            zi5Var.g(false);
             showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f17ca));
         }
     }
@@ -1147,7 +1147,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             releaseResouce();
             super.onDestroy();
-            this.c.c0();
+            this.c.d0();
             Bitmap bitmap = this.h;
             if (bitmap != null && !bitmap.isRecycled()) {
                 this.h.recycle();

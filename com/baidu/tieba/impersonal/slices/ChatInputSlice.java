@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.impersonal.components.inputview.ImPersonInputView;
 import com.baidu.tieba.impersonal.databinding.SlicePersonalInputBinding;
-import com.baidu.tieba.n99;
-import com.baidu.tieba.s79;
+import com.baidu.tieba.o99;
+import com.baidu.tieba.t79;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,11 +24,11 @@ import kotlin.jvm.internal.Intrinsics;
 public final class ChatInputSlice extends Slice {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final n99 j;
+    public final o99 j;
     public ImPersonInputView k;
     public SlicePersonalInputBinding l;
 
-    public ChatInputSlice(n99 repo) {
+    public ChatInputSlice(o99 repo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,7 +128,7 @@ public final class ChatInputSlice extends Slice {
             ImPersonInputView imPersonInputView = slicePersonalInputBinding.b;
             this.k = imPersonInputView;
             if (imPersonInputView != null) {
-                new s79(K().getPageContext(), imPersonInputView, this.j);
+                new t79(K().getPageContext(), imPersonInputView, this.j);
             }
         }
     }

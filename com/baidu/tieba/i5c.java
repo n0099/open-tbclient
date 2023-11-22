@@ -1,22 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.l5c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
-public class i5c implements Runnable {
+public final class i5c<TResult> implements b6c<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ l5c.a a;
+    public e6c<TResult> a;
+    public Executor b;
+    public final Object c;
 
-    public i5c(l5c.a aVar) {
+    public i5c(Executor executor, e6c<TResult> e6cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {executor, e6cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,14 +28,17 @@ public class i5c implements Runnable {
                 return;
             }
         }
-        this.a = aVar;
+        this.c = new Object();
+        this.a = e6cVar;
+        this.b = executor;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // com.baidu.tieba.b6c
+    public final void a(n5c<TResult> n5cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.d();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, n5cVar) == null) && n5cVar.f()) {
+            n5cVar.e();
+            this.b.execute(new g5c(this, n5cVar));
         }
     }
 }

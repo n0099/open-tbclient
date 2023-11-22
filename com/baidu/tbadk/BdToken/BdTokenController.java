@@ -36,12 +36,12 @@ import com.baidu.tbadk.data.UserData;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.au5;
-import com.baidu.tieba.cra;
+import com.baidu.tieba.bu5;
 import com.baidu.tieba.dp4;
+import com.baidu.tieba.dra;
 import com.baidu.tieba.ep4;
-import com.baidu.tieba.eu5;
-import com.baidu.tieba.ft5;
+import com.baidu.tieba.fu5;
+import com.baidu.tieba.gt5;
 import com.baidu.tieba.mo4;
 import com.baidu.tieba.n05;
 import com.baidu.tieba.op4;
@@ -49,8 +49,8 @@ import com.baidu.tieba.p05;
 import com.baidu.tieba.po4;
 import com.baidu.tieba.pp4;
 import com.baidu.tieba.qd;
-import com.baidu.tieba.rh5;
 import com.baidu.tieba.rp4;
+import com.baidu.tieba.sh5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -91,7 +91,7 @@ public class BdTokenController {
         public final /* synthetic */ BdTokenController a;
 
         /* loaded from: classes4.dex */
-        public class a extends au5<String> {
+        public class a extends bu5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ h a;
@@ -115,7 +115,7 @@ public class BdTokenController {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.au5
+            @Override // com.baidu.tieba.bu5
             public String doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class BdTokenController {
         }
 
         /* loaded from: classes4.dex */
-        public class b implements ft5<String> {
+        public class b implements gt5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ h a;
@@ -151,7 +151,7 @@ public class BdTokenController {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ft5
+            @Override // com.baidu.tieba.gt5
             /* renamed from: a */
             public void onReturnDataInUI(String str) {
                 Interceptable interceptable = $ic;
@@ -188,7 +188,7 @@ public class BdTokenController {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                 if (TbadkCoreApplication.getInst().isMIUIRom()) {
-                    eu5.b(new a(this), new b(this));
+                    fu5.b(new a(this), new b(this));
                     return;
                 }
                 this.a.q(this.a.C());
@@ -264,7 +264,7 @@ public class BdTokenController {
                 if (TextUtils.isEmpty(group2)) {
                     return null;
                 }
-                UserData e = rh5.d().e();
+                UserData e = sh5.d().e();
                 if (e != null) {
                     str = e.getTiebaUid();
                 } else {
@@ -337,7 +337,7 @@ public class BdTokenController {
     }
 
     /* loaded from: classes4.dex */
-    public class c extends au5<String> {
+    public class c extends bu5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -358,7 +358,7 @@ public class BdTokenController {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.au5
+        @Override // com.baidu.tieba.bu5
         public String doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -370,7 +370,7 @@ public class BdTokenController {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements ft5<String> {
+    public class d implements gt5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -396,7 +396,7 @@ public class BdTokenController {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ft5
+        @Override // com.baidu.tieba.gt5
         /* renamed from: a */
         public void onReturnDataInUI(String str) {
             Interceptable interceptable = $ic;
@@ -874,7 +874,7 @@ public class BdTokenController {
     public final void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, cra.a(TbConfig.DECRYPT_CODE_URL, 309626));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, dra.a(TbConfig.DECRYPT_CODE_URL, 309626));
             tbHttpMessageTask.setResponsedClass(DecryptCodeHttpRespMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -884,7 +884,7 @@ public class BdTokenController {
     public final void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_TIEBA_UID_CHECK, cra.a(TbConfig.URL_GET_USER_BY_TIEBA_UID, 309702));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_TIEBA_UID_CHECK, dra.a(TbConfig.URL_GET_USER_BY_TIEBA_UID, 309702));
             tbHttpMessageTask.setResponsedClass(TiebaUidCheckHttpResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -971,7 +971,7 @@ public class BdTokenController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
             if (TbadkCoreApplication.getInst().isMIUIRom()) {
-                eu5.b(new c(this), new d(this, j2));
+                fu5.b(new c(this), new d(this, j2));
             } else {
                 N(C(), j2);
             }

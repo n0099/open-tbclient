@@ -1,141 +1,91 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.mvc.data.IResponseData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
-import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import org.json.JSONObject;
-import tbclient.StarTrends.DataRes;
-import tbclient.StarTrends.StarTrendsResIdl;
+import tbclient.AdMixFloor;
+import tbclient.App;
+import tbclient.GeneralTabList.DataRes;
+import tbclient.ItemInfo;
+import tbclient.SportPageHeadInfo;
+import tbclient.SportScheduleInfo;
 import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes5.dex */
-public class ct7 implements mn5, IResponseData {
+public class ct7 implements IResponseData {
     public static /* synthetic */ Interceptable $ic;
-    public static final Wire e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<oi> a;
+    public boolean a;
     public HashMap<String, MetaData> b;
-    public boolean c;
+    public ArrayList<oi> c;
     public int d;
-
-    @Override // com.baidu.tieba.nn5
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mn5
-    public boolean initByByteArray(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    public String e;
+    public String f;
+    public boolean g;
+    public SportScheduleInfo h;
+    public int i;
+    public ItemInfo j;
+    public List<App> k;
+    public int l;
+    public List<AdMixFloor> m;
 
     @Override // com.baidu.tbadk.mvc.data.IResponseData
     public void initByJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
         }
     }
 
     @Override // com.baidu.tbadk.mvc.data.IResponseData
     public void initByProtobuf(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, message) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
         }
-    }
-
-    @Override // com.baidu.tieba.mn5
-    public byte[] toCacheByteArray() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947686371, "Lcom/baidu/tieba/ct7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947686371, "Lcom/baidu/tieba/ct7;");
-                return;
-            }
-        }
-        e = new Wire(new Class[0]);
     }
 
     public ct7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
         this.b = new HashMap<>();
+        this.c = new ArrayList<>();
+        this.i = 1;
     }
 
-    public StarTrendsResIdl a(byte[] bArr) {
-        InterceptResult invokeL;
+    public void a(DataRes dataRes) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-            if (bArr == null) {
-                return null;
-            }
-            try {
-                StarTrendsResIdl starTrendsResIdl = (StarTrendsResIdl) e.parseFrom(bArr, StarTrendsResIdl.class);
-                if (starTrendsResIdl != null && starTrendsResIdl.data != null) {
-                    b(starTrendsResIdl.data);
-                }
-                return starTrendsResIdl;
-            } catch (Exception e2) {
-                BdLog.detailException(e2);
-                return null;
-            }
-        }
-        return (StarTrendsResIdl) invokeL.objValue;
-    }
-
-    public final void b(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
             return;
         }
+        boolean z2 = false;
+        if (dataRes.has_more.intValue() == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.a = z;
         if (!ListUtils.isEmpty(dataRes.user_list)) {
             for (User user : dataRes.user_list) {
                 if (user != null) {
@@ -148,25 +98,37 @@ public class ct7 implements mn5, IResponseData {
                 }
             }
         }
-        if (!ListUtils.isEmpty(dataRes.thread_list)) {
-            for (ThreadInfo threadInfo : dataRes.thread_list) {
+        if (!ListUtils.isEmpty(dataRes.general_list)) {
+            for (ThreadInfo threadInfo : dataRes.general_list) {
                 if (threadInfo != null) {
                     ThreadData threadData = new ThreadData();
                     threadData.setUserMap(this.b);
+                    threadData.forceReadUserMap = true;
                     threadData.parserProtobuf(threadInfo);
                     threadData.parser_title();
                     threadData.insertItemToTitleOrAbstractText();
-                    if (threadData.getType() == ThreadData.TYPE_NORMAL || threadData.getType() == ThreadData.TYPE_GOD_NORMAL || threadData.getType() == ThreadData.TYPE_SHARE_THREAD || threadData.getType() == ThreadData.TYPE_VIDEO || threadData.getType() == ThreadData.TYPE_VIDEO_GOD || threadData.getType() == ThreadData.TYPE_FRS_HOTTOPIC) {
-                        this.a.add(threadData);
-                    }
+                    threadData.setFromFrsTab(true);
+                    this.c.add(threadData);
                 }
             }
         }
-        AbsGroupUbsABTest.setCardInfoUbsABTest(this.a);
-        boolean z = true;
-        if (dataRes.has_more.intValue() != 1) {
-            z = false;
+        this.l = dataRes.ad_show_select.intValue();
+        this.m = dataRes.ad_mix_list;
+        String str = dataRes.ad_sample_map_key;
+        this.k = dataRes.app_list;
+        AbsGroupUbsABTest.setCardInfoUbsABTest(this.c);
+        this.d = dataRes.new_thread_num.intValue();
+        SportPageHeadInfo sportPageHeadInfo = dataRes.sport_head_info;
+        if (sportPageHeadInfo != null) {
+            this.e = sportPageHeadInfo.head_url;
+            this.f = sportPageHeadInfo.jump_url;
+            if (sportPageHeadInfo.is_ad.intValue() == 1) {
+                z2 = true;
+            }
+            this.g = z2;
         }
-        this.c = z;
+        this.h = dataRes.sport_schedule_info;
+        this.i = dataRes.sort_type.intValue();
+        this.j = dataRes.item_info;
     }
 }

@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.cr4;
-import com.baidu.tieba.os5;
+import com.baidu.tieba.ps5;
 import com.baidu.tieba.video.LiveConfig;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -304,7 +304,7 @@ public class VideoPlayModel extends BdBaseModel {
             httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
             httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
         }
-        httpMessage.addParam("app_transmit_data", os5.a());
+        httpMessage.addParam("app_transmit_data", ps5.a());
         sendMessage(httpMessage);
     }
 
@@ -347,7 +347,7 @@ public class VideoPlayModel extends BdBaseModel {
                 httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
                 httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
             }
-            httpMessage.addParam("app_transmit_data", os5.a());
+            httpMessage.addParam("app_transmit_data", ps5.a());
             sendMessage(httpMessage);
         }
     }

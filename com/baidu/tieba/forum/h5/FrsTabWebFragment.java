@@ -41,16 +41,16 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.view.NestedScrollWebView;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ak5;
+import com.baidu.tieba.bk5;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.cs4;
-import com.baidu.tieba.isa;
 import com.baidu.tieba.jsa;
 import com.baidu.tieba.ksa;
-import com.baidu.tieba.ql7;
+import com.baidu.tieba.lsa;
+import com.baidu.tieba.rl7;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.vq7;
-import com.baidu.tieba.wp5;
+import com.baidu.tieba.wq7;
+import com.baidu.tieba.xp5;
 import com.baidu.tieba.xr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -63,7 +63,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class FrsTabWebFragment extends BaseWebViewFragment implements vq7, ql7 {
+public class FrsTabWebFragment extends BaseWebViewFragment implements wq7, rl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String e;
@@ -73,25 +73,25 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements vq7, ql7 {
     public View i;
     public NestedScrollWebView j;
     public FrameLayout k;
-    public isa l;
+    public jsa l;
     public boolean m;
     public boolean n;
     public boolean o;
     public boolean p;
     public FrsViewData q;
-    public ksa r;
+    public lsa r;
     public CustomMessageListener s;
     public NestedScrollWebView.a t;
     public final View.OnClickListener u;
 
-    @Override // com.baidu.tieba.vq7
+    @Override // com.baidu.tieba.wq7
     public void A0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.vq7
+    @Override // com.baidu.tieba.wq7
     public void c0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -109,7 +109,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements vq7, ql7 {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements ksa {
+    public class a implements lsa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsTabWebFragment a;
@@ -132,7 +132,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements vq7, ql7 {
             this.a = frsTabWebFragment;
         }
 
-        @Override // com.baidu.tieba.ksa
+        @Override // com.baidu.tieba.lsa
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -523,7 +523,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements vq7, ql7 {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            wp5.a(getPageContext(), this.i);
+            xp5.a(getPageContext(), this.i);
             G0();
         }
     }
@@ -550,7 +550,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements vq7, ql7 {
         }
     }
 
-    @Override // com.baidu.tieba.ql7
+    @Override // com.baidu.tieba.rl7
     public void q2(@NonNull ThreadData threadData, @NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048603, this, threadData, jSONObject) == null) && this.h == 102 && this.l != null) {
@@ -560,7 +560,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements vq7, ql7 {
         }
     }
 
-    @Override // com.baidu.tieba.vq7
+    @Override // com.baidu.tieba.wq7
     public void G0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -573,17 +573,17 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements vq7, ql7 {
         }
     }
 
-    public final jsa U2() {
+    public final ksa U2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, jsa.class, getPageContext());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, ksa.class, getPageContext());
             if (runTask != null && runTask.getData() != null) {
-                return (jsa) runTask.getData();
+                return (ksa) runTask.getData();
             }
             return null;
         }
-        return (jsa) invokeV.objValue;
+        return (ksa) invokeV.objValue;
     }
 
     public final void W2() {
@@ -602,7 +602,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements vq7, ql7 {
         }
     }
 
-    @Override // com.baidu.tieba.vq7
+    @Override // com.baidu.tieba.wq7
     public void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -653,11 +653,11 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements vq7, ql7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onDestroy();
-            isa isaVar = this.l;
-            if (isaVar != null) {
-                isaVar.h();
+            jsa jsaVar = this.l;
+            if (jsaVar != null) {
+                jsaVar.h();
             }
-            ak5.e().b();
+            bk5.e().b();
         }
     }
 
@@ -760,9 +760,9 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements vq7, ql7 {
             }
             W2();
             this.a = this.g;
-            isa isaVar = new isa();
-            this.l = isaVar;
-            isaVar.a(new XiubaTbJsBridge(getPageContext()));
+            jsa jsaVar = new jsa();
+            this.l = jsaVar;
+            jsaVar.a(new XiubaTbJsBridge(getPageContext()));
             this.l.a(new CommonTbJsBridge(getPageContext().getPageActivity()));
             this.l.a(U2());
             registerListener(this.s);

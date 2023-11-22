@@ -1,87 +1,90 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableStringBuilder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class g47 extends r47 implements n47 {
+public final class g47 implements ab7<g47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SpannableStringBuilder f;
-    public final boolean g;
-    public final j57 h;
+    public final t67 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g47(SpannableStringBuilder titleBuilder, boolean z, j57 readStatus) {
-        super(null, null, 3, null);
+    @Override // com.baidu.tieba.ab7
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "card_single_link" : (String) invokeV.objValue;
+    }
+
+    public g47 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (g47) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            return (obj instanceof g47) && Intrinsics.areEqual(this.a, ((g47) obj).a);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "CardSingleLinkUiState(data=" + this.a + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public g47(t67 data) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {titleBuilder, Boolean.valueOf(z), readStatus};
+            Object[] objArr = {data};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
-        Intrinsics.checkNotNullParameter(readStatus, "readStatus");
-        this.f = titleBuilder;
-        this.g = z;
-        this.h = readStatus;
+        Intrinsics.checkNotNullParameter(data, "data");
+        this.a = data;
     }
 
-    @Override // com.baidu.tieba.n47
-    public boolean c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            this.h.b(true);
-            return false;
-        }
-        return invokeL.booleanValue;
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.ab7
+    public /* bridge */ /* synthetic */ g47 b() {
+        c();
+        return this;
     }
 
-    public final j57 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
-        }
-        return (j57) invokeV.objValue;
-    }
-
-    public final SpannableStringBuilder j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (SpannableStringBuilder) invokeV.objValue;
-    }
-
-    public final boolean k() {
+    public final t67 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (t67) invokeV.objValue;
     }
 }

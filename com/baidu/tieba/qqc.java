@@ -1,24 +1,27 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.data.IMUserExtraData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.CallFansInfo;
+import tbclient.BusinessAccountInfo;
 /* loaded from: classes8.dex */
-public class qqc extends poc {
+public class qqc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull CallFansInfo callFansInfo) {
+    public static JSONObject b(@NonNull BusinessAccountInfo businessAccountInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, callFansInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, businessAccountInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "can_call", callFansInfo.can_call);
-            poc.a(jSONObject, "thread_id", callFansInfo.thread_id);
+            qoc.a(jSONObject, IMUserExtraData.KEY_IS_BUSINESS_ACCOUNT, businessAccountInfo.is_business_account);
+            qoc.a(jSONObject, "is_forum_business_account", businessAccountInfo.is_forum_business_account);
+            qoc.a(jSONObject, "business_name", businessAccountInfo.business_name);
+            qoc.a(jSONObject, "identifi_explain", businessAccountInfo.identifi_explain);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

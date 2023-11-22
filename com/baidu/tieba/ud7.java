@@ -1,103 +1,112 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.base.BdActivityStack;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tieba.filedownloader.SearchBoxDownloaderImpl;
-import com.baidu.tieba.filedownloader.TbFileDownloaderImpl;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.DownloadManagerActivityConfig;
+import com.baidu.tieba.view.ScreenTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
 public final class ud7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<String> a;
+    public String b;
+    public String c;
+    public View.OnClickListener d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948207233, "Lcom/baidu/tieba/ud7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948207233, "Lcom/baidu/tieba/ud7;");
+    public ud7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a(null);
+        this.a = CollectionsKt__CollectionsKt.mutableListOf("DownloadManagerActivity");
+        String string = TbadkCoreApplication.getInst().getString(R.string.item_first_use_download_manager_toast);
+        Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(R.st…e_download_manager_toast)");
+        this.b = string;
+        String string2 = TbadkCoreApplication.getInst().getString(R.string.dialog_confirm_see);
+        Intrinsics.checkNotNullExpressionValue(string2, "getInst().getString(R.string.dialog_confirm_see)");
+        this.c = string2;
+        this.d = new View.OnClickListener() { // from class: com.baidu.tieba.td7
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    ud7.b(view2);
+                }
+            }
+        };
     }
 
-    @JvmStatic
-    public static final int a() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a() : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Activity curGlobalActivity = TbadkCoreApplication.getInst().getCurGlobalActivity();
+            if (curGlobalActivity == null) {
+                curGlobalActivity = BdActivityStack.getInst().currentActivity();
+            }
+            if (curGlobalActivity == null || this.a.contains(curGlobalActivity.getClass().getSimpleName())) {
+                return;
+            }
+            ScreenTopToast screenTopToast = new ScreenTopToast(curGlobalActivity);
+            screenTopToast.n(this.b);
+            screenTopToast.k(this.c);
+            screenTopToast.j(this.d);
+            screenTopToast.o(this.d);
+            screenTopToast.p((ViewGroup) curGlobalActivity.findViewById(16908290));
+        }
     }
 
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    public static final void b(View view2) {
+        Activity curGlobalActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, view2) != null) || (curGlobalActivity = TbadkCoreApplication.getInst().getCurGlobalActivity()) == null) {
+            return;
         }
+        DownloadManagerActivityConfig downloadManagerActivityConfig = new DownloadManagerActivityConfig(curGlobalActivity, 3);
+        downloadManagerActivityConfig.setCurrentTab(3);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, downloadManagerActivityConfig));
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public final ud7 c(String text) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, text)) == null) {
+            Intrinsics.checkNotNullParameter(text, "text");
+            if (text.length() == 0) {
+                z = true;
+            } else {
+                z = false;
             }
-        }
-
-        @JvmStatic
-        public final int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (UbsABTestHelper.isNonEcomAdDownloaderTestA()) {
-                    return 2;
-                }
-                UbsABTestHelper.isNonEcomAdDownloaderTestB();
-                return 1;
+            if (!z) {
+                this.b = text;
             }
-            return invokeV.intValue;
+            return this;
         }
-
-        public final vd7 b(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (UbsABTestHelper.isNonEcomAdDownloaderTestA()) {
-                            return SearchBoxDownloaderImpl.b.b();
-                        }
-                        if (UbsABTestHelper.isNonEcomAdDownloaderTestB()) {
-                            return TbFileDownloaderImpl.a.a();
-                        }
-                        return TbFileDownloaderImpl.a.a();
-                    }
-                    return SearchBoxDownloaderImpl.b.b();
-                }
-                return TbFileDownloaderImpl.a.a();
-            }
-            return (vd7) invokeI.objValue;
-        }
+        return (ud7) invokeL.objValue;
     }
 }

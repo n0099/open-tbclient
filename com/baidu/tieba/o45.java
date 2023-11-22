@@ -64,7 +64,7 @@ public class o45 {
         public final /* synthetic */ o45 b;
 
         /* loaded from: classes7.dex */
-        public class a extends au5<Object> {
+        public class a extends bu5<Object> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
@@ -87,7 +87,7 @@ public class o45 {
                 this.a = cVar;
             }
 
-            @Override // com.baidu.tieba.au5
+            @Override // com.baidu.tieba.bu5
             public Object doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public class o45 {
         }
 
         /* loaded from: classes7.dex */
-        public class b implements ft5<Object> {
+        public class b implements gt5<Object> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
@@ -129,7 +129,7 @@ public class o45 {
                 this.a = cVar;
             }
 
-            @Override // com.baidu.tieba.ft5
+            @Override // com.baidu.tieba.gt5
             public void onReturnDataInUI(Object obj) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -167,7 +167,7 @@ public class o45 {
             }
             this.b.B("fix");
             this.b.z(this.a);
-            eu5.b(new a(this), new b(this));
+            fu5.b(new a(this), new b(this));
         }
     }
 

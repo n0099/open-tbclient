@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
+import android.text.TextUtils;
+import com.baidu.tbadk.mutiprocess.history.HistoryEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tm5 implements cm5<HotEvent> {
+public class tm5 implements dm5<HistoryEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,15 +27,14 @@ public class tm5 implements cm5<HotEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cm5
+    @Override // com.baidu.tieba.dm5
     /* renamed from: a */
-    public boolean onEvent(HotEvent hotEvent) {
+    public boolean onEvent(HistoryEvent historyEvent) {
         InterceptResult invokeL;
-        HotEventData hotEventData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hotEvent)) == null) {
-            if (hotEvent != null && (hotEventData = hotEvent.hotEventData) != null) {
-                jb5.u(hotEventData);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, historyEvent)) == null) {
+            if (historyEvent != null && !TextUtils.isEmpty(historyEvent.tid)) {
+                jl6.a(historyEvent.tid);
                 return true;
             }
             return false;

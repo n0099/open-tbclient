@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
 import com.baidu.tbadk.data.LiveRemindRecommendData;
-import com.baidu.tieba.s95;
+import com.baidu.tieba.t95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -69,11 +69,11 @@ public final class l15 extends g15 {
                 hashMap.put("view_top_params_key_yyext", c.getYyExtData());
                 hashMap.put("view_top_params_key_type", Integer.valueOf(i));
                 hashMap.put("view_top_params_is_breathe", Boolean.FALSE);
-                t95.d(null, ((TbPageContextSupport) currentActivity).getPageContext(), hashMap, 0L, 4000L, new s95.h() { // from class: com.baidu.tieba.a15
+                u95.d(null, ((TbPageContextSupport) currentActivity).getPageContext(), hashMap, 0L, 4000L, new t95.h() { // from class: com.baidu.tieba.a15
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.s95.h
+                    @Override // com.baidu.tieba.t95.h
                     public final void dismiss() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {

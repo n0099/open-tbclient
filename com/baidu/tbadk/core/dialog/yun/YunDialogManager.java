@@ -120,7 +120,7 @@ public class YunDialogManager {
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements Runnable {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -155,7 +155,7 @@ public class YunDialogManager {
     }
 
     /* loaded from: classes4.dex */
-    public static class c implements YunDialogDataManager.e {
+    public class c implements YunDialogDataManager.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -192,7 +192,7 @@ public class YunDialogManager {
     }
 
     /* loaded from: classes4.dex */
-    public static class d implements Runnable {
+    public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -229,7 +229,7 @@ public class YunDialogManager {
     }
 
     /* loaded from: classes4.dex */
-    public static class e implements YunDialogDataManager.e {
+    public class e implements YunDialogDataManager.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;

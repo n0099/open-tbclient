@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.webkit.WebView;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,16 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes5.dex */
 public final class ej6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Integer, WeakReference<WebView>> a;
+    public final bj6 a;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -62,42 +57,20 @@ public final class ej6 {
                 return;
             }
         }
-        this.a = new HashMap();
+        this.a = (bj6) ServiceManager.getService(bj6.a);
     }
 
-    public static ej6 b() {
+    @NonNull
+    public static bj6 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+            return b.a.a;
         }
-        return (ej6) invokeV.objValue;
-    }
-
-    public List<WeakReference<WebView>> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new ArrayList(this.a.values());
-        }
-        return (List) invokeV.objValue;
+        return (bj6) invokeV.objValue;
     }
 
     public /* synthetic */ ej6(a aVar) {
         this();
-    }
-
-    public void c(WebView webView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView) == null) && webView != null) {
-            this.a.put(Integer.valueOf(webView.hashCode()), new WeakReference<>(webView));
-        }
-    }
-
-    public void d(WebView webView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView) == null) && webView != null) {
-            this.a.remove(Integer.valueOf(webView.hashCode()));
-        }
     }
 }

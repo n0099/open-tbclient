@@ -64,13 +64,13 @@ public class oa3 {
 
         /* renamed from: com.baidu.tieba.oa3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0421a implements Runnable {
+        public class RunnableC0419a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Uri a;
             public final /* synthetic */ a b;
 
-            public RunnableC0421a(a aVar, Uri uri) {
+            public RunnableC0419a(a aVar, Uri uri) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,7 +127,7 @@ public class oa3 {
                 if (oa3.a) {
                     Log.d("SYSTEM_SCREENSHOT", "onChange(), uri: " + uri);
                 }
-                ExecutorUtilsExt.postOnElastic(new RunnableC0421a(this, uri), "systemScreenShot", 1);
+                ExecutorUtilsExt.postOnElastic(new RunnableC0419a(this, uri), "systemScreenShot", 1);
             }
         }
     }

@@ -9,8 +9,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes7.dex */
-public final class o97 implements i97 {
+public final class o97 implements j97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,17 +29,28 @@ public final class o97 implements i97 {
         }
     }
 
-    @Override // com.baidu.tieba.i97
-    public SpannableString b(Context context, j77 richTextData, ClickableSpan clickableSpan) {
+    @Override // com.baidu.tieba.j97
+    public SpannableString b(Context context, k77 richTextData, ClickableSpan clickableSpan) {
         InterceptResult invokeLLL;
+        n57 b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(richTextData, "richTextData");
             Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
-            SpannableString j = hy5.j(richTextData.b());
-            Intrinsics.checkNotNullExpressionValue(j, "getFaceSpannableString(richTextData.emoji)");
-            return j;
+            p77 g = richTextData.g();
+            SpannableString spannableString = new SpannableString(g.c());
+            if (g.b() != null) {
+                if ((clickableSpan instanceof k97) && (b = g.b()) != null) {
+                    ((k97) clickableSpan).a(rc7.a.a(b));
+                }
+                int length = g.c().length();
+                if (StringsKt__StringsJVMKt.endsWith$default(g.c(), " ", false, 2, null)) {
+                    length = g.c().length() - 1;
+                }
+                spannableString.setSpan(clickableSpan, 0, length, 33);
+            }
+            return spannableString;
         }
         return (SpannableString) invokeLLL.objValue;
     }

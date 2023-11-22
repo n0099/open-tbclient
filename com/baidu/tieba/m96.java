@@ -1,96 +1,129 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.ala.alasquare.livetab.view.LiveTabAlaRecommendViewHolder;
-import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
+import com.baidu.tieba.ala.alasquare.livetab.SecondFloorFragment;
+import com.baidu.tieba.el5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class m96 extends bi<n96, LiveTabAlaRecommendViewHolder> {
+public class m96 implements cg1<el5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public AlaRecommendLayout b;
-    public int c;
-    public String d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m96(TbPageContext tbPageContext, int i, String str) {
-        super(tbPageContext.getPageActivity(), n96.b);
+    /* loaded from: classes7.dex */
+    public class a implements el5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
+        public SecondFloorFragment b;
+
+        public a(m96 m96Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m96Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.el5
+        public void h(@Nullable el5.a aVar) {
+            SecondFloorFragment secondFloorFragment;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && (secondFloorFragment = this.b) != null) {
+                secondFloorFragment.E2(aVar);
+            }
+        }
+
+        @Override // com.baidu.tieba.el5
+        @NonNull
+        public Fragment j(@NonNull String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+                if (this.b == null) {
+                    SecondFloorFragment secondFloorFragment = new SecondFloorFragment();
+                    this.b = secondFloorFragment;
+                    secondFloorFragment.F2(str);
+                }
+                return this.b;
+            }
+            return (Fragment) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.el5
+        public void g() {
+            SecondFloorFragment secondFloorFragment;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (secondFloorFragment = this.b) != null) {
+                secondFloorFragment.z2();
+            }
+        }
+
+        @Override // com.baidu.tieba.el5
+        public void hide() {
+            SecondFloorFragment secondFloorFragment;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (secondFloorFragment = this.b) != null) {
+                secondFloorFragment.C2();
+            }
+        }
+
+        @Override // com.baidu.tieba.el5
+        public void i() {
+            SecondFloorFragment secondFloorFragment;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (secondFloorFragment = this.b) != null) {
+                secondFloorFragment.y2();
+            }
+        }
+
+        @Override // com.baidu.tieba.el5
+        public void show() {
+            SecondFloorFragment secondFloorFragment;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (secondFloorFragment = this.b) != null) {
+                secondFloorFragment.G2();
+            }
+        }
+    }
+
+    public m96() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = "0";
-        this.a = tbPageContext;
-        this.c = i;
-        this.d = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bi
-    /* renamed from: t */
-    public LiveTabAlaRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.cg1
+    /* renamed from: a */
+    public el5 getService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            AlaRecommendLayout alaRecommendLayout = new AlaRecommendLayout(this.a.getPageActivity());
-            this.b = alaRecommendLayout;
-            alaRecommendLayout.setPadding(UtilHelper.getDimenPixelSize(R.dimen.tbds34), UtilHelper.getDimenPixelSize(R.dimen.tbds21), UtilHelper.getDimenPixelSize(R.dimen.tbds34), this.b.getPaddingBottom());
-            this.b.setFid(this.d);
-            TiebaStatic.log(am6.e("c13620", this.c, this.d));
-            return new LiveTabAlaRecommendViewHolder(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return (LiveTabAlaRecommendViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bi
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, n96 n96Var, LiveTabAlaRecommendViewHolder liveTabAlaRecommendViewHolder) {
-        InterceptResult invokeCommon;
-        AlaRecommendLayout alaRecommendLayout;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, n96Var, liveTabAlaRecommendViewHolder})) == null) {
-            if (liveTabAlaRecommendViewHolder != null && (alaRecommendLayout = liveTabAlaRecommendViewHolder.a) != null && n96Var != null) {
-                EMManager.from(alaRecommendLayout.findViewById(R.id.ala_recommend_list_container)).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
-                bm6 bm6Var = n96Var.a;
-                if (bm6Var != null && !ListUtils.isEmpty(bm6Var.c())) {
-                    liveTabAlaRecommendViewHolder.a.setData(n96Var.a);
-                    liveTabAlaRecommendViewHolder.a.d(TbadkCoreApplication.getInst().getSkinType());
-                    liveTabAlaRecommendViewHolder.a.setVisibility(0);
-                } else {
-                    liveTabAlaRecommendViewHolder.a.setVisibility(8);
-                }
-                return liveTabAlaRecommendViewHolder.getView();
-            }
-            return null;
-        }
-        return (View) invokeCommon.objValue;
+        return (el5) invokeV.objValue;
     }
 }

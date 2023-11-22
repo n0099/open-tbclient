@@ -32,9 +32,9 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextTiebaPlusInfo;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad5;
+import com.baidu.tieba.bd5;
 import com.baidu.tieba.lq4;
-import com.baidu.tieba.oy5;
+import com.baidu.tieba.py5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,7 +62,7 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
     public final Context m;
     public TbRichTextTiebaPlusInfo n;
     public final TiePlusHelper o;
-    public oy5 p;
+    public py5 p;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -125,7 +125,7 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
                         case 2:
                             landingType2 = TiePlusStat.LandingType.DIALOG_DOWNLOAD;
                             TiePlusStat.CardBtnType cardBtnType3 = TiePlusStat.CardBtnType.DOWNLOAD;
-                            this.a.o.q(new ad5(TiePlusStat.StatType.DOWNLOAD_FINISHED, TiePlusStat.RichTextType.CARD, this.a.n.P(), str3, str));
+                            this.a.o.q(new bd5(TiePlusStat.StatType.DOWNLOAD_FINISHED, TiePlusStat.RichTextType.CARD, this.a.n.P(), str3, str));
                             this.a.o.onClick(view2);
                             cardBtnType = cardBtnType3;
                             landingType = landingType2;
@@ -227,7 +227,7 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
     }
 
     /* loaded from: classes5.dex */
-    public class c implements oy5.d {
+    public class c implements py5.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -252,7 +252,7 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
             this.a = str;
         }
 
-        @Override // com.baidu.tieba.oy5.d
+        @Override // com.baidu.tieba.py5.d
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -576,8 +576,8 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
             if (tbRichTextTiebaPlusInfo != null && tbRichTextTiebaPlusInfo.Q() != null) {
                 this.o.p(this.b);
                 this.o.V(this.p);
-                oy5 oy5Var = this.p;
-                if (oy5Var != null && oy5Var.isShowing()) {
+                py5 py5Var = this.p;
+                if (py5Var != null && py5Var.isShowing()) {
                     this.p.onAttachedToWindow();
                 }
                 TiebaPlusInfo Q = this.n.Q();
@@ -634,7 +634,7 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
                     }
                     String str2 = str;
                     if (this.p == null) {
-                        this.p = new oy5(this.m, this.o, false);
+                        this.p = new py5(this.m, this.o, false);
                     }
                     this.o.V(this.p);
                     ItemData itemData = new ItemData();
@@ -655,12 +655,12 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
                     downloadData.setItemData(itemData);
                     this.o.a0(itemData);
                     this.o.W(downloadData);
-                    oy5 oy5Var = this.p;
-                    oy5Var.g(Q.app_company);
-                    oy5Var.h(Q.app_icon);
-                    oy5Var.i(Q.title);
-                    oy5Var.j(Q.app_version);
-                    oy5Var.k(new c(this, str2));
+                    py5 py5Var = this.p;
+                    py5Var.g(Q.app_company);
+                    py5Var.h(Q.app_icon);
+                    py5Var.i(Q.title);
+                    py5Var.j(Q.app_version);
+                    py5Var.k(new c(this, str2));
                     this.p.show();
                     TiePlusStat.e(TiePlusStat.StatType.DIALOG_EXPOSE, TiePlusStat.Locate.PB, TiePlusStat.ThreadType.IMAGE_TEXT, TiePlusStat.RichTextType.CARD, this.n.P(), this.n.getForumId(), this.n.O(), str2);
                 } else if (intValue == 1) {

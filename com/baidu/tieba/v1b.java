@@ -1,123 +1,35 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
 import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.w1b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.muxer.VideoMuxer;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
 import java.io.File;
-@TargetApi(18)
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class v1b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
-    public c f;
-    public z1b g;
-    public x1b h;
-    public y1b i;
-    public volatile boolean j;
-    public volatile boolean k;
-    public volatile boolean l;
+    public d2b b;
+    public w1b c;
+    public w1b.c d;
 
-    /* loaded from: classes8.dex */
-    public interface c {
-        void onGenFilterVideoFail(int i, String str);
-
-        void onGenFilterVideoRecordError(int i, String str);
-
-        void onGenFilterVideoSuccess(String str);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends z1b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v1b f;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(v1b v1bVar, Context context, String str, String str2, y1b y1bVar, c cVar) {
-            super(context, str, str2, y1bVar, cVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v1bVar, context, str, str2, y1bVar, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], (y1b) objArr2[3], (c) objArr2[4]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = v1bVar;
-        }
-
-        @Override // com.baidu.tieba.z1b
-        public void k() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.j = true;
-                this.f.d();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends x1b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v1b f;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(v1b v1bVar, Context context, String str, y1b y1bVar, c cVar) {
-            super(context, str, y1bVar, cVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v1bVar, context, str, y1bVar, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (y1b) objArr2[2], (c) objArr2[3]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = v1bVar;
-        }
-
-        @Override // com.baidu.tieba.x1b
-        public void k() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.k = true;
-                this.f.d();
-            }
-        }
-    }
-
-    public v1b(Context context, String str, String str2, String str3) {
+    public v1b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, str3};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -127,42 +39,93 @@ public class v1b {
                 return;
             }
         }
-        this.e = false;
         this.a = context;
-        this.b = str;
-        this.c = str2;
-        this.d = str3;
     }
 
-    public void h(c cVar) {
+    public void h(d2b d2bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f = cVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, d2bVar) == null) {
+            this.b = d2bVar;
         }
     }
 
-    public final void d() {
+    public void i(w1b.c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.j && this.k && !this.l) {
-            this.i.f();
-            this.l = true;
-            g();
+        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
+            this.d = cVar;
+            w1b w1bVar = this.c;
+            if (w1bVar != null) {
+                w1bVar.h(cVar);
+            }
         }
+    }
+
+    public static void a(List<d2b> list, int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLILL(65537, null, list, i, str, str2) != null) || list == null) {
+            return;
+        }
+        list.add(new d2b(str, i, str2));
+    }
+
+    public static List<d2b> c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (context == null) {
+                context = TbadkCoreApplication.getInst();
+            }
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806be, context.getString(R.string.obfuscated_res_0x7f0f0752), "origin");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806c2, context.getString(R.string.obfuscated_res_0x7f0f074f), "hongkong");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806c5, context.getString(R.string.obfuscated_res_0x7f0f0753), "refreshing");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806c1, context.getString(R.string.obfuscated_res_0x7f0f074d), "girly");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806bc, context.getString(R.string.obfuscated_res_0x7f0f074a), "concrete");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806c9, context.getString(R.string.obfuscated_res_0x7f0f0757), "warm");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806bb, context.getString(R.string.obfuscated_res_0x7f0f0749), "cold");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806c3, context.getString(R.string.obfuscated_res_0x7f0f0750), "Japanese");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806bd, context.getString(R.string.obfuscated_res_0x7f0f074e), "cruz");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806b8, context.getString(R.string.obfuscated_res_0x7f0f0746), "abao");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806bf, context.getString(R.string.obfuscated_res_0x7f0f074b), "dew");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806c7, context.getString(R.string.obfuscated_res_0x7f0f0755), "slowlived");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806c8, context.getString(R.string.obfuscated_res_0x7f0f0756), "sweet");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806ba, context.getString(R.string.obfuscated_res_0x7f0f0748), "boardwalk");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806c4, context.getString(R.string.obfuscated_res_0x7f0f0751), "keylime");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806c0, context.getString(R.string.obfuscated_res_0x7f0f074c), "electric");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806c6, context.getString(R.string.obfuscated_res_0x7f0f0754), "silver");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806b9, context.getString(R.string.obfuscated_res_0x7f0f0747), "blackwhite");
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return k1b.f + VideoMuxer.FILTER_TEMP_DIR_PREFIX + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            d2b d2bVar = this.b;
+            if (d2bVar != null && !"normal".equalsIgnoreCase(d2bVar.c)) {
+                return this.b.c;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
     }
 
     public void e() {
+        w1b w1bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            z1b z1bVar = this.g;
-            if (z1bVar != null) {
-                z1bVar.interrupt();
-                this.g = null;
-            }
-            x1b x1bVar = this.h;
-            if (x1bVar != null) {
-                x1bVar.interrupt();
-                this.h = null;
-            }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (w1bVar = this.c) != null) {
+            w1bVar.e();
         }
     }
 
@@ -170,56 +133,28 @@ public class v1b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
+            w1b w1bVar = this.c;
+            if (w1bVar != null) {
+                return w1bVar.f();
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public final void g() {
+    public void g(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f != null) {
-                File file = new File(this.c);
-                if (file.exists() && file.length() > 0) {
-                    this.f.onGenFilterVideoSuccess(this.c);
-                } else {
-                    this.f.onGenFilterVideoFail(223, "Err empty outputFile");
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            w1b w1bVar = this.c;
+            if ((w1bVar == null || !w1bVar.f()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+                w1b w1bVar2 = new w1b(this.a, str, d(), str2);
+                this.c = w1bVar2;
+                w1b.c cVar = this.d;
+                if (cVar != null) {
+                    w1bVar2.h(cVar);
                 }
+                this.c.i();
             }
-            this.e = false;
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.e) {
-            return;
-        }
-        this.e = true;
-        this.j = false;
-        this.k = false;
-        this.l = false;
-        try {
-            File file = new File(new File(this.c).getParent());
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            c cVar = this.f;
-            if (cVar != null) {
-                cVar.onGenFilterVideoFail(222, el9.a(e));
-            }
-        }
-        try {
-            this.i = new y1b(this.c);
-            a aVar = new a(this, this.a, this.b, this.d, this.i, this.f);
-            this.g = aVar;
-            aVar.start();
-            b bVar = new b(this, this.a, this.b, this.i, this.f);
-            this.h = bVar;
-            bVar.start();
-        } catch (Exception unused) {
         }
     }
 }

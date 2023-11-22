@@ -1,85 +1,79 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.Point;
+import android.os.Build;
+import android.view.WindowManager;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.framework.common.StringUtils;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.text.DecimalFormat;
 /* loaded from: classes8.dex */
 public class rad {
     public static /* synthetic */ Interceptable $ic;
+    public static Point a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(double d) {
-        InterceptResult invokeCommon;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d)})) == null) {
-            long j = (long) d;
-            if (d == j) {
-                z = true;
-            } else {
-                z = false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948116372, "Lcom/baidu/tieba/rad;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (z) {
-                return String.valueOf(j);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948116372, "Lcom/baidu/tieba/rad;");
+                return;
             }
-            return new DecimalFormat("#.##").format(d);
         }
-        return (String) invokeCommon.objValue;
+        a = new Point();
     }
 
-    public static String b(double d) {
-        InterceptResult invokeCommon;
-        boolean z;
+    public static Point a(Context context, Point point) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
-            long j = (long) d;
-            if (d == j) {
-                z = true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, point)) == null) {
+            Point point2 = a;
+            if (point2 != null && point2.x > 0 && point2.y > 0) {
+                if (point == null) {
+                    point = new Point();
+                }
+                Point point3 = a;
+                point.x = point3.x;
+                point.y = point3.y;
+                return point;
+            }
+            WindowManager windowManager = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
+            if (point == null) {
+                point = new Point();
+            }
+            if (Build.VERSION.SDK_INT >= 17) {
+                windowManager.getDefaultDisplay().getRealSize(point);
             } else {
-                z = false;
+                windowManager.getDefaultDisplay().getSize(point);
             }
-            if (z) {
-                return String.valueOf(j);
+            if (point.x > 0 && point.y > 0) {
+                if (a == null) {
+                    a = new Point();
+                }
+                Point point4 = a;
+                point4.x = point.x;
+                point4.y = point.y;
             }
-            return new DecimalFormat("#.#").format(d);
+            return point;
         }
-        return (String) invokeCommon.objValue;
+        return (Point) invokeLL.objValue;
     }
 
-    public static double c(String str) {
+    public static int b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return 0.0d;
-            }
-            try {
-                return Double.valueOf(str).doubleValue();
-            } catch (Throwable unused) {
-                RLog.error(StringUtils.TAG, "safeParseDouble " + str, new Object[0]);
-                return 0.0d;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return a(context, null).x;
         }
-        return invokeL.doubleValue;
-    }
-
-    public static long d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return 0L;
-            }
-            try {
-                return Long.valueOf(str).longValue();
-            } catch (Throwable unused) {
-                RLog.error(StringUtils.TAG, "safeParseLong " + str, new Object[0]);
-                return 0L;
-            }
-        }
-        return invokeL.longValue;
+        return invokeL.intValue;
     }
 }

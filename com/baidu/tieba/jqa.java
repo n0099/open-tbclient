@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.FeedForumData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,18 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class jqa implements oi {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId g;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public List<FeedForumData> a;
     public String b;
-    public String c;
-    public String d;
-    public String e;
-    public boolean f;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +32,7 @@ public class jqa implements oi {
                 return;
             }
         }
-        g = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
     public jqa() {
@@ -50,50 +45,49 @@ public class jqa implements oi {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.f = false;
+    }
+
+    public List<FeedForumData> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.oi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return c;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public static boolean a(@NonNull jqa jqaVar) {
-        InterceptResult invokeL;
+    public void c(List<FeedForumData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jqaVar)) == null) {
-            if (!TextUtils.isEmpty(jqaVar.a) && !TextUtils.isEmpty(jqaVar.c) && !TextUtils.isEmpty(jqaVar.b) && !TextUtils.isEmpty(jqaVar.e) && !TextUtils.isEmpty(jqaVar.d)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
         }
-        return invokeL.booleanValue;
     }
 
-    @Nullable
-    public static jqa b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            jqa jqaVar = new jqa();
-            jqaVar.a = jSONObject.optString("forum_id");
-            jqaVar.c = jSONObject.optString("forum_name");
-            jqaVar.b = jSONObject.optString("avatar");
-            jqaVar.e = jSONObject.optString("slogan");
-            jqaVar.d = jSONObject.optString("desc");
-            return jqaVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = str;
         }
-        return (jqa) invokeL.objValue;
     }
 }

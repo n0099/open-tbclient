@@ -4,73 +4,24 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.AndroidUtils;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.richText.TbRichText;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.frs.forumRule.adapter.ForumRuleDetailItemVH;
+import com.baidu.tbadk.core.atomData.ForumRulesShowActivityConfig;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tieba.frs.forumRule.adapter.ForumRuleDetailBottomVH;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class gv7 extends bi<mv7, ForumRuleDetailItemVH> {
+public class gv7 extends bi<lv7, ForumRuleDetailBottomVH> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public TbRichText b;
-    public List<oi> c;
-
-    /* loaded from: classes6.dex */
-    public class a implements View.OnLongClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ gv7 b;
-
-        public a(gv7 gv7Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gv7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = gv7Var;
-            this.a = i;
-        }
-
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                if (this.b.c != null) {
-                    oi oiVar = (oi) this.b.c.get(this.a);
-                    if (oiVar instanceof mv7) {
-                        AndroidUtils.copyToClipboard(TbRichTextView.c0(((mv7) oiVar).b(), false).toString());
-                        BdUtilHelper.showToast(this.b.a, (int) R.string.obfuscated_res_0x7f0f07e0);
-                    }
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
+    public String b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gv7(Context context, BdUniqueId bdUniqueId) {
@@ -94,63 +45,71 @@ public class gv7 extends bi<mv7, ForumRuleDetailItemVH> {
         this.a = context;
     }
 
+    public void setFrom(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void u(ForumRuleDetailBottomVH forumRuleDetailBottomVH) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, forumRuleDetailBottomVH) != null) || forumRuleDetailBottomVH == null) {
+            return;
+        }
+        forumRuleDetailBottomVH.b(TbadkCoreApplication.getInst().getSkinType());
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bi
     /* renamed from: x */
-    public ForumRuleDetailItemVH onCreateViewHolder(ViewGroup viewGroup) {
+    public ForumRuleDetailBottomVH onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            ForumRuleDetailItemVH forumRuleDetailItemVH = new ForumRuleDetailItemVH(this.a, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d031f, viewGroup, false));
-            this.viewholder = forumRuleDetailItemVH;
-            return forumRuleDetailItemVH;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+            ForumRuleDetailBottomVH forumRuleDetailBottomVH = new ForumRuleDetailBottomVH(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d031e, viewGroup, false));
+            u(forumRuleDetailBottomVH);
+            this.viewholder = forumRuleDetailBottomVH;
+            return forumRuleDetailBottomVH;
         }
-        return (ForumRuleDetailItemVH) invokeL.objValue;
-    }
-
-    public void z(List<oi> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.c = list;
-        }
+        return (ForumRuleDetailBottomVH) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
     @Override // com.baidu.tieba.bi
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mv7 mv7Var, ForumRuleDetailItemVH forumRuleDetailItemVH) {
-        y(i, view2, viewGroup, mv7Var, forumRuleDetailItemVH);
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lv7 lv7Var, ForumRuleDetailBottomVH forumRuleDetailBottomVH) {
+        y(i, view2, viewGroup, lv7Var, forumRuleDetailBottomVH);
         return view2;
     }
 
-    public View y(int i, View view2, ViewGroup viewGroup, mv7 mv7Var, ForumRuleDetailItemVH forumRuleDetailItemVH) {
-        InterceptResult invokeCommon;
-        boolean z;
+    public final void t(ForumRuleDetailBottomVH forumRuleDetailBottomVH, lv7 lv7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mv7Var, forumRuleDetailItemVH})) == null) {
-            if (mv7Var != null && this.a != null) {
-                forumRuleDetailItemVH.b(mv7Var.a());
-                if (!StringUtils.isNull(mv7Var.c())) {
-                    z = true;
-                    forumRuleDetailItemVH.c.setVisibility(0);
-                    forumRuleDetailItemVH.c.setText(mv7Var.c());
-                } else {
-                    forumRuleDetailItemVH.c.setVisibility(8);
-                    z = false;
-                }
-                if (mv7Var.b() != null && !StringUtils.isNull(mv7Var.b().toString())) {
-                    forumRuleDetailItemVH.d.setVisibility(0);
-                    if (!z) {
-                        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) forumRuleDetailItemVH.d.getLayoutParams();
-                        layoutParams.topMargin = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds0);
-                        forumRuleDetailItemVH.d.setLayoutParams(layoutParams);
-                    }
-                    TbRichText c0 = TbRichTextView.c0(mv7Var.b(), false);
-                    this.b = c0;
-                    forumRuleDetailItemVH.d.setText(c0);
-                } else {
-                    forumRuleDetailItemVH.d.setVisibility(8);
-                }
-                forumRuleDetailItemVH.d.setOnLongClickListener(new a(this, i));
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, forumRuleDetailBottomVH, lv7Var) != null) || forumRuleDetailBottomVH == null) {
+            return;
+        }
+        forumRuleDetailBottomVH.b.setDefaultBgResource(R.drawable.img_default_100);
+        forumRuleDetailBottomVH.b.startLoad(lv7Var.a(), 10, false);
+        String string = TbadkApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f07de);
+        EMTextView eMTextView = forumRuleDetailBottomVH.d;
+        eMTextView.setText(lv7Var.b() + string);
+        forumRuleDetailBottomVH.f.setDefaultBgResource(R.drawable.img_default_100);
+        forumRuleDetailBottomVH.f.startLoad(lv7Var.d(), 12, false);
+        forumRuleDetailBottomVH.g.setText(lv7Var.c());
+        if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.b)) {
+            forumRuleDetailBottomVH.a(String.valueOf(System.currentTimeMillis() / 1000));
+        } else {
+            forumRuleDetailBottomVH.h.setText(String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07e5), lv7Var.e()));
+            forumRuleDetailBottomVH.e.setText(String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07e5), lv7Var.e()));
+        }
+        forumRuleDetailBottomVH.b(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public View y(int i, View view2, ViewGroup viewGroup, lv7 lv7Var, ForumRuleDetailBottomVH forumRuleDetailBottomVH) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lv7Var, forumRuleDetailBottomVH})) == null) {
+            if (lv7Var != null) {
+                t(forumRuleDetailBottomVH, lv7Var);
             }
             return view2;
         }

@@ -4,30 +4,25 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.LinkThreadContent;
-import tbclient.LinkThreadInfo;
 /* loaded from: classes8.dex */
-public class rzc extends poc {
+public class rzc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull LinkThreadInfo linkThreadInfo) {
+    public static JSONObject b(@NonNull LinkThreadContent linkThreadContent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, linkThreadInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, linkThreadContent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "link_url", linkThreadInfo.link_url);
-            poc.a(jSONObject, "link_url_code", linkThreadInfo.link_url_code);
-            if (linkThreadInfo.link_content != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (LinkThreadContent linkThreadContent : linkThreadInfo.link_content) {
-                    jSONArray.put(qzc.b(linkThreadContent));
-                }
-                poc.a(jSONObject, "link_content", jSONArray);
-            }
+            qoc.a(jSONObject, "link_type", linkThreadContent.link_type);
+            qoc.a(jSONObject, "link_title", linkThreadContent.link_title);
+            qoc.a(jSONObject, "link_abstract", linkThreadContent.link_abstract);
+            qoc.a(jSONObject, "link_head_pic", linkThreadContent.link_head_pic);
+            qoc.a(jSONObject, "link_head_small_pic", linkThreadContent.link_head_small_pic);
+            qoc.a(jSONObject, "link_head_big_pic", linkThreadContent.link_head_big_pic);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

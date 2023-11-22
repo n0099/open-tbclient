@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ax4;
-import com.baidu.tieba.n65;
+import com.baidu.tieba.o65;
 import com.baidu.tieba.qd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class TbLinkSpanGroup extends n65<TbLinkSpanGroup> {
+public class TbLinkSpanGroup extends o65<TbLinkSpanGroup> {
     public static /* synthetic */ Interceptable $ic;
     public static final String r;
     public transient /* synthetic */ FieldHolder $fh;
@@ -226,7 +226,7 @@ public class TbLinkSpanGroup extends n65<TbLinkSpanGroup> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.n65
+    @Override // com.baidu.tieba.o65
     /* renamed from: u */
     public void b(TbLinkSpanGroup tbLinkSpanGroup) {
         Interceptable interceptable = $ic;
@@ -319,7 +319,7 @@ public class TbLinkSpanGroup extends n65<TbLinkSpanGroup> {
         n(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f() + 3, c(), 33);
     }
 
-    @Override // com.baidu.tieba.n65
+    @Override // com.baidu.tieba.o65
     public void a(Editable editable, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048582, this, editable, i, i2, i3) == null) {
@@ -334,7 +334,7 @@ public class TbLinkSpanGroup extends n65<TbLinkSpanGroup> {
         }
     }
 
-    @Override // com.baidu.tieba.n65
+    @Override // com.baidu.tieba.o65
     public void r(Editable editable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editable) == null) {
@@ -357,7 +357,7 @@ public class TbLinkSpanGroup extends n65<TbLinkSpanGroup> {
         }
     }
 
-    @Override // com.baidu.tieba.n65
+    @Override // com.baidu.tieba.o65
     public void s(Editable editable, int i) {
         String str;
         String str2;

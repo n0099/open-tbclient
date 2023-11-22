@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
 /* loaded from: classes8.dex */
-public final class t7c<TResult> implements i7c<TResult> {
+public final class t7c<TResult> implements j7c<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l7c<TResult> a;
+    public l7c a;
     public Executor b;
     public final Object c;
 
@@ -18,15 +18,15 @@ public final class t7c<TResult> implements i7c<TResult> {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m7c a;
+        public final /* synthetic */ n7c a;
         public final /* synthetic */ t7c b;
 
-        public a(t7c t7cVar, m7c m7cVar) {
+        public a(t7c t7cVar, n7c n7cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t7cVar, m7cVar};
+                Object[] objArr = {t7cVar, n7cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,25 +37,23 @@ public final class t7c<TResult> implements i7c<TResult> {
                 }
             }
             this.b = t7cVar;
-            this.a = m7cVar;
+            this.a = n7cVar;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: com.baidu.tieba.l7c */
-        /* JADX WARN: Multi-variable type inference failed */
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this.b.c) {
                     if (this.b.a != null) {
-                        this.b.a.onSuccess(this.a.e());
+                        this.b.a.onFailure(this.a.d());
                     }
                 }
             }
         }
     }
 
-    public t7c(Executor executor, l7c<TResult> l7cVar) {
+    public t7c(Executor executor, l7c l7cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,7 +73,7 @@ public final class t7c<TResult> implements i7c<TResult> {
         this.b = executor;
     }
 
-    @Override // com.baidu.tieba.i7c
+    @Override // com.baidu.tieba.j7c
     public final void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -85,11 +83,12 @@ public final class t7c<TResult> implements i7c<TResult> {
         }
     }
 
-    @Override // com.baidu.tieba.i7c
-    public final void onComplete(m7c<TResult> m7cVar) {
+    @Override // com.baidu.tieba.j7c
+    public final void onComplete(n7c<TResult> n7cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m7cVar) == null) && m7cVar.h() && !m7cVar.f()) {
-            this.b.execute(new a(this, m7cVar));
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n7cVar) == null) || n7cVar.h() || n7cVar.f()) {
+            return;
         }
+        this.b.execute(new a(this, n7cVar));
     }
 }

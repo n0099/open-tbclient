@@ -32,11 +32,11 @@ public class hu4 implements lf1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new oi7());
+            arrayList.add(new pi7());
             arrayList.add(new ForumUnLikeHybridNotify());
-            arrayList.add(new r68());
-            arrayList.add(new ue8());
-            arrayList.add(new jr8());
+            arrayList.add(new s68());
+            arrayList.add(new ve8());
+            arrayList.add(new kr8());
             return arrayList;
         }
         return invokeV.objValue;

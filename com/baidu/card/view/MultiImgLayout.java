@@ -22,15 +22,15 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.layout.ConstrainImageGroup;
 import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax5;
 import com.baidu.tieba.bw4;
+import com.baidu.tieba.bx5;
 import com.baidu.tieba.ht;
 import com.baidu.tieba.lv4;
 import com.baidu.tieba.ob;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.xl6;
-import com.baidu.tieba.xw5;
 import com.baidu.tieba.yh;
+import com.baidu.tieba.yl6;
+import com.baidu.tieba.yw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +51,7 @@ public class MultiImgLayout extends LinearLayout implements ht<bw4> {
     public ConstrainImageGroup d;
     public String e;
     public boolean f;
-    public xl6<bw4> g;
+    public yl6<bw4> g;
     public bw4 h;
     public boolean i;
 
@@ -81,7 +81,7 @@ public class MultiImgLayout extends LinearLayout implements ht<bw4> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            xl6<bw4> subClickListener;
+            yl6<bw4> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -91,7 +91,7 @@ public class MultiImgLayout extends LinearLayout implements ht<bw4> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements ax5 {
+    public class b implements bx5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LinkedList a;
@@ -116,14 +116,14 @@ public class MultiImgLayout extends LinearLayout implements ht<bw4> {
             this.a = linkedList;
         }
 
-        @Override // com.baidu.tieba.ax5
+        @Override // com.baidu.tieba.bx5
         public void a(View view2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
                 if (this.b.g != null && this.b.g.c(view2, this.b.h, "")) {
                     return;
                 }
-                xl6<bw4> subClickListener = this.b.getSubClickListener();
+                yl6<bw4> subClickListener = this.b.getSubClickListener();
                 if (subClickListener != null) {
                     view2.setTag("1");
                     this.b.h.objType = 2;
@@ -265,10 +265,10 @@ public class MultiImgLayout extends LinearLayout implements ht<bw4> {
         }
     }
 
-    public void setSubClickListener(xl6<bw4> xl6Var) {
+    public void setSubClickListener(yl6<bw4> yl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, xl6Var) == null) {
-            this.g = xl6Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, yl6Var) == null) {
+            this.g = yl6Var;
         }
     }
 
@@ -368,19 +368,19 @@ public class MultiImgLayout extends LinearLayout implements ht<bw4> {
             playVoiceBntNew.setAfterClickListener(new a(this));
             this.d = (ConstrainImageGroup) findViewById(R.id.thread_card_img_group);
             this.d.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002));
-            xw5 xw5Var = new xw5(3);
-            xw5Var.d(1.0d);
-            this.d.setImageProcessor(xw5Var);
+            yw5 yw5Var = new yw5(3);
+            yw5Var.d(1.0d);
+            this.d.setImageProcessor(yw5Var);
         }
     }
 
-    public xl6<bw4> getSubClickListener() {
+    public yl6<bw4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.g;
         }
-        return (xl6) invokeV.objValue;
+        return (yl6) invokeV.objValue;
     }
 
     public void setMarginsTop(View view2, int i) {

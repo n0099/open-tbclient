@@ -1,275 +1,365 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.widget.tiejia.TiePlusStat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.util.TiePlusHelper;
+import com.baidu.tbadk.widget.ProgressButton;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TiebaPlusInfo;
 /* loaded from: classes7.dex */
-public class py5 {
+public class py5 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public TiebaPlusInfo b;
-    public TiePlusStat.ThreadType c;
-    public String d;
-    public String e;
-    public TiePlusStat.StatType f;
-    public TiePlusStat.LandingType g;
-    public TiePlusStat.CardBtnType h;
-    public TiePlusStat.RichTextType i;
-    public ThreadData j;
-    public int k;
+    public View a;
+    public View b;
+    public View c;
+    public TbImageView d;
+    public TextView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
+    public TextView j;
+    public TextView k;
+    public ImageView l;
+    public ProgressButton m;
+    public final TiePlusHelper n;
+    public final boolean o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
+    public d t;
 
-    @NonNull
-    public py5 a(@Nullable ura uraVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uraVar)) == null) ? this : (py5) invokeL.objValue;
+    /* loaded from: classes7.dex */
+    public interface d {
+        void a();
     }
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ py5 a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-502420576, "Lcom/baidu/tieba/py5$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-502420576, "Lcom/baidu/tieba/py5$a;");
+        public a(py5 py5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {py5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[TiePlusStat.Locate.values().length];
-            a = iArr;
-            try {
-                iArr[TiePlusStat.Locate.HOME.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[TiePlusStat.Locate.FRS.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[TiePlusStat.Locate.PB.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[TiePlusStat.Locate.PB_COMMENT.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
+            this.a = py5Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                BdUtilHelper.showToast(this.a.r, 2000, true);
             }
         }
     }
 
-    public py5() {
+    /* loaded from: classes7.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ py5 a;
+
+        public b(py5 py5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {py5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = py5Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.n.onClick(view2);
+                if (this.a.t != null) {
+                    this.a.t.a();
+                }
+                this.a.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ py5 a;
+
+        public c(py5 py5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {py5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = py5Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public py5(@NonNull Context context, TiePlusHelper tiePlusHelper, boolean z) {
+        super(context, true, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, tiePlusHelper, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), (DialogInterface.OnCancelListener) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = null;
-        this.i = TiePlusStat.RichTextType.LINK;
-        this.k = -1;
+        this.n = tiePlusHelper;
+        this.o = z;
     }
 
-    public TiePlusStat.CardBtnType d() {
-        InterceptResult invokeV;
+    public py5 g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.r = str;
+            return this;
         }
-        return (TiePlusStat.CardBtnType) invokeV.objValue;
+        return (py5) invokeL.objValue;
     }
 
-    @NonNull
-    public String e() {
-        InterceptResult invokeV;
+    public py5 h(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return String.valueOf(this.j.getDispatchedForumId());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.s = str;
+            return this;
         }
-        return (String) invokeV.objValue;
+        return (py5) invokeL.objValue;
     }
 
-    @NonNull
-    public String f() {
-        InterceptResult invokeV;
+    public py5 i(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            tt5.d(!TextUtils.isEmpty(this.e));
-            return this.e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            this.p = str;
+            return this;
         }
-        return (String) invokeV.objValue;
+        return (py5) invokeL.objValue;
     }
 
-    @NonNull
-    public TiePlusStat.LandingType g() {
-        InterceptResult invokeV;
+    public py5 j(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            this.q = str;
+            return this;
         }
-        return (TiePlusStat.LandingType) invokeV.objValue;
+        return (py5) invokeL.objValue;
     }
 
-    public TiePlusStat.RichTextType h() {
-        InterceptResult invokeV;
+    public void k(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.i;
+        if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
+            this.t = dVar;
         }
-        return (TiePlusStat.RichTextType) invokeV.objValue;
     }
 
-    @NonNull
-    public TiePlusStat.StatType j() {
+    public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            tt5.b(this.f);
-            return this.f;
-        }
-        return (TiePlusStat.StatType) invokeV.objValue;
-    }
-
-    @NonNull
-    public ThreadData k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.j;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    @NonNull
-    public TiePlusStat.ThreadType l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return (TiePlusStat.ThreadType) invokeV.objValue;
-    }
-
-    @NonNull
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public TiebaPlusInfo n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.b;
-        }
-        return (TiebaPlusInfo) invokeV.objValue;
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int equipmentWidth = BdUtilHelper.getEquipmentWidth(getContext());
+            if (equipmentWidth < 975.0d) {
+                return 759;
+            }
+            return (equipmentWidth * 322) / 414;
         }
         return invokeV.intValue;
     }
 
-    @NonNull
-    public static py5 c(int i, @NonNull TiebaPlusInfo tiebaPlusInfo, @NonNull ThreadData threadData) {
-        InterceptResult invokeILL;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65537, null, i, tiebaPlusInfo, threadData)) == null) {
-            int intValue = tiebaPlusInfo.jump_type.intValue();
-            py5 py5Var = new py5();
-            py5Var.a = TiePlusStat.a(tiebaPlusInfo, null);
-            py5Var.g = TiePlusStat.LandingType.create(intValue);
-            py5Var.i = TiePlusStat.RichTextType.create(i);
-            py5Var.h = TiePlusStat.CardBtnType.create(i, intValue);
-            py5Var.b = tiebaPlusInfo;
-            py5Var.c = TiePlusStat.ThreadType.create(threadData);
-            py5Var.d = threadData.getTid();
-            py5Var.e = String.valueOf(threadData.getFid());
-            py5Var.j = threadData;
-            return py5Var;
-        }
-        return (py5) invokeILL.objValue;
-    }
-
-    public py5 b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            this.k = i;
-            return this;
-        }
-        return (py5) invokeI.objValue;
-    }
-
-    public int i(@NonNull TiePlusStat.Locate locate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, locate)) == null) {
-            int i = a.a[locate.ordinal()];
-            if (i != 1 && i != 2) {
-                if (i != 3 && i != 4) {
-                    return -1;
-                }
-                return this.k;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = findViewById(R.id.obfuscated_res_0x7f090925);
+            this.d = (TbImageView) findViewById(R.id.app_icon);
+            this.e = (TextView) findViewById(R.id.app_title);
+            this.f = (TextView) findViewById(R.id.app_version);
+            this.g = (TextView) findViewById(R.id.app_company);
+            this.h = (TextView) findViewById(R.id.app_permisson);
+            this.i = (TextView) findViewById(R.id.app_privacy);
+            this.j = (TextView) findViewById(R.id.app_function);
+            this.c = findViewById(R.id.divider_function);
+            this.k = (TextView) findViewById(R.id.download_cancel);
+            this.m = (ProgressButton) findViewById(R.id.download_btn);
+            this.l = (ImageView) findViewById(R.id.window_close);
+            this.d.setPlaceHolder(2);
+            this.d.setConrers(15);
+            f();
+            this.i.setTag((byte) 16);
+            this.h.setTag((byte) 17);
+            this.j.setTag((byte) 19);
+            this.k.setTag((byte) 18);
+            if (!StringUtils.isNull(this.p)) {
+                this.e.setText(this.p);
             }
-            return k().statFloor;
+            if (!StringUtils.isNull(this.s)) {
+                this.d.startLoad(this.s, 10, false);
+            }
+            if (!StringUtils.isNull(this.q)) {
+                this.f.setText(String.format(getContext().getString(R.string.app_version_long), this.q));
+            }
+            if (!StringUtils.isNull(this.r)) {
+                this.g.setText(String.format(getContext().getString(R.string.developer_name), this.r));
+                this.g.setOnClickListener(new a(this));
+            }
+            this.h.setOnClickListener(this.n);
+            this.i.setOnClickListener(this.n);
+            this.j.setOnClickListener(this.n);
+            this.k.setOnClickListener(this.n);
+            this.m.setOnClickListener(new b(this));
+            this.m.setUseLongText(true);
+            this.l.setOnClickListener(new c(this));
         }
-        return invokeL.intValue;
     }
 
-    public void p(TiePlusStat.RichTextType richTextType) {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, richTextType) == null) {
-            this.i = richTextType;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            EMManager.from(this.a).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
+            EMManager.from(this.e).setTextStyle(R.string.F_X02).setTextColor(R.color.CAM_X0105);
+            EMManager.from(this.f).setTextColor(R.color.CAM_X0108);
+            EMManager.from(this.g).setTextColor(R.color.CAM_X0108);
+            EMManager.from(this.h).setTextColor(R.color.CAM_X0304);
+            EMManager.from(this.i).setTextColor(R.color.CAM_X0304);
+            EMManager.from(this.j).setTextColor(R.color.CAM_X0304);
+            EMManager.from(this.k).setTextColor(R.color.CAM_X0107);
+            EMManager.from(this.b).setBackGroundColor(R.color.CAM_X0107);
+            EMManager.from(this.c).setBackGroundColor(R.color.CAM_X0107);
+            WebPManager.setPureDrawable(this.l, R.drawable.icon_pure_dialog_close22, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
+            this.m.i();
         }
     }
 
-    public void q(@NonNull TiePlusStat.StatType statType) {
+    @Override // android.app.Dialog, android.view.Window.Callback
+    public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, statType) == null) {
-            this.f = statType;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onAttachedToWindow();
+            this.n.p(this.m);
+            if (this.n.A() == null) {
+                if (this.o) {
+                    MessageManager.getInstance().registerListener(this.n);
+                }
+                if (!StringUtils.isNull(this.n.C()) && !StringUtils.isNull(this.n.y())) {
+                    TiePlusHelper tiePlusHelper = this.n;
+                    tiePlusHelper.q0(tiePlusHelper.C(), this.n.y(), getContext(), this.m);
+                    TiePlusHelper tiePlusHelper2 = this.n;
+                    tiePlusHelper2.n0(tiePlusHelper2.C(), getContext(), this.k);
+                    return;
+                }
+                return;
+            }
+            TiePlusHelper tiePlusHelper3 = this.n;
+            tiePlusHelper3.D(tiePlusHelper3.A()).g(this.n);
+            this.n.p0(this.m, null);
+            this.n.m0(this.k);
         }
     }
 
-    public void r(TiebaPlusInfo tiebaPlusInfo) {
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, tiebaPlusInfo) == null) {
-            this.b = tiebaPlusInfo;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+            super.onCreate(bundle);
+            getWindow().setBackgroundDrawableResource(R.color.transparent);
+            View inflate = getLayoutInflater().inflate(R.layout.tie_plus_download_dialog, (ViewGroup) null);
+            this.a = inflate;
+            setContentView(inflate);
+            WindowManager.LayoutParams attributes = getWindow().getAttributes();
+            attributes.width = d();
+            getWindow().setAttributes(attributes);
+            e();
+        }
+    }
+
+    @Override // android.app.Dialog, android.view.Window.Callback
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            super.onDetachedFromWindow();
+            this.n.O(this.m);
+            if (this.o) {
+                if (this.n.A() == null) {
+                    MessageManager.getInstance().unRegisterListener(this.n);
+                    return;
+                }
+                TiePlusHelper tiePlusHelper = this.n;
+                tiePlusHelper.D(tiePlusHelper.A()).u(this.n);
+            }
         }
     }
 }

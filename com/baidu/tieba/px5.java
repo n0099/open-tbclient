@@ -1,22 +1,19 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class px5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public List<String> b;
-    public int c;
-    public String d;
+    public boolean a;
+    public String b;
+    public qx5 c;
 
     public px5() {
         Interceptable interceptable = $ic;
@@ -32,30 +29,20 @@ public class px5 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || qd.isEmpty(str)) {
             return;
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("del_success");
-        if (optJSONArray != null) {
-            this.a = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                if (!TextUtils.isEmpty(optJSONArray.optString(i))) {
-                    this.a.add(optJSONArray.optString(i));
-                }
-            }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            jSONObject.optInt("error_code");
+            this.b = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+            qx5 qx5Var = new qx5();
+            this.c = qx5Var;
+            qx5Var.a(jSONObject.optJSONObject("info"));
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        JSONArray optJSONArray2 = jSONObject.optJSONArray("del_fail");
-        if (optJSONArray2 != null) {
-            this.b = new ArrayList();
-            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                if (!TextUtils.isEmpty(optJSONArray2.optString(i2))) {
-                    this.b.add(optJSONArray2.optString(i2));
-                }
-            }
-        }
-        this.c = jSONObject.optInt("ret_type");
-        this.d = jSONObject.optString("text");
     }
 }

@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.j7;
-import com.baidu.tieba.jt5;
+import com.baidu.tieba.kt5;
 import com.baidu.tieba.lv4;
 import com.baidu.tieba.n7;
 import com.baidu.tieba.rb;
@@ -206,13 +206,13 @@ public class MemeLoaderProc2 implements sb<BdImage> {
                 i4 = i2;
             }
             if (!this.isShare) {
-                jt5.e(this.isFromCDN, str, str);
-                Pair<Boolean, String> d = jt5.d(str);
+                kt5.e(this.isFromCDN, str, str);
+                Pair<Boolean, String> d = kt5.d(str);
                 if (((Boolean) d.first).booleanValue()) {
                     str3 = (String) d.second;
                 }
             } else {
-                jt5.g(MemeLoaderProc2.class.getSimpleName(), str);
+                kt5.g(MemeLoaderProc2.class.getSimpleName(), str);
             }
             String str4 = str3;
             WebClient webClient = new WebClient();

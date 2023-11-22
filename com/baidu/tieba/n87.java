@@ -1,64 +1,46 @@
 package com.baidu.tieba;
 
+import android.text.SpannableStringBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.BaseTextColor;
-import tbclient.FeedContentColor;
-import tbclient.FeedContentText;
+import tbclient.AbstractComponent;
+import tbclient.FeedContentResource;
 /* loaded from: classes7.dex */
 public final class n87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final m57 a(BaseTextColor baseTextColor) {
-        InterceptResult invokeL;
+    public static final u37 a(SpannableStringBuilder titleBuilder, List<FeedContentResource> contentList, a67 feedExtraData) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baseTextColor)) == null) {
-            Intrinsics.checkNotNullParameter(baseTextColor, "<this>");
-            Integer type = baseTextColor.type;
-            Intrinsics.checkNotNullExpressionValue(type, "type");
-            return new m57(type.intValue(), baseTextColor.day, baseTextColor.night);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, titleBuilder, contentList, feedExtraData)) == null) {
+            Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
+            Intrinsics.checkNotNullParameter(contentList, "contentList");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            u37 u37Var = new u37(new x47(titleBuilder, spannableStringBuilder), z87.a(feedExtraData.a()));
+            y87.a(contentList, spannableStringBuilder, feedExtraData, u37Var);
+            return u37Var;
         }
-        return (m57) invokeL.objValue;
+        return (u37) invokeLLL.objValue;
     }
 
-    public static final m57 b(FeedContentColor feedContentColor) {
-        InterceptResult invokeL;
+    public static final void b(AbstractComponent abstractComponent, List<ab7<?>> dataList, SpannableStringBuilder titleBuilder, a67 feedExtraData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, feedContentColor)) == null) {
-            Intrinsics.checkNotNullParameter(feedContentColor, "<this>");
-            Integer type = feedContentColor.type;
-            Intrinsics.checkNotNullExpressionValue(type, "type");
-            return new m57(type.intValue(), feedContentColor.day, feedContentColor.night);
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, abstractComponent, dataList, titleBuilder, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(abstractComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            List<FeedContentResource> data = abstractComponent.data;
+            Intrinsics.checkNotNullExpressionValue(data, "data");
+            u37 a = a(titleBuilder, data, feedExtraData);
+            if (a.k()) {
+                dataList.add(new bb7(a, "abstract"));
+            }
         }
-        return (m57) invokeL.objValue;
-    }
-
-    public static final o77 c(FeedContentText feedContentText) {
-        InterceptResult invokeL;
-        m57 m57Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, feedContentText)) == null) {
-            Intrinsics.checkNotNullParameter(feedContentText, "<this>");
-            String str = feedContentText.text;
-            if (str == null) {
-                str = "";
-            }
-            FeedContentColor feedContentColor = feedContentText.color;
-            m57 m57Var2 = null;
-            if (feedContentColor != null) {
-                m57Var = b(feedContentColor);
-            } else {
-                m57Var = null;
-            }
-            FeedContentColor feedContentColor2 = feedContentText.bg_color;
-            if (feedContentColor2 != null) {
-                m57Var2 = b(feedContentColor2);
-            }
-            return new o77(str, m57Var, m57Var2);
-        }
-        return (o77) invokeL.objValue;
     }
 }

@@ -9,8 +9,8 @@ import com.baidu.android.pushservice.e;
 import com.baidu.android.pushservice.l.d;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.android.pushservice.z.c;
-import com.baidu.tieba.n6c;
-import com.baidu.tieba.q4c;
+import com.baidu.tieba.o6c;
+import com.baidu.tieba.r4c;
 import com.huawei.hms.aaid.HmsInstanceId;
 import com.huawei.hms.push.HmsMessaging;
 import com.tencent.connect.common.Constants;
@@ -146,7 +146,7 @@ public class a {
     public String b() {
         f.add(Long.valueOf(System.currentTimeMillis()));
         try {
-            q4c.a().b(this.c, true);
+            r4c.a().b(this.c, true);
         } catch (Throwable unused) {
         }
         return this.a;
@@ -169,7 +169,7 @@ public class a {
     public String c() {
         e.add(Long.valueOf(System.currentTimeMillis()));
         try {
-            String token = HmsInstanceId.getInstance(this.c).getToken(n6c.c(this.c).a("client/app_id"), HmsMessaging.DEFAULT_TOKEN_SCOPE);
+            String token = HmsInstanceId.getInstance(this.c).getToken(o6c.c(this.c).a("client/app_id"), HmsMessaging.DEFAULT_TOKEN_SCOPE);
             this.b = token;
             if (!TextUtils.isEmpty(token)) {
                 a(true);

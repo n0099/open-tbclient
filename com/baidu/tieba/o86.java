@@ -6,22 +6,23 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernTitleView;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernRecommendLineHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class o86 extends bi<ba6, LiveTabConcernTitleView.ViewHolder> {
+public class o86 extends bi<s86, LiveTabConcernRecommendLineHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
+    public c96 b;
+    public d96 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o86(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), ba6.b);
+        super(tbPageContext.getPageActivity(), s86.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,27 +45,43 @@ public class o86 extends bi<ba6, LiveTabConcernTitleView.ViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bi
     /* renamed from: t */
-    public LiveTabConcernTitleView.ViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public LiveTabConcernRecommendLineHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new LiveTabConcernTitleView.ViewHolder(new LiveTabConcernTitleView(this.a, viewGroup));
+            c96 c96Var = new c96(this.a, viewGroup);
+            this.b = c96Var;
+            d96 d96Var = this.c;
+            if (d96Var != null) {
+                c96Var.r(d96Var);
+            }
+            return new LiveTabConcernRecommendLineHolder(this.b);
         }
-        return (LiveTabConcernTitleView.ViewHolder) invokeL.objValue;
+        return (LiveTabConcernRecommendLineHolder) invokeL.objValue;
+    }
+
+    public void x(d96 d96Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, d96Var) == null) {
+            this.c = d96Var;
+            c96 c96Var = this.b;
+            if (c96Var != null) {
+                c96Var.r(d96Var);
+            }
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bi
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ba6 ba6Var, LiveTabConcernTitleView.ViewHolder viewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, s86 s86Var, LiveTabConcernRecommendLineHolder liveTabConcernRecommendLineHolder) {
         InterceptResult invokeCommon;
-        LiveTabConcernTitleView liveTabConcernTitleView;
+        c96 c96Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ba6Var, viewHolder})) == null) {
-            if (viewHolder != null && (liveTabConcernTitleView = viewHolder.a) != null) {
-                liveTabConcernTitleView.k(ba6Var);
-                viewHolder.a.l(this.a, TbadkCoreApplication.getInst().getSkinType());
-                return viewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, s86Var, liveTabConcernRecommendLineHolder})) == null) {
+            if (liveTabConcernRecommendLineHolder != null && (c96Var = liveTabConcernRecommendLineHolder.a) != null) {
+                c96Var.k(s86Var);
+                return liveTabConcernRecommendLineHolder.getView();
             }
             return null;
         }

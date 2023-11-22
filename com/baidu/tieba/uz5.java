@@ -1,15 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.fr4;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,154 +12,51 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class uz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public fr4 b;
-    public b c;
-    public MarkData d;
-    public final fr4.a e;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(boolean z);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements fr4.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uz5 a;
-
-        public a(uz5 uz5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uz5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uz5Var;
-        }
-
-        @Override // com.baidu.tieba.fr4.a
-        public void a(boolean z, boolean z2, String str, @Nullable String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str, str2}) == null) {
-                if (z) {
-                    if (z2) {
-                        if (str2 == null) {
-                            str2 = this.a.a.getString(R.string.add_mark);
-                        }
-                        BdUtilHelper.showToast(str2, 2000, true);
-                    } else {
-                        BdUtilHelper.showToast(this.a.a, this.a.a.getString(R.string.remove_mark));
-                    }
-                    if (this.a.c != null) {
-                        this.a.c.a(z2);
-                    }
-                    if (this.a.d != null) {
-                        qra qraVar = new qra();
-                        qraVar.a = this.a.d.getThreadId();
-                        qraVar.b = z2;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, qraVar));
-                        return;
-                    }
-                    return;
-                }
-                BdUtilHelper.showToast(this.a.a, this.a.a.getString(R.string.update_mark_failed));
-            }
-        }
-    }
-
-    public uz5(Context context) {
+    public uz5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = null;
-        this.e = new a(this);
-        this.a = context;
-        if (context instanceof BaseActivity) {
-            this.b = fr4.b((BaseActivity) context);
-        } else if (context instanceof BaseFragmentActivity) {
-            this.b = fr4.c((BaseFragmentActivity) context);
-        }
-        fr4 fr4Var = this.b;
-        if (fr4Var != null) {
-            fr4Var.j(this.e);
-        }
-    }
-
-    public void g(boolean z) {
-        fr4 fr4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (fr4Var = this.b) != null) {
-            fr4Var.h(z);
-        }
-    }
-
-    public void h(MarkData markData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, markData) == null) {
-            this.d = markData;
-            fr4 fr4Var = this.b;
-            if (fr4Var != null) {
-                fr4Var.i(markData);
             }
         }
     }
 
-    public void i(b bVar) {
+    public static void b(w75 w75Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.c = bVar;
+        if ((interceptable != null && interceptable.invokeL(65537, null, w75Var) != null) || w75Var == null) {
+            return;
+        }
+        if (w75Var.b != 0) {
+            SharedPrefHelper.getInstance().putString("app_entrance_nologin", w75Var.b + "");
+        }
+        if (w75Var.a != 0 && TbadkCoreApplication.getCurrentAccount() != null) {
+            SharedPrefHelper.getInstance().putString("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), w75Var.a + "");
         }
     }
 
-    public void d() {
-        fr4 fr4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (fr4Var = this.b) != null) {
-            fr4Var.a();
-            this.b.h(true);
-        }
-    }
-
-    public void e() {
-        fr4 fr4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (fr4Var = this.b) != null && fr4Var.e()) {
-            this.b.d();
-            this.b.h(false);
-        }
-    }
-
-    public boolean f() {
+    public int a() {
         InterceptResult invokeV;
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            fr4 fr4Var = this.b;
-            if (fr4Var != null) {
-                return fr4Var.e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
+                string = SharedPrefHelper.getInstance().getString("app_entrance_nologin", "");
+            } else {
+                SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+                string = sharedPrefHelper.getString("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), "");
             }
-            return false;
+            int i = JavaTypesHelper.toInt(string, 0);
+            if (i != 1 && i == 2) {
+                return 1;
+            }
+            return 2;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 }

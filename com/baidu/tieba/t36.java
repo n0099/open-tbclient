@@ -3,15 +3,17 @@ package com.baidu.tieba;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.coreExtra.relationship.GetContactListRequestMessage;
+import com.baidu.tbadk.coreExtra.relationship.GetContactListResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class t36 implements CustomMessageTask.CustomRunnable<Object> {
+public class t36 implements CustomMessageTask.CustomRunnable<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,26 +32,24 @@ public class t36 implements CustomMessageTask.CustomRunnable<Object> {
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         InterceptResult invokeL;
-        boolean d;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null) {
-                return null;
-            }
-            int cmd = customMessage.getCmd();
-            if (customMessage.getData() != null && (cmd == 2001179 || cmd == 2001180)) {
-                sa5 sa5Var = (sa5) customMessage.getData();
-                if (cmd == 2001179) {
-                    d = v36.f().a(sa5Var);
-                } else {
-                    d = v36.f().d(sa5Var.d());
+            if (customMessage != null && (customMessage instanceof GetContactListRequestMessage)) {
+                List<ta5> e = w36.f().e();
+                if (e != null) {
+                    Iterator<ta5> it = e.iterator();
+                    while (it.hasNext()) {
+                        ta5 next = it.next();
+                        if ((qd.isEmpty(next.e()) && qd.isEmpty(next.f())) || next.h() == 1) {
+                            it.remove();
+                        }
+                    }
                 }
-                if (!d) {
-                    SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-                    sharedPrefHelper.putBoolean("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
-                }
+                GetContactListResponsedMessage getContactListResponsedMessage = new GetContactListResponsedMessage();
+                getContactListResponsedMessage.setContacts(e);
+                return getContactListResponsedMessage;
             }
             return null;
         }

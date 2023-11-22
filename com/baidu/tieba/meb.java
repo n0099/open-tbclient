@@ -1,21 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface meb {
-    void E();
+    void i(String str);
 
-    void I();
+    void k(String str);
 
-    void L0(boolean z);
+    void u(String str);
 
-    void M0(int i, boolean z);
-
-    void a(String str);
-
-    void c();
-
-    void finish();
-
-    void setResult(int i);
-
-    void t();
+    void v(String str);
 }

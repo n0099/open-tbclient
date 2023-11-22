@@ -22,13 +22,13 @@ import com.baidu.tbadk.coreExtra.data.WriteVoteData;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.data.JSONLikeSerializable;
 import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.a9b;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.sta;
 import com.baidu.tieba.tta;
 import com.baidu.tieba.uta;
-import com.baidu.tieba.z8b;
+import com.baidu.tieba.vta;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -139,8 +139,8 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65539, null, z)) == null) {
-            boolean o = sta.l().o();
-            tta.a("发帖阻拦状态 = " + o);
+            boolean o = tta.l().o();
+            uta.a("发帖阻拦状态 = " + o);
             if (o && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
                 BdUtilHelper.showToast(currentActivity, "正在发布，请稍后");
             }
@@ -175,7 +175,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            uta.h = new Intent(getIntent());
+            vta.h = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -366,7 +366,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
             getIntent().putExtra(IS_ARTICLE, str);
-            if (z8b.m.equals(str)) {
+            if (a9b.m.equals(str)) {
                 setType(11);
             }
             return this;

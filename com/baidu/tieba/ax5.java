@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
+import java.util.List;
 /* loaded from: classes5.dex */
 public interface ax5 {
-    void a(View view2, int i, boolean z);
+    int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2);
+
+    int b(int i);
 }

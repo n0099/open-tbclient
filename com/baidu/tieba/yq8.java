@@ -2,16 +2,12 @@ package com.baidu.tieba;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteException;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.IMConstants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.unified.SourceConstant;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,11 +15,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes9.dex */
-public class yq8 extends lq8 {
+public class yq8 extends mq8 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static lq8 d = null;
-    public static String e = "tb_private_msg_";
+    public static mq8 d = null;
+    public static String e = "tb_oficial_msg_";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +41,7 @@ public class yq8 extends lq8 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public yq8() {
-        super("tb_private_msg_", PersonalChatMessage.class);
+        super("tb_oficial_msg_", OfficialChatMessage.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,119 +74,126 @@ public class yq8 extends lq8 {
         return (yq8) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r11v0, resolved type: int */
-    /* JADX WARN: Multi-variable type inference failed */
-    public CommonMsgPojo x(String str, int i) {
-        InterceptResult invokeLI;
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x00b8: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:29:0x00b8 */
+    public static List<cr8> x() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
+        Exception e2;
         Cursor cursor;
+        Cursor cursor2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            Cursor cursor2 = null;
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            Cursor cursor3 = null;
+            ArrayList arrayList2 = null;
             try {
                 try {
-                    cursor = tq8.e().g("select * from " + (e + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
-                    try {
-                        CommonMsgPojo commonMsgPojo = new CommonMsgPojo();
-                        if (cursor != null && cursor.moveToNext()) {
-                            commonMsgPojo.setGid(str);
-                            commonMsgPojo.setUid(cursor.getString(cursor.getColumnIndex("uid")));
-                            commonMsgPojo.setUser_info(cursor.getString(cursor.getColumnIndex(SourceConstant.SOURCE_USER_INFO)));
-                            commonMsgPojo.setToUid(cursor.getString(cursor.getColumnIndex("to_uid")));
-                            commonMsgPojo.setToUser_info(cursor.getString(cursor.getColumnIndex("to_user_info")));
-                            commonMsgPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
-                            commonMsgPojo.setCreate_time(cursor.getLong(cursor.getColumnIndex("create_time")));
-                            commonMsgPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
-                            commonMsgPojo.setMid(cursor.getLong(cursor.getColumnIndex("mid")));
-                            commonMsgPojo.setMsg_status(cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_STATUS)));
-                            commonMsgPojo.setMsg_type(cursor.getInt(cursor.getColumnIndex("msg_type")));
-                            commonMsgPojo.setRid(cursor.getLong(cursor.getColumnIndex("rid")));
-                            commonMsgPojo.setRead_flag(cursor.getInt(cursor.getColumnIndex("read_flag")));
-                            commonMsgPojo.setIs_delete(cursor.getInt(cursor.getColumnIndex("is_delete")));
-                            commonMsgPojo.setIsFriend(cursor.getInt(cursor.getColumnIndex("is_friend")));
-                            rd.a(cursor);
-                            return commonMsgPojo;
+                    cursor = uq8.e().g("SELECT * FROM tb_message_center WHERE custom_group_type = ? AND (user_type = ? OR user_type = ?) ORDER BY visit_time DESC, last_content_time DESC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+                    if (cursor != null) {
+                        try {
+                            arrayList = new ArrayList(cursor.getCount());
+                            while (cursor.moveToNext()) {
+                                try {
+                                    cr8 cr8Var = new cr8();
+                                    cr8Var.h(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
+                                    cr8Var.j(cursor.getInt(cursor.getColumnIndex("unread_count")));
+                                    cr8Var.i(cursor.getString(cursor.getColumnIndex("group_head")));
+                                    cr8Var.g(cursor.getString(cursor.getColumnIndex("group_name")));
+                                    cr8Var.k(cursor.getInt(cursor.getColumnIndex("user_type")));
+                                    int columnIndex = cursor.getColumnIndex("visit_time");
+                                    if (columnIndex >= 0) {
+                                        cr8Var.l(cursor.getLong(columnIndex));
+                                    }
+                                    arrayList.add(cr8Var);
+                                } catch (Exception e3) {
+                                    e2 = e3;
+                                    e2.printStackTrace();
+                                    TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getOfficalListFromDb", new Object[0]);
+                                    rd.a(cursor);
+                                    return arrayList;
+                                }
+                            }
+                            arrayList2 = arrayList;
+                        } catch (Exception e4) {
+                            arrayList = null;
+                            e2 = e4;
                         }
-                    } catch (SQLiteException e2) {
-                        e = e2;
-                        TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
-                        e.printStackTrace();
-                        b(str);
-                        rd.a(cursor);
-                        return null;
-                    } catch (Exception e3) {
-                        e = e3;
-                        TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
-                        e.printStackTrace();
-                        rd.a(cursor);
-                        return null;
                     }
+                    rd.a(cursor);
+                    return arrayList2;
                 } catch (Throwable th) {
                     th = th;
-                    cursor2 = i;
-                    rd.a(cursor2);
+                    cursor3 = cursor2;
+                    rd.a(cursor3);
                     throw th;
                 }
-            } catch (SQLiteException e4) {
-                e = e4;
-                cursor = null;
             } catch (Exception e5) {
-                e = e5;
+                arrayList = null;
+                e2 = e5;
                 cursor = null;
             } catch (Throwable th2) {
                 th = th2;
-                rd.a(cursor2);
+                rd.a(cursor3);
                 throw th;
             }
-            rd.a(cursor);
-            return null;
+        } else {
+            return (List) invokeV.objValue;
         }
-        return (CommonMsgPojo) invokeLI.objValue;
     }
 
-    public boolean y(long j, long j2, String str) {
-        InterceptResult invokeCommon;
+    public static List<String> y() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str})) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            Boolean bool = Boolean.FALSE;
-            if (j == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
-                return false;
-            }
-            String valueOf = String.valueOf(j);
-            String str2 = e + valueOf;
-            if (this.c == null) {
-                this.c = i();
-            }
-            if (!this.c.contains(valueOf)) {
-                b(valueOf);
-                this.c.add(valueOf);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Cursor cursor = null;
             try {
                 try {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("content", str);
-                    if (tq8.e().i(str2, contentValues, "mid=?", new String[]{String.valueOf(j2)}) == 1) {
-                        bool = Boolean.TRUE;
+                    uq8 e2 = uq8.e();
+                    cursor = e2.g("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time ASC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+                    if (cursor != null) {
+                        while (cursor.moveToNext()) {
+                            arrayList.add(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
+                        }
                     }
-                } catch (Exception e2) {
-                    TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.updateGamePlayMsg", new Object[0]);
-                    e2.printStackTrace();
-                    bool = Boolean.FALSE;
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                    TiebaStatic.printDBExceptionLog(e3, "ImMessageCenterDao.getOfficalListFromDb", new Object[0]);
                 }
-                rd.a(null);
-                rd.c(null);
-                return bool.booleanValue();
-            } catch (Throwable th) {
-                rd.a(null);
-                rd.c(null);
-                throw th;
+                return arrayList;
+            } finally {
+                rd.a(cursor);
             }
         }
-        return invokeCommon.booleanValue;
+        return (List) invokeV.objValue;
+    }
+
+    public void A(long j, long j2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
+            try {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("read_count", Integer.valueOf(i));
+                uq8 e2 = uq8.e();
+                int i2 = e2.i(e + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)});
+                BdLog.d("updateReadCount result = " + i2);
+            } catch (Exception e3) {
+                e3.printStackTrace();
+            }
+        }
+    }
+
+    public void z(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            try {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("visit_time", Long.valueOf(j2));
+                contentValues.put("unread_count", (Integer) 0);
+                int i = uq8.e().i("tb_message_center", contentValues, "gid = ?", new String[]{String.valueOf(j)});
+                BdLog.d("updateReadCount result = " + i);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
     }
 }

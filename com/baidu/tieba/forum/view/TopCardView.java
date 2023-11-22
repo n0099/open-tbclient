@@ -15,10 +15,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forum.view.TopCardView;
-import com.baidu.tieba.k77;
-import com.baidu.tieba.q77;
-import com.baidu.tieba.rk7;
-import com.baidu.tieba.sa7;
+import com.baidu.tieba.l77;
+import com.baidu.tieba.r77;
+import com.baidu.tieba.sk7;
+import com.baidu.tieba.ta7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
 @Metadata(d1 = {"\u0000p\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0010!\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\b\u0014\u0018\u00002\u00020\u00012\u00020\u0002:\u0001<B'\b\u0007\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u0010\u0010!\u001a\u00020\b2\u0006\u0010\"\u001a\u00020#H\u0002J\b\u0010$\u001a\u00020%H\u0002J\b\u0010&\u001a\u00020\u0014H\u0002J\u001e\u0010'\u001a\u00020\u00142\f\u0010(\u001a\b\u0012\u0004\u0012\u00020\r0)2\u0006\u0010*\u001a\u00020\u0014H\u0002J\b\u0010+\u001a\u00020%H\u0016J\b\u0010,\u001a\u00020%H\u0014J\u0010\u0010-\u001a\u00020%2\u0006\u0010.\u001a\u00020\bH\u0002J\u0018\u0010/\u001a\u00020%2\u0006\u00100\u001a\u00020#2\u0006\u00101\u001a\u00020\bH\u0002J\u000e\u00102\u001a\u00020%2\u0006\u00103\u001a\u00020\u001fJ\b\u00104\u001a\u00020%H\u0002J\b\u00105\u001a\u00020%H\u0002J\u001c\u00106\u001a\u00020%2\f\u0010(\u001a\b\u0012\u0004\u0012\u00020\r0\u001d2\u0006\u00107\u001a\u00020\u0017J,\u00108\u001a\u00020%2\f\u0010(\u001a\b\u0012\u0004\u0012\u00020\r0\u001d2\u0006\u00109\u001a\u00020\b2\u0006\u0010:\u001a\u00020\u00142\u0006\u0010;\u001a\u00020\u0017R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u001c\u001a\b\u0012\u0004\u0012\u00020\r0\u001dX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001e\u001a\u0004\u0018\u00010\u001fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010 \u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006="}, d2 = {"Lcom/baidu/tieba/forum/view/TopCardView;", "Landroid/widget/RelativeLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "collapsibleLayout", "Landroid/widget/LinearLayout;", "defaultData", "Lcom/baidu/tieba/feed/data/TopCardData;", "foldAnimator", "Landroid/animation/ValueAnimator;", "foldingView", "Landroid/widget/ImageView;", "foldingViewContent", "isShowCompleteCard", "", "mCollapsibleHeight", "mFid", "", "mFixedHeight", "mIsFolding", "mIsLiked", "mThemeColorInfo", "mTopCardDataList", "", "mUpdateFoldingListener", "Lcom/baidu/tieba/forum/view/TopCardView$IUpdateFoldingListener;", "unFoldAnimator", "getTopItemViewHeight", "topCardItemView", "Lcom/baidu/tieba/forum/view/TopCardItemView;", "initUI", "", "isAllRead", "isCanShowCompleteCard", "topCardDataList", "", "liked", "onChangeSkin", "onDetachedFromWindow", "refreshCollapsibleLayout", "collapsibleLayoutHeight", "setTopCardStyle", "itemView", "no", "setUpdateFoldingListener", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "startFoldAnimation", "startUnfoldAnimation", "updateLocalUI", "updateTid", "updateState", "foldStatus", "isLiked", "themeColorInfo", "IUpdateFoldingListener", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class TopCardView extends RelativeLayout implements sa7 {
+public final class TopCardView extends RelativeLayout implements ta7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
@@ -49,11 +49,11 @@ public final class TopCardView extends RelativeLayout implements sa7 {
     public int h;
     public int i;
     public boolean j;
-    public List<q77> k;
+    public List<r77> k;
     public String l;
     public boolean m;
     public String n;
-    public q77 o;
+    public r77 o;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -132,10 +132,10 @@ public final class TopCardView extends RelativeLayout implements sa7 {
         this.k = new ArrayList();
         this.l = "";
         this.n = "";
-        this.o = new q77();
+        this.o = new r77();
         setPadding(0, BdUtilHelper.getDimens(context, R.dimen.M_H_X005), 0, 0);
         c();
-        this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bm7
+        this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.cm7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -171,19 +171,19 @@ public final class TopCardView extends RelativeLayout implements sa7 {
                 this$0.j();
                 i = 2;
             }
-            rk7.a(this$0.n, i);
+            sk7.a(this$0.n, i);
         }
     }
 
-    public final boolean e(List<q77> list, boolean z) {
+    public final boolean e(List<r77> list, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, list, z)) == null) {
             if (!z) {
                 return false;
             }
-            for (q77 q77Var : list) {
-                if (!q77Var.c() && !q77Var.b()) {
+            for (r77 r77Var : list) {
+                if (!r77Var.c() && !r77Var.b()) {
                     return true;
                 }
             }
@@ -300,7 +300,7 @@ public final class TopCardView extends RelativeLayout implements sa7 {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
             this.f = ofFloat;
             if (ofFloat != null) {
-                ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.dm7
+                ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.em7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -328,8 +328,8 @@ public final class TopCardView extends RelativeLayout implements sa7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            for (q77 q77Var : this.k) {
-                if (!q77Var.c()) {
+            for (r77 r77Var : this.k) {
+                if (!r77Var.c()) {
                     return false;
                 }
             }
@@ -425,7 +425,7 @@ public final class TopCardView extends RelativeLayout implements sa7 {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             this.g = ofFloat;
             if (ofFloat != null) {
-                ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.am7
+                ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.bm7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -449,7 +449,7 @@ public final class TopCardView extends RelativeLayout implements sa7 {
         }
     }
 
-    public final void l(List<q77> topCardDataList, String updateTid) {
+    public final void l(List<r77> topCardDataList, String updateTid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, topCardDataList, updateTid) == null) {
             Intrinsics.checkNotNullParameter(topCardDataList, "topCardDataList");
@@ -522,7 +522,7 @@ public final class TopCardView extends RelativeLayout implements sa7 {
         }
     }
 
-    public final void m(List<q77> topCardDataList, int i, boolean z, String themeColorInfo) {
+    public final void m(List<r77> topCardDataList, int i, boolean z, String themeColorInfo) {
         Long l;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{topCardDataList, Integer.valueOf(i), Boolean.valueOf(z), themeColorInfo}) == null) {
@@ -534,7 +534,7 @@ public final class TopCardView extends RelativeLayout implements sa7 {
                 this.k = topCardDataList;
                 this.j = z;
                 this.l = themeColorInfo;
-                k77 h = topCardDataList.get(0).h();
+                l77 h = topCardDataList.get(0).h();
                 if (h != null) {
                     l = Long.valueOf(h.d);
                 } else {
@@ -553,23 +553,23 @@ public final class TopCardView extends RelativeLayout implements sa7 {
                 this.m = e(topCardDataList, z);
                 TopCardItemView topCardItemView = new TopCardItemView(getContext(), null, 0, 6, null);
                 this.o = topCardDataList.get(0);
-                Iterator<q77> it = topCardDataList.iterator();
+                Iterator<r77> it = topCardDataList.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    q77 next = it.next();
+                    r77 next = it.next();
                     if (!next.c()) {
                         this.o = next;
                         break;
                     }
                 }
-                Iterator<q77> it2 = topCardDataList.iterator();
+                Iterator<r77> it2 = topCardDataList.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
                         break;
                     }
-                    q77 next2 = it2.next();
+                    r77 next2 = it2.next();
                     if (!next2.c() && !next2.b()) {
                         this.o = next2;
                         break;
@@ -610,7 +610,7 @@ public final class TopCardView extends RelativeLayout implements sa7 {
         }
     }
 
-    @Override // com.baidu.tieba.sa7
+    @Override // com.baidu.tieba.ta7
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {

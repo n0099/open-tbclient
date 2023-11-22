@@ -94,7 +94,7 @@ public class n45 {
                 }
             }
             if (context != null) {
-                po5.b(context, param);
+                qo5.b(context, param);
             }
             TiebaStatic.log(param);
         }
@@ -135,14 +135,14 @@ public class n45 {
             httpMessage.setExtra(Integer.valueOf(i));
             httpMessage.addHeader("needSig", "1");
             if (z) {
-                if (!TextUtils.isEmpty(gm5.b())) {
-                    httpMessage.addParam(HttpRequest.BDUSS, gm5.b());
+                if (!TextUtils.isEmpty(hm5.b())) {
+                    httpMessage.addParam(HttpRequest.BDUSS, hm5.b());
                 }
-                if (!TextUtils.isEmpty(gm5.f())) {
-                    httpMessage.addParam("tbs", gm5.f());
+                if (!TextUtils.isEmpty(hm5.f())) {
+                    httpMessage.addParam("tbs", hm5.f());
                 }
-                if (!TextUtils.isEmpty(gm5.e())) {
-                    httpMessage.addParam("stoken", gm5.e());
+                if (!TextUtils.isEmpty(hm5.e())) {
+                    httpMessage.addParam("stoken", hm5.e());
                 }
             }
             MessageManager.getInstance().sendMessage(httpMessage);

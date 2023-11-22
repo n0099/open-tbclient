@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder;
-import com.baidu.tieba.oz8;
-import com.baidu.tieba.xj8;
+import com.baidu.tieba.pz8;
+import com.baidu.tieba.yj8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView e;
     public View f;
-    public oz8 g;
+    public pz8 g;
     public FrameLayout h;
     public String i;
     public String j;
@@ -134,13 +134,13 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
     }
 
     @Override // com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull xj8 xj8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void d(@NonNull yj8 yj8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, xj8Var, tbPageContext, i) == null) {
-            if (xj8Var instanceof oz8) {
-                oz8 oz8Var = (oz8) xj8Var;
-                this.g = oz8Var;
-                this.i = oz8Var.b();
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, yj8Var, tbPageContext, i) == null) {
+            if (yj8Var instanceof pz8) {
+                pz8 pz8Var = (pz8) yj8Var;
+                this.g = pz8Var;
+                this.i = pz8Var.b();
                 this.j = this.g.c();
                 if (!TextUtils.isEmpty(this.i) && !TextUtils.isEmpty(this.j)) {
                     this.h.setVisibility(0);

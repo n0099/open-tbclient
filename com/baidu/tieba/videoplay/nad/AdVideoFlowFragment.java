@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mca;
-import com.baidu.tieba.oz5;
-import com.baidu.tieba.q4b;
+import com.baidu.tieba.nca;
+import com.baidu.tieba.pz5;
+import com.baidu.tieba.r4b;
 import com.baidu.tieba.video.VideoItemModel;
 import com.baidu.tieba.videoplay.view.GestureInterceptTouchFrameLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,12 +28,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class AdVideoFlowFragment extends BaseFragment implements oz5.b, q4b {
+public class AdVideoFlowFragment extends BaseFragment implements pz5.b, r4b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GestureInterceptTouchFrameLayout a;
     public FrameLayout b;
-    public mca c;
+    public nca c;
     public VideoItemModel d;
     public int e;
     public int f;
@@ -134,7 +134,7 @@ public class AdVideoFlowFragment extends BaseFragment implements oz5.b, q4b {
         this.g = new a(this, 2921612);
     }
 
-    @Override // com.baidu.tieba.q4b
+    @Override // com.baidu.tieba.r4b
     public int O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -149,11 +149,11 @@ public class AdVideoFlowFragment extends BaseFragment implements oz5.b, q4b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            mca mcaVar = this.c;
-            if (mcaVar == null) {
+            nca ncaVar = this.c;
+            if (ncaVar == null) {
                 return;
             }
-            mcaVar.onDestroy();
+            ncaVar.onDestroy();
         }
     }
 
@@ -174,11 +174,11 @@ public class AdVideoFlowFragment extends BaseFragment implements oz5.b, q4b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onPause();
-            mca mcaVar = this.c;
-            if (mcaVar == null) {
+            nca ncaVar = this.c;
+            if (ncaVar == null) {
                 return;
             }
-            mcaVar.onPause();
+            ncaVar.onPause();
         }
     }
 
@@ -187,35 +187,35 @@ public class AdVideoFlowFragment extends BaseFragment implements oz5.b, q4b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onPrimary();
-            mca mcaVar = this.c;
-            if (mcaVar == null) {
+            nca ncaVar = this.c;
+            if (ncaVar == null) {
                 return;
             }
-            mcaVar.onPrimary(isPrimary());
+            ncaVar.onPrimary(isPrimary());
         }
     }
 
-    @Override // com.baidu.tieba.oz5.b
+    @Override // com.baidu.tieba.pz5.b
     public void onViewClick() {
-        mca mcaVar;
+        nca ncaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (mcaVar = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (ncaVar = this.c) == null) {
             return;
         }
-        mcaVar.onViewClick();
+        ncaVar.onViewClick();
     }
 
-    @Override // com.baidu.tieba.oz5.b
+    @Override // com.baidu.tieba.pz5.b
     public void onViewDragToRight() {
-        mca mcaVar;
+        nca ncaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || (mcaVar = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || (ncaVar = this.c) == null) {
             return;
         }
-        mcaVar.onViewDragToRight();
+        ncaVar.onViewDragToRight();
     }
 
-    @Override // com.baidu.tieba.q4b
+    @Override // com.baidu.tieba.r4b
     public VideoItemModel p1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -225,17 +225,17 @@ public class AdVideoFlowFragment extends BaseFragment implements oz5.b, q4b {
         return (VideoItemModel) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.oz5.b
+    @Override // com.baidu.tieba.pz5.b
     public void S0(float f, float f2) {
-        mca mcaVar;
+        nca ncaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) != null) || (mcaVar = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) != null) || (ncaVar = this.c) == null) {
             return;
         }
-        mcaVar.onViewDoubleClick();
+        ncaVar.onViewDoubleClick();
     }
 
-    @Override // com.baidu.tieba.q4b
+    @Override // com.baidu.tieba.r4b
     public void V0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -264,18 +264,18 @@ public class AdVideoFlowFragment extends BaseFragment implements oz5.b, q4b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             super.setUserVisibleHint(z);
-            mca mcaVar = this.c;
-            if (mcaVar == null) {
+            nca ncaVar = this.c;
+            if (ncaVar == null) {
                 return;
             }
-            mcaVar.onUserVisibleHint(z);
+            ncaVar.onUserVisibleHint(z);
         }
     }
 
-    public void u2(mca mcaVar) {
+    public void u2(nca ncaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, mcaVar) == null) {
-            this.c = mcaVar;
+        if (interceptable == null || interceptable.invokeL(1048590, this, ncaVar) == null) {
+            this.c = ncaVar;
         }
     }
 

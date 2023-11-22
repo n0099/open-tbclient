@@ -1,28 +1,18 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.ib7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class cga implements gb7 {
+public final class cga implements ib7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.gb7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
-    }
 
     public cga() {
         Interceptable interceptable = $ic;
@@ -38,30 +28,80 @@ public final class cga implements gb7 {
         }
     }
 
-    @Override // com.baidu.tieba.gb7
-    public Map<String, String> a(d57 businessInfo) {
-        InterceptResult invokeL;
-        String str;
+    @Override // com.baidu.tieba.hb7
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            String hdid = TbadkCoreApplication.getInst().getHdid();
-            Intrinsics.checkNotNullExpressionValue(hdid, "getInst().getHdid()");
-            hashMap.put("hdid", hdid);
-            if (PermissionUtil.isBrowseMode()) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            hashMap.put(TiebaStatic.Params.PURE_BROWSING, str);
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null) {
-                currentAccount = "";
-            }
-            hashMap.put("uid", currentAccount);
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ib7.a.b(this);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hb7
+    public Map<String, String> a(e57 e57Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e57Var)) == null) {
+            return ib7.a.a(this, e57Var);
         }
         return (Map) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:25:0x005b A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x006e A[ORIG_RETURN, RETURN] */
+    @Override // com.baidu.tieba.ib7
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String c(e57 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            if (!Intrinsics.areEqual(businessInfo.a().get("thread_type"), "74")) {
+                return "";
+            }
+            String str = businessInfo.a().get("card_head_type");
+            if (str == null) {
+                str = "common_user";
+            }
+            switch (str.hashCode()) {
+                case -1924729441:
+                    if (!str.equals("common_user")) {
+                        return "";
+                    }
+                    return "live_mix_card_person_head_click";
+                case -1617812209:
+                    if (!str.equals("video_user")) {
+                        return "";
+                    }
+                    break;
+                case 448970189:
+                    if (!str.equals("common_forum")) {
+                        return "";
+                    }
+                    return "live_mix_card_forum_head_click";
+                case 1009035070:
+                    if (!str.equals("live_user")) {
+                        return "";
+                    }
+                    break;
+                case 1201356814:
+                    if (!str.equals("live_forum")) {
+                        return "";
+                    }
+                    break;
+                case 1373469789:
+                    if (!str.equals("video_forum")) {
+                        return "";
+                    }
+                    break;
+                default:
+                    return "";
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
     }
 }

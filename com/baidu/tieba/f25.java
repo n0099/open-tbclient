@@ -109,7 +109,7 @@ public final class f25 implements w15 {
     @Override // com.baidu.tieba.w15
     public boolean b(Map<String, Object> map) {
         InterceptResult invokeL;
-        pc5 homeOperateData;
+        qc5 homeOperateData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
             Intrinsics.checkNotNullParameter(map, "map");

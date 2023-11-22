@@ -94,12 +94,12 @@ public class dh3 extends ah3 {
 
         /* renamed from: com.baidu.tieba.dh3$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0261b implements xg3 {
+        public class C0258b implements xg3 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public C0261b(b bVar) {
+            public C0258b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -300,9 +300,9 @@ public class dh3 extends ah3 {
             this.d = new Handler(Looper.getMainLooper());
             this.e = new ReentrantLock();
             this.f = new a(this);
-            C0261b c0261b = new C0261b(this);
-            this.g = c0261b;
-            dh3Var.c.setConnectListener(c0261b);
+            C0258b c0258b = new C0258b(this);
+            this.g = c0258b;
+            dh3Var.c.setConnectListener(c0258b);
         }
 
         @Override // com.baidu.tieba.bh3

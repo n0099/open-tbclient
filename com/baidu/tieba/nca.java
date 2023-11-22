@@ -1,27 +1,27 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.graphics.drawable.Drawable;
+import com.baidu.tieba.nda;
+import com.baidu.tieba.video.VideoItemModel;
 /* loaded from: classes7.dex */
 public interface nca {
-    void autoPlay(int i);
+    void onDestroy();
 
-    boolean canPlay();
+    void onPause();
 
-    long getCurrentPosition();
+    void onPrimary(boolean z);
 
-    int getPlayStatus();
+    void onUserVisibleHint(boolean z);
 
-    String getPlayUrl();
+    void onViewClick();
 
-    View getVideoContainer();
+    void onViewDoubleClick();
 
-    boolean isPlayStarted();
+    void onViewDragToRight();
 
-    boolean isPlaying();
+    void setDrawables(Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4, Drawable drawable5, Drawable drawable6);
 
-    void release();
+    void setPageChangeHandler(nda.a aVar, int i);
 
-    void startPlay();
-
-    void stopPlay();
+    void updateTiebaData(int i, VideoItemModel videoItemModel);
 }

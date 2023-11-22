@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ada;
 import com.baidu.tieba.fx4;
-import com.baidu.tieba.mp7;
+import com.baidu.tieba.np7;
 import com.baidu.tieba.v25;
 import com.baidu.tieba.w25;
-import com.baidu.tieba.zca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -193,7 +193,7 @@ public class CoverFlowAdapter<T extends w25> extends PagerAdapter {
                     }
                 }
                 if (this.b.get(i) != null && tbImageView != null) {
-                    if (this.b.get(i) instanceof mp7) {
+                    if (this.b.get(i) instanceof np7) {
                         tbImageView.setImageDrawable(SkinManager.getDrawable(Integer.valueOf(this.b.get(i).getPicUrl()).intValue()));
                     } else {
                         tbImageView.startLoad(this.b.get(i).getPicUrl(), 10, false);
@@ -201,7 +201,7 @@ public class CoverFlowAdapter<T extends w25> extends PagerAdapter {
                     tbImageView.setOnClickListener(this.d);
                     if ((this.b.get(i) instanceof fx4) && !((fx4) this.b.get(i)).n()) {
                         fx4 fx4Var = (fx4) this.b.get(i);
-                        zca.k(fx4Var.j(), tbImageView2, fx4Var.k(), BdUtilHelper.getDimens(this.c, R.dimen.obfuscated_res_0x7f0701e8));
+                        ada.k(fx4Var.j(), tbImageView2, fx4Var.k(), BdUtilHelper.getDimens(this.c, R.dimen.obfuscated_res_0x7f0701e8));
                     }
                 }
             }

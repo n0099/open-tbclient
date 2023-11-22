@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bw8;
+import com.baidu.tieba.cw8;
 import com.baidu.tieba.im.data.ShareChatroomMsgData;
 import com.baidu.tieba.im.widget.sharecard.ChatShareChatroomCard;
-import com.baidu.tieba.sl5;
+import com.baidu.tieba.tl5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -161,8 +161,8 @@ public final class ChatShareChatroomCard extends ConstraintLayout {
             Intrinsics.checkNotNullParameter(it, "$it");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (it.getId() != this$0.e) {
-                sl5.a().f(this$0.getContext(), 7, it.getId(), false);
-                bw8.d("c15286", 5, this$0.d, shareChatroomMsgData.getFid(), shareChatroomMsgData.getForumName(), this$0.e);
+                tl5.a().f(this$0.getContext(), 7, it.getId(), false);
+                cw8.d("c15286", 5, this$0.d, shareChatroomMsgData.getFid(), shareChatroomMsgData.getForumName(), this$0.e);
             }
         }
     }
@@ -179,7 +179,7 @@ public final class ChatShareChatroomCard extends ConstraintLayout {
                 textView.setText(shareChatroomMsgData.getName());
             }
             d(shareChatroomMsgData);
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.rw8
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sw8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

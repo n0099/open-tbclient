@@ -1,82 +1,61 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dc9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface dc9 {
+    a getParallelCharge();
 
-    public static cc9 a(AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, advertAppInfo)) == null) {
-            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.h) == null || !(iLegoAdvert instanceof cc9)) {
-                return null;
-            }
-            return (cc9) iLegoAdvert;
-        }
-        return (cc9) invokeL.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public ArrayList<String> c;
+        public ArrayList<String> d;
 
-    public static void b(cc9 cc9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, cc9Var) == null) && cc9Var != null && cc9Var.getParallelCharge() != null) {
-            bz0.b(cc9Var.getParallelCharge().b);
-            Iterator<String> it = cc9Var.getParallelCharge().c.iterator();
-            while (it.hasNext()) {
-                bz0.b(it.next());
-            }
-        }
-    }
-
-    public static void c(AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, advertAppInfo) == null) && d(a(advertAppInfo))) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.EXCEPTION).k("1").l(DpStatConstants.FILECACHE_CLOSE_TYPE_OPT_DISABLE).p(advertAppInfo.g);
-            AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.h;
-            if (iLegoAdvert != null) {
-                clogBuilder.m(String.valueOf(iLegoAdvert.getGoodsStyle()));
-            }
-            az0.e(clogBuilder);
-        }
-    }
-
-    public static boolean d(cc9 cc9Var) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cc9Var)) == null) {
-            if (cc9Var == null || cc9Var.getParallelCharge() == null) {
-                return false;
-            }
-            String str = cc9Var.getParallelCharge().a;
-            bz0.b(str);
-            if (!TextUtils.isEmpty(str)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            Iterator<String> it = cc9Var.getParallelCharge().d.iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                if (!z && TextUtils.isEmpty(next)) {
-                    z = false;
-                } else {
-                    z = true;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                bz0.b(next);
             }
-            return z;
+            this.c = new ArrayList<>();
+            this.d = new ArrayList<>();
         }
-        return invokeL.booleanValue;
+
+        public void a(JSONObject jSONObject) {
+            JSONArray optJSONArray;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && (optJSONArray = jSONObject.optJSONArray("ad_monitor_url")) != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        String optString = optJSONObject.optString("show_url");
+                        if (!TextUtils.isEmpty(optString)) {
+                            this.c.add(optString);
+                        }
+                        String optString2 = optJSONObject.optString("click_url");
+                        if (!TextUtils.isEmpty(optString2)) {
+                            this.d.add(optString2);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

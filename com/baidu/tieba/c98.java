@@ -7,7 +7,6 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.bu;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c98 extends bi<i98, ThreadCardViewHolder<i98>> implements s16 {
+public class c98 extends bi<v6b, ThreadCardViewHolder<v6b>> implements t16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
@@ -46,7 +45,7 @@ public class c98 extends bi<i98, ThreadCardViewHolder<i98>> implements s16 {
         this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.s16
+    @Override // com.baidu.tieba.t16
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -64,21 +63,21 @@ public class c98 extends bi<i98, ThreadCardViewHolder<i98>> implements s16 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bi
     /* renamed from: t */
-    public ThreadCardViewHolder<i98> onCreateViewHolder(ViewGroup viewGroup) {
+    public ThreadCardViewHolder<v6b> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             bu.b bVar = new bu.b(this.a.getPageActivity(), false);
-            t98 t98Var = new t98(this.a);
-            t98Var.o(this.b);
-            bVar.n(t98Var);
-            bVar.l().j(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+            k6b k6bVar = new k6b(this.a);
+            k6bVar.s(2);
+            k6bVar.o(this.b);
+            bVar.n(k6bVar);
             bVar.l().c(0);
             bVar.l().g(0);
             bVar.l().f(0);
             bVar.l().e(0);
             bVar.l().i(0);
-            ThreadCardViewHolder<i98> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
+            ThreadCardViewHolder<v6b> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
             threadCardViewHolder.i(this.b);
             return threadCardViewHolder;
         }
@@ -88,11 +87,12 @@ public class c98 extends bi<i98, ThreadCardViewHolder<i98>> implements s16 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bi
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, i98 i98Var, ThreadCardViewHolder<i98> threadCardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, v6b v6bVar, ThreadCardViewHolder<v6b> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, i98Var, threadCardViewHolder})) == null) {
-            threadCardViewHolder.e(i98Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, v6bVar, threadCardViewHolder})) == null) {
+            v6bVar.o(i);
+            threadCardViewHolder.e(v6bVar);
             if (threadCardViewHolder.a() != null) {
                 threadCardViewHolder.a().s(i);
                 threadCardViewHolder.a().b(this.d);

@@ -11,8 +11,8 @@ import com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke;
 import com.baidu.searchbox.live.interfaces.net.INetWork;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.a80;
-import com.baidu.tieba.lac;
 import com.baidu.tieba.m70;
+import com.baidu.tieba.mac;
 import com.baidu.tieba.w80;
 /* loaded from: classes3.dex */
 public class LiveFeedPageSdk {
@@ -98,7 +98,7 @@ public class LiveFeedPageSdk {
     }
 
     public String getYYHDID(Context context) {
-        return lac.a(context);
+        return mac.a(context);
     }
 
     public void initInvoke(ILiveFeedPageInvoke iLiveFeedPageInvoke) {

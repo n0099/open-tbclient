@@ -18,8 +18,8 @@ import androidx.core.view.NestedScrollingChild3;
 import androidx.core.view.NestedScrollingChildHelper;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hj6;
-import com.baidu.tieba.oj6;
+import com.baidu.tieba.ij6;
+import com.baidu.tieba.pj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,8 +43,8 @@ public class NestedScrollingWebView extends WebView implements NestedScrollingCh
     public int l;
     public int m;
     public long n;
-    public hj6 o;
-    public oj6 p;
+    public ij6 o;
+    public pj6 p;
     public boolean q;
     public Class<?> r;
 
@@ -82,14 +82,11 @@ public class NestedScrollingWebView extends WebView implements NestedScrollingCh
     @Nullable
     public final ViewParent e(@NonNull View view2) {
         InterceptResult invokeL;
+        ViewParent parent;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, view2)) == null) {
-            ViewParent parent = view2.getParent();
-            if (parent == null) {
+            if (this.r == null || (parent = view2.getParent()) == null) {
                 return null;
-            }
-            if (this.r == null) {
-                return parent;
             }
             if (j(parent.getClass(), this.r)) {
                 return parent;
@@ -369,11 +366,11 @@ public class NestedScrollingWebView extends WebView implements NestedScrollingCh
 
     @Override // android.webkit.WebView, android.view.View
     public void onOverScrolled(int i, int i2, boolean z, boolean z2) {
-        ViewParent e;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             super.onOverScrolled(i, i2, z, z2);
-            if (z && (e = e(this)) != null) {
+            ViewParent e = e(this);
+            if (e != null) {
                 e.requestDisallowInterceptTouchEvent(false);
             }
         }
@@ -481,17 +478,17 @@ public class NestedScrollingWebView extends WebView implements NestedScrollingCh
         }
     }
 
-    public void setOnDoubleClickListener(hj6 hj6Var) {
+    public void setOnDoubleClickListener(ij6 ij6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, hj6Var) == null) {
-            this.o = hj6Var;
+        if (interceptable == null || interceptable.invokeL(1048611, this, ij6Var) == null) {
+            this.o = ij6Var;
         }
     }
 
-    public void setOnScrollChangeListener(oj6 oj6Var) {
+    public void setOnScrollChangeListener(pj6 pj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, oj6Var) == null) {
-            this.p = oj6Var;
+        if (interceptable == null || interceptable.invokeL(1048612, this, pj6Var) == null) {
+            this.p = pj6Var;
         }
     }
 

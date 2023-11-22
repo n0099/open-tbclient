@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 /* loaded from: classes9.dex */
 public interface za5 {
-    ya5 a(Context context, xa5 xa5Var);
+    void a(ShareItem shareItem, int i, boolean z);
 }

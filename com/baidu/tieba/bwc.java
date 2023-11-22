@@ -4,42 +4,23 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.NavTabInfo;
-import tbclient.FrsTabInfo;
+import tbclient.FrsPage.Music;
 /* loaded from: classes5.dex */
-public class bwc extends poc {
+public class bwc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull NavTabInfo navTabInfo) {
+    public static JSONObject b(@NonNull Music music) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, navTabInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, music)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (navTabInfo.tab != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (FrsTabInfo frsTabInfo : navTabInfo.tab) {
-                    jSONArray.put(eyc.b(frsTabInfo));
-                }
-                poc.a(jSONObject, "tab", jSONArray);
-            }
-            if (navTabInfo.menu != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (FrsTabInfo frsTabInfo2 : navTabInfo.menu) {
-                    jSONArray2.put(eyc.b(frsTabInfo2));
-                }
-                poc.a(jSONObject, "menu", jSONArray2);
-            }
-            if (navTabInfo.head != null) {
-                JSONArray jSONArray3 = new JSONArray();
-                for (FrsTabInfo frsTabInfo3 : navTabInfo.head) {
-                    jSONArray3.put(eyc.b(frsTabInfo3));
-                }
-                poc.a(jSONObject, "head", jSONArray3);
-            }
+            qoc.a(jSONObject, "pic", music.pic);
+            qoc.a(jSONObject, "num", music.num);
+            qoc.a(jSONObject, "sid", music.sid);
+            qoc.a(jSONObject, "isopen", music.isopen);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

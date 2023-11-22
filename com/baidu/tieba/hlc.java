@@ -1,23 +1,96 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.jjc;
+import com.baidu.tieba.njc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.producers.SingleProducer;
+import java.util.NoSuchElementException;
 /* loaded from: classes6.dex */
-public final class hlc<T> extends njc<T> {
+public final class hlc<T> implements njc.c<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ojc<? super T> b;
+    public final jjc.a<T> a;
 
-    public hlc(ojc<? super T> ojcVar) {
+    /* loaded from: classes6.dex */
+    public static final class a<T> extends pjc<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final ojc<? super T> e;
+        public T f;
+        public int g;
+
+        public a(ojc<? super T> ojcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ojcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = ojcVar;
+        }
+
+        @Override // com.baidu.tieba.kjc
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                if (this.g == 2) {
+                    znc.j(th);
+                    return;
+                }
+                this.f = null;
+                this.e.b(th);
+            }
+        }
+
+        @Override // com.baidu.tieba.kjc
+        public void onNext(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                int i = this.g;
+                if (i == 0) {
+                    this.g = 1;
+                    this.f = t;
+                } else if (i == 1) {
+                    this.g = 2;
+                    this.e.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.kjc
+        public void onCompleted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i = this.g;
+                if (i == 0) {
+                    this.e.b(new NoSuchElementException());
+                } else if (i == 1) {
+                    this.g = 2;
+                    T t = this.f;
+                    this.f = null;
+                    this.e.c(t);
+                }
+            }
+        }
+    }
+
+    public hlc(jjc.a<T> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ojcVar};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,22 +100,18 @@ public final class hlc<T> extends njc<T> {
                 return;
             }
         }
-        this.b = ojcVar;
+        this.a = aVar;
     }
 
-    @Override // com.baidu.tieba.njc
-    public void b(Throwable th) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xjc
+    /* renamed from: a */
+    public void call(ojc<? super T> ojcVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-            this.b.onError(th);
-        }
-    }
-
-    @Override // com.baidu.tieba.njc
-    public void c(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            this.b.f(new SingleProducer(this.b, t));
+        if (interceptable == null || interceptable.invokeL(1048576, this, ojcVar) == null) {
+            a aVar = new a(ojcVar);
+            ojcVar.a(aVar);
+            this.a.call(aVar);
         }
     }
 }

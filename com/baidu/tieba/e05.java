@@ -147,7 +147,7 @@ public class e05 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (this.a != null && !TextUtils.isEmpty(str)) {
-                String f = hu5.f(str, 34);
+                String f = iu5.f(str, 34);
                 int textWidth = BdUtilHelper.getTextWidth(this.e.getPaint(), f);
                 ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
                 layoutParams.width = textWidth + (this.m * 2);

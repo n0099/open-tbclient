@@ -1,17 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tieba.browser.core.webview.offline.message.OfflineResourceReqMsg;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class rg6 extends bg1<ik6> {
+public class rg6 extends bg1<fk6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -22,7 +20,7 @@ public class rg6 extends bg1<ik6> {
     }
 
     /* loaded from: classes8.dex */
-    public static final class b implements ik6 {
+    public static final class b implements fk6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,38 +38,16 @@ public class rg6 extends bg1<ik6> {
             }
         }
 
-        @Override // com.baidu.tieba.ik6
-        public JSONObject a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return bi6.n().B();
-            }
-            return (JSONObject) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ik6
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                wba.n().g();
-                bi6.n().k();
-                MessageManager.getInstance().sendMessage(new OfflineResourceReqMsg("0.0.0.0"));
-            }
-        }
-
-        @Override // com.baidu.tieba.ik6
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                wba.n().g();
-                bi6.n().k();
-                ci6.e().j(null);
-            }
-        }
-
         public /* synthetic */ b(a aVar) {
             this();
+        }
+
+        @Override // com.baidu.tieba.fk6
+        public void a(View view2, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && view2 != null && i >= 0) {
+                EMManager.from(view2).setBackGroundColor(i);
+            }
         }
     }
 
@@ -92,12 +68,12 @@ public class rg6 extends bg1<ik6> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bg1
     /* renamed from: a */
-    public ik6 createService() throws ServiceNotFoundException {
+    public fk6 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new b(null);
         }
-        return (ik6) invokeV.objValue;
+        return (fk6) invokeV.objValue;
     }
 }

@@ -32,17 +32,17 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aqa;
-import com.baidu.tieba.at5;
-import com.baidu.tieba.bk5;
-import com.baidu.tieba.c1b;
-import com.baidu.tieba.dq6;
-import com.baidu.tieba.gxa;
+import com.baidu.tieba.bqa;
+import com.baidu.tieba.bt5;
+import com.baidu.tieba.ck5;
+import com.baidu.tieba.d1b;
+import com.baidu.tieba.eq6;
+import com.baidu.tieba.hxa;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.n85;
-import com.baidu.tieba.ona;
+import com.baidu.tieba.o85;
+import com.baidu.tieba.pna;
 import com.baidu.tieba.qd;
-import com.baidu.tieba.rha;
+import com.baidu.tieba.sha;
 import com.baidu.tieba.sprite.funnysprite.data.SpriteTipHttpResponseMessage;
 import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -70,7 +70,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public SpriteTipHttpResponseMessage b;
-    public dq6.e c;
+    public eq6.e c;
     public TextView d;
     public TextView e;
     public final b f;
@@ -225,7 +225,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
         this.e = (TextView) findViewById3;
         h();
         this.f = new b(this, this);
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mna
+        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.nna
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -248,7 +248,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(context, "$context");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            if (!at5.a() && (context instanceof TbPageContextSupport)) {
+            if (!bt5.a() && (context instanceof TbPageContextSupport)) {
                 this$0.f();
                 this$0.c();
             }
@@ -272,7 +272,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
     public final void g(SpriteTipHttpResponseMessage spriteTipHttpResponseMessage) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, spriteTipHttpResponseMessage) == null) && spriteTipHttpResponseMessage.getScene() == 4) {
-            gxa.i.a().j(true);
+            hxa.i.a().j(true);
         }
     }
 
@@ -347,7 +347,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
                 z2 = false;
                 if (z2) {
                     this.e.setText(StringHelper.cutChineseAndEnglishWithSuffix(spriteTipHttpResponseMessage.getButtonInfo().a, 8, (String) null));
-                    this.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lna
+                    this.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mna
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -373,7 +373,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
             return;
         }
         this.h = false;
-        dq6.e eVar = this.c;
+        eq6.e eVar = this.c;
         if (eVar != null) {
             eVar.onDismiss();
         }
@@ -418,7 +418,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            String b2 = bk5.b("", 0);
+            String b2 = ck5.b("", 0);
             SpriteTipHttpResponseMessage spriteTipHttpResponseMessage = this.b;
             if (spriteTipHttpResponseMessage != null && this.h) {
                 Intrinsics.checkNotNull(spriteTipHttpResponseMessage);
@@ -427,13 +427,13 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
                     Intrinsics.checkNotNull(spriteTipHttpResponseMessage2);
                     String sendText = spriteTipHttpResponseMessage2.getSendText();
                     Intrinsics.checkNotNullExpressionValue(sendText, "mData!!.sendText");
-                    b2 = bk5.b(sendText, 1);
+                    b2 = ck5.b(sendText, 1);
                 } else {
                     SpriteTipHttpResponseMessage spriteTipHttpResponseMessage3 = this.b;
                     Intrinsics.checkNotNull(spriteTipHttpResponseMessage3);
                     String text = spriteTipHttpResponseMessage3.getText();
                     Intrinsics.checkNotNullExpressionValue(text, "mData!!.text");
-                    b2 = bk5.b(text, 2);
+                    b2 = ck5.b(text, 2);
                 }
             }
             SpriteTipHttpResponseMessage spriteTipHttpResponseMessage4 = this.b;
@@ -441,16 +441,16 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
                 if (StringUtils.isNotNull(spriteTipHttpResponseMessage4.getSpriteText())) {
                     String spriteText = spriteTipHttpResponseMessage4.getSpriteText();
                     Intrinsics.checkNotNullExpressionValue(spriteText, "spriteText");
-                    bk5.j(spriteText);
+                    ck5.j(spriteText);
                 } else if (StringUtils.isNotNull(spriteTipHttpResponseMessage4.getText())) {
                     String text2 = spriteTipHttpResponseMessage4.getText();
                     Intrinsics.checkNotNullExpressionValue(text2, "text");
-                    bk5.j(text2);
+                    ck5.j(text2);
                 }
             }
             Context context = getContext();
             if (context != null) {
-                rha.b(((TbPageContextSupport) context).getPageContext(), new String[]{b2});
+                sha.b(((TbPageContextSupport) context).getPageContext(), new String[]{b2});
                 return;
             }
             throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.TbPageContextSupport");
@@ -468,22 +468,22 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
             if (pureDrawable != null) {
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds42);
                 pureDrawable.setBounds(0, 0, dimenPixelSize, dimenPixelSize);
-                this.e.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, new ona(pureDrawable), (Drawable) null);
+                this.e.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, new pna(pureDrawable), (Drawable) null);
             }
             SpriteTipHttpResponseMessage spriteTipHttpResponseMessage = this.b;
             if (spriteTipHttpResponseMessage != null) {
                 ThemeColorInfo textColorTheme = spriteTipHttpResponseMessage.getTextColorTheme();
                 if (textColorTheme != null) {
                     Intrinsics.checkNotNullExpressionValue(textColorTheme, "textColorTheme");
-                    int f = aqa.f(c1b.e(textColorTheme));
-                    if (!aqa.e(f)) {
+                    int f = bqa.f(d1b.e(textColorTheme));
+                    if (!bqa.e(f)) {
                         this.d.setTextColor(f);
                     }
                 }
                 ThemeColorInfo bgUrlTheme = spriteTipHttpResponseMessage.getBgUrlTheme();
                 if (bgUrlTheme != null) {
                     Intrinsics.checkNotNullExpressionValue(bgUrlTheme, "bgUrlTheme");
-                    str = c1b.g(bgUrlTheme);
+                    str = d1b.g(bgUrlTheme);
                 } else {
                     str = null;
                 }
@@ -531,7 +531,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            n85 funnySpriteConfig = TbSingleton.getInstance().getFunnySpriteConfig();
+            o85 funnySpriteConfig = TbSingleton.getInstance().getFunnySpriteConfig();
             if (funnySpriteConfig != null) {
                 num = funnySpriteConfig.a();
             } else {
@@ -541,7 +541,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
         }
     }
 
-    public final void setDataAndShow(SpriteTipHttpResponseMessage responseMessage, dq6.e listener) {
+    public final void setDataAndShow(SpriteTipHttpResponseMessage responseMessage, eq6.e listener) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, responseMessage, listener) == null) {

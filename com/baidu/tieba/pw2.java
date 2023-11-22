@@ -45,12 +45,12 @@ public class pw2 {
 
         /* renamed from: com.baidu.tieba.pw2$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0457a implements vq1.a {
+        public class C0458a implements vq1.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ File[] a;
 
-            public C0457a(a aVar, File[] fileArr) {
+            public C0458a(a aVar, File[] fileArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class pw2 {
                     fileArr = new File[]{b};
                 }
                 if (u != null) {
-                    u.d(p, null, fileArr, new C0457a(this, fileArr));
+                    u.d(p, null, fileArr, new C0458a(this, fileArr));
                 }
             }
         }

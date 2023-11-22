@@ -8,13 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class xob implements epb {
+public class xob implements fpb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public kob a;
-    public int b;
-    public int c;
-    public boolean d;
+    public float b;
+    public boolean c;
 
     public xob() {
         Interceptable interceptable = $ic;
@@ -29,91 +28,80 @@ public class xob implements epb {
                 return;
             }
         }
-        this.d = true;
+        this.b = 1.0f;
+        this.c = true;
     }
 
-    @Override // com.baidu.tieba.epb
+    @Override // com.baidu.tieba.fpb
     public int a(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
             kob kobVar = this.a;
-            if (kobVar == null || bArr == null) {
+            if (kobVar == null || !kobVar.putBytes(bArr, i)) {
                 return 0;
             }
-            this.b += bArr.length;
-            kobVar.putBytes(bArr, i);
-            return this.b;
+            return i;
         }
         return invokeLI.intValue;
     }
 
-    @Override // com.baidu.tieba.epb
+    @Override // com.baidu.tieba.fpb
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.d && this.a.available() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.c && this.b != 1.0f : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.epb
+    @Override // com.baidu.tieba.fpb
     public boolean a(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
             if (this.a == null) {
-                this.a = (kob) msb.a("com.baidu.ugc.audioedit.AudioChangeOperator");
+                this.a = (kob) nsb.a("com.baidu.ugc.audioedit.AudioSpeedOperator");
             }
             kob kobVar = this.a;
             if (kobVar != null) {
-                kobVar.initVoiceChanger(i, i2, i3, i4);
+                kobVar.init(i3, i2);
+                this.a.setSpeed(1.0f);
+                return false;
             }
-            return this.a != null;
+            return false;
         }
         return invokeIIII.booleanValue;
     }
 
-    @Override // com.baidu.tieba.epb
+    @Override // com.baidu.tieba.fpb
     public byte[] a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             kob kobVar = this.a;
-            if (kobVar == null || kobVar.availableBytes() <= 0) {
-                return new byte[0];
-            }
-            byte[] bArr = new byte[4096];
-            int bytes = this.a.getBytes(bArr, 4096);
-            this.c += bytes;
-            if (bytes == 0) {
-                return null;
-            }
-            if (4096 == bytes) {
-                return bArr;
-            }
-            byte[] bArr2 = new byte[bytes];
-            System.arraycopy(bArr, 0, bArr2, 0, bytes);
-            return bArr2;
+            return kobVar != null ? kobVar.getOutPutBytes() : new byte[0];
         }
         return (byte[]) invokeI.objValue;
     }
 
-    public void b(int[] iArr) {
-        kob kobVar;
+    public void b(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) || (kobVar = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            this.b = f;
+            kob kobVar = this.a;
+            if (kobVar != null) {
+                kobVar.setSpeed(f);
+            }
         }
-        kobVar.setVoiceChangeType(iArr);
     }
 
-    @Override // com.baidu.tieba.epb
+    @Override // com.baidu.tieba.fpb
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.epb
+    @Override // com.baidu.tieba.fpb
     public void c() {
         kob kobVar;
         Interceptable interceptable = $ic;
@@ -123,33 +111,21 @@ public class xob implements epb {
         kobVar.flush();
     }
 
-    public void c(int[] iArr, int[] iArr2, double[] dArr) {
-        kob kobVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, iArr, iArr2, dArr) == null) || (kobVar = this.a) == null) {
-            return;
-        }
-        kobVar.setVoiceChangeType(iArr, iArr2, dArr);
-    }
-
-    @Override // com.baidu.tieba.epb
+    @Override // com.baidu.tieba.fpb
     public void d() {
         kob kobVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (kobVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (kobVar = this.a) == null) {
             return;
         }
         kobVar.close();
         this.a = null;
     }
 
-    @Override // com.baidu.tieba.epb
+    @Override // com.baidu.tieba.fpb
     public void e() {
-        kob kobVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (kobVar = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
-        kobVar.clearQueues();
     }
 }

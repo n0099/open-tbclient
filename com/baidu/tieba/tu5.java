@@ -1,257 +1,211 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.media.ExifInterface;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.SelectImageHelper;
-import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.VideoMuxerData;
-import com.baidu.ugc.editvideo.muxer.VideoMuxer;
-import com.baidu.ugc.editvideo.player.AudioPlayData;
-import com.baidu.ugc.editvideo.player.AudioPlayTrackData;
+import com.squareup.wire.Message;
+import com.squareup.wire.Wire;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class tu5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(int i);
-
-        void b();
-
-        void c();
-
-        void d(String str);
-    }
-
-    /* loaded from: classes8.dex */
-    public static class a implements dob {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-
-        @Override // com.baidu.tieba.dob
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        public a(b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static final void a(Wire wire, Class<? extends Message> cls) {
+        File[] listFiles;
+        String name;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, wire, cls) == null) && wire != null && cls != null) {
+            String str = "wire_" + cls.getName();
+            File file = new File(TbadkCoreApplication.getInst().getCacheDir(), str + "_" + TbConfig.getVersion());
+            byte[] bArr = null;
+            try {
+                if (file.exists() && (bArr = b(file)) != null) {
+                    wire.parseFrom(bArr, cls);
+                }
+                if (bArr == null) {
+                    byte[] bArr2 = (byte[]) r7.c(cls, "toByteArray", new Object[0]).invoke(c(cls, new HashSet()), new Object[0]);
+                    wire.parseFrom(bArr2, cls);
+                    d(file, bArr2);
+                }
+            } catch (Throwable th) {
+                BdLog.detailException(th);
+                try {
+                    file.delete();
+                } catch (Throwable unused) {
                 }
             }
-            this.a = bVar;
-        }
-
-        @Override // com.baidu.tieba.dob
-        public void a(int i) {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (bVar = this.a) != null) {
-                bVar.a(i);
+            File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
+            if (cacheDir == null || (listFiles = cacheDir.listFiles()) == null) {
+                return;
             }
-        }
-
-        @Override // com.baidu.tieba.dob
-        public void e(String str) {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (bVar = this.a) != null) {
-                bVar.d(str);
-            }
-        }
-
-        @Override // com.baidu.tieba.dob
-        public void f(String str) {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (bVar = this.a) != null) {
-                bVar.c();
-            }
-        }
-
-        @Override // com.baidu.tieba.dob
-        public void b() {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bVar = this.a) != null) {
-                bVar.b();
-            }
-        }
-
-        @Override // com.baidu.tieba.dob
-        public void d() {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bVar = this.a) != null) {
-                bVar.c();
+            for (File file2 : listFiles) {
+                if (file2 != null && (name = file2.getName()) != null && name.startsWith(str) && !file.getName().equals(name)) {
+                    try {
+                        file2.delete();
+                    } catch (Throwable unused2) {
+                    }
+                }
             }
         }
     }
 
-    public static Bitmap a(Context context, Uri uri, int i) {
-        InterceptResult invokeLLI;
+    public static byte[] b(File file) {
+        InterceptResult invokeL;
+        ByteArrayOutputStream byteArrayOutputStream;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, uri, i)) == null) {
-            try {
-                return BitmapHelper.subSampleBitmap(context, uri, i);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            byte[] bArr = null;
+            if (file == null) {
                 return null;
             }
-        }
-        return (Bitmap) invokeLLI.objValue;
-    }
-
-    public static Bitmap b(Context context, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, str, i)) == null) {
             try {
-                return BitmapHelper.loadResizedBitmap(str, i, i);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
+                fileInputStream = new FileInputStream(file);
+                try {
+                    byteArrayOutputStream = new ByteArrayOutputStream(1024);
+                    try {
+                        byte[] bArr2 = new byte[1024];
+                        while (true) {
+                            int read = fileInputStream.read(bArr2, 0, 1024);
+                            if (read == -1) {
+                                break;
+                            }
+                            byteArrayOutputStream.write(bArr2, 0, read);
+                        }
+                        bArr = byteArrayOutputStream.toByteArray();
+                    } catch (Throwable th) {
+                        th = th;
+                        try {
+                            BdLog.e(th.getMessage());
+                            return bArr;
+                        } finally {
+                            rd.e(fileInputStream);
+                            rd.f(byteArrayOutputStream);
+                        }
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    byteArrayOutputStream = null;
+                }
+            } catch (Throwable th3) {
+                th = th3;
+                byteArrayOutputStream = null;
+                fileInputStream = null;
             }
+            return bArr;
         }
-        return (Bitmap) invokeLLI.objValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public static Bitmap c(int i, Context context, Uri uri, String str, int i2) {
-        InterceptResult invokeCommon;
+    public static final Object c(Class<?> cls, HashSet<Class<?>> hashSet) {
+        InterceptResult invokeLL;
+        Field[] declaredFields;
+        Type[] actualTypeArguments;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), context, uri, str, Integer.valueOf(i2)})) == null) {
-            if (i == 12001) {
-                return e(i2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, hashSet)) == null) {
+            if (hashSet != null && !hashSet.contains(cls)) {
+                hashSet.add(cls);
+                try {
+                    Class<?> cls2 = Class.forName(cls.getName() + "$Builder");
+                    Method declaredMethod = cls2.getDeclaredMethod("build", Boolean.TYPE);
+                    Object newInstance = cls2.newInstance();
+                    for (Field field : cls2.getDeclaredFields()) {
+                        Class<?> type = field.getType();
+                        if (type != null) {
+                            if (r7.e(type, Message.class)) {
+                                Object c = c(type, hashSet);
+                                if (c != null) {
+                                    if (r7.e(c.getClass(), Message.class)) {
+                                        field.setAccessible(true);
+                                        field.set(newInstance, c);
+                                    } else {
+                                        BdLog.e("");
+                                    }
+                                }
+                            } else if (r7.e(type, List.class)) {
+                                Type genericType = field.getGenericType();
+                                if ((genericType instanceof ParameterizedType) && (actualTypeArguments = ((ParameterizedType) genericType).getActualTypeArguments()) != null && actualTypeArguments.length > 0) {
+                                    try {
+                                        Class cls3 = (Class) actualTypeArguments[0];
+                                        if (r7.e(cls3, Message.class)) {
+                                            ArrayList arrayList = new ArrayList();
+                                            Object c2 = c(cls3, hashSet);
+                                            if (c2 != null) {
+                                                if (r7.e(c2.getClass(), Message.class)) {
+                                                    arrayList.add(c2);
+                                                } else {
+                                                    BdLog.e("");
+                                                }
+                                                field.setAccessible(true);
+                                                field.set(newInstance, arrayList);
+                                            }
+                                        }
+                                    } catch (Throwable unused) {
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    return declaredMethod.invoke(newInstance, Boolean.TRUE);
+                } catch (Throwable th) {
+                    BdLog.detailException(th);
+                }
             }
-            if (!TextUtils.isEmpty(str)) {
-                return b(context, str, i2);
-            }
-            return a(context, uri, i2);
+            return null;
         }
-        return (Bitmap) invokeCommon.objValue;
+        return invokeLL.objValue;
     }
 
-    public static VideoMuxer d(q8b q8bVar, b bVar) {
+    public static final boolean d(File file, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, q8bVar, bVar)) == null) {
-            if (q8bVar == null) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, file, bArr)) == null) {
+            if (file == null || bArr == null) {
+                return false;
             }
-            int f = q8bVar.f();
-            int e = q8bVar.e();
-            VideoMuxerData videoMuxerData = new VideoMuxerData();
-            videoMuxerData.setCompat(true);
-            videoMuxerData.setRecordConfigEncodeHevcVideo(true);
-            videoMuxerData.setCurrentEncodeHevcVideo(true);
-            ArrayList arrayList = new ArrayList();
-            if (q8bVar.c() != null) {
-                TbMultiMediaData tbMultiMediaData = (TbMultiMediaData) q8bVar.c().clone();
-                tbMultiMediaData.textureId = 0;
-                arrayList.add(tbMultiMediaData);
-                videoMuxerData.setPhotoDataList(arrayList);
-                videoMuxerData.setVideoPath(tbMultiMediaData.path);
-                videoMuxerData.setPreviewWidth(f);
-                videoMuxerData.setPreviewHeight(e);
-                videoMuxerData.setVideoRatio(q8bVar.g());
-                videoMuxerData.setOutWidth(f);
-                videoMuxerData.setOutHeight(e);
-                videoMuxerData.setOutBitRate(f * e * 6);
-            }
-            if (q8bVar.a() != null) {
-                videoMuxerData.setFilterValue(q8bVar.a());
-            }
-            if (q8bVar.b() != null) {
-                videoMuxerData.setCurrThemeEffect(q8bVar.b());
-            }
-            videoMuxerData.setUserNewAudioMixture(true);
-            if (q8bVar.d() != null) {
-                videoMuxerData.setMusicData(q8bVar.d());
-                ArrayList arrayList2 = new ArrayList();
-                AudioPlayTrackData audioPlayTrackData = new AudioPlayTrackData();
-                AudioPlayData audioPlayData = new AudioPlayData(q8bVar.d().localPath, 0, hsb.f(q8bVar.d().localPath), 1.0f);
-                ArrayList arrayList3 = new ArrayList();
-                audioPlayTrackData.mAudioPlayDataList = arrayList3;
-                arrayList3.add(audioPlayData);
-                arrayList2.add(audioPlayTrackData);
-                videoMuxerData.setAudioPlayTrackDataList(arrayList2);
-            }
-            videoMuxerData.setComposeNecessary(true);
-            VideoMuxer videoMuxer = new VideoMuxer();
-            videoMuxer.setListener(new a(bVar));
-            videoMuxer.startMuxer(videoMuxerData);
-            return videoMuxer;
-        }
-        return (VideoMuxer) invokeLL.objValue;
-    }
-
-    public static Bitmap e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            FileOutputStream fileOutputStream = null;
             try {
-                int f = f(FileHelper.getFileDireciory(SelectImageHelper.TMP_IMAGE_NAME));
-                Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(SelectImageHelper.TMP_IMAGE_NAME, i);
-                if (f != 0 && subSampleBitmap != null) {
-                    return BitmapHelper.rotateBitmapBydegree(subSampleBitmap, f);
+                if (file.exists() && !file.delete()) {
+                    return false;
                 }
-                return subSampleBitmap;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
-        }
-        return (Bitmap) invokeI.objValue;
-    }
-
-    public static int f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            try {
-                int attributeInt = new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
-                if (attributeInt != 3) {
-                    if (attributeInt != 6) {
-                        if (attributeInt != 8) {
-                            return 0;
-                        }
-                        return 270;
+                if (!file.createNewFile()) {
+                    return false;
+                }
+                FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+                try {
+                    fileOutputStream2.write(bArr, 0, bArr.length);
+                    fileOutputStream2.flush();
+                    rd.f(fileOutputStream2);
+                    return true;
+                } catch (Throwable th) {
+                    th = th;
+                    fileOutputStream = fileOutputStream2;
+                    try {
+                        BdLog.e(th.getMessage());
+                        return false;
+                    } finally {
+                        rd.f(fileOutputStream);
                     }
-                    return 90;
                 }
-                return 180;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return 0;
+            } catch (Throwable th2) {
+                th = th2;
             }
+        } else {
+            return invokeLL.booleanValue;
         }
-        return invokeL.intValue;
     }
 }

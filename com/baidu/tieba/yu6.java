@@ -1,15 +1,9 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,245 +11,151 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import tbclient.ApkDetail;
+import tbclient.ManageInfo;
 /* loaded from: classes9.dex */
-public class yu6 {
+public class yu6 implements oi {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
+    public ItemData a;
+    public int b;
+    public int c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
 
-    /* loaded from: classes9.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final yu6 a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static boolean e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i == 3 || i == 4 : invokeI.booleanValue;
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-248422510, "Lcom/baidu/tieba/yu6$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-248422510, "Lcom/baidu/tieba/yu6$a;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948342703, "Lcom/baidu/tieba/yu6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new yu6();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948342703, "Lcom/baidu/tieba/yu6;");
+                return;
+            }
         }
+        g = BdUniqueId.gen();
     }
 
     public yu6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = 0;
+        this.c = 0;
+        this.d = true;
+        this.e = false;
+        this.f = false;
     }
 
-    public static final yu6 e() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public yu6 clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            yu6 yu6Var = new yu6();
+            yu6Var.a = this.a;
+            yu6Var.b = this.b;
+            yu6Var.c = this.c;
+            yu6Var.d = this.d;
+            yu6Var.e = this.e;
+            yu6Var.f = this.f;
+            return yu6Var;
         }
         return (yu6) invokeV.objValue;
     }
 
-    public final ContentValues a(xu6 xu6Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xu6Var)) == null) {
-            if (xu6Var == null) {
-                return null;
-            }
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("pkg_name", xu6Var.a.pkgName);
-            contentValues.put("download_time", Long.valueOf(System.currentTimeMillis()));
-            contentValues.put(WriteActivityConfig.ITEM_INFO, g(xu6Var.a));
-            contentValues.put("item_source", Integer.valueOf(xu6Var.b));
-            contentValues.put("storage_location", Integer.valueOf(xu6Var.c));
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    @SuppressLint({"Range"})
-    public final mc5 b(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor)) == null) {
-            if (cursor != null && !cursor.isClosed()) {
-                mc5 mc5Var = new mc5();
-                mc5Var.a = cursor.getString(cursor.getColumnIndex("pkg_name"));
-                cursor.getLong(cursor.getColumnIndex("download_time"));
-                mc5Var.c = cursor.getString(cursor.getColumnIndex(WriteActivityConfig.ITEM_INFO));
-                mc5Var.d = cursor.getInt(cursor.getColumnIndex("item_source"));
-                mc5Var.e = cursor.getInt(cursor.getColumnIndex("storage_location"));
-                return mc5Var;
-            }
-            return null;
-        }
-        return (mc5) invokeL.objValue;
-    }
-
-    public synchronized boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            synchronized (this) {
-                boolean z = false;
-                if (qd.isEmpty(str)) {
-                    return false;
-                }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                int delete = f.delete(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO, "pkg_name = ?", new String[]{str});
-                f.setTransactionSuccessful();
-                f.endTransaction();
-                if (delete >= 0) {
-                    z = true;
-                }
-                return z;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized List<mc5> d() {
+    @Override // com.baidu.tieba.oi
+    public BdUniqueId getType() {
         InterceptResult invokeV;
-        LinkedList linkedList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                linkedList = new LinkedList();
-                Cursor rawQuery = f.rawQuery(String.format("SELECT * FROM %s ORDER BY %s DESC", TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO, "download_time"), null);
-                while (rawQuery.moveToNext()) {
-                    mc5 b = b(rawQuery);
-                    if (b != null) {
-                        linkedList.add(b);
-                    }
-                }
-                f.setTransactionSuccessful();
-                rd.a(rawQuery);
-                f.endTransaction();
-            }
-            return linkedList;
+            return g;
         }
-        return (List) invokeV.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public final long f(SQLiteDatabase sQLiteDatabase, xu6 xu6Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, sQLiteDatabase, xu6Var)) == null) {
-            try {
-                return sQLiteDatabase.insert(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO, null, a(xu6Var));
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return -1L;
-            }
-        }
-        return invokeLL.longValue;
-    }
-
-    public final String g(ItemData itemData) {
+    public static yu6 b(nc5 nc5Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, itemData)) == null) {
-            if (itemData == null) {
-                return "";
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("item_id", itemData.itemId);
-                jSONObject.put("item_name", itemData.mTitle);
-                jSONObject.put("icon_size", itemData.mIconSize);
-                jSONObject.put("icon_url", itemData.mIconUrl);
-                if (!ListUtils.isEmpty(itemData.mTags)) {
-                    jSONObject.put("tags", new JSONArray((Collection) itemData.mTags));
-                }
-                jSONObject.put("score", itemData.mScore);
-                jSONObject.put("star", itemData.mStar);
-                jSONObject.put("button_name", itemData.buttonName);
-                jSONObject.put("button_link", itemData.buttonLink);
-                jSONObject.put("button_link_type", itemData.buttonLinkType);
-                jSONObject.put("apk_name", itemData.pkgName);
-                jSONObject.put("forum_name", itemData.forumName);
-                jSONObject.put("item_appid", itemData.appId);
-                if (itemData.apkDetail != null) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("developer", itemData.apkDetail.developer);
-                    jSONObject2.put("publisher", itemData.apkDetail.publisher);
-                    jSONObject2.put("version", itemData.apkDetail.version);
-                    jSONObject2.put("version_code", itemData.apkDetail.version_code);
-                    jSONObject2.put("update_time", itemData.apkDetail.update_time);
-                    jSONObject2.put("size", itemData.apkDetail.size);
-                    jSONObject2.put("need_network", itemData.apkDetail.need_network);
-                    jSONObject2.put("need_inner_buy", itemData.apkDetail.need_inner_buy);
-                    jSONObject2.put("authority_url", itemData.apkDetail.authority_url);
-                    jSONObject2.put("privacy_url", itemData.apkDetail.privacy_url);
-                    jSONObject2.put("pkg_source", itemData.apkDetail.pkg_source);
-                    jSONObject.put("apk_detail", jSONObject2);
-                }
-            } catch (JSONException unused) {
-            }
-            return jSONObject.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, nc5Var)) == null) {
+            yu6 yu6Var = new yu6();
+            yu6Var.a = nc5Var.b;
+            yu6Var.b = nc5Var.d;
+            yu6Var.c = nc5Var.e;
+            return yu6Var;
         }
-        return (String) invokeL.objValue;
+        return (yu6) invokeL.objValue;
     }
 
-    public final long h(SQLiteDatabase sQLiteDatabase, xu6 xu6Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, xu6Var)) == null) {
-            try {
-                return sQLiteDatabase.update(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO, a(xu6Var), "pkg_name = ?", new String[]{String.valueOf(xu6Var.a.pkgName)});
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return -1L;
-            }
-        }
-        return invokeLL.longValue;
-    }
-
-    public synchronized long i(xu6 xu6Var) {
+    public static yu6 c(ManageInfo manageInfo) {
         InterceptResult invokeL;
-        long f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, xu6Var)) == null) {
-            synchronized (this) {
-                if (xu6Var == null) {
-                    return -1L;
-                }
-                SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f2.beginTransaction();
-                Cursor rawQuery = f2.rawQuery("SELECT * FROM download_info where pkg_name = ?", new String[]{xu6Var.a.pkgName});
-                if (rawQuery.getCount() > 0) {
-                    f = h(f2, xu6Var);
-                } else {
-                    f = f(f2, xu6Var);
-                }
-                f2.setTransactionSuccessful();
-                rd.a(rawQuery);
-                f2.endTransaction();
-                return f;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, manageInfo)) == null) {
+            yu6 yu6Var = new yu6();
+            ItemData itemData = new ItemData();
+            yu6Var.a = itemData;
+            itemData.parseProto(manageInfo.item);
+            yu6Var.b = manageInfo.item_source.intValue();
+            return yu6Var;
         }
-        return invokeL.longValue;
+        return (yu6) invokeL.objValue;
+    }
+
+    public boolean d(yu6 yu6Var) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        ItemData itemData;
+        ApkDetail apkDetail;
+        ApkDetail apkDetail2;
+        ItemData itemData2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yu6Var)) == null) {
+            if (this.b == yu6Var.b && this.c == yu6Var.c) {
+                z = true;
+            } else {
+                z = false;
+            }
+            ItemData itemData3 = this.a;
+            if (itemData3 != null && (itemData2 = yu6Var.a) != null) {
+                z2 = itemData3.pkgName.equals(itemData2.pkgName);
+            } else {
+                z2 = false;
+            }
+            ItemData itemData4 = this.a;
+            if (itemData4 != null && (itemData = yu6Var.a) != null && (apkDetail = itemData4.apkDetail) != null && (apkDetail2 = itemData.apkDetail) != null) {
+                z3 = apkDetail.version_code.equals(apkDetail2.version_code);
+            } else {
+                z3 = false;
+            }
+            if (z && z2 && z3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

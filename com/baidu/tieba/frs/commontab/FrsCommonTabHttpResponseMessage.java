@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.commontab;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import com.baidu.tieba.bt7;
+import com.baidu.tieba.ct7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GeneralTabList.GeneralTabListResIdl;
 /* loaded from: classes6.dex */
-public class FrsCommonTabHttpResponseMessage extends MvcProtobufHttpResponsedMessage<bt7, GeneralTabListResIdl> {
+public class FrsCommonTabHttpResponseMessage extends MvcProtobufHttpResponsedMessage<ct7, GeneralTabListResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,9 +51,9 @@ public class FrsCommonTabHttpResponseMessage extends MvcProtobufHttpResponsedMes
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            bt7 bt7Var = new bt7();
+            ct7 ct7Var = new ct7();
             GeneralTabListResIdl generalTabListResIdl = (GeneralTabListResIdl) new Wire(new Class[0]).parseFrom(bArr, GeneralTabListResIdl.class);
-            bt7Var.a(generalTabListResIdl.data);
+            ct7Var.a(generalTabListResIdl.data);
             Error error = generalTabListResIdl.error;
             if (error != null) {
                 Integer num = error.errorno;
@@ -62,7 +62,7 @@ public class FrsCommonTabHttpResponseMessage extends MvcProtobufHttpResponsedMes
                 }
                 setErrorString(generalTabListResIdl.error.usermsg);
             }
-            setData(bt7Var);
+            setData(ct7Var);
         }
     }
 }

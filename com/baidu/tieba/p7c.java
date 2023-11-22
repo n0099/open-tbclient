@@ -1,18 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.v7c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
 /* loaded from: classes7.dex */
-public class p7c {
+public final class p7c {
     public static /* synthetic */ Interceptable $ic;
-    public static v7c a;
+    public static final p7c c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ExecutorService a;
+    public final Executor b;
 
     static {
         InterceptResult invokeClinit;
@@ -27,29 +30,35 @@ public class p7c {
                 return;
             }
         }
-        a = new v7c();
+        c = new p7c();
     }
 
-    public static <TResult> TResult a(m7c<TResult> m7cVar) throws ExecutionException, InterruptedException {
-        InterceptResult invokeL;
+    public p7c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, m7cVar)) == null) {
-            v7c.c("await must not be called on the UI thread");
-            if (m7cVar.g()) {
-                return (TResult) v7c.b(m7cVar);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            v7c.b bVar = new v7c.b();
-            m7cVar.c(bVar);
-            m7cVar.b(bVar);
-            bVar.a.await();
-            return (TResult) v7c.b(m7cVar);
         }
-        return (TResult) invokeL.objValue;
+        this.a = r7c.a();
+        this.b = r7c.b();
     }
 
-    public static <TResult> m7c<TResult> b(Callable<TResult> callable) {
-        InterceptResult invokeL;
+    public static ExecutorService a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) ? a.a(o7c.a(), callable) : (m7c) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a : (ExecutorService) invokeV.objValue;
+    }
+
+    public static Executor b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.b : (Executor) invokeV.objValue;
     }
 }

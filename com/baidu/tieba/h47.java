@@ -1,178 +1,87 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.SpannableStringBuilder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.uistate.CardUiStateKt;
-import com.baidu.tieba.feed.log.FeedStat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class h47 implements o67, eb7 {
+public final class h47 extends s47 implements o47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> a;
-    public final Map<String, String> b;
-    public final Function2<Context, String, Unit> c;
-    public final Function1<m77, Unit> d;
-    public int e;
-    public FeedStat.a f;
+    public final SpannableStringBuilder f;
+    public final boolean g;
+    public final k57 h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947773822, "Lcom/baidu/tieba/h47;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947773822, "Lcom/baidu/tieba/h47;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class a implements FeedStat.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.feed.log.FeedStat.a
-        public void a(String id, Map<String, String> businessInfo, Map<String, String> logInfo, Map<String, String> runInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, id, businessInfo, logInfo, runInfo) == null) {
-                Intrinsics.checkNotNullParameter(id, "id");
-                Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-                Intrinsics.checkNotNullParameter(logInfo, "logInfo");
-                Intrinsics.checkNotNullParameter(runInfo, "runInfo");
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public h47(Map<String, String> businessInfo, Map<String, String> logInfo, Function2<? super Context, ? super String, Unit> onClick, Function1<? super m77, Unit> onStat) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h47(SpannableStringBuilder titleBuilder, boolean z, k57 readStatus) {
+        super(null, null, 3, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {businessInfo, logInfo, onClick, onStat};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {titleBuilder, Boolean.valueOf(z), readStatus};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-        Intrinsics.checkNotNullParameter(logInfo, "logInfo");
-        Intrinsics.checkNotNullParameter(onClick, "onClick");
-        Intrinsics.checkNotNullParameter(onStat, "onStat");
-        this.a = businessInfo;
-        this.b = logInfo;
-        this.c = onClick;
-        this.d = onStat;
-        this.f = new a();
+        Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
+        Intrinsics.checkNotNullParameter(readStatus, "readStatus");
+        this.f = titleBuilder;
+        this.g = z;
+        this.h = readStatus;
     }
 
-    public /* synthetic */ h47(Map map, Map map2, Function2 function2, Function1 function1, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? new LinkedHashMap() : map, (i & 2) != 0 ? new LinkedHashMap() : map2, (i & 4) != 0 ? CardUiStateKt.a() : function2, (i & 8) != 0 ? CardUiStateKt.b() : function1);
-    }
-
-    @Override // com.baidu.tieba.eb7
-    public void e(FeedStat.a callback) {
+    @Override // com.baidu.tieba.o47
+    public boolean c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, callback) == null) {
-            Intrinsics.checkNotNullParameter(callback, "callback");
-            this.f = callback;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            this.h.b(true);
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.o67
-    public void setPosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public final Map<String, String> f() {
+    public final k57 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.h;
         }
-        return (Map) invokeV.objValue;
+        return (k57) invokeV.objValue;
     }
 
-    public final FeedStat.a g() {
+    public final SpannableStringBuilder j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.f;
         }
-        return (FeedStat.a) invokeV.objValue;
+        return (SpannableStringBuilder) invokeV.objValue;
     }
 
-    public final Map<String, String> h() {
+    public final boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+            return this.g;
         }
-        return (Map) invokeV.objValue;
-    }
-
-    public final Function2<Context, String, Unit> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (Function2) invokeV.objValue;
-    }
-
-    public final Function1<m77, Unit> j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return (Function1) invokeV.objValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 }

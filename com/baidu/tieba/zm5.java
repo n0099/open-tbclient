@@ -1,15 +1,14 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
-import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zm5 implements cm5<PrePageKeyEvent> {
+public class zm5 implements dm5<MissionEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,17 +27,30 @@ public class zm5 implements cm5<PrePageKeyEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cm5
+    @Override // com.baidu.tieba.dm5
     /* renamed from: a */
-    public boolean onEvent(PrePageKeyEvent prePageKeyEvent) {
+    public boolean onEvent(MissionEvent missionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, prePageKeyEvent)) == null) {
-            if (prePageKeyEvent != null && !TextUtils.isEmpty(prePageKeyEvent.prePageKey)) {
-                TbPageExtraHelper.setPrePageKey(prePageKeyEvent.prePageKey);
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, missionEvent)) == null) {
+            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
+                return false;
             }
-            return false;
+            int i = missionEvent.pageId;
+            int i2 = missionEvent.pageType;
+            long j = missionEvent.tid;
+            String str = missionEvent.actionType;
+            if ("onResume".equals(str)) {
+                lo4.w().L(i, j);
+                lo4.w().Q(i2, j);
+            } else if (MissionEvent.MESSAGE_PAUSE.equals(str)) {
+                lo4.w().E();
+            } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
+                lo4.w().F();
+            } else if (MissionEvent.MESSAGE_ACTIVITY.equals(str)) {
+                lo4.w().L(i, j);
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }

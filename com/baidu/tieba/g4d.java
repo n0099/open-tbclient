@@ -5,22 +5,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.TailInfo;
+import tbclient.TagsInfo;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes6.dex */
-public class g4d extends poc {
+public class g4d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TailInfo tailInfo) {
+    public static JSONObject b(@NonNull TagsInfo tagsInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tailInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tagsInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "tail_type", tailInfo.tail_type);
-            poc.a(jSONObject, "icon_url", tailInfo.icon_url);
-            poc.a(jSONObject, "icon_link", tailInfo.icon_link);
-            poc.a(jSONObject, "content", tailInfo.content);
+            ThemeColorInfo themeColorInfo = tagsInfo.img_info;
+            if (themeColorInfo != null) {
+                qoc.a(jSONObject, "img_info", q4d.b(themeColorInfo));
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -13,7 +13,7 @@ import com.baidu.searchbox.looper.ioc.ILooperRegister_LooperRuntime_ListProvider
 import com.baidu.searchbox.looper.ioc.ILooperUIContext;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.j3c;
+import com.baidu.tieba.k3c;
 import com.baidu.tieba.mf1;
 import com.baidu.tieba.nf1;
 import com.baidu.tieba.of1;
@@ -77,10 +77,10 @@ public class LooperRuntime {
         return of1Var.get();
     }
 
-    public void dispatchBlock(Context context, j3c j3cVar) {
+    public void dispatchBlock(Context context, k3c k3cVar) {
         pf1<ILooperRegister> pf1Var = this.mLooperMonitordList;
         if (pf1Var != null && pf1Var.getList() != null) {
-            LooperBlock looperBlock = new LooperBlock(j3cVar.r, j3cVar.q, j3cVar.n, j3cVar.o, j3cVar.w);
+            LooperBlock looperBlock = new LooperBlock(k3cVar.r, k3cVar.q, k3cVar.n, k3cVar.o, k3cVar.w);
             TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
             if (lastTrackUI != null) {
                 if (!TextUtils.isEmpty(lastTrackUI.getFragmentPage())) {

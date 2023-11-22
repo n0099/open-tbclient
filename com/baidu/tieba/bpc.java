@@ -1,39 +1,37 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.SignAllForumAdvertActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.AdInfo;
-import tbclient.Media;
+import tbclient.ActionControl;
+import tbclient.AdCloseInfo;
 /* loaded from: classes5.dex */
-public class bpc extends poc {
+public class bpc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull AdInfo adInfo) {
+    public static JSONObject b(@NonNull AdCloseInfo adCloseInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adCloseInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "show_rule", adInfo.show_rule);
-            poc.a(jSONObject, TiebaStatic.Params.AD_TYPE, adInfo.ad_type);
-            poc.a(jSONObject, TiebaStatic.Params.AD_DESC, adInfo.ad_desc);
-            poc.a(jSONObject, "ad_pic", adInfo.ad_pic);
-            poc.a(jSONObject, SignAllForumAdvertActivityConfig.AD_URL, adInfo.ad_url);
-            poc.a(jSONObject, "ad_name", adInfo.ad_name);
-            poc.a(jSONObject, "portrait", adInfo.portrait);
-            if (adInfo.media != null) {
+            qoc.a(jSONObject, "support_close", adCloseInfo.support_close);
+            qoc.a(jSONObject, "title", adCloseInfo.title);
+            if (adCloseInfo.reasons != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (Media media : adInfo.media) {
-                    jSONArray.put(yzc.b(media));
+                for (String str : adCloseInfo.reasons) {
+                    jSONArray.put(str);
                 }
-                poc.a(jSONObject, "media", jSONArray);
+                qoc.a(jSONObject, "reasons", jSONArray);
+            }
+            qoc.a(jSONObject, "confirm_title", adCloseInfo.confirm_title);
+            ActionControl actionControl = adCloseInfo.action_control;
+            if (actionControl != null) {
+                qoc.a(jSONObject, "action_control", yoc.b(actionControl));
             }
             return jSONObject;
         }

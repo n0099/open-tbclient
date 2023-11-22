@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,6 +14,9 @@ public class xda {
     public String a;
     public String b;
     public String c;
+    public String d;
+    public long e;
+    public int f;
 
     public xda() {
         Interceptable interceptable = $ic;
@@ -36,9 +40,14 @@ public class xda {
                 return null;
             }
             xda xdaVar = new xda();
-            xdaVar.a = jSONObject.optString("apk_name");
-            xdaVar.b = jSONObject.optString("apk_url");
-            xdaVar.c = jSONObject.optString("download_key");
+            jSONObject.optString("brand_name");
+            xdaVar.a = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+            xdaVar.b = jSONObject.optString("button_scheme");
+            xdaVar.c = jSONObject.optString("cmd_scheme");
+            jSONObject.optString("icon");
+            xdaVar.d = jSONObject.optString("operate_recommend_reason");
+            xdaVar.e = jSONObject.optLong("trans_animation_delay", 0L);
+            xdaVar.f = jSONObject.optInt("layout_upgrade", 0);
             return xdaVar;
         }
         return (xda) invokeL.objValue;

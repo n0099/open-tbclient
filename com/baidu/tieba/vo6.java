@@ -1,15 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import android.content.Context;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.u27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import tbclient.Userlike.UserFollowLive;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class vo6 implements i87<Message> {
+public final class vo6 implements u27.q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,23 +30,31 @@ public class vo6 implements i87<Message> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i87
-    /* renamed from: a */
-    public za7<?> b(Message message) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.u27.q
+    public void a(u27.r holder, k47 state) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            if (!(message instanceof UserFollowLive)) {
-                return null;
-            }
-            g98 g98Var = new g98();
-            g98Var.d((UserFollowLive) message);
-            bm6 bm6Var = new bm6(null, g98Var.c(), ImageViewerConfig.FROM_CONCERN);
-            c77 c77Var = new c77();
-            c77Var.a = bm6Var;
-            return new ab7(new s27(c77Var), "ala_live_attention");
+        if (interceptable == null || interceptable.invokeLL(1048576, this, holder, state) == null) {
+            Intrinsics.checkNotNullParameter(holder, "holder");
+            Intrinsics.checkNotNullParameter(state, "state");
+            holder.k(state);
         }
-        return (za7) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.u27.q
+    public u27.r b(Context context, ViewGroup rootView) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, rootView)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(rootView, "rootView");
+            if (context instanceof TbadkCoreApplication) {
+                TbadkCoreApplication tbadkCoreApplication = (TbadkCoreApplication) context;
+                if ((tbadkCoreApplication.getCurrentActivity() instanceof Context) && (context = tbadkCoreApplication.getCurrentActivity()) == null) {
+                    throw new NullPointerException("null cannot be cast to non-null type android.content.Context");
+                }
+            }
+            return new uo6(context, rootView);
+        }
+        return (u27.r) invokeLL.objValue;
     }
 }

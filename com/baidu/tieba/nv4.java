@@ -45,7 +45,7 @@ public final class nv4 {
                 Intrinsics.checkNotNullParameter(responsedMessage, "responsedMessage");
                 Integer num = (Integer) responsedMessage.getData();
                 if (num != null && num.intValue() == 0) {
-                    dj6.a().h("na2h5.account_login", new JSONObject());
+                    ej6.a().h("na2h5.account_login", new JSONObject());
                 }
             }
         }

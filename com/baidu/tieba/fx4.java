@@ -36,7 +36,7 @@ public class fx4 implements w25 {
     public String m;
     public float n;
     public List<String> o;
-    public vqa p;
+    public wqa p;
 
     /* loaded from: classes6.dex */
     public class a implements Comparator<VideoImageColor> {
@@ -122,13 +122,13 @@ public class fx4 implements w25 {
         return (String) invokeV.objValue;
     }
 
-    public vqa f() {
+    public wqa f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.p;
         }
-        return (vqa) invokeV.objValue;
+        return (wqa) invokeV.objValue;
     }
 
     public String g() {
@@ -309,9 +309,9 @@ public class fx4 implements w25 {
             this.k = str4.trim();
         }
         this.o = headImgs.third_statistics_url;
-        vqa vqaVar = new vqa();
-        this.p = vqaVar;
-        vqaVar.d(headImgs);
+        wqa wqaVar = new wqa();
+        this.p = wqaVar;
+        wqaVar.d(headImgs);
     }
 
     public void p(String str) {

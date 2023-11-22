@@ -1,7 +1,7 @@
 package com.huawei.hms.opendevice;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.w8c;
+import com.baidu.tieba.x8c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,7 +35,7 @@ public abstract class s {
             }
             String byteArrayOutputStream2 = byteArrayOutputStream.toString("UTF-8");
             a((Closeable) inputStream);
-            w8c.c(byteArrayOutputStream);
+            x8c.c(byteArrayOutputStream);
             return byteArrayOutputStream2;
         }
         return (String) invokeL.objValue;

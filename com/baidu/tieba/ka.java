@@ -37,22 +37,22 @@ public class ka implements lf1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new l25());
-            arrayList.add(new yf5());
-            arrayList.add(new ch5());
+            arrayList.add(new zf5());
+            arrayList.add(new dh5());
             arrayList.add(new BaiduBqtInitSwitch());
             arrayList.add(new BaiduBqtPrivacySwitch());
             arrayList.add(new CheckWebResProxySwitch());
             arrayList.add(new GdtInitSwitch());
             arrayList.add(new KsInitSwitch());
-            arrayList.add(new e56());
             arrayList.add(new f56());
-            arrayList.add(new dh6());
+            arrayList.add(new g56());
             arrayList.add(new eh6());
             arrayList.add(new fh6());
-            arrayList.add(new vf8());
+            arrayList.add(new gh6());
             arrayList.add(new wf8());
-            arrayList.add(new u39());
-            arrayList.add(new bfa());
+            arrayList.add(new xf8());
+            arrayList.add(new v39());
+            arrayList.add(new cfa());
             return arrayList;
         }
         return invokeV.objValue;

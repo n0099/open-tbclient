@@ -28,12 +28,12 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e5a;
-import com.baidu.tieba.e8a;
-import com.baidu.tieba.k7a;
+import com.baidu.tieba.f5a;
+import com.baidu.tieba.f8a;
+import com.baidu.tieba.l7a;
 import com.baidu.tieba.oi;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.q7a;
+import com.baidu.tieba.r7a;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -49,13 +49,13 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     public static boolean x = true;
     public static CustomMessageListener y;
     public transient /* synthetic */ FieldHolder $fh;
-    public e8a a;
+    public f8a a;
     public TextView b;
     public NavigationBar c;
     public View d;
     public TextView e;
     public BdListView f;
-    public k7a g;
+    public l7a g;
     public PersonPostModel h;
     public View i;
     public View j;
@@ -580,9 +580,9 @@ public class ReportThemeActivity extends BaseFragmentActivity {
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090723);
             this.f = (BdListView) findViewById(R.id.obfuscated_res_0x7f091f62);
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0907d2);
-            k7a k7aVar = new k7a(this, this.t);
-            this.g = k7aVar;
-            this.f.setAdapter((ListAdapter) k7aVar);
+            l7a l7aVar = new l7a(this, this.t);
+            this.g = l7aVar;
+            this.f.setAdapter((ListAdapter) l7aVar);
             this.f.setOnSrollToBottomListener(new c(this));
             MessageManager.getInstance().registerListener(y);
             PbListView pbListView = new PbListView(this);
@@ -602,9 +602,9 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048595, this, view2, str, z) == null) {
             if (this.a == null) {
-                e8a e8aVar = new e8a(getPageContext().getPageActivity(), getNetRefreshListener());
-                this.a = e8aVar;
-                e8aVar.d(getPageContext().getResources().getString(R.string.refresh_view_title_text));
+                f8a f8aVar = new f8a(getPageContext().getPageActivity(), getNetRefreshListener());
+                this.a = f8aVar;
+                f8aVar.d(getPageContext().getResources().getString(R.string.refresh_view_title_text));
                 this.a.c(null);
                 this.a.b(getPageContext().getResources().getString(R.string.refresh_view_button_text));
                 this.a.e();
@@ -629,7 +629,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                 if (z) {
                     personPostModel2.threadList.clear();
                 }
-                this.h.threadList.addAll(q7a.c(personPostModel.threadList));
+                this.h.threadList.addAll(r7a.c(personPostModel.threadList));
             }
             this.p = y1(personPostModel, z);
             PersonPostModel personPostModel3 = this.h;
@@ -646,8 +646,8 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                     P1(this.h.threadList);
                 }
             }
-            e5a.d().l(System.currentTimeMillis() - currentTimeMillis);
-            e5a.d().p(System.currentTimeMillis() - e5a.d().g());
+            f5a.d().l(System.currentTimeMillis() - currentTimeMillis);
+            f5a.d().p(System.currentTimeMillis() - f5a.d().g());
         }
     }
 }

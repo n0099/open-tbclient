@@ -41,13 +41,13 @@ public class aa3 extends d83 {
 
         /* renamed from: com.baidu.tieba.aa3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0227a implements Runnable {
+        public class RunnableC0226a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Bitmap a;
             public final /* synthetic */ a b;
 
-            public RunnableC0227a(a aVar, Bitmap bitmap) {
+            public RunnableC0226a(a aVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public class aa3 extends d83 {
                 if (y == null) {
                     this.d.n(this.a, this.b, "can't get screenshot");
                 } else {
-                    aj3.k(new RunnableC0227a(this, y), "savescreenshot");
+                    aj3.k(new RunnableC0226a(this, y), "savescreenshot");
                 }
             }
         }

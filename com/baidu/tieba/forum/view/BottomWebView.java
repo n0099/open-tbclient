@@ -3,7 +3,7 @@ package com.baidu.tieba.forum.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.eh7;
+import com.baidu.tieba.fh7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -65,7 +65,7 @@ public final class BottomWebView extends TbWebView {
         Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    public final void setData(eh7 bottomData) {
+    public final void setData(fh7 bottomData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bottomData) == null) {
             Intrinsics.checkNotNullParameter(bottomData, "bottomData");

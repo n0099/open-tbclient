@@ -22,10 +22,10 @@ import com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.TbTextMsg;
 import com.baidu.tieba.im.under.common.uiliststyle.group.item.TextItem;
-import com.baidu.tieba.l07;
-import com.baidu.tieba.mv8;
+import com.baidu.tieba.m07;
 import com.baidu.tieba.nv8;
-import com.baidu.tieba.vv8;
+import com.baidu.tieba.ov8;
+import com.baidu.tieba.wv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,7 +85,7 @@ public class TextAdapter extends BaseStyleNormalAdapter<TextItem, Holder, BaseNo
     }
 
     /* loaded from: classes6.dex */
-    public class a implements l07.i {
+    public class a implements m07.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TextItem a;
@@ -112,11 +112,11 @@ public class TextAdapter extends BaseStyleNormalAdapter<TextItem, Holder, BaseNo
             this.c = textView;
         }
 
-        @Override // com.baidu.tieba.l07.i
+        @Override // com.baidu.tieba.m07.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
-                vv8.a(spannableStringBuilder, mv8.u(this.a, this.b));
+                wv8.a(spannableStringBuilder, nv8.u(this.a, this.b));
                 this.a.setCacheText(spannableStringBuilder);
                 this.c.setText(spannableStringBuilder);
             }
@@ -124,7 +124,7 @@ public class TextAdapter extends BaseStyleNormalAdapter<TextItem, Holder, BaseNo
     }
 
     /* loaded from: classes6.dex */
-    public class b implements nv8 {
+    public class b implements ov8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
@@ -155,21 +155,21 @@ public class TextAdapter extends BaseStyleNormalAdapter<TextItem, Holder, BaseNo
             this.d = i;
         }
 
-        @Override // com.baidu.tieba.nv8
+        @Override // com.baidu.tieba.ov8
         public void a(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
                 this.a.setBackground(drawable);
-                mv8.o(false, this.b, this.c, this.d);
+                nv8.o(false, this.b, this.c, this.d);
             }
         }
 
-        @Override // com.baidu.tieba.nv8
+        @Override // com.baidu.tieba.ov8
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.e.n0(this.a, this.c);
-                mv8.o(true, this.b, this.c, this.d);
+                nv8.o(true, this.b, this.c, this.d);
             }
         }
     }
@@ -291,14 +291,14 @@ public class TextAdapter extends BaseStyleNormalAdapter<TextItem, Holder, BaseNo
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), viewGroup, textItem, holder, list, Integer.valueOf(i2)}) == null) {
             TextView textView = (TextView) holder.getView();
             TbTextMsg tbMsg = textItem.getTbMsg();
-            vv8.b(tbMsg.getAtUserInfoList());
+            wv8.b(tbMsg.getAtUserInfoList());
             textView.setText(textItem.getTbMsg().getText());
             if (textItem.getCacheText() != null) {
                 textView.setText(textItem.getCacheText());
             } else {
-                l07.e(D(), tbMsg.getText(), UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this, textItem, i2, textView));
+                m07.e(D(), tbMsg.getText(), UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this, textItem, i2, textView));
             }
-            mv8.t(this.mType, textItem, viewGroup, new b(this, viewGroup, textView, textItem, i2));
+            nv8.t(this.mType, textItem, viewGroup, new b(this, viewGroup, textView, textItem, i2));
             j0(textView, tbMsg);
             i0(viewGroup, textView);
         }

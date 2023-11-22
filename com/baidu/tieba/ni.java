@@ -199,7 +199,7 @@ public class ni {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             if (i > 0) {
-                return js5.o(this.a.getItem(i - this.a.getHeaderViewsCount()));
+                return ks5.o(this.a.getItem(i - this.a.getHeaderViewsCount()));
             }
             return false;
         }

@@ -1,13 +1,9 @@
 package com.baidu.tieba;
+
+import android.os.IBinder;
 /* loaded from: classes8.dex */
 public interface tlb {
-    qlb a();
+    IBinder a(String str);
 
-    slb b();
-
-    skb c();
-
-    wkb d();
-
-    rlb e();
+    void b();
 }

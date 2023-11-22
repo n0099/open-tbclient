@@ -42,12 +42,12 @@ public final class uq extends tq {
 
             /* renamed from: com.baidu.tieba.uq$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes8.dex */
-            public class View$OnClickListenerC0499a implements View.OnClickListener {
+            public class View$OnClickListenerC0496a implements View.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public View$OnClickListenerC0499a(a aVar) {
+                public View$OnClickListenerC0496a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public final class uq extends tq {
                     uq.b.setView(this.a.b);
                     uq.b.setGravity(81, 0, this.a.c);
                     cr.m(uq.b, R.style.obfuscated_res_0x7f100444);
-                    this.a.b.setOnClickListener(new View$OnClickListenerC0499a(this));
+                    this.a.b.setOnClickListener(new View$OnClickListenerC0496a(this));
                     uq.b.show();
                 }
             }
@@ -147,12 +147,12 @@ public final class uq extends tq {
 
         /* renamed from: com.baidu.tieba.uq$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0498a implements Runnable {
+        public class RunnableC0495a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0498a(a aVar) {
+            public RunnableC0495a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -207,7 +207,7 @@ public final class uq extends tq {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                uq.c.post(new RunnableC0498a(this));
+                uq.c.post(new RunnableC0495a(this));
             }
         }
     }

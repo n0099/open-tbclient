@@ -12,16 +12,15 @@ public class cwa extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final zua b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cwa(MainTabActivity mainTabActivity, lua luaVar) {
-        super(2921543);
+    public cwa(MainTabActivity mainTabActivity, mua muaVar) {
+        super(2010000);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, luaVar};
+            Object[] objArr = {mainTabActivity, muaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,16 +32,14 @@ public class cwa extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        zua zuaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (zuaVar = this.b) != null && zuaVar.i() != null) {
-            this.b.i().a();
+        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+            this.a.C = true;
         }
     }
 }

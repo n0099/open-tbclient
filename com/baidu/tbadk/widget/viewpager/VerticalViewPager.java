@@ -39,7 +39,7 @@ import androidx.core.widget.EdgeEffectCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.oz5;
+import com.baidu.tieba.pz5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -97,7 +97,7 @@ public class VerticalViewPager extends ViewGroup {
     public PagerAdapter f;
     public int f0;
     public int g;
-    public oz5 g0;
+    public pz5 g0;
     public int h;
     public Parcelable i;
     public ClassLoader j;
@@ -143,7 +143,7 @@ public class VerticalViewPager extends ViewGroup {
         public int position;
 
         /* loaded from: classes5.dex */
-        public static class a implements ParcelableCompatCreatorCallbacks<SavedState> {
+        public class a implements ParcelableCompatCreatorCallbacks<SavedState> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -324,7 +324,7 @@ public class VerticalViewPager extends ViewGroup {
     }
 
     /* loaded from: classes5.dex */
-    public static class a implements Comparator<d> {
+    public class a implements Comparator<d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -356,7 +356,7 @@ public class VerticalViewPager extends ViewGroup {
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements Interpolator {
+    public class b implements Interpolator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -962,11 +962,11 @@ public class VerticalViewPager extends ViewGroup {
         }
     }
 
-    public void setEventListener(oz5.b bVar) {
-        oz5 oz5Var;
+    public void setEventListener(pz5.b bVar) {
+        pz5 pz5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048638, this, bVar) == null) && (oz5Var = this.g0) != null) {
-            oz5Var.f(bVar);
+        if ((interceptable == null || interceptable.invokeL(1048638, this, bVar) == null) && (pz5Var = this.g0) != null) {
+            pz5Var.f(bVar);
         }
     }
 
@@ -2572,12 +2572,10 @@ public class VerticalViewPager extends ViewGroup {
                                 this.x = true;
                                 H(true);
                                 setScrollState(1);
-                                float f5 = this.F;
-                                float f6 = this.B;
                                 if (i2 > 0) {
-                                    f3 = f5 + f6;
+                                    f3 = this.F + this.B;
                                 } else {
-                                    f3 = f5 - f6;
+                                    f3 = this.F - this.B;
                                 }
                                 this.D = f3;
                                 this.C = x;
@@ -3058,7 +3056,7 @@ public class VerticalViewPager extends ViewGroup {
             if (ViewCompat.getImportantForAccessibility(this) == 0) {
                 ViewCompat.setImportantForAccessibility(this, 1);
             }
-            this.g0 = new oz5(this);
+            this.g0 = new pz5(this);
         }
     }
 

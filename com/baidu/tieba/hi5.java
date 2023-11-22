@@ -1,47 +1,56 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import com.baidu.tieba.ni5;
-import com.baidu.tieba.pi5;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.ByteOrder;
 /* loaded from: classes6.dex */
-public abstract class hi5<R extends ni5, W extends pi5> {
+public class hi5 extends mi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final R a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public final Rect g;
-    public final Rect h;
 
-    public abstract Bitmap a(Canvas canvas, Paint paint, int i, Bitmap bitmap, W w);
-
-    public hi5(R r) {
+    public hi5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {r};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.g = new Rect();
-        this.h = new Rect();
-        this.a = r;
+    }
+
+    @Override // com.baidu.tieba.mi5
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.d(i);
+            this.a.order(ByteOrder.BIG_ENDIAN);
+        }
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            b((byte) (i & 255));
+            b((byte) ((i >> 8) & 255));
+            b((byte) ((i >> 16) & 255));
+            b((byte) ((i >> 24) & 255));
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            b((byte) ((i >> 24) & 255));
+            b((byte) ((i >> 16) & 255));
+            b((byte) ((i >> 8) & 255));
+            b((byte) (i & 255));
+        }
     }
 }

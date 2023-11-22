@@ -15,9 +15,9 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ada;
 import com.baidu.tieba.dw4;
-import com.baidu.tieba.p26;
-import com.baidu.tieba.zca;
+import com.baidu.tieba.q26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -69,7 +69,7 @@ public class DownloadRectifyView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Context context = this.b.getContext();
                 dw4.c cVar = this.a;
-                zca.a(context, cVar.b, null, null, cVar.c);
+                ada.a(context, cVar.b, null, null, cVar.c);
             }
         }
     }
@@ -106,7 +106,7 @@ public class DownloadRectifyView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Context context = this.b.getContext();
                 dw4.b bVar = this.a;
-                zca.a(context, bVar.b, null, null, bVar.c);
+                ada.a(context, bVar.b, null, null, bVar.c);
             }
         }
     }
@@ -154,18 +154,18 @@ public class DownloadRectifyView extends RelativeLayout {
         b(context);
     }
 
-    public void a(p26 p26Var) {
+    public void a(q26 q26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, p26Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, q26Var) == null) {
             int i = 8;
-            if (p26Var != null && p26Var.b != null) {
-                this.i.setText(p26Var.c);
+            if (q26Var != null && q26Var.b != null) {
+                this.i.setText(q26Var.c);
                 TextView textView = this.i;
-                if (p26Var.a != 2) {
+                if (q26Var.a != 2) {
                     i = 0;
                 }
                 textView.setVisibility(i);
-                dw4 dw4Var = p26Var.b;
+                dw4 dw4Var = q26Var.b;
                 this.b.startLoad(dw4Var.b, 30, false);
                 this.c.setText(dw4Var.c);
                 this.d.setText(dw4Var.j);

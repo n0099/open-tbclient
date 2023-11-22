@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.MyEmotionGroupData;
-import com.baidu.tieba.go9;
-import com.baidu.tieba.jn9;
-import com.baidu.tieba.mn9;
+import com.baidu.tieba.ho9;
+import com.baidu.tieba.kn9;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.data.NativeManageEmotionModel;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.data.SingleThreadEmotionResponseMessage;
+import com.baidu.tieba.nn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ import org.json.JSONArray;
 public class SingleThreadEmotionModel extends NativeManageEmotionModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public go9 a;
+    public ho9 a;
     public List<String> b;
     public final HttpMessageListener c;
 
@@ -118,7 +118,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.V();
-                List<MyEmotionGroupData> f = mn9.i().f();
+                List<MyEmotionGroupData> f = nn9.i().f();
                 JSONArray jSONArray = new JSONArray();
                 if (f != null && !f.isEmpty()) {
                     for (MyEmotionGroupData myEmotionGroupData : f) {
@@ -189,10 +189,10 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         registerListener(this.c);
     }
 
-    public void W(go9 go9Var) {
+    public void W(ho9 ho9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, go9Var) == null) {
-            this.a = go9Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ho9Var) == null) {
+            this.a = ho9Var;
         }
     }
 
@@ -261,7 +261,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            jn9.b().a(new b(this));
+            kn9.b().a(new b(this));
             return false;
         }
         return invokeV.booleanValue;

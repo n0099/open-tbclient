@@ -5,7 +5,7 @@ import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.ja;
-import com.baidu.tieba.uya;
+import com.baidu.tieba.vya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,7 +93,7 @@ public class UseHttpdnsSdkSwitch extends ja {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (uya.a(BdBaseApplication.getInst(), "CHANGE_DOT_REFINED2") || SwitchManager.getInstance().findType(KEY) != 1) {
+            if (vya.a(BdBaseApplication.getInst(), "CHANGE_DOT_REFINED2") || SwitchManager.getInstance().findType(KEY) != 1) {
                 return false;
             }
             return true;

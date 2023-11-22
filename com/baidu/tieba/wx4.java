@@ -15,7 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.LinkThreadContent;
 import tbclient.LinkThreadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class wx4 {
     public static /* synthetic */ Interceptable $ic = null;
     public static int g = 1;

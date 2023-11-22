@@ -30,10 +30,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.AutoChangeLineView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aqa;
-import com.baidu.tieba.fab;
+import com.baidu.tieba.bqa;
+import com.baidu.tieba.gab;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.yp5;
+import com.baidu.tieba.zp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class SelectTagListView extends LinearLayout implements yp5, View.OnClickListener, AutoChangeLineView.c {
+public class SelectTagListView extends LinearLayout implements zp5, View.OnClickListener, AutoChangeLineView.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<SelectTagActivity> a;
@@ -76,7 +76,7 @@ public class SelectTagListView extends LinearLayout implements yp5, View.OnClick
         }
     }
 
-    @Override // com.baidu.tieba.yp5
+    @Override // com.baidu.tieba.zp5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -93,7 +93,7 @@ public class SelectTagListView extends LinearLayout implements yp5, View.OnClick
         }
     }
 
-    @Override // com.baidu.tieba.yp5
+    @Override // com.baidu.tieba.zp5
     public boolean s1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -410,7 +410,7 @@ public class SelectTagListView extends LinearLayout implements yp5, View.OnClick
     }
 
     /* loaded from: classes8.dex */
-    public class g implements fab.c {
+    public class g implements gab.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectTagListView a;
@@ -433,7 +433,7 @@ public class SelectTagListView extends LinearLayout implements yp5, View.OnClick
             this.a = selectTagListView;
         }
 
-        @Override // com.baidu.tieba.fab.c
+        @Override // com.baidu.tieba.gab.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -651,7 +651,7 @@ public class SelectTagListView extends LinearLayout implements yp5, View.OnClick
         }
     }
 
-    @Override // com.baidu.tieba.yp5
+    @Override // com.baidu.tieba.zp5
     public void D(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
@@ -666,7 +666,7 @@ public class SelectTagListView extends LinearLayout implements yp5, View.OnClick
         }
     }
 
-    @Override // com.baidu.tieba.yp5
+    @Override // com.baidu.tieba.zp5
     public boolean Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -761,7 +761,7 @@ public class SelectTagListView extends LinearLayout implements yp5, View.OnClick
             if (list != null && list.size() != 0) {
                 EMManager.from(this.c).setTextSelectorColor(R.color.CAM_X0302);
             } else {
-                this.c.setTextColor(aqa.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.c.setTextColor(bqa.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
         }
     }
@@ -788,7 +788,7 @@ public class SelectTagListView extends LinearLayout implements yp5, View.OnClick
             this.p.setOnClickListener(new d(this));
             this.p.setOnEditorActionListener(new e(this));
             this.p.addTextChangedListener(new f(this));
-            this.p.setFilters(new InputFilter[]{new fab.a(this.u, new g(this))});
+            this.p.setFilters(new InputFilter[]{new gab.a(this.u, new g(this))});
             this.r.setOnClickListener(new h(this));
             EMManager.from(this.j).setCorner(R.string.J_X07).setBackGroundColor(R.color.CAM_X0209);
         }

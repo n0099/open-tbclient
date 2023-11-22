@@ -90,7 +90,7 @@ public class ov4 {
                 if (this.c.b) {
                     BdSocketLinkService.setHasAbsoluteClose(false);
                     BdSocketLinkService.setAvailable(true);
-                    oj5.b(0, 0, 0, 1, 2);
+                    pj5.b(0, 0, 0, 1, 2);
                     BdSocketLinkService.startService(true, "account changed");
                 }
                 this.c.M(this.a, this.b);
@@ -99,7 +99,7 @@ public class ov4 {
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements Runnable {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -121,7 +121,7 @@ public class ov4 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                vsa.a("", 7);
+                wsa.a("", 7);
             }
         }
     }
@@ -164,11 +164,11 @@ public class ov4 {
                 } else {
                     this.this$0.a = null;
                 }
-                gm5.o(this.this$0.C());
+                hm5.o(this.this$0.C());
                 if (this.this$0.a != null) {
-                    gm5.n(this.this$0.a.getBDUSS());
-                    gm5.q(this.this$0.a.getTbs());
-                    gm5.p(this.this$0.a.getStoken());
+                    hm5.n(this.this$0.a.getBDUSS());
+                    hm5.q(this.this$0.a.getTbs());
+                    hm5.p(this.this$0.a.getStoken());
                 }
             }
         }
@@ -512,11 +512,11 @@ public class ov4 {
             intent2.putExtra("intent_data_accountData", accountData);
             intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
             TbadkCoreApplication.getInst().sendBroadcast(intent2);
-            gm5.o(!TextUtils.isEmpty(str2));
+            hm5.o(!TextUtils.isEmpty(str2));
             if (accountData != null) {
-                gm5.n(accountData.getBDUSS());
-                gm5.q(accountData.getTbs());
-                gm5.p(accountData.getStoken());
+                hm5.n(accountData.getBDUSS());
+                hm5.q(accountData.getTbs());
+                hm5.p(accountData.getStoken());
             }
         }
     }
@@ -580,7 +580,7 @@ public class ov4 {
     public void G(AccountData accountData, Application application) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, accountData, application) == null) {
-            fw8.a("onAccountChanged()");
+            gw8.a("onAccountChanged()");
             BdLog.e("账号切换");
             SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
             String string = sharedPrefHelper.getString("current_used_theme_" + h(), null);
@@ -596,7 +596,7 @@ public class ov4 {
             }
             f();
             MessageManager.getInstance().sendMessageFromBackground(new CustomMessage(2005006, accountData));
-            fw8.a("send METHOD_ACCOUNT_CHANGE");
+            gw8.a("send METHOD_ACCOUNT_CHANGE");
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005016, accountData));
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2005019, accountData);
             MessageManager.getInstance().registerStickyMode(2005019);
@@ -654,20 +654,20 @@ public class ov4 {
             if (!this.b) {
                 if (accountData == null && this.a != null) {
                     this.b = true;
-                    fw8.a("account == null && mAccount != null");
+                    gw8.a("account == null && mAccount != null");
                 } else if (this.a == null && accountData != null) {
                     this.b = true;
-                    fw8.a("mAccount == null && account != null 初始化");
+                    gw8.a("mAccount == null && account != null 初始化");
                 } else {
                     AccountData accountData2 = this.a;
                     if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
                         this.b = true;
-                        fw8.a("mAccount != null && account != null");
+                        gw8.a("mAccount != null && account != null");
                     }
                 }
             }
             this.a = accountData;
-            vsa.n();
+            wsa.n();
             IdleHandlerManager.getInstance().addOrRunTask("setCurrentAccountInUI", new a(this, accountData, context));
         }
     }
@@ -757,7 +757,7 @@ public class ov4 {
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
-            ip5.a().h(System.currentTimeMillis() - currentTimeMillis);
+            jp5.a().h(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 }

@@ -266,7 +266,7 @@ public final class ku4 {
                     this.b = appendVersionCode;
                     this.b = BrowserHelper.appendClientType(appendVersionCode);
                 }
-                TbWebViewActivityConfig activityConfig = BrowserHelper.getActivityConfig(context, this.c, this.b, this.d, this.e, this.f, !vj6.b(this.m));
+                TbWebViewActivityConfig activityConfig = BrowserHelper.getActivityConfig(context, this.c, this.b, this.d, this.e, this.f, !wj6.b(this.m));
                 activityConfig.setNeedImmerSiveSticky(this.h);
                 activityConfig.setFixTitle(this.i);
                 activityConfig.setAutoPlay(this.j);
@@ -275,7 +275,7 @@ public final class ku4 {
                     activityConfig.setIntentAction(IntentAction.ActivityForResult);
                 }
                 activityConfig.setBundle(this.l);
-                if (!vj6.b(this.m)) {
+                if (!wj6.b(this.m)) {
                     activityConfig.setPageData(this.m);
                 }
                 if (this.l != null) {

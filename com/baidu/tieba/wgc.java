@@ -8,8 +8,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class wgc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
+    public int a;
     public int[] b;
+    public int[] c;
 
     public wgc() {
         Interceptable interceptable = $ic;
@@ -25,23 +26,25 @@ public final class wgc {
         }
     }
 
-    public static void a(wgc wgcVar, int i) {
+    public static void a(wgc wgcVar, qgc qgcVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, wgcVar, i) == null) {
-            for (int i2 = 0; i2 < i; i2++) {
-                int[] iArr = wgcVar.b;
-                byte[] bArr = wgcVar.a;
-                int i3 = i2 * 4;
-                iArr[i2] = ((bArr[i3 + 3] & 255) << 24) | (bArr[i3] & 255) | ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3 + 2] & 255) << 16);
+        if (interceptable == null || interceptable.invokeLL(65537, null, wgcVar, qgcVar) == null) {
+            int length = wgcVar.c.length;
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                wgcVar.c[i2] = i;
+                tgc.n(wgcVar.a, wgcVar.b, i, qgcVar);
+                i += 1080;
             }
         }
     }
 
-    public static void b(wgc wgcVar, byte[] bArr, int[] iArr) {
+    public static void b(wgc wgcVar, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, wgcVar, bArr, iArr) == null) {
-            wgcVar.a = bArr;
-            wgcVar.b = iArr;
+        if (interceptable == null || interceptable.invokeLII(65538, null, wgcVar, i, i2) == null) {
+            wgcVar.a = i;
+            wgcVar.b = new int[i2 * 1080];
+            wgcVar.c = new int[i2];
         }
     }
 }

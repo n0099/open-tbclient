@@ -1,66 +1,103 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class i55 extends ImageSpan {
+public class i55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i55(Drawable drawable, int i) {
-        super(drawable, i);
+    public static void a(ImageView imageView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLI(65536, null, imageView, i) == null) && imageView != null) {
+            WebPManager.setPureDrawable(imageView, i, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+            ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
+            if (layoutParams != null) {
+                layoutParams.width = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds52);
+                layoutParams.height = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds52);
+                imageView.setLayoutParams(layoutParams);
             }
         }
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+    public static void b(ViewGroup viewGroup) {
+        ViewGroup.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            if (((ImageSpan) this).mVerticalAlignment == -100) {
-                Drawable drawable = getDrawable();
-                canvas.save();
-                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-                int i6 = fontMetricsInt.top;
-                canvas.translate(f, i4 + i6 + (((fontMetricsInt.bottom - i6) - (drawable.getBounds().bottom - drawable.getBounds().top)) / 2));
-                drawable.draw(canvas);
-                canvas.restore();
-                return;
-            }
-            super.draw(canvas, charSequence, i, i2, f, i3, i4, i5, paint);
+        if ((interceptable == null || interceptable.invokeL(65537, null, viewGroup) == null) && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
+            layoutParams.height = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds120);
+            viewGroup.setLayoutParams(layoutParams);
         }
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    public static void c(TextView textView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
+        if ((interceptable == null || interceptable.invokeL(65538, null, textView) == null) && textView != null) {
+            EMManager.from(textView).setTextColor(R.color.CAM_X0107);
         }
-        return invokeCommon.intValue;
+    }
+
+    public static void d(TextView textView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, textView) == null) && textView != null) {
+            EMManager.from(textView).setTextSize(R.dimen.tbds36);
+        }
+    }
+
+    public static void e(TextView textView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView) == null) && textView != null) {
+            EMManager.from(textView).setTextSize(R.dimen.tbds36).setTextColor(R.color.CAM_X0107);
+        }
+    }
+
+    public static void f(TBLottieAnimationView tBLottieAnimationView, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65541, null, tBLottieAnimationView, i) == null) && tBLottieAnimationView != null) {
+            if (i == 4) {
+                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_agree_night);
+            } else {
+                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_agree_day);
+            }
+            tBLottieAnimationView.setColorFilter(SkinManager.getColor(R.color.CAM_X0107));
+        }
+    }
+
+    public static void h(TextView textView, boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(65543, null, textView, z) != null) || textView == null) {
+            return;
+        }
+        if (z) {
+            i = R.color.CAM_X0110;
+        } else {
+            i = R.color.CAM_X0107;
+        }
+        textView.setTextColor(bqa.a(SkinManager.getColor(i), SkinManager.RESOURCE_ALPHA_NORMAL));
+    }
+
+    public static void g(ImageView imageView, int i, boolean z) {
+        float f;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65542, null, new Object[]{imageView, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || imageView == null) {
+            return;
+        }
+        int color = SkinManager.getColor(R.color.CAM_X0107);
+        if (z) {
+            f = SkinManager.RESOURCE_ALPHA_DISABLE;
+        } else {
+            f = SkinManager.RESOURCE_ALPHA_NORMAL;
+        }
+        imageView.setImageDrawable(WebPManager.getPureDrawable(i, bqa.a(color, f), WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE));
     }
 }

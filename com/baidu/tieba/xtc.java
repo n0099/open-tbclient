@@ -5,20 +5,29 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.AcrossForumIcon;
+import tbclient.FrsBottomSmartBgColor;
 /* loaded from: classes9.dex */
-public class xtc extends poc {
+public class xtc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull AcrossForumIcon acrossForumIcon) {
+    public static JSONObject b(@NonNull FrsBottomSmartBgColor frsBottomSmartBgColor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, acrossForumIcon)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsBottomSmartBgColor)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "icon_url", acrossForumIcon.icon_url);
-            poc.a(jSONObject, "pic_type", acrossForumIcon.pic_type);
+            qoc.a(jSONObject, "theme_color", frsBottomSmartBgColor.theme_color);
+            qoc.a(jSONObject, "ball_bg_color", frsBottomSmartBgColor.ball_bg_color);
+            qoc.a(jSONObject, "tab_line_color", frsBottomSmartBgColor.tab_line_color);
+            qoc.a(jSONObject, "tag_color", frsBottomSmartBgColor.tag_color);
+            qoc.a(jSONObject, "post_button_color", frsBottomSmartBgColor.post_button_color);
+            qoc.a(jSONObject, "post_button_shadow_color", frsBottomSmartBgColor.post_button_shadow_color);
+            qoc.a(jSONObject, "module1_bg_color", frsBottomSmartBgColor.module1_bg_color);
+            qoc.a(jSONObject, "module2_bg_color", frsBottomSmartBgColor.module2_bg_color);
+            qoc.a(jSONObject, "module3_bg_color", frsBottomSmartBgColor.module3_bg_color);
+            qoc.a(jSONObject, "module4_bg_color", frsBottomSmartBgColor.module4_bg_color);
+            qoc.a(jSONObject, "at_font_color", frsBottomSmartBgColor.at_font_color);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

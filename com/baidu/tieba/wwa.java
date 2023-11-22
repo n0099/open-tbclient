@@ -8,21 +8,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class wwa extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final zua b;
+    public final ava a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wwa(MainTabActivity mainTabActivity, lua luaVar) {
-        super(2921579);
+    public wwa(MainTabActivity mainTabActivity) {
+        super(2921725);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, luaVar};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,23 +32,22 @@ public class wwa extends CustomMessageListener {
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
+        this.a = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        zua zuaVar;
+        ava avaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (zuaVar = this.b) != null && zuaVar.g() != null) {
-            Runnable runnable = this.b.g().c;
-            SafeHandler.getInst().removeCallbacks(runnable);
-            int i = 0;
-            if (customResponsedMessage.getData() instanceof Integer) {
-                i = ((Integer) customResponsedMessage.getData()).intValue();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (avaVar = this.a) != null && avaVar.f() != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                Runnable runnable = this.a.f().c;
+                SafeHandler.getInst().removeCallbacks(runnable);
+                SafeHandler.getInst().post(runnable);
+                return;
             }
-            SafeHandler.getInst().postDelayed(runnable, i * 1000);
+            SafeHandler.getInst().removeCallbacks(this.a.f().c);
         }
     }
 }

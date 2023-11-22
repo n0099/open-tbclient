@@ -1,25 +1,27 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.FeedGroupInfo;
+import tbclient.FrsPage.Fans;
 /* loaded from: classes9.dex */
-public class yuc extends poc {
+public class yuc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedGroupInfo feedGroupInfo) {
+    public static JSONObject b(@NonNull Fans fans) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedGroupInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, fans)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "name", feedGroupInfo.name);
-            poc.a(jSONObject, BigdayActivityConfig.JUMP_URL, feedGroupInfo.jump_url);
+            qoc.a(jSONObject, "start_time", fans.start_time);
+            qoc.a(jSONObject, "left_time", fans.left_time);
+            qoc.a(jSONObject, "open", fans.open);
+            qoc.a(jSONObject, "is_get", fans.is_get);
+            qoc.a(jSONObject, "num", fans.num);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

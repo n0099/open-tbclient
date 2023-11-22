@@ -5,11 +5,11 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.DiffUtil;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hn8;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityEffectItem;
 import com.baidu.tieba.im.lib.socket.msg.data.EmojiData;
-import com.baidu.tieba.ms8;
+import com.baidu.tieba.in8;
+import com.baidu.tieba.ns8;
 import com.baidu.tieba.oi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -38,7 +38,7 @@ public abstract class BaseItem<TbMsg extends TbBaseMsg> implements oi, Serializa
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy isLeft$delegate;
     public boolean isShowLocatedColor;
-    public hn8<? extends BaseItem<? extends TbBaseMsg>> itemEventCallback;
+    public in8<? extends BaseItem<? extends TbBaseMsg>> itemEventCallback;
     public int sendStatus;
     public TbMsg tbMsg;
 
@@ -427,7 +427,7 @@ public abstract class BaseItem<TbMsg extends TbBaseMsg> implements oi, Serializa
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return Boolean.valueOf(!ms8.c(this.this$0.getTbMsg().getUserId()));
+                    return Boolean.valueOf(!ns8.c(this.this$0.getTbMsg().getUserId()));
                 }
                 return (Boolean) invokeV.objValue;
             }
@@ -444,13 +444,13 @@ public abstract class BaseItem<TbMsg extends TbBaseMsg> implements oi, Serializa
         return invokeV.objValue;
     }
 
-    public final hn8<? extends BaseItem<? extends TbBaseMsg>> getItemEventCallback() {
+    public final in8<? extends BaseItem<? extends TbBaseMsg>> getItemEventCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.itemEventCallback;
         }
-        return (hn8) invokeV.objValue;
+        return (in8) invokeV.objValue;
     }
 
     public final int getSendStatus() {
@@ -505,10 +505,10 @@ public abstract class BaseItem<TbMsg extends TbBaseMsg> implements oi, Serializa
         }
     }
 
-    public final void setItemEventCallback(hn8<? extends BaseItem<? extends TbBaseMsg>> hn8Var) {
+    public final void setItemEventCallback(in8<? extends BaseItem<? extends TbBaseMsg>> in8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, hn8Var) == null) {
-            this.itemEventCallback = hn8Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, in8Var) == null) {
+            this.itemEventCallback = in8Var;
         }
     }
 

@@ -29,7 +29,7 @@ import com.baidu.tieba.enterForum.view.ForumHeaderView;
 import com.baidu.tieba.oi;
 import com.baidu.tieba.square.adapter.LeftAdapter;
 import com.baidu.tieba.square.view.RightLeftListView;
-import com.baidu.tieba.vj5;
+import com.baidu.tieba.wj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class ForumSquareView {
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
     public View.OnClickListener mOnNetRefreshClickListener;
-    public vj5 mRefreshView;
+    public wj5 mRefreshView;
     public RightLeftListView mRightLeftView;
     public View mRootLayout;
     public RelativeLayout mSearchViewContainer;
@@ -128,9 +128,9 @@ public class ForumSquareView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            vj5 vj5Var = this.mRefreshView;
-            if (vj5Var != null) {
-                return vj5Var.isViewAttached();
+            wj5 wj5Var = this.mRefreshView;
+            if (wj5Var != null) {
+                return wj5Var.isViewAttached();
             }
             return false;
         }
@@ -186,10 +186,10 @@ public class ForumSquareView {
     }
 
     public void hideNetRefreshView() {
-        vj5 vj5Var;
+        wj5 wj5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (vj5Var = this.mRefreshView) != null) {
-            vj5Var.dettachView(this.mLayoutContainer);
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (wj5Var = this.mRefreshView) != null) {
+            wj5Var.dettachView(this.mLayoutContainer);
             this.mRefreshView = null;
         }
     }
@@ -339,9 +339,9 @@ public class ForumSquareView {
             if (loadingView != null) {
                 loadingView.onChangeSkinType();
             }
-            vj5 vj5Var = this.mRefreshView;
-            if (vj5Var != null) {
-                vj5Var.onChangeSkinType();
+            wj5 wj5Var = this.mRefreshView;
+            if (wj5Var != null) {
+                wj5Var.onChangeSkinType();
             }
             NoDataView noDataView = this.mNoDataView;
             if (noDataView != null && this.mActivity != null) {
@@ -504,9 +504,9 @@ public class ForumSquareView {
             return;
         }
         if (this.mRefreshView == null) {
-            vj5 vj5Var = new vj5(this.mActivity, this.mOnNetRefreshClickListener);
-            this.mRefreshView = vj5Var;
-            vj5Var.j(BdUtilHelper.getDimens(this.mActivity, R.dimen.obfuscated_res_0x7f0703a6));
+            wj5 wj5Var = new wj5(this.mActivity, this.mOnNetRefreshClickListener);
+            this.mRefreshView = wj5Var;
+            wj5Var.j(BdUtilHelper.getDimens(this.mActivity, R.dimen.obfuscated_res_0x7f0703a6));
         }
         this.mRefreshView.attachView(this.mLayoutContainer, z);
         this.mRefreshView.o();

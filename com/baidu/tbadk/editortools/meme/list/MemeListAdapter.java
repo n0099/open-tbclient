@@ -23,11 +23,11 @@ import com.baidu.tbadk.editortools.meme.view.AigcGenerateImageView;
 import com.baidu.tbadk.editortools.meme.view.AigcImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.mq6;
-import com.baidu.tieba.oq6;
-import com.baidu.tieba.pf5;
+import com.baidu.tieba.nq6;
+import com.baidu.tieba.pq6;
 import com.baidu.tieba.qf5;
 import com.baidu.tieba.rf5;
+import com.baidu.tieba.sf5;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.wd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -121,10 +121,10 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             BdPageContext<?> a = a5.a(view2.getContext());
             if (!StringsKt__StringsJVMKt.isBlank(str)) {
                 if (a != null) {
-                    oq6 b = mq6.b();
+                    pq6 b = nq6.b();
                     BdUniqueId uniqueId = a.getUniqueId();
                     Intrinsics.checkNotNullExpressionValue(uniqueId, "pageContext.uniqueId");
-                    b.c(new rf5(memeData, str, uniqueId));
+                    b.c(new sf5(memeData, str, uniqueId));
                 }
                 this$0.t(2, memeData);
             }
@@ -194,7 +194,7 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 final MemeData memeData = this.b.get(i);
                 MemeViewHolder memeViewHolder = (MemeViewHolder) holder;
                 memeViewHolder.a().h(memeData);
-                memeViewHolder.a().setOnLoadingClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.uf5
+                memeViewHolder.a().setOnLoadingClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.vf5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -205,7 +205,7 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                             MemeListAdapter.m(MemeListAdapter.this, view2);
                         }
                     }
-                }, new View.OnClickListener() { // from class: com.baidu.tieba.tf5
+                }, new View.OnClickListener() { // from class: com.baidu.tieba.uf5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -217,7 +217,7 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                         }
                     }
                 });
-                memeViewHolder.a().setOnImageClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sf5
+                memeViewHolder.a().setOnImageClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tf5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -313,14 +313,14 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public final void t(int i, MemeData memeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, memeData) == null) {
-            qf5 qf5Var = new qf5();
-            qf5Var.l(i);
-            qf5Var.h(memeData.getId());
-            qf5Var.i(memeData.getRequestQuery());
-            qf5Var.j(memeData.getObjSource());
-            qf5Var.g(this.c);
-            qf5Var.k(this.d);
-            pf5.a.b(qf5Var);
+            rf5 rf5Var = new rf5();
+            rf5Var.l(i);
+            rf5Var.h(memeData.getId());
+            rf5Var.i(memeData.getRequestQuery());
+            rf5Var.j(memeData.getObjSource());
+            rf5Var.g(this.c);
+            rf5Var.k(this.d);
+            qf5.a.b(rf5Var);
         }
     }
 }

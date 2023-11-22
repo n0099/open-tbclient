@@ -6,36 +6,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import tbclient.FeedKV;
 import tbclient.PicDecoration;
-import tbclient.PicInfo;
 /* loaded from: classes5.dex */
-public class f1d extends poc {
+public class f1d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PicInfo picInfo) {
+    public static JSONObject b(@NonNull PicDecoration picDecoration) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, picInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, picDecoration)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "small_pic_url", picInfo.small_pic_url);
-            poc.a(jSONObject, "big_pic_url", picInfo.big_pic_url);
-            poc.a(jSONObject, "origin_pic_url", picInfo.origin_pic_url);
-            poc.a(jSONObject, "width", picInfo.width);
-            poc.a(jSONObject, "height", picInfo.height);
-            poc.a(jSONObject, "is_long_pic", picInfo.is_long_pic);
-            poc.a(jSONObject, "crop_point_width_ratio", picInfo.crop_point_width_ratio);
-            poc.a(jSONObject, "crop_point_height_ratio", picInfo.crop_point_height_ratio);
-            if (picInfo.decoration != null) {
+            qoc.a(jSONObject, "location", picDecoration.location);
+            qoc.a(jSONObject, "name", picDecoration.name);
+            if (picDecoration.decoration_info != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (PicDecoration picDecoration : picInfo.decoration) {
-                    jSONArray.put(e1d.b(picDecoration));
+                for (FeedKV feedKV : picDecoration.decoration_info) {
+                    jSONArray.put(usc.b(feedKV));
                 }
-                poc.a(jSONObject, "decoration", jSONArray);
+                qoc.a(jSONObject, "decoration_info", jSONArray);
             }
-            poc.a(jSONObject, "scheme", picInfo.scheme);
-            poc.a(jSONObject, "pic_type", picInfo.pic_type);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

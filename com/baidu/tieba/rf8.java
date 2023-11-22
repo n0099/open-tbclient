@@ -2,29 +2,31 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.homepage.personalize.view.HomePageRecentForumLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class rf8 extends ns<bw4> {
+public class rf8 extends ns<oe8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ph8 f;
-    public int g;
+    @NonNull
+    public HomePageRecentForumLayout f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rf8(Context context, TbPageContext<?> tbPageContext) {
-        super(context);
+    public rf8(@NonNull TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,8 +37,7 @@ public class rf8 extends ns<bw4> {
                 return;
             }
         }
-        this.g = 3;
-        this.f = new ph8(tbPageContext);
+        this.f = new HomePageRecentForumLayout(tbPageContext);
     }
 
     @Override // com.baidu.tieba.ns
@@ -44,37 +45,34 @@ public class rf8 extends ns<bw4> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f.p();
+            return this.f;
         }
         return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ns
+    public void o(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
+            this.f.setPageUniqueId(bdUniqueId);
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ht
     /* renamed from: r */
-    public void onBindDataToView(bw4 bw4Var) {
+    public void onBindDataToView(oe8 oe8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bw4Var) == null) && (bw4Var instanceof mh8)) {
-            this.f.k((mh8) bw4Var);
-        }
-    }
-
-    public void s(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            this.f.n(bdUniqueId);
+        if (interceptable == null || interceptable.invokeL(1048580, this, oe8Var) == null) {
+            this.f.setData(oe8Var);
         }
     }
 
     @Override // com.baidu.tieba.it
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.g != i) {
-                this.f.l(tbPageContext, i);
-                p(g(), 3);
-            }
-            this.g = i;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            this.f.h(i);
         }
     }
 }

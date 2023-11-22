@@ -1,23 +1,33 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.ad.compact.DelegateFunAdView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class s27 {
+public class s27 implements za7<DelegateFunAdView, j27> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c77 a;
+    public final String a;
+    public final BdUniqueId b;
+    public final String c;
+    public final String d;
+    public final String e;
+    public final String f;
 
-    public s27(c77 data) {
+    public s27(@NonNull BdUniqueId bdUniqueId, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {data};
+            Object[] objArr = {bdUniqueId, str, str2, str3, str4};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,16 +37,43 @@ public final class s27 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        this.a = data;
+        this.b = bdUniqueId;
+        this.c = str;
+        this.d = str2;
+        this.e = str3;
+        this.f = str4;
+        this.a = r27.b(bdUniqueId);
     }
 
-    public final c77 a() {
+    @Override // com.baidu.tieba.za7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            return new DelegateFunAdView(viewGroup.getContext(), this.b);
+        }
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.za7
+    /* renamed from: d */
+    public void b(@NonNull DelegateFunAdView delegateFunAdView, @NonNull j27 j27Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, delegateFunAdView, j27Var) == null) {
+            delegateFunAdView.a(j27Var.c(), this.c, this.d, this.e, this.f, j27Var.a(), j27Var.b());
+        }
+    }
+
+    @Override // com.baidu.tieba.za7
+    @NonNull
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
-        return (c77) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

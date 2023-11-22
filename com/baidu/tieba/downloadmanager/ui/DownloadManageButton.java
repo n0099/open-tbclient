@@ -229,7 +229,7 @@ public final class DownloadManageButton extends AppCompatTextView {
         Intrinsics.checkNotNullParameter(context, "context");
         this.a = DownloadManageType.NONE_INIT;
         f(DownloadManageType.NONE_TASK);
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hv6
+        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.iv6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

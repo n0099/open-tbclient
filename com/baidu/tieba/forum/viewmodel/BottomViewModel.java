@@ -3,8 +3,8 @@ package com.baidu.tieba.forum.viewmodel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eh7;
-import com.baidu.tieba.lh7;
+import com.baidu.tieba.fh7;
+import com.baidu.tieba.mh7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public final class BottomViewModel extends ViewModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy a;
-    public MutableLiveData<eh7> b;
+    public MutableLiveData<fh7> b;
 
     public BottomViewModel() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public final class BottomViewModel extends ViewModel {
         this.b = new MutableLiveData<>();
     }
 
-    public final MutableLiveData<eh7> a() {
+    public final MutableLiveData<fh7> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -48,7 +48,7 @@ public final class BottomViewModel extends ViewModel {
         return (MutableLiveData) invokeV.objValue;
     }
 
-    public final MutableLiveData<lh7> c() {
+    public final MutableLiveData<mh7> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -57,7 +57,7 @@ public final class BottomViewModel extends ViewModel {
         return (MutableLiveData) invokeV.objValue;
     }
 
-    public final void e(eh7 bottomData) {
+    public final void e(fh7 bottomData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bottomData) == null) {
             Intrinsics.checkNotNullParameter(bottomData, "bottomData");

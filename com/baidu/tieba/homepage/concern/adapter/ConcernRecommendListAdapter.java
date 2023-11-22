@@ -28,7 +28,7 @@ import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import com.baidu.tieba.vu4;
-import com.baidu.tieba.w65;
+import com.baidu.tieba.x65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,7 +61,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         public TextView c;
         public HeadPendantClickableView d;
         public DynamicUserLikeButton e;
-        public w65 f;
+        public x65 f;
         public boolean g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -95,7 +95,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
             this.b = (TextView) view2.findViewById(R.id.concern_user_name);
             this.c = (TextView) view2.findViewById(R.id.concern_user_desc);
             this.e = (DynamicUserLikeButton) view2.findViewById(R.id.user_recommend_like_btn);
-            this.f = new w65(concernRecommendListAdapter.b, this.e);
+            this.f = new x65(concernRecommendListAdapter.b, this.e);
         }
 
         public void a(int i) {
@@ -310,10 +310,10 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, metaData, forumViewHolder) == null) {
             forumViewHolder.e.setOnClickEvent(new b(this, metaData));
-            w65 w65Var = forumViewHolder.f;
-            if (w65Var != null) {
-                w65Var.k(this.c);
-                w65Var.m(metaData);
+            x65 x65Var = forumViewHolder.f;
+            if (x65Var != null) {
+                x65Var.k(this.c);
+                x65Var.m(metaData);
             }
         }
     }

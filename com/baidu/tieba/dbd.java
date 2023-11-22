@@ -7,30 +7,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import java.util.List;
-import java.util.Map;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.api.pay.params.PayFlowType;
 import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
 import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes5.dex */
-public interface dbd extends xad, wad {
+public interface dbd extends yad {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(q9d q9dVar, m9d m9dVar, AppCustomExpand appCustomExpand);
+        void a(n9d n9dVar);
 
-        void b(q9d q9dVar, m9d m9dVar, AppCustomExpand appCustomExpand);
-
-        void c(p9d p9dVar);
+        void b();
 
         void onRefreshViewFail(int i, String str);
-
-        void toHelpCenterPage();
     }
 
     void a();
-
-    boolean d();
 
     void setCallback(a aVar);
 
@@ -38,16 +32,14 @@ public interface dbd extends xad, wad {
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<PayWayInfo> a;
-        public String b;
-        public m9d c;
-        public AppCustomExpand d;
-        public Map<String, String> e;
-        public AbsViewEventHandler f;
-        public PayFlowType g;
-        public WindowParams h;
-        public boolean i;
-        public String j;
+        public n9d a;
+        public WindowParams b;
+        public PayFlowType c;
+        public List<PayWayInfo> d;
+        public String e;
+        public IYYPayAmountView.ViewParams f;
+        public AbsViewEventHandler g;
+        public PaySplitOrderViewSource h;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -59,17 +51,15 @@ public interface dbd extends xad, wad {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.i = false;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "ViewParams{payAmount=" + this.c + ", payFlowType=" + this.g + ", showFaqPage=" + this.i + ", appCustomExpand=" + this.d + ", clientInfoExpand='" + this.e + "', windowParams='" + this.h + "', viewEventListener='" + this.f + "', bubbleActMsg='" + this.b + "', splitOrderScene='" + this.j + "'}";
+                return "ViewParams{  source='" + this.h + "'  amount=" + this.a + ", payFlowType=" + this.c + ", bubbleActMsg=" + this.e + ", payWayInfoList=" + this.d + ", payAmountViewParams='" + this.f + "', windowParams='" + this.b + "', viewEventListener='" + this.g + "'}";
             }
             return (String) invokeV.objValue;
         }

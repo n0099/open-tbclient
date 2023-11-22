@@ -9,16 +9,16 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.common.JSONKt;
-import com.baidu.tieba.d75;
-import com.baidu.tieba.dbb;
+import com.baidu.tieba.e75;
 import com.baidu.tieba.ebb;
-import com.baidu.tieba.ke5;
-import com.baidu.tieba.lbb;
+import com.baidu.tieba.fbb;
 import com.baidu.tieba.le5;
+import com.baidu.tieba.mbb;
+import com.baidu.tieba.me5;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
-import com.baidu.tieba.xd5;
-import com.baidu.tieba.ybb;
+import com.baidu.tieba.yd5;
+import com.baidu.tieba.zbb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,14 +37,14 @@ public final class AddVoiceListener extends BizBase {
     public transient /* synthetic */ FieldHolder $fh;
     public final EditorTools g;
 
-    @Override // com.baidu.tieba.gbb
-    public ebb[] b() {
+    @Override // com.baidu.tieba.hbb
+    public fbb[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (ebb[]) invokeV.objValue;
+        return (fbb[]) invokeV.objValue;
     }
 
     /* loaded from: classes8.dex */
@@ -121,7 +121,7 @@ public final class AddVoiceListener extends BizBase {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AddVoiceListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, ybb writePageState, EditorTools editor) {
+    public AddVoiceListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, zbb writePageState, EditorTools editor) {
         super(context, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -133,7 +133,7 @@ public final class AddVoiceListener extends BizBase {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (ybb) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (zbb) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -147,14 +147,14 @@ public final class AddVoiceListener extends BizBase {
         this.g = editor;
     }
 
-    @Override // com.baidu.tieba.gbb
+    @Override // com.baidu.tieba.hbb
     public WrapListener[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new WrapListener[]{h().invoke("writePage.deleteVoice", new AddVoiceListener$keyListeners$1(this)), h().invoke("writePage.playVoice", new AddVoiceListener$keyListeners$2(this)), h().invoke("writePage.stopVoice", new AddVoiceListener$keyListeners$3(this))} : (WrapListener[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.write.webwrite.data.BizBase, com.baidu.tieba.gbb
+    @Override // com.baidu.tieba.write.webwrite.data.BizBase, com.baidu.tieba.hbb
     public Function1<JSONObject, Unit> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -210,26 +210,26 @@ public final class AddVoiceListener extends BizBase {
         return (Function1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gbb
-    public dbb[] f() {
+    @Override // com.baidu.tieba.hbb
+    public ebb[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new dbb[]{new lbb(new Integer[]{10, 11}, new AddVoiceListener$editorActionHandlers$1(this))} : (dbb[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new ebb[]{new mbb(new Integer[]{10, 11}, new AddVoiceListener$editorActionHandlers$1(this))} : (ebb[]) invokeV.objValue;
     }
 
     public final void v(String str) {
-        le5 le5Var;
+        me5 me5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             try {
-                d75.a(d75.b(new JSONObject(str).optString("voiceId")));
+                e75.a(e75.b(new JSONObject(str).optString("voiceId")));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             k().setVoiceModel(null);
-            ke5 u = this.g.u(6);
-            if (u != null && (le5Var = u.m) != null) {
-                le5Var.S(new xd5(52, 0, null));
+            le5 u = this.g.u(6);
+            if (u != null && (me5Var = u.m) != null) {
+                me5Var.S(new yd5(52, 0, null));
             }
         }
     }
@@ -260,11 +260,11 @@ public final class AddVoiceListener extends BizBase {
         }
     }
 
-    public final void w(xd5 xd5Var) {
+    public final void w(yd5 yd5Var) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, xd5Var) == null) {
-            int i = xd5Var.a;
+        if (interceptable == null || interceptable.invokeL(1048581, this, yd5Var) == null) {
+            int i = yd5Var.a;
             if (i != 10) {
                 if (i == 11) {
                     JSONObject jSONObject = new JSONObject();
@@ -281,9 +281,9 @@ public final class AddVoiceListener extends BizBase {
                     g().invoke("writePageNa.deleteVoice", new JSONObject());
                     return;
                 }
-                throw new IllegalStateException("AddVoiceListener有没处理的action code:" + xd5Var.a);
+                throw new IllegalStateException("AddVoiceListener有没处理的action code:" + yd5Var.a);
             }
-            Object obj = xd5Var.c;
+            Object obj = yd5Var.c;
             if (obj instanceof VoiceData.VoiceModel) {
                 if (obj != null) {
                     VoiceData.VoiceModel voiceModel2 = (VoiceData.VoiceModel) obj;

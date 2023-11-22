@@ -27,8 +27,8 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.FrsTabItemData;
-import com.baidu.tieba.rp7;
-import com.baidu.tieba.u55;
+import com.baidu.tieba.sp7;
+import com.baidu.tieba.v55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -152,7 +152,7 @@ public class ForumTabSelectedView extends LinearLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h != null) {
                 BdUtilHelper.hideSoftKeyPad(this.a.getContext(), this.a);
-                rp7.a(this.a.h.getPageActivity(), this.a.h);
+                sp7.a(this.a.h.getPageActivity(), this.a.h);
             }
         }
     }
@@ -248,13 +248,13 @@ public class ForumTabSelectedView extends LinearLayout {
                     TabLayout.Tab tabAt = tabLayout.getTabAt(i);
                     if (tabAt != null && (tabAt.getCustomView() instanceof FrameLayout) && (h = h(tabAt, null)) != null) {
                         h.k();
-                        u55 u55Var = (u55) h.getStyleConfig();
+                        v55 v55Var = (v55) h.getStyleConfig();
                         if (tabAt.isSelected()) {
-                            u55Var.u(R.color.CAM_X0302);
+                            v55Var.u(R.color.CAM_X0302);
                         } else if (n(tabAt)) {
-                            u55Var.v(R.color.CAM_X0302);
+                            v55Var.v(R.color.CAM_X0302);
                         } else {
-                            u55Var.v(R.color.CAM_X0107);
+                            v55Var.v(R.color.CAM_X0107);
                         }
                     }
                 }
@@ -291,9 +291,9 @@ public class ForumTabSelectedView extends LinearLayout {
     public void setTabColorUnSelected(TabLayout.Tab tab) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65545, this, tab) == null) && tab != null && tab.getCustomView() != null) {
-            u55 u55Var = (u55) h(tab, null).getStyleConfig();
+            v55 v55Var = (v55) h(tab, null).getStyleConfig();
             if (!n(tab)) {
-                u55Var.v(R.color.CAM_X0107);
+                v55Var.v(R.color.CAM_X0107);
             }
         }
     }
@@ -356,7 +356,7 @@ public class ForumTabSelectedView extends LinearLayout {
     public void setTabColorSelected(TabLayout.Tab tab) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65544, this, tab) == null) && tab != null && tab.getCustomView() != null) {
-            ((u55) h(tab, null).getStyleConfig()).u(R.color.CAM_X0302);
+            ((v55) h(tab, null).getStyleConfig()).u(R.color.CAM_X0302);
             View g = g(tab);
             if (g != null) {
                 g.setVisibility(8);
@@ -405,15 +405,15 @@ public class ForumTabSelectedView extends LinearLayout {
             int dimens2 = BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X006);
             int dimens3 = BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X003);
             TBSpecificationBtn tBSpecificationBtn2 = new TBSpecificationBtn(getContext());
-            u55 u55Var = new u55();
-            u55Var.n(dimens2);
-            u55Var.p(dimens3);
+            v55 v55Var = new v55();
+            v55Var.n(dimens2);
+            v55Var.p(dimens3);
             if (frsTabItemData.tabId == 505) {
-                u55Var.v(R.color.CAM_X0302);
+                v55Var.v(R.color.CAM_X0302);
             } else {
-                u55Var.v(R.color.CAM_X0107);
+                v55Var.v(R.color.CAM_X0107);
             }
-            tBSpecificationBtn2.setConfig(u55Var);
+            tBSpecificationBtn2.setConfig(v55Var);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(dimens, 0, dimens, 0);
             tBSpecificationBtn2.setLayoutParams(layoutParams);

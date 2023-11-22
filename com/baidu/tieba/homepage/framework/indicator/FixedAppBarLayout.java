@@ -50,9 +50,9 @@ import com.baidu.tbadk.coreExtra.floatCardView.AlaLiveTipView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.personalize.view.HomeTabBarView;
-import com.baidu.tieba.r95;
-import com.baidu.tieba.vf8;
+import com.baidu.tieba.s95;
 import com.baidu.tieba.wf8;
+import com.baidu.tieba.xf8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -468,9 +468,9 @@ public class FixedAppBarLayout extends AppBarLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, viewGroup) == null) {
             if (TbadkCoreApplication.isLogin()) {
-                isSwitchOn = vf8.isSwitchOn();
-            } else {
                 isSwitchOn = wf8.isSwitchOn();
+            } else {
+                isSwitchOn = xf8.isSwitchOn();
             }
             if (isSwitchOn) {
                 return;
@@ -484,7 +484,7 @@ public class FixedAppBarLayout extends AppBarLayout {
                 AlaLiveTipView alaLiveTipView = new AlaLiveTipView(getContext());
                 this.e = alaLiveTipView;
                 viewGroup.addView(alaLiveTipView);
-                r95.f();
+                s95.f();
             }
             AlaLiveTipView alaLiveTipView2 = this.e;
             if (alaLiveTipView2 != null) {

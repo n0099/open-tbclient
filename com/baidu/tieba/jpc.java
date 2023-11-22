@@ -5,21 +5,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.AlaCoverLabel;
+import tbclient.AlaChallengeInfo;
 /* loaded from: classes6.dex */
-public class jpc extends poc {
+public class jpc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull AlaCoverLabel alaCoverLabel) {
+    public static JSONObject b(@NonNull AlaChallengeInfo alaChallengeInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, alaCoverLabel)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, alaChallengeInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "label_id", alaCoverLabel.label_id);
-            poc.a(jSONObject, "label_name", alaCoverLabel.label_name);
-            poc.a(jSONObject, "label_rgb", alaCoverLabel.label_rgb);
+            qoc.a(jSONObject, "challenge_id", alaChallengeInfo.challenge_id);
+            qoc.a(jSONObject, "winning_num", alaChallengeInfo.winning_num);
+            qoc.a(jSONObject, "rival_session", alaChallengeInfo.rival_session);
+            qoc.a(jSONObject, "rival_rtmp_url", alaChallengeInfo.rival_rtmp_url);
+            qoc.a(jSONObject, "rival_hls_url", alaChallengeInfo.rival_hls_url);
+            qoc.a(jSONObject, "ext", alaChallengeInfo.ext);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

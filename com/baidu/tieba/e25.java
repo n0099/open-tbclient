@@ -54,7 +54,7 @@ public final class e25 implements w15 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
             Intrinsics.checkNotNullParameter(map, "map");
-            if (g45.a().c(0) == null || !h45.b().j(LiveRemindConfig.Scene.LIVE_FLOAT) || MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW || jb5.j()) {
+            if (g45.a().c(0) == null || !h45.b().j(LiveRemindConfig.Scene.LIVE_FLOAT) || MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW || kb5.j()) {
                 return false;
             }
             return true;

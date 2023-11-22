@@ -1,16 +1,13 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
+import com.baidu.tbadk.mutiprocess.backbaidubox.BackBaiduBoxViewEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class om5 implements cm5<CompeteTaskEvent> {
+public class om5 implements dm5<BackBaiduBoxViewEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,21 +26,17 @@ public class om5 implements cm5<CompeteTaskEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cm5
+    @Override // com.baidu.tieba.dm5
     /* renamed from: a */
-    public boolean onEvent(CompeteTaskEvent competeTaskEvent) {
+    public boolean onEvent(BackBaiduBoxViewEvent backBaiduBoxViewEvent) {
         InterceptResult invokeL;
-        CompleteTaskToastData completeTaskToastData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, competeTaskEvent)) == null) {
-            if (competeTaskEvent != null && (completeTaskToastData = competeTaskEvent.taskToastData) != null) {
-                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-                if (currentActivity instanceof xo4) {
-                    ((xo4) currentActivity).onMissionCompleted(completeTaskToastData);
-                    return true;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, backBaiduBoxViewEvent)) == null) {
+            if (backBaiduBoxViewEvent == null) {
+                return false;
             }
-            return false;
+            ss5.m().u(backBaiduBoxViewEvent.isShow);
+            return true;
         }
         return invokeL.booleanValue;
     }

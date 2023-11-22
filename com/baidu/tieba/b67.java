@@ -1,120 +1,99 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedLayout;
 /* loaded from: classes5.dex */
 public final class b67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final String b;
-    public final String c;
-    public final String d;
-    public final Object e;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public static final e57 a(a67 a67Var, Map<String, String> appendMap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, a67Var, appendMap)) == null) {
+            Intrinsics.checkNotNullParameter(a67Var, "<this>");
+            Intrinsics.checkNotNullParameter(appendMap, "appendMap");
+            e57 e57Var = new e57();
+            e57Var.a().putAll(a67Var.a().a());
+            e57Var.a().putAll(appendMap);
+            return e57Var;
+        }
+        return (e57) invokeLL.objValue;
+    }
+
+    public static final void b(a67 a67Var, FeedLayout feedLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, a67Var, feedLayout) == null) {
+            Intrinsics.checkNotNullParameter(a67Var, "<this>");
+            Intrinsics.checkNotNullParameter(feedLayout, "feedLayout");
+            a67Var.a().b(ea7.a.a(feedLayout.business_info));
+            a67Var.c().b(ea7.a.a(feedLayout.log_info));
+        }
+    }
+
+    public static final Map<String, String> e(a67 a67Var, String statStrategyKey) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, a67Var, statStrategyKey)) == null) {
+            Intrinsics.checkNotNullParameter(a67Var, "<this>");
+            Intrinsics.checkNotNullParameter(statStrategyKey, "statStrategyKey");
+            HashMap hashMap = new HashMap();
+            hb7 hb7Var = a67Var.e().get(statStrategyKey);
+            if (hb7Var != null) {
+                hashMap.putAll(hb7Var.a(a67Var.a()));
             }
-            if (obj instanceof b67) {
-                b67 b67Var = (b67) obj;
-                return Intrinsics.areEqual(this.a, b67Var.a) && Intrinsics.areEqual(this.b, b67Var.b) && Intrinsics.areEqual(this.c, b67Var.c) && Intrinsics.areEqual(this.d, b67Var.d) && Intrinsics.areEqual(this.e, b67Var.e);
+            return hashMap;
+        }
+        return (Map) invokeLL.objValue;
+    }
+
+    public static final n77 c(a67 a67Var, String statStrategyKey, e57 e57Var) {
+        InterceptResult invokeLLL;
+        e57 e57Var2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, a67Var, statStrategyKey, e57Var)) == null) {
+            Intrinsics.checkNotNullParameter(a67Var, "<this>");
+            Intrinsics.checkNotNullParameter(statStrategyKey, "statStrategyKey");
+            hb7 hb7Var = a67Var.e().get(statStrategyKey);
+            if (hb7Var instanceof ib7) {
+                ib7 ib7Var = (ib7) hb7Var;
+                if (e57Var == null) {
+                    e57Var2 = a67Var.a();
+                } else {
+                    e57Var2 = e57Var;
+                }
+                statStrategyKey = ib7Var.c(e57Var2);
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int hashCode = this.a.hashCode() * 31;
-            String str = this.b;
-            int hashCode2 = (hashCode + (str == null ? 0 : str.hashCode())) * 31;
-            String str2 = this.c;
-            int hashCode3 = (hashCode2 + (str2 == null ? 0 : str2.hashCode())) * 31;
-            String str3 = this.d;
-            int hashCode4 = (hashCode3 + (str3 == null ? 0 : str3.hashCode())) * 31;
-            Object obj = this.e;
-            return hashCode4 + (obj != null ? obj.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "FeedFeedbackData(type=" + this.a + ", title=" + this.b + ", buttonText=" + this.c + ", commonId=" + this.d + ", businessData=" + this.e + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public b67(String type, String str, String str2, String str3, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {type, str, str2, str3, obj};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            n77 n77Var = new n77(null, null, null, null, null, 31, null);
+            hb7 hb7Var2 = a67Var.e().get(statStrategyKey);
+            if (hb7Var2 != null) {
+                String key = hb7Var2.getKey();
+                if (e57Var == null) {
+                    e57Var = a67Var.a();
+                }
+                n77Var = new n77(key, hb7Var2.a(e57Var), a67Var.c().a(), null, null, 24, null);
+                if (hb7Var2 instanceof eb7) {
+                    n77Var.g(((eb7) hb7Var2).b());
+                }
+                if (hb7Var2 instanceof o67) {
+                    n77Var.f(((o67) hb7Var2).d());
+                }
             }
+            return n77Var;
         }
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.a = type;
-        this.b = str;
-        this.c = str2;
-        this.d = str3;
-        this.e = obj;
+        return (n77) invokeLLL.objValue;
     }
 
-    public final Object a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+    public static /* synthetic */ n77 d(a67 a67Var, String str, e57 e57Var, int i, Object obj) {
+        if ((i & 2) != 0) {
+            e57Var = null;
         }
-        return invokeV.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
+        return c(a67Var, str, e57Var);
     }
 }

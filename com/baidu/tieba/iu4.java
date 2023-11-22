@@ -5,7 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.switchs.QuickWebViewSwitch;
-import com.baidu.tieba.wba;
+import com.baidu.tieba.xba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,17 +41,17 @@ public class iu4 {
         return invokeL.booleanValue;
     }
 
-    public static wba.g b(String str, String str2) {
+    public static xba.g b(String str, String str2) {
         InterceptResult invokeLL;
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            File file = new File(wba.g + "bdtbNWCache");
+            File file = new File(xba.g + "bdtbNWCache");
             FileInputStream fileInputStream2 = null;
             if (TextUtils.isEmpty(str2) || !file.exists()) {
                 return null;
             }
-            wba.g gVar = new wba.g();
+            xba.g gVar = new xba.g();
             File file2 = new File(file.getAbsolutePath() + "/" + str + "/" + str2 + "/");
             gVar.a = file.getAbsolutePath();
             gVar.c = str2;
@@ -85,25 +85,25 @@ public class iu4 {
                 th = th2;
             }
         } else {
-            return (wba.g) invokeLL.objValue;
+            return (xba.g) invokeLL.objValue;
         }
     }
 
     public static boolean c(String str) {
         InterceptResult invokeL;
-        yba d;
+        zba d;
         File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (QuickWebViewSwitch.getInOn() && !wba.s(str)) {
+            if (QuickWebViewSwitch.getInOn() && !xba.s(str)) {
                 try {
-                    d = xba.a().d(new URL(str).getPath());
+                    d = yba.a().d(new URL(str).getPath());
                 } catch (MalformedURLException | Exception unused) {
                 }
                 if (d != null && d.e) {
-                    String p = wba.n().p(d.b);
+                    String p = xba.n().p(d.b);
                     if (!TextUtils.isEmpty(d.b) && !TextUtils.isEmpty(d.c) && !TextUtils.isEmpty(p)) {
-                        String str2 = wba.n().m() + "/" + d.b + "/" + p + "/";
+                        String str2 = xba.n().m() + "/" + d.b + "/" + p + "/";
                         if (!d.c.endsWith(".html")) {
                             file = new File(str2, d.c + ".html");
                         } else {
@@ -143,29 +143,29 @@ public class iu4 {
 
     public static void d(Set<String> set) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, set) == null) && !vj6.a(set)) {
-            wba.f fVar = new wba.f();
+        if ((interceptable == null || interceptable.invokeL(65539, null, set) == null) && !wj6.a(set)) {
+            xba.f fVar = new xba.f();
             fVar.a = new HashMap();
             fVar.b = new HashMap<>();
             for (String str : set) {
-                wba.g b = b(str, wba.n().p(str));
-                if (b != null && !TextUtils.isEmpty(b.a) && !vj6.b(b.b)) {
+                xba.g b = b(str, xba.n().p(str));
+                if (b != null && !TextUtils.isEmpty(b.a) && !wj6.b(b.b)) {
                     fVar.a.put(str, b);
                     fVar.b.putAll(b.b);
                 }
             }
-            if (!vj6.b(fVar.b)) {
-                xba.a().i(fVar.b);
+            if (!wj6.b(fVar.b)) {
+                yba.a().i(fVar.b);
             }
         }
     }
 
-    public static HashMap<String, yba> f(InputStream inputStream) {
+    public static HashMap<String, zba> f(InputStream inputStream) {
         InterceptResult invokeL;
         InputStreamReader inputStreamReader;
         Throwable th;
         BufferedReader bufferedReader;
-        HashMap<String, yba> hashMap;
+        HashMap<String, zba> hashMap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) {
             InputStreamReader inputStreamReader2 = null;
@@ -238,7 +238,7 @@ public class iu4 {
         return (HashMap) invokeL.objValue;
     }
 
-    public static void e(JSONObject jSONObject, HashMap<String, yba> hashMap) {
+    public static void e(JSONObject jSONObject, HashMap<String, zba> hashMap) {
         String str;
         String str2;
         String str3;
@@ -284,34 +284,34 @@ public class iu4 {
                             }
                             String optString = jSONObject3.optString("staticPrePath", "");
                             int optInt = jSONObject3.optInt("proxyMode");
-                            xba.a().j(next, next);
-                            xba.a().k(next, str2);
+                            yba.a().j(next, next);
+                            yba.a().k(next, str2);
                             Iterator<String> it = arrayList2.iterator();
                             while (it.hasNext()) {
                                 String next2 = it.next();
                                 if (!TextUtils.isEmpty(next2)) {
-                                    xba a = xba.a();
+                                    yba a = yba.a();
                                     String str6 = str5;
                                     a.j(optString + "/" + next2, next);
-                                    xba a2 = xba.a();
+                                    yba a2 = yba.a();
                                     a2.k(optString + "/" + next2, next2);
                                     str5 = str6;
                                 }
                             }
                             String str7 = str5;
-                            yba ybaVar = new yba();
-                            ybaVar.a = arrayList;
-                            ybaVar.b = str;
-                            ybaVar.c = str2;
-                            ybaVar.d = arrayList2;
+                            zba zbaVar = new zba();
+                            zbaVar.a = arrayList;
+                            zbaVar.b = str;
+                            zbaVar.c = str2;
+                            zbaVar.d = arrayList2;
                             if (optInt == 1) {
                                 z = true;
                             } else {
                                 z = false;
                             }
-                            ybaVar.f = z;
-                            ybaVar.e = true;
-                            hashMap.put(next, ybaVar);
+                            zbaVar.f = z;
+                            zbaVar.e = true;
+                            hashMap.put(next, zbaVar);
                             jSONObject2 = jSONObject;
                             str4 = str3;
                             str5 = str7;

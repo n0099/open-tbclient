@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.h70;
-import com.baidu.tieba.j96;
+import com.baidu.tieba.k96;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -217,7 +217,7 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
             this.a = navigationBar;
             navigationBar.setCenterTextTitle(getString(R.string.ala_live));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            j96.a().c(TbadkCoreApplication.getInst());
+            k96.a().c(TbadkCoreApplication.getInst());
             h70 h70Var = new h70();
             this.b = h70Var;
             View onCreateView = h70Var.onCreateView(this, null, LiveFeedPageSdk.HOST_LIVE_TAB, this.c, null, null, false);

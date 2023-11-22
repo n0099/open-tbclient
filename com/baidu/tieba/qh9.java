@@ -1,16 +1,65 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.LiveCustomSettingService;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.bd.LiveYYRtcLoadService;
+import com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin;
+import com.baidu.searchbox.live.interfaces.yy.YYEnvResultCallback;
+import com.baidu.searchbox.live.nps.LiveYYPluginManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qh9 extends bg1<LiveCustomSettingService> {
+public class qh9 implements LiveYYRtcLoadService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public class a implements YYEnvResultCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LiveYYRtcLoadService.ILiveThunderLibDownloadStatusCallBack a;
+
+        public a(qh9 qh9Var, LiveYYRtcLoadService.ILiveThunderLibDownloadStatusCallBack iLiveThunderLibDownloadStatusCallBack) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qh9Var, iLiveThunderLibDownloadStatusCallBack};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = iLiveThunderLibDownloadStatusCallBack;
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.yy.YYEnvResultCallback
+        public void onFail(int i, String str) {
+            LiveYYRtcLoadService.ILiveThunderLibDownloadStatusCallBack iLiveThunderLibDownloadStatusCallBack;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && (iLiveThunderLibDownloadStatusCallBack = this.a) != null) {
+                iLiveThunderLibDownloadStatusCallBack.onLibDownloadFailed();
+            }
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.yy.YYEnvResultCallback
+        public void onSuccess() {
+            LiveYYRtcLoadService.ILiveThunderLibDownloadStatusCallBack iLiveThunderLibDownloadStatusCallBack;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (iLiveThunderLibDownloadStatusCallBack = this.a) != null) {
+                iLiveThunderLibDownloadStatusCallBack.onLibDownloadSuccess();
+            }
+        }
+    }
 
     public qh9() {
         Interceptable interceptable = $ic;
@@ -26,15 +75,14 @@ public class qh9 extends bg1<LiveCustomSettingService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bg1
-    /* renamed from: a */
-    public LiveCustomSettingService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.bd.LiveYYRtcLoadService
+    public boolean isLibReady(@NonNull Context context, @Nullable String str, @Nullable LiveYYRtcLoadService.ILiveThunderLibDownloadStatusCallBack iLiveThunderLibDownloadStatusCallBack) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new rh9();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, iLiveThunderLibDownloadStatusCallBack)) == null) {
+            LiveYYPluginManager.getInstance().prepareYYEnv(context, IYYLiveNPSPlugin.YY_ENV_CREATE_LIVE, new a(this, iLiveThunderLibDownloadStatusCallBack));
+            return true;
         }
-        return (LiveCustomSettingService) invokeV.objValue;
+        return invokeLLL.booleanValue;
     }
 }

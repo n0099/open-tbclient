@@ -22,31 +22,31 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.BlueCheckRadioButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a57;
-import com.baidu.tieba.a87;
+import com.baidu.tieba.b57;
+import com.baidu.tieba.b87;
 import com.baidu.tieba.ex4;
 import com.baidu.tieba.f05;
 import com.baidu.tieba.feed.data.ThreadManageType;
-import com.baidu.tieba.fi7;
 import com.baidu.tieba.forum.management.ThreadManageDialog;
-import com.baidu.tieba.g67;
-import com.baidu.tieba.g77;
+import com.baidu.tieba.gi7;
 import com.baidu.tieba.h05;
+import com.baidu.tieba.h67;
+import com.baidu.tieba.h77;
 import com.baidu.tieba.j05;
-import com.baidu.tieba.j67;
-import com.baidu.tieba.li7;
-import com.baidu.tieba.mj7;
-import com.baidu.tieba.mq6;
-import com.baidu.tieba.o57;
-import com.baidu.tieba.p77;
-import com.baidu.tieba.pj7;
+import com.baidu.tieba.k67;
+import com.baidu.tieba.mi7;
+import com.baidu.tieba.nj7;
+import com.baidu.tieba.nq6;
+import com.baidu.tieba.p57;
+import com.baidu.tieba.q77;
 import com.baidu.tieba.qj7;
-import com.baidu.tieba.r77;
+import com.baidu.tieba.rj7;
 import com.baidu.tieba.rx4;
+import com.baidu.tieba.s77;
 import com.baidu.tieba.tbadkCore.model.ForumManageModel;
-import com.baidu.tieba.vl7;
 import com.baidu.tieba.w4;
-import com.baidu.tieba.y47;
+import com.baidu.tieba.wl7;
+import com.baidu.tieba.z47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,15 +68,15 @@ public final class ThreadManageDialog extends h05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<?> l;
-    public final List<p77> m;
+    public final List<q77> m;
     public final Activity n;
     public final j05 o;
     public final List<f05> p;
     public final ForumManageModel q;
     public String r;
-    public j67 s;
+    public k67 s;
     public ArrayList<BlueCheckRadioButton> t;
-    public r77 u;
+    public s77 u;
     public final Function1<ArrayList<rx4>, Unit> v;
     public final CompoundButton.OnCheckedChangeListener w;
 
@@ -112,10 +112,10 @@ public final class ThreadManageDialog extends h05 {
             }
             switch (this.a.q.getLoadDataMode()) {
                 case 0:
-                    qj7.b(obj, this.a.n);
+                    rj7.b(obj, this.a.n);
                     return;
                 case 1:
-                    qj7.c(obj, this.a.n);
+                    rj7.c(obj, this.a.n);
                     return;
                 case 2:
                 case 3:
@@ -125,10 +125,10 @@ public final class ThreadManageDialog extends h05 {
                     threadManageDialog.L(threadManageDialog.q.getLoadDataMode(), obj);
                     return;
                 case 6:
-                    qj7.d(obj, this.a.n, this.a.v);
+                    rj7.d(obj, this.a.n, this.a.v);
                     return;
                 default:
-                    vl7.b(null, 1, null);
+                    wl7.b(null, 1, null);
                     return;
             }
         }
@@ -174,7 +174,7 @@ public final class ThreadManageDialog extends h05 {
                     obj = null;
                 }
                 if (obj == null) {
-                    vl7.a("ThreadManageItemData extData must not be null！！！");
+                    wl7.a("ThreadManageItemData extData must not be null！！！");
                 } else if (i == ThreadManageType.ID_DEL.getValue()) {
                     this.a.T(obj);
                 } else if (i == ThreadManageType.ID_FORBID.getValue()) {
@@ -191,7 +191,7 @@ public final class ThreadManageDialog extends h05 {
                         if (i == ThreadManageType.ID_BROADCAST.getValue()) {
                             this.a.G(obj);
                         } else {
-                            vl7.b(null, 1, null);
+                            wl7.b(null, 1, null);
                         }
                     } else {
                         this.a.H();
@@ -204,7 +204,7 @@ public final class ThreadManageDialog extends h05 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ThreadManageDialog(TbPageContext<?> pageContext, List<p77> manageItemList) {
+    public ThreadManageDialog(TbPageContext<?> pageContext, List<q77> manageItemList) {
         super(pageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -241,7 +241,7 @@ public final class ThreadManageDialog extends h05 {
         h(this.o);
         K();
         this.v = new ThreadManageDialog$showGoodClassListDialog$1(this);
-        this.w = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.fj7
+        this.w = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.gj7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -316,52 +316,52 @@ public final class ThreadManageDialog extends h05 {
         }
     }
 
-    public final void S(o57 o57Var) {
+    public final void S(p57 p57Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, o57Var) == null) {
-            String h = o57Var.h();
-            String g = o57Var.g();
-            String c = o57Var.c();
-            this.q.k0(o57Var.b(), c, g, null, 0, 1, UtilHelper.isCurrentAccount(h), null, false);
+        if (interceptable == null || interceptable.invokeL(1048587, this, p57Var) == null) {
+            String h = p57Var.h();
+            String g = p57Var.g();
+            String c = p57Var.c();
+            this.q.k0(p57Var.b(), c, g, null, 0, 1, UtilHelper.isCurrentAccount(h), null, false);
         }
     }
 
     public final void G(Object obj) {
-        a57 a57Var;
+        b57 b57Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            if (obj instanceof a57) {
-                a57Var = (a57) obj;
+            if (obj instanceof b57) {
+                b57Var = (b57) obj;
             } else {
-                a57Var = null;
+                b57Var = null;
             }
-            if (a57Var == null) {
+            if (b57Var == null) {
                 return;
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE_NUMBER);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.addParam("forum_id", a57Var.a());
-            httpMessage.addParam("thread_id", a57Var.b());
+            httpMessage.addParam("forum_id", b57Var.a());
+            httpMessage.addParam("thread_id", b57Var.b());
             this.l.sendMessage(httpMessage);
         }
     }
 
     public final void T(Object obj) {
-        final o57 o57Var;
+        final p57 p57Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, obj) == null) {
-            if (obj instanceof o57) {
-                o57Var = (o57) obj;
+            if (obj instanceof p57) {
+                p57Var = (p57) obj;
             } else {
-                o57Var = null;
+                p57Var = null;
             }
-            if (o57Var == null) {
+            if (p57Var == null) {
                 return;
             }
-            if (UtilHelper.isCurrentAccount(o57Var.h())) {
-                pj7.d(this.n, new Function0<Unit>(this, o57Var) { // from class: com.baidu.tieba.forum.management.ThreadManageDialog$startDeleteThread$1
+            if (UtilHelper.isCurrentAccount(p57Var.h())) {
+                qj7.d(this.n, new Function0<Unit>(this, p57Var) { // from class: com.baidu.tieba.forum.management.ThreadManageDialog$startDeleteThread$1
                     public static /* synthetic */ Interceptable $ic;
-                    public final /* synthetic */ o57 $deleteThreadItemData;
+                    public final /* synthetic */ p57 $deleteThreadItemData;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ThreadManageDialog this$0;
 
@@ -372,7 +372,7 @@ public final class ThreadManageDialog extends h05 {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, o57Var};
+                            Object[] objArr = {this, p57Var};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -384,7 +384,7 @@ public final class ThreadManageDialog extends h05 {
                             }
                         }
                         this.this$0 = this;
-                        this.$deleteThreadItemData = o57Var;
+                        this.$deleteThreadItemData = p57Var;
                     }
 
                     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -404,47 +404,47 @@ public final class ThreadManageDialog extends h05 {
                     }
                 });
             } else {
-                pj7.f(this.l, this.q, o57Var);
+                qj7.f(this.l, this.q, p57Var);
             }
         }
     }
 
     public final void W(Object obj) {
-        r77 r77Var;
+        s77 s77Var;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, obj) == null) {
-            if (obj instanceof r77) {
-                r77Var = (r77) obj;
+            if (obj instanceof s77) {
+                s77Var = (s77) obj;
             } else {
-                r77Var = null;
+                s77Var = null;
             }
-            if (r77Var == null) {
+            if (s77Var == null) {
                 return;
             }
-            this.u = r77Var;
-            if (r77Var.f()) {
+            this.u = s77Var;
+            if (s77Var.f()) {
                 i = 5;
             } else {
                 i = 4;
             }
-            String e = r77Var.e();
-            String c = r77Var.c();
-            this.q.l0(r77Var.b(), c, e, i, null);
+            String e = s77Var.e();
+            String c = s77Var.c();
+            this.q.l0(s77Var.b(), c, e, i, null);
         }
     }
 
     public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            mq6.b().c(new a87(this.n, true, false));
+            nq6.b().c(new b87(this.n, true, false));
         }
     }
 
     public final void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            mq6.b().c(new a87(this.n, true, false, 4, null));
+            nq6.b().c(new b87(this.n, true, false, 4, null));
         }
     }
 
@@ -485,8 +485,8 @@ public final class ThreadManageDialog extends h05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.p.clear();
-            for (p77 p77Var : this.m) {
-                this.p.add(new f05(p77Var.c(), p77Var.b(), p77Var.a(), this.o));
+            for (q77 q77Var : this.m) {
+                this.p.add(new f05(q77Var.c(), q77Var.b(), q77Var.a(), this.o));
             }
             this.o.m(this.p);
         }
@@ -515,9 +515,9 @@ public final class ThreadManageDialog extends h05 {
                     if (i != 3) {
                         if (i != 4) {
                             if (i == 5) {
-                                r77 r77Var = this.u;
-                                if (r77Var != null) {
-                                    r77Var.g(false);
+                                s77 s77Var = this.u;
+                                if (s77Var != null) {
+                                    s77Var.g(false);
                                 }
                                 str = N(gVar.b, R.string.operation_success);
                             }
@@ -532,9 +532,9 @@ public final class ThreadManageDialog extends h05 {
                                 z3 = true;
                             }
                             if (z3) {
-                                r77 r77Var2 = this.u;
-                                if (r77Var2 != null) {
-                                    r77Var2.g(true);
+                                s77 s77Var2 = this.u;
+                                if (s77Var2 != null) {
+                                    s77Var2.g(true);
                                 }
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921469, ex4Var));
                             } else {
@@ -543,36 +543,36 @@ public final class ThreadManageDialog extends h05 {
                                 } else {
                                     z4 = true;
                                 }
-                                r77 r77Var3 = this.u;
-                                if (r77Var3 != null) {
-                                    r77Var3.g(z4);
+                                s77 s77Var3 = this.u;
+                                if (s77Var3 != null) {
+                                    s77Var3.g(z4);
                                 }
                                 Activity activity = this.n;
                                 int i2 = gVar.g;
                                 String str3 = gVar.h;
                                 Intrinsics.checkNotNullExpressionValue(str3, "retData.topScheme");
-                                pj7.i(activity, i2, str3, gVar.d);
+                                qj7.i(activity, i2, str3, gVar.d);
                                 z5 = z4;
                             }
                             z2 = true;
                         }
                     } else {
-                        j67 j67Var = this.s;
-                        if (j67Var != null) {
-                            j67Var.h(false);
+                        k67 k67Var = this.s;
+                        if (k67Var != null) {
+                            k67Var.h(false);
                         }
                         str = N(gVar.b, R.string.operation_success);
                     }
                     z2 = false;
                 } else {
-                    j67 j67Var2 = this.s;
-                    if (j67Var2 != null) {
-                        j67Var2.h(true);
+                    k67 k67Var2 = this.s;
+                    if (k67Var2 != null) {
+                        k67Var2.h(true);
                     }
                     ex4 ex4Var2 = new ex4();
                     ex4Var2.a = 2;
-                    j67 j67Var3 = this.s;
-                    if (j67Var3 != null && j67Var3.f()) {
+                    k67 k67Var3 = this.s;
+                    if (k67Var3 != null && k67Var3.f()) {
                         z = true;
                     } else {
                         z = false;
@@ -592,7 +592,7 @@ public final class ThreadManageDialog extends h05 {
                 eVar.d = i;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921316, eVar));
                 if (z5) {
-                    mq6.b().c(new fi7(this.n, CollectionsKt__CollectionsJVMKt.listOf(gVar.f), i));
+                    nq6.b().c(new gi7(this.n, CollectionsKt__CollectionsJVMKt.listOf(gVar.f), i));
                 }
                 if (TextUtils.isEmpty(str)) {
                     str = M(R.string.operation_success, new Object[0]);
@@ -608,76 +608,76 @@ public final class ThreadManageDialog extends h05 {
     }
 
     public final void R(Object obj) {
-        g77 g77Var;
+        h77 h77Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, obj) == null) {
-            li7.a();
-            if (obj instanceof g77) {
-                g77Var = (g77) obj;
+            mi7.a();
+            if (obj instanceof h77) {
+                h77Var = (h77) obj;
             } else {
-                g77Var = null;
+                h77Var = null;
             }
-            if (g77Var == null) {
+            if (h77Var == null) {
                 return;
             }
-            y47 a2 = g77Var.a();
+            z47 a2 = h77Var.a();
             if (a2 == null) {
-                mj7.a(this.l.getUniqueId());
+                nj7.a(this.l.getUniqueId());
             } else if (a2.b() <= a2.c()) {
-                mj7.a(this.l.getUniqueId());
+                nj7.a(this.l.getUniqueId());
             } else if (SharedPrefHelper.getInstance().getBoolean("key_frs_recommend_tip", true)) {
-                mj7.d(this.l, g77Var.b(), g77Var.c(), a2, ThreadManageDialog$recommendThread$1.INSTANCE);
+                nj7.d(this.l, h77Var.b(), h77Var.c(), a2, ThreadManageDialog$recommendThread$1.INSTANCE);
             } else {
-                mj7.b(g77Var.b(), g77Var.c(), this.l.getUniqueId());
+                nj7.b(h77Var.b(), h77Var.c(), this.l.getUniqueId());
             }
         }
     }
 
     public final void U(Object obj) {
-        g67 g67Var;
+        h67 h67Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, obj) == null) {
-            if (obj instanceof g67) {
-                g67Var = (g67) obj;
+            if (obj instanceof h67) {
+                h67Var = (h67) obj;
             } else {
-                g67Var = null;
+                h67Var = null;
             }
-            if (g67Var == null) {
+            if (h67Var == null) {
                 return;
             }
-            String c = g67Var.c();
-            String f = g67Var.f();
-            String d = g67Var.d();
-            String e = g67Var.e();
-            String b2 = g67Var.b();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(this.n, g67Var.a(), b2, e, c, f, d, null, g67Var.g())));
+            String c = h67Var.c();
+            String f = h67Var.f();
+            String d = h67Var.d();
+            String e = h67Var.e();
+            String b2 = h67Var.b();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(this.n, h67Var.a(), b2, e, c, f, d, null, h67Var.g())));
         }
     }
 
     public final void V(Object obj, String str, boolean z) {
-        j67 j67Var;
+        k67 k67Var;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048590, this, obj, str, z) == null) {
-            if (obj instanceof j67) {
-                j67Var = (j67) obj;
+            if (obj instanceof k67) {
+                k67Var = (k67) obj;
             } else {
-                j67Var = null;
+                k67Var = null;
             }
-            if (j67Var == null) {
+            if (k67Var == null) {
                 return;
             }
-            this.s = j67Var;
-            if (j67Var.g()) {
+            this.s = k67Var;
+            if (k67Var.g()) {
                 i = 3;
             } else if (z) {
                 i = 6;
             } else {
                 i = 2;
             }
-            String e = j67Var.e();
-            String c = j67Var.c();
-            this.q.l0(j67Var.b(), c, e, i, str);
+            String e = k67Var.e();
+            String c = k67Var.c();
+            this.q.l0(k67Var.b(), c, e, i, str);
         }
     }
 }

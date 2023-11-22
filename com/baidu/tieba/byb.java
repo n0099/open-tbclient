@@ -1,84 +1,65 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.sdk.api.NativeResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class byb extends oyb {
+public class byb implements azb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public NativeResponse a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public byb(Ssp.Pid pid) {
-        super(pid);
+    public byb(NativeResponse nativeResponse) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {nativeResponse};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = nativeResponse;
     }
 
-    @Override // com.baidu.tieba.oyb
-    public JSONObject c(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.azb
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                if (obj instanceof uxb) {
-                    Field declaredField = obj.getClass().getSuperclass().getDeclaredField("mNativeInterstitialAdProd");
-                    declaredField.setAccessible(true);
-                    Object obj2 = declaredField.get(obj);
-                    if (obj2 == null) {
-                        return null;
-                    }
-                    Field declaredField2 = obj2.getClass().getSuperclass().getDeclaredField("k");
-                    declaredField2.setAccessible(true);
-                    Object obj3 = declaredField2.get(obj2);
-                    if (obj3 == null) {
-                        return null;
-                    }
-                    Field declaredField3 = obj3.getClass().getDeclaredField("adProdTemplate");
-                    declaredField3.setAccessible(true);
-                    Object obj4 = declaredField3.get(obj3);
-                    if (obj4 == null) {
-                        return null;
-                    }
-                    Field declaredField4 = obj4.getClass().getDeclaredField("f");
-                    declaredField4.setAccessible(true);
-                    Object obj5 = declaredField4.get(obj4);
-                    if (obj5 == null) {
-                        return null;
-                    }
-                    Field declaredField5 = obj5.getClass().getDeclaredField("p");
-                    declaredField5.setAccessible(true);
-                    Object obj6 = declaredField5.get(obj5);
-                    if (obj6 instanceof JSONObject) {
-                        return (JSONObject) obj6;
-                    }
-                    return null;
-                }
-                return null;
-            } catch (Exception unused) {
-                LogPrinter.d();
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            NativeResponse nativeResponse = this.a;
+            return nativeResponse != null ? nativeResponse.getECPMLevel() : "0";
         }
-        return (JSONObject) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.azb
+    public void a(String str) {
+        NativeResponse nativeResponse;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (nativeResponse = this.a) == null) {
+            return;
+        }
+        nativeResponse.biddingSuccess(str);
+    }
+
+    @Override // com.baidu.tieba.azb
+    public void a(String str, HashMap<String, Object> hashMap) {
+        NativeResponse nativeResponse;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, hashMap) == null) || (nativeResponse = this.a) == null) {
+            return;
+        }
+        nativeResponse.biddingFail(str, hashMap);
     }
 }

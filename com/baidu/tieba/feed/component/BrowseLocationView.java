@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c57;
+import com.baidu.tieba.d57;
 import com.baidu.tieba.feed.component.BrowseLocationView;
 import com.baidu.tieba.feed.component.uistate.BrowseLocationUiState;
-import com.baidu.tieba.sa7;
 import com.baidu.tieba.ta7;
+import com.baidu.tieba.ua7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,7 +31,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\f\u001a\u00020\rH\u0016J\u0012\u0010\u000e\u001a\u00020\r2\b\u0010\u000f\u001a\u0004\u0018\u00010\u0010H\u0007R\u000e\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0011"}, d2 = {"Lcom/baidu/tieba/feed/component/BrowseLocationView;", "Landroid/widget/FrameLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "M_H_X003", "", "mProgressView", "Landroid/widget/TextView;", "onChangeSkin", "", "updateState", "state", "Lcom/baidu/tieba/feed/component/uistate/BrowseLocationUiState;", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class BrowseLocationView extends FrameLayout implements sa7 {
+public final class BrowseLocationView extends FrameLayout implements ta7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -95,11 +95,11 @@ public final class BrowseLocationView extends FrameLayout implements sa7 {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public static final void b(BrowseLocationUiState browseLocationUiState, c57 data, View view2) {
+    public static final void b(BrowseLocationUiState browseLocationUiState, d57 data, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, browseLocationUiState, data, view2) == null) {
             Intrinsics.checkNotNullParameter(data, "$data");
-            Function2<c57, View, Unit> m = browseLocationUiState.m();
+            Function2<d57, View, Unit> m = browseLocationUiState.m();
             Intrinsics.checkNotNullExpressionValue(view2, "view");
             m.invoke(data, view2);
         }
@@ -107,11 +107,11 @@ public final class BrowseLocationView extends FrameLayout implements sa7 {
 
     @SuppressLint({"NotifyDataSetChanged"})
     public final void a(final BrowseLocationUiState browseLocationUiState) {
-        final c57 l;
+        final d57 l;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, browseLocationUiState) == null) && browseLocationUiState != null && (l = browseLocationUiState.l()) != null) {
             this.b.setText(browseLocationUiState.l().f());
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.j37
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.k37
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -127,10 +127,10 @@ public final class BrowseLocationView extends FrameLayout implements sa7 {
         }
     }
 
-    @Override // com.baidu.tieba.sa7
+    @Override // com.baidu.tieba.ta7
     public void r() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || ta7.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || ua7.a(this)) {
             return;
         }
         SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0304);

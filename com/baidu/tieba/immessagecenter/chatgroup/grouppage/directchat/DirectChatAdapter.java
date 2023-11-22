@@ -27,15 +27,15 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.ViewSingleClickCompat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cn8;
+import com.baidu.tieba.dn8;
 import com.baidu.tieba.im.base.core.inputtool.consts.BotSourceType;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatActivity;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
-import com.baidu.tieba.p19;
-import com.baidu.tieba.t09;
-import com.baidu.tieba.uv8;
+import com.baidu.tieba.q19;
+import com.baidu.tieba.u09;
+import com.baidu.tieba.vv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,7 +59,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
     public final int h;
     public final int i;
     @NonNull
-    public cn8 j;
+    public dn8 j;
     public View.OnClickListener k;
 
     /* loaded from: classes6.dex */
@@ -125,9 +125,9 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof t09)) {
-                t09 t09Var = (t09) view2.getTag();
-                AbilityItem a = t09Var.a();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof u09)) {
+                u09 u09Var = (u09) view2.getTag();
+                AbilityItem a = u09Var.a();
                 this.a.z(a);
                 String str = "";
                 if (a.getStyleConf() != null && a.getStyleConf().getContent() != null) {
@@ -137,28 +137,28 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
                 if ("call_robot".equals(a.getType())) {
                     int i = 0;
                     View view3 = null;
-                    if (t09Var.b() != null) {
-                        i = t09Var.b().intValue();
+                    if (u09Var.b() != null) {
+                        i = u09Var.b().intValue();
                     }
-                    if (t09Var.c() != null) {
-                        view3 = t09Var.c();
+                    if (u09Var.c() != null) {
+                        view3 = u09Var.c();
                     }
                     String obj = a.getConfMap().get("skill_id").toString();
                     if (view3 != null) {
                         this.a.t(obj, view3, i);
                     }
                 }
-                uv8.l("c15187", str2, this.a.c, this.a.u(a), this.a.x(a), this.a.d, this.a.e);
+                vv8.l("c15187", str2, this.a.c, this.a.u(a), this.a.x(a), this.a.d, this.a.e);
             }
         }
     }
 
-    public DirectChatAdapter(Context context, @NonNull cn8 cn8Var) {
+    public DirectChatAdapter(Context context, @NonNull dn8 dn8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, cn8Var};
+            Object[] objArr = {context, dn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -171,7 +171,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
         this.f = new ArrayList();
         this.k = new a(this);
         this.a = context;
-        this.j = cn8Var;
+        this.j = dn8Var;
         this.h = context.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
         this.g = context.getResources().getDimensionPixelSize(R.dimen.M_W_X004);
         this.i = context.getResources().getDimensionPixelSize(R.dimen.M_W_X006);
@@ -290,10 +290,10 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
             }
             String content = styleConf.getContent();
             if (!TextUtils.isEmpty(content) && !this.f.contains(content)) {
-                uv8.l("c15186", content, this.c, u(abilityItem), x(abilityItem), this.d, this.e);
+                vv8.l("c15186", content, this.c, u(abilityItem), x(abilityItem), this.d, this.e);
                 this.f.add(content);
             }
-            viewHolder.b.setTag(new t09(abilityItem, Integer.valueOf(i), viewHolder.e));
+            viewHolder.b.setTag(new u09(abilityItem, Integer.valueOf(i), viewHolder.e));
             ViewSingleClickCompat.setOnClickListener(viewHolder.b, this.k);
             RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) viewHolder.a.getLayoutParams();
             if (i == 0) {
@@ -434,7 +434,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
             if (!StringUtils.isNull(str) && str.contains("vmagic-mobile#/identity")) {
                 Context context = this.a;
                 if (context instanceof TbPageContextSupport) {
-                    p19.a(((TbPageContextSupport) context).getPageContext(), str, 2);
+                    q19.a(((TbPageContextSupport) context).getPageContext(), str, 2);
                     return;
                 }
             }

@@ -1,63 +1,24 @@
 package com.baidu.tieba;
 
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.LinkedHashMap;
 /* loaded from: classes5.dex */
-public abstract class a3c {
+public class a3c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicBoolean a;
-    public long b;
-    public Runnable c;
+    public final LinkedHashMap<Long, StackTraceElement[]> a;
+    public int b;
 
-    public abstract void b();
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a3c a;
-
-        public a(a3c a3cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a3cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = a3cVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
-                if (this.a.a.get()) {
-                    e3c.a().postDelayed(this.a.c, this.a.b);
-                }
-            }
-        }
-    }
-
-    public a3c(long j) {
+    public a3c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -67,27 +28,29 @@ public abstract class a3c {
                 return;
             }
         }
-        this.a = new AtomicBoolean(false);
-        this.c = new a(this);
-        this.b = 0 == j ? 300L : j;
+        this.a = new LinkedHashMap<>();
+        this.b = 100;
     }
 
-    public void c() {
+    public LinkedHashMap<Long, StackTraceElement[]> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.a.get()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        this.a.set(true);
-        e3c.a().removeCallbacks(this.c);
-        e3c.a().postDelayed(this.c, c3c.f().j());
+        return (LinkedHashMap) invokeV.objValue;
     }
 
-    public void d() {
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !this.a.get()) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int size = this.a.size();
+            int i = this.b;
+            if (size == i && i > 0) {
+                LinkedHashMap<Long, StackTraceElement[]> linkedHashMap = this.a;
+                linkedHashMap.remove(linkedHashMap.keySet().iterator().next());
+            }
+            this.a.put(Long.valueOf(System.currentTimeMillis()), Looper.getMainLooper().getThread().getStackTrace());
         }
-        this.a.set(false);
-        e3c.a().removeCallbacks(this.c);
     }
 }

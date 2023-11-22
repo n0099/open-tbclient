@@ -5,13 +5,13 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ei7;
+import com.baidu.tieba.fi7;
 import com.baidu.tieba.forum.databinding.ActivityForumBinding;
 import com.baidu.tieba.forum.widget.TbBottomSheetView;
 import com.baidu.tieba.forum.widget.TbLinkageScrollView;
 import com.baidu.tieba.forum.widget.TbNestedScrollView;
 import com.baidu.tieba.forum.widget.ViewExtentionsKt;
-import com.baidu.tieba.xk7;
+import com.baidu.tieba.yk7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,16 +27,16 @@ import kotlin.jvm.internal.Intrinsics;
 public final class NonFullWebLayoutStrategy extends BaseLayoutStrategy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ei7.a A;
+    public final fi7.a A;
     public int B;
     public int C;
     public int D;
     public boolean E;
     public final int F;
-    public xk7 G;
+    public yk7 G;
     public final a H;
 
-    @Override // com.baidu.tieba.yk7
+    @Override // com.baidu.tieba.zk7
     public float M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public final class NonFullWebLayoutStrategy extends BaseLayoutStrategy {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a implements xk7 {
+    public static final class a implements yk7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NonFullWebLayoutStrategy a;
@@ -80,30 +80,30 @@ public final class NonFullWebLayoutStrategy extends BaseLayoutStrategy {
             this.a = nonFullWebLayoutStrategy;
         }
 
-        @Override // com.baidu.tieba.xk7
+        @Override // com.baidu.tieba.yk7
         public void c(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                xk7.a.a(this, i);
+                yk7.a.a(this, i);
             }
         }
 
-        @Override // com.baidu.tieba.xk7
+        @Override // com.baidu.tieba.yk7
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 NonFullWebLayoutStrategy nonFullWebLayoutStrategy = this.a;
                 nonFullWebLayoutStrategy.E(nonFullWebLayoutStrategy.C);
-                xk7 Y = this.a.Y();
+                yk7 Y = this.a.Y();
                 if (Y != null) {
                     Y.a();
                 }
             }
         }
 
-        @Override // com.baidu.tieba.xk7
+        @Override // com.baidu.tieba.yk7
         public void b() {
-            xk7 Y;
+            yk7 Y;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (Y = this.a.Y()) != null) {
                 Y.b();
@@ -112,7 +112,7 @@ public final class NonFullWebLayoutStrategy extends BaseLayoutStrategy {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NonFullWebLayoutStrategy(ActivityForumBinding binding, ei7.a dataWrapper) {
+    public NonFullWebLayoutStrategy(ActivityForumBinding binding, fi7.a dataWrapper) {
         super(binding, (int) dataWrapper.e(), (int) dataWrapper.f());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -139,14 +139,14 @@ public final class NonFullWebLayoutStrategy extends BaseLayoutStrategy {
         this.H = new a(this);
     }
 
-    public final void a0(xk7 xk7Var) {
+    public final void a0(yk7 yk7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, xk7Var) == null) {
-            this.G = xk7Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yk7Var) == null) {
+            this.G = yk7Var;
         }
     }
 
-    @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy, com.baidu.tieba.yk7
+    @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy, com.baidu.tieba.zk7
     public boolean F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -220,7 +220,7 @@ public final class NonFullWebLayoutStrategy extends BaseLayoutStrategy {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yk7
+    @Override // com.baidu.tieba.zk7
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -244,7 +244,7 @@ public final class NonFullWebLayoutStrategy extends BaseLayoutStrategy {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy, com.baidu.tieba.yk7
+    @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy, com.baidu.tieba.zk7
     public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -255,7 +255,7 @@ public final class NonFullWebLayoutStrategy extends BaseLayoutStrategy {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yk7
+    @Override // com.baidu.tieba.zk7
     /* renamed from: X */
     public TbLinkageScrollView H() {
         InterceptResult invokeV;
@@ -268,13 +268,13 @@ public final class NonFullWebLayoutStrategy extends BaseLayoutStrategy {
         return (TbLinkageScrollView) invokeV.objValue;
     }
 
-    public final xk7 Y() {
+    public final yk7 Y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.G;
         }
-        return (xk7) invokeV.objValue;
+        return (yk7) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy

@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cra;
-import com.baidu.tieba.ij8;
-import com.baidu.tieba.kj8;
+import com.baidu.tieba.dra;
+import com.baidu.tieba.jj8;
+import com.baidu.tieba.lj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,9 +48,9 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
 
     /* loaded from: classes6.dex */
     public interface c {
-        void B0(kj8 kj8Var);
+        void B0(lj8 lj8Var);
 
-        void J0(kj8 kj8Var, kj8 kj8Var2, kj8 kj8Var3);
+        void J0(lj8 lj8Var, lj8 lj8Var2, lj8 lj8Var3);
 
         void U0(String str);
 
@@ -308,7 +308,7 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.f = new a(this, 2016491);
-            cra.b(2016491, ij8.class);
+            dra.b(2016491, jj8.class);
             registerListener(this.f);
         }
     }
@@ -367,8 +367,8 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.e = new b(this, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, 309416);
-            cra.h(309416, HotSelectSocketResponseMessage.class, false, false);
-            cra.c(309416, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, TbConfig.SET_HOTSELECT, HotSelectHttpResponseMessage.class, true, true, true, true);
+            dra.h(309416, HotSelectSocketResponseMessage.class, false, false);
+            dra.c(309416, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, TbConfig.SET_HOTSELECT, HotSelectHttpResponseMessage.class, true, true, true, true);
             registerListener(this.e);
         }
     }

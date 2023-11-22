@@ -91,9 +91,9 @@ public class wt extends us {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.i != null && this.a.i.getThreadData() != null && !this.a.f().booleanValue()) {
                     ThreadData threadData = this.a.i.getThreadData();
-                    il6.a(threadData.getId());
-                    il6.l(this.a.h.b, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    il6.l(this.a.h.c, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    jl6.a(threadData.getId());
+                    jl6.l(this.a.h.b, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    jl6.l(this.a.h.c, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }

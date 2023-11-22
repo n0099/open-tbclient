@@ -1,29 +1,134 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import androidx.annotation.Nullable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.facebook.imagepipeline.core.ImagePipelineConfig;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dp7 {
+public class dp7 extends zk6<yo7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BarImageView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public int m;
+    public yo7 n;
+    public View.OnClickListener o;
 
-    @Nullable
-    public static ImagePipelineConfig a() {
+    @Override // com.baidu.tieba.zk6
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (hd.a()) {
-                return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0329 : invokeV.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dp7(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            ImagePipelineConfig.Builder newBuilder = ImagePipelineConfig.newBuilder(TbadkCoreApplication.getInst());
-            newBuilder.setBitmapMemoryCacheParamsSupplier(new ep7((ActivityManager) TbadkCoreApplication.getInst().getSystemService("activity")));
-            return newBuilder.build();
         }
-        return (ImagePipelineConfig) invokeV.objValue;
+        this.m = 3;
+        this.i = (BarImageView) i().findViewById(R.id.forum_avatar);
+        this.j = (TextView) i().findViewById(R.id.forum_name);
+        this.k = (TextView) i().findViewById(R.id.obfuscated_res_0x7f090be7);
+        this.l = (TextView) i().findViewById(R.id.obfuscated_res_0x7f090c65);
+        i().setOnClickListener(this);
+        l(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zk6
+    /* renamed from: p */
+    public void k(yo7 yo7Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, yo7Var) != null) || yo7Var == null) {
+            return;
+        }
+        this.n = yo7Var;
+        this.i.startLoad(yo7Var.c(), 10, false);
+        this.j.setText(r(yo7Var.f(), yo7Var.i()));
+        this.k.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f04be), yo7Var.d()));
+        this.l.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f134d), yo7Var.h()));
+        l(this.b, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || this.n == null) {
+            return;
+        }
+        TiebaStatic.log("c12261");
+        wo7.d(this.n.i());
+        view2.setTag(this.n);
+        View.OnClickListener onClickListener = this.o;
+        if (onClickListener != null) {
+            onClickListener.onClick(view2);
+        }
+    }
+
+    public void x(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
+            this.o = onClickListener;
+        }
+    }
+
+    @Override // com.baidu.tieba.zk6
+    public void l(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.m == i) {
+            return;
+        }
+        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
+        SkinManager.setBackgroundResource(i(), R.drawable.square_search_item_bg);
+        this.m = i;
+    }
+
+    public SpannableStringBuilder r(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+                String trim = str2.trim();
+                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+                int indexOf = str.indexOf(trim);
+                if (indexOf != -1) {
+                    spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, trim.length() + indexOf, 33);
+                }
+                return spannableStringBuilder;
+            }
+            return null;
+        }
+        return (SpannableStringBuilder) invokeLL.objValue;
     }
 }

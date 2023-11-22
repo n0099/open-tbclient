@@ -1,23 +1,66 @@
 package com.baidu.tieba;
 
+import android.os.HandlerThread;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
-public class li5 implements pi5 {
-    public static /* synthetic */ Interceptable $ic;
+public class li5 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int c = 4;
     public transient /* synthetic */ FieldHolder $fh;
-    public ByteBuffer a;
+    public final ArrayList<HandlerThread> a;
+    public final AtomicInteger b;
 
-    @Override // com.baidu.tieba.pi5
-    public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947943857, "Lcom/baidu/tieba/li5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947943857, "Lcom/baidu/tieba/li5;");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final li5 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-631713485, "Lcom/baidu/tieba/li5$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-631713485, "Lcom/baidu/tieba/li5$b;");
+                    return;
+                }
+            }
+            a = new li5(null);
         }
     }
 
@@ -25,67 +68,65 @@ public class li5 implements pi5 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        d(10240);
+        this.a = new ArrayList<>();
+        this.b = new AtomicInteger(0);
+    }
+
+    public static li5 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (li5) invokeV.objValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.position();
+            return this.b.getAndIncrement();
         }
         return invokeV.intValue;
     }
 
-    public byte[] f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a.array();
-        }
-        return (byte[]) invokeV.objValue;
+    public /* synthetic */ li5(a aVar) {
+        this();
     }
 
-    public void b(byte b) {
+    public Looper c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeB(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b) == null) {
-            this.a.put(b);
-        }
-    }
-
-    public void c(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
-            this.a.put(bArr);
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            ByteBuffer byteBuffer = this.a;
-            if (byteBuffer == null || i > byteBuffer.capacity()) {
-                ByteBuffer allocate = ByteBuffer.allocate(i);
-                this.a = allocate;
-                allocate.order(ByteOrder.LITTLE_ENDIAN);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            int i2 = i % c;
+            if (i2 >= this.a.size()) {
+                HandlerThread handlerThread = new HandlerThread("FrameDecoderExecutor-" + i2);
+                handlerThread.start();
+                this.a.add(handlerThread);
+                Looper looper = handlerThread.getLooper();
+                if (looper == null) {
+                    return Looper.getMainLooper();
+                }
+                return looper;
+            } else if (this.a.get(i2) != null) {
+                Looper looper2 = this.a.get(i2).getLooper();
+                if (looper2 == null) {
+                    return Looper.getMainLooper();
+                }
+                return looper2;
+            } else {
+                return Looper.getMainLooper();
             }
-            this.a.clear();
         }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.a.position(i + a());
-        }
+        return (Looper) invokeI.objValue;
     }
 }

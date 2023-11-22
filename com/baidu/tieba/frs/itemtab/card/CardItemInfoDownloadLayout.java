@@ -24,7 +24,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b65;
+import com.baidu.tieba.c65;
 import com.baidu.tieba.it;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -249,9 +249,9 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements it {
     public final void o(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            b65 b65Var = new b65(6);
-            b65Var.r(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, b65Var));
+            c65 c65Var = new c65(6);
+            c65Var.r(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, c65Var));
         }
     }
 

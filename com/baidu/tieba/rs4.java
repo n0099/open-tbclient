@@ -15,16 +15,16 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class rs4 implements cj6 {
+public class rs4 implements dj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        bj6.a(this, webView, str, jSONObject);
+        cj6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class rs4 implements cj6 {
         return invokeLLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public /* synthetic */ void onDestroy() {
-        bj6.b(this);
+        cj6.b(this);
     }
 
     public rs4() {
@@ -53,38 +53,38 @@ public class rs4 implements cj6 {
         }
     }
 
-    public nsa c(WebView webView, String str, String str2) {
+    public osa c(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             HybridLog.getInstance().w(str, str2);
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeLLL.objValue;
+        return (osa) invokeLLL.objValue;
     }
 
-    public nsa d(WebView webView, HashMap<String, String> hashMap) {
+    public osa d(WebView webView, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, hashMap)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             if (hashMap != null && hashMap.get("result") != null) {
-                nsaVar.o(hashMap.get("result"));
+                osaVar.o(hashMap.get("result"));
             }
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 
-    public nsa e(WebView webView, String str, JSONObject jSONObject) {
+    public osa e(WebView webView, String str, JSONObject jSONObject) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, webView, str, jSONObject)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             if (TextUtils.isEmpty(str)) {
-                nsaVar.r("logKey为null或者是空字符串");
-                return nsaVar;
+                osaVar.r("logKey为null或者是空字符串");
+                return osaVar;
             }
             StatisticItem statisticItem = new StatisticItem(str);
             if (jSONObject != null) {
@@ -95,8 +95,8 @@ public class rs4 implements cj6 {
                 }
             }
             statisticItem.eventStat();
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeLLL.objValue;
+        return (osa) invokeLLL.objValue;
     }
 }

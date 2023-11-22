@@ -1,31 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.util.io.Closeables;
+import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.advert.sdk.data.AdInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.CountDownLatch;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.ranges.RangesKt___RangesKt;
+import java.io.File;
+import java.io.PrintStream;
 /* loaded from: classes7.dex */
-public final class n56 {
-    public static /* synthetic */ Interceptable $ic;
+public class n56 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = 0;
+    public static String b = "5";
+    public static String c = "6";
     public transient /* synthetic */ FieldHolder $fh;
-    public final CountDownLatch a;
-    public int b;
-    public int c;
 
     static {
         InterceptResult invokeClinit;
@@ -42,158 +45,189 @@ public final class n56 {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static final class a extends BdAsyncTask<String, Integer, Unit> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n56 a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ Function0<Unit> c;
-        public final /* synthetic */ StatisticItem d;
-
-        public a(n56 n56Var, int i, Function0<Unit> function0, StatisticItem statisticItem) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n56Var, Integer.valueOf(i), function0, statisticItem};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            File file = new File(h56.b);
+            if (file.exists()) {
+                FileHelper.deleteFileOrDir(file);
             }
-            this.a = n56Var;
-            this.b = i;
-            this.c = function0;
-            this.d = statisticItem;
-        }
-
-        public void b(String... params) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, params) == null) {
-                Intrinsics.checkNotNullParameter(params, "params");
-                this.a.h(RangesKt___RangesKt.coerceAtLeast(f56.a.a(), 0));
-                this.a.g(RangesKt___RangesKt.coerceAtLeast(e56.a.a(), 0));
-                TbLog defaultLog = DefaultLog.getInstance();
-                defaultLog.i("OpenScreenAdTimeoutTaskUtils", "开屏广告：OpenScreenAdTimeoutTaskUtils，函数adTimeoutTask, 类型(1是小熊，2是原生)：" + this.b + "，showTimeoutTime is: " + this.a.d() + ", closeTimeoutTime is: " + this.a.c());
-                if (this.a.d() == 0 && this.a.c() == 0) {
-                    return;
-                }
-                if (this.a.d() > 0) {
-                    Thread.sleep(this.a.d());
-                    if (this.a.a.getCount() == 2) {
-                        TbLog defaultLog2 = DefaultLog.getInstance();
-                        defaultLog2.i("OpenScreenAdTimeoutTaskUtils", "开屏广告：OpenScreenAdTimeoutTaskUtils，函数adTimeoutTask， 类型(1是小熊，2是原生)：" + this.b + ", <<<<<<<<OpenScreenAdShowTimeout");
-                        this.c.invoke();
-                        this.d.addParam("source_from", "tb_kpgg").addParam(TiebaStatic.Params.AD_TYPE, this.b).addParam("obj_param1", "class_OpenScreenAdTimeoutTaskUtils").addParam("obj_type", "OpenScreenAdShowTimeout");
-                        TiebaStatic.log(this.d);
-                        return;
-                    }
-                }
-                long count = this.a.a.getCount();
-                TbLog defaultLog3 = DefaultLog.getInstance();
-                defaultLog3.i("OpenScreenAdTimeoutTaskUtils", "开屏广告：OpenScreenAdTimeoutTaskUtils，函数adTimeoutTask， 类型(1是小熊，2是原生)：" + this.b + "， 等待关闭超时时的latchCount：" + count);
-                if (this.a.c() - this.a.d() > 0) {
-                    Thread.sleep(this.a.c() - this.a.d());
-                    if (this.a.a.getCount() == count) {
-                        TbLog defaultLog4 = DefaultLog.getInstance();
-                        defaultLog4.i("OpenScreenAdTimeoutTaskUtils", "开屏广告：OpenScreenAdTimeoutTaskUtils，函数adTimeoutTask，类型(1是小熊，2是原生)：" + this.b + "， OpenScreenAdCloseTimeout>>>>>>>>");
-                        this.c.invoke();
-                        this.d.addParam("source_from", "tb_kpgg").addParam(TiebaStatic.Params.AD_TYPE, this.b).addParam("obj_param1", "class_OpenScreenAdTimeoutTaskUtils").addParam("obj_type", "OpenScreenAdCloseTimeout");
-                        TiebaStatic.log(this.d);
-                    }
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public /* bridge */ /* synthetic */ Unit doInBackground(String[] strArr) {
-            b(strArr);
-            return Unit.INSTANCE;
         }
     }
 
-    public n56() {
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info_new", 0).edit().putString("bc_splash_info_new", "").apply();
+        }
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info_new", 0).getString("bc_splash_info_new", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            long j = currentTimeMillis - a;
+            if (0 < j && j < 500) {
+                return true;
+            }
+            a = currentTimeMillis;
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void b(File file) {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
+            File file2 = new File(h56.b);
+            if (!file2.exists() || (listFiles = file2.listFiles()) == null) {
                 return;
             }
-        }
-        this.a = new CountDownLatch(2);
-    }
-
-    public final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public final void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public final void b(Function0<Unit> timeoutCallback, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, timeoutCallback, i) == null) {
-            Intrinsics.checkNotNullParameter(timeoutCallback, "timeoutCallback");
-            a aVar = new a(this, i, timeoutCallback, new StatisticItem(CommonStatisticKey.KEY_RD_USE));
-            aVar.setPriority(3);
-            aVar.execute(new String[0]);
-        }
-    }
-
-    public final void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            TbLog defaultLog = DefaultLog.getInstance();
-            defaultLog.i("OpenScreenAdTimeoutTaskUtils", "开屏广告：OpenScreenAdTimeoutTaskUtils，函数onAdFinish，广告类型(1是小熊，2是原生)：" + i + ", latch.getCount() is: " + this.a.getCount());
-            this.a.countDown();
-        }
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            TbLog defaultLog = DefaultLog.getInstance();
-            defaultLog.i("OpenScreenAdTimeoutTaskUtils", "开屏广告：OpenScreenAdTimeoutTaskUtils，函数onAdShow，广告类型(1是小熊，2是原生)：" + i + ", latch.getCount() is: " + this.a.getCount() + ", showTimeoutTime is: " + this.b);
-            if (this.b > 0) {
-                this.a.countDown();
+            for (File file3 : listFiles) {
+                if (file3 != null && !file3.equals(file)) {
+                    FileHelper.deleteFileOrDir(file3);
+                }
             }
+        }
+    }
+
+    public static void f(AdInfo adInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, adInfo) == null) {
+            TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info_new", 0).edit().putString("bc_splash_info_new", p46.a(adInfo).toString()).apply();
+        }
+    }
+
+    public static void g(p46 p46Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, p46Var) == null) {
+            if (p46Var == null) {
+                c();
+            } else {
+                TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info_new", 0).edit().putString("bc_splash_info_new", p46Var.toString()).apply();
+            }
+        }
+    }
+
+    public static void h(String str, String str2, String str3, String str4, int i, int i2, boolean z, long j) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{str, str2, str3, str4, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", str).param("obj_type", "a064").param("obj_locate", str2).param("resource_id", Math.max(i2, 0));
+            if (z) {
+                i3 = 2;
+            } else {
+                i3 = 1;
+            }
+            StatisticItem param2 = param.param("obj_param1", i3).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.SPLASH_UNI, j);
+            if (!StringUtils.isNull(str3)) {
+                param2.param(TiebaStatic.Params.OBJ_PARAM2, i);
+                param2.param(TiebaStatic.Params.OBJ_PARAM3, str3);
+            }
+            if (StringUtils.isNull(str4)) {
+                param2.param(TiebaStatic.Params.OBJ_TO, str4);
+            }
+            TiebaStatic.log(param2);
+        }
+    }
+
+    public static void i(String str, String str2, String str3, String str4, String str5, String str6, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{str, str2, str3, str4, str5, str6, Long.valueOf(j)}) == null) {
+            StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", str).param("obj_type", "a064").param("obj_locate", str2).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.SPLASH_UNI, j);
+            if (!StringUtils.isNull(str4)) {
+                param.param(TiebaStatic.Params.OBJ_TO, str4);
+            }
+            if (!StringUtils.isNull(str3)) {
+                param.param("topic_id", str3);
+            }
+            if (!StringUtils.isNull(str5)) {
+                param.param("obj_param1", str5);
+                if (TbadkCoreApplication.getInst().isDebugMode() || GlobalBuildConfig.isTiebaDebugTool()) {
+                    PrintStream printStream = System.out;
+                    printStream.println("TbFunAdSdk show sid:" + str5 + " aid:" + str4 + " adAppId:" + str6);
+                }
+            }
+            if (!StringUtils.isNull(str6)) {
+                param.param(TiebaStatic.Params.OBJ_PARAM2, str6);
+            }
+            TiebaStatic.log(param);
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x0056 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r1v3 */
+    /* JADX WARN: Type inference failed for: r1v4, types: [android.database.Cursor] */
+    public static File j(Context context, Uri uri) {
+        InterceptResult invokeLL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, uri)) == null) {
+            ?? r1 = 0;
+            if (context == null || uri == null) {
+                return null;
+            }
+            ContentResolver contentResolver = context.getContentResolver();
+            try {
+                if (contentResolver == null) {
+                    return null;
+                }
+                try {
+                    cursor = contentResolver.query(uri, new String[]{"_id", "_data"}, null, null, null);
+                    if (cursor != null) {
+                        try {
+                            if (cursor.moveToFirst()) {
+                                String string = cursor.getString(cursor.getColumnIndex("_data"));
+                                if (TextUtils.isEmpty(string)) {
+                                    Closeables.closeSafely(cursor);
+                                    return null;
+                                }
+                                Uri parse = Uri.parse(string);
+                                if (parse != null) {
+                                    String uri2 = parse.toString();
+                                    if (!TextUtils.isEmpty(uri2)) {
+                                        File file = new File(uri2);
+                                        Closeables.closeSafely(cursor);
+                                        return file;
+                                    }
+                                }
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            Closeables.closeSafely(cursor);
+                            return null;
+                        }
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    cursor = null;
+                } catch (Throwable th) {
+                    th = th;
+                    Closeables.closeSafely((Cursor) r1);
+                    throw th;
+                }
+                Closeables.closeSafely(cursor);
+                return null;
+            } catch (Throwable th2) {
+                th = th2;
+                r1 = context;
+            }
+        } else {
+            return (File) invokeLL.objValue;
         }
     }
 }

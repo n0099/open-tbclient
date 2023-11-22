@@ -28,7 +28,7 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.BarDetailForDirSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.era;
+import com.baidu.tieba.fra;
 import com.baidu.tieba.qd;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
@@ -71,7 +71,7 @@ public class ItemFootNavView extends LinearLayout {
         public final /* synthetic */ ItemFootNavView b;
 
         /* loaded from: classes6.dex */
-        public class a implements era.a {
+        public class a implements fra.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
@@ -94,7 +94,7 @@ public class ItemFootNavView extends LinearLayout {
                 this.a = eVar;
             }
 
-            @Override // com.baidu.tieba.era.a
+            @Override // com.baidu.tieba.fra.a
             public void a(String str, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -110,7 +110,7 @@ public class ItemFootNavView extends LinearLayout {
                 }
             }
 
-            @Override // com.baidu.tieba.era.a
+            @Override // com.baidu.tieba.fra.a
             public void b(String str, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -152,10 +152,10 @@ public class ItemFootNavView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
                 this.b.j.dismiss();
-                era eraVar = new era();
-                eraVar.a(BarDetailForDirSwitch.BAR_DETAIL_DIR);
-                eraVar.b(new a(this));
-                eraVar.c(this.b.h.forum_name, this.b.h.forum_id.longValue());
+                fra fraVar = new fra();
+                fraVar.a(BarDetailForDirSwitch.BAR_DETAIL_DIR);
+                fraVar.b(new a(this));
+                fraVar.c(this.b.h.forum_name, this.b.h.forum_id.longValue());
             }
         }
     }

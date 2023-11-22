@@ -1,56 +1,107 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLEncoder;
 /* loaded from: classes6.dex */
-public class g78 extends j6 {
+public class g78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g78() {
-        super(0);
+    public static boolean c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            switch (i) {
+                case 202001:
+                case 205001:
+                case 309456:
+                case CmdConfigHttp.CMD_CHECK_REAL_NAME /* 1003325 */:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+        return invokeI.booleanValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                g78.e();
             }
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
-    @Override // com.baidu.tieba.m6
-    public /* bridge */ /* synthetic */ HttpResponsedMessage g(HttpResponsedMessage httpResponsedMessage) {
-        HttpResponsedMessage httpResponsedMessage2 = httpResponsedMessage;
-        i(httpResponsedMessage2);
-        return httpResponsedMessage2;
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            if (!BdUtilHelper.isMainThread()) {
+                TbadkCoreApplication.getInst().handler.post(new a());
+            } else {
+                e();
+            }
+        }
     }
 
-    public HttpResponsedMessage i(HttpResponsedMessage httpResponsedMessage) {
+    public static boolean b(NetWork netWork) {
         InterceptResult invokeL;
+        int netErrorCode;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
-            if (httpResponsedMessage == null) {
-                return httpResponsedMessage;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, netWork)) == null) {
+            if (netWork == null) {
+                return false;
             }
-            if (httpResponsedMessage.getError() == 1990055 && !f78.c(httpResponsedMessage.getCmd())) {
-                f78.d();
+            if (netWork.isNetSuccess()) {
+                netErrorCode = netWork.getServerErrorCode();
+            } else {
+                netErrorCode = netWork.getNetErrorCode();
             }
-            return httpResponsedMessage;
+            if (netErrorCode != 1990055) {
+                return false;
+            }
+            d();
+            return true;
         }
-        return (HttpResponsedMessage) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
+            BrowserHelper.startWebActivity(applicationContext, "", UrlSchemaHelper.REAL_NAME_AUTH_URL + "&u=" + URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW), true, true, true, true, true, false);
+        }
     }
 }

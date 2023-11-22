@@ -7,51 +7,66 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class b87 extends nq6 {
+public final class b87 extends oq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
-    public final e57<?> b;
+    public final boolean b;
+    public final boolean c;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
             if (obj instanceof b87) {
                 b87 b87Var = (b87) obj;
-                return Intrinsics.areEqual(this.a, b87Var.a) && Intrinsics.areEqual(this.b, b87Var.b);
+                return Intrinsics.areEqual(this.a, b87Var.a) && this.b == b87Var.b && this.c == b87Var.c;
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int hashCode = this.a.hashCode() * 31;
+            boolean z = this.b;
+            int i = z;
+            if (z != 0) {
+                i = 1;
+            }
+            int i2 = (hashCode + i) * 31;
+            boolean z2 = this.c;
+            return i2 + (z2 ? 1 : z2 ? 1 : 0);
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "ThreadEditSelectEvent(context=" + this.a + ", cardData=" + this.b + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "ThreadEditModeEvent(context=" + this.a + ", isInEditMode=" + this.b + ", formDeleteThread=" + this.c + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public b87(Context context, e57<?> cardData) {
+    public b87(Context context, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, cardData};
+            Object[] objArr = {context, Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -62,26 +77,39 @@ public final class b87 extends nq6 {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(cardData, "cardData");
         this.a = context;
-        this.b = cardData;
+        this.b = z;
+        this.c = z2;
     }
 
-    public final e57<?> a() {
+    public /* synthetic */ b87(Context context, boolean z, boolean z2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(context, z, (i & 4) != 0 ? true : z2);
+    }
+
+    public final Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (e57) invokeV.objValue;
-    }
-
-    public final Context b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
         return (Context) invokeV.objValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
     }
 }

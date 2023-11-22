@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.isa;
+import com.baidu.tieba.jsa;
 import com.baidu.tieba.lego.card.model.ImmersiveWebViewCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,7 +35,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout m;
     public BaseWebView n;
-    public isa o;
+    public jsa o;
     public XiubaTbJsBridge p;
 
     /* loaded from: classes7.dex */
@@ -128,9 +128,9 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
             }
         }
         this.i = tbPageContext;
-        isa isaVar = new isa();
-        this.o = isaVar;
-        isaVar.a(new XiubaTbJsBridge(this.i));
+        jsa jsaVar = new jsa();
+        this.o = jsaVar;
+        jsaVar.a(new XiubaTbJsBridge(this.i));
         this.o.a(new CommonTbJsBridge(this.i.getPageActivity()));
     }
 

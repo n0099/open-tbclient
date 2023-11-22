@@ -4,62 +4,36 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
 /* loaded from: classes8.dex */
-public class v4c {
+public final class v4c<TResult> implements b6c<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Executor a;
 
-    public v4c() {
+    public v4c(Executor executor, r5c r5cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executor, r5cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = executor;
     }
 
-    public static void b(String str, String str2, Throwable th) {
+    @Override // com.baidu.tieba.b6c
+    public final void a(n5c<TResult> n5cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || str2.length() <= 4000) {
-            return;
-        }
-        int i = 0;
-        while (i < str2.length()) {
-            int i2 = i + 4000;
-            if (i2 < str2.length()) {
-                str2.substring(i, i2);
-            } else {
-                str2.substring(i);
-            }
-            i = i2;
-        }
-    }
-
-    public static void a(String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            StackTraceElement[] stackTrace = new Throwable().fillInStackTrace().getStackTrace();
-            int i = 2;
-            while (true) {
-                if (i < stackTrace.length) {
-                    if (!stackTrace[i].getClass().equals(v4c.class)) {
-                        String className = stackTrace[i].getClassName();
-                        str2 = className.substring(className.lastIndexOf(46) + 1);
-                        break;
-                    }
-                    i++;
-                } else {
-                    str2 = "";
-                    break;
-                }
-            }
-            b("HonorPush_" + str2, str, null);
+        if (interceptable == null || interceptable.invokeL(1048576, this, n5cVar) == null) {
+            n5cVar.e();
         }
     }
 }

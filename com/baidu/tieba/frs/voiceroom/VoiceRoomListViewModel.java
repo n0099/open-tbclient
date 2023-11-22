@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.atomData.ReplyMeActivityConfig;
 import com.baidu.tieba.dr4;
 import com.baidu.tieba.er4;
 import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
-import com.baidu.tieba.m58;
+import com.baidu.tieba.n58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class VoiceRoomListViewModel extends ViewModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final m58 a;
+    public final n58 a;
     public final MutableLiveData<er4<List<VoiceRoomWrapper>>> b;
 
     /* loaded from: classes6.dex */
@@ -74,7 +74,7 @@ public final class VoiceRoomListViewModel extends ViewModel {
                 return;
             }
         }
-        this.a = new m58();
+        this.a = new n58();
         this.b = new MutableLiveData<>();
     }
 

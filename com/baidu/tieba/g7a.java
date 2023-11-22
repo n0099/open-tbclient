@@ -1,136 +1,54 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.redtip.PersonRedTipManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.GetRecommendGodList.DataRes;
+import tbclient.User;
 /* loaded from: classes6.dex */
-public class g7a implements d5b {
+public class g7a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public int b;
-    public int c;
-    public boolean d;
+    public int a;
+    public List<User> b;
 
-    public g7a(TbPageContext tbPageContext) {
+    public g7a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = 1;
-        this.c = 2;
-        this.d = false;
-        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.d5b
-    public void a(View view2, oz6 oz6Var) {
-        int i;
-        int i2;
-        boolean z;
+    public wy4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, view2, oz6Var) != null) || oz6Var == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            wy4 wy4Var = new wy4();
+            wy4Var.d = false;
+            wy4Var.d(this.b);
+            return wy4Var;
+        }
+        return (wy4) invokeV.objValue;
+    }
+
+    public void b(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
             return;
         }
-        UserData userData = null;
-        Bundle bundle = oz6Var.b;
-        if (bundle != null && (userData = (UserData) bundle.getSerializable(UserData.TYPE_USER)) != null) {
-            if (TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId())) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            this.b = i;
-            if (userData.isGod()) {
-                i2 = 1;
-            } else {
-                i2 = 2;
-            }
-            this.c = i2;
-            if (this.b == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.d = z;
-        }
-        switch (oz6Var.a) {
-            case 2:
-                if (!ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
-                    return;
-                }
-                UrlManager.getInstance().dealOneLink(this.a, new String[]{TbConfig.URL_MEMBER_BUY});
-                return;
-            case 3:
-                if (userData == null) {
-                    return;
-                }
-                BrowserHelper.startWebActivity(this.a.getPageActivity(), this.a.getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + userData.getUserId() + "&opacity=0", true, true, true);
-                return;
-            case 4:
-                if (userData == null) {
-                    return;
-                }
-                if (oz6Var instanceof f4a) {
-                    TiebaStatic.log(new StatisticItem("c11586"));
-                } else {
-                    TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 2).param("obj_type", this.b).param("obj_source", this.c));
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.a.getPageActivity(), true, userData.getUserId(), userData.getSex()).updateFollowNum(userData.getConcernNum(), userData.getPortrait())));
-                return;
-            case 5:
-                PersonRedTipManager.getInstance().updateRedTipState(2, false, this.d);
-                if (userData == null) {
-                    return;
-                }
-                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 3).param("obj_type", this.b).param("obj_source", this.c));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.a.getPageActivity(), false, userData.getUserId(), userData.getSex())));
-                return;
-            case 6:
-                if (userData == null) {
-                    return;
-                }
-                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 1).param("obj_type", this.b).param("obj_source", this.c));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.a.getPageActivity(), userData.getUserId(), userData.getSex(), userData.getPortrait())));
-                return;
-            case 7:
-                if (userData == null) {
-                    return;
-                }
-                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 4).param("obj_type", this.b).param("obj_source", this.c));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.a.getPageActivity(), userData.getLike_bars(), userData.getUserId(), userData.getSex())));
-                return;
-            default:
-                return;
-        }
+        this.b = dataRes.recom_user_list;
+        dataRes.has_more.intValue();
+        this.a = dataRes.current_page.intValue();
     }
 }

@@ -12,7 +12,7 @@ public class lu8 extends iu8 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public lu8() {
-        super(OfficialSettingCache.getInstance(), 2001150);
+        super(OfficialSettingCache.getInstance(), 2001144);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -21,7 +21,7 @@ public class lu8 extends iu8 {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                super((pt8) objArr[0], ((Integer) objArr[1]).intValue());
+                super((qt8) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

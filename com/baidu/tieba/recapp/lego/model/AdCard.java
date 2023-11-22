@@ -16,24 +16,24 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.JsonTransHelper;
 import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
+import com.baidu.tieba.ada;
 import com.baidu.tieba.aea;
 import com.baidu.tieba.bea;
-import com.baidu.tieba.cc9;
 import com.baidu.tieba.cea;
-import com.baidu.tieba.d16;
+import com.baidu.tieba.dc9;
 import com.baidu.tieba.dea;
 import com.baidu.tieba.dw4;
+import com.baidu.tieba.e16;
 import com.baidu.tieba.eea;
-import com.baidu.tieba.ic9;
+import com.baidu.tieba.fea;
+import com.baidu.tieba.jc9;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
-import com.baidu.tieba.sda;
-import com.baidu.tieba.wda;
+import com.baidu.tieba.tda;
 import com.baidu.tieba.wn0;
 import com.baidu.tieba.xda;
 import com.baidu.tieba.yda;
-import com.baidu.tieba.zca;
 import com.baidu.tieba.zda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,7 +44,7 @@ import org.json.JSONObject;
 import tbclient.AdCloseInfo;
 import tbclient.VideoInfo;
 /* loaded from: classes8.dex */
-public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdvert, sda, cc9 {
+public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdvert, tda, dc9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String adId;
@@ -54,31 +54,31 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
     public int cardType;
     public AdCloseInfo closeInfo;
     public String cmdScheme;
-    public xda downloadInfo;
-    public yda enhanceModel;
+    public yda downloadInfo;
+    public zda enhanceModel;
     public String ext;
     public String floor;
-    public zda gameModel;
+    public aea gameModel;
     public int goodsStyle;
     public boolean isPBBanner;
     public int maxTitleLine;
-    public aea nadTagModel;
-    public wda operate;
-    public cc9.a parallelChargeInfo;
-    public bea picInfo;
+    public bea nadTagModel;
+    public xda operate;
+    public dc9.a parallelChargeInfo;
+    public cea picInfo;
     public String playCmdScheme;
     public String recommendReason;
     public String recommendReasonColor;
     public String recommendReasonNew;
     public wn0 richTitleLinkModel;
-    public eea tailFrame;
-    public cea threadInfo;
+    public fea tailFrame;
+    public dea threadInfo;
     public String threadTitle;
     public Boolean titleBold;
     public int urlType;
     public String userImage;
     public String userName;
-    public dea verticalVideoStyle;
+    public eea verticalVideoStyle;
     public VideoInfo videoInfo;
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
@@ -173,18 +173,18 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         }
         JSONObject optJSONObject4 = jSONObject.optJSONObject("operate");
         if (optJSONObject4 != null) {
-            this.operate = wda.a(optJSONObject4);
+            this.operate = xda.a(optJSONObject4);
         }
-        eea eeaVar = new eea();
-        this.tailFrame = eeaVar;
-        eeaVar.b(jSONObject.optJSONObject(AdWebVideoActivityConfig.KEY_TAIL_FRAME));
+        fea feaVar = new fea();
+        this.tailFrame = feaVar;
+        feaVar.b(jSONObject.optJSONObject(AdWebVideoActivityConfig.KEY_TAIL_FRAME));
         JSONObject optJSONObject5 = jSONObject.optJSONObject("app_info");
         if (optJSONObject5 != null) {
             this.appInfoModel = dw4.b(optJSONObject5);
         }
         JSONObject optJSONObject6 = jSONObject.optJSONObject("pic_info");
         if (optJSONObject6 != null) {
-            this.picInfo = bea.a(optJSONObject6);
+            this.picInfo = cea.a(optJSONObject6);
         }
         JSONObject optJSONObject7 = jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO);
         if (optJSONObject7 != null) {
@@ -192,30 +192,30 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         }
         JSONObject optJSONObject8 = jSONObject.optJSONObject("thread_info");
         if (optJSONObject8 != null) {
-            this.threadInfo = cea.a(optJSONObject8);
+            this.threadInfo = dea.a(optJSONObject8);
         }
         JSONObject optJSONObject9 = jSONObject.optJSONObject(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO);
         if (optJSONObject9 != null) {
-            this.downloadInfo = xda.a(optJSONObject9);
+            this.downloadInfo = yda.a(optJSONObject9);
         }
         JSONObject optJSONObject10 = jSONObject.optJSONObject("vertical_video_style");
         if (optJSONObject10 != null) {
-            this.verticalVideoStyle = dea.b(optJSONObject10);
+            this.verticalVideoStyle = eea.b(optJSONObject10);
         }
-        cc9.a aVar = new cc9.a();
+        dc9.a aVar = new dc9.a();
         this.parallelChargeInfo = aVar;
         aVar.a(jSONObject);
         JSONObject optJSONObject11 = jSONObject.optJSONObject("enhancement");
         if (optJSONObject11 != null) {
-            this.enhanceModel = yda.a(optJSONObject11);
+            this.enhanceModel = zda.a(optJSONObject11);
         }
         JSONObject optJSONObject12 = jSONObject.optJSONObject("play_button");
         if (optJSONObject12 != null) {
-            this.gameModel = zda.a(optJSONObject12);
+            this.gameModel = aea.a(optJSONObject12);
         }
         JSONObject optJSONObject13 = jSONObject.optJSONObject("ad_tag");
         if (optJSONObject13 != null) {
-            this.nadTagModel = aea.a(optJSONObject13);
+            this.nadTagModel = bea.a(optJSONObject13);
         }
     }
 
@@ -224,8 +224,8 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            xda xdaVar = this.downloadInfo;
-            if (xdaVar == null || TextUtils.isEmpty(xdaVar.a) || TextUtils.isEmpty(this.downloadInfo.b)) {
+            yda ydaVar = this.downloadInfo;
+            if (ydaVar == null || TextUtils.isEmpty(ydaVar.a) || TextUtils.isEmpty(this.downloadInfo.b)) {
                 return false;
             }
             return true;
@@ -247,11 +247,11 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            cea ceaVar = this.threadInfo;
-            if (ceaVar == null) {
+            dea deaVar = this.threadInfo;
+            if (deaVar == null) {
                 return -1L;
             }
-            return ceaVar.a;
+            return deaVar.a;
         }
         return invokeV.longValue;
     }
@@ -270,11 +270,11 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            wda wdaVar = this.operate;
-            if (wdaVar == null) {
+            xda xdaVar = this.operate;
+            if (xdaVar == null) {
                 return this.scheme;
             }
-            return wdaVar.c;
+            return xdaVar.c;
         }
         return (String) invokeV.objValue;
     }
@@ -284,11 +284,11 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            wda wdaVar = this.operate;
-            if (wdaVar == null) {
+            xda xdaVar = this.operate;
+            if (xdaVar == null) {
                 return this.scheme;
             }
-            return wdaVar.b;
+            return xdaVar.b;
         }
         return (String) invokeV.objValue;
     }
@@ -298,11 +298,11 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            wda wdaVar = this.operate;
-            if (wdaVar == null) {
+            xda xdaVar = this.operate;
+            if (xdaVar == null) {
                 return null;
             }
-            return wdaVar.a;
+            return xdaVar.a;
         }
         return (String) invokeV.objValue;
     }
@@ -312,11 +312,11 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            xda xdaVar = this.downloadInfo;
-            if (xdaVar == null) {
+            yda ydaVar = this.downloadInfo;
+            if (ydaVar == null) {
                 return null;
             }
-            return xdaVar.c;
+            return ydaVar.c;
         }
         return (String) invokeV.objValue;
     }
@@ -345,7 +345,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.sda
+    @Override // com.baidu.tieba.tda
     public String getImageUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -355,25 +355,25 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cc9
-    public cc9.a getParallelCharge() {
+    @Override // com.baidu.tieba.dc9
+    public dc9.a getParallelCharge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.parallelChargeInfo;
         }
-        return (cc9.a) invokeV.objValue;
+        return (dc9.a) invokeV.objValue;
     }
 
     public double getPicScale() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            bea beaVar = this.picInfo;
-            if (beaVar == null) {
+            cea ceaVar = this.picInfo;
+            if (ceaVar == null) {
                 return 1.0d;
             }
-            return beaVar.b;
+            return ceaVar.b;
         }
         return invokeV.doubleValue;
     }
@@ -383,9 +383,9 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            bea beaVar = this.picInfo;
-            if (beaVar != null && !ic9.e(beaVar.c)) {
-                return (String) ic9.d(this.picInfo.c, 0);
+            cea ceaVar = this.picInfo;
+            if (ceaVar != null && !jc9.e(ceaVar.c)) {
+                return (String) jc9.d(this.picInfo.c, 0);
             }
             return null;
         }
@@ -405,21 +405,21 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            cea ceaVar = this.threadInfo;
-            if (ceaVar == null) {
+            dea deaVar = this.threadInfo;
+            if (deaVar == null) {
                 return -1;
             }
-            return ceaVar.c;
+            return deaVar.c;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.sda
+    @Override // com.baidu.tieba.tda
     public String getShareLink() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            if (zca.g(this.scheme)) {
+            if (ada.g(this.scheme)) {
                 return Uri.parse(this.scheme).getQueryParameter("wap");
             }
             return this.scheme;
@@ -431,16 +431,16 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            cea ceaVar = this.threadInfo;
-            if (ceaVar == null) {
+            dea deaVar = this.threadInfo;
+            if (deaVar == null) {
                 return -1;
             }
-            return ceaVar.b;
+            return deaVar.b;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.sda
+    @Override // com.baidu.tieba.tda
     public AdvertAppInfo getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -454,16 +454,16 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            cea ceaVar = this.threadInfo;
-            if (ceaVar == null) {
+            dea deaVar = this.threadInfo;
+            if (deaVar == null) {
                 return System.currentTimeMillis();
             }
-            return ceaVar.d;
+            return deaVar.d;
         }
         return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.sda
+    @Override // com.baidu.tieba.tda
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -477,7 +477,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            if (d16.a().b("tieba_ad_tag_optimize_switch", 0) != 1 || this.nadTagModel == null) {
+            if (e16.a().b("tieba_ad_tag_optimize_switch", 0) != 1 || this.nadTagModel == null) {
                 return false;
             }
             return true;
@@ -489,11 +489,11 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            wda wdaVar = this.operate;
-            if (wdaVar == null) {
+            xda xdaVar = this.operate;
+            if (xdaVar == null) {
                 return false;
             }
-            return !TextUtils.isEmpty(wdaVar.d);
+            return !TextUtils.isEmpty(xdaVar.d);
         }
         return invokeV.booleanValue;
     }
@@ -502,8 +502,8 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            wda wdaVar = this.operate;
-            if (wdaVar == null || wdaVar.e <= 0 || this.adRunTime.a.booleanValue()) {
+            xda xdaVar = this.operate;
+            if (xdaVar == null || xdaVar.e <= 0 || this.adRunTime.a.booleanValue()) {
                 return false;
             }
             return true;
@@ -515,11 +515,11 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            bea beaVar = this.picInfo;
-            if (beaVar == null) {
+            cea ceaVar = this.picInfo;
+            if (ceaVar == null) {
                 return false;
             }
-            return beaVar.a;
+            return ceaVar.a;
         }
         return invokeV.booleanValue;
     }
@@ -528,8 +528,8 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            wda wdaVar = this.operate;
-            if (wdaVar == null || wdaVar.f != 1) {
+            xda xdaVar = this.operate;
+            if (xdaVar == null || xdaVar.f != 1) {
                 return false;
             }
             return true;
@@ -540,11 +540,11 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
     public boolean isNoPicAd() {
         InterceptResult invokeV;
-        bea beaVar;
+        cea ceaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             int i = this.goodsStyle;
-            if ((i != 2 && i != 6 && i != 8) || (beaVar = this.picInfo) == null || ic9.e(beaVar.c)) {
+            if ((i != 2 && i != 6 && i != 8) || (ceaVar = this.picInfo) == null || jc9.e(ceaVar.c)) {
                 return false;
             }
             return true;
@@ -581,11 +581,11 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            xda xdaVar = this.downloadInfo;
-            if (xdaVar == null) {
+            yda ydaVar = this.downloadInfo;
+            if (ydaVar == null) {
                 return "";
             }
-            if (!TextUtils.isEmpty(xdaVar.c)) {
+            if (!TextUtils.isEmpty(ydaVar.c)) {
                 return this.downloadInfo.c;
             }
             if (!TextUtils.isEmpty(this.downloadInfo.a)) {
@@ -642,9 +642,9 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         if (interceptable == null || interceptable.invokeL(1048610, this, advertAppInfo) == null) {
             this.appInfo = advertAppInfo;
             updataThreadData(advertAppInfo);
-            eea eeaVar = this.tailFrame;
-            if (!eeaVar.k) {
-                eeaVar.a(this.appInfo, this);
+            fea feaVar = this.tailFrame;
+            if (!feaVar.k) {
+                feaVar.a(this.appInfo, this);
             }
             dw4 dw4Var = this.appInfoModel;
             if (dw4Var != null) {
@@ -654,10 +654,10 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
     }
 
     public void updataThreadData(ThreadData threadData) {
-        cea ceaVar;
+        dea deaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048611, this, threadData) == null) && threadData != null && (ceaVar = this.threadInfo) != null) {
-            threadData.setLast_time_int(ceaVar.d / 1000);
+        if ((interceptable == null || interceptable.invokeL(1048611, this, threadData) == null) && threadData != null && (deaVar = this.threadInfo) != null) {
+            threadData.setLast_time_int(deaVar.d / 1000);
             threadData.setReply_num(this.threadInfo.c);
             threadData.setAgreeNum(this.threadInfo.a);
             threadData.setShareNum(this.threadInfo.b);

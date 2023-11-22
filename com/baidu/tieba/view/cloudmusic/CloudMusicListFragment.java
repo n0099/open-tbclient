@@ -23,31 +23,31 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.data.TbMusicData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g07;
-import com.baidu.tieba.u5b;
+import com.baidu.tieba.h07;
 import com.baidu.tieba.v5b;
 import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 import com.baidu.tieba.w5b;
 import com.baidu.tieba.x5b;
 import com.baidu.tieba.y5b;
+import com.baidu.tieba.z5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class CloudMusicListFragment extends BaseFragment implements BdListView.q, v5b, x5b.c {
+public class CloudMusicListFragment extends BaseFragment implements BdListView.q, w5b, y5b.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdListView a;
-    public x5b b;
-    public u5b c;
+    public y5b b;
+    public v5b c;
     public CloudMusicData.MusicTagList d;
     public PbListView e;
     public int f;
     public NoDataView g;
     public int h;
-    public w5b i;
+    public x5b i;
     public TbMusicData j;
     public CustomMessageListener k;
 
@@ -162,11 +162,11 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onDestroy();
-            u5b u5bVar = this.c;
-            if (u5bVar != null) {
-                u5bVar.a();
+            v5b v5bVar = this.c;
+            if (v5bVar != null) {
+                v5bVar.a();
             }
-            y5b.b().c();
+            z5b.b().c();
         }
     }
 
@@ -192,7 +192,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         return (CloudMusicListFragment) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.v5b
+    @Override // com.baidu.tieba.w5b
     public void E1(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -200,15 +200,15 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         }
     }
 
-    @Override // com.baidu.tieba.v5b
-    public void F0(u5b u5bVar) {
+    @Override // com.baidu.tieba.w5b
+    public void F0(v5b v5bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u5bVar) == null) {
-            this.c = u5bVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v5bVar) == null) {
+            this.c = v5bVar;
         }
     }
 
-    @Override // com.baidu.tieba.v5b
+    @Override // com.baidu.tieba.w5b
     public void O0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -224,21 +224,21 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
                 BdUtilHelper.showToast(getPageContext().getPageActivity(), (int) R.string.obfuscated_res_0x7f0f0e61);
                 return;
             }
-            u5b u5bVar = this.c;
-            if (u5bVar != null && this.h != 0) {
-                u5bVar.e(this.f);
+            v5b v5bVar = this.c;
+            if (v5bVar != null && this.h != 0) {
+                v5bVar.e(this.f);
             }
         }
     }
 
-    @Override // com.baidu.tieba.v5b
+    @Override // com.baidu.tieba.w5b
     public void k1(CloudMusicData.MusicTagList musicTagList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, musicTagList) == null) {
             this.d = musicTagList;
-            x5b x5bVar = this.b;
-            if (x5bVar != null) {
-                x5bVar.b(musicTagList.music_list);
+            y5b y5bVar = this.b;
+            if (y5bVar != null) {
+                y5bVar.b(musicTagList.music_list);
             }
         }
     }
@@ -261,10 +261,10 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         }
     }
 
-    public void x2(w5b w5bVar) {
+    public void x2(x5b x5bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, w5bVar) == null) {
-            this.i = w5bVar;
+        if (interceptable == null || interceptable.invokeL(1048591, this, x5bVar) == null) {
+            this.i = x5bVar;
         }
     }
 
@@ -275,7 +275,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         }
     }
 
-    @Override // com.baidu.tieba.v5b
+    @Override // com.baidu.tieba.w5b
     public void z(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
@@ -287,7 +287,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         }
     }
 
-    @Override // com.baidu.tieba.v5b
+    @Override // com.baidu.tieba.w5b
     public void L0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -298,7 +298,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         }
     }
 
-    @Override // com.baidu.tieba.v5b
+    @Override // com.baidu.tieba.w5b
     public void d0(boolean z) {
         PbListView pbListView;
         Interceptable interceptable = $ic;
@@ -316,7 +316,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         }
     }
 
-    @Override // com.baidu.tieba.v5b
+    @Override // com.baidu.tieba.w5b
     public void f0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -332,14 +332,14 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         }
     }
 
-    @Override // com.baidu.tieba.x5b.c
+    @Override // com.baidu.tieba.y5b.c
     public void h2(View view2, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, str, i) == null) {
             Intent intent = new Intent();
             intent.putExtra(CloudMusicActivityConfig.MUSIC_RESOURCE, str);
-            x5b x5bVar = this.b;
-            if (x5bVar != null && x5bVar.getItem(i) != null) {
+            y5b y5bVar = this.b;
+            if (y5bVar != null && y5bVar.getItem(i) != null) {
                 intent.putExtra(CloudMusicActivityConfig.MUSIC_ID, StringUtils.string(Integer.valueOf(this.b.getItem(i).music_id)));
                 TbMusicData tbMusicData = new TbMusicData();
                 tbMusicData.id = String.valueOf(this.b.getItem(i).music_id);
@@ -348,12 +348,12 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
                 tbMusicData.url = this.b.getItem(i).resource;
                 tbMusicData.icon = this.b.getItem(i).image;
                 tbMusicData.type = 2;
-                tbMusicData.localPath = g07.h().g(tbMusicData.url);
+                tbMusicData.localPath = h07.h().g(tbMusicData.url);
                 intent.putExtra(CloudMusicActivityConfig.MUSIC_DATA, tbMusicData);
             }
-            w5b w5bVar = this.i;
-            if (w5bVar != null) {
-                w5bVar.S(intent);
+            x5b x5bVar = this.i;
+            if (x5bVar != null) {
+                x5bVar.S(intent);
             }
             getPageContext().getPageActivity().setResult(-1, intent);
             getPageContext().getPageActivity().finish();
@@ -363,7 +363,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
-        u5b u5bVar;
+        v5b v5bVar;
         CloudMusicData.MusicTagList.Page page;
         TbMusicData tbMusicData;
         Interceptable interceptable = $ic;
@@ -371,15 +371,15 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0337, viewGroup, false);
             this.d = (CloudMusicData.MusicTagList) getArguments().getSerializable("music_list_key");
             this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f09076b);
-            x5b x5bVar = new x5b(getPageContext());
-            this.b = x5bVar;
-            this.a.setAdapter((ListAdapter) x5bVar);
+            y5b y5bVar = new y5b(getPageContext());
+            this.b = y5bVar;
+            this.a.setAdapter((ListAdapter) y5bVar);
             this.a.setExOnSrollToBottomListener(this);
             this.a.setDivider(null);
             this.b.e(this);
-            x5b x5bVar2 = this.b;
-            if (x5bVar2 != null && (tbMusicData = this.j) != null) {
-                x5bVar2.d(tbMusicData.id);
+            y5b y5bVar2 = this.b;
+            if (y5bVar2 != null && (tbMusicData = this.j) != null) {
+                y5bVar2.d(tbMusicData.id);
             }
             PbListView pbListView = new PbListView(getPageContext().getPageActivity());
             this.e = pbListView;
@@ -390,10 +390,10 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
             this.g = a2;
             a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             CloudMusicData.MusicTagList musicTagList = this.d;
-            if (musicTagList != null && (u5bVar = this.c) != null && (page = musicTagList.page) != null) {
+            if (musicTagList != null && (v5bVar = this.c) != null && (page = musicTagList.page) != null) {
                 this.f = musicTagList.tag_id;
                 this.h = page.has_more;
-                u5bVar.d(musicTagList);
+                v5bVar.d(musicTagList);
             }
             this.a.setOnItemClickListener(new b(this));
             registerListener(this.k);

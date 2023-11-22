@@ -1,56 +1,40 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ijc;
-import com.baidu.tieba.ljc;
+import com.baidu.tieba.elc;
+import com.baidu.tieba.mjc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeoutException;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public class dlc<T> implements ijc.b<T, T> {
+public final class dlc<T> extends elc<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a<T> a;
-    public final b<T> b;
-    public final ijc<? extends T> c;
-    public final ljc d;
 
     /* loaded from: classes5.dex */
-    public interface a<T> extends dkc<c<T>, Long, ljc.a, pjc> {
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b<T> extends ekc<c<T>, Long, T, ljc.a, pjc> {
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class c<T> extends ojc<T> {
+    public class a implements elc.a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final noc e;
-        public final unc<T> f;
-        public final b<T> g;
-        public final ijc<? extends T> h;
-        public final ljc.a i;
-        public final klc j;
-        public boolean k;
-        public long l;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ TimeUnit b;
 
+        /* renamed from: com.baidu.tieba.dlc$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class a extends ojc<T> {
+        public class C0259a implements wjc {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c e;
+            public final /* synthetic */ elc.c a;
+            public final /* synthetic */ Long b;
 
-            public a(c cVar) {
+            public C0259a(a aVar, elc.c cVar, Long l) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
+                    Object[] objArr = {aVar, cVar, l};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -60,48 +44,25 @@ public class dlc<T> implements ijc.b<T, T> {
                         return;
                     }
                 }
-                this.e = cVar;
+                this.a = cVar;
+                this.b = l;
             }
 
-            @Override // com.baidu.tieba.ojc
-            public void f(kjc kjcVar) {
+            @Override // com.baidu.tieba.wjc
+            public void call() {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, kjcVar) == null) {
-                    this.e.j.c(kjcVar);
-                }
-            }
-
-            @Override // com.baidu.tieba.jjc
-            public void onError(Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                    this.e.f.onError(th);
-                }
-            }
-
-            @Override // com.baidu.tieba.jjc
-            public void onNext(T t) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                    this.e.f.onNext(t);
-                }
-            }
-
-            @Override // com.baidu.tieba.jjc
-            public void onCompleted() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.e.f.onCompleted();
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.g(this.b.longValue());
                 }
             }
         }
 
-        public c(unc<T> uncVar, b<T> bVar, noc nocVar, ijc<? extends T> ijcVar, ljc.a aVar) {
+        public a(long j, TimeUnit timeUnit) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {uncVar, bVar, nocVar, ijcVar, aVar};
+                Object[] objArr = {Long.valueOf(j), timeUnit};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -111,149 +72,115 @@ public class dlc<T> implements ijc.b<T, T> {
                     return;
                 }
             }
-            this.f = uncVar;
-            this.g = bVar;
-            this.e = nocVar;
-            this.h = ijcVar;
-            this.i = aVar;
-            this.j = new klc();
+            this.a = j;
+            this.b = timeUnit;
         }
 
-        @Override // com.baidu.tieba.ojc
-        public void f(kjc kjcVar) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ekc
+        /* renamed from: b */
+        public qjc a(elc.c<T> cVar, Long l, mjc.a aVar) {
+            InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, kjcVar) == null) {
-                this.j.c(kjcVar);
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, l, aVar)) == null) {
+                return aVar.c(new C0259a(this, cVar, l), this.a, this.b);
             }
-        }
-
-        @Override // com.baidu.tieba.jjc
-        public void onError(Throwable th) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                synchronized (this) {
-                    z = true;
-                    if (!this.k) {
-                        this.k = true;
-                    } else {
-                        z = false;
-                    }
-                }
-                if (z) {
-                    this.e.unsubscribe();
-                    this.f.onError(th);
-                }
-            }
-        }
-
-        public void g(long j) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                synchronized (this) {
-                    z = true;
-                    if (j == this.l && !this.k) {
-                        this.k = true;
-                    } else {
-                        z = false;
-                    }
-                }
-                if (z) {
-                    if (this.h == null) {
-                        this.f.onError(new TimeoutException());
-                        return;
-                    }
-                    a aVar = new a(this);
-                    this.h.O(aVar);
-                    this.e.a(aVar);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.jjc
-        public void onNext(T t) {
-            long j;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                synchronized (this) {
-                    if (!this.k) {
-                        j = this.l + 1;
-                        this.l = j;
-                        z = true;
-                    } else {
-                        j = this.l;
-                        z = false;
-                    }
-                }
-                if (z) {
-                    this.f.onNext(t);
-                    this.e.a(this.g.b(this, Long.valueOf(j), t, this.i));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.jjc
-        public void onCompleted() {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                synchronized (this) {
-                    z = true;
-                    if (!this.k) {
-                        this.k = true;
-                    } else {
-                        z = false;
-                    }
-                }
-                if (z) {
-                    this.e.unsubscribe();
-                    this.f.onCompleted();
-                }
-            }
+            return (qjc) invokeLLL.objValue;
         }
     }
 
-    public dlc(a<T> aVar, b<T> bVar, ijc<? extends T> ijcVar, ljc ljcVar) {
+    /* loaded from: classes5.dex */
+    public class b implements elc.b<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ TimeUnit b;
+
+        /* loaded from: classes5.dex */
+        public class a implements wjc {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ elc.c a;
+            public final /* synthetic */ Long b;
+
+            public a(b bVar, elc.c cVar, Long l) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, cVar, l};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = cVar;
+                this.b = l;
+            }
+
+            @Override // com.baidu.tieba.wjc
+            public void call() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.g(this.b.longValue());
+                }
+            }
+        }
+
+        public b(long j, TimeUnit timeUnit) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), timeUnit};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j;
+            this.b = timeUnit;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fkc
+        /* renamed from: a */
+        public qjc b(elc.c<T> cVar, Long l, T t, mjc.a aVar) {
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, cVar, l, t, aVar)) == null) {
+                return aVar.c(new a(this, cVar, l), this.a, this.b);
+            }
+            return (qjc) invokeLLLL.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dlc(long j, TimeUnit timeUnit, jjc<? extends T> jjcVar, mjc mjcVar) {
+        super(new a(j, timeUnit), new b(j, timeUnit), jjcVar, mjcVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, bVar, ijcVar, ljcVar};
+            Object[] objArr = {Long.valueOf(j), timeUnit, jjcVar, mjcVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((elc.a) objArr2[0], (elc.b) objArr2[1], (jjc) objArr2[2], (mjc) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = aVar;
-        this.b = bVar;
-        this.c = ijcVar;
-        this.d = ljcVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bkc
-    /* renamed from: a */
-    public ojc<? super T> call(ojc<? super T> ojcVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ojcVar)) == null) {
-            ljc.a createWorker = this.d.createWorker();
-            ojcVar.b(createWorker);
-            unc uncVar = new unc(ojcVar);
-            noc nocVar = new noc();
-            uncVar.b(nocVar);
-            c cVar = new c(uncVar, this.b, nocVar, this.c, createWorker);
-            uncVar.b(cVar);
-            uncVar.f(cVar.j);
-            nocVar.a(this.a.a(cVar, 0L, createWorker));
-            return cVar;
-        }
-        return (ojc) invokeL.objValue;
     }
 }

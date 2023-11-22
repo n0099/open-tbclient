@@ -41,14 +41,14 @@ public class z93 extends d83 {
 
         /* renamed from: com.baidu.tieba.z93$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C0545a implements lc2.f {
+        public class C0547a implements lc2.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ lc2.e a;
             public final /* synthetic */ JSONObject b;
             public final /* synthetic */ a c;
 
-            public C0545a(a aVar, lc2.e eVar, JSONObject jSONObject) {
+            public C0547a(a aVar, lc2.e eVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,7 +136,7 @@ public class z93 extends d83 {
                     str2 = "0";
                 }
                 q.D("preload", str2);
-                lc2.q(f, new C0545a(this, f, c2));
+                lc2.q(f, new C0547a(this, f, c2));
             }
         }
 

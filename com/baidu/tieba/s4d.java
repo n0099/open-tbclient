@@ -1,26 +1,25 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.ThemeTailInUser;
+import tbclient.ThemeMyTab;
 /* loaded from: classes8.dex */
-public class s4d extends poc {
+public class s4d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ThemeTailInUser themeTailInUser) {
+    public static JSONObject b(@NonNull ThemeMyTab themeMyTab) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, themeTailInUser)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, themeMyTab)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "url", themeTailInUser.url);
-            poc.a(jSONObject, PraiseUBCHelper.SOURCE_DYNAMIC, themeTailInUser.dynamic);
-            poc.a(jSONObject, "props_id", themeTailInUser.props_id);
+            qoc.a(jSONObject, "url", themeMyTab.url);
+            qoc.a(jSONObject, "dynamic_url", themeMyTab.dynamic_url);
+            qoc.a(jSONObject, "button_color", themeMyTab.button_color);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

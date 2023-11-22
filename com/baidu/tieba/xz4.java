@@ -46,9 +46,9 @@ public final class xz4 {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
                     ThreadRecommendTag.Builder builder3 = new ThreadRecommendTag.Builder();
                     builder3.text = optJSONObject2.optString("text");
-                    builder3.text_color = c1b.j(optJSONObject2.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
-                    builder3.background_color = c1b.j(optJSONObject2.optJSONObject("background_color"));
-                    builder3.boundary_color = c1b.j(optJSONObject2.optJSONObject("boundary_color"));
+                    builder3.text_color = d1b.j(optJSONObject2.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
+                    builder3.background_color = d1b.j(optJSONObject2.optJSONObject("background_color"));
+                    builder3.boundary_color = d1b.j(optJSONObject2.optJSONObject("boundary_color"));
                     ThreadRecommendTag build = builder3.build(true);
                     Intrinsics.checkNotNullExpressionValue(build, "tagBuilder.build(true)");
                     arrayList.add(build);

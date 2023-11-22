@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e8a;
+import com.baidu.tieba.f8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,7 +16,7 @@ import tbclient.User;
 public abstract class PersonCenterTabBaseFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e8a a;
+    public f8a a;
 
     public abstract void u2(boolean z);
 
@@ -48,10 +48,10 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view2) {
-        e8a e8aVar;
+        f8a f8aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (e8aVar = this.a) != null) {
-            e8aVar.dettachView(view2);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (f8aVar = this.a) != null) {
+            f8aVar.dettachView(view2);
         }
     }
 
@@ -60,9 +60,9 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            e8a e8aVar = this.a;
-            if (e8aVar != null) {
-                e8aVar.onChangeSkinType();
+            f8a f8aVar = this.a;
+            if (f8aVar != null) {
+                f8aVar.onChangeSkinType();
             }
         }
     }
@@ -72,9 +72,9 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, view2, str, z) == null) {
             if (this.a == null) {
-                e8a e8aVar = new e8a(getPageContext().getPageActivity(), getNetRefreshListener());
-                this.a = e8aVar;
-                e8aVar.d(getPageContext().getResources().getString(R.string.refresh_view_title_text));
+                f8a f8aVar = new f8a(getPageContext().getPageActivity(), getNetRefreshListener());
+                this.a = f8aVar;
+                f8aVar.d(getPageContext().getResources().getString(R.string.refresh_view_title_text));
                 this.a.c(null);
                 this.a.b(getPageContext().getResources().getString(R.string.refresh_view_button_text));
                 this.a.e();

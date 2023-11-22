@@ -29,10 +29,10 @@ import com.baidu.tbadk.core.relogin.ReloginManager;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b55;
-import com.baidu.tieba.bq9;
+import com.baidu.tieba.c55;
 import com.baidu.tieba.cq9;
 import com.baidu.tieba.dq9;
+import com.baidu.tieba.eq9;
 import com.baidu.tieba.payment.data.PayRequestData;
 import com.baidu.tieba.payment.data.PayResultData;
 import com.baidu.tieba.payment.data.PayVcodeInfoData;
@@ -53,7 +53,7 @@ import java.net.URLEncoder;
 public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bq9 a;
+    public cq9 a;
     public PaymentConfirmModel<PaymentConfirmActivity> b;
     public PaymentConfirmRequestData c;
     public PaymentConfirmInfoData d;
@@ -277,11 +277,11 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!this.a.g) {
                     if (this.a.e) {
-                        cq9.a("c10292");
+                        dq9.a("c10292");
                         this.a.u1();
                         return;
                     }
-                    cq9.a("c10293");
+                    dq9.a("c10293");
                     this.a.t1();
                     return;
                 }
@@ -396,14 +396,14 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     if (!responsePaymentPayMessage.hasError()) {
                         int error = responsePaymentPayMessage.getError();
                         if (error == 0) {
-                            cq9.a("c10294");
+                            dq9.a("c10294");
                             PayResultData payRequestDataData = responsePaymentPayMessage.getPayRequestDataData();
                             if (payRequestDataData != null && payRequestDataData.getDescribe() != null && payRequestDataData.getDescribe().getWord() != null) {
                                 string = payRequestDataData.getDescribe().getWord();
                             } else {
                                 string = this.a.getString(R.string.exchange_success);
                             }
-                            new b55().d(string);
+                            new c55().d(string);
                             if (!TextUtils.isEmpty(this.a.j)) {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001419));
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001420, this.a.j));
@@ -452,12 +452,12 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                                     return;
                                 }
                             }
-                            b55 b55Var = new b55();
+                            c55 c55Var = new c55();
                             String errorString = responsePaymentPayMessage.getErrorString();
                             if (StringUtils.isNull(errorString)) {
                                 errorString = this.a.getResources().getString(R.string.plugin_pay_error);
                             }
-                            b55Var.c(errorString);
+                            c55Var.c(errorString);
                             return;
                         }
                     }
@@ -713,7 +713,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             } else {
                 z = false;
             }
-            this.a = new bq9(this, z, this.m);
+            this.a = new cq9(this, z, this.m);
             this.a.F().setChecked(!SharedPrefHelper.getInstance().getBoolean(s1("payment_confirm_show"), true));
             this.a.F().setOnCheckedChangeListener(new e(this));
             this.a.J().setOnClickListener(new f(this));
@@ -752,7 +752,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             z1();
             D1();
             B1();
-            cq9.a("c10291");
+            dq9.a("c10291");
         }
     }
 
@@ -939,7 +939,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             payRequestData.setOpenId(order_info.getOpen_id());
             payRequestData.setTbs(this.d.getTbs());
             if (!StringUtils.isNull(str2)) {
-                payRequestData.setPassword(URLEncoder.encode(dq9.a(str2, str)));
+                payRequestData.setPassword(URLEncoder.encode(eq9.a(str2, str)));
             }
             if (!StringUtils.isNull(str3)) {
                 payRequestData.setCaptchaVcodeStr(str3);

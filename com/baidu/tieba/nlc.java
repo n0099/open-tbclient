@@ -1,49 +1,51 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ljc;
+import com.baidu.tieba.mjc;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.Executor;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
-import rx.internal.schedulers.ScheduledAction;
+import java.util.concurrent.atomic.AtomicReference;
+import rx.internal.util.RxThreadFactory;
 /* loaded from: classes7.dex */
-public final class nlc extends ljc {
+public final class nlc extends mjc implements tlc {
     public static /* synthetic */ Interceptable $ic;
+    public static final int c;
+    public static final c d;
+    public static final b e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Executor a;
+    public final ThreadFactory a;
+    public final AtomicReference<b> b;
 
     /* loaded from: classes7.dex */
-    public static final class a extends ljc.a implements Runnable {
+    public static final class a extends mjc.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Executor a;
-        public final loc b;
-        public final ConcurrentLinkedQueue<ScheduledAction> c;
-        public final AtomicInteger d;
-        public final ScheduledExecutorService e;
+        public final dmc a;
+        public final moc b;
+        public final dmc c;
+        public final c d;
 
         /* renamed from: com.baidu.tieba.nlc$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0414a implements vjc {
+        public class C0412a implements wjc {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ moc a;
+            public final /* synthetic */ wjc a;
             public final /* synthetic */ a b;
 
-            public C0414a(a aVar, moc mocVar) {
+            public C0412a(a aVar, wjc wjcVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, mocVar};
+                    Object[] objArr = {aVar, wjcVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -54,33 +56,32 @@ public final class nlc extends ljc {
                     }
                 }
                 this.b = aVar;
-                this.a = mocVar;
+                this.a = wjcVar;
             }
 
-            @Override // com.baidu.tieba.vjc
+            @Override // com.baidu.tieba.wjc
             public void call() {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.b.d(this.a);
+                if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.isUnsubscribed()) {
+                    return;
                 }
+                this.a.call();
             }
         }
 
         /* loaded from: classes7.dex */
-        public class b implements vjc {
+        public class b implements wjc {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ moc a;
-            public final /* synthetic */ vjc b;
-            public final /* synthetic */ pjc c;
-            public final /* synthetic */ a d;
+            public final /* synthetic */ wjc a;
+            public final /* synthetic */ a b;
 
-            public b(a aVar, moc mocVar, vjc vjcVar, pjc pjcVar) {
+            public b(a aVar, wjc wjcVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, mocVar, vjcVar, pjcVar};
+                    Object[] objArr = {aVar, wjcVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -90,32 +91,26 @@ public final class nlc extends ljc {
                         return;
                     }
                 }
-                this.d = aVar;
-                this.a = mocVar;
-                this.b = vjcVar;
-                this.c = pjcVar;
+                this.b = aVar;
+                this.a = wjcVar;
             }
 
-            @Override // com.baidu.tieba.vjc
+            @Override // com.baidu.tieba.wjc
             public void call() {
                 Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.isUnsubscribed()) {
+                if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.isUnsubscribed()) {
                     return;
                 }
-                pjc b = this.d.b(this.b);
-                this.a.a(b);
-                if (b.getClass() == ScheduledAction.class) {
-                    ((ScheduledAction) b).add(this.c);
-                }
+                this.a.call();
             }
         }
 
-        public a(Executor executor) {
+        public a(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {executor};
+                Object[] objArr = {cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -125,139 +120,229 @@ public final class nlc extends ljc {
                     return;
                 }
             }
-            this.a = executor;
-            this.c = new ConcurrentLinkedQueue<>();
-            this.d = new AtomicInteger();
-            this.b = new loc();
-            this.e = olc.a();
+            this.a = new dmc();
+            moc mocVar = new moc();
+            this.b = mocVar;
+            this.c = new dmc(this.a, mocVar);
+            this.d = cVar;
         }
 
-        @Override // com.baidu.tieba.ljc.a
-        public pjc b(vjc vjcVar) {
+        @Override // com.baidu.tieba.mjc.a
+        public qjc b(wjc wjcVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vjcVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wjcVar)) == null) {
                 if (isUnsubscribed()) {
-                    return ooc.c();
+                    return poc.c();
                 }
-                ScheduledAction scheduledAction = new ScheduledAction(ync.q(vjcVar), this.b);
-                this.b.a(scheduledAction);
-                this.c.offer(scheduledAction);
-                if (this.d.getAndIncrement() == 0) {
-                    try {
-                        this.a.execute(this);
-                    } catch (RejectedExecutionException e) {
-                        this.b.d(scheduledAction);
-                        this.d.decrementAndGet();
-                        ync.j(e);
-                        throw e;
-                    }
-                }
-                return scheduledAction;
+                return this.d.i(new C0412a(this, wjcVar), 0L, null, this.a);
             }
-            return (pjc) invokeL.objValue;
+            return (qjc) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.ljc.a
-        public pjc c(vjc vjcVar, long j, TimeUnit timeUnit) {
+        @Override // com.baidu.tieba.mjc.a
+        public qjc c(wjc wjcVar, long j, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{vjcVar, Long.valueOf(j), timeUnit})) == null) {
-                if (j <= 0) {
-                    return b(vjcVar);
-                }
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{wjcVar, Long.valueOf(j), timeUnit})) == null) {
                 if (isUnsubscribed()) {
-                    return ooc.c();
+                    return poc.c();
                 }
-                vjc q = ync.q(vjcVar);
-                moc mocVar = new moc();
-                moc mocVar2 = new moc();
-                mocVar2.a(mocVar);
-                this.b.a(mocVar2);
-                pjc a = ooc.a(new C0414a(this, mocVar2));
-                ScheduledAction scheduledAction = new ScheduledAction(new b(this, mocVar2, q, a));
-                mocVar.a(scheduledAction);
-                try {
-                    scheduledAction.add(this.e.schedule(scheduledAction, j, timeUnit));
-                    return a;
-                } catch (RejectedExecutionException e) {
-                    ync.j(e);
-                    throw e;
-                }
+                return this.d.j(new b(this, wjcVar), j, timeUnit, this.b);
             }
-            return (pjc) invokeCommon.objValue;
+            return (qjc) invokeCommon.objValue;
         }
 
-        @Override // com.baidu.tieba.pjc
+        @Override // com.baidu.tieba.qjc
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.b.isUnsubscribed();
+                return this.c.isUnsubscribed();
             }
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.pjc
+        @Override // com.baidu.tieba.qjc
         public void unsubscribe() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.b.unsubscribe();
-                this.c.clear();
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                while (!this.b.isUnsubscribed()) {
-                    ScheduledAction poll = this.c.poll();
-                    if (poll == null) {
-                        return;
-                    }
-                    if (!poll.isUnsubscribed()) {
-                        if (!this.b.isUnsubscribed()) {
-                            poll.run();
-                        } else {
-                            this.c.clear();
-                            return;
-                        }
-                    }
-                    if (this.d.decrementAndGet() == 0) {
-                        return;
-                    }
-                }
-                this.c.clear();
+                this.c.unsubscribe();
             }
         }
     }
 
-    public nlc(Executor executor) {
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public final c[] b;
+        public long c;
+
+        public b(ThreadFactory threadFactory, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {threadFactory, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = new c[i];
+            for (int i4 = 0; i4 < i; i4++) {
+                this.b[i4] = new c(threadFactory);
+            }
+        }
+
+        public c a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                int i = this.a;
+                if (i == 0) {
+                    return nlc.d;
+                }
+                c[] cVarArr = this.b;
+                long j = this.c;
+                this.c = 1 + j;
+                return cVarArr[(int) (j % i)];
+            }
+            return (c) invokeV.objValue;
+        }
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                for (c cVar : this.b) {
+                    cVar.unsubscribe();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class c extends slc {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(ThreadFactory threadFactory) {
+            super(threadFactory);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {threadFactory};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((ThreadFactory) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948007748, "Lcom/baidu/tieba/nlc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948007748, "Lcom/baidu/tieba/nlc;");
+                return;
+            }
+        }
+        int intValue = Integer.getInteger("rx.scheduler.max-computation-threads", 0).intValue();
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        if (intValue <= 0 || intValue > availableProcessors) {
+            intValue = availableProcessors;
+        }
+        c = intValue;
+        c cVar = new c(RxThreadFactory.NONE);
+        d = cVar;
+        cVar.unsubscribe();
+        e = new b(null, 0);
+    }
+
+    public nlc(ThreadFactory threadFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {threadFactory};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = executor;
+        this.a = threadFactory;
+        this.b = new AtomicReference<>(e);
+        start();
     }
 
-    @Override // com.baidu.tieba.ljc
-    public ljc.a createWorker() {
+    public qjc a(wjc wjcVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wjcVar)) == null) {
+            return this.b.get().a().h(wjcVar, -1L, TimeUnit.NANOSECONDS);
+        }
+        return (qjc) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.mjc
+    public mjc.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new a(this.b.get().a());
         }
-        return (ljc.a) invokeV.objValue;
+        return (mjc.a) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tlc
+    public void shutdown() {
+        b bVar;
+        b bVar2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            do {
+                bVar = this.b.get();
+                bVar2 = e;
+                if (bVar == bVar2) {
+                    return;
+                }
+            } while (!this.b.compareAndSet(bVar, bVar2));
+            bVar.b();
+        }
+    }
+
+    @Override // com.baidu.tieba.tlc
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            b bVar = new b(this.a, c);
+            if (!this.b.compareAndSet(e, bVar)) {
+                bVar.b();
+            }
+        }
     }
 }

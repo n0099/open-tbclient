@@ -1,60 +1,45 @@
 package com.baidu.tieba;
 
-import androidx.recyclerview.widget.DiffUtil;
-import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.module.frs.Frs$From;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.io.Serializable;
 /* loaded from: classes6.dex */
-public final class g58 extends DiffUtil.ItemCallback<VoiceRoomWrapper> {
+public final class g58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public g58() {
+    public static final long d(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bundle)) == null) {
+            return bundle.getLong("extra_fid");
         }
+        return invokeL.longValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.DiffUtil.ItemCallback
-    /* renamed from: a */
-    public boolean areContentsTheSame(VoiceRoomWrapper oldItem, VoiceRoomWrapper newItem) {
-        InterceptResult invokeLL;
+    public static final String e(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, oldItem, newItem)) == null) {
-            Intrinsics.checkNotNullParameter(oldItem, "oldItem");
-            Intrinsics.checkNotNullParameter(newItem, "newItem");
-            if (Intrinsics.areEqual(oldItem.getVoiceRoom().status, newItem.getVoiceRoom().status) && Intrinsics.areEqual(oldItem.getVoiceRoom().joined_num, newItem.getVoiceRoom().joined_num)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) {
+            return bundle.getString("extra_forum_name");
         }
-        return invokeLL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.DiffUtil.ItemCallback
-    /* renamed from: b */
-    public boolean areItemsTheSame(VoiceRoomWrapper oldItem, VoiceRoomWrapper newItem) {
-        InterceptResult invokeLL;
+    public static final Frs$From f(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, oldItem, newItem)) == null) {
-            Intrinsics.checkNotNullParameter(oldItem, "oldItem");
-            Intrinsics.checkNotNullParameter(newItem, "newItem");
-            return Intrinsics.areEqual(oldItem.getVoiceRoom().room_id, newItem.getVoiceRoom().room_id);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bundle)) == null) {
+            Serializable serializable = bundle.getSerializable("extra_from");
+            if (serializable != null) {
+                return (Frs$From) serializable;
+            }
+            throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.module.frs.Frs.From");
         }
-        return invokeLL.booleanValue;
+        return (Frs$From) invokeL.objValue;
     }
 }

@@ -26,7 +26,7 @@ import com.baidu.tbadk.core.view.ThreadForumEnterButton;
 import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bw4;
-import com.baidu.tieba.tpa;
+import com.baidu.tieba.upa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -270,7 +270,7 @@ public class ForumEnterLayout extends RelativeLayout {
             i = 2;
         }
         if (str != null && i > 0) {
-            TiebaStatic.log(tpa.n(str, threadData, i));
+            TiebaStatic.log(upa.n(str, threadData, i));
         }
     }
 

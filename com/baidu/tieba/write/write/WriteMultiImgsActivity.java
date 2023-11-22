@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.jdb;
 import com.baidu.tieba.kdb;
-import com.baidu.tieba.pgb;
+import com.baidu.tieba.ldb;
+import com.baidu.tieba.qgb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,11 +27,11 @@ import java.util.Iterator;
 public class WriteMultiImgsActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jdb a;
-    public kdb b;
+    public kdb a;
+    public ldb b;
 
     /* loaded from: classes8.dex */
-    public class a implements pgb {
+    public class a implements qgb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WriteMultiImgsActivity a;
@@ -54,7 +54,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
             this.a = writeMultiImgsActivity;
         }
 
-        @Override // com.baidu.tieba.pgb
+        @Override // com.baidu.tieba.qgb
         public boolean c(Bitmap bitmap) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.pgb
+        @Override // com.baidu.tieba.qgb
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -73,7 +73,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
             }
         }
 
-        @Override // com.baidu.tieba.pgb
+        @Override // com.baidu.tieba.qgb
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -81,7 +81,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
             }
         }
 
-        @Override // com.baidu.tieba.pgb
+        @Override // com.baidu.tieba.qgb
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -106,10 +106,10 @@ public class WriteMultiImgsActivity extends BaseActivity {
     }
 
     public void L0() {
-        kdb kdbVar;
+        ldb ldbVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (kdbVar = this.b) != null) {
-            kdbVar.m();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ldbVar = this.b) != null) {
+            ldbVar.m();
         }
     }
 
@@ -127,14 +127,14 @@ public class WriteMultiImgsActivity extends BaseActivity {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            kdb kdbVar = this.b;
-            if (kdbVar != null) {
-                kdbVar.s();
+            ldb ldbVar = this.b;
+            if (ldbVar != null) {
+                ldbVar.s();
             }
             TbadkCoreApplication.getInst().delRemoteActivity(this);
-            jdb jdbVar = this.a;
-            if (jdbVar != null) {
-                jdbVar.o();
+            kdb kdbVar = this.a;
+            if (kdbVar != null) {
+                kdbVar.o();
             }
             super.onDestroy();
         }
@@ -145,9 +145,9 @@ public class WriteMultiImgsActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            jdb jdbVar = this.a;
-            if (jdbVar != null) {
-                jdbVar.h(i);
+            kdb kdbVar = this.a;
+            if (kdbVar != null) {
+                kdbVar.h(i);
             }
             this.b.c.notifyDataSetChanged();
         }
@@ -163,9 +163,9 @@ public class WriteMultiImgsActivity extends BaseActivity {
                     next.setIsHeif(FileHelper.detectHeifHeader(next.getFilePath()));
                 }
             }
-            kdb kdbVar = this.b;
-            if (kdbVar != null) {
-                if (1 == kdbVar.t()) {
+            ldb ldbVar = this.b;
+            if (ldbVar != null) {
+                if (1 == ldbVar.t()) {
                     ForumWriteData u = this.b.u();
                     if (u != null) {
                         if (WriteActivityConfig.isAsyncWriting()) {
@@ -207,12 +207,12 @@ public class WriteMultiImgsActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            jdb jdbVar = new jdb(getPageContext(), new a(this));
-            this.a = jdbVar;
-            setContentView(jdbVar.k);
-            kdb kdbVar = new kdb(getPageContext(), this.a, bundle);
-            this.b = kdbVar;
-            if (kdbVar.j != TbadkCoreApplication.getInst().getSkinType()) {
+            kdb kdbVar = new kdb(getPageContext(), new a(this));
+            this.a = kdbVar;
+            setContentView(kdbVar.k);
+            ldb ldbVar = new ldb(getPageContext(), this.a, bundle);
+            this.b = ldbVar;
+            if (ldbVar.j != TbadkCoreApplication.getInst().getSkinType()) {
                 TbadkCoreApplication.getInst().setSkinType(this.b.j);
             }
         }
@@ -223,8 +223,8 @@ public class WriteMultiImgsActivity extends BaseActivity {
         MultiImagePagerAdapter multiImagePagerAdapter;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            kdb kdbVar = this.b;
-            if (kdbVar != null && (multiImagePagerAdapter = kdbVar.c) != null) {
+            ldb ldbVar = this.b;
+            if (ldbVar != null && (multiImagePagerAdapter = ldbVar.c) != null) {
                 bundle.putInt("OutState_Current_Index", multiImagePagerAdapter.k());
                 bundle.putInt("OutState_Write_Entrance", this.b.t());
                 bundle.putSerializable("OutState_Write_Info_Data", this.b.u());

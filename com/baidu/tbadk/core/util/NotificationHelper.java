@@ -19,10 +19,10 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
+import com.baidu.tieba.aa5;
 import com.baidu.tieba.he;
 import com.baidu.tieba.qd;
-import com.baidu.tieba.x95;
-import com.baidu.tieba.z95;
+import com.baidu.tieba.y95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -264,7 +264,7 @@ public class NotificationHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             SwitchData switchData = new SwitchData();
-            if (!x95.O() && x95.U()) {
+            if (!y95.O() && y95.U()) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= 5000) {
                     AudioManager audioManager = (AudioManager) context.getSystemService("audio");
@@ -278,13 +278,13 @@ public class NotificationHelper {
                     } else {
                         z2 = false;
                     }
-                    if (z95.e().C()) {
+                    if (aa5.e().C()) {
                         switchData.isSound = true;
                         if (z || z2) {
                             switchData.isSound = false;
                         }
                     }
-                    if (z95.e().D()) {
+                    if (aa5.e().D()) {
                         switchData.isVibrate = true;
                         if (z) {
                             switchData.isVibrate = false;
@@ -296,7 +296,7 @@ public class NotificationHelper {
                     TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
                 }
             }
-            if (z95.e().y()) {
+            if (aa5.e().y()) {
                 switchData.isLight = true;
             }
             return switchData;

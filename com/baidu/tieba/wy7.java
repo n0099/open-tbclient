@@ -12,14 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.ItemInfo;
-/* loaded from: classes8.dex */
+import tbclient.RecentUpdate;
+/* loaded from: classes9.dex */
 public class wy7 extends bw4 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ItemInfo> a;
+    public RecentUpdate a;
 
     @Override // com.baidu.tieba.bw4
     public NegativeFeedBackData getNegFeedBackData() {
@@ -73,13 +72,13 @@ public class wy7 extends bw4 {
         setSupportType(BaseCardInfo.SupportType.FULL);
     }
 
-    public List<ItemInfo> c() {
+    public RecentUpdate c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (List) invokeV.objValue;
+        return (RecentUpdate) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.oi
@@ -92,10 +91,10 @@ public class wy7 extends bw4 {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void d(List<ItemInfo> list) {
+    public void d(RecentUpdate recentUpdate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recentUpdate) == null) {
+            this.a = recentUpdate;
         }
     }
 }

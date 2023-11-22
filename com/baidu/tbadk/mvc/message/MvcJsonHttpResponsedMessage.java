@@ -12,8 +12,8 @@ import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bb;
 import com.baidu.tieba.ca;
-import com.baidu.tieba.on5;
 import com.baidu.tieba.pn5;
+import com.baidu.tieba.qn5;
 import com.baidu.tieba.yz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -152,24 +152,24 @@ public class MvcJsonHttpResponsedMessage<D extends IResponseData> extends MvcHtt
             super.afterDispatchInBackGround(i, (int) bArr);
             if (getError() == 0 && (getOrginalMessage() instanceof MvcHttpMessage) && bArr != null) {
                 MvcHttpMessage mvcHttpMessage = (MvcHttpMessage) getOrginalMessage();
-                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof on5)) {
-                    on5 on5Var = (on5) mvcHttpMessage.getRequestData();
-                    String cacheKey = on5Var.getCacheKey();
-                    String cacheTableName = on5Var.getCacheTableName();
-                    if (on5Var.isNeedUid()) {
+                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof pn5)) {
+                    pn5 pn5Var = (pn5) mvcHttpMessage.getRequestData();
+                    String cacheKey = pn5Var.getCacheKey();
+                    String cacheTableName = pn5Var.getCacheTableName();
+                    if (pn5Var.isNeedUid()) {
                         str = TbadkCoreApplication.getCurrentAccount();
                     } else {
                         str = null;
                     }
                     if (cacheKey != null && !TextUtils.isEmpty(cacheTableName) && bArr != null) {
-                        if (on5Var.w()) {
+                        if (pn5Var.w()) {
                             yz4.l();
                             ca<byte[]> k = yz4.k(cacheTableName, str);
                             if (k == null) {
                                 return;
                             }
                             k.g(cacheKey, bArr);
-                        } else if (mvcHttpMessage.getRequestData() instanceof pn5) {
+                        } else if (mvcHttpMessage.getRequestData() instanceof qn5) {
                             yz4.l();
                             ca<String> n = yz4.n(cacheTableName, str);
                             if (n == null) {

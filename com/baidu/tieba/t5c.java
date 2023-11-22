@@ -1,60 +1,72 @@
 package com.baidu.tieba;
 
+import android.os.Looper;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.m5c;
+import com.baidu.tieba.q5c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.framework.aidl.IMessageEntity;
-import com.hihonor.push.framework.aidl.entity.PushTokenResult;
-import com.hihonor.push.sdk.common.data.ApiException;
+import com.hihonor.push.framework.aidl.IPushInvoke;
 import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public class t5c extends w5c<PushTokenResult> {
+public class t5c implements q5c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AtomicInteger a;
+    public volatile IPushInvoke b;
+    public final q5c.a c;
+    public w5c d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t5c(String str, IMessageEntity iMessageEntity) {
-        super(str, iMessageEntity);
+    public t5c(q5c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, iMessageEntity};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (IMessageEntity) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new AtomicInteger(1);
+        this.c = aVar;
     }
 
-    @Override // com.baidu.tieba.w5c
-    public void a(ApiException apiException, Object obj) {
+    public final void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, apiException, obj) == null) {
-            if (apiException == null) {
-                apiException = HonorPushErrorEnum.ERROR_UNKNOWN.toApiException();
-            }
-            if (apiException.getErrorCode() == HonorPushErrorEnum.SUCCESS.getErrorCode()) {
-                if (obj instanceof PushTokenResult) {
-                    PushTokenResult pushTokenResult = (PushTokenResult) obj;
-                    try {
-                        y4c.b.b(a5c.e.a(), pushTokenResult.getPushToken());
-                    } catch (Exception unused) {
-                    }
-                    this.e.b(pushTokenResult);
-                    return;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            Log.i("PushConnectionClient", "notifyFailed result: " + i);
+            q5c.a aVar = this.c;
+            if (aVar != null) {
+                m5c.a aVar2 = (m5c.a) aVar;
+                aVar2.getClass();
+                if (Looper.myLooper() == aVar2.f.a.getLooper()) {
+                    aVar2.b(HonorPushErrorEnum.fromCode(i));
+                } else {
+                    aVar2.f.a.post(new l5c(aVar2, i));
                 }
-                apiException = HonorPushErrorEnum.ERROR_INTERNAL_ERROR.toApiException();
             }
-            String str = "task execute failed. error:" + apiException.getErrorCode();
-            this.e.a(apiException);
         }
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a.get() != 3 && this.a.get() != 4) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

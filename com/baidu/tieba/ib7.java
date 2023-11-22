@@ -1,145 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.feed.log.FeedStat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Set;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class ib7 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final a a;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947847819, "Lcom/baidu/tieba/ib7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947847819, "Lcom/baidu/tieba/ib7;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
+public interface ib7 extends hb7 {
+    String c(e57 e57Var);
 
     /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+        public static String b(ib7 ib7Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ib7Var)) == null) ? "" : (String) invokeL.objValue;
         }
 
-        public a() {
+        public static Map<String, String> a(ib7 ib7Var, e57 businessInfo) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, ib7Var, businessInfo)) == null) {
+                Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+                return new HashMap();
             }
-        }
-
-        public final void a(String pageId) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pageId) == null) {
-                Intrinsics.checkNotNullParameter(pageId, "pageId");
-                Set<String> set = FeedStat.a.f().get(pageId);
-                if (set != null) {
-                    set.clear();
-                }
-            }
-        }
-
-        public final void c(bb7 item) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, item) == null) {
-                Intrinsics.checkNotNullParameter(item, "item");
-                FeedStat.a.i(item);
-            }
-        }
-
-        public final void b(m77 m77Var) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m77Var) == null) && m77Var != null) {
-                m77Var.a().a(m77Var.b());
-                String c = m77Var.c();
-                if (c != null && c.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    return;
-                }
-                StatisticItem statisticItem = new StatisticItem(m77Var.c());
-                for (Map.Entry<String, String> entry : m77Var.b().entrySet()) {
-                    statisticItem.param(entry.getKey(), entry.getValue());
-                }
-                for (Map.Entry<String, String> entry2 : m77Var.d().entrySet()) {
-                    statisticItem.param(entry2.getKey(), entry2.getValue());
-                }
-                TiebaStatic.log(statisticItem);
-            }
-        }
-
-        public final void d(bb7 item, FeedStat.a callback) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, item, callback) == null) {
-                Intrinsics.checkNotNullParameter(item, "item");
-                Intrinsics.checkNotNullParameter(callback, "callback");
-                FeedStat.a.j(item, callback);
-            }
-        }
-
-        public final void e(String id, h47 uiState) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, id, uiState) == null) {
-                Intrinsics.checkNotNullParameter(id, "id");
-                Intrinsics.checkNotNullParameter(uiState, "uiState");
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                linkedHashMap.put("get_position", String.valueOf(uiState.k() + 1));
-                FeedStat.a.j(new bb7(id, uiState.h(), linkedHashMap, uiState.f()), uiState.g());
-            }
-        }
-
-        public final void f(m77 statData, int i) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048581, this, statData, i) == null) {
-                Intrinsics.checkNotNullParameter(statData, "statData");
-                if (statData.e().length() > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z && (statData.b() instanceof HashMap)) {
-                    ((HashMap) statData.b()).put(statData.e(), String.valueOf(i));
-                }
-            }
+            return (Map) invokeLL.objValue;
         }
     }
 }

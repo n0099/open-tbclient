@@ -25,8 +25,8 @@ import com.baidu.tbadk.core.util.NetWorkErr;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mq9;
 import com.baidu.tieba.nq9;
+import com.baidu.tieba.oq9;
 import com.baidu.tieba.qd;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,19 +66,19 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         public final /* synthetic */ ForbidActivity a;
 
         /* loaded from: classes7.dex */
-        public class a implements mq9.b {
+        public class a implements nq9.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
 
             /* renamed from: com.baidu.tieba.pb.account.forbid.ForbidActivity$c$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class C0445a implements zz4.e {
+            public class C0444a implements zz4.e {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0445a(a aVar) {
+                public C0444a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                 this.a = cVar;
             }
 
-            @Override // com.baidu.tieba.mq9.b
+            @Override // com.baidu.tieba.nq9.b
             public void a(ForbidResultData forbidResultData) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, forbidResultData) == null) {
@@ -134,7 +134,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                 }
             }
 
-            @Override // com.baidu.tieba.mq9.b
+            @Override // com.baidu.tieba.nq9.b
             public void b(ForbidResultData forbidResultData) {
                 Interceptable interceptable = $ic;
                 if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidResultData) != null) || forbidResultData == null) {
@@ -149,7 +149,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                             forbidActivity.r = new zz4(forbidActivity.getActivity());
                         }
                         this.a.a.r.setMessage(str);
-                        this.a.a.r.setPositiveButton(R.string.obfuscated_res_0x7f0f0b79, new C0445a(this));
+                        this.a.a.r.setPositiveButton(R.string.obfuscated_res_0x7f0f0b79, new C0444a(this));
                         this.a.a.r.setCanceledOnTouchOutside(false);
                         this.a.a.r.create(this.a.a.getPageContext());
                         this.a.a.r.show();
@@ -188,7 +188,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.b == null || this.a.q == null || qd.isEmpty(this.a.q.b()) || (findViewById = (forbidActivity = this.a).findViewById(forbidActivity.b.getCheckedRadioButtonId())) == null) {
                 return;
             }
-            mq9.b(this.a.c, this.a.d, this.a.e, this.a.g, this.a.j, (String) findViewById.getTag(), this.a.q.b(), this.a.h, this.a.i, this.a.k, String.valueOf(this.a.l), String.valueOf(this.a.m), new a(this));
+            nq9.b(this.a.c, this.a.d, this.a.e, this.a.g, this.a.j, (String) findViewById.getTag(), this.a.q.b(), this.a.h, this.a.i, this.a.k, String.valueOf(this.a.l), String.valueOf(this.a.m), new a(this));
         }
     }
 
@@ -370,7 +370,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements nq9.b {
+    public class b implements oq9.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForbidActivity a;
@@ -393,7 +393,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             this.a = forbidActivity;
         }
 
-        @Override // com.baidu.tieba.nq9.b
+        @Override // com.baidu.tieba.oq9.b
         public void a(ForbidTplData forbidTplData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, forbidTplData) == null) {
@@ -405,7 +405,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             }
         }
 
-        @Override // com.baidu.tieba.nq9.b
+        @Override // com.baidu.tieba.oq9.b
         public void b(ForbidTplData forbidTplData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidTplData) == null) {
@@ -483,7 +483,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             this.k = getIntent().getStringExtra(ForbidActivityConfig.FORBID_TYPE);
             this.l = getIntent().getLongExtra("chatroom_id", 0L);
             this.m = getIntent().getLongExtra(ForbidActivityConfig.CHAT_MSG_ID, 0L);
-            nq9.b(this.c, this.f, new b(this));
+            oq9.b(this.c, this.f, new b(this));
         }
     }
 

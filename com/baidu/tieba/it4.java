@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class it4 extends ke5 {
+public final class it4 extends le5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String t;
@@ -54,9 +54,9 @@ public final class it4 extends ke5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, config) == null) {
             Intrinsics.checkNotNullParameter(config, "config");
-            le5 le5Var = this.m;
-            if (le5Var != null) {
-                MultiTopEditContainer multiTopEditContainer = (MultiTopEditContainer) le5Var;
+            me5 me5Var = this.m;
+            if (me5Var != null) {
+                MultiTopEditContainer multiTopEditContainer = (MultiTopEditContainer) me5Var;
                 View b = multiTopEditContainer.b(this.u);
                 int i3 = 0;
                 if (b != null) {
@@ -94,9 +94,9 @@ public final class it4 extends ke5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, config) == null) {
             Intrinsics.checkNotNullParameter(config, "config");
-            le5 le5Var = this.m;
-            if (le5Var != null) {
-                MultiTopEditContainer multiTopEditContainer = (MultiTopEditContainer) le5Var;
+            me5 me5Var = this.m;
+            if (me5Var != null) {
+                MultiTopEditContainer multiTopEditContainer = (MultiTopEditContainer) me5Var;
                 multiTopEditContainer.a(this.u, new StarContainer(b(), null, 0, 6, null));
                 multiTopEditContainer.a(this.t, new ReplyContainer(b(), null, 0, 6, null));
                 String str = this.v;

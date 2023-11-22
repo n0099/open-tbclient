@@ -1,9 +1,5 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-import com.baidu.tieba.im.lib.socket.msg.data.Reaction;
-import java.util.List;
 /* loaded from: classes6.dex */
 public interface fz8 {
-    void d(@NonNull List<Reaction> list);
+    void a(boolean z);
 }

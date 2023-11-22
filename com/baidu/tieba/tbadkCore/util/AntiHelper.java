@@ -141,7 +141,7 @@ public class AntiHelper {
     }
 
     /* loaded from: classes8.dex */
-    public static class a implements zz4.e {
+    public class a implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -170,7 +170,7 @@ public class AntiHelper {
     }
 
     /* loaded from: classes8.dex */
-    public static class b implements zz4.e {
+    public class b implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k a;
@@ -212,7 +212,7 @@ public class AntiHelper {
     }
 
     /* loaded from: classes8.dex */
-    public static class c implements zz4.e {
+    public class c implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k a;
@@ -249,7 +249,7 @@ public class AntiHelper {
     }
 
     /* loaded from: classes8.dex */
-    public static class d implements zz4.e {
+    public class d implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -283,7 +283,7 @@ public class AntiHelper {
     }
 
     /* loaded from: classes8.dex */
-    public static class e implements zz4.e {
+    public class e implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -311,7 +311,7 @@ public class AntiHelper {
     }
 
     /* loaded from: classes8.dex */
-    public static class f implements zz4.e {
+    public class f implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -345,7 +345,7 @@ public class AntiHelper {
     }
 
     /* loaded from: classes8.dex */
-    public static class g implements zz4.e {
+    public class g implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -373,7 +373,7 @@ public class AntiHelper {
     }
 
     /* loaded from: classes8.dex */
-    public static class h implements zz4.e {
+    public class h implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -401,7 +401,7 @@ public class AntiHelper {
     }
 
     /* loaded from: classes8.dex */
-    public static class i implements zz4.e {
+    public class i implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -437,7 +437,7 @@ public class AntiHelper {
     }
 
     /* loaded from: classes8.dex */
-    public static class j implements zz4.e {
+    public class j implements zz4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

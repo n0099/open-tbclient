@@ -11,10 +11,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.gba;
+import com.baidu.tieba.aa5;
+import com.baidu.tieba.hba;
 import com.baidu.tieba.ru4;
 import com.baidu.tieba.setting.model.MsgRemindModel;
-import com.baidu.tieba.z95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -157,7 +157,7 @@ public class PushPermissionController {
             if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
                 return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 7);
             }
-            return gba.e().b("user_follow");
+            return hba.e().b("user_follow");
         }
         return invokeV.booleanValue;
     }
@@ -167,7 +167,7 @@ public class PushPermissionController {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled();
-            boolean n = z95.e().n();
+            boolean n = aa5.e().n();
             if (areNotificationsEnabled && n) {
                 return false;
             }
@@ -197,14 +197,14 @@ public class PushPermissionController {
         if ((interceptable == null || interceptable.invokeI(65542, this, i) == null) && (activity = this.mActivity) != null && this.mContext != null) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(activity).areNotificationsEnabled();
             if (i == 10) {
-                boolean n = z95.e().n();
+                boolean n = aa5.e().n();
                 if (areNotificationsEnabled && n) {
                     return;
                 }
                 b bVar = new b(this, n, areNotificationsEnabled);
                 if (checkShouldShowUserFollowPush()) {
                     PushOpenUtil.showPushPermissionDialogV2(this.mContext, this.mActivity, 10, bVar);
-                    gba.e().h("user_follow");
+                    hba.e().h("user_follow");
                 }
             }
         }

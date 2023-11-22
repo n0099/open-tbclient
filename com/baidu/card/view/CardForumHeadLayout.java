@@ -33,13 +33,13 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aqa;
-import com.baidu.tieba.c1b;
-import com.baidu.tieba.dk6;
+import com.baidu.tieba.bqa;
+import com.baidu.tieba.d1b;
 import com.baidu.tieba.dz4;
+import com.baidu.tieba.ek6;
 import com.baidu.tieba.kx4;
 import com.baidu.tieba.qd;
-import com.baidu.tieba.u55;
+import com.baidu.tieba.v55;
 import com.baidu.tieba.view.TbLayerImageView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -342,16 +342,16 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         }
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
         if (f(this.p) && this.p.b() != null) {
-            this.e.setTextColor(aqa.f(c1b.c(this.p.b().c())));
-            EMManager.from(this.e).setTextSize(R.dimen.T_X10).setCorner(R.string.J_X04).setBackGroundRealColor(aqa.f(c1b.c(this.p.b().a())));
+            this.e.setTextColor(bqa.f(d1b.c(this.p.b().c())));
+            EMManager.from(this.e).setTextSize(R.dimen.T_X10).setCorner(R.string.J_X04).setBackGroundRealColor(bqa.f(d1b.c(this.p.b().a())));
         } else {
             EMManager.from(this.e).setTextSize(R.dimen.T_X09).setCorner(R.string.J_X02).setTextColor(R.color.CAM_X0109);
             this.e.setBackgroundDrawable(null);
         }
         EMManager.from(this.q).setTextSize(R.dimen.T_X08);
-        u55 u55Var = new u55();
-        u55Var.r(aqa.a(SkinManager.getColor(R.color.CAM_X0341), 0.75f), SkinManager.getColor(R.color.CAM_X0101));
-        this.q.setConfig(u55Var);
+        v55 v55Var = new v55();
+        v55Var.r(bqa.a(SkinManager.getColor(R.color.CAM_X0341), 0.75f), SkinManager.getColor(R.color.CAM_X0101));
+        this.q.setConfig(v55Var);
         SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
@@ -577,23 +577,23 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
                     int i3 = s;
                     int i4 = t;
                     textView.setPadding(i3, i4, i3, i4);
-                    this.e.setTextColor(aqa.f(c1b.c(this.p.b().c())));
+                    this.e.setTextColor(bqa.f(d1b.c(this.p.b().c())));
                     setAttentionLineSpace(u);
-                    EMManager.from(this.e).setTextSize(R.dimen.T_X10).setCorner(R.string.J_X04).setBackGroundRealColor(aqa.f(c1b.c(this.p.b().a())));
+                    EMManager.from(this.e).setTextSize(R.dimen.T_X10).setCorner(R.string.J_X04).setBackGroundRealColor(bqa.f(d1b.c(this.p.b().a())));
                 } else {
-                    dk6.f(this.e, 8);
+                    ek6.f(this.e, 8);
                     this.e.setPadding(0, 0, 0, 0);
                     EMManager.from(this.e).setTextSize(R.dimen.T_X09).setCorner(R.string.J_X02).setTextColor(R.color.CAM_X0109);
                     this.e.setBackgroundDrawable(null);
                 }
                 if (!qd.isEmpty(this.p.c())) {
-                    dk6.f(this.q, 0);
+                    ek6.f(this.q, 0);
                     this.q.setText(this.p.c());
                 } else {
-                    dk6.f(this.q, 8);
+                    ek6.f(this.q, 8);
                 }
             } else {
-                dk6.f(this.q, 8);
+                ek6.f(this.q, 8);
                 this.f.setText(String.format(getContext().getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtra(i)));
                 this.e.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f04be), StringHelper.numberUniformFormatExtra(i2)));
             }

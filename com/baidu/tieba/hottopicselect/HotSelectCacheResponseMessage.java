@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopicselect;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.kj8;
+import com.baidu.tieba.lj8;
 import com.baidu.tieba.yz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,9 +19,9 @@ public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TOPIC_SELECT_KEY = "topic_select_user";
     public transient /* synthetic */ FieldHolder $fh;
-    public kj8 mBangData;
-    public kj8 mUserData;
-    public kj8 mVideoHotpicData;
+    public lj8 mBangData;
+    public lj8 mUserData;
+    public lj8 mVideoHotpicData;
     public int resultStatus;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -72,22 +72,22 @@ public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object
             }
             if (getSugTopicResIdl != null && (dataRes = getSugTopicResIdl.data) != null) {
                 if (dataRes.user_his_topic != null) {
-                    kj8 kj8Var = new kj8();
-                    kj8Var.e(getSugTopicResIdl.data.user_his_topic);
-                    kj8Var.g(0);
-                    this.mUserData = kj8Var;
+                    lj8 lj8Var = new lj8();
+                    lj8Var.e(getSugTopicResIdl.data.user_his_topic);
+                    lj8Var.g(0);
+                    this.mUserData = lj8Var;
                 }
                 if (getSugTopicResIdl.data.bang_topic != null) {
-                    kj8 kj8Var2 = new kj8();
-                    kj8Var2.e(getSugTopicResIdl.data.bang_topic);
-                    kj8Var2.g(1);
-                    this.mBangData = kj8Var2;
+                    lj8 lj8Var2 = new lj8();
+                    lj8Var2.e(getSugTopicResIdl.data.bang_topic);
+                    lj8Var2.g(1);
+                    this.mBangData = lj8Var2;
                 }
                 if (getSugTopicResIdl.data.video_topic != null) {
-                    kj8 kj8Var3 = new kj8();
-                    kj8Var3.e(getSugTopicResIdl.data.video_topic);
-                    kj8Var3.g(2);
-                    this.mVideoHotpicData = kj8Var3;
+                    lj8 lj8Var3 = new lj8();
+                    lj8Var3.e(getSugTopicResIdl.data.video_topic);
+                    lj8Var3.g(2);
+                    this.mVideoHotpicData = lj8Var3;
                 }
                 this.resultStatus = 2;
                 return;

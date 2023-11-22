@@ -8,12 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class yob implements epb {
+public class yob implements fpb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public byte[] b;
-    public boolean c;
+    public lob a;
+    public int b;
+    public int c;
+    public boolean d;
 
     public yob() {
         Interceptable interceptable = $ic;
@@ -25,126 +26,130 @@ public class yob implements epb {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = true;
     }
 
-    @Override // com.baidu.tieba.epb
+    @Override // com.baidu.tieba.fpb
     public int a(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
-            float f = this.a;
-            if (f != 1.0d) {
-                if (bArr != null) {
-                    this.b = c(bArr, f);
-                }
-                return i;
+            lob lobVar = this.a;
+            if (lobVar == null || bArr == null) {
+                return 0;
             }
-            this.b = bArr;
-            this.c = true;
-            return i;
+            this.b += bArr.length;
+            lobVar.putBytes(bArr, i);
+            return this.b;
         }
         return invokeLI.intValue;
     }
 
-    @Override // com.baidu.tieba.epb
+    @Override // com.baidu.tieba.fpb
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            float f = this.a;
-            return f >= 0.0f && f <= 1.0f;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.d && this.a.available() : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.epb
+    @Override // com.baidu.tieba.fpb
     public boolean a(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
-            return false;
+            if (this.a == null) {
+                this.a = (lob) nsb.a("com.baidu.ugc.audioedit.AudioChangeOperator");
+            }
+            lob lobVar = this.a;
+            if (lobVar != null) {
+                lobVar.initVoiceChanger(i, i2, i3, i4);
+            }
+            return this.a != null;
         }
         return invokeIIII.booleanValue;
     }
 
-    @Override // com.baidu.tieba.epb
+    @Override // com.baidu.tieba.fpb
     public byte[] a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (this.c) {
-                this.c = false;
-                return this.b;
+            lob lobVar = this.a;
+            if (lobVar == null || lobVar.availableBytes() <= 0) {
+                return new byte[0];
             }
-            return null;
+            byte[] bArr = new byte[4096];
+            int bytes = this.a.getBytes(bArr, 4096);
+            this.c += bytes;
+            if (bytes == 0) {
+                return null;
+            }
+            if (4096 == bytes) {
+                return bArr;
+            }
+            byte[] bArr2 = new byte[bytes];
+            System.arraycopy(bArr, 0, bArr2, 0, bytes);
+            return bArr2;
         }
         return (byte[]) invokeI.objValue;
     }
 
-    public void b(float f) {
+    public void b(int[] iArr) {
+        lob lobVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
-            this.a = f;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) || (lobVar = this.a) == null) {
+            return;
         }
+        lobVar.setVoiceChangeType(iArr);
     }
 
-    @Override // com.baidu.tieba.epb
+    @Override // com.baidu.tieba.fpb
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.epb
+    @Override // com.baidu.tieba.fpb
     public void c() {
+        lob lobVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.c = false;
-            this.b = null;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (lobVar = this.a) == null) {
+            return;
         }
+        lobVar.flush();
     }
 
-    public final byte[] c(byte[] bArr, float f) {
-        InterceptResult invokeLF;
+    public void c(int[] iArr, int[] iArr2, double[] dArr) {
+        lob lobVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048583, this, bArr, f)) == null) {
-            if (bArr == null || bArr.length == 0) {
-                return null;
-            }
-            int length = bArr.length / 2;
-            short[] sArr = new short[length];
-            for (int i = 0; i < length; i++) {
-                int i2 = i * 2;
-                sArr[i] = (short) (((short) (((bArr[i2 + 1] & 255) << 8) | (bArr[i2] & 255))) * f);
-            }
-            for (int i3 = 0; i3 < length; i3++) {
-                int i4 = i3 * 2;
-                bArr[i4] = (byte) (sArr[i3] & 255);
-                bArr[i4 + 1] = (byte) ((sArr[i3] & 65280) >> 8);
-            }
-            return bArr;
+        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, iArr, iArr2, dArr) == null) || (lobVar = this.a) == null) {
+            return;
         }
-        return (byte[]) invokeLF.objValue;
+        lobVar.setVoiceChangeType(iArr, iArr2, dArr);
     }
 
-    @Override // com.baidu.tieba.epb
+    @Override // com.baidu.tieba.fpb
     public void d() {
+        lob lobVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.c = false;
-            this.b = null;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (lobVar = this.a) == null) {
+            return;
         }
+        lobVar.close();
+        this.a = null;
     }
 
-    @Override // com.baidu.tieba.epb
+    @Override // com.baidu.tieba.fpb
     public void e() {
+        lob lobVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (lobVar = this.a) == null) {
+            return;
         }
+        lobVar.clearQueues();
     }
 }

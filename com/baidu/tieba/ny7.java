@@ -4,17 +4,17 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.itemtab.card.CardItemHotVideoLayout;
+import com.baidu.tieba.frs.itemtab.card.CardItemGameCodeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ny7 extends ns<bw4> {
+public class ny7 extends ns<uy7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CardItemHotVideoLayout f;
+    public final CardItemGameCodeLayout f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ny7(Context context) {
@@ -34,7 +34,7 @@ public class ny7 extends ns<bw4> {
                 return;
             }
         }
-        this.f = new CardItemHotVideoLayout(context);
+        this.f = new CardItemGameCodeLayout(context);
     }
 
     @Override // com.baidu.tieba.ns
@@ -50,10 +50,10 @@ public class ny7 extends ns<bw4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ht
     /* renamed from: r */
-    public void onBindDataToView(bw4 bw4Var) {
+    public void onBindDataToView(uy7 uy7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bw4Var) == null) {
-            this.f.setData((uy7) bw4Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, uy7Var) == null) {
+            this.f.setData(uy7Var);
         }
     }
 

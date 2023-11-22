@@ -31,10 +31,9 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cra;
-import com.baidu.tieba.hi9;
-import com.baidu.tieba.ke5;
-import com.baidu.tieba.kk9;
+import com.baidu.tieba.dra;
+import com.baidu.tieba.ii9;
+import com.baidu.tieba.le5;
 import com.baidu.tieba.lk9;
 import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
@@ -57,8 +56,9 @@ import com.baidu.tieba.memberCenter.tail.message.SetTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.SetTailSocketResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailSocketResponseMessage;
+import com.baidu.tieba.mk9;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
-import com.baidu.tieba.wk9;
+import com.baidu.tieba.xk9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -94,12 +94,12 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<ke5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<le5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001342, new lk9(customMessage.getData(), 1));
+                    return new CustomResponsedMessage<>(2001342, new mk9(customMessage.getData(), 1));
                 }
                 return null;
             }
@@ -127,12 +127,12 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<ke5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<le5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001343, new kk9(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2001343, new lk9(customMessage.getData()));
                 }
                 return null;
             }
@@ -160,12 +160,12 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<ke5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<le5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    return new CustomResponsedMessage<>(2921824, new wk9(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2921824, new xk9(customMessage.getData()));
                 }
                 return null;
             }
@@ -276,12 +276,12 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<ke5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<le5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001339, new hi9(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2001339, new ii9(customMessage.getData()));
                 }
                 return null;
             }
@@ -641,8 +641,8 @@ public class MemberCenterStatic {
     public static void c(int i2, int i3, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, cls, cls2}) == null) {
-            cra.h(i3, cls2, false, false);
-            cra.c(i3, i2, str, cls, false, false, false, false);
+            dra.h(i3, cls2, false, false);
+            dra.c(i3, i2, str, cls, false, false, false, false);
         }
     }
 

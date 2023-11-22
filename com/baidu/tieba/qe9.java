@@ -1,17 +1,20 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.mainentrance.RequestSearchPersonHistoryWriteMessage;
-import com.baidu.tieba.mainentrance.ResponseSearchPersonHistoryWriteMessage;
+import com.baidu.tieba.ca;
+import com.baidu.tieba.mainentrance.RequestSearchPersonHistoryReadMessage;
+import com.baidu.tieba.mainentrance.ResponseSearchPersonHistoryReadMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class qe9 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
@@ -31,28 +34,39 @@ public class qe9 implements CustomMessageTask.CustomRunnable<Object> {
         }
     }
 
+    public static final List<String> a(List<ca.b<String>> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            LinkedList linkedList = new LinkedList();
+            if (list != null) {
+                for (ca.b<String> bVar : list) {
+                    String str = bVar.a;
+                    if (!TextUtils.isEmpty(str)) {
+                        linkedList.add(str);
+                    }
+                }
+            }
+            return linkedList;
+        }
+        return (List) invokeL.objValue;
+    }
+
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof RequestSearchPersonHistoryWriteMessage)) {
-                RequestSearchPersonHistoryWriteMessage requestSearchPersonHistoryWriteMessage = (RequestSearchPersonHistoryWriteMessage) customMessage;
+            if (customMessage != null && (customMessage instanceof RequestSearchPersonHistoryReadMessage)) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount == null) {
                     currentAccount = "";
                 }
                 yz4.l();
-                ca<String> n = yz4.n("tb.searchperson_history", currentAccount);
-                if (requestSearchPersonHistoryWriteMessage.isClear()) {
-                    BdCacheService.o().m(n);
-                } else {
-                    Object data = requestSearchPersonHistoryWriteMessage.getData();
-                    if (data != null && (data instanceof String)) {
-                        n.g((String) data, null);
-                    }
-                }
-                return new ResponseSearchPersonHistoryWriteMessage();
+                List<String> a = a(vd.b(yz4.n("tb.searchperson_history", currentAccount)));
+                ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
+                responseSearchPersonHistoryReadMessage.datas.addAll(a);
+                return responseSearchPersonHistoryReadMessage;
             }
             return null;
         }

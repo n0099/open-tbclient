@@ -5,24 +5,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.SdkTopicThread;
+import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes8.dex */
-public class v2d extends poc {
+public class v2d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SdkTopicThread sdkTopicThread) {
+    public static JSONObject b(@NonNull SchoolRecomUserInfo schoolRecomUserInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, sdkTopicThread)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, schoolRecomUserInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "pic_url", sdkTopicThread.pic_url);
-            poc.a(jSONObject, "title", sdkTopicThread.title);
-            poc.a(jSONObject, "post_num", sdkTopicThread.post_num);
-            poc.a(jSONObject, "zan_num", sdkTopicThread.zan_num);
-            poc.a(jSONObject, "tid", sdkTopicThread.tid);
-            poc.a(jSONObject, "need_topic", sdkTopicThread.need_topic);
+            qoc.a(jSONObject, "uid", schoolRecomUserInfo.uid);
+            qoc.a(jSONObject, "uname", schoolRecomUserInfo.uname);
+            qoc.a(jSONObject, "portrait", schoolRecomUserInfo.portrait);
+            qoc.a(jSONObject, "institute", schoolRecomUserInfo.institute);
+            qoc.a(jSONObject, "is_liked", schoolRecomUserInfo.is_liked);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

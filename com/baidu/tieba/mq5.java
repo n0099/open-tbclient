@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class mq5 extends iq5<hz4, ThreadCardViewHolder<hz4>> {
+public class mq5 extends jq5<hz4, ThreadCardViewHolder<hz4>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xl6<hz4> g;
+    public yl6<hz4> g;
 
     /* loaded from: classes7.dex */
-    public class a extends xl6<hz4> {
+    public class a extends yl6<hz4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ mq5 b;
@@ -48,7 +48,7 @@ public class mq5 extends iq5<hz4, ThreadCardViewHolder<hz4>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xl6
+        @Override // com.baidu.tieba.yl6
         /* renamed from: d */
         public void a(View view2, hz4 hz4Var) {
             Interceptable interceptable = $ic;
@@ -100,7 +100,7 @@ public class mq5 extends iq5<hz4, ThreadCardViewHolder<hz4>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public mq5(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, ThreadData.TYPE_CONTENT_TEXT_NORMAL);
+        super(tbPageContext, ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,10 +128,7 @@ public class mq5 extends iq5<hz4, ThreadCardViewHolder<hz4>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             bu.b bVar = new bu.b(this.c.getPageActivity(), false);
-            qt qtVar = new qt(this.c.getPageActivity());
-            qtVar.setFrom(A());
-            qtVar.u(H());
-            bVar.n(qtVar);
+            bVar.n(pt.s(this.c.getPageActivity(), A(), H()));
             bu k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.d);
             k.t(D());
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
@@ -156,6 +153,7 @@ public class mq5 extends iq5<hz4, ThreadCardViewHolder<hz4>> {
                 threadCardViewHolder.e(hz4Var);
                 threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.a().r(this.g);
+                sl6.a(threadCardViewHolder.a().g(), hz4Var.u, hz4Var.v);
                 N(threadCardViewHolder.getView(), hz4Var, i, i);
                 return threadCardViewHolder.getView();
             }

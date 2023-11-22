@@ -5,23 +5,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.MyGroupInfo;
+import tbclient.MultipleForum;
 /* loaded from: classes5.dex */
-public class e0d extends poc {
+public class e0d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull MyGroupInfo myGroupInfo) {
+    public static JSONObject b(@NonNull MultipleForum multipleForum) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, myGroupInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, multipleForum)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "group_id", myGroupInfo.group_id);
-            poc.a(jSONObject, "group_name", myGroupInfo.group_name);
-            poc.a(jSONObject, "portrait", myGroupInfo.portrait);
-            poc.a(jSONObject, "member_num", myGroupInfo.member_num);
-            poc.a(jSONObject, "max_member_num", myGroupInfo.max_member_num);
+            qoc.a(jSONObject, "forum_id", multipleForum.forum_id);
+            qoc.a(jSONObject, "forum_name", multipleForum.forum_name);
+            qoc.a(jSONObject, "is_bawu", multipleForum.is_bawu);
+            qoc.a(jSONObject, "bawu_type", multipleForum.bawu_type);
+            qoc.a(jSONObject, "is_deleted", multipleForum.is_deleted);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

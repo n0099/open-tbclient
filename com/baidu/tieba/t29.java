@@ -1,76 +1,34 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.mvc.data.INetRequestData;
-import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tbadk.util.NetMessageHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.mvc.data.IResponseData;
 import com.baidu.tieba.immessagecenter.mention.FeedData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import tbclient.ReplyMe.DataReq;
-import tbclient.ReplyMe.ReplyMeReqIdl;
+import com.squareup.wire.Message;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.ChooseThreadList;
+import tbclient.ChooseTimeList;
+import tbclient.ReplyMe.DataRes;
+import tbclient.ReplyMe.ReplyList;
+import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes8.dex */
-public class t29 implements INetRequestData, on5 {
+public class t29 implements IResponseData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public long d;
-    public long e;
-    public int f;
-    public String g;
-
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? "replyme_cache" : (String) invokeV.objValue;
-    }
-
-    public String getCacheTableName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "tb_user_replyme" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.mvc.data.IHttpParamRequestData
-    public HashMap<String, String> getHttpHeader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.on5
-    public boolean isNeedUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
+    public ArrayList<FeedData> a;
+    public ArrayList<r39> b;
+    public ArrayList<r39> c;
+    public ey4 d;
+    public r29 e;
 
     public t29() {
         Interceptable interceptable = $ic;
@@ -85,138 +43,109 @@ public class t29 implements INetRequestData, on5 {
                 return;
             }
         }
-        this.b = 1;
-        this.d = 0L;
-        this.e = 0L;
-        this.f = 0;
-        this.g = "";
+        this.a = new ArrayList<>();
+        ArrayList<r39> arrayList = new ArrayList<>();
+        this.b = arrayList;
+        arrayList.add(new r39(1, "全部时间", 0L));
+        ArrayList<r39> arrayList2 = new ArrayList<>();
+        this.c = arrayList2;
+        arrayList2.add(new r39(0, "全部贴子", 0L));
+        this.d = new ey4();
+        this.e = new r29();
     }
 
-    public int a() {
+    public ArrayList<FeedData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return invokeV.intValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public boolean b() {
+    public ey4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f == 1) {
-                return true;
-            }
-            return false;
+            return this.d;
         }
-        return invokeV.booleanValue;
+        return (ey4) invokeV.objValue;
     }
 
-    public void c() {
+    @Override // com.baidu.tbadk.mvc.data.IResponseData
+    public void initByJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = 1;
-            this.a = 1;
-            this.c = null;
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.b++;
-            this.a = 4;
-        }
-    }
-
-    public void d(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.g = str;
-        }
-    }
-
-    public void e(FeedData feedData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, feedData) != null) || feedData == null) {
-            return;
-        }
-        this.c = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void g(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.d = j;
-        }
-    }
-
-    public void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.e = j;
-        }
-    }
-
-    @Override // com.baidu.tbadk.mvc.data.ISocketProtobufRequestData
-    public Object encodeSocketRequestData(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
             try {
-                DataReq.Builder builder = new DataReq.Builder();
-                builder.pn = Integer.valueOf(this.b);
-                builder.ids = this.c;
-                builder.is_first = Integer.valueOf(this.f);
-                builder.call_from = this.g;
-                builder.time = Long.valueOf(this.e);
-                builder.tid = Long.valueOf(this.d);
-                builder.q_type = Integer.valueOf(lv4.c().e());
-                builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-                builder.scr_h = Integer.valueOf(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst().getApp()));
-                builder.scr_w = Integer.valueOf(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst().getApp()));
-                if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    NetMessageHelper.bindCommonParamsToProtobufData(builder, true);
+                JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
+                if (optJSONArray == null) {
+                    optJSONArray = jSONObject.optJSONArray("at_list");
                 }
-                ReplyMeReqIdl.Builder builder2 = new ReplyMeReqIdl.Builder();
-                builder2.data = builder.build(false);
-                return builder2.build(false);
-            } catch (Exception unused) {
-                return null;
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        FeedData feedData = new FeedData();
+                        feedData.parserJson(optJSONArray.optJSONObject(i));
+                        this.a.add(feedData);
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && ListUtils.getCount(feedData.getPraiseList()) == 0) {
+                            this.a.remove(feedData);
+                        }
+                    }
+                }
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("choose_time_list");
+                if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        JSONObject jSONObject2 = optJSONArray2.getJSONObject(i2);
+                        this.b.add(new r39(1, jSONObject2.optString("title"), jSONObject2.optLong("time")));
+                    }
+                }
+                JSONArray optJSONArray3 = jSONObject.optJSONArray("choose_thread_list");
+                if (optJSONArray3 != null && optJSONArray3.length() > 0) {
+                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                        JSONObject jSONObject3 = optJSONArray3.getJSONObject(i3);
+                        this.b.add(new r39(0, jSONObject3.optString("title"), jSONObject3.optLong("tid")));
+                    }
+                }
+                this.e.a(jSONObject.optJSONObject("message"));
+                this.d.i(jSONObject.optJSONObject("page"));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
-        return invokeZ.objValue;
     }
 
-    @Override // com.baidu.tbadk.mvc.data.IHttpParamRequestData
-    public HashMap<String, Object> makeHttpParam() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.mvc.data.IResponseData
+    public void initByProtobuf(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
-            hashMap.put("pn", String.valueOf(this.b));
-            hashMap.put("time", String.valueOf(this.e));
-            hashMap.put("tid", String.valueOf(this.d));
-            hashMap.put("is_first", String.valueOf(this.f));
-            hashMap.put(IntentConfig.CALL_FROM, this.g);
-            hashMap.put("q_type", Integer.valueOf(lv4.c().e()));
-            hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
-            hashMap.put("scr_h", Integer.valueOf(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
-            hashMap.put("scr_w", Integer.valueOf(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
-            if (this.a == 4 && !TextUtils.isEmpty(this.c)) {
-                hashMap.put("ids", this.c);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && (message instanceof ReplyMeResIdl)) {
+            DataRes dataRes = ((ReplyMeResIdl) message).data;
+            try {
+                List<ReplyList> list = dataRes.reply_list;
+                if (list != null) {
+                    for (int i = 0; i < list.size(); i++) {
+                        FeedData feedData = new FeedData();
+                        feedData.parserProtoBuf(list.get(i));
+                        this.a.add(feedData);
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && ListUtils.getCount(feedData.getPraiseList()) == 0) {
+                            this.a.remove(feedData);
+                        }
+                    }
+                }
+                List<ChooseTimeList> list2 = dataRes.choose_time_list;
+                if (list2 != null && list2.size() > 0) {
+                    for (ChooseTimeList chooseTimeList : list2) {
+                        this.b.add(new r39(1, chooseTimeList.title, chooseTimeList.time.longValue()));
+                    }
+                }
+                List<ChooseThreadList> list3 = dataRes.choose_thread_list;
+                if (list3 != null && list3.size() > 0) {
+                    for (ChooseThreadList chooseThreadList : list3) {
+                        this.c.add(new r39(0, chooseThreadList.title, chooseThreadList.tid.longValue()));
+                    }
+                }
+                this.d.j(dataRes.page);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            return hashMap;
         }
-        return (HashMap) invokeV.objValue;
     }
 }

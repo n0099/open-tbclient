@@ -19,11 +19,11 @@ import com.baidu.tbadk.coreExtra.messageCenter.SignManager;
 import com.baidu.tbadk.coreExtra.util.DialogUtil;
 import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
 import com.baidu.tieba.R;
+import com.baidu.tieba.aa5;
 import com.baidu.tieba.aw4;
-import com.baidu.tieba.pp5;
-import com.baidu.tieba.ria;
+import com.baidu.tieba.qp5;
 import com.baidu.tieba.setting.model.MsgRemindModel;
-import com.baidu.tieba.z95;
+import com.baidu.tieba.sia;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,7 +33,7 @@ import java.util.Date;
 public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implements BdSwitchView.b, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ria a;
+    public sia a;
     public MsgRemindModel b;
     public final OnTimeSelectListener c;
     public MsgRemindModel.f d;
@@ -66,7 +66,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         public void onTimeSelect(Date date, View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, date, view2) == null) && this.a.a != null) {
-                z95.e().e0(date.getHours(), date.getMinutes());
+                aa5.e().e0(date.getHours(), date.getMinutes());
                 this.a.a.g0();
                 this.a.a.f0();
             }
@@ -191,7 +191,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onStop();
-            z95.e().J();
+            aa5.e().J();
         }
     }
 
@@ -209,9 +209,9 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            ria riaVar = new ria(this);
-            this.a = riaVar;
-            riaVar.S(this);
+            sia siaVar = new sia(this);
+            this.a = siaVar;
+            siaVar.S(this);
             this.b = new MsgRemindModel(getPageContext());
         }
     }
@@ -223,13 +223,13 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             boolean z = false;
             if (view2 == this.a.O()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
-                    z95.e().d0(true);
+                    aa5.e().d0(true);
                     TiebaStatic.log(new StatisticItem("c12939").param("obj_type", 2));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_SWITCH).param("obj_type", 1));
                     this.a.g0();
                     this.a.d0(true);
                 } else {
-                    z95.e().d0(false);
+                    aa5.e().d0(false);
                     TiebaStatic.log(new StatisticItem("c12939").param("obj_type", 1));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_SWITCH).param("obj_type", 0));
                     this.a.d0(false);
@@ -372,7 +372,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
-            boolean a2 = pp5.a(this);
+            boolean a2 = qp5.a(this);
             if (getIntent() != null && getIntent().getBooleanExtra("not_need_account", false)) {
                 return;
             }

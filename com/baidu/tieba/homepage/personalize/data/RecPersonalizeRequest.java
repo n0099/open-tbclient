@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tbadk.util.NetMessageHelper;
 import com.baidu.tieba.jy4;
-import com.baidu.tieba.mea;
-import com.baidu.tieba.os5;
+import com.baidu.tieba.nea;
+import com.baidu.tieba.ps5;
 import com.baidu.tieba.recapp.localads.LocationCacheData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -92,7 +92,7 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
             builder.request_times = Integer.valueOf(this.requestTime);
             builder.invoke_source = this.sourceFrom;
-            builder.ad_context_list = mea.f().d("HOME");
+            builder.ad_context_list = nea.f().d("HOME");
             builder.app_pos = LocationCacheData.getInstance().createRecReqAppPosInfo();
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
                 jy4 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
@@ -105,7 +105,7 @@ public class RecPersonalizeRequest extends NetMessage {
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.adFloorInfo);
             builder.ad_ext_params = b.a();
-            builder.app_transmit_data = os5.b();
+            builder.app_transmit_data = ps5.b();
             long j = this.pushTid;
             if (j != -1) {
                 builder.push_tid = Long.valueOf(j);

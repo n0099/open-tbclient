@@ -8,19 +8,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class esa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public String c;
-    public dsa d;
-    public dsa e;
-    public dsa f;
+    public long a;
+    public long b;
+    public long c;
+    public long d;
 
-    public esa(String str, String str2, boolean z) {
+    public esa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,14 +26,19 @@ public class esa {
                 return;
             }
         }
-        this.a = false;
-        this.b = null;
-        this.c = null;
-        this.d = new dsa();
-        this.e = new dsa();
-        this.f = new dsa();
-        this.c = str;
-        this.b = str2;
-        this.a = z;
+        this.a = 0L;
+        this.b = 0L;
+        this.c = 0L;
+        this.d = 0L;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = 0L;
+            this.b = 0L;
+            this.c = 0L;
+            this.d = 0L;
+        }
     }
 }

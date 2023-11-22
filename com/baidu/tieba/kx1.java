@@ -36,13 +36,13 @@ public class kx1 extends gx1 {
 
         /* renamed from: com.baidu.tieba.kx1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0366a implements zk3<jb3<lb3.e>> {
+        public class C0363a implements zk3<jb3<lb3.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ju1.b a;
             public final /* synthetic */ a b;
 
-            public C0366a(a aVar, ju1.b bVar) {
+            public C0363a(a aVar, ju1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,7 +108,7 @@ public class kx1 extends gx1 {
                 if (c0 == null) {
                     return new hy1(1001, "null swan runtime");
                 }
-                c0.f0().g(f63.K(), "mapp_i_get_common_sys_info", new C0366a(this, bVar));
+                c0.f0().g(f63.K(), "mapp_i_get_common_sys_info", new C0363a(this, bVar));
                 return new hy1(0);
             }
             return (hy1) invokeLL.objValue;

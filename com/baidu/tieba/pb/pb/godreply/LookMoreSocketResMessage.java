@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.pb.godreply;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ura;
+import com.baidu.tieba.vra;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import tbclient.Post;
 public class LookMoreSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ura> list;
+    public List<vra> list;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LookMoreSocketResMessage() {
@@ -60,10 +60,10 @@ public class LookMoreSocketResMessage extends SocketResponsedMessage {
             }
             if (getPostListResIdl != null && (dataRes = getPostListResIdl.data) != null && (list = dataRes.post_list) != null && list.size() > 0) {
                 for (Post post : list) {
-                    ura uraVar = new ura();
-                    uraVar.K0(post);
-                    uraVar.O = 102;
-                    this.list.add(uraVar);
+                    vra vraVar = new vra();
+                    vraVar.K0(post);
+                    vraVar.O = 102;
+                    this.list.add(vraVar);
                 }
             }
             return getPostListResIdl;
@@ -71,7 +71,7 @@ public class LookMoreSocketResMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public List<ura> getData() {
+    public List<vra> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

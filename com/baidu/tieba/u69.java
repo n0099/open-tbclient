@@ -1,18 +1,15 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.immessagecenter.arch.vm.IUiIntent;
+import com.baidu.tieba.immessagecenter.arch.vm.IUiState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public abstract class u69 implements IUiIntent {
+public abstract class u69 implements IUiState {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,7 +21,7 @@ public abstract class u69 implements IUiIntent {
     public static final class a extends u69 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final TbPageContext<BaseFragmentActivity> a;
+        public final int a;
 
         public boolean equals(Object obj) {
             InterceptResult invokeL;
@@ -33,7 +30,7 @@ public abstract class u69 implements IUiIntent {
                 if (this == obj) {
                     return true;
                 }
-                return (obj instanceof a) && Intrinsics.areEqual(this.a, ((a) obj).a);
+                return (obj instanceof a) && this.a == ((a) obj).a;
             }
             return invokeL.booleanValue;
         }
@@ -41,47 +38,46 @@ public abstract class u69 implements IUiIntent {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return "FetchAndMergeUiIntent(context=" + this.a + ')';
+                return "REFRESH(count=" + this.a + ')';
             }
             return (String) invokeV.objValue;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(TbPageContext<BaseFragmentActivity> context) {
+        public a(int i) {
             super(null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super((DefaultConstructorMarker) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            Intrinsics.checkNotNullParameter(context, "context");
-            this.a = context;
+            this.a = i;
         }
 
-        public final TbPageContext<BaseFragmentActivity> a() {
+        public final int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return this.a;
             }
-            return (TbPageContext) invokeV.objValue;
+            return invokeV.intValue;
         }
     }
 
@@ -89,7 +85,7 @@ public abstract class u69 implements IUiIntent {
     public static final class b extends u69 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final TbPageContext<BaseFragmentActivity> a;
+        public final boolean a;
 
         public boolean equals(Object obj) {
             InterceptResult invokeL;
@@ -98,7 +94,7 @@ public abstract class u69 implements IUiIntent {
                 if (this == obj) {
                     return true;
                 }
-                return (obj instanceof b) && Intrinsics.areEqual(this.a, ((b) obj).a);
+                return (obj instanceof b) && this.a == ((b) obj).a;
             }
             return invokeL.booleanValue;
         }
@@ -106,26 +102,33 @@ public abstract class u69 implements IUiIntent {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.hashCode() : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                boolean z = this.a;
+                if (z) {
+                    return 1;
+                }
+                return z ? 1 : 0;
+            }
+            return invokeV.intValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return "FetchAndRefreshUiIntent(context=" + this.a + ')';
+                return "SUCCESS(isEnable=" + this.a + ')';
             }
             return (String) invokeV.objValue;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(TbPageContext<BaseFragmentActivity> context) {
+        public b(boolean z) {
             super(null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context};
+                Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -136,98 +139,16 @@ public abstract class u69 implements IUiIntent {
                     return;
                 }
             }
-            Intrinsics.checkNotNullParameter(context, "context");
-            this.a = context;
+            this.a = z;
         }
 
-        public final TbPageContext<BaseFragmentActivity> a() {
+        public final boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return this.a;
             }
-            return (TbPageContext) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class c extends u69 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final TbPageContext<?> a;
-        public final String b;
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj instanceof c) {
-                    c cVar = (c) obj;
-                    return Intrinsics.areEqual(this.a, cVar.a) && Intrinsics.areEqual(this.b, cVar.b);
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return "StartWebUiIntent(context=" + this.a + ", scheme=" + this.b + ')';
-            }
-            return (String) invokeV.objValue;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(TbPageContext<?> context, String scheme) {
-            super(null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, scheme};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((DefaultConstructorMarker) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(scheme, "scheme");
-            this.a = context;
-            this.b = scheme;
-        }
-
-        public final TbPageContext<?> a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (TbPageContext) invokeV.objValue;
-        }
-
-        public final String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
+            return invokeV.booleanValue;
         }
     }
 

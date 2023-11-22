@@ -20,16 +20,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class zs4 implements cj6 {
+public class zs4 implements dj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        bj6.a(this, webView, str, jSONObject);
+        cj6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public class zs4 implements cj6 {
         return invokeLLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.cj6
+    @Override // com.baidu.tieba.dj6
     public /* synthetic */ void onDestroy() {
-        bj6.b(this);
+        cj6.b(this);
     }
 
     public zs4() {
@@ -58,36 +58,36 @@ public class zs4 implements cj6 {
         }
     }
 
-    public nsa c(WebView webView, String str, int i, int i2, int i3, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i4, String str9, boolean z, boolean z2, String str10, String str11, String str12, String str13) {
+    public osa c(WebView webView, String str, int i, int i2, int i3, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i4, String str9, boolean z, boolean z2, String str10, String str11, String str12, String str13) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{webView, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i4), str9, Boolean.valueOf(z), Boolean.valueOf(z2), str10, str11, str12, str13})) == null) {
-            Activity a = ri6.a(webView.getContext());
+            Activity a = si6.a(webView.getContext());
             if (a != null) {
                 PayWalletActivityConfig payWalletActivityConfig = new PayWalletActivityConfig(a, new PayConfig().setPayType(1).setIsLeft("0").setPropsId(String.valueOf(str4)).setMoney(String.valueOf(i)).setPropsMon(String.valueOf(i2)).setVipType(str3).setPayChannel(str2).setAutoPay(i3).setReferPage(str6).setClickZone(str7).setFromScene(JavaTypesHelper.toInt(str8, 0)));
                 payWalletActivityConfig.setRequestCode(25078);
                 payWalletActivityConfig.setIntentAction(IntentAction.ActivityForResult);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, payWalletActivityConfig));
             }
-            return new nsa();
+            return new osa();
         }
-        return (nsa) invokeCommon.objValue;
+        return (osa) invokeCommon.objValue;
     }
 
-    public nsa d(WebView webView, HashMap<String, String> hashMap) {
+    public osa d(WebView webView, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             String str = hashMap.get(WalletPayResultActivityConfig.PAY_RESULT);
             if (StringUtils.isNotNull(str)) {
-                nsaVar.o(str);
+                osaVar.o(str);
             }
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 }

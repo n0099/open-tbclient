@@ -1,31 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: SecondFloorService.java */
 /* loaded from: classes5.dex */
-public interface dl5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("AlaSquare", "SecondFloorService");
+public final /* synthetic */ class dl5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(boolean z, boolean z2);
-
-        void b(boolean z);
+    public static el5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return (el5) ServiceManager.getService(el5.a);
+        }
+        return (el5) invokeV.objValue;
     }
-
-    void g();
-
-    void h(@Nullable a aVar);
-
-    void hide();
-
-    void i();
-
-    @NonNull
-    Fragment j(@NonNull String str);
-
-    void show();
 }

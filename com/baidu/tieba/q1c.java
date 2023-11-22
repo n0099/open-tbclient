@@ -2,296 +2,87 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.n1c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
 import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunNativeAd;
-import com.fun.ad.sdk.FunNativeAd2;
-import com.fun.ad.sdk.FunNativeView;
 import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import com.fun.ad.sdk.internal.api.utils.PxUtils;
-import com.kwad.sdk.api.KsAdSDK;
-import com.kwad.sdk.api.KsLoadManager;
-import com.kwad.sdk.api.KsNativeAd;
-import com.kwad.sdk.api.KsScene;
-import java.util.ArrayList;
-import java.util.List;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 /* loaded from: classes7.dex */
-public class q1c extends z0c<f1c> {
+public class q1c extends FunNativeAd2Bridger<h1c, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FunNativeAdListenerHelper<f1c, KsNativeAd.AdInteractionListener> f;
-
-    /* loaded from: classes7.dex */
-    public class a implements KsLoadManager.NativeAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q1c a;
-
-        public a(q1c q1cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q1cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q1cVar;
-        }
-
-        @Override // com.kwad.sdk.api.KsLoadManager.NativeAdListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
-                this.a.onError(i, str);
-            }
-        }
-
-        @Override // com.kwad.sdk.api.KsLoadManager.NativeAdListener
-        public void onNativeAdLoad(@Nullable List<KsNativeAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                LogPrinter.d();
-                if (list == null || list.isEmpty()) {
-                    LogPrinter.e("error: adList is null or empty", new Object[0]);
-                    this.a.onError(0, "NoFill");
-                    return;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (KsNativeAd ksNativeAd : list) {
-                    if (ksNativeAd != null) {
-                        arrayList.add(new f1c(ksNativeAd));
-                    }
-                }
-                if (!arrayList.isEmpty()) {
-                    this.a.onAdLoaded(arrayList);
-                    return;
-                }
-                LogPrinter.e("onDrawAdLoad error: adList is null or empty", new Object[0]);
-                onError(0, "NoFill");
-            }
-        }
-    }
+    public boolean b;
+    public n1c.b c;
+    public final /* synthetic */ Context d;
+    public final /* synthetic */ n1c e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q1c(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid, true, true);
+    public q1c(n1c n1cVar, ReporterPidLoader reporterPidLoader, Context context) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {n1cVar, reporterPidLoader, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new FunNativeAdListenerHelper<>(this);
+        this.e = n1cVar;
+        this.d = context;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, h1c h1cVar, BaseNativeAd2<h1c, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, h1cVar, baseNativeAd2, funAdInteractionListener}) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(h1c h1cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new n1c(pid) : (AdRipper) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, h1cVar)) == null) {
+            return this.e.f(this.d, h1cVar);
+        }
+        return (View) invokeL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, h1c h1cVar, BaseNativeAd2<h1c, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, context, funAdSlot) == null) {
-            KsScene build = new KsScene.Builder(Long.parseLong(this.mPid.pid)).adNum(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 5)).build();
-            if (funAdSlot.getExpressWidth() != 0 && funAdSlot.getExpressHeight() != 0) {
-                build.setWidth(PxUtils.dp2px(funAdSlot.getExpressWidth()));
-                build.setHeight(PxUtils.dp2px(funAdSlot.getExpressHeight()));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, h1cVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            h1c h1cVar2 = h1cVar;
+            this.e.onShowStart(h1cVar2, this.b);
+            this.b = true;
+            View expressView = expressInflater.getExpressView();
+            if (this.c == null) {
+                n1c n1cVar = this.e;
+                n1c.b bVar = new n1c.b(n1cVar, h1cVar2, expressView, str);
+                this.c = bVar;
+                n1cVar.h(h1cVar2, bVar);
             }
-            onLoadStart(funAdSlot);
-            KsLoadManager loadManager = KsAdSDK.getLoadManager();
-            if (loadManager == null) {
-                onError(FunAdSdk.PLATFORM_KS);
-            } else {
-                loadManager.loadNativeAd(build, new a(this));
-            }
+            this.c.d = funAdInteractionListener;
+            expressInflater.inflate();
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends b2c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final f1c a;
-        public final /* synthetic */ q1c b;
-
-        public b(q1c q1cVar, f1c f1cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q1cVar, f1cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = q1cVar;
-            this.a = f1cVar;
-        }
-
-        @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-        public boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onClickListener)) == null) {
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-        public void onAdClicked(View view2, KsNativeAd ksNativeAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ksNativeAd) == null) {
-                this.b.f.onAdClick(this.a);
-            }
-        }
-
-        @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-        public void onAdShow(KsNativeAd ksNativeAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) {
-                this.b.f.onAdShow(this.a);
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        f1c f1cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (f1cVar = (f1c) obj) != null) {
-            this.f.destroy(f1cVar);
-        }
-    }
-
-    public final com.fun.module.ks.y f(Context context, f1c f1cVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, f1cVar)) == null) {
-            int materialType = ((KsNativeAd) f1cVar.a).getMaterialType();
-            int i = R.layout.fun_ks_ad_native_single_img_h5_open_view;
-            if (materialType != 1) {
-                if (materialType != 2) {
-                    if (materialType == 3) {
-                        int interactionType = ((KsNativeAd) f1cVar.a).getInteractionType();
-                        if (interactionType != 1) {
-                            if (interactionType == 2) {
-                                i = R.layout.fun_ks_ad_native_group_img_h5_open_view;
-                            }
-                        } else {
-                            i = R.layout.fun_ks_ad_native_group_img_app_download_view;
-                        }
-                    }
-                } else if (((KsNativeAd) f1cVar.a).getInteractionType() == 1) {
-                    i = R.layout.fun_ks_ad_native_single_img_app_download_view;
-                }
-            } else {
-                int interactionType2 = ((KsNativeAd) f1cVar.a).getInteractionType();
-                if (interactionType2 != 1) {
-                    if (interactionType2 == 2) {
-                        i = R.layout.fun_ks_ad_native_video_h5_open_view;
-                    }
-                } else {
-                    i = R.layout.fun_ks_ad_native_video_app_download_view;
-                }
-            }
-            com.fun.module.ks.y yVar = (com.fun.module.ks.y) LayoutInflater.from(context).inflate(i, (ViewGroup) null, false);
-            yVar.a((KsNativeAd) f1cVar.a);
-            return yVar;
-        }
-        return (com.fun.module.ks.y) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Incorrect args count in method signature: (Landroid/content/Context;Lcom/baidu/tieba/f1c;Ljava/lang/String;Landroid/view/ViewGroup;Ljava/util/List<Landroid/view/View;>;Lcom/baidu/tieba/q1c$b;Lcom/fun/ad/sdk/FunAdInteractionListener;)V */
-    public void g(f1c f1cVar, String str, ViewGroup viewGroup, List list, b bVar, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{f1cVar, str, viewGroup, list, bVar, funAdInteractionListener}) == null) {
-            this.f.startShow(f1cVar, str, this.mPid, bVar, funAdInteractionListener);
-            if (viewGroup instanceof FunNativeView) {
-                viewGroup = ((FunNativeView) viewGroup).getRoot();
-            }
-            ((KsNativeAd) f1cVar.a).registerViewForInteraction(viewGroup, list, bVar);
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunNativeAd getNativeAdInternal(Context context, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, str, obj)) == null) {
-            return new f2c(context, (f1c) obj, str, this.mPid, this);
-        }
-        return (FunNativeAd) invokeLLL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, context, str, obj)) == null) {
-            f1c f1cVar = (f1c) obj;
-            return new BaseNativeAd2(FunNativeAd2.NativeType.BOTH, f1cVar, new f2c(context, f1cVar, str, this.mPid, this), new v1c(this, this, f1cVar, context));
-        }
-        return (FunNativeAd2) invokeLLL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, activity, viewGroup, str, obj)) == null) {
-            f1c f1cVar = (f1c) obj;
-            onShowStart(f1cVar);
-            com.fun.module.ks.y f = f(activity, f1cVar);
-            ((KsNativeAd) f1cVar.a).registerViewForInteraction(f, f.getClickViews(), new t1c(this, f1cVar));
-            viewGroup.removeAllViews();
-            viewGroup.addView(f);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
     }
 }

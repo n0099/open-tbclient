@@ -7,10 +7,10 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hv8;
 import com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder;
-import com.baidu.tieba.tm8;
+import com.baidu.tieba.iv8;
 import com.baidu.tieba.um8;
+import com.baidu.tieba.vm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,7 +21,7 @@ public class SkillTagItemViewHolder extends BaseTagItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView c;
-    public hv8 d;
+    public iv8 d;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -60,13 +60,13 @@ public class SkillTagItemViewHolder extends BaseTagItemViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SkillTagItemViewHolder(View view2, um8 um8Var) {
+    public SkillTagItemViewHolder(View view2, vm8 vm8Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, um8Var};
+            Object[] objArr = {view2, vm8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -83,14 +83,14 @@ public class SkillTagItemViewHolder extends BaseTagItemViewHolder {
     }
 
     @Override // com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder
-    public void f(tm8 tm8Var, Context context, int i) {
+    public void f(um8 um8Var, Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, tm8Var, context, i) == null) {
-            super.f(tm8Var, context, i);
-            if (tm8Var instanceof hv8) {
-                hv8 hv8Var = (hv8) tm8Var;
-                this.d = hv8Var;
-                this.c.setText(hv8Var.d());
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, um8Var, context, i) == null) {
+            super.f(um8Var, context, i);
+            if (um8Var instanceof iv8) {
+                iv8 iv8Var = (iv8) um8Var;
+                this.d = iv8Var;
+                this.c.setText(iv8Var.d());
                 EMManager.from(this.c).setTextColor(R.color.CAM_X0302).setTextSize(R.dimen.T_X08).setCorner(R.string.deprecated_J_X19).setBackGroundColor(R.color.CAM_X0905);
             }
         }

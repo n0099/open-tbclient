@@ -26,7 +26,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.tieba.de7;
+import com.baidu.tieba.ee7;
 import com.baidu.tieba.m0;
 import com.baidu.tieba.n0;
 import com.baidu.tieba.o0;
@@ -208,7 +208,7 @@ public class DslTabLayout extends ViewGroup {
             this.h = -1;
             this.i = -1;
             this.j = -1.0f;
-            TypedArray obtainStyledAttributes = c.obtainStyledAttributes(attributeSet, de7.DslTabLayout_Layout);
+            TypedArray obtainStyledAttributes = c.obtainStyledAttributes(attributeSet, ee7.DslTabLayout_Layout);
             this.a = obtainStyledAttributes.getString(10);
             this.b = obtainStyledAttributes.getString(2);
             this.c = obtainStyledAttributes.getDimensionPixelOffset(1, this.c);
@@ -744,7 +744,7 @@ public class DslTabLayout extends ViewGroup {
                 return (m0) invokeV.objValue;
             }
         });
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(this.a, de7.DslTabLayout);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(this.a, ee7.DslTabLayout);
         this.c = obtainStyledAttributes.getBoolean(104, this.c);
         int i5 = obtainStyledAttributes.getInt(102, -1);
         int i6 = Integer.MAX_VALUE;

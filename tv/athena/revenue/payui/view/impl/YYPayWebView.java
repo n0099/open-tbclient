@@ -26,13 +26,13 @@ import com.baidu.mobads.sdk.internal.ci;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n7d;
-import com.baidu.tieba.r9d;
-import com.baidu.tieba.rbd;
+import com.baidu.tieba.o7d;
 import com.baidu.tieba.s9d;
 import com.baidu.tieba.sbd;
-import com.baidu.tieba.tad;
-import com.baidu.tieba.xad;
+import com.baidu.tieba.t9d;
+import com.baidu.tieba.tbd;
+import com.baidu.tieba.uad;
+import com.baidu.tieba.yad;
 import com.yy.mobile.framework.revenuesdk.baseapi.Env;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.paybaseapi.BuildConfig;
@@ -42,7 +42,7 @@ import tv.athena.revenue.payui.model.NativeOperationParams;
 import tv.athena.revenue.payui.view.WindowParams;
 import tv.athena.revenue.payui.webview.UrlPageParams;
 /* loaded from: classes2.dex */
-public class YYPayWebView extends LinearLayout implements xad, sbd.c {
+public class YYPayWebView extends LinearLayout implements yad, tbd.c {
     public c a;
     public WebView b;
     public boolean c;
@@ -53,29 +53,29 @@ public class YYPayWebView extends LinearLayout implements xad, sbd.c {
     public interface c {
         void b(NativeOperationParams nativeOperationParams);
 
-        void c(s9d s9dVar, r9d r9dVar);
+        void c(t9d t9dVar, s9d s9dVar);
 
         void d(WebView webView, String str);
 
-        void e(r9d r9dVar);
+        void e(s9d s9dVar);
 
         String getToken();
     }
 
-    @Override // com.baidu.tieba.xad
+    @Override // com.baidu.tieba.yad
     public void attachWindow(Window window) {
     }
 
-    @Override // com.baidu.tieba.xad
+    @Override // com.baidu.tieba.yad
     public View getContentView() {
         return this;
     }
 
-    @Override // com.baidu.tieba.xad
+    @Override // com.baidu.tieba.yad
     public void refreshView() {
     }
 
-    @Override // com.baidu.tieba.xad
+    @Override // com.baidu.tieba.yad
     public void refreshWindow(WindowParams windowParams) {
     }
 
@@ -87,13 +87,13 @@ public class YYPayWebView extends LinearLayout implements xad, sbd.c {
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
-            RLog.info("YYPayWebView", "onPageFinished: url:" + tad.a(str));
+            RLog.info("YYPayWebView", "onPageFinished: url:" + uad.a(str));
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
-            RLog.info("YYPayWebView", "onPageStarted: url:" + tad.a(str));
+            RLog.info("YYPayWebView", "onPageStarted: url:" + uad.a(str));
         }
 
         @Override // android.webkit.WebViewClient
@@ -175,7 +175,7 @@ public class YYPayWebView extends LinearLayout implements xad, sbd.c {
         this(context, null);
     }
 
-    @Override // com.baidu.tieba.sbd.c
+    @Override // com.baidu.tieba.tbd.c
     public void b(NativeOperationParams nativeOperationParams) {
         if (nativeOperationParams == null) {
             RLog.error("YYPayWebView", "onNativeOperation params = null", new Object[0]);
@@ -188,7 +188,7 @@ public class YYPayWebView extends LinearLayout implements xad, sbd.c {
         }
     }
 
-    @Override // com.baidu.tieba.sbd.c
+    @Override // com.baidu.tieba.tbd.c
     public void c(UrlPageParams urlPageParams) {
         if (urlPageParams == null) {
             RLog.error("YYPayWebView", "onUpdateTopUi pageParams is null", new Object[0]);
@@ -197,12 +197,12 @@ public class YYPayWebView extends LinearLayout implements xad, sbd.c {
         RLog.debug("YYPayWebView", "onUpdateTopUi pageParams: %s", urlPageParams);
         c cVar = this.a;
         if (cVar != null) {
-            cVar.e(new r9d(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl, urlPageParams.rightIcon, urlPageParams.rightIconTitle, urlPageParams.rightIconUrl));
+            cVar.e(new s9d(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl, urlPageParams.rightIcon, urlPageParams.rightIconTitle, urlPageParams.rightIconUrl));
         }
     }
 
     public final String i(String str) {
-        Object[] objArr = n7d.a;
+        Object[] objArr = o7d.a;
         if (objArr == null || objArr.length <= 0 || str == null) {
             return null;
         }
@@ -226,7 +226,7 @@ public class YYPayWebView extends LinearLayout implements xad, sbd.c {
     }
 
     public void k(String str) {
-        RLog.info("YYPayWebView", "loadUrl: " + tad.a(str));
+        RLog.info("YYPayWebView", "loadUrl: " + uad.a(str));
         this.b.loadUrl(str);
     }
 
@@ -245,7 +245,7 @@ public class YYPayWebView extends LinearLayout implements xad, sbd.c {
         j(context, attributeSet);
     }
 
-    @Override // com.baidu.tieba.sbd.c
+    @Override // com.baidu.tieba.tbd.c
     public void e(UrlPageParams urlPageParams) {
         if (urlPageParams == null) {
             RLog.error("YYPayWebView", "openPage null pageParams", new Object[0]);
@@ -253,11 +253,11 @@ public class YYPayWebView extends LinearLayout implements xad, sbd.c {
         }
         RLog.debug("YYPayWebView", "onOpenUrl pageParams: %s", urlPageParams);
         if (this.a != null) {
-            this.a.c(new s9d(urlPageParams.url, urlPageParams.pageType), new r9d(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl, urlPageParams.rightIcon, urlPageParams.rightIconTitle, urlPageParams.rightIconUrl));
+            this.a.c(new t9d(urlPageParams.url, urlPageParams.pageType), new s9d(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl, urlPageParams.rightIcon, urlPageParams.rightIconTitle, urlPageParams.rightIconUrl));
         }
     }
 
-    @Override // com.baidu.tieba.sbd.c
+    @Override // com.baidu.tieba.tbd.c
     public String getToken() {
         c cVar = this.a;
         if (cVar != null) {
@@ -299,12 +299,12 @@ public class YYPayWebView extends LinearLayout implements xad, sbd.c {
                 settings.setMixedContentMode(0);
             }
         }
-        this.b.addJavascriptInterface(new sbd(this), "YYPaySdkJsInterface");
+        this.b.addJavascriptInterface(new tbd(this), "YYPaySdkJsInterface");
         this.b.setWebViewClient(new a());
         if (Build.VERSION.SDK_INT < 23) {
             this.b.setWebChromeClient(new b());
         }
-        rbd.a(this.b);
+        sbd.a(this.b);
         this.d = !Env.instance().isTestEnv();
         RLog.info("YYPayWebView", "isEnableBackupDomain=" + this.d);
     }

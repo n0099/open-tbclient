@@ -102,16 +102,16 @@ public final class n15 extends f15 {
         }
     }
 
-    public static final void g(AlertDialog dialog, pc5 pc5Var, View view2) {
+    public static final void g(AlertDialog dialog, qc5 qc5Var, View view2) {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, dialog, pc5Var, view2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65537, null, dialog, qc5Var, view2) == null) {
             Intrinsics.checkNotNullParameter(dialog, "$dialog");
             if (view2 != null && view2.getContext() != null) {
                 dialog.dismiss();
                 LoginDialogData loginDialogData = new LoginDialogData(view2.getContext(), LoginDialogData.HOME_OPERATE_DIALOG);
-                String b = pc5Var.b();
+                String b = qc5Var.b();
                 Intrinsics.checkNotNullExpressionValue(b, "operateData.getHomeOperateUrl()");
                 if (TextUtils.isEmpty(b)) {
                     return;
@@ -139,7 +139,7 @@ public final class n15 extends f15 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, builder) == null) {
             Intrinsics.checkNotNullParameter(builder, "builder");
-            final pc5 homeOperateData = TbSingleton.getInstance().getHomeOperateData();
+            final qc5 homeOperateData = TbSingleton.getInstance().getHomeOperateData();
             SharedPrefHelper.getInstance().putBoolean(f25.a.a(), false);
             int processWidth = TBAlertBuilder.processWidth(TbadkCoreApplication.getInst());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(processWidth, (processWidth * 4) / 3);

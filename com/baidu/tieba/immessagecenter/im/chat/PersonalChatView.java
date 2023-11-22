@@ -35,8 +35,7 @@ import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.widget.BottomInputLayout;
 import com.baidu.tbadk.widget.KeyboardLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ge5;
-import com.baidu.tieba.hw8;
+import com.baidu.tieba.he5;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.chat.CommonPersonalMsglistView;
 import com.baidu.tieba.im.chat.MsglistActivity;
@@ -45,9 +44,10 @@ import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.tieba.immessagecenter.im.chat.GamePlayServiceView;
 import com.baidu.tieba.immessagecenter.im.model.GamePlayCanSendCardModel;
 import com.baidu.tieba.immessagecenter.im.model.PersonalMsglistModel;
-import com.baidu.tieba.kt8;
+import com.baidu.tieba.iw8;
+import com.baidu.tieba.lt8;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.vjc;
+import com.baidu.tieba.wjc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -453,7 +453,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
     }
 
     /* loaded from: classes6.dex */
-    public class i implements kt8.a {
+    public class i implements lt8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalChatView a;
@@ -476,7 +476,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
             this.a = personalChatView;
         }
 
-        @Override // com.baidu.tieba.kt8.a
+        @Override // com.baidu.tieba.lt8.a
         public void a(String str, String str2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && "0".equals(str) && this.a.r != null && this.a.s != null) {
@@ -486,7 +486,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
     }
 
     /* loaded from: classes6.dex */
-    public class j implements vjc {
+    public class j implements wjc {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalChatView a;
@@ -509,7 +509,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
             this.a = personalChatView;
         }
 
-        @Override // com.baidu.tieba.vjc
+        @Override // com.baidu.tieba.wjc
         public void call() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -548,10 +548,10 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
         }
     }
 
-    public final void O(ge5 ge5Var) {
+    public final void O(he5 he5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ge5Var) == null) && ge5Var != null && ge5Var != null && (ge5Var instanceof View)) {
-            ((View) ge5Var).setOnClickListener(this.v);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, he5Var) == null) && he5Var != null && he5Var != null && (he5Var instanceof View)) {
+            ((View) he5Var).setOnClickListener(this.v);
         }
     }
 
@@ -613,7 +613,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
         this.a.e(this.o);
         this.a.g(this.t, new j(this));
         this.a.f(this);
-        hw8.b(this.p);
+        iw8.b(this.p);
         ViewGroup viewGroup = this.mLayBottom;
         if (viewGroup instanceof BottomInputLayout) {
             ((BottomInputLayout) viewGroup).setOnInputLayoutChangeListener(this);
@@ -830,15 +830,15 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
             if (i2 == 0) {
                 UrlSchemaJumpHelper.jumpGameGodsPage(this.d, "com.baidu.tieba://unidispatch/GameGodsDetailPage?god_id=" + this.p + "&" + BdUniDispatchSchemeController.PARAM_FROM_NATIVE + "=1");
-                hw8.a(this.p);
+                iw8.a(this.p);
             } else if (i2 == 1) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SEND_POSTCARD_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", this.d.i3()));
                 if (!this.q) {
                     BdUtilHelper.showToast(((AbsMsglistView) this).mContext, this.u);
                 } else if (!StringUtils.isNull(this.d.i3())) {
-                    kt8 kt8Var = new kt8();
+                    lt8 lt8Var = new lt8();
                     this.d.f3().sendGameTeamMessage(this.d.b0);
-                    kt8Var.c(new i(this), this.d.h3().getUserId());
+                    lt8Var.c(new i(this), this.d.h3().getUserId());
                 }
             }
         }

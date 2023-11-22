@@ -59,7 +59,7 @@ public final class wf8 extends BaseNormalSwitch {
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "home_hiden_live_enter_unlogin" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "home_hiden_live_enter_login" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes8.dex */
@@ -91,7 +91,7 @@ public final class wf8 extends BaseNormalSwitch {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (wf8.b == -1) {
-                    wf8.b = SwitchManager.getInstance().findType("home_hiden_live_enter_unlogin");
+                    wf8.b = SwitchManager.getInstance().findType("home_hiden_live_enter_login");
                 }
                 if (wf8.b == 1) {
                     return true;

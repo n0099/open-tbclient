@@ -21,7 +21,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 import com.baidu.tieba.faceshop.emotioncenter.model.EmotionChangeModel;
-import com.baidu.tieba.t17;
+import com.baidu.tieba.u17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class EmotionCenterChangeView extends LinearLayout implements View.OnClickListener, t17 {
+public class EmotionCenterChangeView extends LinearLayout implements View.OnClickListener, u17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -46,7 +46,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
     public Animation l;
     public List<EmotionPackageData> m;
 
-    @Override // com.baidu.tieba.t17
+    @Override // com.baidu.tieba.u17
     public void d1(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, emotionCenterData) == null) {
@@ -150,7 +150,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         return (Animation) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.t17
+    @Override // com.baidu.tieba.u17
     public void L1(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, emotionCenterData) == null) {
@@ -180,7 +180,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         }
     }
 
-    @Override // com.baidu.tieba.t17
+    @Override // com.baidu.tieba.u17
     public void t1(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, emotionCenterData) == null) {

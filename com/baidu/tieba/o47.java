@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
+import android.content.Context;
 /* loaded from: classes7.dex */
 public interface o47 {
-    Rect a();
+    boolean c(Context context);
 }

@@ -1,243 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bxb;
-import com.baidu.tieba.dxb;
-import com.baidu.tieba.zwb;
+import android.content.SharedPreferences;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import com.fun.ad.sdk.FunAdSdk;
 /* loaded from: classes5.dex */
 public class dxb {
     public static /* synthetic */ Interceptable $ic;
+    public static final SharedPreferences a;
+    public static final SharedPreferences.Editor b;
     public transient /* synthetic */ FieldHolder $fh;
-    public kwb a;
-    public final zwb b;
-    public final HashMap<String, bxb> c;
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(Set<Ssp> set, Set<Ssp> set2);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface d<E> {
-        void a(E e);
-
-        void b(E e);
-    }
-
-    public dxb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947721339, "Lcom/baidu/tieba/dxb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947721339, "Lcom/baidu/tieba/dxb;");
                 return;
             }
         }
-        this.b = new zwb();
-        this.c = new HashMap<>();
+        SharedPreferences sharedPreferences = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_price", 0);
+        a = sharedPreferences;
+        b = sharedPreferences.edit();
     }
 
-    public synchronized void a(kwb kwbVar) {
+    public static double a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, kwbVar) == null) {
-            synchronized (this) {
-                HashSet hashSet = new HashSet();
-                kwb kwbVar2 = this.a;
-                if (kwbVar2 != null) {
-                    for (xwb xwbVar : kwbVar2.b) {
-                        hashSet.add(xwbVar.a);
-                    }
-                    for (vwb vwbVar : this.a.c) {
-                        hashSet.add(vwbVar.a);
-                    }
-                }
-                kwb kwbVar3 = this.a;
-                Set<vwb> set = null;
-                b(kwbVar3 == null ? null : kwbVar3.b, kwbVar.b, new a(this, hashSet));
-                kwb kwbVar4 = this.a;
-                if (kwbVar4 != null) {
-                    set = kwbVar4.c;
-                }
-                b(set, kwbVar.c, new b(this, hashSet));
-                if (!hashSet.isEmpty()) {
-                    Iterator it = hashSet.iterator();
-                    while (it.hasNext()) {
-                        String str = (String) it.next();
-                        LogPrinter.d("reduce sid(%s).", str);
-                        this.c.remove(str);
-                    }
-                }
-                this.a = kwbVar;
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Double.longBitsToDouble(a.getLong("key_price_by_baseprice", 0L)) : invokeV.doubleValue;
     }
 
-    public final <E> void b(Set<E> set, Set<E> set2, d<E> dVar) {
+    public static double b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, set, set2, dVar) == null) {
-            for (E e : set2) {
-                if (set == null || !set.contains(e)) {
-                    dVar.b(e);
-                } else {
-                    dVar.a(e);
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            SharedPreferences sharedPreferences = a;
+            return Double.longBitsToDouble(sharedPreferences.getLong(str + "_", 0L));
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements d<xwb> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Set a;
-        public final /* synthetic */ dxb b;
-
-        public a(dxb dxbVar, Set set) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dxbVar, set};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = dxbVar;
-            this.a = set;
-        }
-
-        public static /* synthetic */ FunAdLoader a(xwb xwbVar, v2c v2cVar) {
-            return new r2c(xwbVar, v2cVar);
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        @Override // com.baidu.tieba.dxb.d
-        public void a(xwb xwbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, xwbVar) == null) {
-                xwb xwbVar2 = xwbVar;
-                LogPrinter.v("SlotId:%s is totally same with oldOne", xwbVar2.a);
-                this.a.remove(xwbVar2.a);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.dxb.d
-        /* renamed from: c */
-        public void b(final xwb xwbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xwbVar) == null) {
-                LogPrinter.v("Update SlotId:%s", xwbVar.a);
-                HashMap<String, bxb> hashMap = this.b.c;
-                String str = xwbVar.a;
-                hashMap.put(str, new bxb(str, new bxb.a() { // from class: com.baidu.tieba.cwb
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.bxb.a
-                    public final FunAdLoader a(v2c v2cVar) {
-                        InterceptResult invokeL;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, v2cVar)) == null) ? dxb.a.a(xwb.this, v2cVar) : (FunAdLoader) invokeL.objValue;
-                    }
-                }));
-                zwb zwbVar = this.b.b;
-                synchronized (zwbVar.a) {
-                    zwbVar.a(xwbVar.a).add(new zwb.a(xwbVar));
-                }
-                this.a.remove(xwbVar.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements d<vwb> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Set a;
-        public final /* synthetic */ dxb b;
-
-        public b(dxb dxbVar, Set set) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dxbVar, set};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = dxbVar;
-            this.a = set;
-        }
-
-        public static /* synthetic */ FunAdLoader a(vwb vwbVar, v2c v2cVar) {
-            return new com.fun.t(vwbVar, v2cVar);
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        @Override // com.baidu.tieba.dxb.d
-        public void a(vwb vwbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, vwbVar) == null) {
-                vwb vwbVar2 = vwbVar;
-                LogPrinter.v("SerialSlotId:%s is totally same with oldOne", vwbVar2.a);
-                this.a.remove(vwbVar2.a);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.dxb.d
-        /* renamed from: c */
-        public void b(final vwb vwbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vwbVar) == null) {
-                LogPrinter.v("Update SerialSlotId:%s", vwbVar.a);
-                HashMap<String, bxb> hashMap = this.b.c;
-                String str = vwbVar.a;
-                hashMap.put(str, new bxb(str, new bxb.a() { // from class: com.baidu.tieba.awb
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.bxb.a
-                    public final FunAdLoader a(v2c v2cVar) {
-                        InterceptResult invokeL;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, v2cVar)) == null) ? dxb.b.a(vwb.this, v2cVar) : (FunAdLoader) invokeL.objValue;
-                    }
-                }));
-                zwb zwbVar = this.b.b;
-                synchronized (zwbVar.a) {
-                    zwbVar.a(vwbVar.a).add(new zwb.b(vwbVar));
-                }
-                this.a.remove(vwbVar.a);
-            }
-        }
+        return invokeL.doubleValue;
     }
 }

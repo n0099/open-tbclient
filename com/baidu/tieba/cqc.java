@@ -1,31 +1,28 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.db.DBTableDefine;
-import com.baidu.tbadk.core.data.IMUserExtraData;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.BaijiahaoInfo;
+import tbclient.Baijiahao;
 /* loaded from: classes5.dex */
-public class cqc extends poc {
+public class cqc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull BaijiahaoInfo baijiahaoInfo) {
+    public static JSONObject b(@NonNull Baijiahao baijiahao) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baijiahaoInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baijiahao)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "name", baijiahaoInfo.name);
-            poc.a(jSONObject, "avatar", baijiahaoInfo.avatar);
-            poc.a(jSONObject, "avatar_h", baijiahaoInfo.avatar_h);
-            poc.a(jSONObject, DBTableDefine.GroupInfoColumns.COLUMN_BRIEF, baijiahaoInfo.brief);
-            poc.a(jSONObject, "auth_id", baijiahaoInfo.auth_id);
-            poc.a(jSONObject, IMUserExtraData.KEY_AUTH_DESC, baijiahaoInfo.auth_desc);
-            poc.a(jSONObject, "can_modify_avatar", baijiahaoInfo.can_modify_avatar);
+            qoc.a(jSONObject, "ori_ugc_nid", baijiahao.ori_ugc_nid);
+            qoc.a(jSONObject, "ori_ugc_tid", baijiahao.ori_ugc_tid);
+            qoc.a(jSONObject, TiebaStatic.Params.UGC_TYPE, baijiahao.ori_ugc_type);
+            qoc.a(jSONObject, "ori_ugc_vid", baijiahao.ori_ugc_vid);
+            qoc.a(jSONObject, "forward_url", baijiahao.forward_url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

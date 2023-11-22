@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.mainentrance.MainEntrance;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ui5;
+import com.baidu.tieba.vi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -99,7 +99,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 }
                 if ("NewUserRedPackageActivity".equals(simpleName)) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    ui5.c(scheme);
+                    vi5.c(scheme);
                 } else if ("MainTabActivity".equalsIgnoreCase(simpleName)) {
                     int currentTabType = MainEntrance.getCurrentTabType();
                     if (currentTabType != 2) {
@@ -107,7 +107,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    ui5.c(scheme);
+                    vi5.c(scheme);
                 } else {
                     this.a.Q();
                 }
@@ -145,7 +145,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 if (invoke != null) {
                     str = (String) invoke;
                 }
-                ui5.b(str);
+                vi5.b(str);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (NoSuchMethodException e2) {
@@ -171,13 +171,13 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == 1) {
-                ui5.b("a025");
+                vi5.b("a025");
             } else if (i == 22) {
-                ui5.b("a088");
+                vi5.b("a088");
             } else if (i == 3) {
-                ui5.b("a079");
+                vi5.b("a079");
             } else if (i == 8) {
-                ui5.b("a011");
+                vi5.b("a011");
             }
         }
     }

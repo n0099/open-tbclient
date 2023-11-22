@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ap8;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.ua;
 import com.baidu.tieba.va;
-import com.baidu.tieba.zo8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class MsgActivityView extends zo8 {
+public class MsgActivityView extends ap8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView I;
@@ -176,7 +176,7 @@ public class MsgActivityView extends zo8 {
         x().setOnLongClickListener(new b(this));
     }
 
-    @Override // com.baidu.tieba.zo8
+    @Override // com.baidu.tieba.ap8
     public void T(ua uaVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, uaVar) == null) {
@@ -184,7 +184,7 @@ public class MsgActivityView extends zo8 {
         }
     }
 
-    @Override // com.baidu.tieba.zo8
+    @Override // com.baidu.tieba.ap8
     public void U(va vaVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vaVar) == null) {
@@ -192,7 +192,7 @@ public class MsgActivityView extends zo8 {
         }
     }
 
-    @Override // com.baidu.tieba.zo8
+    @Override // com.baidu.tieba.ap8
     public void V(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {

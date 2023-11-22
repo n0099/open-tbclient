@@ -7,20 +7,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes9.dex */
-public class y1c extends d2c {
+public class y1c extends e2c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public final /* synthetic */ j1c b;
-    public final /* synthetic */ String c;
-    public final /* synthetic */ w1c d;
+    public boolean b;
+    public final /* synthetic */ k1c c;
+    public final /* synthetic */ String d;
+    public final /* synthetic */ x1c e;
 
-    public y1c(w1c w1cVar, j1c j1cVar, String str) {
+    public y1c(x1c x1cVar, k1c k1cVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {w1cVar, j1cVar, str};
+            Object[] objArr = {x1cVar, k1cVar, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,9 +31,9 @@ public class y1c extends d2c {
                 return;
             }
         }
-        this.d = w1cVar;
-        this.b = j1cVar;
-        this.c = str;
+        this.e = x1cVar;
+        this.c = k1cVar;
+        this.d = str;
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
@@ -40,8 +41,8 @@ public class y1c extends d2c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LogPrinter.d();
-            this.d.onAdClicked((w1c) this.b, this.a, this.c);
-            this.a = true;
+            this.e.onAdClicked((x1c) this.c, this.b, this.d);
+            this.b = true;
         }
     }
 
@@ -50,7 +51,7 @@ public class y1c extends d2c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LogPrinter.d();
-            this.d.onAdClose((w1c) this.b, this.c);
+            this.e.onAdClose((x1c) this.c, this.d);
         }
     }
 
@@ -59,7 +60,7 @@ public class y1c extends d2c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LogPrinter.d();
-            this.d.onRewardedVideo((w1c) this.b, this.c);
+            this.e.onRewardedVideo((x1c) this.c, this.d);
         }
     }
 
@@ -76,7 +77,7 @@ public class y1c extends d2c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
             LogPrinter.d();
-            this.d.onAdError(this.b, i, String.valueOf(i2), this.c);
+            this.e.onAdError(this.c, i, String.valueOf(i2), this.d);
         }
     }
 
@@ -85,7 +86,8 @@ public class y1c extends d2c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             LogPrinter.d();
-            this.d.onAdShow((w1c) this.b, false, this.c);
+            this.e.onAdShow((x1c) this.c, this.a, this.d);
+            this.a = true;
         }
     }
 }

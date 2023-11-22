@@ -16,7 +16,7 @@ import com.baidu.tieba.frs.FrsBountyTaskData;
 import com.baidu.tieba.frs.ad.FrsTopADView;
 import com.baidu.tieba.frs.banner.data.FrsHeadBannerData;
 import com.baidu.tieba.frs.banner.view.FrsForumMountView;
-import com.baidu.tieba.rs7;
+import com.baidu.tieba.ss7;
 import com.baidu.tieba.v25;
 import com.baidu.tieba.w25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -122,8 +122,8 @@ public final class FrsHeadCommonFlowAdapter<T extends w25> extends CoverFlowAdap
             Iterator<View> it = this.a.iterator();
             while (it.hasNext()) {
                 View next = it.next();
-                if (next instanceof rs7) {
-                    ((rs7) next).onChangeSkinType(TbadkApplication.getInst().getSkinType());
+                if (next instanceof ss7) {
+                    ((ss7) next).onChangeSkinType(TbadkApplication.getInst().getSkinType());
                 }
             }
         }
@@ -136,8 +136,8 @@ public final class FrsHeadCommonFlowAdapter<T extends w25> extends CoverFlowAdap
             Iterator<View> it = this.a.iterator();
             while (it.hasNext()) {
                 View next = it.next();
-                if (next instanceof rs7) {
-                    ((rs7) next).onPause();
+                if (next instanceof ss7) {
+                    ((ss7) next).onPause();
                 }
             }
         }
@@ -150,8 +150,8 @@ public final class FrsHeadCommonFlowAdapter<T extends w25> extends CoverFlowAdap
             Iterator<View> it = this.a.iterator();
             while (it.hasNext()) {
                 View next = it.next();
-                if (next instanceof rs7) {
-                    ((rs7) next).onResume();
+                if (next instanceof ss7) {
+                    ((ss7) next).onResume();
                 }
             }
         }
@@ -164,8 +164,8 @@ public final class FrsHeadCommonFlowAdapter<T extends w25> extends CoverFlowAdap
             Iterator<View> it = this.a.iterator();
             while (it.hasNext()) {
                 View next = it.next();
-                if (next instanceof rs7) {
-                    ((rs7) next).onDestroy();
+                if (next instanceof ss7) {
+                    ((ss7) next).onDestroy();
                 }
             }
         }
@@ -178,8 +178,8 @@ public final class FrsHeadCommonFlowAdapter<T extends w25> extends CoverFlowAdap
             Iterator<View> it = this.a.iterator();
             while (it.hasNext()) {
                 View next = it.next();
-                if (next instanceof rs7) {
-                    ((rs7) next).onPrimary(z);
+                if (next instanceof ss7) {
+                    ((ss7) next).onPrimary(z);
                 }
             }
         }

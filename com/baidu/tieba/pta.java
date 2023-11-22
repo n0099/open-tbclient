@@ -1,46 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.base.BdPageContext;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public class pta {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface pta {
+    void a(TbPageContext<?> tbPageContext);
 
-    public static VoiceManager a(Context context) {
-        InterceptResult invokeL;
-        TbPageContext tbPageContext;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context instanceof VoiceManager.i) {
-                return ((VoiceManager.i) context).N0();
-            }
-            if ((a5.a(context) instanceof BdPageContext) && (tbPageContext = (TbPageContext) a5.a(context)) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.i)) {
-                return ((VoiceManager.i) tbPageContext.getOrignalPage()).N0();
-            }
-            return null;
-        }
-        return (VoiceManager) invokeL.objValue;
-    }
+    void b(String str);
 
-    public static VoiceManager b(Context context) {
-        InterceptResult invokeL;
-        TbPageContext tbPageContext;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (context instanceof VoiceManager.j) {
-                return ((VoiceManager.j) context).X0();
-            }
-            if ((a5.a(context) instanceof BdPageContext) && (tbPageContext = (TbPageContext) a5.a(context)) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
-                return ((VoiceManager.j) tbPageContext.getOrignalPage()).X0();
-            }
-            return null;
-        }
-        return (VoiceManager) invokeL.objValue;
-    }
+    boolean c(fe feVar, int i);
+
+    void cancelRecord();
+
+    void d(int i);
+
+    void e(fe feVar);
+
+    boolean f();
+
+    void release();
+
+    void stopRecord();
 }

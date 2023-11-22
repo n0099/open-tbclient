@@ -14,14 +14,14 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bi;
-import com.baidu.tieba.h98;
+import com.baidu.tieba.i98;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ConcernEmotionTipAdapter extends bi<h98, ConcernEmotionTipViewHolder> {
+public class ConcernEmotionTipAdapter extends bi<i98, ConcernEmotionTipViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
@@ -67,7 +67,7 @@ public class ConcernEmotionTipAdapter extends bi<h98, ConcernEmotionTipViewHolde
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernEmotionTipAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getContext(), h98.g);
+        super(tbPageContext.getContext(), i98.g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,22 +124,22 @@ public class ConcernEmotionTipAdapter extends bi<h98, ConcernEmotionTipViewHolde
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.bi
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, h98 h98Var, ConcernEmotionTipViewHolder concernEmotionTipViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, i98 i98Var, ConcernEmotionTipViewHolder concernEmotionTipViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, h98Var, concernEmotionTipViewHolder})) == null) {
-            String str = h98Var.b;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, i98Var, concernEmotionTipViewHolder})) == null) {
+            String str = i98Var.b;
             if (str != null) {
                 concernEmotionTipViewHolder.a.setTextOption(NoDataViewFactory.e.d(null, str));
             }
-            if (h98Var.getType() == h98.f) {
-                if (h98Var.a == 2) {
+            if (i98Var.getType() == i98.f) {
+                if (i98Var.a == 2) {
                     concernEmotionTipViewHolder.a.setTextOption(NoDataViewFactory.e.d(null, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04c4)));
                 } else {
                     concernEmotionTipViewHolder.a.setTextOption(NoDataViewFactory.e.d(null, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04c3)));
                 }
             }
-            int i2 = h98Var.a;
+            int i2 = i98Var.a;
             if (i2 != 2) {
                 if (i2 == 3) {
                     concernEmotionTipViewHolder.a(this.a, TbadkCoreApplication.getInst().getSkinType(), NoDataViewFactory.ImgType.NOPOST);

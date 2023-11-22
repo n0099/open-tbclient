@@ -112,7 +112,7 @@ public final class eu4 {
             }
             hashMap.put("dialogId", str);
             hashMap.put("btnId", id);
-            dj6.a().d(webView, "showDialog", hashMap);
+            ej6.a().d(webView, "showDialog", hashMap);
         }
     }
 
@@ -123,7 +123,7 @@ public final class eu4 {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{activity, webView, Integer.valueOf(i), str, str2})) == null) {
             Intrinsics.checkNotNullParameter(activity, "activity");
             Intrinsics.checkNotNullParameter(webView, "webView");
-            if (i == 1 && (a = bn6.a.a(str)) != null) {
+            if (i == 1 && (a = cn6.a.a(str)) != null) {
                 String optString = a.optString("title");
                 String optString2 = a.optString("desc");
                 JSONArray optJSONArray = a.optJSONArray("btn");
@@ -187,7 +187,7 @@ public final class eu4 {
                 str = "";
             }
             hashMap.put("dialogId", str);
-            dj6.a().d(webView, "showDialog", hashMap);
+            ej6.a().d(webView, "showDialog", hashMap);
         }
     }
 }

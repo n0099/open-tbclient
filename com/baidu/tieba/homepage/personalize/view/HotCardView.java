@@ -25,10 +25,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.concern.view.RecommendHotReplyLayout;
-import com.baidu.tieba.j65;
+import com.baidu.tieba.k65;
 import com.baidu.tieba.r25;
-import com.baidu.tieba.ura;
 import com.baidu.tieba.uu4;
+import com.baidu.tieba.vra;
 import com.baidu.tieba.yd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -208,7 +208,7 @@ public class HotCardView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLIL(1048579, this, threadData, i, themeColorInfo) == null) {
             this.e.removeAllViews();
             this.e.stopFlipping();
-            List<ura> postList = threadData.getPostList();
+            List<vra> postList = threadData.getPostList();
             if (!ListUtils.isEmpty(postList)) {
                 for (int i2 = 0; i2 < postList.size(); i2++) {
                     RecommendHotReplyLayout recommendHotReplyLayout = new RecommendHotReplyLayout(getContext());
@@ -277,12 +277,12 @@ public class HotCardView extends LinearLayout {
         float[] B = r25.B(R.string.J_X04);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.T_X10);
         int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
-        j65 j65Var = new j65(TagTextHelper.getIndexTextColorRes(i), (int) B[0], dimenPixelSize, R.color.CAM_X0101, UtilHelper.getDimenPixelSize(R.dimen.tbds3), UtilHelper.getDimenPixelSize(R.dimen.tbds5), 0);
-        j65Var.b(dimenPixelSize2);
-        j65Var.a(false);
+        k65 k65Var = new k65(TagTextHelper.getIndexTextColorRes(i), (int) B[0], dimenPixelSize, R.color.CAM_X0101, UtilHelper.getDimenPixelSize(R.dimen.tbds3), UtilHelper.getDimenPixelSize(R.dimen.tbds5), 0);
+        k65Var.b(dimenPixelSize2);
+        k65Var.a(false);
         String valueOf = String.valueOf(i);
         spannableStringBuilder.insert(0, (CharSequence) valueOf);
-        spannableStringBuilder.setSpan(j65Var, 0, valueOf.length(), 17);
+        spannableStringBuilder.setSpan(k65Var, 0, valueOf.length(), 17);
         this.a.setMaxLines(i2);
         this.a.setText(spannableStringBuilder);
         e(threadData, i - 1, themeColorInfo);

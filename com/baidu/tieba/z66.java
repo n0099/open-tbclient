@@ -1,37 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import android.content.Intent;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes9.dex */
-public class z66 extends rp1 {
+public class z66 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public z66() {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return np2.M().a();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void b() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            int defaultNightMode = AppCompatDelegate.getDefaultNightMode();
+            if (a()) {
+                i = 2;
+            } else {
+                i = 1;
+            }
+            if (defaultNightMode != i) {
+                AppCompatDelegate.setDefaultNightMode(i);
             }
         }
     }
 
-    @Override // com.baidu.tieba.rp1
-    public void c(boolean z) {
+    public static void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            y66.c(z);
+        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
+            Intent intent = new Intent("com.baidu.swan.skin.nightmodechanged");
+            intent.putExtra("key_night_mode", z);
+            LocalBroadcastManager.getInstance(AppRuntime.getAppContext()).sendBroadcast(intent);
         }
     }
 }

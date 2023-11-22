@@ -1,28 +1,22 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.view.ViewGroup;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
-import com.baidu.tieba.view.NavigationBarCoverTip;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
 /* loaded from: classes8.dex */
 public interface w95 {
-    boolean a();
+    public static final ServiceReference a = new ServiceReference("IM", "IMessageCenterService");
 
-    int b();
+    NewsRemindMessage a();
 
-    void c();
+    void b(boolean z);
 
-    Dialog d(int i, TbPageContext tbPageContext, OnTimeSelectListener onTimeSelectListener, boolean z);
+    jjc<Boolean> c();
 
-    NavigationBarCoverTip e(Activity activity, ViewGroup viewGroup);
+    boolean d();
 
-    void f(int i, TbPageContext tbPageContext, ViewGroup viewGroup, boolean z);
+    void e();
 
-    int g();
+    boolean f();
 
-    void h(boolean z, long j);
-
-    void i(boolean z, int i, int i2);
+    jjc<NewsRemindMessage> g();
 }

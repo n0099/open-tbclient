@@ -1,58 +1,108 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.forum.component.CardHeadlinesView;
+import android.os.Bundle;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModelProvider;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tieba.forum.data.ForumTabItem;
+import com.baidu.tieba.forum.data.SortItem;
+import com.baidu.tieba.forum.data.SubTabItem;
+import com.baidu.tieba.forum.viewmodel.ForumViewModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class sl7 extends ia7<CardHeadlinesView, ye7> {
+public final class sl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sl7() {
-        super("head_lines");
+    public static final yj7 a(FragmentActivity activity, Bundle bundle, BdUniqueId bdUniqueId, dk7 resultCallback) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, activity, bundle, bdUniqueId, resultCallback)) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            Intrinsics.checkNotNullParameter(bundle, "bundle");
+            Intrinsics.checkNotNullParameter(bdUniqueId, "bdUniqueId");
+            Intrinsics.checkNotNullParameter(resultCallback, "resultCallback");
+            yj7 xj7Var = new xj7();
+            ForumTabItem forumTabItem = (ForumTabItem) bundle.getParcelable("forum_tab_info");
+            if (forumTabItem == null) {
+                return xj7Var;
             }
+            ih7 ih7Var = null;
+            if (bundle.getBoolean("forum_tab_current_list", false)) {
+                ih7Var = ((ForumViewModel) new ViewModelProvider(activity).get(ForumViewModel.class)).a().getValue();
+            }
+            int netType = forumTabItem.getNetType();
+            int i = -1;
+            if (netType != 1) {
+                if (netType != 2) {
+                    if (netType != 3) {
+                        wl7.a("Unknown netType!!!");
+                    } else {
+                        xj7Var = new wj7(new gk7(activity, bdUniqueId, bundle), resultCallback);
+                    }
+                } else {
+                    xj7Var = new wj7(new hk7(activity, bdUniqueId, bundle), resultCallback);
+                }
+            } else {
+                i = SharedPrefHelper.getInstance().getInt("key_forum_last_sort_type", -1);
+                xj7Var = new wj7(new ik7(activity, bdUniqueId, bundle), resultCallback);
+            }
+            xj7Var.c(new ak7(b(forumTabItem, i), ih7Var));
+            return xj7Var;
         }
+        return (yj7) invokeLLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ia7, com.baidu.tieba.ya7
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static final zj7 b(ForumTabItem forumTabItem, int i) {
+        InterceptResult invokeLI;
+        boolean z;
+        fk7 fk7Var;
+        boolean z2;
+        int size;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            rc7.j(a);
-            return a;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, forumTabItem, i)) == null) {
+            List<SubTabItem> subTabList = forumTabItem.getSubTabList();
+            int i2 = 0;
+            if (subTabList != null && !subTabList.isEmpty()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            ek7 ek7Var = null;
+            if (!z && forumTabItem.getSubTabList().size() > 1) {
+                fk7Var = new fk7(forumTabItem.getSubTabList(), 0);
+            } else {
+                fk7Var = null;
+            }
+            List<SortItem> sortItemList = forumTabItem.getSortItemList();
+            if (sortItemList != null && !sortItemList.isEmpty()) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            if (!z2 && forumTabItem.getSortItemList().size() > 1) {
+                if (i != -1 && (size = forumTabItem.getSortItemList().size()) >= 0) {
+                    int i3 = 0;
+                    while (true) {
+                        if (forumTabItem.getSortItemList().get(i3).getId() == i) {
+                            i2 = i3;
+                            break;
+                        } else if (i3 == size) {
+                            break;
+                        } else {
+                            i3++;
+                        }
+                    }
+                }
+                ek7Var = new ek7(forumTabItem.getSortItemList(), i2);
+            }
+            return new zj7(fk7Var, ek7Var);
         }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ya7
-    /* renamed from: e */
-    public void b(@NonNull CardHeadlinesView cardHeadlinesView, @NonNull ye7 ye7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardHeadlinesView, ye7Var) == null) {
-            cardHeadlinesView.d(ye7Var);
-        }
+        return (zj7) invokeLI.objValue;
     }
 }

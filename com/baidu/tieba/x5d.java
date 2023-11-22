@@ -1,36 +1,28 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.ThumbnailInfo;
-import tbclient.VideoField;
+import tbclient.VideoDesc;
 /* loaded from: classes9.dex */
-public class x5d extends poc {
+public class x5d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull VideoField videoField) {
+    public static JSONObject b(@NonNull VideoDesc videoDesc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, videoField)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, videoDesc)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "url", videoField.url);
-            poc.a(jSONObject, "duration", videoField.duration);
-            poc.a(jSONObject, "width", videoField.width);
-            poc.a(jSONObject, "height", videoField.height);
-            poc.a(jSONObject, "play_count", videoField.play_count);
-            ThumbnailInfo thumbnailInfo = videoField.thumbnail;
-            if (thumbnailInfo != null) {
-                poc.a(jSONObject, "thumbnail", y4d.b(thumbnailInfo));
-            }
-            poc.a(jSONObject, TiebaStatic.Params.IS_VERTICAL, videoField.is_vertical);
-            poc.a(jSONObject, PackageTable.MD5, videoField.md5);
+            qoc.a(jSONObject, "video_id", videoDesc.video_id);
+            qoc.a(jSONObject, VideoFinishResult.KEY_VIDEO_MD5, videoDesc.video_md5);
+            qoc.a(jSONObject, "video_url", videoDesc.video_url);
+            qoc.a(jSONObject, "video_width", videoDesc.video_width);
+            qoc.a(jSONObject, "video_height", videoDesc.video_height);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

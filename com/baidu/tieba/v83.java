@@ -78,7 +78,7 @@ public class v83 extends d83 {
     }
 
     /* loaded from: classes8.dex */
-    public class b implements wjc<Boolean> {
+    public class b implements xjc<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -110,7 +110,7 @@ public class v83 extends d83 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wjc
+        @Override // com.baidu.tieba.xjc
         /* renamed from: a */
         public void call(Boolean bool) {
             g63 M;
@@ -138,7 +138,7 @@ public class v83 extends d83 {
     }
 
     /* loaded from: classes8.dex */
-    public class c implements bkc<String, Boolean> {
+    public class c implements ckc<String, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -168,7 +168,7 @@ public class v83 extends d83 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bkc
+        @Override // com.baidu.tieba.ckc
         /* renamed from: a */
         public Boolean call(String str) {
             InterceptResult invokeL;
@@ -258,7 +258,7 @@ public class v83 extends d83 {
             bg2 l = bg2.l();
             l.n(4);
             ag2.b k = l.k();
-            ijc.n(str2).J(Schedulers.io()).p(new c(this, str, str3, str4, k)).s(sjc.b()).H(new b(this, str, k, callbackHandler, unitedSchemeEntity, str5));
+            jjc.n(str2).J(Schedulers.io()).p(new c(this, str, str3, str4, k)).s(tjc.b()).H(new b(this, str, k, callbackHandler, unitedSchemeEntity, str5));
         }
     }
 }

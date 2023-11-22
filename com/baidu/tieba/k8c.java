@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.AsyncTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,174 +12,74 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
-import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.TrustManagerFactory;
-import javax.net.ssl.X509TrustManager;
 /* loaded from: classes7.dex */
-public class k8c implements X509TrustManager {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String b;
+public class k8c {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "SecureX509SingleInstance";
+    public static volatile l8c b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<X509TrustManager> a;
-
-    public void b(X509Certificate[] x509CertificateArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr) == null) {
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947868403, "Lcom/baidu/tieba/k8c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947868403, "Lcom/baidu/tieba/k8c;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947868403, "Lcom/baidu/tieba/k8c;")) == null) {
+            return;
         }
-        b = k8c.class.getSimpleName();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947868403, "Lcom/baidu/tieba/k8c;");
+        }
     }
 
-    public k8c(InputStream inputStream, String str) throws IllegalArgumentException {
+    public k8c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
-        }
-        this.a = new ArrayList();
-        a(inputStream, str);
-    }
-
-    public final void a(InputStream inputStream, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, inputStream, str) == null) {
-            if (inputStream != null && str != null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                try {
-                    try {
-                        TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance("X509");
-                        KeyStore keyStore = KeyStore.getInstance("bks");
-                        keyStore.load(inputStream, str.toCharArray());
-                        trustManagerFactory.init(keyStore);
-                        TrustManager[] trustManagers = trustManagerFactory.getTrustManagers();
-                        for (int i = 0; i < trustManagers.length; i++) {
-                            if (trustManagers[i] instanceof X509TrustManager) {
-                                this.a.add((X509TrustManager) trustManagers[i]);
-                            }
-                        }
-                        s8c.b(inputStream);
-                    } finally {
-                        s8c.b(inputStream);
-                    }
-                } catch (IOException | KeyStoreException | NoSuchAlgorithmException | CertificateException e) {
-                    String str2 = b;
-                    t8c.d(str2, "loadInputStream: exception : " + e.getMessage());
-                }
-                String str3 = b;
-                t8c.b(str3, "loadInputStream: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
-                return;
-            }
-            throw new IllegalArgumentException("inputstream or trustPwd is null");
         }
     }
 
-    @Override // javax.net.ssl.X509TrustManager
-    public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+    @SuppressLint({"NewApi"})
+    public static l8c a(Context context) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, x509CertificateArr, str) == null) {
-            t8c.e(b, "checkClientTrusted: ");
-            for (X509TrustManager x509TrustManager : this.a) {
-                try {
-                    x509TrustManager.checkServerTrusted(x509CertificateArr, str);
-                    return;
-                } catch (CertificateException e) {
-                    String str2 = b;
-                    t8c.d(str2, "checkServerTrusted CertificateException" + e.getMessage());
-                }
-            }
-            throw new CertificateException("checkServerTrusted CertificateException");
-        }
-    }
-
-    @Override // javax.net.ssl.X509TrustManager
-    public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, x509CertificateArr, str) == null) {
-            b(x509CertificateArr);
-            t8c.e(b, "checkServerTrusted begin ,server ca chain size is : " + x509CertificateArr.length + " ,auth type is : " + str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            for (X509Certificate x509Certificate : x509CertificateArr) {
-                t8c.b(b, "server ca chain: getSubjectDN is :" + x509Certificate.getSubjectDN());
-                t8c.b(b, "IssuerDN :" + x509Certificate.getIssuerDN());
-                t8c.b(b, "SerialNumber : " + x509Certificate.getSerialNumber());
-            }
-            int size = this.a.size();
-            for (int i = 0; i < size; i++) {
-                try {
-                    t8c.e(b, "check server i : " + i);
-                    X509TrustManager x509TrustManager = this.a.get(i);
-                    X509Certificate[] acceptedIssuers = x509TrustManager.getAcceptedIssuers();
-                    if (acceptedIssuers != null) {
-                        t8c.e(b, "client root ca size is : " + acceptedIssuers.length);
-                        for (int i2 = 0; i2 < acceptedIssuers.length; i2++) {
-                            t8c.b(b, "client root ca getIssuerDN :" + acceptedIssuers[i2].getIssuerDN());
+            if (context != null) {
+                r8c.b(context);
+                if (b == null) {
+                    synchronized (k8c.class) {
+                        if (b == null) {
+                            InputStream n = p8c.n(context);
+                            if (n == null) {
+                                u8c.e(a, "get assets bks");
+                                n = context.getAssets().open("hmsrootcas.bks");
+                            } else {
+                                u8c.e(a, "get files bks");
+                            }
+                            b = new l8c(n, "");
+                            new s8c().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, context);
                         }
                     }
-                    x509TrustManager.checkServerTrusted(x509CertificateArr, str);
-                    t8c.e(b, "checkServerTrusted succeed ,root ca issuer is : " + x509CertificateArr[x509CertificateArr.length - 1].getIssuerDN());
-                    return;
-                } catch (CertificateException e) {
-                    t8c.d(b, "checkServerTrusted error :" + e.getMessage() + " , time : " + i);
-                    if (i == size - 1) {
-                        if (x509CertificateArr != null && x509CertificateArr.length > 0) {
-                            t8c.d(b, "root ca issuer : " + x509CertificateArr[x509CertificateArr.length - 1].getIssuerDN());
-                        }
-                        throw e;
-                    }
                 }
+                String str = a;
+                u8c.b(str, "SecureX509TrustManager getInstance: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+                return b;
             }
-            t8c.b(b, "checkServerTrusted: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+            throw new NullPointerException("context is null");
         }
-    }
-
-    @Override // javax.net.ssl.X509TrustManager
-    public X509Certificate[] getAcceptedIssuers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                ArrayList arrayList = new ArrayList();
-                for (X509TrustManager x509TrustManager : this.a) {
-                    arrayList.addAll(Arrays.asList(x509TrustManager.getAcceptedIssuers()));
-                }
-                return (X509Certificate[]) arrayList.toArray(new X509Certificate[arrayList.size()]);
-            } catch (Exception e) {
-                String str = b;
-                t8c.d(str, "getAcceptedIssuers exception : " + e.getMessage());
-                return new X509Certificate[0];
-            }
-        }
-        return (X509Certificate[]) invokeV.objValue;
+        return (l8c) invokeL.objValue;
     }
 }

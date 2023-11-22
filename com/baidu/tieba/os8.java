@@ -1,44 +1,49 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.BIMManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+@JvmName(name = "ChatUtil")
 /* loaded from: classes7.dex */
-public class os8 {
+public final class os8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    public static Object a(@NonNull is8 is8Var, @NonNull js8 js8Var, @NonNull Object obj) {
-        InterceptResult invokeLLL;
+    public static final long a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, is8Var, js8Var, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            Intrinsics.checkNotNullParameter(str, "<this>");
             try {
-                return is8Var.b(js8Var, obj);
-            } catch (Exception e) {
-                BdLog.e(e);
-                return null;
+                String bdUidFromBdUK = BIMManager.getBdUidFromBdUK(str);
+                Intrinsics.checkNotNullExpressionValue(bdUidFromBdUK, "getBdUidFromBdUK(this)");
+                return Long.parseLong(bdUidFromBdUK);
+            } catch (NumberFormatException unused) {
+                return 0L;
             }
         }
-        return invokeLLL.objValue;
+        return invokeL.longValue;
     }
 
-    @Nullable
-    public static Object b(@NonNull is8 is8Var, @NonNull js8 js8Var, @NonNull Object obj) {
-        InterceptResult invokeLLL;
+    public static final String b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, is8Var, js8Var, obj)) == null) {
-            try {
-                return is8Var.a(js8Var, obj);
-            } catch (Exception e) {
-                e.printStackTrace();
-                BdLog.e(e);
-                return null;
-            }
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+            return c(String.valueOf(j));
         }
-        return invokeLLL.objValue;
+        return (String) invokeJ.objValue;
+    }
+
+    public static final String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            Intrinsics.checkNotNullParameter(str, "<this>");
+            return BIMManager.getBdUKFromBdUid(str);
+        }
+        return (String) invokeL.objValue;
     }
 }

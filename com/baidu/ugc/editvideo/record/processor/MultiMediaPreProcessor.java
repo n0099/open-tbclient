@@ -16,12 +16,12 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.tieba.bsb;
+import com.baidu.tieba.csb;
 import com.baidu.tieba.gc0;
 import com.baidu.tieba.ic0;
 import com.baidu.tieba.oc0;
-import com.baidu.tieba.osb;
-import com.baidu.tieba.wrb;
+import com.baidu.tieba.psb;
+import com.baidu.tieba.xrb;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.data.MultiMediaDataTrack;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
@@ -126,7 +126,7 @@ public class MultiMediaPreProcessor {
             }
             f9 = f12 + ((multiMediaData.width / 2.0f) * f);
             f2 = (f10 - ((multiMediaData.height / 2.0f) * f)) - f13;
-            wrb.e("MultiMediaPreProcessor", "ADAPTIVE,x:" + multiMediaData.x + ",y:" + multiMediaData.y + ",posx:" + f9 + ",posy:" + f2 + ",previewwidth:" + i3 + ",previeheight:" + i4);
+            xrb.e("MultiMediaPreProcessor", "ADAPTIVE,x:" + multiMediaData.x + ",y:" + multiMediaData.y + ",posx:" + f9 + ",posy:" + f2 + ",previewwidth:" + i3 + ",previeheight:" + i4);
         } else if (multiMediaData.scaleType.contains(charSequence)) {
             int min = Math.min(i, i2);
             float f14 = min;
@@ -233,7 +233,7 @@ public class MultiMediaPreProcessor {
         if (this.mBgBitmap != null) {
             return true;
         }
-        if (bsb.e(this.mUpdateMediaTracks)) {
+        if (csb.e(this.mUpdateMediaTracks)) {
             return false;
         }
         for (int i = 1; i < this.mUpdateMediaTracks.size(); i++) {
@@ -596,7 +596,7 @@ public class MultiMediaPreProcessor {
         String str;
         if (this.mTestSavePic && (i = this.mTestSavePicCount) < 1) {
             if (i == 0) {
-                osb.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor.1
+                psb.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor.1
                     @Override // java.lang.Runnable
                     public void run() {
                         FileUtils.deleteFileOrDir(new File("/sdcard/zhmy/"));
@@ -690,7 +690,7 @@ public class MultiMediaPreProcessor {
         int i6 = 0;
         this.mCurrentFboIndex = 0;
         this.mPlayTime = j;
-        if (bsb.e(list)) {
+        if (csb.e(list)) {
             return 0;
         }
         List<MediaTrack> list3 = this.mUpdateMediaTracks;

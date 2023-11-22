@@ -12,7 +12,7 @@ import com.baidu.tbadk.CustomRecyclerView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cn8;
+import com.baidu.tieba.dn8;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ public class DirectChatSlice extends Slice {
     @Nullable
     public ChatRoomDetail m;
     @Nullable
-    public cn8 n;
+    public dn8 n;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -69,12 +69,12 @@ public class DirectChatSlice extends Slice {
         }
     }
 
-    public DirectChatSlice(@NonNull TbPageContext<?> tbPageContext, @NonNull cn8 cn8Var) {
+    public DirectChatSlice(@NonNull TbPageContext<?> tbPageContext, @NonNull dn8 dn8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, cn8Var};
+            Object[] objArr = {tbPageContext, dn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,7 +85,7 @@ public class DirectChatSlice extends Slice {
             }
         }
         this.j = tbPageContext;
-        this.n = cn8Var;
+        this.n = dn8Var;
     }
 
     @Override // com.baidu.tieba.im.base.core.slice.Slice

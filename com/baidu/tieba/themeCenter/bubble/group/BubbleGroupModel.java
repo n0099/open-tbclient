@@ -13,9 +13,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.cra;
-import com.baidu.tieba.dya;
-import com.baidu.tieba.pya;
+import com.baidu.tieba.dra;
+import com.baidu.tieba.eya;
+import com.baidu.tieba.qya;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.all.BubbleSetResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,8 +29,8 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupActivity a;
-    public pya b;
-    public List<dya> c;
+    public qya b;
+    public List<eya> c;
     public c d;
     public boolean e;
     public NetMessageListener f;
@@ -38,7 +38,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
 
     /* loaded from: classes8.dex */
     public interface c {
-        void a(int i, String str, pya pyaVar, List<dya> list);
+        void a(int i, String str, qya qyaVar, List<eya> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -201,8 +201,8 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public final void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            cra.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
-            cra.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, true, false);
+            dra.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
+            dra.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, true, false);
         }
     }
 
@@ -228,12 +228,12 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     }
 
     public final void Z(int i) {
-        List<dya> list;
+        List<eya> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (list = this.c) != null && list.size() > 0) {
-            for (dya dyaVar : this.c) {
-                if (dyaVar != null && dyaVar.a() != null) {
-                    for (DressItemData dressItemData : dyaVar.a()) {
+            for (eya eyaVar : this.c) {
+                if (eyaVar != null && eyaVar.a() != null) {
+                    for (DressItemData dressItemData : eyaVar.a()) {
                         if (dressItemData != null) {
                             if (dressItemData.getPropsId() == i) {
                                 dressItemData.setInUse(true);

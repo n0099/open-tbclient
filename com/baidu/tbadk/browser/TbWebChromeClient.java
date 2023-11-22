@@ -17,11 +17,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.mobads.sdk.internal.ci;
-import com.baidu.tieba.ksa;
-import com.baidu.tieba.nsa;
+import com.baidu.tieba.lsa;
+import com.baidu.tieba.osa;
 import com.baidu.tieba.qd;
-import com.baidu.tieba.rsa;
-import com.baidu.tieba.s85;
+import com.baidu.tieba.ssa;
+import com.baidu.tieba.t85;
 import com.baidu.tieba.xb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TbWebChromeClient extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ksa callback;
+    public lsa callback;
     public TBWebViewActivity mActivity;
 
     public TbWebChromeClient(TBWebViewActivity tBWebViewActivity) {
@@ -64,10 +64,10 @@ public class TbWebChromeClient extends WebChromeClient {
         }
     }
 
-    public void setOnJsPromptCallback(ksa ksaVar) {
+    public void setOnJsPromptCallback(lsa lsaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, ksaVar) == null) {
-            this.callback = ksaVar;
+        if (interceptable == null || interceptable.invokeL(1048587, this, lsaVar) == null) {
+            this.callback = lsaVar;
         }
     }
 
@@ -148,16 +148,16 @@ public class TbWebChromeClient extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
-        ksa ksaVar;
+        lsa lsaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!s85.a(str) && str2.startsWith("tiebaapp")) {
-                nsa nsaVar = new nsa();
-                nsaVar.w(rsa.b(str2));
-                nsaVar.y(301);
-                callJsMethod(webView, nsaVar.c(), nsaVar.d());
+            if (!t85.a(str) && str2.startsWith("tiebaapp")) {
+                osa osaVar = new osa();
+                osaVar.w(ssa.b(str2));
+                osaVar.y(301);
+                callJsMethod(webView, osaVar.c(), osaVar.d());
             }
-            if (s85.a(str) && (ksaVar = this.callback) != null && ksaVar.onJsPrompt(str2, jsPromptResult)) {
+            if (t85.a(str) && (lsaVar = this.callback) != null && lsaVar.onJsPrompt(str2, jsPromptResult)) {
                 return true;
             }
             jsPromptResult.cancel();

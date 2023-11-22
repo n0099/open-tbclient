@@ -1,19 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
+import com.baidu.tieba.im.under.common.tag.item.AbilityTagItemViewHolder;
+import com.baidu.tieba.im.under.common.tag.item.AddEmojiPendantVH;
+import com.baidu.tieba.im.under.common.tag.item.ElementFileItemViewHolder;
+import com.baidu.tieba.im.under.common.tag.item.ElementItemViewHolder;
+import com.baidu.tieba.im.under.common.tag.item.EmojiReplyPendantVH;
+import com.baidu.tieba.im.under.common.tag.item.SkillIconViewHolder;
+import com.baidu.tieba.im.under.common.tag.item.SkillTagItemViewHolder;
+import com.baidu.tieba.im.under.common.tag.item.TagItemViewHolder;
+import com.baidu.tieba.im.under.common.tag.item.TagSugItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class uu8 implements sm8 {
+public class uu8 extends wm8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public BotsDTO.BotListDTO.SkillDTO d;
+    @Nullable
+    public BotsDTO.BotListDTO.UserDTO e;
 
     public uu8() {
         Interceptable interceptable = $ic;
@@ -29,53 +43,57 @@ public class uu8 implements sm8 {
         }
     }
 
-    public static rm8 c(Context context, RecyclerView recyclerView, int i) {
-        InterceptResult invokeLLI;
+    @Override // com.baidu.tieba.wm8
+    public BaseTagItemViewHolder b(ViewGroup viewGroup, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, recyclerView, i)) == null) {
-            return new rm8(context, recyclerView, new su8(), new tu8(), i, 1);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
+            if (i == jv8.b) {
+                return new TagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d097a, viewGroup, false), this.a);
+            }
+            if (i == zm8.d) {
+                return new ElementItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0977, viewGroup, false), this.a);
+            }
+            if (i == iv8.c) {
+                return new SkillTagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08dc, viewGroup, false), this.a);
+            }
+            if (i == hv8.a) {
+                return new SkillIconViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08db, viewGroup, false), this.a);
+            }
+            if (i == an8.f) {
+                return new ElementFileItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0979, viewGroup, false), this.a);
+            }
+            if (i == cv8.e) {
+                return new AbilityTagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0976, viewGroup, false), this.b, this.c);
+            }
+            if (i == kv8.b) {
+                TagSugItemViewHolder tagSugItemViewHolder = new TagSugItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0977, viewGroup, false), this.a, this.c);
+                tagSugItemViewHolder.q(this.d);
+                tagSugItemViewHolder.t(this.e);
+                return tagSugItemViewHolder;
+            } else if (i == fv8.d) {
+                return new EmojiReplyPendantVH(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0534, viewGroup, false), this.b);
+            } else {
+                if (i == dv8.b) {
+                    return new AddEmojiPendantVH(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0534, viewGroup, false), this.b);
+                }
+                return null;
+            }
         }
-        return (rm8) invokeLLI.objValue;
+        return (BaseTagItemViewHolder) invokeLI.objValue;
     }
 
-    public static qm8 e(Context context, RecyclerView recyclerView, int i) {
-        InterceptResult invokeLLI;
+    public void e(@Nullable BotsDTO.BotListDTO.SkillDTO skillDTO) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, recyclerView, i)) == null) {
-            return new qm8(context, recyclerView, new su8(), new tu8(), i, 1);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, skillDTO) == null) {
+            this.d = skillDTO;
         }
-        return (qm8) invokeLLI.objValue;
     }
 
-    @Override // com.baidu.tieba.sm8
-    public rm8 b(Context context, RecyclerView recyclerView, int i) {
-        InterceptResult invokeLLI;
+    public void f(@Nullable BotsDTO.BotListDTO.UserDTO userDTO) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, recyclerView, i)) == null) {
-            return c(context, recyclerView, i);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, userDTO) == null) {
+            this.e = userDTO;
         }
-        return (rm8) invokeLLI.objValue;
-    }
-
-    public static rm8 d(Context context, RecyclerView recyclerView, int i, @Nullable BotsDTO.BotListDTO.SkillDTO skillDTO, @Nullable BotsDTO.BotListDTO.UserDTO userDTO) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, recyclerView, Integer.valueOf(i), skillDTO, userDTO})) == null) {
-            tu8 tu8Var = new tu8();
-            tu8Var.e(skillDTO);
-            tu8Var.f(userDTO);
-            return new rm8(context, recyclerView, new su8(), tu8Var, i, 2);
-        }
-        return (rm8) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.sm8
-    public rm8 a(Context context, RecyclerView recyclerView, int i, @Nullable BotsDTO.BotListDTO.SkillDTO skillDTO, @Nullable BotsDTO.BotListDTO.UserDTO userDTO) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, recyclerView, Integer.valueOf(i), skillDTO, userDTO})) == null) {
-            return d(context, recyclerView, i, skillDTO, userDTO);
-        }
-        return (rm8) invokeCommon.objValue;
     }
 }

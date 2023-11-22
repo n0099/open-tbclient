@@ -1,151 +1,86 @@
 package com.baidu.tieba;
 
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.FragmentActivity;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mvc.message.ReadCacheMessage;
-import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
-import com.baidu.tbadk.mvc.message.WriteCacheMessage;
-import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-import com.baidu.tbadk.mvc.model.CacheModel;
-import com.baidu.tieba.forum.view.TopCardView;
-import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
-import com.baidu.tieba.myCollection.baseHistory.PbHistoryData;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tbadk.coreExtra.util.PushOpenUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class dh7 extends og7 {
+public final class dh7 extends pg7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FragmentActivity b;
-    public TopCardView c;
-    public List<q77> d;
-    public int e;
-    public boolean f;
-    public String g;
-    public List<? extends PbHistoryData> h;
-    public final Object i;
-    public final a j;
+    public FragmentActivity b;
+    public nb5 c;
+    public Map<String, Date> d;
+    public boolean e;
 
-    /* loaded from: classes5.dex */
-    public static final class a implements CacheModel.CacheModelCallback<PbHistoryData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dh7 a;
-
-        @Override // com.baidu.tbadk.mvc.model.CacheModel.CacheModelCallback
-        public void onCacheDataWrite(WriteCacheRespMsg<List<PbHistoryData>> writeCacheRespMsg, WriteCacheMessage<PbHistoryData> writeCacheMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeCacheRespMsg, writeCacheMessage) == null) {
-            }
-        }
-
-        public a(dh7 dh7Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947704630, "Lcom/baidu/tieba/dh7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dh7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = dh7Var;
-        }
-
-        @Override // com.baidu.tbadk.mvc.model.CacheModel.CacheModelCallback
-        public void onCacheDataGet(ReadCacheRespMsg<List<PbHistoryData>> readCacheRespMsg, ReadCacheMessage<PbHistoryData> readCacheMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, readCacheRespMsg, readCacheMessage) == null) && readCacheRespMsg != null && readCacheRespMsg.getData() != null) {
-                dh7 dh7Var = this.a;
-                List<PbHistoryData> data = readCacheRespMsg.getData();
-                Intrinsics.checkNotNull(data);
-                dh7Var.h = data;
-                dh7 dh7Var2 = this.a;
-                dh7Var2.A(dh7Var2.d);
-                TopCardView topCardView = this.a.c;
-                if (topCardView == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mTopCardView");
-                    topCardView = null;
-                }
-                topCardView.m(this.a.d, this.a.e, this.a.f, this.a.g);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947704630, "Lcom/baidu/tieba/dh7;");
+                return;
             }
         }
+        f = new a(null);
     }
 
     /* loaded from: classes5.dex */
-    public static final class b extends pq6<hh5> {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dh7 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(dh7 dh7Var, Class<hh5> cls) {
-            super(cls);
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dh7Var, cls};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Class) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = dh7Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pq6
-        public void onEvent(hh5 event) {
-            TopCardView topCardView;
+        public final boolean a(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
-                Intrinsics.checkNotNullParameter(event, "event");
-                if (StringUtils.isNotNull(event.a())) {
-                    Iterator it = this.b.d.iterator();
-                    while (true) {
-                        topCardView = null;
-                        String str = null;
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        q77 q77Var = (q77) it.next();
-                        String a = event.a();
-                        k77 h = q77Var.h();
-                        if (h != null) {
-                            str = h.c;
-                        }
-                        if (Intrinsics.areEqual(a, str)) {
-                            q77Var.l(true);
-                        }
-                    }
-                    TopCardView topCardView2 = this.b.c;
-                    if (topCardView2 == null) {
-                        Intrinsics.throwUninitializedPropertyAccessException("mTopCardView");
-                    } else {
-                        topCardView = topCardView2;
-                    }
-                    topCardView.l(this.b.d, event.a());
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                    return PushOpenUtil.shouldShowPushOpenView(TbadkCoreApplication.getInst(), i);
                 }
+                return hba.d.a().b("forum_follow");
             }
+            return invokeI.booleanValue;
         }
     }
 
@@ -155,103 +90,113 @@ public final class dh7 extends og7 {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         Intrinsics.checkNotNullParameter(activity, "activity");
         this.b = activity;
-        this.d = new ArrayList();
-        this.g = "";
-        this.h = new ArrayList();
-        this.i = new Object();
-        this.j = new a(this);
+        this.d = new HashMap();
     }
 
-    @Override // com.baidu.tieba.og7
-    public void i(int i) {
+    @Override // com.baidu.tieba.pg7
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            TopCardView topCardView = this.c;
-            if (topCardView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mTopCardView");
-                topCardView = null;
-            }
-            topCardView.r();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.m();
+            o();
         }
     }
 
-    public final boolean y(String str) {
-        InterceptResult invokeL;
+    public final void o() {
+        nb5 nb5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            for (PbHistoryData pbHistoryData : this.h) {
-                if (pbHistoryData.getThreadId().equals(str)) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (nb5Var = this.c) != null) {
+            Intrinsics.checkNotNull(nb5Var);
+            nb5Var.q();
+        }
+    }
+
+    public final boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            nb5 nb5Var = this.c;
+            if (nb5Var != null) {
+                Intrinsics.checkNotNull(nb5Var);
+                if (nb5Var.t()) {
                     return true;
                 }
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final void z(int i) {
+    public final Date r(String str) {
+        InterceptResult invokeL;
+        Map<String, Date> hasShowTip;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public final void A(List<q77> list) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            for (q77 q77Var : list) {
-                k77 h = q77Var.h();
-                if (h != null) {
-                    str = h.c;
-                } else {
-                    str = null;
-                }
-                q77Var.l(y(str.toString()));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (this.d == null) {
+                hasShowTip = new HashMap<>();
+            } else {
+                hasShowTip = TbSingleton.getInstance().getHasShowTip();
             }
+            this.d = hasShowTip;
+            Date date = new Date(System.currentTimeMillis());
+            Map<String, Date> map = this.d;
+            if (map != null) {
+                Intrinsics.checkNotNull(map);
+                if (map.containsKey(str)) {
+                    Map<String, Date> map2 = this.d;
+                    Intrinsics.checkNotNull(map2);
+                    if (TimeHelper.getDayDifference(map2.get(str), date) >= 1) {
+                        this.e = true;
+                    }
+                    return date;
+                }
+            }
+            this.e = true;
+            return date;
         }
+        return (Date) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.og7
-    public void l() {
+    public final void s(String fid) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.l();
-            mq6.b().a(this.i);
-        }
-    }
-
-    public final void w(TopCardView topCardView, t47 uiState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, topCardView, uiState) == null) {
-            Intrinsics.checkNotNullParameter(topCardView, "topCardView");
-            Intrinsics.checkNotNullParameter(uiState, "uiState");
-            this.c = topCardView;
-            this.d = uiState.n();
-            this.e = uiState.l();
-            this.f = uiState.o();
-            this.g = uiState.m();
-        }
-    }
-
-    public final void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(xl7.a(this.b));
-            pbHistoryCacheModel.setCallback(this.j);
-            pbHistoryCacheModel.loadCache();
-            mq6.b().b(this.i, new b(this, hh5.class));
+        if (interceptable == null || interceptable.invokeL(1048580, this, fid) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            if (!(this.b instanceof BaseFragmentActivity)) {
+                return;
+            }
+            Date r = r(fid);
+            int i = 0;
+            i = (UbsABTestHelper.isPushPermissionForumFollowTestA() || UbsABTestHelper.isPushPermissionForumFollowTestB()) ? 11 : 11;
+            if ((!NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled() || !aa5.e().o()) && this.e && f.a(i)) {
+                HashMap hashMap = new HashMap();
+                nb5 nb5Var = this.c;
+                if (nb5Var != null) {
+                    Intrinsics.checkNotNull(nb5Var);
+                    nb5Var.q();
+                }
+                nb5 showPushOpenView = PushOpenUtil.showPushOpenView(((BaseFragmentActivity) this.b).getPageContext(), "forum_follow", 2000L, hashMap);
+                this.c = showPushOpenView;
+                if (showPushOpenView != null) {
+                    hba.d.a().h("forum_follow");
+                }
+                Map<String, Date> map = this.d;
+                Intrinsics.checkNotNull(map);
+                map.put(fid, r);
+                TbSingleton.getInstance().setHasShowTip(this.d);
+                return;
+            }
+            BdUtilHelper.showToastByTextCenter(TbadkCoreApplication.getInst(), R.string.push_like_tip_msg);
         }
     }
 }

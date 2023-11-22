@@ -10,7 +10,7 @@ import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.tieba.im.lib.socket.msg.TbEmojiReplySysMsg;
 import com.baidu.tieba.im.lib.socket.msg.data.EmojiData;
-import com.baidu.tieba.wv8;
+import com.baidu.tieba.xv8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -222,14 +222,14 @@ public final class EmojiReplySysItem extends BaseItem<TbEmojiReplySysMsg> {
                     Iterator it = arrayList3.iterator();
                     while (it.hasNext()) {
                         EmojiData emojiData = (EmojiData) it.next();
-                        EmojiData b2 = wv8.b(emojiData.getContent(), list);
+                        EmojiData b2 = xv8.b(emojiData.getContent(), list);
                         if (b2 != null) {
                             emojiData.setAllNum(b2.getAllNum());
                         }
                     }
                     ArrayList arrayList4 = new ArrayList();
                     for (EmojiData emojiData2 : list) {
-                        if (wv8.b(emojiData2.getContent(), arrayList3) == null) {
+                        if (xv8.b(emojiData2.getContent(), arrayList3) == null) {
                             arrayList4.add(emojiData2);
                         }
                     }
@@ -239,7 +239,7 @@ public final class EmojiReplySysItem extends BaseItem<TbEmojiReplySysMsg> {
                     while (it2.hasNext()) {
                         Object next = it2.next();
                         Intrinsics.checkNotNullExpressionValue(next, "iterator.next()");
-                        if (wv8.b(((EmojiData) next).getContent(), list) == null) {
+                        if (xv8.b(((EmojiData) next).getContent(), list) == null) {
                             it2.remove();
                         }
                     }

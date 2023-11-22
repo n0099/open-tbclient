@@ -1,81 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tieba.forum.data.ForumTabItem;
+import android.os.Bundle;
+import com.baidu.tieba.oa7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class lk7 {
+public final class lk7 implements oa7.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Bundle a;
 
-    public static final void a(ForumTabItem tabItem, long j, int i) {
-        int i2;
+    public lk7(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{tabItem, Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            Intrinsics.checkNotNullParameter(tabItem, "tabItem");
-            StatisticItem statisticItem = new StatisticItem("c13008");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("fid", j);
-            int tabId = tabItem.getTabId();
-            if (tabId != 1) {
-                if (tabId != 49) {
-                    if (tabId != 301) {
-                        if (tabId != 404) {
-                            if (tabId != 1120) {
-                                if (tabId != 89) {
-                                    if (tabId != 90) {
-                                        if (tabId != 503) {
-                                            if (tabId != 504) {
-                                                i2 = 10;
-                                            } else {
-                                                i2 = 11;
-                                            }
-                                        } else {
-                                            i2 = 6;
-                                        }
-                                    } else {
-                                        i2 = 9;
-                                    }
-                                } else {
-                                    i2 = 1;
-                                }
-                            }
-                        } else {
-                            i2 = 2;
-                        }
-                    } else {
-                        i2 = 7;
-                    }
-                }
-                i2 = 15;
-            } else if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                i2 = 4;
-            } else {
-                i2 = 5;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bundle};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            int tabType = tabItem.getTabType();
-            if (tabType != 1) {
-                if (tabType != 3) {
-                    if (tabType != 100) {
-                        if (tabType == 102) {
-                            i2 = 17;
-                        }
-                    } else {
-                        i2 = 16;
-                    }
-                } else {
-                    i2 = 13;
-                }
+        }
+        Intrinsics.checkNotNullParameter(bundle, "bundle");
+        this.a = bundle;
+    }
+
+    @Override // com.baidu.tieba.oa7.b
+    public void a(ab7<?> data, int i) {
+        ka7 ka7Var;
+        Map<String, String> emptyMap;
+        Map<String, String> emptyMap2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, data, i) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (data instanceof ka7) {
+                ka7Var = (ka7) data;
             } else {
-                i2 = 12;
+                ka7Var = null;
             }
-            statisticItem.param("obj_locate", i);
-            statisticItem.param("obj_type", i2);
-            statisticItem.eventStat();
+            if (ka7Var == null) {
+                return;
+            }
+            w67 w67Var = ka7Var.a;
+            if (w67Var == null || (emptyMap = w67Var.a()) == null) {
+                emptyMap = MapsKt__MapsKt.emptyMap();
+            }
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put("get_position", String.valueOf(i + 1));
+            e57 e57Var = ka7Var.b;
+            if (e57Var == null || (emptyMap2 = e57Var.a()) == null) {
+                emptyMap2 = MapsKt__MapsKt.emptyMap();
+            }
+            jb7.a.d(new cb7("card_click_other", emptyMap, linkedHashMap, emptyMap2), new pk7(this.a));
         }
     }
 }

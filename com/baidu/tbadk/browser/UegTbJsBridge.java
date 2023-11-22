@@ -11,12 +11,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.novel.ReadRecordsData;
+import com.baidu.tieba.a85;
 import com.baidu.tieba.bk;
-import com.baidu.tieba.go5;
-import com.baidu.tieba.jsa;
-import com.baidu.tieba.nsa;
-import com.baidu.tieba.yza;
-import com.baidu.tieba.z75;
+import com.baidu.tieba.ho5;
+import com.baidu.tieba.ksa;
+import com.baidu.tieba.osa;
+import com.baidu.tieba.zza;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import org.json.JSONObject;
 import tbclient.BlockPopInfo;
 @bk
 /* loaded from: classes4.dex */
-public class UegTbJsBridge implements jsa {
+public class UegTbJsBridge implements ksa {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "CommonJSBridge";
     public static final String METHOD_BIND_MOBILE_NUMBER = "bindMobileNumber";
@@ -70,17 +70,17 @@ public class UegTbJsBridge implements jsa {
         }
     }
 
-    public nsa novelPayResultToClient(boolean z) {
+    public osa novelPayResultToClient(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             if (z) {
-                go5.c();
+                ho5.c();
             }
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeZ.objValue;
+        return (osa) invokeZ.objValue;
     }
 
     public UegTbJsBridge(TbPageContext<?> tbPageContext) {
@@ -101,37 +101,37 @@ public class UegTbJsBridge implements jsa {
         this.mTbPageContext = tbPageContext;
     }
 
-    public nsa bindingMobileNumber() {
+    public osa bindingMobileNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, z75.b()));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, a85.b()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeV.objValue;
+        return (osa) invokeV.objValue;
     }
 
-    public nsa callNativeSMS(String str, String str2) {
+    public osa callNativeSMS(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             Context pageActivity = this.mTbPageContext.getPageActivity();
             if (pageActivity == null) {
                 pageActivity = this.mContext;
             }
             UtilHelper.smsTo(pageActivity, str, str2);
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeLL.objValue;
+        return (osa) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.jsa
+    @Override // com.baidu.tieba.ksa
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -188,24 +188,24 @@ public class UegTbJsBridge implements jsa {
         return invokeLLLL.booleanValue;
     }
 
-    public nsa recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
+    public osa recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, str, str2, str3, str4, str5)) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             ReadRecordsData readRecordsData = new ReadRecordsData(str, str2, str3, str4, str5);
             readRecordsData.Q(true);
-            go5.d(str2, readRecordsData);
-            return nsaVar;
+            ho5.d(str2, readRecordsData);
+            return osaVar;
         }
-        return (nsa) invokeLLLLL.objValue;
+        return (osa) invokeLLLLL.objValue;
     }
 
-    public nsa setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
+    public osa setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
-            nsa nsaVar = new nsa();
+            osa osaVar = new osa();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 builder.can_post = Integer.valueOf(i);
@@ -215,13 +215,13 @@ public class UegTbJsBridge implements jsa {
                 builder.ok_info = str4;
                 builder.ahead_type = Integer.valueOf(i2);
                 BlockPopInfo build = builder.build(false);
-                yza.h(build);
-                yza.g(build);
+                zza.h(build);
+                zza.g(build);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return nsaVar;
+            return osaVar;
         }
-        return (nsa) invokeCommon.objValue;
+        return (osa) invokeCommon.objValue;
     }
 }

@@ -19,13 +19,13 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.a48;
 import com.baidu.tieba.frs.mc.FrsNetModel;
 import com.baidu.tieba.qd;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
-import com.baidu.tieba.wt5;
-import com.baidu.tieba.yca;
-import com.baidu.tieba.yja;
-import com.baidu.tieba.z38;
+import com.baidu.tieba.xt5;
+import com.baidu.tieba.zca;
+import com.baidu.tieba.zja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -130,7 +130,7 @@ public class FrsActivityConfig extends IntentConfig {
         BdUniqueId gen = BdUniqueId.gen();
         this.mPageId = gen;
         intent.putExtra(FRS_PAGE_ID, gen);
-        yja.b("frs");
+        zja.b("frs");
     }
 
     public FrsActivityConfig createBackSpecialCfg(String str, String str2, boolean z, boolean z2) {
@@ -257,9 +257,9 @@ public class FrsActivityConfig extends IntentConfig {
             i2 = 6;
         }
         if (UbsABTestHelper.isFrsNewAreaTabSortTestA() && FrsTabTestHelper.HAVE_NOT_RECORD_SORT != FrsTabTestHelper.getFrsNewAreaTabSort()) {
-            frsRequestData.a0(z38.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
+            frsRequestData.a0(a48.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
         }
-        frsRequestData.setSortType(z38.d(i2));
+        frsRequestData.setSortType(a48.d(i2));
         if (i2 == 5) {
             frsRequestData.d0(1);
         } else {
@@ -269,7 +269,7 @@ public class FrsActivityConfig extends IntentConfig {
         frsRequestData.O("client_type", "2");
         frsRequestData.setPn(1);
         frsRequestData.setCallFrom(intExtra);
-        z38.e(i2, frsRequestData);
+        a48.e(i2, frsRequestData);
         frsRequestData.l0("2");
         frsRequestData.m0("-2");
         frsRequestData.f0(stringExtra);
@@ -289,18 +289,18 @@ public class FrsActivityConfig extends IntentConfig {
         }
         frsRequestData.h0(null);
         frsRequestData.u0(stringExtra3);
-        frsRequestData.g0(JavaTypesHelper.toLong(wt5.a(), 0L));
+        frsRequestData.g0(JavaTypesHelper.toLong(xt5.a(), 0L));
         frsRequestData.setStType(stringExtra2);
         frsRequestData.c0(1);
         frsRequestData.setNeedCache(true);
         frsRequestData.setUpdateType(3);
         frsRequestData.b0(longExtra);
-        z38.e(i2, frsRequestData);
+        a48.e(i2, frsRequestData);
         frsRequestData.j0(1);
         frsRequestData.setPushTid(intent.getStringExtra(MainTabActivityConfig.PUSH_TID));
-        if (ThreadData.isRecAppLoaded.get() && yca.m().b() != null) {
-            int d = yca.m().b().d(stringExtra, false);
-            int e = yca.m().b().e(stringExtra, false);
+        if (ThreadData.isRecAppLoaded.get() && zca.m().b() != null) {
+            int d = zca.m().b().d(stringExtra, false);
+            int e = zca.m().b().e(stringExtra, false);
             if (frsRequestData.T() == 1) {
                 d++;
             } else if (frsRequestData.T() == 2) {

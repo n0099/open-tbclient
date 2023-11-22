@@ -4,104 +4,89 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedLinkComponent;
-import tbclient.PbLinkInfo;
+import org.json.JSONObject;
+import tbclient.FeedKV;
 /* loaded from: classes8.dex */
 public final class r87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(FeedLinkComponent feedLinkComponent, List<za7<? extends Object>> mutableList) {
+    public static final String a(List<FeedKV> list, String key) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, feedLinkComponent, mutableList) == null) {
-            Intrinsics.checkNotNullParameter(feedLinkComponent, "<this>");
-            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
-            List<PbLinkInfo> list = feedLinkComponent.links;
-            if (list != null) {
-                ArrayList arrayList = new ArrayList();
-                for (PbLinkInfo it : list) {
-                    Intrinsics.checkNotNullExpressionValue(it, "it");
-                    s67 b = b(it);
-                    if (b != null) {
-                        arrayList.add(b);
-                    }
-                }
-                if (arrayList.size() > 1) {
-                    mutableList.add(new z37(arrayList));
-                } else {
-                    mutableList.add(new f47((s67) arrayList.get(0)));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, list, key)) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            Intrinsics.checkNotNullParameter(key, "key");
+            for (FeedKV feedKV : list) {
+                if (Intrinsics.areEqual(feedKV.key, key)) {
+                    return feedKV.value;
                 }
             }
+            return null;
         }
+        return (String) invokeLL.objValue;
     }
 
-    public static final s67 b(PbLinkInfo pbLinkInfo) {
+    public static final Map<String, String> b(List<FeedKV> list) {
         InterceptResult invokeL;
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        int intValue;
-        String str6;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pbLinkInfo)) == null) {
-            Intrinsics.checkNotNullParameter(pbLinkInfo, "<this>");
-            String str7 = pbLinkInfo.title;
-            if (str7 == null) {
-                str = "";
-            } else {
-                str = str7;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            for (FeedKV feedKV : list) {
+                String str = feedKV.key;
+                Intrinsics.checkNotNullExpressionValue(str, "kv.key");
+                String str2 = feedKV.value;
+                Intrinsics.checkNotNullExpressionValue(str2, "kv.value");
+                linkedHashMap.put(str, str2);
             }
-            String str8 = pbLinkInfo.to_url;
-            if (str8 == null) {
-                str2 = "";
-            } else {
-                str2 = str8;
-            }
-            String str9 = pbLinkInfo.pic_url;
-            if (str9 == null) {
-                str3 = "";
-            } else {
-                str3 = str9;
-            }
-            String str10 = pbLinkInfo.link_from;
-            if (str10 == null) {
-                str4 = "";
-            } else {
-                str4 = str10;
-            }
-            String str11 = pbLinkInfo.ext_txt;
-            if (str11 == null) {
-                str5 = "";
-            } else {
-                str5 = str11;
-            }
-            Integer num = pbLinkInfo.sort;
-            int i = 0;
-            if (num == null) {
-                intValue = 0;
-            } else {
-                intValue = num.intValue();
-            }
-            Integer num2 = pbLinkInfo.url_type;
-            if (num2 != null) {
-                i = num2.intValue();
-            }
-            String str12 = pbLinkInfo.content1;
-            if (str12 == null) {
-                str6 = "";
-            } else {
-                str6 = str12;
-            }
-            String str13 = pbLinkInfo.content2;
-            if (str13 == null) {
-                str13 = "";
-            }
-            return new s67(str, str2, str3, str4, str5, intValue, i, str6, str13);
+            return linkedHashMap;
         }
-        return (s67) invokeL.objValue;
+        return (Map) invokeL.objValue;
+    }
+
+    public static final List<n77> c(List<FeedKV> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            ArrayList arrayList = new ArrayList();
+            for (FeedKV feedKV : list) {
+                String str = feedKV.key;
+                Intrinsics.checkNotNullExpressionValue(str, "kv.key");
+                n77 n77Var = new n77(str, null, null, null, null, 30, null);
+                Map<String, String> d = n77Var.d();
+                try {
+                    JSONObject jSONObject = new JSONObject(feedKV.value);
+                    if (d instanceof HashMap) {
+                        Iterator<String> keys = jSONObject.keys();
+                        Intrinsics.checkNotNullExpressionValue(keys, "jsonObject.keys()");
+                        while (keys.hasNext()) {
+                            String key = keys.next();
+                            if (!Intrinsics.areEqual(key, "position_name")) {
+                                Intrinsics.checkNotNullExpressionValue(key, "key");
+                                String optString = jSONObject.optString(key);
+                                Intrinsics.checkNotNullExpressionValue(optString, "jsonObject.optString(key)");
+                                d.put(key, optString);
+                            }
+                        }
+                    }
+                    String optString2 = jSONObject.optString("position_name");
+                    Intrinsics.checkNotNullExpressionValue(optString2, "jsonObject.optString(\"position_name\")");
+                    n77Var.g(optString2);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                arrayList.add(n77Var);
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 }

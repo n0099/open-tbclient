@@ -5,21 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.TbreadDispatch;
+import tbclient.TbmallMonthIcon;
 /* loaded from: classes7.dex */
-public class k4d extends poc {
+public class k4d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TbreadDispatch tbreadDispatch) {
+    public static JSONObject b(@NonNull TbmallMonthIcon tbmallMonthIcon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbreadDispatch)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbmallMonthIcon)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "floor_num", tbreadDispatch.floor_num);
-            poc.a(jSONObject, "product_type", tbreadDispatch.product_type);
-            poc.a(jSONObject, "product_id", tbreadDispatch.product_id);
+            qoc.a(jSONObject, "mon", tbmallMonthIcon.mon);
+            qoc.a(jSONObject, "icon", tbmallMonthIcon.icon);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

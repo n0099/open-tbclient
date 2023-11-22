@@ -1,229 +1,226 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.homepage.tabfeed.HomePageTabFeedFragment;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class yf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HomePageTabFeedFragment a;
-    public BdTypeRecyclerView b;
-    public ug8 c;
-    public ng8 d;
-    public ig8 e;
-    public kg8 f;
-    public jg8 g;
-    public lg8 h;
-    public vg8 i;
-    public mg8 j;
-    public pg8 k;
-    public rg8 l;
-    public qg8 m;
-    public tg8 n;
-    public gg8 o;
-    public eg8 p;
-    public dg8 q;
-    public fg8 r;
-    public og8 s;
-    public sg8 t;
-    public hg8 u;
-    public wg8 v;
-    public List<bi> w;
 
-    /* loaded from: classes9.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yf8 a;
+    public static void a(ThreadData threadData, int i, ArrayList<oi> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65536, null, threadData, i, arrayList) == null) {
+            if (threadData.getTabShowMode() == 1) {
+                b(threadData, i, arrayList, true);
+            } else if (threadData.getForumData() != null && !StringUtils.isNull(threadData.getForumData().b)) {
+                b(threadData, i, arrayList, false);
+            } else {
+                b(threadData, i, arrayList, true);
+            }
+        }
+    }
 
-        public a(yf8 yf8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yf8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static void b(ThreadData threadData, int i, ArrayList<oi> arrayList, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{threadData, Integer.valueOf(i), arrayList, Boolean.valueOf(z)}) == null) {
+            hz4 hz4Var = new hz4();
+            hz4Var.t = threadData;
+            hz4Var.position = i;
+            if (z) {
+                hz4Var.a = true;
+            } else {
+                hz4Var.r = true;
+            }
+            hz4Var.setSupportType(BaseCardInfo.SupportType.TOP);
+            arrayList.add(hz4Var);
+        }
+    }
+
+    public static ArrayList<oi> c(ArrayList<oi> arrayList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, arrayList)) == null) {
+            ArrayList<oi> arrayList2 = new ArrayList<>();
+            Iterator<oi> it = arrayList.iterator();
+            int i = 0;
+            while (it.hasNext()) {
+                oi next = it.next();
+                if (next instanceof ThreadData) {
+                    ThreadData threadData = (ThreadData) next;
+                    threadData.isFromFeedTab = true;
+                    int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
+                    if (threadData.getType() == ThreadData.TYPE_NORMAL) {
+                        a(threadData, i, arrayList2);
+                        hz4 hz4Var = new hz4();
+                        hz4Var.t = threadData;
+                        hz4Var.position = i;
+                        if (threadData.isBJHNormalThreadType()) {
+                            hz4Var.f = true;
+                        } else if (threadData.picCount() == 1) {
+                            hz4Var.d = true;
+                            hz4Var.u = imageWidthAndHeight[0];
+                            hz4Var.v = imageWidthAndHeight[1];
+                        } else if (threadData.picCount() >= 2) {
+                            hz4Var.e = true;
+                        } else {
+                            hz4Var.b = true;
+                        }
+                        hz4Var.t.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        hz4Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList2.add(hz4Var);
+                        if (threadData.getItem() != null) {
+                            hz4 hz4Var2 = new hz4();
+                            hz4Var2.n = true;
+                            hz4Var2.t = threadData;
+                            hz4Var2.position = i;
+                            hz4Var2.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(hz4Var2);
+                        }
+                        if (!ListUtils.isEmpty(threadData.getLinkDataList()) || !ListUtils.isEmpty(threadData.getGoodsDataList())) {
+                            hz4 hz4Var3 = new hz4();
+                            hz4Var3.t = threadData;
+                            hz4Var3.position = i;
+                            if (ListUtils.getCount(threadData.getLinkDataList()) + ListUtils.getCount(threadData.getGoodsDataList()) == 1) {
+                                hz4Var3.p = true;
+                            } else if (ListUtils.getCount(threadData.getLinkDataList()) + ListUtils.getCount(threadData.getGoodsDataList()) > 1) {
+                                hz4Var3.q = true;
+                            }
+                            hz4Var3.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(hz4Var3);
+                        }
+                        hz4 hz4Var4 = new hz4();
+                        hz4Var4.m = true;
+                        hz4Var4.t = threadData;
+                        hz4Var4.position = i;
+                        hz4Var4.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        arrayList2.add(hz4Var4);
+                        hz4 hz4Var5 = new hz4();
+                        hz4Var5.g = true;
+                        hz4Var5.t = threadData;
+                        hz4Var5.position = i;
+                        hz4Var5.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                        arrayList2.add(hz4Var5);
+                    } else if (threadData.getType() == ThreadData.TYPE_VIDEO) {
+                        a(threadData, i, arrayList2);
+                        hz4 hz4Var6 = new hz4();
+                        hz4Var6.t = threadData;
+                        hz4Var6.position = i;
+                        hz4Var6.i = true;
+                        threadData.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        hz4Var6.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList2.add(hz4Var6);
+                        if (threadData.getItem() != null) {
+                            hz4 hz4Var7 = new hz4();
+                            hz4Var7.n = true;
+                            hz4Var7.t = threadData;
+                            hz4Var7.position = i;
+                            hz4Var7.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                            arrayList2.add(hz4Var7);
+                        }
+                        hz4 hz4Var8 = new hz4();
+                        hz4Var8.m = true;
+                        hz4Var8.t = threadData;
+                        hz4Var8.position = i;
+                        hz4Var8.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        arrayList2.add(hz4Var8);
+                        hz4 hz4Var9 = new hz4();
+                        hz4Var9.g = true;
+                        hz4Var9.t = threadData;
+                        hz4Var9.position = i;
+                        hz4Var9.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                        arrayList2.add(hz4Var9);
+                    } else if (threadData.getType() == ThreadData.TYPE_ARTICLE && threadData.isBJHArticleThreadType()) {
+                        threadData.position = i;
+                        threadData.setSupportType(BaseCardInfo.SupportType.FULL);
+                        arrayList2.add(threadData);
+                    } else if (nm6.R(threadData)) {
+                        nm6 nm6Var = new nm6(threadData);
+                        nm6Var.g = threadData.getTid();
+                        nm6Var.feedBackReasonMap = threadData.feedBackReasonMap;
+                        nm6Var.setSupportType(BaseCardInfo.SupportType.FULL);
+                        arrayList2.add(nm6Var);
+                    } else {
+                        hz4 hz4Var10 = new hz4();
+                        hz4Var10.t = threadData;
+                        hz4Var10.position = i;
+                        hz4Var10.setSupportType(BaseCardInfo.SupportType.FULL);
+                        arrayList2.add(hz4Var10);
+                    }
+                } else if (next instanceof BaseCardInfo) {
+                    ((BaseCardInfo) next).position = i;
+                    arrayList2.add(next);
+                } else {
+                    arrayList2.add(next);
+                }
+                i++;
+            }
+            AbsGroupUbsABTest.setCardInfoUbsABTest(arrayList2);
+            return arrayList2;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public static List<Integer> d(String str, BdTypeRecyclerView bdTypeRecyclerView) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, bdTypeRecyclerView)) == null) {
+            ArrayList arrayList = new ArrayList(2);
+            boolean z = false;
+            int i = -1;
+            int i2 = -1;
+            for (int i3 = 0; i3 < bdTypeRecyclerView.getCount(); i3++) {
+                oi item = bdTypeRecyclerView.getItem(i3);
+                ThreadData threadData = null;
+                if (item instanceof hz4) {
+                    threadData = ((hz4) item).getThreadData();
+                } else if (item instanceof ThreadData) {
+                    threadData = (ThreadData) item;
+                } else if (item instanceof nm6) {
+                    threadData = ((nm6) item).a;
+                }
+                if (threadData != null && threadData.getTid().equals(str)) {
+                    if (!z) {
+                        i = i3;
+                    }
+                    z = true;
+                    i2 = i3;
                 }
             }
-            this.a = yf8Var;
+            arrayList.add(Integer.valueOf(i));
+            arrayList.add(Integer.valueOf(i2));
+            return arrayList;
         }
+        return (List) invokeLL.objValue;
+    }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                TbSingleton.getInstance().setShouldShowHomeLocalCompleteInfoCard(false);
-                if (this.a.b.getCount() != 0 && (this.a.b.getItem(0) instanceof xg8)) {
-                    this.a.b.removeItem(0);
+    public static void e(boolean z, ArrayList<oi> arrayList, bw4 bw4Var) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), arrayList, bw4Var}) == null) && bw4Var != null && arrayList != null && (i = bw4Var.floorPosition) >= 0) {
+            if (i != 0 || z) {
+                int size = arrayList.size();
+                int i2 = 0;
+                for (int i3 = 0; i3 < size; i3++) {
+                    if (arrayList.get(i3) instanceof ThreadData) {
+                        if (i == i2) {
+                            ListUtils.add(arrayList, i3, bw4Var);
+                            return;
+                        }
+                        i2++;
+                    }
                 }
             }
-        }
-    }
-
-    public yf8(HomePageTabFeedFragment homePageTabFeedFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {homePageTabFeedFragment, bdTypeRecyclerView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.w = new LinkedList();
-        this.a = homePageTabFeedFragment;
-        this.b = bdTypeRecyclerView;
-        c();
-    }
-
-    public void e(ArrayList<oi> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            this.b.setData(arrayList);
-        }
-    }
-
-    public void f(boolean z) {
-        wg8 wg8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (wg8Var = this.v) != null) {
-            wg8Var.x(z);
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            for (bi biVar : this.w) {
-                if (biVar instanceof ag8) {
-                    ((ag8) biVar).h(str);
-                }
-            }
-        }
-    }
-
-    public final View.OnClickListener b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
-        }
-        return (View.OnClickListener) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.getAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ug8 ug8Var = new ug8(this.a.getPageContext(), ThreadData.TYPE_USER_NORMAL, this.a.getUniqueId(), this.a.H2(), this.a.G2());
-            this.c = ug8Var;
-            ug8Var.z(this.b);
-            this.w.add(this.c);
-            ng8 ng8Var = new ng8(this.a.getPageContext());
-            this.d = ng8Var;
-            ng8Var.y(this.b);
-            this.w.add(this.d);
-            ig8 ig8Var = new ig8(this.a.getPageContext(), ThreadData.TYPE_CONTENT_FEED_PIC_NORMMAL, this.a.getUniqueId(), this.a.H2());
-            this.e = ig8Var;
-            ig8Var.A(this.b);
-            this.w.add(this.e);
-            kg8 kg8Var = new kg8(this.a.getPageContext(), ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL, this.a.getUniqueId(), this.a.H2());
-            this.f = kg8Var;
-            kg8Var.z(this.b);
-            this.w.add(this.f);
-            jg8 jg8Var = new jg8(this.a.getPageContext(), ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL, this.a.getUniqueId(), this.a.H2());
-            this.g = jg8Var;
-            jg8Var.z(this.b);
-            this.w.add(this.g);
-            lg8 lg8Var = new lg8(this.a.getPageContext(), ThreadData.TYPE_CONTENT_TEXT_NORMAL, this.a.getUniqueId(), this.a.H2());
-            this.h = lg8Var;
-            lg8Var.z(this.b);
-            this.w.add(this.h);
-            vg8 vg8Var = new vg8(this.a.getPageContext(), ThreadData.TYPE_VIDEO, this.a.getUniqueId(), this.a.H2());
-            this.i = vg8Var;
-            vg8Var.C(this.b);
-            this.w.add(this.i);
-            mg8 mg8Var = new mg8(this.a.getPageContext(), ThreadData.TYPE_ENTER_FORUM, this.a.getUniqueId(), this.a.H2());
-            this.j = mg8Var;
-            mg8Var.z(this.b);
-            if ("fashion".equals(this.a.G2()) || "local".equals(this.a.G2())) {
-                this.w.add(this.j);
-            }
-            pg8 pg8Var = new pg8(this.a.getPageContext(), ThreadData.TYPE_ITEM, this.a.getUniqueId(), this.a.H2());
-            this.k = pg8Var;
-            pg8Var.x(this.b);
-            this.w.add(this.k);
-            rg8 rg8Var = new rg8(this.a.getPageContext(), ThreadData.TYPE_SINGLE_LINK, this.a.getUniqueId(), this.a.H2());
-            this.l = rg8Var;
-            rg8Var.y(this.b);
-            this.w.add(this.l);
-            qg8 qg8Var = new qg8(this.a.getPageContext(), ThreadData.TYPE_MULTI_LINK, this.a.getUniqueId(), this.a.H2());
-            this.m = qg8Var;
-            qg8Var.x(this.b);
-            this.w.add(this.m);
-            tg8 tg8Var = new tg8(this.a.getPageContext(), ThreadData.TYPE_BOTTOM_NORMAL, this.a.getUniqueId(), this.a.H2());
-            this.n = tg8Var;
-            tg8Var.y(this.b);
-            this.w.add(this.n);
-            gg8 gg8Var = new gg8(this.a.getPageContext(), ThreadData.TYPE_ARTICLE, this.a.getUniqueId(), this.a.H2());
-            this.o = gg8Var;
-            gg8Var.A(this.b);
-            this.w.add(this.o);
-            fg8 fg8Var = new fg8(this.a.getPageContext(), mm6.S0, this.a.H2());
-            this.r = fg8Var;
-            this.w.add(fg8Var);
-            eg8 eg8Var = new eg8(this.a.getPageContext(), wy4.e);
-            this.p = eg8Var;
-            eg8Var.y(this.b);
-            this.w.add(this.p);
-            dg8 dg8Var = new dg8(this.a.getPageContext(), bx4.b);
-            this.q = dg8Var;
-            dg8Var.B(this.b);
-            this.w.add(this.q);
-            og8 og8Var = new og8(this.a.getPageContext());
-            this.s = og8Var;
-            og8Var.x(this.b);
-            this.w.add(this.s);
-            sg8 sg8Var = new sg8(this.a.getPageContext());
-            this.t = sg8Var;
-            sg8Var.x(this.b);
-            this.w.add(this.t);
-            hg8 hg8Var = new hg8(this.a.getPageContext(), b());
-            this.u = hg8Var;
-            this.w.add(hg8Var);
-            wg8 wg8Var = new wg8(this.a.getPageContext());
-            this.v = wg8Var;
-            this.w.add(wg8Var);
-            this.b.addAdapters(this.w);
         }
     }
 }

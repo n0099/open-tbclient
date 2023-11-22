@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface kcc {
-    void a(int i, long j, long j2, long j3, String str, Object obj);
+    void onPlayerError(adc adcVar, String str, int i, int i2);
 }

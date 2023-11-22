@@ -1,100 +1,143 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mvc.data.INetRequestData;
-import com.baidu.tbadk.util.NetMessageHelper;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerHttpResponseMessage;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerNetModel;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import tbclient.ItemManage.DataReq;
-import tbclient.ItemManage.ItemManageReqIdl;
 /* loaded from: classes6.dex */
-public class fv6 implements INetRequestData {
+public class fv6 extends av6 implements NetModel.k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final int b;
+    public DownloadManagerNetModel b;
+    public gv6 c;
+    public hv6 d;
+    public dv6 e;
 
-    @Override // com.baidu.tbadk.mvc.data.IHttpParamRequestData
-    public HashMap<String, String> getHttpHeader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.mvc.data.IHttpParamRequestData
-    public HashMap<String, Object> makeHttpParam() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public fv6(int i, int i2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fv6(TbPageContext tbPageContext, BdUniqueId bdUniqueId, int i) {
+        super(tbPageContext, bdUniqueId, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {tbPageContext, bdUniqueId, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
+        gv6 gv6Var = new gv6(1, i);
+        this.c = gv6Var;
+        DownloadManagerNetModel downloadManagerNetModel = new DownloadManagerNetModel(tbPageContext, gv6Var);
+        this.b = downloadManagerNetModel;
+        downloadManagerNetModel.q0(this);
+        this.b.setUniqueId(bdUniqueId);
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.mvc.model.NetModel.l
+    public void I(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeLLL(1048576, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) != null) || mvcHttpResponsedMessage == null) {
+            return;
         }
-        return invokeV.intValue;
+        hv6 hv6Var = null;
+        if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof DownloadManagerHttpResponseMessage)) {
+            hv6Var = (hv6) ((DownloadManagerHttpResponseMessage) mvcHttpResponsedMessage).getData();
+        }
+        if (hv6Var != null && f(hv6Var)) {
+            return;
+        }
+        e(mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString());
     }
 
-    public void b() {
+    @Override // com.baidu.tbadk.mvc.model.NetModel.m
+    public void v(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048582, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) != null) || mvcSocketResponsedMessage == null) {
+            return;
+        }
+        hv6 hv6Var = null;
+        if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof DownloadManagerSocketResponseMessage)) {
+            hv6Var = ((DownloadManagerSocketResponseMessage) mvcSocketResponsedMessage).getData();
+        }
+        if (hv6Var != null && f(hv6Var)) {
+            return;
+        }
+        e(mvcSocketResponsedMessage.getError(), mvcSocketResponsedMessage.getErrorString());
+    }
+
+    @Override // com.baidu.tieba.av6
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = 1;
+            this.c.c();
+            this.b.loadData();
         }
     }
 
+    @Override // com.baidu.tieba.av6
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a++;
+            this.c.b();
+            this.b.loadData();
         }
     }
 
-    @Override // com.baidu.tbadk.mvc.data.ISocketProtobufRequestData
-    public Object encodeSocketRequestData(boolean z) {
-        InterceptResult invokeZ;
+    @Override // com.baidu.tieba.av6
+    public void d(dv6 dv6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            DataReq.Builder builder = new DataReq.Builder();
-            builder.pn = Integer.valueOf(this.a);
-            builder.rn = 15;
-            builder.tab_id = Integer.valueOf(this.b);
-            ItemManageReqIdl.Builder builder2 = new ItemManageReqIdl.Builder();
-            DataReq build = builder.build(false);
-            builder2.data = build;
-            NetMessageHelper.bindCommonParamsToProtobufData(build, false);
-            return builder2.build(false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, dv6Var) == null) {
+            this.e = dv6Var;
         }
-        return invokeZ.objValue;
+    }
+
+    public final void e(int i, String str) {
+        dv6 dv6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && i != 0 && (dv6Var = this.e) != null) {
+            dv6Var.b(i, str);
+        }
+    }
+
+    public final boolean f(hv6 hv6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, hv6Var)) == null) {
+            if (hv6Var == null) {
+                return false;
+            }
+            if (this.c.a() != 1) {
+                this.d.a(hv6Var);
+            } else {
+                this.d = hv6Var;
+            }
+            dv6 dv6Var = this.e;
+            if (dv6Var != null) {
+                hv6 hv6Var2 = this.d;
+                dv6Var.a(hv6Var2.a, hv6Var2.b, hv6Var2.c.intValue());
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

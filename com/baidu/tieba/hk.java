@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hk implements ota {
+public class hk implements pta {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public fe a;
@@ -77,13 +77,13 @@ public class hk implements ota {
 
         /* renamed from: com.baidu.tieba.hk$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0322b implements Runnable {
+        public class RunnableC0320b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ b b;
 
-            public RunnableC0322b(b bVar, String str) {
+            public RunnableC0320b(b bVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,13 +137,13 @@ public class hk implements ota {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String d = f75.c(d75.d(this.a)).d();
+                String d = g75.c(e75.d(this.a)).d();
                 if (this.c.b != null) {
                     this.c.b.removeCallbacks(this.c.f);
                     if (StringUtils.isNull(d)) {
                         this.c.b.post(new a(this));
                     } else {
-                        this.c.b.post(new RunnableC0322b(this, d));
+                        this.c.b.post(new RunnableC0320b(this, d));
                     }
                 }
             }
@@ -319,7 +319,7 @@ public class hk implements ota {
                     if (hkVar.c == null) {
                         TiebaStatic.voiceError(i, "RecoreCallback.error data err: " + str, "errCode == BdRecordingResult.TIME_OUT");
                     } else if (this.a.a.isOnCancle()) {
-                        md.k(d75.c(this.a.c));
+                        md.k(e75.c(this.a.c));
                         this.a.c = null;
                         this.a.a.onStopingRecorder();
                         he.a = 1;
@@ -375,7 +375,7 @@ public class hk implements ota {
         return (hk) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ota
+    @Override // com.baidu.tieba.pta
     public void cancelRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -383,7 +383,7 @@ public class hk implements ota {
         }
     }
 
-    @Override // com.baidu.tieba.ota
+    @Override // com.baidu.tieba.pta
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -396,7 +396,7 @@ public class hk implements ota {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ota
+    @Override // com.baidu.tieba.pta
     public void stopRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -428,7 +428,7 @@ public class hk implements ota {
         this.b = new Handler();
     }
 
-    @Override // com.baidu.tieba.ota
+    @Override // com.baidu.tieba.pta
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -447,7 +447,7 @@ public class hk implements ota {
         }
     }
 
-    @Override // com.baidu.tieba.ota
+    @Override // com.baidu.tieba.pta
     public void a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
@@ -455,7 +455,7 @@ public class hk implements ota {
         }
     }
 
-    @Override // com.baidu.tieba.ota
+    @Override // com.baidu.tieba.pta
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -473,7 +473,7 @@ public class hk implements ota {
         }
     }
 
-    @Override // com.baidu.tieba.ota
+    @Override // com.baidu.tieba.pta
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -486,7 +486,7 @@ public class hk implements ota {
         }
     }
 
-    @Override // com.baidu.tieba.ota
+    @Override // com.baidu.tieba.pta
     public void e(fe feVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, feVar) == null) {
@@ -505,11 +505,11 @@ public class hk implements ota {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) && str != null && i >= 1) {
             he.a = 3;
-            ar6.a(new b(this, str, i), "RecorderManager", 1);
+            br6.a(new b(this, str, i), "RecorderManager", 1);
         }
     }
 
-    @Override // com.baidu.tieba.ota
+    @Override // com.baidu.tieba.pta
     public boolean c(fe feVar, int i) {
         InterceptResult invokeLI;
         TbPageContext<?> tbPageContext;
@@ -528,9 +528,9 @@ public class hk implements ota {
                 return false;
             }
             o(true);
-            String e = d75.e();
+            String e = e75.e();
             this.c = e;
-            String c2 = d75.c(e);
+            String c2 = e75.c(e);
             if (this.e == null) {
                 this.e = new d(this, null);
             }

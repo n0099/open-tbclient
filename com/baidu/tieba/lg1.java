@@ -76,7 +76,7 @@ public abstract class lg1 implements wg1, AdView.a, SensorEventListener {
     public float S;
 
     /* renamed from: T  reason: collision with root package name */
-    public int f1130T;
+    public int f1131T;
     public AtomicBoolean U;
     public float V;
     public LottieAnimationView W;
@@ -370,22 +370,22 @@ public abstract class lg1 implements wg1, AdView.a, SensorEventListener {
                         float k = t11.c.k(this.c.b.a, x - this.a);
                         float k2 = t11.c.k(this.c.b.a, y - this.b);
                         lg1 lg1Var = this.c.b;
-                        if ((lg1Var.f1130T & 1) == 1 && k2 <= (-lg1Var.S)) {
+                        if ((lg1Var.f1131T & 1) == 1 && k2 <= (-lg1Var.S)) {
                             BaseVM.s("2");
                             this.c.b.N();
                         } else {
                             lg1 lg1Var2 = this.c.b;
-                            if ((lg1Var2.f1130T & 2) == 2 && k2 >= lg1Var2.S) {
+                            if ((lg1Var2.f1131T & 2) == 2 && k2 >= lg1Var2.S) {
                                 BaseVM.s("2");
                                 this.c.b.N();
                             } else {
                                 lg1 lg1Var3 = this.c.b;
-                                if ((lg1Var3.f1130T & 4) == 4 && k <= (-lg1Var3.S)) {
+                                if ((lg1Var3.f1131T & 4) == 4 && k <= (-lg1Var3.S)) {
                                     BaseVM.s("2");
                                     this.c.b.N();
                                 } else {
                                     lg1 lg1Var4 = this.c.b;
-                                    if ((lg1Var4.f1130T & 8) == 8 && k >= lg1Var4.S) {
+                                    if ((lg1Var4.f1131T & 8) == 8 && k >= lg1Var4.S) {
                                         BaseVM.s("2");
                                         this.c.b.N();
                                     }
@@ -1501,7 +1501,7 @@ public abstract class lg1 implements wg1, AdView.a, SensorEventListener {
                 }
                 this.Q = z4;
                 this.S = (float) this.i.optDouble("gesture_lottie_sensitivity", 0.0d);
-                this.f1130T = this.i.optInt("gesture_lottie_direction", 1);
+                this.f1131T = this.i.optInt("gesture_lottie_direction", 1);
             } catch (Exception unused) {
             }
         }

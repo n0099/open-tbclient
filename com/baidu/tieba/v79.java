@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class v79 extends t79<b89> implements za7<v79> {
+public final class v79 extends u79<b89> implements ab7<v79> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String d;
@@ -20,7 +20,7 @@ public final class v79 extends t79<b89> implements za7<v79> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v79(e89<b89> data, String templateName) {
+    public v79(f89<b89> data, String templateName) {
         super(data);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -31,7 +31,7 @@ public final class v79 extends t79<b89> implements za7<v79> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((e89) newInitContext.callArgs[0]);
+                super((f89) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,7 +42,7 @@ public final class v79 extends t79<b89> implements za7<v79> {
         this.d = templateName;
     }
 
-    @Override // com.baidu.tieba.za7
+    @Override // com.baidu.tieba.ab7
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public final class v79 extends t79<b89> implements za7<v79> {
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.za7
+    @Override // com.baidu.tieba.ab7
     public /* bridge */ /* synthetic */ v79 b() {
         i();
         return this;

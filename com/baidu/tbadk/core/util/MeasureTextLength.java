@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import android.text.TextPaint;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
-import com.baidu.tieba.hu5;
+import com.baidu.tieba.iu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +49,7 @@ public class MeasureTextLength {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{textPaint, str, Float.valueOf(f), str2})) == null) {
             float measureText = textPaint.measureText(str);
             while (str.length() > 0 && measureText > f) {
-                str = hu5.m(str, hu5.e(str) - 1);
+                str = iu5.m(str, iu5.e(str) - 1);
                 measureText = textPaint.measureText(str);
             }
             return str;

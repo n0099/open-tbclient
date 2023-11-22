@@ -7,27 +7,35 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.tencent.open.SocialConstants;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FeedPicComponent;
+import tbclient.FeedContentResource;
+import tbclient.FeedPicAbstract;
 import tbclient.PicInfo;
 /* loaded from: classes5.dex */
-public class btc extends poc {
+public class btc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedPicComponent feedPicComponent) {
+    public static JSONObject b(@NonNull FeedPicAbstract feedPicAbstract) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedPicComponent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedPicAbstract)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (feedPicComponent.pics != null) {
+            if (feedPicAbstract.pics != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (PicInfo picInfo : feedPicComponent.pics) {
-                    jSONArray.put(f1d.b(picInfo));
+                for (PicInfo picInfo : feedPicAbstract.pics) {
+                    jSONArray.put(g1d.b(picInfo));
                 }
-                poc.a(jSONObject, SocialConstants.PARAM_IMAGE, jSONArray);
+                qoc.a(jSONObject, SocialConstants.PARAM_IMAGE, jSONArray);
             }
-            poc.a(jSONObject, "schema", feedPicComponent.schema);
+            qoc.a(jSONObject, "pic_scheme", feedPicAbstract.pic_scheme);
+            if (feedPicAbstract._abstract != null) {
+                JSONArray jSONArray2 = new JSONArray();
+                for (FeedContentResource feedContentResource : feedPicAbstract._abstract) {
+                    jSONArray2.put(gsc.b(feedContentResource));
+                }
+                qoc.a(jSONObject, "abstract", jSONArray2);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

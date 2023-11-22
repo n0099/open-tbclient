@@ -1,257 +1,199 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
 import android.app.Application;
+import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.os.Build;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Process;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mutiprocess.IEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gm5 {
+public class gm5 implements fm5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ArrayList<String> a;
-    public static String b;
-    public static String c;
-    public static boolean d;
-    public static String e;
-    public static String f;
-    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public em5 b;
+    public Application c;
+    public String d;
+    public final jm5 e;
+    public final km5 f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947798746, "Lcom/baidu/tieba/gm5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gm5 this$0;
+
+        public b(gm5 gm5Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gm5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947798746, "Lcom/baidu/tieba/gm5;");
+            this.this$0 = gm5Var;
+        }
+
+        public /* synthetic */ b(gm5 gm5Var, a aVar) {
+            this(gm5Var);
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            IEvent a;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || intent == null) {
+                return;
+            }
+            if (!hm5.i()) {
+                String c = hm5.c();
+                hm5.m(c + " Process Not In WhiteList，No Receive");
+            } else if (!"intent.action.ACTION.TB.MUTI_PROCESS".equals(intent.getAction()) || (a = this.this$0.e.a(intent)) == null) {
+            } else {
+                int myPid = Process.myPid();
+                int pid = a.getPid();
+                if (a != null && a.getType() == 1) {
+                    if (myPid == pid) {
+                        return;
+                    }
+                } else if (a.getType() == 2) {
+                    if (myPid != pid) {
+                        return;
+                    }
+                } else if (a.getType() == 3 && !hm5.l()) {
+                    return;
+                }
+                if (this.this$0.b != null) {
+                    this.this$0.b.a(a);
+                }
+            }
+        }
+    }
+
+    public gm5(Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {application};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ArrayList<>();
-        d = false;
+        this.d = null;
+        this.e = new jm5();
+        this.f = new km5();
+        this.c = application;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public final void h(IEvent iEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                b = d(TbadkCoreApplication.getInst().getApp());
-            }
-            return b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return j(c());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return h(TbadkCoreApplication.getInst().getPackageName());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (!d) {
-                r(context);
-            }
-            return d;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            String c2 = c();
-            if (str != null && str.equalsIgnoreCase(c2)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void m(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65549, null, str) != null) || !TbadkCoreApplication.getInst().isDebugMode()) {
-            return;
-        }
-        Log.e("MutiProcess", str);
-    }
-
-    public static void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
-            e = str;
-        }
-    }
-
-    public static void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65551, null, z) == null) {
-            d = z;
-        }
-    }
-
-    public static void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
-            f = str;
-        }
-    }
-
-    public static void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
-            g = str;
-        }
-    }
-
-    public static void r(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65554, null, context) == null) && context != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true)));
-        }
-    }
-
-    public static String d(Context context) {
-        InterceptResult invokeL;
-        ActivityManager activityManager;
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                return Application.getProcessName();
-            }
-            if (context == null || (activityManager = (ActivityManager) context.getSystemService("activity")) == null || (runningAppProcesses = activityManager.getRunningAppProcesses()) == null) {
-                return null;
-            }
-            int myPid = Process.myPid();
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.processName;
+        if (interceptable == null || interceptable.invokeL(1048581, this, iEvent) == null) {
+            if (iEvent != null) {
+                try {
+                    Intent intent = new Intent();
+                    intent.setPackage(f());
+                    intent.setAction("intent.action.ACTION.TB.MUTI_PROCESS");
+                    this.f.a(intent, iEvent);
+                    this.c.sendBroadcast(intent);
+                    return;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return;
                 }
             }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            String packageName = TbadkCoreApplication.getInst().getPackageName();
-            String str = packageName + ":swan";
-            c = str;
-            a.clear();
-            a.add(packageName);
-            a.add(packageName + ":remote");
-            a.add(packageName + ":cdnTachometer");
-            a.add(packageName + ":daemon");
-            a.add(packageName + ":third");
-            a.add(packageName + ":pluginInstaller");
-            a.add(packageName + ":xiaoying");
-            a.add(packageName + ":media");
-            a.add(packageName + ":kmyas__");
-            a.add(packageName + ":guardService");
-            a.add(packageName + ":warkup");
-            a.add(str);
-            a.add(packageName + ":bdservice_v1");
-            a.add(packageName + ":live");
-            m("initProcess-->CurrentProcessName=" + c());
+            throw new NullPointerException("send multi-process message is null");
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:10:0x0018  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean j(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.fm5
+    public void b(IEvent iEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            Iterator<String> it = a.iterator();
-            while (it.hasNext()) {
-                if (str.equalsIgnoreCase(it.next()) || str.toLowerCase().startsWith(c)) {
-                    return true;
-                }
-                while (it.hasNext()) {
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iEvent) == null) {
+            h(iEvent);
         }
-        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.fm5
+    public void c(em5 em5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, em5Var) == null) {
+            this.b = em5Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.fm5
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            g();
+        }
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Application application;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.d == null && (application = this.c) != null) {
+                this.d = application.getPackageName();
+            }
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            try {
+                if (this.a != null && this.c != null) {
+                    this.c.unregisterReceiver(this.a);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            try {
+                i();
+                this.a = new b(this, null);
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.setPriority(1000);
+                intentFilter.addAction("intent.action.ACTION.TB.MUTI_PROCESS");
+                this.c.registerReceiver(this.a, intentFilter);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

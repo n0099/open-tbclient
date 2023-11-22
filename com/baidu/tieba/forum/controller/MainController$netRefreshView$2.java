@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forum.controller.MainController;
 import com.baidu.tieba.forum.controller.MainController$netRefreshView$2;
-import com.baidu.tieba.tg7;
-import com.baidu.tieba.vj5;
+import com.baidu.tieba.ug7;
+import com.baidu.tieba.wj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/tbadk/loading/NetRefreshView;", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST}, k = 3, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class MainController$netRefreshView$2 extends Lambda implements Function0<vj5> {
+public final class MainController$netRefreshView$2 extends Lambda implements Function0<wj5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ MainController this$0;
@@ -54,7 +54,7 @@ public final class MainController$netRefreshView$2 extends Lambda implements Fun
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            tg7.c(this$0.E()).C();
+            ug7.c(this$0.E()).C();
             this$0.C();
             bundle = this$0.e;
             if (bundle == null) {
@@ -68,13 +68,13 @@ public final class MainController$netRefreshView$2 extends Lambda implements Fun
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
-    public final vj5 invoke() {
+    public final wj5 invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             FragmentActivity E = this.this$0.E();
             final MainController mainController = this.this$0;
-            vj5 vj5Var = new vj5(E, new View.OnClickListener() { // from class: com.baidu.tieba.gf7
+            wj5 wj5Var = new wj5(E, new View.OnClickListener() { // from class: com.baidu.tieba.hf7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -86,10 +86,10 @@ public final class MainController$netRefreshView$2 extends Lambda implements Fun
                     }
                 }
             });
-            vj5Var.onChangeSkinType();
-            SkinManager.setBackgroundColor(vj5Var.getView(), R.color.CAM_X0201);
-            return vj5Var;
+            wj5Var.onChangeSkinType();
+            SkinManager.setBackgroundColor(wj5Var.getView(), R.color.CAM_X0201);
+            return wj5Var;
         }
-        return (vj5) invokeV.objValue;
+        return (wj5) invokeV.objValue;
     }
 }

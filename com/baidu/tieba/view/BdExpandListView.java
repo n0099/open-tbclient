@@ -12,7 +12,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cua;
+import com.baidu.tieba.dua;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ public class BdExpandListView extends BdTypeListView {
     public b S;
 
     /* renamed from: T  reason: collision with root package name */
-    public long f1172T;
+    public long f1170T;
     public long U;
     public Handler V;
     public int W;
@@ -159,7 +159,7 @@ public class BdExpandListView extends BdTypeListView {
             }
         }
         this.P = false;
-        this.f1172T = 0L;
+        this.f1170T = 0L;
         this.U = 0L;
         this.V = new Handler();
         this.a0 = false;
@@ -168,7 +168,7 @@ public class BdExpandListView extends BdTypeListView {
         this.J = context;
         this.K = new Scroller(this.J);
         this.Q = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, cua.ExpandListView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, dua.ExpandListView);
         this.R = obtainStyledAttributes.getDimensionPixelSize(d0, 0);
         obtainStyledAttributes.recycle();
     }
@@ -343,7 +343,7 @@ public class BdExpandListView extends BdTypeListView {
                 if (action != 1) {
                     if (action == 2) {
                         float f = y - this.M;
-                        if (this.L.getParent() == this && this.O != null && this.L.isShown() && this.L.getTop() >= 0 && Math.abs(f) >= this.Q && this.f1172T > 400) {
+                        if (this.L.getParent() == this && this.O != null && this.L.isShown() && this.L.getTop() >= 0 && Math.abs(f) >= this.Q && this.f1170T > 400) {
                             int a2 = this.O.a(this.N - this.M);
                             c cVar = this.O;
                             if (a2 > cVar.a && a2 <= cVar.b) {
@@ -380,7 +380,7 @@ public class BdExpandListView extends BdTypeListView {
                 this.V.removeCallbacks(this.b0);
                 this.V.postDelayed(this.b0, 200L);
             } else {
-                this.f1172T = System.currentTimeMillis() - this.U;
+                this.f1170T = System.currentTimeMillis() - this.U;
                 this.U = System.currentTimeMillis();
                 this.P = false;
                 setClickEventEnabled(true);

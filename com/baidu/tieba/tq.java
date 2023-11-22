@@ -45,12 +45,12 @@ public class tq {
 
             /* renamed from: com.baidu.tieba.tq$d$a$a  reason: collision with other inner class name */
             /* loaded from: classes8.dex */
-            public class RunnableC0487a implements Runnable {
+            public class RunnableC0484a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0487a(a aVar) {
+                public RunnableC0484a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class tq {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    vo.c(new RunnableC0487a(this));
+                    vo.c(new RunnableC0484a(this));
                     return Unit.INSTANCE;
                 }
                 return (Unit) invokeV.objValue;

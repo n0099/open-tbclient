@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gqa;
+import com.baidu.tieba.hqa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +30,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
     public FrameLayout d;
     public Handler e;
     public ValueAnimator f;
-    public List<gqa> g;
+    public List<hqa> g;
     public int h;
     public Runnable i;
 
@@ -268,7 +268,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
         }
     }
 
-    public void m(List<gqa> list) {
+    public void m(List<hqa> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             if (ListUtils.getCount(list) <= 1) {
@@ -324,25 +324,25 @@ public class FrsAdCommentScrollView extends LinearLayout {
     }
 
     public final void r() {
-        gqa gqaVar;
+        hqa hqaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            gqa gqaVar2 = (gqa) ListUtils.getItem(this.g, this.h);
+            hqa hqaVar2 = (hqa) ListUtils.getItem(this.g, this.h);
             if (this.h + 1 >= this.g.size()) {
-                gqaVar = (gqa) ListUtils.getItem(this.g, 0);
+                hqaVar = (hqa) ListUtils.getItem(this.g, 0);
             } else {
-                gqaVar = (gqa) ListUtils.getItem(this.g, this.h + 1);
+                hqaVar = (hqa) ListUtils.getItem(this.g, this.h + 1);
             }
-            if ((this.c.getTag() instanceof TextView) && gqaVar2 != null) {
-                String a2 = gqaVar2.a();
-                if (gqaVar2.b()) {
+            if ((this.c.getTag() instanceof TextView) && hqaVar2 != null) {
+                String a2 = hqaVar2.a();
+                if (hqaVar2.b()) {
                     a2 = getContext().getString(R.string.obfuscated_res_0x7f0f0894, a2);
                 }
                 ((TextView) this.c.getTag()).setText(a2);
             }
-            if ((this.d.getTag() instanceof TextView) && gqaVar != null) {
-                String a3 = gqaVar.a();
-                if (gqaVar.b()) {
+            if ((this.d.getTag() instanceof TextView) && hqaVar != null) {
+                String a3 = hqaVar.a();
+                if (hqaVar.b()) {
                     a3 = getContext().getString(R.string.obfuscated_res_0x7f0f0894, a3);
                 }
                 ((TextView) this.d.getTag()).setText(a3);

@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes5.dex */
 public interface bub {
-    void a(String str, JSONObject jSONObject);
+    public static final ServiceReference a = new ServiceReference("voyager", HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM);
 
-    void b(String str, JSONObject jSONObject);
+    void a();
 
-    void c(String str, int i, String str2, JSONObject jSONObject);
-
-    void d(String str, String str2, JSONObject jSONObject);
+    void b();
 }

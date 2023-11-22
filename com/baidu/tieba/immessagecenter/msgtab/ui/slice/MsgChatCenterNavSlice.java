@@ -31,8 +31,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.immessagecenter.msgtab.ui.slice.MsgChatCenterNavSlice;
-import com.baidu.tieba.tt5;
-import com.baidu.tieba.u39;
+import com.baidu.tieba.ut5;
+import com.baidu.tieba.v39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -193,7 +193,7 @@ public final class MsgChatCenterNavSlice extends Slice {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
             super.a0(view2, bundle);
-            tt5.b(view2);
+            ut5.b(view2);
             NavigationBar navigationBar = this.l;
             if (navigationBar != null) {
                 navigationBar.setStatusBarVisibility(8);
@@ -212,7 +212,7 @@ public final class MsgChatCenterNavSlice extends Slice {
                 }
                 this.n = linearLayout;
                 if (linearLayout != null) {
-                    linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.e59
+                    linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.f59
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -248,7 +248,7 @@ public final class MsgChatCenterNavSlice extends Slice {
                 }
                 this.q = tbImageView;
                 if (tbImageView != null) {
-                    tbImageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.f59
+                    tbImageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.g59
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -281,7 +281,7 @@ public final class MsgChatCenterNavSlice extends Slice {
             RobotMallConfig robotMallConfig = TbSingleton.getInstance().getRobotMallConfig();
             Intrinsics.checkNotNullExpressionValue(robotMallConfig, "getInstance().robotMallConfig");
             this.r = robotMallConfig;
-            if (u39.a.a()) {
+            if (v39.a.a()) {
                 RobotMallConfig robotMallConfig2 = this.r;
                 RobotMallConfig robotMallConfig3 = null;
                 if (robotMallConfig2 == null) {

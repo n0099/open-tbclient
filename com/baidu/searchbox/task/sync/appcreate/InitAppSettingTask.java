@@ -9,11 +9,11 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ea5;
-import com.baidu.tieba.ip5;
-import com.baidu.tieba.jt5;
-import com.baidu.tieba.z95;
-import com.baidu.tieba.zb5;
+import com.baidu.tieba.aa5;
+import com.baidu.tieba.ac5;
+import com.baidu.tieba.fa5;
+import com.baidu.tieba.jp5;
+import com.baidu.tieba.kt5;
 /* loaded from: classes4.dex */
 public class InitAppSettingTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -29,8 +29,8 @@ public class InitAppSettingTask extends LaunchTask {
     private void initSettings() {
         long currentTimeMillis = System.currentTimeMillis();
         TbadkCoreApplication.getInst().mVoiceHeadsetMode = TbadkSettings.getInst().loadInt("voice_headset_mode", 0);
-        jt5.c();
-        ip5.a().q(System.currentTimeMillis() - currentTimeMillis);
+        kt5.c();
+        jp5.a().q(System.currentTimeMillis() - currentTimeMillis);
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -41,8 +41,8 @@ public class InitAppSettingTask extends LaunchTask {
         initSettings();
         TbadkCoreApplication.getInst().initSetting();
         long currentTimeMillis = System.currentTimeMillis();
-        z95.e().r();
-        ip5.a().x(System.currentTimeMillis() - currentTimeMillis);
+        aa5.e().r();
+        jp5.a().x(System.currentTimeMillis() - currentTimeMillis);
         BdActivityStack.getInst().setActivityStackMaxSize(20);
         if (ProcessUtils.isMainProcess()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
@@ -52,18 +52,18 @@ public class InitAppSettingTask extends LaunchTask {
     public void loadLcsSwitchStratgy() {
         String loadString = TbadkSettings.getInst().loadString("lcs_switch_strategy", null);
         if (!TextUtils.isEmpty(loadString)) {
-            ea5 ea5Var = new ea5();
-            ea5Var.e(loadString);
-            zb5 g = zb5.g();
+            fa5 fa5Var = new fa5();
+            fa5Var.e(loadString);
+            ac5 g = ac5.g();
             boolean z = true;
-            if (ea5Var.b() != 1) {
+            if (fa5Var.b() != 1) {
                 z = false;
             }
             g.p(z);
-            g.q(ea5Var.c());
-            g.r(ea5Var.d() * 1000);
-            if (ea5Var.a() != null) {
-                g.s(ea5Var.a());
+            g.q(fa5Var.c());
+            g.r(fa5Var.d() * 1000);
+            if (fa5Var.a() != null) {
+                g.s(fa5Var.a());
             }
         }
     }

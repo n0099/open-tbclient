@@ -1,9 +1,9 @@
 package com.baidu.tieba;
+
+import java.util.Map;
 /* loaded from: classes6.dex */
-public interface h06 {
-    g06 H1(int i);
+public interface h06<T> {
+    void b(Map<String, String> map);
 
-    void Z0(int i, g06 g06Var);
-
-    void l0(f06 f06Var);
+    void f(T t, String str);
 }

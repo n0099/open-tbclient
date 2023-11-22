@@ -29,7 +29,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax5;
+import com.baidu.tieba.bx5;
 import com.baidu.tieba.ob;
 import com.baidu.tieba.r25;
 import com.baidu.tieba.t25;
@@ -49,7 +49,7 @@ public class ConstrainImageLayout extends ViewGroup {
     public int c;
     public int d;
     public boolean e;
-    public ax5 f;
+    public bx5 f;
     public String g;
     public Paint h;
     public Paint i;
@@ -306,14 +306,14 @@ public class ConstrainImageLayout extends ViewGroup {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || this.d.f == null) {
                 return;
             }
-            ax5 ax5Var = this.d.f;
+            bx5 bx5Var = this.d.f;
             int i = this.a;
             if (this.b && this.c) {
                 z = true;
             } else {
                 z = false;
             }
-            ax5Var.a(view2, i, z);
+            bx5Var.a(view2, i, z);
         }
     }
 
@@ -495,13 +495,13 @@ public class ConstrainImageLayout extends ViewGroup {
         }
     }
 
-    public void setImageClickListener(ax5 ax5Var) {
+    public void setImageClickListener(bx5 bx5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, ax5Var) == null) {
-            if (ax5Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, bx5Var) == null) {
+            if (bx5Var == null) {
                 setClickable(false);
             } else {
-                this.f = ax5Var;
+                this.f = bx5Var;
             }
         }
     }

@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.databinding.MemberPayPrivilegeResultActivityBinding;
 import com.baidu.tieba.memberCenter.memberpayresult.MemberPayPrivilegeResultActivity;
-import com.baidu.tieba.nj9;
+import com.baidu.tieba.oj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -69,7 +69,7 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(memberBuyButtonUrl, "$memberBuyButtonUrl");
             UrlManager.getInstance().dealOneLink(this$0.getPageContext(), new String[]{(String) memberBuyButtonUrl.element});
-            nj9.a.a();
+            oj9.a.a();
         }
     }
 
@@ -164,7 +164,7 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 memberPayPrivilegeResultActivityBinding3 = null;
             }
-            memberPayPrivilegeResultActivityBinding3.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lj9
+            memberPayPrivilegeResultActivityBinding3.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mj9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -238,7 +238,7 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
             } else {
                 memberPayPrivilegeResultActivityBinding = memberPayPrivilegeResultActivityBinding9;
             }
-            memberPayPrivilegeResultActivityBinding.k.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mj9
+            memberPayPrivilegeResultActivityBinding.k.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.nj9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

@@ -1,162 +1,145 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.os.Build;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.text.TextUtils;
+import android.util.Log;
+import android.view.SurfaceView;
+import android.view.TextureView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.tieba.zcc;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.tieba.adc;
+import com.baidu.tieba.sdc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
-import com.yy.gslbsdk.db.DelayTB;
-import com.yy.render.RenderEngine;
-import com.yy.render.view.RenderSurfaceView;
-import com.yy.render.view.RenderTextureView;
-import com.yy.transvod.player.common.AlphaChannelData;
+import com.huawei.hms.support.api.entity.auth.AuthCode;
 import com.yy.transvod.player.common.MixAudioExtraInfo;
-import com.yy.transvod.player.common.MixVideoExtraInfo;
 import com.yy.transvod.player.common.NetRequestStatusInfo;
-import com.yy.transvod.player.common.VideoExtraInfo;
 import com.yy.transvod.player.log.TLog;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Locale;
 import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dec extends bec implements abc, zfc {
+public class dec extends cec {
     public static /* synthetic */ Interceptable $ic;
-    public static int V;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Executor> A;
-    public WeakReference<zcc.d> B;
-    public WeakReference<tcc> C;
-    public WeakReference<ncc> D;
-    public WeakReference<qcc> E;
-    public WeakReference<hcc> F;
-    public WeakReference<mcc> G;
-    public WeakReference<pcc> H;
-    public WeakReference<lcc> I;
-    public WeakReference<jcc> J;
-    public WeakReference<scc> K;
-    public WeakReference<Executor> L;
-    public WeakReference<gcc> M;
-    public WeakReference<zcc.c> N;
-    public WeakReference<occ> O;
-    public WeakReference<rcc> P;
-    public WeakReference<wcc> Q;
-    public WeakReference<icc> R;
-    public WeakReference<kcc> S;
-
-    /* renamed from: T  reason: collision with root package name */
-    public WeakReference<vcc> f1093T;
-    public WeakReference<fcc> U;
-    public final ExecutorService c;
-    public RenderSurfaceView d;
-    public RenderTextureView e;
-    public Gson f;
-    public ycc g;
-    public boolean h;
-    public Handler i;
-    public String j;
-    public int k;
-    public int l;
-    public String m;
-    public final AtomicInteger n;
-    public final AtomicInteger o;
-    public final AtomicInteger p;
-    public final AtomicInteger q;
-    public AtomicBoolean r;
-    public int s;
-    public boolean t;
-    public int u;
-    public int v;
-    public boolean w;
-    public int x;
-    public int y;
-    public boolean z;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947703111, "Lcom/baidu/tieba/dec;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947703111, "Lcom/baidu/tieba/dec;");
-        }
-    }
-
-    @Override // com.baidu.tieba.abc
-    public void b(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, bundle) == null) {
-        }
-    }
+    public AtomicInteger A;
+    public AtomicInteger B;
+    public AtomicInteger C;
+    public Object D;
+    public zcc E;
+    public Executor F;
+    public boolean G;
+    public sdc.e H;
+    public int c;
+    public String d;
+    public Handler e;
+    public sdc f;
+    public WeakReference<ncc> g;
+    public WeakReference<kcc> h;
+    public WeakReference<ucc> i;
+    public WeakReference<tcc> j;
+    public WeakReference<qcc> k;
+    public WeakReference<occ> l;
+    public WeakReference<rcc> m;
+    public WeakReference<mcc> n;
+    public WeakReference<icc> o;
+    public WeakReference<hcc> p;
+    public WeakReference<adc.c> q;
+    public WeakReference<pcc> r;
+    public WeakReference<scc> s;
+    public WeakReference<xcc> t;
+    public WeakReference<lcc> u;
+    public WeakReference<wcc> v;
+    public AtomicInteger w;
+    public AtomicInteger x;
+    public AtomicInteger y;
+    public AtomicInteger z;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class b implements sdc.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ gcc b;
-        public final /* synthetic */ dec c;
+        public final /* synthetic */ dec a;
 
-        /* renamed from: com.baidu.tieba.dec$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0260a extends TypeToken<byte[]> {
+        public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Message a;
+            public final /* synthetic */ b b;
 
-            public C0260a(a aVar) {
+            public a(b bVar, Message message) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
+                    Object[] objArr = {bVar, message};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
                         int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
+                }
+                this.b = bVar;
+                this.a = message;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                hcc hccVar;
+                Interceptable interceptable = $ic;
+                if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (hccVar = (hcc) this.b.a.p.get()) == null) {
+                    return;
+                }
+                Message message = this.a;
+                if (message.what == 69) {
+                    hccVar.onSEIAudioOriginalData(this.b.a.a, (byte[]) message.obj, message.arg1);
+                }
+                Message message2 = this.a;
+                if (message2.what == 68) {
+                    hccVar.onSEIVideoOriginalData(this.b.a.a, (byte[]) message2.obj, message2.arg1);
+                }
+                Message message3 = this.a;
+                if (message3.what == 67) {
+                    hccVar.onSEIAudioExtraInfoV0(this.b.a.a, (ArrayList) message3.obj);
+                }
+                Message message4 = this.a;
+                if (message4.what == 63) {
+                    hccVar.onSEIVideoExtraInfo(this.b.a.a, message4.arg1, (ArrayList) message4.obj);
+                }
+                Message message5 = this.a;
+                if (message5.what == 64) {
+                    hccVar.onSEIMixVideoExtraInfo(this.b.a.a, message5.arg1, (ArrayList) message5.obj);
+                }
+                Message message6 = this.a;
+                if (message6.what == 66) {
+                    hccVar.onSEIAlphaChannelInfo(this.b.a.a, message6.arg1, (ArrayList) message6.obj);
+                }
+                Message message7 = this.a;
+                if (message7.what == 65) {
+                    hccVar.onDSEMixAudioExtraInfoV1(this.b.a.a, (ArrayList) message7.obj);
                 }
             }
         }
 
-        public a(dec decVar, JSONObject jSONObject, gcc gccVar) {
+        public b(dec decVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {decVar, jSONObject, gccVar};
+                Object[] objArr = {decVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -166,29 +149,230 @@ public class dec extends bec implements abc, zfc {
                     return;
                 }
             }
-            this.c = decVar;
-            this.a = jSONObject;
-            this.b = gccVar;
+            this.a = decVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+        /* JADX WARN: Removed duplicated region for block: B:107:0x02b6 A[ADDED_TO_REGION, ORIG_RETURN, RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:95:0x027d A[ADDED_TO_REGION] */
+        @Override // com.baidu.tieba.sdc.e
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void a(Message message) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    Gson gson = new Gson();
-                    String optString = this.a.optString("sei");
-                    int optInt = this.a.optInt("type");
-                    this.b.onSEIVideoOriginalData(this.c.a, (byte[]) gson.fromJson(optString, new C0260a(this).getType()), optInt);
-                } catch (Exception e) {
-                    TLog.d("[VodPlayerClient]", this.c.M0() + "(VodPlayerClient.onSEIVideoOriginalData) ex: " + e.getMessage());
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                c cVar = new c(this.a);
+                Object obj = message.obj;
+                if (obj instanceof String) {
+                    cVar.d = (String) obj;
+                }
+                int i = message.what;
+                cVar.a = i;
+                int i2 = 0;
+                if (i != 5009) {
+                    if (i != 5010) {
+                        if (i != 5017) {
+                            if (i != 5019) {
+                                if (i != 5030) {
+                                    if (i != 5040) {
+                                        if (i != 5102) {
+                                            if (i != 7000) {
+                                                switch (i) {
+                                                    case 63:
+                                                    case 64:
+                                                    case 65:
+                                                    case 66:
+                                                    case 67:
+                                                    case 68:
+                                                    case 69:
+                                                        adc.c cVar2 = (adc.c) this.a.q.get();
+                                                        if (cVar2 != null) {
+                                                            if (message.what == 67) {
+                                                                ArrayList arrayList = (ArrayList) message.obj;
+                                                                ArrayList<MixAudioExtraInfo> arrayList2 = new ArrayList<>();
+                                                                while (i2 < arrayList.size()) {
+                                                                    arrayList2.add(new MixAudioExtraInfo(((Long) arrayList.get(i2)).toString(), -1));
+                                                                    i2++;
+                                                                }
+                                                                cVar2.a(this.a.a, arrayList2);
+                                                            }
+                                                            if (message.what == 65) {
+                                                                cVar2.a(this.a.a, (ArrayList) message.obj);
+                                                            }
+                                                        }
+                                                        if (this.a.F == null) {
+                                                            return;
+                                                        }
+                                                        try {
+                                                            this.a.F.execute(new a(this, message));
+                                                            return;
+                                                        } catch (Exception e) {
+                                                            e.printStackTrace();
+                                                            return;
+                                                        }
+                                                    default:
+                                                        switch (i) {
+                                                            case 5000:
+                                                                cVar.c = message.arg2;
+                                                                this.a.q0(message.arg1, cVar);
+                                                                break;
+                                                            case 5001:
+                                                                cVar.b = message.arg1;
+                                                                break;
+                                                            case 5002:
+                                                                cVar.b = message.arg1;
+                                                                this.a.w.set(message.arg1);
+                                                                break;
+                                                            case 5003:
+                                                                if (this.a.w.get() > 0) {
+                                                                    this.a.B.set(message.arg1);
+                                                                    cVar.b = message.arg1;
+                                                                    break;
+                                                                }
+                                                                break;
+                                                            case 5004:
+                                                                if (this.a.w.get() > 0) {
+                                                                    this.a.x.set(message.arg1);
+                                                                    cVar.b = message.arg1;
+                                                                    break;
+                                                                }
+                                                                break;
+                                                            case 5005:
+                                                                cVar.b = message.arg1;
+                                                                this.a.y.set(message.arg1);
+                                                                break;
+                                                            default:
+                                                                switch (i) {
+                                                                    case 5013:
+                                                                        cVar.b = message.arg1;
+                                                                        cVar.c = message.arg2;
+                                                                        cVar.f = message.obj;
+                                                                        break;
+                                                                    case 5014:
+                                                                        cVar.f = message.obj;
+                                                                        break;
+                                                                    case SpeedStatsStampTable.HOME_VIEW_ON_LAYOUT_END_STAMP_KEY /* 5015 */:
+                                                                        if (this.a.z.get() == message.arg1 && this.a.A.get() == message.arg2) {
+                                                                            z = false;
+                                                                            break;
+                                                                        } else {
+                                                                            cVar.b = message.arg1;
+                                                                            cVar.c = message.arg2;
+                                                                            this.a.z.set(message.arg1);
+                                                                            this.a.A.set(message.arg2);
+                                                                            break;
+                                                                        }
+                                                                        break;
+                                                                    default:
+                                                                        switch (i) {
+                                                                            case SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_END_STAMP_KEY /* 5203 */:
+                                                                                break;
+                                                                            case SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONRESUME_STAMP_KEY /* 5204 */:
+                                                                                cVar.b = message.arg1;
+                                                                                cVar.c = message.arg2;
+                                                                                cVar.e = System.currentTimeMillis();
+                                                                                break;
+                                                                            case SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY /* 5205 */:
+                                                                                cVar.b = message.arg1;
+                                                                                cVar.c = message.arg2;
+                                                                                cVar.f = message.obj;
+                                                                                cVar.e = System.currentTimeMillis();
+                                                                                TLog.g(this, "first frame again show, going to transmit to mainloop");
+                                                                                break;
+                                                                            default:
+                                                                                switch (i) {
+                                                                                    case 6000:
+                                                                                    case 6001:
+                                                                                    case 6002:
+                                                                                    case AuthCode.StatusCode.PERMISSION_NOT_EXIST /* 6004 */:
+                                                                                        cVar.b = message.arg1;
+                                                                                        cVar.c = message.arg2;
+                                                                                        break;
+                                                                                    case AuthCode.StatusCode.CERT_FINGERPRINT_ERROR /* 6003 */:
+                                                                                        cVar.b = message.arg1;
+                                                                                        cVar.c = message.arg2;
+                                                                                        break;
+                                                                                }
+                                                                                i2 = 1;
+                                                                                break;
+                                                                        }
+                                                                }
+                                                        }
+                                                        if (this.a.e != null && i2 != 0) {
+                                                            synchronized (this) {
+                                                                if (this.a.e != null) {
+                                                                    if (z) {
+                                                                        this.a.e.sendMessageAtFrontOfQueue(Message.obtain(this.a.e, 1, cVar));
+                                                                    } else {
+                                                                        this.a.e.sendMessage(Message.obtain(this.a.e, 1, cVar));
+                                                                    }
+                                                                }
+                                                            }
+                                                            return;
+                                                        }
+                                                        return;
+                                                }
+                                            }
+                                            cVar.b = System.currentTimeMillis();
+                                        } else {
+                                            cVar.b = message.arg1;
+                                            cVar.c = message.arg2;
+                                            cVar.f = message.obj;
+                                            cVar.e = System.currentTimeMillis();
+                                            TLog.g(this, "first frame show, going to transmit to mainloop");
+                                        }
+                                        z = true;
+                                        i2 = 1;
+                                        if (this.a.e != null) {
+                                            return;
+                                        }
+                                        return;
+                                    }
+                                    cVar.b = message.arg1;
+                                } else {
+                                    cVar.b = message.arg1;
+                                    cVar.c = message.arg2;
+                                    cVar.d = (String) message.obj;
+                                }
+                            } else {
+                                cVar.b = message.arg1;
+                                cVar.f = message.obj;
+                            }
+                        } else {
+                            synchronized (this) {
+                                if (this.a.f != null) {
+                                    this.a.f.O0();
+                                }
+                            }
+                            cVar.b = this.a.B.get();
+                            cVar.c = this.a.w.get();
+                            this.a.B.set(0);
+                            this.a.x.set(0);
+                        }
+                    } else {
+                        cVar.b = message.arg1;
+                        cVar.c = message.arg2;
+                        cVar.f = message.obj;
+                    }
+                } else {
+                    Object obj2 = message.obj;
+                    if (obj2 instanceof String) {
+                        cVar.b = message.arg1;
+                        cVar.d = (String) obj2;
+                    }
+                }
+                z = false;
+                i2 = 1;
+                if (this.a.e != null) {
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d extends Handler {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dec a;
@@ -196,469 +380,340 @@ public class dec extends bec implements abc, zfc {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                m mVar = (m) message.obj;
-                JSONObject jSONObject = mVar.c;
-                String str = mVar.a;
-                char c = 65535;
-                switch (str.hashCode()) {
-                    case -1893106721:
-                        if (str.equals("onPlayerDecodeBitrate")) {
-                            c = 17;
-                            break;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                if (message.what == 1) {
+                    c cVar = (c) message.obj;
+                    int i = cVar.a;
+                    if (i == 1) {
+                        TLog.g(this, String.format(Locale.getDefault(), "player state stopped(%d)", Integer.valueOf(this.a.c)));
+                        this.a.C.set(1);
+                        tcc tccVar = (tcc) this.a.j.get();
+                        if (tccVar != null) {
+                            tccVar.onPlayerStateUpdate(this.a.a, 1, 0);
                         }
-                        break;
-                    case -1122266638:
-                        if (str.equals("onPlayerExtraInfoListener")) {
-                            c = 11;
-                            break;
+                    } else if (i == 5030) {
+                        wcc wccVar = (wcc) this.a.v.get();
+                        if (wccVar != null) {
+                            wccVar.a(this.a.a, (int) cVar.b, cVar.d, (int) cVar.c);
+                        } else {
+                            TLog.c(this, "OnPlayerUpdatePcdnUrlResultListener is null");
                         }
-                        break;
-                    case -1105747594:
-                        if (str.equals("onPlayerCacheWriteToDiskCompleted")) {
-                            c = 4;
-                            break;
+                    } else if (i == 5040) {
+                        TLog.g(this, String.format(Locale.getDefault(), "player play duration:%d  (%d)", Long.valueOf(cVar.b), Integer.valueOf(this.a.c)));
+                        ncc nccVar = (ncc) this.a.g.get();
+                        if (nccVar != null) {
+                            nccVar.onPlayerInfo(this.a.a, 4, cVar.b);
                         }
-                        break;
-                    case -726502775:
-                        if (str.equals("onPlayerAudioStalls")) {
-                            c = 21;
-                            break;
+                    } else if (i == 5102) {
+                        TLog.l(this, String.format(Locale.getDefault(), "player first frame show(%d)", Integer.valueOf(((Long) cVar.f).intValue())));
+                        mcc mccVar = (mcc) this.a.n.get();
+                        if (mccVar != null) {
+                            mccVar.onPlayerFirstVideoFrameShow(this.a.a, (int) cVar.b, (int) cVar.c, ((Long) cVar.f).intValue());
+                        } else {
+                            TLog.c(this, String.format(Locale.getDefault(), "player first frame show : listener is null ", new Object[0]));
                         }
-                        break;
-                    case -513983265:
-                        if (str.equals("onPlayerFirstVideoFrameShow")) {
-                            c = '\t';
-                            break;
+                        lcc lccVar = (lcc) this.a.u.get();
+                        if (lccVar != null) {
+                            lccVar.a(103, cVar.e, 0L, 0L, null, null);
                         }
-                        break;
-                    case -125887634:
-                        if (str.equals("onPlayerVideoStalls")) {
-                            c = 20;
-                            break;
+                    } else if (i == 7000) {
+                        lcc lccVar2 = (lcc) this.a.u.get();
+                        TLog.g(this, "on demuxer read header end");
+                        if (lccVar2 != null) {
+                            lccVar2.a(102, cVar.b, 0L, 0L, null, null);
                         }
-                        break;
-                    case -48461180:
-                        if (str.equals("onPlayerNetRequestStatus")) {
-                            c = 14;
-                            break;
+                    } else if (i == 5009) {
+                        ucc uccVar = (ucc) this.a.i.get();
+                        if (uccVar != null) {
+                            uccVar.onPlayerStatistics(this.a.a, (int) cVar.b, cVar.d);
                         }
-                        break;
-                    case 54802172:
-                        if (str.equals("onPlayerDecodeOuputSize")) {
-                            c = 18;
-                            break;
-                        }
-                        break;
-                    case 76638970:
-                        if (str.equals("onPlayerStateUpdate")) {
-                            c = '\r';
-                            break;
-                        }
-                        break;
-                    case 269354233:
-                        if (str.equals("onSubProcessCrash")) {
-                            c = 24;
-                            break;
-                        }
-                        break;
-                    case 303848884:
-                        if (str.equals("onPlayerCachePositionUpdate")) {
-                            c = 3;
-                            break;
-                        }
-                        break;
-                    case 554677256:
-                        if (str.equals("onPlayerDecodeType")) {
-                            c = 19;
-                            break;
-                        }
-                        break;
-                    case 598376093:
-                        if (str.equals("onPlayerVideoPlayPaused")) {
-                            c = 22;
-                            break;
-                        }
-                        break;
-                    case 822132006:
-                        if (str.equals("onPlayerUpdatePcdnUrlResult")) {
-                            c = 23;
-                            break;
-                        }
-                        break;
-                    case 853792181:
-                        if (str.equals("onAudioFocusListener")) {
-                            c = '\n';
-                            break;
-                        }
-                        break;
-                    case 1012167752:
-                        if (str.equals("onPlayerError")) {
-                            c = '\f';
-                            break;
-                        }
-                        break;
-                    case 1055756567:
-                        if (str.equals("onPlayerRenderFramerate")) {
-                            c = 16;
-                            break;
-                        }
-                        break;
-                    case 1141144174:
-                        if (str.equals("onPlayerInfo")) {
-                            c = 5;
-                            break;
-                        }
-                        break;
-                    case 1147162650:
-                        if (str.equals("onPlayerPlayCompletionOneLoop")) {
-                            c = '\b';
-                            break;
-                        }
-                        break;
-                    case 1343087941:
-                        if (str.equals("onPlayerVideoSizeUpdate")) {
-                            c = 6;
-                            break;
-                        }
-                        break;
-                    case 1385041286:
-                        if (str.equals("onLoadingUpdate")) {
-                            c = 0;
-                            break;
-                        }
-                        break;
-                    case 1468645360:
-                        if (str.equals("onPlayerPlayCompletion")) {
-                            c = 7;
-                            break;
-                        }
-                        break;
-                    case 1482173798:
-                        if (str.equals("onPlayerPlayPositionUpdate")) {
-                            c = 2;
-                            break;
-                        }
-                        break;
-                    case 1668839139:
-                        if (str.equals("onPlayerStatistics")) {
-                            c = 1;
-                            break;
-                        }
-                        break;
-                    case 1955119023:
-                        if (str.equals("onPlayerReceiveToRenderDelay")) {
-                            c = 15;
-                            break;
-                        }
-                        break;
-                }
-                switch (c) {
-                    case 0:
-                        if (jSONObject != null) {
-                            int optInt = jSONObject.optInt("i");
-                            TLog.b("[VodPlayerClient]", this.a.M0() + "onLoadingUpdate:" + optInt);
-                            ncc nccVar = (ncc) this.a.D.get();
-                            if (nccVar != null) {
-                                nccVar.a(this.a.a, optInt);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    case 1:
-                        tcc tccVar = (tcc) this.a.C.get();
-                        if (tccVar == null || jSONObject == null) {
-                            return;
-                        }
-                        tccVar.onPlayerStatistics(this.a.a, jSONObject.optInt("i"), jSONObject.optString("s"));
-                        return;
-                    case 2:
-                        if (jSONObject != null) {
-                            long optLong = jSONObject.optLong("l");
-                            this.a.q.set((int) optLong);
-                            qcc qccVar = (qcc) this.a.E.get();
-                            if (qccVar != null) {
-                                qccVar.a(this.a.a, optLong);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    case 3:
-                        hcc hccVar = (hcc) this.a.F.get();
-                        if (hccVar == null || jSONObject == null) {
-                            return;
-                        }
-                        hccVar.onPlayerCachePositionUpdate(this.a.a, jSONObject.optLong("l"));
-                        return;
-                    case 4:
-                        hcc hccVar2 = (hcc) this.a.F.get();
-                        if (hccVar2 == null || jSONObject == null) {
-                            return;
-                        }
-                        hccVar2.onPlayerCacheWriteToDiskCompleted(this.a.a, jSONObject.optString("s"));
-                        return;
-                    case 5:
-                        if (jSONObject != null) {
-                            int optInt2 = jSONObject.optInt("i");
-                            long optLong2 = jSONObject.optLong("l");
-                            TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerInfo,what:" + optInt2 + ",extra:" + optLong2);
-                            mcc mccVar = (mcc) this.a.G.get();
-                            if (mccVar != null) {
-                                mccVar.onPlayerInfo(this.a.a, optInt2, optLong2);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    case 6:
-                        if (jSONObject != null) {
-                            int optInt3 = jSONObject.optInt("i");
-                            int optInt4 = jSONObject.optInt("i1");
-                            TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerVideoSizeUpdate,width:" + optInt3 + ",height:" + optInt4);
-                            mcc mccVar2 = (mcc) this.a.G.get();
-                            if (mccVar2 != null) {
-                                mccVar2.onPlayerVideoSizeUpdate(this.a.a, optInt3, optInt4);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    case 7:
-                        TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerPlayCompletion");
-                        pcc pccVar = (pcc) this.a.H.get();
-                        if (pccVar != null) {
-                            pccVar.onPlayerPlayCompletion(this.a.a);
-                            return;
-                        }
-                        return;
-                    case '\b':
-                        TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerPlayCompletionOneLoop");
-                        pcc pccVar2 = (pcc) this.a.H.get();
-                        if (pccVar2 != null) {
-                            pccVar2.onPlayerPlayCompletionOneLoop(this.a.a);
-                            return;
-                        }
-                        return;
-                    case '\t':
-                        if (jSONObject != null) {
-                            int optInt5 = jSONObject.optInt("i");
-                            int optInt6 = jSONObject.optInt("i1");
-                            int optInt7 = jSONObject.optInt("i2");
-                            TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerFirstVideoFrameShow,width:" + optInt5 + ",height:" + optInt6 + ",costMs:" + optInt7);
-                            lcc lccVar = (lcc) this.a.I.get();
-                            if (lccVar != null) {
-                                lccVar.onPlayerFirstVideoFrameShow(this.a.a, optInt5, optInt6, optInt7);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    case '\n':
-                        if (jSONObject != null) {
-                            int optInt8 = jSONObject.optInt("i");
-                            TLog.h("[VodPlayerClient]", this.a.M0() + " onAudioFocusListener,focus status:" + optInt8);
-                            fcc fccVar = (fcc) this.a.U.get();
-                            if (fccVar != null) {
-                                fccVar.onAudioFocusChange(optInt8);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    case 11:
-                        if (jSONObject != null) {
-                            int optInt9 = jSONObject.optInt("i");
-                            long optLong3 = jSONObject.optLong("l1");
-                            long optLong4 = jSONObject.optLong("l2");
-                            long optLong5 = jSONObject.optLong("l3");
-                            String optString = jSONObject.optString("s");
-                            JSONObject optJSONObject = jSONObject.optJSONObject("o");
-                            TLog.h("[VodPlayerClient]", this.a.M0() + " OnPlayerExtraInfoListener,type:" + optInt9);
-                            kcc kccVar = (kcc) this.a.S.get();
-                            if (kccVar != null) {
-                                kccVar.a(optInt9, optLong3, optLong4, optLong5, optString, optJSONObject);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    case '\f':
-                        if (jSONObject != null) {
-                            int optInt10 = jSONObject.optInt("i");
-                            int optInt11 = jSONObject.optInt("i1");
-                            String optString2 = jSONObject.optString("s");
-                            TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerError,url:" + optString2 + ",what:" + optInt10 + ",extra:" + optInt11);
-                            jcc jccVar = (jcc) this.a.J.get();
-                            if (jccVar != null) {
-                                jccVar.onPlayerError(this.a.a, optString2, optInt10, optInt11);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    case '\r':
-                        if (jSONObject != null) {
-                            int optInt12 = jSONObject.optInt("i");
-                            int optInt13 = jSONObject.optInt("i1");
-                            TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerStateUpdate,newState:" + optInt12 + ",reason:" + optInt13);
-                            scc sccVar = (scc) this.a.K.get();
-                            if (sccVar != null) {
-                                this.a.b = optInt12 == 6;
-                                TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerStateUpdate,mPlayerState:" + this.a.b);
-                                if (optInt12 == 6) {
-                                    this.a.Q0();
+                    } else if (i != 5010) {
+                        switch (i) {
+                            case 4:
+                                TLog.g(this, String.format(Locale.getDefault(), "player state ready(%d)", Integer.valueOf(this.a.c)));
+                                this.a.C.set(4);
+                                tcc tccVar2 = (tcc) this.a.j.get();
+                                if (tccVar2 != null) {
+                                    tccVar2.onPlayerStateUpdate(this.a.a, 4, 0);
+                                    break;
                                 }
-                                sccVar.onPlayerStateUpdate(this.a.a, optInt12, optInt13);
-                                return;
-                            }
-                            return;
+                                break;
+                            case 5:
+                                TLog.g(this, String.format(Locale.getDefault(), "player state loading(%d)", Integer.valueOf(this.a.c)));
+                                this.a.C.set(5);
+                                tcc tccVar3 = (tcc) this.a.j.get();
+                                if (tccVar3 != null) {
+                                    tccVar3.onPlayerStateUpdate(this.a.a, 5, (int) cVar.c);
+                                    break;
+                                }
+                                break;
+                            case 6:
+                                TLog.g(this, String.format(Locale.getDefault(), "player state playing(%d)", Integer.valueOf(this.a.c)));
+                                this.a.C.set(6);
+                                tcc tccVar4 = (tcc) this.a.j.get();
+                                if (tccVar4 != null) {
+                                    tccVar4.onPlayerStateUpdate(this.a.a, 6, 0);
+                                    break;
+                                }
+                                break;
+                            case 7:
+                                TLog.g(this, String.format(Locale.getDefault(), "player state paused(%d)", Integer.valueOf(this.a.c)));
+                                this.a.C.set(7);
+                                tcc tccVar5 = (tcc) this.a.j.get();
+                                if (tccVar5 != null) {
+                                    tccVar5.onPlayerStateUpdate(this.a.a, 7, 0);
+                                    break;
+                                }
+                                break;
+                            case 8:
+                                TLog.g(this, String.format(Locale.getDefault(), "player play end(%d)", Integer.valueOf(this.a.c)));
+                                qcc qccVar = (qcc) this.a.k.get();
+                                if (qccVar != null) {
+                                    qccVar.onPlayerPlayCompletion(this.a.a);
+                                }
+                                this.a.C.set(8);
+                                tcc tccVar6 = (tcc) this.a.j.get();
+                                if (tccVar6 != null) {
+                                    tccVar6.onPlayerStateUpdate(this.a.a, 8, 0);
+                                    break;
+                                }
+                                break;
+                            case 9:
+                                TLog.g(this, String.format(Locale.getDefault(), "player state invalid(%d)", Integer.valueOf(this.a.c)));
+                                tcc tccVar7 = (tcc) this.a.j.get();
+                                if (tccVar7 != null) {
+                                    tccVar7.onPlayerStateUpdate(this.a.a, 9, 0);
+                                    break;
+                                }
+                                break;
+                            default:
+                                switch (i) {
+                                    case 5001:
+                                        TLog.a(this, String.format(Locale.getDefault(), "player loading (%d)", Long.valueOf(cVar.b)));
+                                        occ occVar = (occ) this.a.l.get();
+                                        if (occVar != null) {
+                                            occVar.a(this.a.a, (int) cVar.b);
+                                            break;
+                                        }
+                                        break;
+                                    case 5002:
+                                        TLog.g(this, String.format(Locale.getDefault(), "player resource duration:%d  (%d)", Long.valueOf(cVar.b), Integer.valueOf(this.a.c)));
+                                        ncc nccVar2 = (ncc) this.a.g.get();
+                                        if (nccVar2 != null) {
+                                            nccVar2.onPlayerInfo(this.a.a, 3, cVar.b);
+                                            break;
+                                        }
+                                        break;
+                                    case 5003:
+                                        rcc rccVar = (rcc) this.a.m.get();
+                                        if (rccVar != null) {
+                                            rccVar.a(this.a.a, cVar.b);
+                                            break;
+                                        }
+                                        break;
+                                    case 5004:
+                                        TLog.g(this, String.format(Locale.getDefault(), "player cache (%d)", Long.valueOf(cVar.b)));
+                                        icc iccVar = (icc) this.a.o.get();
+                                        if (iccVar != null) {
+                                            iccVar.onPlayerCachePositionUpdate(this.a.a, cVar.b);
+                                            break;
+                                        }
+                                        break;
+                                    case 5005:
+                                        TLog.g(this, String.format(Locale.getDefault(), "player resource total size: (%d)", Long.valueOf(cVar.b), Integer.valueOf(this.a.c)));
+                                        ncc nccVar3 = (ncc) this.a.g.get();
+                                        if (nccVar3 != null) {
+                                            nccVar3.onPlayerInfo(this.a.a, 2, cVar.b);
+                                            break;
+                                        }
+                                        break;
+                                    default:
+                                        switch (i) {
+                                            case 5013:
+                                                TLog.g(this, String.format(Locale.getDefault(), "player download speed(%d)", Long.valueOf(cVar.b)));
+                                                ncc nccVar4 = (ncc) this.a.g.get();
+                                                if (nccVar4 != null) {
+                                                    nccVar4.onPlayerInfo(this.a.a, 0, cVar.b);
+                                                    break;
+                                                }
+                                                break;
+                                            case 5014:
+                                                TLog.g(this, String.format(Locale.getDefault(), "player caton times: %d  (%d)", Long.valueOf(cVar.b), Integer.valueOf(this.a.c)));
+                                                ncc nccVar5 = (ncc) this.a.g.get();
+                                                if (nccVar5 != null) {
+                                                    nccVar5.onPlayerInfo(this.a.a, 1, cVar.b);
+                                                    break;
+                                                }
+                                                break;
+                                            case SpeedStatsStampTable.HOME_VIEW_ON_LAYOUT_END_STAMP_KEY /* 5015 */:
+                                                TLog.g(this, String.format(Locale.getDefault(), "player resolution  w: %d  h: %d (%d)", Long.valueOf(cVar.b), Long.valueOf(cVar.c), Integer.valueOf(this.a.c)));
+                                                ncc nccVar6 = (ncc) this.a.g.get();
+                                                if (nccVar6 != null) {
+                                                    nccVar6.onPlayerVideoSizeUpdate(this.a.a, (int) cVar.b, (int) cVar.c);
+                                                    break;
+                                                }
+                                                break;
+                                            default:
+                                                switch (i) {
+                                                    case SpeedStatsStampTable.HOME_VIEW_DISPATCH_DRAW_END_STAMP_KEY /* 5017 */:
+                                                        TLog.g(this, String.format(Locale.getDefault(), "player one loop end(%d)", Integer.valueOf(this.a.c)));
+                                                        qcc qccVar2 = (qcc) this.a.k.get();
+                                                        if (qccVar2 != null) {
+                                                            qccVar2.onPlayerPlayCompletionOneLoop(this.a.a);
+                                                            break;
+                                                        }
+                                                        break;
+                                                    case 5018:
+                                                        icc iccVar2 = (icc) this.a.o.get();
+                                                        if (iccVar2 != null) {
+                                                            iccVar2.onPlayerCacheWriteToDiskCompleted(this.a.a, cVar.d);
+                                                            break;
+                                                        }
+                                                        break;
+                                                    case 5019:
+                                                        pcc pccVar = (pcc) this.a.r.get();
+                                                        if (pccVar != null) {
+                                                            NetRequestStatusInfo netRequestStatusInfo = (NetRequestStatusInfo) cVar.f;
+                                                            pccVar.a(this.a.a, (int) cVar.b, netRequestStatusInfo);
+                                                            TLog.g(this, String.format(Locale.getDefault(), "player serverIp : %s", netRequestStatusInfo.b));
+                                                            break;
+                                                        } else {
+                                                            TLog.c(this, "OnPlayerNetRequestStatusListener is null");
+                                                            break;
+                                                        }
+                                                    default:
+                                                        switch (i) {
+                                                            case SpeedStatsStampTable.PUSH_SCHEME_MID_ACTIVITY_ONCREATE_START_STAMP_KEY /* 5200 */:
+                                                                Log.i("transvod", "play egl setup fail");
+                                                                TLog.c(this, String.format(Locale.getDefault(), "egl setup failed", new Object[0]));
+                                                                kcc kccVar = (kcc) this.a.h.get();
+                                                                if (kccVar != null) {
+                                                                    dec decVar = this.a;
+                                                                    kccVar.onPlayerError(decVar.a, decVar.d, SpeedStatsStampTable.PUSH_SCHEME_MID_ACTIVITY_ONCREATE_START_STAMP_KEY, 0);
+                                                                    break;
+                                                                }
+                                                                break;
+                                                            case SpeedStatsStampTable.PUSH_SCHEME_MID_ACTIVITY_ONCREATE_END_STAMP_KEY /* 5201 */:
+                                                                xcc xccVar = (xcc) this.a.t.get();
+                                                                if (xccVar != null) {
+                                                                    xccVar.a(true);
+                                                                    break;
+                                                                }
+                                                                break;
+                                                            case SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_START_STAMP_KEY /* 5202 */:
+                                                                xcc xccVar2 = (xcc) this.a.t.get();
+                                                                if (xccVar2 != null) {
+                                                                    xccVar2.a(false);
+                                                                    break;
+                                                                }
+                                                                break;
+                                                            case SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_END_STAMP_KEY /* 5203 */:
+                                                                lcc lccVar3 = (lcc) this.a.u.get();
+                                                                TLog.g(this, "onSurfaceStatus create");
+                                                                if (lccVar3 != null) {
+                                                                    lccVar3.a(100, cVar.b, 0L, 0L, null, null);
+                                                                    break;
+                                                                }
+                                                                break;
+                                                            case SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONRESUME_STAMP_KEY /* 5204 */:
+                                                                lcc lccVar4 = (lcc) this.a.u.get();
+                                                                TLog.g(this, "onSurfaceStatus changed");
+                                                                if (lccVar4 != null) {
+                                                                    lccVar4.a(101, cVar.b, cVar.c, cVar.e, null, null);
+                                                                    break;
+                                                                }
+                                                                break;
+                                                            case SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY /* 5205 */:
+                                                                TLog.l(this, String.format(Locale.getDefault(), "player first frame again show(%d)", Integer.valueOf(((Long) cVar.f).intValue())));
+                                                                lcc lccVar5 = (lcc) this.a.u.get();
+                                                                if (lccVar5 != null) {
+                                                                    TLog.g(this, String.format(Locale.getDefault(), "OnPlayerExtraInfoListener:(%d)", 104));
+                                                                    lccVar5.a(104, cVar.b, cVar.c, cVar.e, null, null);
+                                                                    break;
+                                                                }
+                                                                break;
+                                                            default:
+                                                                switch (i) {
+                                                                    case 6000:
+                                                                        scc sccVar = (scc) this.a.s.get();
+                                                                        if (sccVar != null) {
+                                                                            sccVar.onPlayerReceiveToRenderDelay(this.a.a, (int) cVar.b);
+                                                                            break;
+                                                                        }
+                                                                        break;
+                                                                    case 6001:
+                                                                        Log.i("hello", "rendering frameRate " + ((int) cVar.b));
+                                                                        scc sccVar2 = (scc) this.a.s.get();
+                                                                        if (sccVar2 != null) {
+                                                                            sccVar2.onPlayerRenderFramerate(this.a.a, (int) cVar.b);
+                                                                            break;
+                                                                        }
+                                                                        break;
+                                                                    case 6002:
+                                                                        scc sccVar3 = (scc) this.a.s.get();
+                                                                        if (sccVar3 != null) {
+                                                                            sccVar3.onPlayerDecodeType(this.a.a, (int) cVar.b);
+                                                                            break;
+                                                                        }
+                                                                        break;
+                                                                    case AuthCode.StatusCode.CERT_FINGERPRINT_ERROR /* 6003 */:
+                                                                        scc sccVar4 = (scc) this.a.s.get();
+                                                                        if (sccVar4 != null) {
+                                                                            TLog.g(this, String.format(Locale.getDefault(), "decoder output size %d * %d", Integer.valueOf((int) cVar.b), Integer.valueOf((int) cVar.c)));
+                                                                            sccVar4.onPlayerDecodeOuputSize(this.a.a, (int) cVar.b, (int) cVar.c);
+                                                                            break;
+                                                                        } else {
+                                                                            TLog.g(this, "OnPlayerQualityMonitorListener is null");
+                                                                            break;
+                                                                        }
+                                                                    case AuthCode.StatusCode.PERMISSION_NOT_EXIST /* 6004 */:
+                                                                        scc sccVar5 = (scc) this.a.s.get();
+                                                                        if (sccVar5 != null) {
+                                                                            sccVar5.onPlayerDecodeBitrate(this.a.a, (int) cVar.b, (int) cVar.c);
+                                                                            Log.i("hello", "videoBitrate " + ((int) cVar.b) + " audioBitrate " + ((int) cVar.c));
+                                                                            break;
+                                                                        }
+                                                                        break;
+                                                                    case AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED /* 6005 */:
+                                                                        scc sccVar6 = (scc) this.a.s.get();
+                                                                        if (sccVar6 != null) {
+                                                                            sccVar6.onPlayerVideoStalls(this.a.a, ((int) cVar.b) == 1, (int) cVar.c);
+                                                                            break;
+                                                                        }
+                                                                        break;
+                                                                    case AuthCode.StatusCode.PERMISSION_EXPIRED /* 6006 */:
+                                                                        scc sccVar7 = (scc) this.a.s.get();
+                                                                        if (sccVar7 != null) {
+                                                                            sccVar7.onPlayerAudioStalls(this.a.a, ((int) cVar.b) == 1, (int) cVar.c);
+                                                                            break;
+                                                                        }
+                                                                        break;
+                                                                }
+                                                        }
+                                                }
+                                        }
+                                }
                         }
-                        return;
-                    case 14:
-                        occ occVar = (occ) this.a.O.get();
-                        if (occVar == null || jSONObject == null) {
-                            return;
+                    } else {
+                        Log.i("transvod", "player error code " + cVar.b);
+                        TLog.c(this, String.format(Locale.getDefault(), "player error code : %d", Long.valueOf(cVar.b)));
+                        if (this.a.G) {
+                            TLog.c(this, "stop by self");
+                            this.a.G();
                         }
-                        occVar.a(this.a.a, jSONObject.optInt("status"), (NetRequestStatusInfo) new Gson().fromJson(jSONObject.optString("info"), new a(this).getType()));
-                        return;
-                    case 15:
-                        rcc rccVar = (rcc) this.a.P.get();
-                        if (rccVar == null || jSONObject == null) {
-                            return;
+                        kcc kccVar2 = (kcc) this.a.h.get();
+                        if (kccVar2 != null) {
+                            kccVar2.onPlayerError(this.a.a, (String) cVar.f, (int) cVar.b, (int) cVar.c);
                         }
-                        rccVar.onPlayerReceiveToRenderDelay(this.a.a, jSONObject.optInt(DelayTB.DELAY));
-                        return;
-                    case 16:
-                        if (jSONObject != null) {
-                            int optInt14 = jSONObject.optInt("framerate");
-                            TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerRenderFramerate:" + optInt14);
-                            rcc rccVar2 = (rcc) this.a.P.get();
-                            if (rccVar2 != null) {
-                                rccVar2.onPlayerRenderFramerate(this.a.a, optInt14);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    case 17:
-                        if (jSONObject != null) {
-                            int optInt15 = jSONObject.optInt("videoBitrate");
-                            int optInt16 = jSONObject.optInt("audioBitrate");
-                            TLog.b("[VodPlayerClient]", this.a.M0() + "onPlayerDecodeBitrate,videoBitrate:" + optInt15 + ",audioBitrate:" + optInt16);
-                            rcc rccVar3 = (rcc) this.a.P.get();
-                            if (rccVar3 != null) {
-                                rccVar3.onPlayerDecodeBitrate(this.a.a, optInt15, optInt16);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    case 18:
-                        if (jSONObject != null) {
-                            int optInt17 = jSONObject.optInt("width");
-                            int optInt18 = jSONObject.optInt("height");
-                            TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerDecodeOuputSize,width:" + optInt17 + ",height:" + optInt18);
-                            rcc rccVar4 = (rcc) this.a.P.get();
-                            if (rccVar4 != null) {
-                                rccVar4.onPlayerDecodeOuputSize(this.a.a, optInt17, optInt18);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    case 19:
-                        if (jSONObject != null) {
-                            int optInt19 = jSONObject.optInt("decodType");
-                            TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerDecodeType:" + optInt19);
-                            rcc rccVar5 = (rcc) this.a.P.get();
-                            if (rccVar5 != null) {
-                                rccVar5.onPlayerDecodeType(this.a.a, optInt19);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    case 20:
-                        rcc rccVar6 = (rcc) this.a.P.get();
-                        if (rccVar6 == null || jSONObject == null) {
-                            return;
-                        }
-                        rccVar6.onPlayerVideoStalls(this.a.a, jSONObject.optBoolean("videoStalls"), jSONObject.optInt("type"));
-                        return;
-                    case 21:
-                        rcc rccVar7 = (rcc) this.a.P.get();
-                        if (rccVar7 == null || jSONObject == null) {
-                            return;
-                        }
-                        rccVar7.onPlayerAudioStalls(this.a.a, jSONObject.optBoolean("audioStalls"), jSONObject.optInt("type"));
-                        return;
-                    case 22:
-                        if (jSONObject != null) {
-                            boolean optBoolean = jSONObject.optBoolean("isPaused");
-                            TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerVideoPlayPaused:" + optBoolean);
-                            wcc wccVar = (wcc) this.a.Q.get();
-                            if (wccVar != null) {
-                                wccVar.a(optBoolean);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    case 23:
-                        if (jSONObject != null) {
-                            int optInt20 = jSONObject.optInt("taskId");
-                            int optInt21 = jSONObject.optInt("result");
-                            String optString3 = jSONObject.optString("url");
-                            TLog.h("[VodPlayerClient]", this.a.M0() + "onPlayerUpdatePcdnUrlResult:" + optString3 + " " + optInt20 + "-->" + optInt21);
-                            vcc vccVar = (vcc) this.a.f1093T.get();
-                            if (vccVar != null) {
-                                vccVar.a(this.a.a, optInt20, optString3, optInt21);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    case 24:
-                        TLog.h("[VodPlayerClient]", this.a.M0() + "onSubProcessCrash, failOver2MainProcess:" + mVar.d);
-                        this.a.i.removeCallbacksAndMessages(null);
-                        icc iccVar = (icc) this.a.R.get();
-                        if (iccVar != null) {
-                            iccVar.a(mVar.b, mVar.d, new HashMap<>());
-                            return;
-                        }
-                        return;
-                    default:
-                        return;
-                }
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class a extends TypeToken<NetRequestStatusInfo> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
                     }
+                    dec decVar2 = this.a;
+                    decVar2.b = decVar2.C.get() == 6;
                 }
             }
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(dec decVar, Looper looper) {
+        public a(dec decVar, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -680,570 +735,18 @@ public class dec extends bec implements abc, zfc {
     }
 
     /* loaded from: classes5.dex */
-    public class f implements Runnable {
+    public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ gcc b;
-        public final /* synthetic */ dec c;
+        public int a;
+        public long b;
+        public long c;
+        public String d;
+        public long e;
+        public Object f;
+        public final /* synthetic */ dec g;
 
-        /* loaded from: classes5.dex */
-        public class a extends TypeToken<ArrayList<VideoExtraInfo>> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(f fVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {fVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-        }
-
-        public f(dec decVar, JSONObject jSONObject, gcc gccVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {decVar, jSONObject, gccVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = decVar;
-            this.a = jSONObject;
-            this.b = gccVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    Gson gson = new Gson();
-                    this.b.onSEIVideoExtraInfo(this.c.a, this.a.optInt("type"), (ArrayList) gson.fromJson(this.a.optString("videoExtraInfo"), new a(this).getType()));
-                } catch (Exception e) {
-                    TLog.d("[VodPlayerClient]", this.c.M0() + "(VodPlayerClient.onSEIVideoExtraInfo) ex: " + e.getMessage());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class g implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ gcc b;
-        public final /* synthetic */ dec c;
-
-        /* loaded from: classes5.dex */
-        public class a extends TypeToken<ArrayList<MixVideoExtraInfo>> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(g gVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {gVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-        }
-
-        public g(dec decVar, JSONObject jSONObject, gcc gccVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {decVar, jSONObject, gccVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = decVar;
-            this.a = jSONObject;
-            this.b = gccVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    Gson gson = new Gson();
-                    this.b.onSEIMixVideoExtraInfo(this.c.a, this.a.optInt("type"), (ArrayList) gson.fromJson(this.a.optString("mixVideoExtraInfo"), new a(this).getType()));
-                } catch (Exception e) {
-                    TLog.d("[VodPlayerClient]", this.c.M0() + "(VodPlayerClient.onSEIMixVideoExtraInfo) ex: " + e.getMessage());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class h implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ gcc b;
-        public final /* synthetic */ dec c;
-
-        /* loaded from: classes5.dex */
-        public class a extends TypeToken<ArrayList<AlphaChannelData>> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(h hVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {hVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-        }
-
-        public h(dec decVar, JSONObject jSONObject, gcc gccVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {decVar, jSONObject, gccVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = decVar;
-            this.a = jSONObject;
-            this.b = gccVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    Gson gson = new Gson();
-                    this.b.onSEIAlphaChannelInfo(this.c.a, this.a.optInt("type"), (ArrayList) gson.fromJson(this.a.optString("alphaChannelInfo"), new a(this).getType()));
-                } catch (Exception e) {
-                    TLog.d("[VodPlayerClient]", this.c.M0() + "(VodPlayerClient.onSEIAlphaChannelInfo) ex: " + e.getMessage());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class i implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ gcc b;
-        public final /* synthetic */ dec c;
-
-        /* loaded from: classes5.dex */
-        public class a extends TypeToken<ArrayList<MixAudioExtraInfo>> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(i iVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {iVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-        }
-
-        public i(dec decVar, JSONObject jSONObject, gcc gccVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {decVar, jSONObject, gccVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = decVar;
-            this.a = jSONObject;
-            this.b = gccVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.b.onDSEMixAudioExtraInfoV1(this.c.a, (ArrayList) new Gson().fromJson(this.a.optString("mixAudioExtraInfo"), new a(this).getType()));
-                } catch (Exception e) {
-                    TLog.d("[VodPlayerClient]", this.c.M0() + "(VodPlayerClient.onDSEMixAudioExtraInfoV1) ex: " + e.getMessage());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class j implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ zcc.c b;
-        public final /* synthetic */ dec c;
-
-        /* loaded from: classes5.dex */
-        public class a extends TypeToken<ArrayList<MixAudioExtraInfo>> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(j jVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {jVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-        }
-
-        public j(dec decVar, JSONObject jSONObject, zcc.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {decVar, jSONObject, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = decVar;
-            this.a = jSONObject;
-            this.b = cVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.b.a(this.c.a, (ArrayList) new Gson().fromJson(this.a.optString("mixAudioExtraInfo"), new a(this).getType()));
-                } catch (Exception e) {
-                    TLog.d("[VodPlayerClient]", this.c.M0() + "(VodPlayerClient.onDSEMixAudioExtraInfo) ex: " + e.getMessage());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class k implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ gcc b;
-        public final /* synthetic */ dec c;
-
-        /* loaded from: classes5.dex */
-        public class a extends TypeToken<ArrayList<Long>> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(k kVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {kVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-        }
-
-        public k(dec decVar, JSONObject jSONObject, gcc gccVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {decVar, jSONObject, gccVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = decVar;
-            this.a = jSONObject;
-            this.b = gccVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.b.onSEIAudioExtraInfoV0(this.c.a, (ArrayList) new Gson().fromJson(this.a.optString("uids"), new a(this).getType()));
-                } catch (Exception e) {
-                    TLog.d("[VodPlayerClient]", this.c.M0() + "(VodPlayerClient.onSEIAudioExtraInfoV0) ex: " + e.getMessage());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class l implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ gcc b;
-        public final /* synthetic */ dec c;
-
-        /* loaded from: classes5.dex */
-        public class a extends TypeToken<byte[]> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(l lVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {lVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-        }
-
-        public l(dec decVar, JSONObject jSONObject, gcc gccVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {decVar, jSONObject, gccVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = decVar;
-            this.a = jSONObject;
-            this.b = gccVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    Gson gson = new Gson();
-                    String optString = this.a.optString("sei");
-                    int optInt = this.a.optInt("type");
-                    this.b.onSEIAudioOriginalData(this.c.a, (byte[]) gson.fromJson(optString, new a(this).getType()), optInt);
-                } catch (Exception e) {
-                    TLog.d("[VodPlayerClient]", this.c.M0() + "(VodPlayerClient.onSEIAudioOriginalData) ex: " + e.getMessage());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ dec b;
-
-        public b(dec decVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {decVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = decVar;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.h && this.b.d != null) {
-                    TLog.h("[VodPlayerClient]", this.b.M0() + "send data to sub process: " + this.a);
-                    this.b.d.q(this.a);
-                } else if (this.b.e != null) {
-                    TLog.h("[VodPlayerClient]", this.b.M0() + "send data to sub process: " + this.a);
-                    this.b.e.r(this.a);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zcc.d a;
-        public final /* synthetic */ Bitmap b;
-
-        public c(dec decVar, zcc.d dVar, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {decVar, dVar, bitmap};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-            this.b = bitmap;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements ThreadFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public e(dec decVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {decVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                return new Thread(runnable, "C-vodplayer-" + dec.H());
-            }
-            return (Thread) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class m {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public JSONObject c;
-        public boolean d;
-
-        public m(dec decVar) {
+        public c(dec decVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1258,1171 +761,720 @@ public class dec extends bec implements abc, zfc {
                     return;
                 }
             }
-            this.c = null;
-            this.d = false;
+            this.g = decVar;
+            this.a = 0;
+            this.b = 0L;
+            this.c = 0L;
+            this.d = null;
+            this.e = 0L;
+            this.f = null;
         }
     }
 
-    public dec() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.c = Executors.newSingleThreadExecutor(new e(this));
-        this.d = null;
-        this.e = null;
-        this.g = null;
-        this.h = true;
-        this.i = null;
-        this.k = -1;
-        this.l = -1;
-        this.m = null;
-        this.n = new AtomicInteger(0);
-        this.o = new AtomicInteger(0);
-        this.p = new AtomicInteger(0);
-        this.q = new AtomicInteger(0);
-        this.r = new AtomicBoolean(true);
-        this.s = -1;
-        this.t = false;
-        this.u = -1;
-        this.v = -1;
-        this.w = false;
-        this.x = -1;
-        this.y = -1;
-        this.z = true;
-        this.A = new WeakReference<>(null);
-        this.B = new WeakReference<>(null);
-        this.C = new WeakReference<>(null);
-        this.D = new WeakReference<>(null);
-        this.E = new WeakReference<>(null);
-        this.F = new WeakReference<>(null);
-        this.G = new WeakReference<>(null);
-        this.H = new WeakReference<>(null);
-        this.I = new WeakReference<>(null);
-        this.J = new WeakReference<>(null);
-        this.K = new WeakReference<>(null);
-        this.L = new WeakReference<>(null);
-        this.M = new WeakReference<>(null);
-        this.N = new WeakReference<>(null);
-        this.O = new WeakReference<>(null);
-        this.P = new WeakReference<>(null);
-        this.Q = new WeakReference<>(null);
-        this.R = new WeakReference<>(null);
-        this.S = new WeakReference<>(null);
-        this.f1093T = new WeakReference<>(null);
-        this.U = new WeakReference<>(null);
-    }
-
-    public dec(Context context, ycc yccVar, zcc zccVar) {
+    public dec(Context context, zcc zccVar, adc adcVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, yccVar, zccVar};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {context, zccVar, adcVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = Executors.newSingleThreadExecutor(new e(this));
+        this.c = 0;
         this.d = null;
         this.e = null;
-        this.g = null;
-        this.h = true;
-        this.i = null;
-        this.k = -1;
-        this.l = -1;
-        this.m = null;
-        this.n = new AtomicInteger(0);
-        this.o = new AtomicInteger(0);
-        this.p = new AtomicInteger(0);
-        this.q = new AtomicInteger(0);
-        this.r = new AtomicBoolean(true);
-        this.s = -1;
-        this.t = false;
-        this.u = -1;
-        this.v = -1;
-        this.w = false;
-        this.x = -1;
-        this.y = -1;
-        this.z = true;
-        this.A = new WeakReference<>(null);
-        this.B = new WeakReference<>(null);
-        this.C = new WeakReference<>(null);
-        this.D = new WeakReference<>(null);
-        this.E = new WeakReference<>(null);
-        this.F = new WeakReference<>(null);
-        this.G = new WeakReference<>(null);
-        this.H = new WeakReference<>(null);
-        this.I = new WeakReference<>(null);
-        this.J = new WeakReference<>(null);
-        this.K = new WeakReference<>(null);
-        this.L = new WeakReference<>(null);
-        this.M = new WeakReference<>(null);
-        this.N = new WeakReference<>(null);
-        this.O = new WeakReference<>(null);
-        this.P = new WeakReference<>(null);
-        this.Q = new WeakReference<>(null);
-        this.R = new WeakReference<>(null);
-        this.S = new WeakReference<>(null);
-        this.f1093T = new WeakReference<>(null);
-        this.U = new WeakReference<>(null);
-        ggc.c().e(this);
-        this.a = zccVar;
-        this.g = yccVar;
-        this.h = yccVar.g;
-        L0(context);
-        TLog.h("[VodPlayerClient]", M0() + "create vodplayer client");
+        this.f = null;
+        this.g = new WeakReference<>(null);
+        this.h = new WeakReference<>(null);
+        this.i = new WeakReference<>(null);
+        this.j = new WeakReference<>(null);
+        this.k = new WeakReference<>(null);
+        this.l = new WeakReference<>(null);
+        this.m = new WeakReference<>(null);
+        this.n = new WeakReference<>(null);
+        this.o = new WeakReference<>(null);
+        this.p = new WeakReference<>(null);
+        this.q = new WeakReference<>(null);
+        this.r = new WeakReference<>(null);
+        this.s = new WeakReference<>(null);
+        this.t = new WeakReference<>(null);
+        this.u = new WeakReference<>(null);
+        this.v = new WeakReference<>(null);
+        this.w = new AtomicInteger(0);
+        this.x = new AtomicInteger(0);
+        this.y = new AtomicInteger(0);
+        this.z = new AtomicInteger(0);
+        this.A = new AtomicInteger(0);
+        this.B = new AtomicInteger(0);
+        this.C = new AtomicInteger(0);
+        this.D = null;
+        this.E = null;
+        this.F = null;
+        this.G = false;
+        this.H = new b(this);
+        long currentTimeMillis = System.currentTimeMillis();
+        this.a = adcVar;
+        this.E = zccVar;
+        m0(context.getApplicationContext(), zccVar);
+        TLog.l(this, "[transvod] create VodPlayer cost: " + (System.currentTimeMillis() - currentTimeMillis) + " sdkversion: " + j() + " isSubProcess:" + zccVar.m);
     }
 
-    @Override // com.baidu.tieba.bec
-    public void A(mcc mccVar) {
+    @Override // com.baidu.tieba.cec
+    public void A(ncc nccVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mccVar) == null) {
-            this.G = new WeakReference<>(mccVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, nccVar) == null) {
+            this.g = new WeakReference<>(nccVar);
         }
     }
 
-    @Override // com.baidu.tieba.bec
-    public void B(rcc rccVar) {
+    public void A0(occ occVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rccVar) == null) {
-            this.P = new WeakReference<>(rccVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, occVar) == null) {
+            this.l = new WeakReference<>(occVar);
         }
     }
 
-    @Override // com.baidu.tieba.bec
-    public void C(scc sccVar) {
+    @Override // com.baidu.tieba.cec
+    public void B(scc sccVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sccVar) == null) {
-            this.K = new WeakReference<>(sccVar);
+            this.s = new WeakReference<>(sccVar);
         }
     }
 
-    @Override // com.baidu.tieba.bec
-    public void D(tcc tccVar) {
+    public void B0(pcc pccVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, tccVar) == null) {
-            this.C = new WeakReference<>(tccVar);
+        if (interceptable == null || interceptable.invokeL(1048579, this, pccVar) == null) {
+            this.r = new WeakReference<>(pccVar);
         }
     }
 
-    @Override // com.baidu.tieba.bec
-    public void x(hcc hccVar) {
+    @Override // com.baidu.tieba.cec
+    public void C(tcc tccVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, hccVar) == null) {
-            this.F = new WeakReference<>(hccVar);
+        if (interceptable == null || interceptable.invokeL(1048580, this, tccVar) == null) {
+            this.j = new WeakReference<>(tccVar);
         }
     }
 
-    @Override // com.baidu.tieba.bec
-    public void y(jcc jccVar) {
+    public void C0(qcc qccVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, jccVar) == null) {
-            this.J = new WeakReference<>(jccVar);
+        if (interceptable == null || interceptable.invokeL(1048581, this, qccVar) == null) {
+            this.k = new WeakReference<>(qccVar);
         }
     }
 
-    @Override // com.baidu.tieba.bec
-    public void z(lcc lccVar) {
+    @Override // com.baidu.tieba.cec
+    public void D(ucc uccVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, lccVar) == null) {
-            this.I = new WeakReference<>(lccVar);
+        if (interceptable == null || interceptable.invokeL(1048582, this, uccVar) == null) {
+            this.i = new WeakReference<>(uccVar);
         }
     }
 
-    public static /* synthetic */ int H() {
-        return N0();
-    }
-
-    public static synchronized int N0() {
-        InterceptResult invokeV;
-        int i2;
+    public void D0(rcc rccVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
-            synchronized (dec.class) {
-                i2 = V;
-                V = i2 + 1;
-            }
-            return i2;
+        if (interceptable == null || interceptable.invokeL(1048583, this, rccVar) == null) {
+            this.m = new WeakReference<>(rccVar);
         }
-        return invokeV.intValue;
     }
 
-    public final void J0() {
+    public void E0(wcc wccVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.i = new d(this, Looper.getMainLooper());
+        if (interceptable == null || interceptable.invokeL(1048585, this, wccVar) == null) {
+            this.v = new WeakReference<>(wccVar);
         }
     }
 
-    public final void O0() {
+    public void F0(xcc xccVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.q.set(0);
-            this.n.set(0);
-            this.o.set(0);
-            this.p.set(0);
-            this.k = 0;
+        if (interceptable == null || interceptable.invokeL(1048587, this, xccVar) == null) {
+            this.t = new WeakReference<>(xccVar);
         }
     }
 
-    public void Q0() {
+    public void H0(adc.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            ybc ybcVar = new ybc();
-            ybcVar.a = "sendRedirectUrlData";
-            P0(this.f.toJson(ybcVar));
+        if (interceptable == null || interceptable.invokeL(1048590, this, cVar) == null) {
+            this.q = new WeakReference<>(cVar);
         }
     }
 
-    @Override // com.baidu.tieba.bec
-    public Object i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            if (this.h) {
-                return this.d;
-            }
-            return this.e;
-        }
-        return invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bec
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            return this.p.get();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.bec
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            return this.o.get();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.bec
-    public void w(Executor executor, gcc gccVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048621, this, executor, gccVar) == null) {
-            this.L = new WeakReference<>(executor);
-            this.M = new WeakReference<>(gccVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.bec
-    public void E(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.x = i2;
-            TLog.h("[VodPlayerClient]", M0() + "setRotateMode:" + this.x);
-            Y0();
-        }
-    }
-
-    public void S0(boolean z) {
+    public void I0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.r.set(z);
-            TLog.h("[VodPlayerClient]", M0() + "setAudioFocusEnable:" + this.r.get());
-            T0();
-        }
-    }
-
-    @Override // com.baidu.tieba.bec
-    public void u(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-            this.v = i2;
-            TLog.h("[VodPlayerClient]", M0() + "setDisplayMode:" + this.v);
-            U0();
-        }
-    }
-
-    @Override // com.baidu.tieba.bec
-    public void v(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
-            this.s = i2;
-            TLog.h("[VodPlayerClient]", M0() + "setNumberOfLoops:" + this.s);
-            W0();
-        }
-    }
-
-    @Override // com.baidu.tieba.bec
-    public void F(int i2, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            this.l = i2;
-            TLog.h("[VodPlayerClient]", M0() + "start, taskId:" + i2);
-            ggc.c().g(this, i2, this.z);
             synchronized (this) {
-                ybc ybcVar = new ybc();
-                ybcVar.a = "startPlay";
-                ybcVar.b.put("taskId", Integer.valueOf(i2));
-                ybcVar.b.put("apiStartTimeMs", Long.valueOf(j2));
-                P0(this.f.toJson(ybcVar));
+                if (this.f != null) {
+                    this.f.f1(z);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.bec
-    public void G() {
+    @Override // com.baidu.tieba.cec
+    public void s(fcc fccVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TLog.h("[VodPlayerClient]", M0() + "stop");
-            ggc.c().h(this);
+        if (interceptable == null || interceptable.invokeL(1048615, this, fccVar) == null) {
             synchronized (this) {
-                this.n.set(0);
-                this.q.set(0);
-                this.o.set(0);
-                this.p.set(0);
-                ybc ybcVar = new ybc();
-                ybcVar.a = "stopPlay";
-                P0(this.f.toJson(ybcVar));
-                this.l = -1;
+                if (this.f != null) {
+                    this.d = fccVar.k();
+                    this.G = fccVar.d();
+                    this.f.U0(fccVar);
+                }
             }
         }
     }
 
-    public final void K0() {
+    @Override // com.baidu.tieba.cec
+    public void t(fcc fccVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048617, this, fccVar) == null) {
             synchronized (this) {
-                String b2 = ycc.b(this.g);
-                if (b2 != null && !b2.isEmpty()) {
-                    ybc ybcVar = new ybc();
-                    ybcVar.a = "initPlay";
-                    ybcVar.b.put("opt", b2);
-                    P0(this.f.toJson(ybcVar));
+                if (this.f != null) {
+                    this.d = fccVar.k();
+                    this.G = fccVar.d();
+                    this.f.V0(fccVar);
+                }
+            }
+        }
+    }
+
+    public void v0(boolean z) {
+        sdc sdcVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048622, this, z) == null) && (sdcVar = this.f) != null) {
+            sdcVar.Y0(z);
+        }
+    }
+
+    public void w0(boolean z) {
+        sdc sdcVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048624, this, z) == null) && (sdcVar = this.f) != null) {
+            sdcVar.Z0(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.cec
+    public void x(icc iccVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048625, this, iccVar) == null) {
+            this.o = new WeakReference<>(iccVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.cec
+    public void y(kcc kccVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048627, this, kccVar) == null) {
+            this.h = new WeakReference<>(kccVar);
+        }
+    }
+
+    public void y0(gcc gccVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048628, this, gccVar) == null) {
+            pdc.m(gccVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.cec
+    public void z(mcc mccVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048629, this, mccVar) == null) {
+            this.n = new WeakReference<>(mccVar);
+        }
+    }
+
+    public void z0(lcc lccVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048630, this, lccVar) == null) {
+            this.u = new WeakReference<>(lccVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.cec
+    public void E(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            TLog.g(this, this.c + "rotateMode: " + i + " enter.");
+            synchronized (this) {
+                if (this.f != null) {
+                    this.f.e1(i);
+                }
+            }
+        }
+    }
+
+    public void G0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            TLog.g(this, this.c + "orientateMode: " + i + " enter.");
+            synchronized (this) {
+                if (this.f != null) {
+                    this.f.d1(i);
+                }
+            }
+        }
+    }
+
+    public void J0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            TLog.g(this, this.c + "volume:" + i + " enter.");
+            synchronized (this) {
+                if (this.f != null) {
+                    this.f.g1(i);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.cec
+    public void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+            TLog.g(this, this.c + "displayMode: " + i + " enter.");
+            synchronized (this) {
+                if (this.f != null) {
+                    this.f.W0(i);
+                }
+            }
+        }
+    }
+
+    public void u0(odc odcVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048620, this, odcVar) == null) {
+            TLog.g(this, this.c + " setEffectResources " + odc.d(odcVar));
+            synchronized (this) {
+                if (this.f == null) {
                     return;
                 }
-                TLog.d("[VodPlayerClient]", M0() + "createServerVodplayer, mPlayerOptions is empty");
+                this.f.X0(odcVar);
             }
         }
     }
 
-    public final String M0() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.cec
+    public void v(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            StringBuilder sb = new StringBuilder(30);
-            sb.append(PreferencesUtil.LEFT_MOUNT);
-            sb.append("channel:");
-            sb.append(this.j);
-            if (this.k != -1) {
-                sb.append(",context:");
-                sb.append(this.k);
-            }
-            if (this.l != -1) {
-                sb.append(",task:");
-                sb.append(this.l);
-            }
-            sb.append(PreferencesUtil.RIGHT_MOUNT);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void L0(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
-            if (this.h) {
-                RenderSurfaceView renderSurfaceView = new RenderSurfaceView(context);
-                this.d = renderSurfaceView;
-                renderSurfaceView.setKeepScreenOn(true);
-                this.d.o(false);
-                this.d.p(false);
-                if (Build.MODEL.equals("OPPO A33t")) {
-                    this.d.setLayerType(1, null);
+        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
+            TLog.g(this, this.c + "VodPlay enter.  setNumberOfLoops: " + i);
+            synchronized (this) {
+                if (this.f != null) {
+                    this.f.b1(i);
                 }
-                this.j = this.d.getChannelId();
-                TLog.h("[VodPlayerClient]", M0() + "create RenderSurfaceView");
+            }
+        }
+    }
+
+    public void x0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048626, this, z) == null) {
+            TLog.g(this, this.c + "isSpecialMp4WithAlpha: " + z + " enter.");
+            synchronized (this) {
+                if (this.f != null) {
+                    this.f.a1(z);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.cec
+    public void F(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            TLog.l(this, this.c + "VodPlay.start enter, isSubProcess:" + this.E.m);
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.c);
+            sb.append(" VodPlay.start enter. ");
+            Log.i("transvod", sb.toString());
+            synchronized (this) {
+                if (this.f != null) {
+                    this.f.i1(i, j);
+                }
+            }
+        }
+    }
+
+    public final void m0(Context context, zcc zccVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048604, this, context, zccVar) == null) {
+            TLog.k(4);
+            bec.a(context);
+            ybc.c(context);
+            dfc dfcVar = zccVar.j;
+            if (dfcVar != null) {
+                this.D = dfcVar;
             } else {
-                RenderTextureView renderTextureView = new RenderTextureView(context);
-                this.e = renderTextureView;
-                renderTextureView.setKeepScreenOn(true);
-                this.e.p(false);
-                this.e.q(false);
-                this.e.setOpaque(false);
-                if (Build.VERSION.SDK_INT < 24) {
-                    this.e.setBackgroundColor(0);
-                }
-                if (Build.MODEL.equals("OPPO A33t")) {
-                    this.e.setLayerType(1, null);
-                }
-                this.j = this.e.getChannelId();
-                TLog.h("[VodPlayerClient]", M0() + "create RenderTextureView");
-            }
-            J0();
-            if (this.h) {
-                RenderEngine.r.a().A(this.d, eec.class, this);
-            } else {
-                RenderEngine.r.a().B(this.e, eec.class, this);
-            }
-            fgc.n().j(this, true);
-            this.f = new GsonBuilder().excludeFieldsWithModifiers(128, 8).serializeNulls().create();
-            K0();
-        }
-    }
-
-    public final void P0(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && !TextUtils.isEmpty(str)) {
-            if (this.d != null || this.e != null) {
-                try {
-                    this.c.execute(new b(this, str));
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    TLog.d("[VodPlayerClient]", M0() + "(sendDataToSubProcess) ex: " + e2.getMessage());
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.bec
-    public void r(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048616, this, j2) == null) {
-            TLog.h("[VodPlayerClient]", M0() + "seekTo:" + j2);
-            synchronized (this) {
-                ybc ybcVar = new ybc();
-                ybcVar.a = "seekTo";
-                ybcVar.b.put("p", Long.valueOf(j2));
-                P0(this.f.toJson(ybcVar));
-            }
-        }
-    }
-
-    public final void R0(Object obj, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048590, this, obj, z) == null) && this.i != null) {
-            synchronized (this) {
-                if (this.i != null) {
-                    if (z) {
-                        this.i.sendMessageAtFrontOfQueue(Message.obtain(this.i, 1, obj));
-                    } else {
-                        this.i.sendMessage(Message.obtain(this.i, 1, obj));
-                    }
-                }
-            }
-        }
-    }
-
-    public final void T0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            synchronized (this) {
-                ybc ybcVar = new ybc();
-                ybcVar.a = "setAudioFocusEnable";
-                ybcVar.b.put("af", Boolean.valueOf(this.r.get()));
-                P0(this.f.toJson(ybcVar));
-            }
-        }
-    }
-
-    public final void U0() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && this.v >= 0) {
-            synchronized (this) {
-                ybc ybcVar = new ybc();
-                ybcVar.a = "setDisplayMode";
-                ybcVar.b.put(com.kuaishou.weapon.p0.u.A, Integer.valueOf(this.v));
-                P0(this.f.toJson(ybcVar));
-            }
-        }
-    }
-
-    public final void V0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            synchronized (this) {
-                ybc ybcVar = new ybc();
-                ybcVar.a = "setIsSpecialMp4WithAlpha";
-                ybcVar.b.put("al", Boolean.valueOf(this.w));
-                P0(this.f.toJson(ybcVar));
-            }
-        }
-    }
-
-    public final void W0() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && this.s >= 0) {
-            synchronized (this) {
-                ybc ybcVar = new ybc();
-                ybcVar.a = "setNumberOfLoops";
-                ybcVar.b.put("p", Integer.valueOf(this.s));
-                P0(this.f.toJson(ybcVar));
-            }
-        }
-    }
-
-    public final void X0() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && this.y >= 0) {
-            synchronized (this) {
-                ybc ybcVar = new ybc();
-                ybcVar.a = "setOrientateMode";
-                ybcVar.b.put("ot", Integer.valueOf(this.y));
-                P0(this.f.toJson(ybcVar));
-            }
-        }
-    }
-
-    public final void Y0() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && this.x >= 0) {
-            synchronized (this) {
-                ybc ybcVar = new ybc();
-                ybcVar.a = "setRotateMode";
-                ybcVar.b.put("rt", Integer.valueOf(this.x));
-                P0(this.f.toJson(ybcVar));
-            }
-        }
-    }
-
-    public final void Z0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            synchronized (this) {
-                ybc ybcVar = new ybc();
-                ybcVar.a = "setVideoExtrasInfoEnable";
-                ybcVar.b.put("b", Boolean.valueOf(this.t));
-                P0(this.f.toJson(ybcVar));
-            }
-        }
-    }
-
-    public final void a1() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && this.u >= 0) {
-            synchronized (this) {
-                ybc ybcVar = new ybc();
-                ybcVar.a = "setVolume";
-                ybcVar.b.put("v", Integer.valueOf(this.u));
-                P0(this.f.toJson(ybcVar));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.bec
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            TLog.h("[VodPlayerClient]", M0() + "appInBackground");
-            synchronized (this) {
-                ybc ybcVar = new ybc();
-                ybcVar.a = "appInBackground";
-                P0(this.f.toJson(ybcVar));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.bec
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            TLog.h("[VodPlayerClient]", M0() + "appInFrontground");
-            synchronized (this) {
-                ybc ybcVar = new ybc();
-                ybcVar.a = "appInFrontground";
-                P0(this.f.toJson(ybcVar));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.bec
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            TLog.h("[VodPlayerClient]", M0() + "getCurrentPosition:" + this.q.get());
-            return this.q.get();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.bec
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            TLog.h("[VodPlayerClient]", M0() + "getDuration:" + this.n.get());
-            return this.n.get();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.bec
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-            TLog.h("[VodPlayerClient]", M0() + DownloadStatisticConstants.UBC_TYPE_PAUSE);
-            synchronized (this) {
-                ybc ybcVar = new ybc();
-                ybcVar.a = "pausePlay";
-                P0(this.f.toJson(ybcVar));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.bec
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
-            TLog.h("[VodPlayerClient]", M0() + "pausePlayWithAudio");
-            synchronized (this) {
-                ybc ybcVar = new ybc();
-                ybcVar.a = "pausePlayWithAudio";
-                P0(this.f.toJson(ybcVar));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.bec
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            TLog.h("[VodPlayerClient]", M0() + DownloadStatisticConstants.UBC_TYPE_RESUME);
-            synchronized (this) {
-                ybc ybcVar = new ybc();
-                ybcVar.a = "resumePlay";
-                P0(this.f.toJson(ybcVar));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.bec
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            TLog.h("[VodPlayerClient]", M0() + "resumePlayWithAudio");
-            synchronized (this) {
-                ybc ybcVar = new ybc();
-                ybcVar.a = "resumePlayWithAudio";
-                P0(this.f.toJson(ybcVar));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.zfc
-    public void a(String str, boolean z, HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{str, Boolean.valueOf(z), hashMap}) == null) {
-            TLog.g(this, "VodPlayerClient onCrash, recover server, failOver2MainProcess:" + z);
-            if (!z) {
-                O0();
-                K0();
-                W0();
-                Z0();
-                a1();
-                U0();
-                V0();
-                Y0();
-                X0();
-            }
-            m mVar = new m(this);
-            mVar.a = "onSubProcessCrash";
-            mVar.b = str;
-            mVar.d = z;
-            R0(mVar, true);
-        }
-    }
-
-    @Override // com.baidu.tieba.abc
-    public void c(Bitmap bitmap) {
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, bitmap) == null) {
-            TLog.h("[VodPlayerClient]", M0() + "recv bitmap from sub process");
-            synchronized (this) {
-                Executor executor = this.A.get();
-                zcc.d dVar = this.B.get();
-                if (executor != null && dVar != null) {
-                    executor.execute(new c(this, dVar, bitmap));
+                cfc cfcVar = zccVar.k;
+                if (cfcVar != null) {
+                    this.D = cfcVar;
+                } else if (zccVar.g) {
+                    this.D = new SurfaceView(context);
                 } else {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(M0());
-                    sb.append(" onScreenShot failed executor is null?");
-                    if (executor == null) {
-                        str = "yes";
-                    } else {
-                        str = "no";
-                    }
-                    sb.append(str);
-                    sb.append(" VodPlayerScreenShotCallback is null?");
-                    if (dVar == null) {
-                        str2 = "yes";
-                    } else {
-                        str2 = "no";
-                    }
-                    sb.append(str2);
-                    TLog.d("[VodPlayerClient]", sb.toString());
+                    this.D = new TextureView(context);
                 }
-                this.A.clear();
-                this.B.clear();
             }
+            sdc sdcVar = new sdc(zccVar);
+            this.f = sdcVar;
+            sdcVar.c1(this.H);
+            this.f.h1(context, this.D);
+            this.c = this.f.m0();
+            TLog.l(this, String.format(Locale.getDefault(), "VodPlayer create(%d)", Integer.valueOf(this.c)));
+            this.e = new a(this, Looper.getMainLooper());
         }
     }
 
-    @Override // com.baidu.tieba.abc
-    public void d(String str) {
+    public final void q0(int i, c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("cmd");
-                JSONObject jSONObject2 = jSONObject.getJSONObject("data");
-                char c2 = 65535;
-                switch (optString.hashCode()) {
-                    case -1893106721:
-                        if (optString.equals("onPlayerDecodeBitrate")) {
-                            c2 = 19;
-                            break;
-                        }
-                        break;
-                    case -1751664499:
-                        if (optString.equals("onDSEMixAudioExtraInfo")) {
-                            c2 = DecodedBitStreamParser.RS;
-                            break;
-                        }
-                        break;
-                    case -1741719303:
-                        if (optString.equals("onSEIAudioOriginalData")) {
-                            c2 = WebvttCueParser.CHAR_SPACE;
-                            break;
-                        }
-                        break;
-                    case -1122266638:
-                        if (optString.equals("onPlayerExtraInfoListener")) {
-                            c2 = 6;
-                            break;
-                        }
-                        break;
-                    case -1105747594:
-                        if (optString.equals("onPlayerCacheWriteToDiskCompleted")) {
-                            c2 = 11;
-                            break;
-                        }
-                        break;
-                    case -726502775:
-                        if (optString.equals("onPlayerAudioStalls")) {
-                            c2 = 23;
-                            break;
-                        }
-                        break;
-                    case -513983265:
-                        if (optString.equals("onPlayerFirstVideoFrameShow")) {
-                            c2 = 4;
-                            break;
-                        }
-                        break;
-                    case -441667023:
-                        if (optString.equals("setRedirectUrl")) {
-                            c2 = 1;
-                            break;
-                        }
-                        break;
-                    case -356191701:
-                        if (optString.equals("onSEIAlphaChannelInfo")) {
-                            c2 = DecodedBitStreamParser.FS;
-                            break;
-                        }
-                        break;
-                    case -332667027:
-                        if (optString.equals("setPlayerUID")) {
-                            c2 = 0;
-                            break;
-                        }
-                        break;
-                    case -125887634:
-                        if (optString.equals("onPlayerVideoStalls")) {
-                            c2 = 22;
-                            break;
-                        }
-                        break;
-                    case -48461180:
-                        if (optString.equals("onPlayerNetRequestStatus")) {
-                            c2 = 16;
-                            break;
-                        }
-                        break;
-                    case -24168773:
-                        if (optString.equals("onSEIVideoExtraInfo")) {
-                            c2 = 26;
-                            break;
-                        }
-                        break;
-                    case 42199303:
-                        if (optString.equals("onSEIMixVideoExtraInfo")) {
-                            c2 = 27;
-                            break;
-                        }
-                        break;
-                    case 54802172:
-                        if (optString.equals("onPlayerDecodeOuputSize")) {
-                            c2 = 20;
-                            break;
-                        }
-                        break;
-                    case 76638970:
-                        if (optString.equals("onPlayerStateUpdate")) {
-                            c2 = 15;
-                            break;
-                        }
-                        break;
-                    case 117071962:
-                        if (optString.equals("onSEIAudioExtraInfoV0")) {
-                            c2 = 31;
-                            break;
-                        }
-                        break;
-                    case 277599208:
-                        if (optString.equals("onDSEMixAudioExtraInfoV1")) {
-                            c2 = DecodedBitStreamParser.GS;
-                            break;
-                        }
-                        break;
-                    case 303848884:
-                        if (optString.equals("onPlayerCachePositionUpdate")) {
-                            c2 = '\n';
-                            break;
-                        }
-                        break;
-                    case 466690590:
-                        if (optString.equals("onSEIVideoOriginalData")) {
-                            c2 = '!';
-                            break;
-                        }
-                        break;
-                    case 554677256:
-                        if (optString.equals("onPlayerDecodeType")) {
-                            c2 = 21;
-                            break;
-                        }
-                        break;
-                    case 598376093:
-                        if (optString.equals("onPlayerVideoPlayPaused")) {
-                            c2 = 25;
-                            break;
-                        }
-                        break;
-                    case 822132006:
-                        if (optString.equals("onPlayerUpdatePcdnUrlResult")) {
-                            c2 = 24;
-                            break;
-                        }
-                        break;
-                    case 853792181:
-                        if (optString.equals("onAudioFocusListener")) {
-                            c2 = 5;
-                            break;
-                        }
-                        break;
-                    case 1012167752:
-                        if (optString.equals("onPlayerError")) {
-                            c2 = 14;
-                            break;
-                        }
-                        break;
-                    case 1055756567:
-                        if (optString.equals("onPlayerRenderFramerate")) {
-                            c2 = 18;
-                            break;
-                        }
-                        break;
-                    case 1141144174:
-                        if (optString.equals("onPlayerInfo")) {
-                            c2 = 2;
-                            break;
-                        }
-                        break;
-                    case 1147162650:
-                        if (optString.equals("onPlayerPlayCompletionOneLoop")) {
-                            c2 = '\r';
-                            break;
-                        }
-                        break;
-                    case 1343087941:
-                        if (optString.equals("onPlayerVideoSizeUpdate")) {
-                            c2 = 3;
-                            break;
-                        }
-                        break;
-                    case 1385041286:
-                        if (optString.equals("onLoadingUpdate")) {
-                            c2 = 7;
-                            break;
-                        }
-                        break;
-                    case 1468645360:
-                        if (optString.equals("onPlayerPlayCompletion")) {
-                            c2 = '\f';
-                            break;
-                        }
-                        break;
-                    case 1482173798:
-                        if (optString.equals("onPlayerPlayPositionUpdate")) {
-                            c2 = '\t';
-                            break;
-                        }
-                        break;
-                    case 1668839139:
-                        if (optString.equals("onPlayerStatistics")) {
-                            c2 = '\b';
-                            break;
-                        }
-                        break;
-                    case 1955119023:
-                        if (optString.equals("onPlayerReceiveToRenderDelay")) {
-                            c2 = 17;
-                            break;
-                        }
-                        break;
-                }
-                switch (c2) {
-                    case 0:
-                        this.k = jSONObject2.optInt("playerUID");
-                        TLog.h("[VodPlayerClient]", M0() + "setPlayerUID:" + this.k);
-                        return;
-                    case 1:
-                        this.m = jSONObject2.optString("redirectUrl");
-                        TLog.h("[VodPlayerClient]", M0() + "setRedirectUrl:" + this.m);
-                        return;
-                    case 2:
-                        if (jSONObject2.optInt("i") == 3) {
-                            this.n.set((int) jSONObject2.optLong("l"));
-                        }
-                        m mVar = new m(this);
-                        mVar.a = optString;
-                        mVar.c = jSONObject2;
-                        R0(mVar, false);
-                        return;
-                    case 3:
-                        int optInt = jSONObject2.optInt("i");
-                        int optInt2 = jSONObject2.optInt("i1");
-                        this.o.set(optInt);
-                        this.p.set(optInt2);
-                        m mVar2 = new m(this);
-                        mVar2.a = optString;
-                        mVar2.c = jSONObject2;
-                        R0(mVar2, false);
-                        return;
+        if (interceptable == null || interceptable.invokeIL(1048612, this, i, cVar) == null) {
+            TLog.g(this, String.format("mPlayerContextId = %d, MET_CALLBACK_PLAYER_STATE_CHANGE state = %d", Integer.valueOf(this.c), Integer.valueOf(i)));
+            if (i != 1) {
+                switch (i) {
                     case 4:
-                        m mVar3 = new m(this);
-                        mVar3.a = optString;
-                        mVar3.c = jSONObject2;
-                        R0(mVar3, true);
+                        cVar.a = 4;
                         return;
                     case 5:
-                        if (jSONObject2 != null) {
-                            int optInt3 = jSONObject2.optInt("i");
-                            TLog.h("[VodPlayerClient]", M0() + " onAudioFocusListener,focus status:" + optInt3);
-                            fcc fccVar = this.U.get();
-                            if (fccVar != null) {
-                                fccVar.onAudioFocusChange(optInt3);
-                                return;
-                            }
-                            return;
-                        }
+                        cVar.a = 5;
                         return;
                     case 6:
-                        if (jSONObject2 != null) {
-                            int optInt4 = jSONObject2.optInt("i");
-                            long optLong = jSONObject2.optLong("l1");
-                            long optLong2 = jSONObject2.optLong("l2");
-                            long optLong3 = jSONObject2.optLong("l3");
-                            String optString2 = jSONObject2.optString("s");
-                            JSONObject optJSONObject = jSONObject2.optJSONObject("o");
-                            TLog.h("[VodPlayerClient]", M0() + " OnPlayerExtraInfoListener,type:" + optInt4);
-                            kcc kccVar = this.S.get();
-                            if (kccVar != null) {
-                                kccVar.a(optInt4, optLong, optLong2, optLong3, optString2, optJSONObject);
-                                return;
-                            }
-                            return;
-                        }
+                        cVar.a = 6;
                         return;
                     case 7:
-                    case '\b':
-                    case '\t':
-                    case '\n':
-                    case 11:
-                    case '\f':
-                    case '\r':
-                    case 14:
-                    case 15:
-                    case 16:
-                    case 17:
-                    case 18:
-                    case 19:
-                    case 20:
-                    case 21:
-                    case 22:
-                    case 23:
-                    case 24:
-                    case 25:
-                        m mVar4 = new m(this);
-                        mVar4.a = optString;
-                        mVar4.c = jSONObject2;
-                        R0(mVar4, false);
+                        cVar.a = 7;
                         return;
-                    case 26:
-                        gcc gccVar = this.M.get();
-                        Executor executor = this.L.get();
-                        if (gccVar != null && executor != null) {
-                            executor.execute(new f(this, jSONObject2, gccVar));
-                            return;
-                        }
-                        return;
-                    case 27:
-                        gcc gccVar2 = this.M.get();
-                        Executor executor2 = this.L.get();
-                        if (gccVar2 != null && executor2 != null) {
-                            executor2.execute(new g(this, jSONObject2, gccVar2));
-                            return;
-                        }
-                        return;
-                    case 28:
-                        gcc gccVar3 = this.M.get();
-                        Executor executor3 = this.L.get();
-                        if (gccVar3 != null && executor3 != null) {
-                            executor3.execute(new h(this, jSONObject2, gccVar3));
-                            return;
-                        }
-                        return;
-                    case 29:
-                        gcc gccVar4 = this.M.get();
-                        Executor executor4 = this.L.get();
-                        if (gccVar4 != null && executor4 != null) {
-                            executor4.execute(new i(this, jSONObject2, gccVar4));
-                            return;
-                        }
-                        return;
-                    case 30:
-                        zcc.c cVar = this.N.get();
-                        Executor executor5 = this.L.get();
-                        if (cVar != null && executor5 != null) {
-                            executor5.execute(new j(this, jSONObject2, cVar));
-                            return;
-                        }
-                        return;
-                    case 31:
-                        gcc gccVar5 = this.M.get();
-                        Executor executor6 = this.L.get();
-                        if (gccVar5 != null && executor6 != null) {
-                            executor6.execute(new k(this, jSONObject2, gccVar5));
-                            return;
-                        }
-                        return;
-                    case ' ':
-                        gcc gccVar6 = this.M.get();
-                        Executor executor7 = this.L.get();
-                        if (gccVar6 != null && executor7 != null) {
-                            executor7.execute(new l(this, jSONObject2, gccVar6));
-                            return;
-                        }
-                        return;
-                    case '!':
-                        gcc gccVar7 = this.M.get();
-                        Executor executor8 = this.L.get();
-                        if (gccVar7 != null && executor8 != null) {
-                            executor8.execute(new a(this, jSONObject2, gccVar7));
-                            return;
-                        }
+                    case 8:
+                        cVar.a = 8;
+                        cVar.b = this.B.get();
+                        cVar.c = this.w.get();
+                        this.B.set(0);
+                        this.x.set(0);
                         return;
                     default:
                         return;
                 }
-            } catch (Exception e2) {
-                TLog.d("[VodPlayerClient]", M0() + "(onData) ex: " + e2.getMessage());
             }
+            cVar.a = 1;
         }
     }
 
-    @Override // com.baidu.tieba.bec
-    public void q(Executor executor, zcc.d dVar) {
+    @Override // com.baidu.tieba.cec
+    public void G() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048615, this, executor, dVar) == null) {
-            TLog.h("[VodPlayerClient]", M0() + "screenShot");
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            Log.i("transvod", this.c + " VodPlay stop.");
+            TLog.l(this, this.c + " VodPlay.stop enter.");
             synchronized (this) {
-                this.A = new WeakReference<>(executor);
-                this.B = new WeakReference<>(dVar);
-                ybc ybcVar = new ybc();
-                ybcVar.a = "screenShot";
-                P0(this.f.toJson(ybcVar));
+                if (this.f != null) {
+                    this.f.j1();
+                }
+                this.y.set(0);
+                this.x.set(0);
+                this.w.set(0);
+                this.B.set(0);
+                this.z.set(0);
+                this.A.set(0);
             }
         }
     }
 
-    @Override // com.baidu.tieba.bec
-    public void s(ecc eccVar) {
+    public int K0(int i, fcc fccVar) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, eccVar) == null) {
-            if (eccVar != null) {
-                this.l = (int) eccVar.j();
-                TLog.h("[VodPlayerClient]", M0() + "setDataSource:" + eccVar.k());
-                synchronized (this) {
-                    String r = ecc.r(eccVar);
-                    if (r != null && !r.isEmpty()) {
-                        this.z = eccVar.d();
-                        ybc ybcVar = new ybc();
-                        ybcVar.a = "setDataSource";
-                        ybcVar.b.put("source", r);
-                        P0(this.f.toJson(ybcVar));
-                        return;
-                    }
-                    TLog.d("[VodPlayerClient]", M0() + "setDataSource#dataSource is empty");
-                    return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048593, this, i, fccVar)) == null) {
+            synchronized (this) {
+                if (this.f != null) {
+                    this.f.k1(i, fccVar);
+                    return 0;
+                }
+                return -1;
+            }
+        }
+        return invokeIL.intValue;
+    }
+
+    @Override // com.baidu.tieba.cec
+    public void q(Executor executor, adc.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048611, this, executor, dVar) == null) {
+            synchronized (this) {
+                if (this.f != null) {
+                    this.f.S0(executor, dVar);
                 }
             }
-            TLog.d("[VodPlayerClient]", M0() + "setDataSource#source is null");
         }
     }
 
-    @Override // com.baidu.tieba.bec
-    public void t(ecc eccVar) {
+    @Override // com.baidu.tieba.cec
+    public void w(Executor executor, hcc hccVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, eccVar) == null) {
-            if (eccVar != null) {
-                this.l = (int) eccVar.j();
-                TLog.h("[VodPlayerClient]", M0() + "setDataSourceAndPrepare:" + eccVar.k());
-                synchronized (this) {
-                    String r = ecc.r(eccVar);
-                    if (r != null && !r.isEmpty()) {
-                        this.z = eccVar.d();
-                        ybc ybcVar = new ybc();
-                        ybcVar.a = "setDataSourceAndPrepare";
-                        ybcVar.b.put("source", r);
-                        P0(this.f.toJson(ybcVar));
-                        return;
-                    }
-                    TLog.d("[VodPlayerClient]", M0() + "setDataSourceAndPrepare#dataSource is empty");
-                    return;
+        if (interceptable == null || interceptable.invokeLL(1048623, this, executor, hccVar) == null) {
+            this.p = new WeakReference<>(hccVar);
+            this.F = executor;
+        }
+    }
+
+    @Override // com.baidu.tieba.cec
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            TLog.g(this, this.c + "appInBackground");
+            synchronized (this) {
+                if (this.f != null) {
+                    this.f.H0();
                 }
             }
-            TLog.d("[VodPlayerClient]", M0() + "setDataSourceAndPrepare#source is null");
+        }
+    }
+
+    @Override // com.baidu.tieba.cec
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            TLog.g(this, this.c + "appInFrontground");
+            synchronized (this) {
+                if (this.f != null) {
+                    this.f.I0();
+                }
+            }
+        }
+    }
+
+    public void l0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            TLog.g(this, this.c + " disableJoyPkPipMode.");
+            synchronized (this) {
+                if (this.f != null) {
+                    this.f.j0();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.cec
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+            TLog.g(this, this.c + "VodPlay.pausePlayWithAudio enter.");
+            synchronized (this) {
+                if (this.f != null) {
+                    this.f.L0();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.cec
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
+            TLog.g(this, this.c + "VodPlay.resumePlayWithAudio enter.");
+            synchronized (this) {
+                if (this.f != null) {
+                    this.f.Q0();
+                }
+            }
+        }
+    }
+
+    public void r0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+            TLog.g(this, this.c + "VodPlay.pausePlayWithVideo enter.");
+            synchronized (this) {
+                if (this.f != null) {
+                    this.f.M0();
+                }
+            }
+        }
+    }
+
+    public void t0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
+            TLog.g(this, this.c + "VodPlay.resumePlayWithVideo enter.");
+            synchronized (this) {
+                if (this.f != null) {
+                    this.f.R0();
+                }
+            }
+        }
+    }
+
+    public void finalize() throws Throwable {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            super.finalize();
+        }
+    }
+
+    @Override // com.baidu.tieba.cec
+    public long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.B.get();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.cec
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.w.get();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.cec
+    public Object i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            TLog.g(this, this.c + "VodPlay.getPlayerView enter.");
+            return this.D;
+        }
+        return invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cec
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.A.get();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.cec
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.z.get();
+        }
+        return invokeV.intValue;
+    }
+
+    public int o0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            TLog.g(this, this.c + "VodPlay.getPlayerUID enter.");
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public String p0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            sdc sdcVar = this.f;
+            if (sdcVar != null) {
+                return sdcVar.l0();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cec
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            Log.i("transvod", this.c + " VodPlay.pause. ");
+            TLog.l(this, this.c + " VodPlay.pause enter.");
+            synchronized (this) {
+                if (this.f != null) {
+                    this.f.K0();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.cec
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+            Log.i("transvod", this.c + " VodPlay.resume. ");
+            TLog.l(this, this.c + " VodPlay.resumeenter.");
+            synchronized (this) {
+                if (this.f != null) {
+                    this.f.P0();
+                }
+            }
+        }
+    }
+
+    public void s0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
+            Log.i("transvod", this.c + "VodPlay release.");
+            TLog.l(this, this.c + "VodPlay release enter.");
+            synchronized (this) {
+                if (this.f != null) {
+                    this.f.N0();
+                    this.f = null;
+                }
+                if (this.e != null) {
+                    this.e.removeCallbacksAndMessages(null);
+                    this.e = null;
+                }
+            }
+        }
+    }
+
+    public void n0(edc edcVar) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, edcVar) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.c);
+            sb.append(" enableJoyPkPipMode:");
+            if (edcVar != null) {
+                str = "(" + edcVar.b + "," + edcVar.c + "), (" + edcVar.d + StringUtil.ARRAY_ELEMENT_SEPARATOR + edcVar.e + "), force: " + edcVar.a;
+            } else {
+                str = StringUtil.NULL_STRING;
+            }
+            sb.append(str);
+            TLog.g(this, sb.toString());
+            synchronized (this) {
+                if (this.f != null) {
+                    this.f.k0(edcVar);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.cec
+    public void r(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048613, this, j) == null) {
+            TLog.l(this, this.c + " VodPlay.seekTo enter.  seekToTime: " + j);
+            synchronized (this) {
+                if (j > this.w.get()) {
+                    j = this.w.get();
+                }
+                if (j < 0) {
+                    j = 0;
+                }
+                if (this.f != null) {
+                    this.f.T0(j);
+                }
+            }
         }
     }
 }

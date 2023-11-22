@@ -75,7 +75,7 @@ public final class a25 implements w15 {
             Object obj = map.get("dialog_url");
             if ((obj instanceof String) && !TextUtils.isEmpty((CharSequence) obj)) {
                 Object obj2 = map.get("check_preheat");
-                if (obj2 != null && Intrinsics.areEqual("1", obj2.toString()) && !bv5.b().e((String) obj)) {
+                if (obj2 != null && Intrinsics.areEqual("1", obj2.toString()) && !cv5.b().e((String) obj)) {
                     YunDialogLog.getInstance().e("HybridCheckStrategy", "H5弹窗未预热完成");
                     return false;
                 }

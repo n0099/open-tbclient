@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class qs extends ns<bw4> implements m8b {
+public class qs extends ns<bw4> implements n8b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CardUserInfoLayout f;
@@ -177,7 +177,7 @@ public class qs extends ns<bw4> implements m8b {
         }
     }
 
-    @Override // com.baidu.tieba.m8b
+    @Override // com.baidu.tieba.n8b
     public void a() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
@@ -197,7 +197,7 @@ public class qs extends ns<bw4> implements m8b {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.m8b
+    @Override // com.baidu.tieba.n8b
     public void play() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;

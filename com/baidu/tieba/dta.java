@@ -1,110 +1,124 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import com.baidu.adp.lib.safe.BdCloseHelper;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.switchs.ChunkUploadSwitch;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Date;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class dta {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int c = 524288;
+    public static int d = 6144000;
+    public static int e = 524288;
     public transient /* synthetic */ FieldHolder $fh;
+    public hta a;
+    public ll9 b;
 
-    public static void a() {
-        c5 mainDBDatabaseManager;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) != null) {
-            mainDBDatabaseManager.d("CREATE TABLE IF NOT EXISTS video_block_upload_data('md5' text,'last_upload_id' text ,'last_upload_success_index' integer,'account' text,'time' long)");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947717464, "Lcom/baidu/tieba/dta;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947717464, "Lcom/baidu/tieba/dta;");
         }
     }
 
-    public static void b(String str) {
+    public dta(ll9 ll9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            BdLog.e("deleteVieoChunkUploadData Called");
-            if (TbadkCoreApplication.getCurrentAccount() == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ll9Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            c5 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (str != null && mainDBDatabaseManager != null) {
-                mainDBDatabaseManager.e("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+        }
+        this.b = ll9Var;
+    }
+
+    public static void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            if (i <= 0) {
+                d = 6144000;
+            } else {
+                d = i;
             }
         }
     }
 
-    public static eta c(String str) {
-        InterceptResult invokeL;
-        eta etaVar;
-        Exception e;
-        Cursor cursor;
+    public static void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            Cursor cursor2 = null;
-            eta etaVar2 = null;
-            if (TbadkCoreApplication.getCurrentAccount() == null || StringUtils.isNull(str)) {
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            if (i <= 0) {
+                c = 524288;
+            } else {
+                c = i;
+            }
+        }
+    }
+
+    public static void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
+            if (i <= 0) {
+                e = 524288;
+            } else {
+                e = i;
+            }
+        }
+    }
+
+    public void a() {
+        hta htaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (htaVar = this.a) != null) {
+            htaVar.cancel();
+        }
+    }
+
+    public VideoFinishResult e(String str, String str2, int i, kta ktaVar) {
+        InterceptResult invokeLLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i, ktaVar)) == null) {
+            try {
+                if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
+                    this.a = new jta(str2, e, this.b);
+                } else {
+                    this.a = new ita(str, c, d, this.b);
+                }
+                this.a.a(ktaVar);
+                return this.a.b(str2, i);
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                ll9 ll9Var = this.b;
+                if (ll9Var != null) {
+                    ll9Var.f(306, -4399, fl9.a(e2));
+                    return null;
+                }
                 return null;
             }
-            c5 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            try {
-                cursor = mainDBDatabaseManager.i("select * from video_block_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
-                try {
-                    try {
-                        if (cursor.moveToFirst()) {
-                            etaVar = new eta();
-                            try {
-                                etaVar.a = cursor.getString(cursor.getColumnIndex("last_upload_id"));
-                                etaVar.b = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
-                                etaVar2 = etaVar;
-                            } catch (Exception e2) {
-                                e = e2;
-                                mainDBDatabaseManager.h(e, "getChunkUploadDataByMd5");
-                                BdCloseHelper.close(cursor);
-                                return etaVar;
-                            }
-                        }
-                        BdCloseHelper.close(cursor);
-                        return etaVar2;
-                    } catch (Exception e3) {
-                        etaVar = null;
-                        e = e3;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    cursor2 = cursor;
-                    BdCloseHelper.close(cursor2);
-                    throw th;
-                }
-            } catch (Exception e4) {
-                etaVar = null;
-                e = e4;
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-                BdCloseHelper.close(cursor2);
-                throw th;
-            }
-        } else {
-            return (eta) invokeL.objValue;
         }
-    }
-
-    public static boolean d(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        c5 mainDBDatabaseManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, str, str2, i)) == null) {
-            if (TbadkCoreApplication.getCurrentAccount() == null || (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) == null) {
-                return false;
-            }
-            Date date = new Date();
-            mainDBDatabaseManager.e("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
-            return mainDBDatabaseManager.e("Insert into video_block_upload_data(md5,last_upload_id,last_upload_success_index,account,time) values(?,?,?,?,?)", new Object[]{str, str2, Integer.valueOf(i), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
-        }
-        return invokeLLI.booleanValue;
+        return (VideoFinishResult) invokeLLIL.objValue;
     }
 }

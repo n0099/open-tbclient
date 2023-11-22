@@ -1,53 +1,47 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.webkit.RenderProcessGoneDetail;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import com.baidu.tieba.browser.TbWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class pk6 extends lk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbWebView b;
+    public final ag6<bg6> b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pk6(TbWebView tbWebView) {
+    public pk6(ag6<bg6> ag6Var) {
         super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbWebView};
+            Object[] objArr = {ag6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((WebViewClient) newInitContext.callArgs[0]);
+                super((WebChromeClient) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = tbWebView;
+        this.b = ag6Var;
     }
 
-    @Override // com.baidu.tieba.lk6, android.webkit.WebViewClient
-    public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.lk6, android.webkit.WebChromeClient
+    public void onProgressChanged(WebView webView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, renderProcessGoneDetail)) == null) {
-            if (Build.VERSION.SDK_INT < 26) {
-                return false;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i) == null) {
+            super.onProgressChanged(webView, i);
+            bg6 call = this.b.call();
+            if (call != null) {
+                call.g(webView, i);
             }
-            this.b.X();
-            return true;
         }
-        return invokeLL.booleanValue;
     }
 }

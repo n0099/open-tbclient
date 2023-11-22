@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m1b;
+import com.baidu.tieba.n1b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class VideoItemModel implements Serializable, Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
     public final int dataType;
     public final int mHashCode;
-    public m1b videoAdData;
+    public n1b videoAdData;
     public final VideoItemData videoItemData;
 
     @Override // android.os.Parcelable
@@ -41,7 +41,7 @@ public class VideoItemModel implements Serializable, Parcelable {
     }
 
     /* loaded from: classes8.dex */
-    public static class a implements Parcelable.Creator<VideoItemModel> {
+    public class a implements Parcelable.Creator<VideoItemModel> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -118,13 +118,13 @@ public class VideoItemModel implements Serializable, Parcelable {
         return invokeV.intValue;
     }
 
-    public m1b getVideoAdData() {
+    public n1b getVideoAdData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.videoAdData;
         }
-        return (m1b) invokeV.objValue;
+        return (n1b) invokeV.objValue;
     }
 
     public VideoItemData getVideoItemData() {
@@ -276,10 +276,10 @@ public class VideoItemModel implements Serializable, Parcelable {
         return invokeL.booleanValue;
     }
 
-    public void setVideoAdData(m1b m1bVar) {
+    public void setVideoAdData(n1b n1bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, m1bVar) == null) {
-            this.videoAdData = m1bVar;
+        if (interceptable == null || interceptable.invokeL(1048587, this, n1bVar) == null) {
+            this.videoAdData = n1bVar;
         }
     }
 

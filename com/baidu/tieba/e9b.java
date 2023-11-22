@@ -1,178 +1,243 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import androidx.core.view.InputDeviceCompat;
+import androidx.fragment.app.Fragment;
+import com.baidu.adp.base.BdBaseView;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.album.MediaFileInfo;
-import com.baidu.tbadk.album.VideoFileInfo;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.write.album.AlbumImageBrowseFragment;
+import com.baidu.tieba.write.album.ImageListFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class e9b extends BaseAdapter {
+public class e9b extends BdBaseView<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<uq4> a;
+    public String a;
     public String b;
-    public BaseFragmentActivity c;
-    public int d;
-    public LayoutInflater e;
+    public i9b c;
+    public Fragment[] d;
+    public String[] e;
+    public ImageListFragment f;
+    public AlbumImageBrowseFragment g;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public TextView b;
-        public ImageView c;
-
-        public b(e9b e9bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e9bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(e9b e9bVar, a aVar) {
-            this(e9bVar);
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
         }
     }
 
-    public e9b(BaseFragmentActivity baseFragmentActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e9b(TbPageContext tbPageContext, i9b i9bVar) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
+            Object[] objArr = {tbPageContext, i9bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = baseFragmentActivity;
-        this.e = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
-        this.d = BdUtilHelper.getEquipmentWidth(this.c.getPageContext().getPageActivity()) / 2;
+        this.a = "tag_image";
+        this.b = "tag_b_image";
+        this.c = i9bVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public uq4 getItem(int i) {
+    public Fragment A(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return (uq4) ListUtils.getItem(this.a, i);
+            if (i >= 0 && i <= 1) {
+                return this.d[i];
+            }
+            return null;
         }
-        return (uq4) invokeI.objValue;
+        return (Fragment) invokeI.objValue;
     }
 
-    public void b(List<uq4> list, String str) {
+    public String C(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str) == null) {
-            this.a = list;
-            this.b = str;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i >= 0 && i <= 1) {
+                return this.e[i];
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void I(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            AlbumImageBrowseFragment albumImageBrowseFragment = this.g;
+            if (albumImageBrowseFragment != null) {
+                albumImageBrowseFragment.M2(z);
+            }
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment != null) {
+                imageListFragment.a3(z);
+            }
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public void J(NavigationBar navigationBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, navigationBar) == null) {
+            this.f.c3(navigationBar);
+        }
+    }
+
+    public void K(n9b n9bVar) {
+        ImageListFragment imageListFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, n9bVar) == null) && (imageListFragment = this.f) != null) {
+            imageListFragment.d3(n9bVar);
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            int i2 = 0;
+            while (true) {
+                Fragment[] fragmentArr = this.d;
+                if (i2 < fragmentArr.length) {
+                    if (fragmentArr[i2] != null && (fragmentArr[i2] instanceof ImageListFragment)) {
+                        ((ImageListFragment) fragmentArr[i2]).onChangeSkinType(i);
+                    }
+                    i2++;
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    public ImageListFragment D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ListUtils.getCount(this.a);
+            return this.f;
         }
-        return invokeV.intValue;
+        return (ImageListFragment) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
+    public View E() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            if (view2 != null && (view2.getTag() instanceof b)) {
-                bVar = (b) view2.getTag();
-            } else {
-                view2 = this.e.inflate(R.layout.obfuscated_res_0x7f0d0125, viewGroup, false);
-                bVar = new b(this, null);
-                bVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091205);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091217);
-                bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911f1);
-                bVar.a.setGifIconSupport(false);
-                bVar.a.setLongIconSupport(false);
-                view2.setTag(bVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment == null) {
+                return null;
             }
-            uq4 item = getItem(i);
-            if (item == null) {
-                view2.setVisibility(4);
-                return view2;
-            }
-            view2.setVisibility(0);
-            if (!TextUtils.isEmpty(item.g())) {
-                String textOmit = BdUtilHelper.getTextOmit(bVar.b.getPaint(), item.g(), this.d);
-                bVar.b.setText(textOmit + "(" + item.c() + SmallTailInfo.EMOTION_SUFFIX);
-            } else {
-                bVar.b.setText("");
-            }
-            String b2 = item.b();
-            if (!TextUtils.isEmpty(b2) && b2.equals(this.b)) {
-                bVar.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_strok324_select, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
-                bVar.c.setVisibility(0);
-            } else {
-                bVar.c.setVisibility(8);
-            }
-            MediaFileInfo f = item.f();
-            if (f instanceof VideoFileInfo) {
-                bVar.a.startLoad(((VideoFileInfo) f).videoPath, 37, false);
-            } else if (f instanceof ImageFileInfo) {
-                bVar.a.startLoad(((ImageFileInfo) f).getFilePath(), 35, false);
-            }
-            SkinManager.setViewTextColor(bVar.b, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
-            return view2;
+            return imageListFragment.V2();
         }
-        return (View) invokeILL.objValue;
+        return (View) invokeV.objValue;
+    }
+
+    public View F() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            AlbumImageBrowseFragment albumImageBrowseFragment = this.g;
+            if (albumImageBrowseFragment == null) {
+                return null;
+            }
+            return albumImageBrowseFragment.I2();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void H() {
+        ImageListFragment imageListFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (imageListFragment = this.f) != null) {
+            imageListFragment.W2();
+        }
+    }
+
+    public View g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            AlbumImageBrowseFragment albumImageBrowseFragment = this.g;
+            if (albumImageBrowseFragment == null) {
+                return null;
+            }
+            return albumImageBrowseFragment.G2();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public View x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment == null) {
+                return null;
+            }
+            return imageListFragment.S2();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public View y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            AlbumImageBrowseFragment albumImageBrowseFragment = this.g;
+            if (albumImageBrowseFragment == null) {
+                return null;
+            }
+            return albumImageBrowseFragment.H2();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public View z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment == null) {
+                return null;
+            }
+            return imageListFragment.T2();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d = new Fragment[2];
+            this.e = new String[2];
+            ImageListFragment imageListFragment = new ImageListFragment();
+            this.f = imageListFragment;
+            imageListFragment.b3(this.c);
+            this.d[0] = this.f;
+            this.e[0] = this.a;
+            AlbumImageBrowseFragment albumImageBrowseFragment = new AlbumImageBrowseFragment();
+            this.g = albumImageBrowseFragment;
+            albumImageBrowseFragment.N2(this.c);
+            this.d[1] = this.g;
+            this.e[1] = this.b;
+        }
     }
 }

@@ -1,130 +1,79 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.facebook.imagepipeline.memory.DefaultByteArrayPoolParams;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class lbc {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    public static volatile String b;
-    public static BufferedWriter c;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile int a;
+    public volatile int b;
+    public volatile int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947938556, "Lcom/baidu/tieba/lbc;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947938556, "Lcom/baidu/tieba/lbc;");
+    public lbc() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new Object();
+        this.a = 0;
+        this.b = 0;
+        this.c = 0;
     }
 
-    public static void a() {
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            synchronized (a) {
-                if (c != null) {
-                    try {
-                        c.flush();
-                    } catch (IOException e) {
-                        e.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                if (this.a != 2) {
+                    this.b++;
+                    if (this.b >= this.c) {
+                        this.a = 2;
+                        notify();
                     }
                 }
             }
         }
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a = 0;
+            this.b = 0;
+            this.c = i;
         }
-        return (String) invokeV.objValue;
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    public synchronized boolean c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return false;
-            }
-            new File(str).mkdirs();
-            if (!str.endsWith(File.separator)) {
-                str = str + File.separator;
-            }
-            b = str;
-            b += rbc.n() + ".syslog";
-            obc.d("CrashLog", "Log file path : " + b);
-            File file = new File(b);
-            if (file.exists()) {
-                file.delete();
-            }
-            if (!file.exists()) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            synchronized (this) {
+                if (this.a != 0) {
+                    return true;
+                }
                 try {
-                    file.createNewFile();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    this.a = 1;
+                    wait(i);
+                    return true;
+                } catch (Exception unused) {
+                    this.a = 2;
                     return false;
                 }
             }
-            try {
-                c = new BufferedWriter(new FileWriter(b, true), DefaultByteArrayPoolParams.MAX_SIZE_SOFT_CAP);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                c = null;
-            }
-            return true;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            e(str, str2, true);
-        }
-    }
-
-    public static void e(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65541, null, str, str2, z) == null) {
-            if (z) {
-                obc.d(str, str2);
-            }
-            try {
-                synchronized (a) {
-                    if (c == null) {
-                        c(rbc.s());
-                        return;
-                    }
-                    long currentTimeMillis = System.currentTimeMillis();
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    new Date(currentTimeMillis);
-                    c.write(String.format("%s\n", str2));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        return invokeI.booleanValue;
     }
 }

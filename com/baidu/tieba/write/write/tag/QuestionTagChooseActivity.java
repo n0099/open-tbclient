@@ -7,8 +7,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.QuestionTagChooseActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.sgb;
-import com.baidu.tieba.yp5;
+import com.baidu.tieba.tgb;
+import com.baidu.tieba.zp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class QuestionTagChooseActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sgb k;
+    public tgb k;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     public void x1() {
@@ -79,9 +79,9 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            sgb sgbVar = this.k;
-            if (sgbVar != null) {
-                sgbVar.onDestroy();
+            tgb tgbVar = this.k;
+            if (tgbVar != null) {
+                tgbVar.onDestroy();
             }
         }
     }
@@ -97,7 +97,7 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public yp5 n1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public zp5 n1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         String str;
         String str2;
@@ -118,13 +118,13 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
                 if (str3 != null) {
                     str4 = str3;
                 }
-                sgb sgbVar = new sgb(linearLayout, navigationBar, this, str4);
-                this.k = sgbVar;
-                sgbVar.G(str2);
+                tgb tgbVar = new tgb(linearLayout, navigationBar, this, str4);
+                this.k = tgbVar;
+                tgbVar.G(str2);
                 this.k.F(str);
             }
             return this.k;
         }
-        return (yp5) invokeLL.objValue;
+        return (zp5) invokeLL.objValue;
     }
 }

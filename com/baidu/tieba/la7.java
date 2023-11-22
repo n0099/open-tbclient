@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface la7 {
-    Object getVideoHolder();
+    void a(Runnable runnable);
 }

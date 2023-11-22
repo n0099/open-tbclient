@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
-import com.baidu.tieba.ss5;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.AttentionBarData;
+import com.baidu.tieba.ts5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -171,7 +171,7 @@ public class LikeModel extends BdBaseModel {
                 attentionBarData.likeNum = likeReturnData.getLikeNum();
                 if (likeReturnData != null && this.a.getNetContext().getResponse().isRequestSuccess()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(JavaTypesHelper.toLong(likeReturnData.getFid(), 0L))));
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new ss5.a(this.b.a, likeReturnData.getUserLevel())));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new ts5.a(this.b.a, likeReturnData.getUserLevel())));
                     TbadkCoreApplication.getInst().addLikeForum(this.b.a);
                     attentionBarData.isSuccess = true;
                     attentionBarData.errorMessage = this.b.getErrorString();

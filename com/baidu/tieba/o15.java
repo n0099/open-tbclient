@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.data.TopNotifyData;
-import com.baidu.tieba.dq6;
+import com.baidu.tieba.eq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -48,11 +48,11 @@ public final class o15 extends g15 {
             if (currentActivity != null && (currentActivity instanceof TbPageContextSupport)) {
                 TopNotifyData a = TopNotifyData.Companion.a();
                 if (a != null) {
-                    rb5.a.i(a, new dq6.e() { // from class: com.baidu.tieba.v05
+                    sb5.a.i(a, new eq6.e() { // from class: com.baidu.tieba.v05
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
-                        @Override // com.baidu.tieba.dq6.e
+                        @Override // com.baidu.tieba.eq6.e
                         public final void onDismiss() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {

@@ -17,7 +17,7 @@ public class a3a extends bi<w3a, CardViewHolder<p4a>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public xl6<w3a> b;
+    public p4a b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a3a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -48,17 +48,17 @@ public class a3a extends bi<w3a, CardViewHolder<p4a>> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            p4a p4aVar = new p4a(this.a);
-            p4aVar.m(this.b);
-            return new CardViewHolder<>(p4aVar);
+            this.b = new p4a(this.a);
+            return new CardViewHolder<>(this.b);
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
-    public void x(xl6<w3a> xl6Var) {
+    public void x(boolean z) {
+        p4a p4aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, xl6Var) == null) {
-            this.b = xl6Var;
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (p4aVar = this.b) != null) {
+            p4aVar.x(z);
         }
     }
 

@@ -1,96 +1,274 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.commons.codec.net.RFC1522Codec;
 /* loaded from: classes8.dex */
-public class w36 extends SQLiteOpenHelper {
+public class w36 {
     public static /* synthetic */ Interceptable $ic;
+    public static w36 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w36(Context context) {
-        super(context, "relationship.db", (SQLiteDatabase.CursorFactory) null, 4);
+    public w36() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public final void b(SQLiteDatabase sQLiteDatabase) {
+    public static w36 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
-            try {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (TextUtils.isEmpty(currentAccount)) {
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (w36.class) {
+                if (a == null) {
+                    a = new w36();
                 }
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS table_" + currentAccount);
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "RelationshipDbHelper.dropTables", new Object[0]);
-                BdLog.e("drop table wrong " + e.toString());
             }
+            return a;
         }
+        return (w36) invokeV.objValue;
     }
 
-    public final void a(SQLiteDatabase sQLiteDatabase) {
+    public boolean a(ta5 ta5Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            try {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (TextUtils.isEmpty(currentAccount)) {
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ta5Var)) == null) {
+            SQLiteDatabase b = y36.b();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (b != null && ta5Var != null && !TextUtils.isEmpty(currentAccount)) {
+                try {
+                    ContentValues c = c(ta5Var);
+                    if (b.update("table_" + currentAccount, c, "id = ?", new String[]{String.valueOf(ta5Var.d())}) == 0) {
+                        b.insert("table_" + currentAccount, null, c);
+                    }
+                    return true;
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "RelationshipDao.addContactItem", new Object[0]);
                 }
-                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS table_" + currentAccount + "(name TEXT NOT NULL UNIQUE, id LONG, name_show TEXT, portrait TEXT, quanpin TEXT, first_letter TEXT, location_hide INT, location_distance TEXT, location_time LONG, user_type INT);");
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "RelationshipDbHelper.createTables", new Object[0]);
-                BdLog.e("create table wrong " + e.toString());
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+    public final ContentValues c(ta5 ta5Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
-            a(sQLiteDatabase);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ta5Var)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("name", ta5Var.e());
+            contentValues.put("id", Long.valueOf(ta5Var.d()));
+            contentValues.put("user_type", Integer.valueOf(ta5Var.h()));
+            contentValues.put("portrait", ta5Var.g());
+            contentValues.put("quanpin", ta5Var.c());
+            contentValues.put("first_letter", ta5Var.a());
+            contentValues.put("name_show", ta5Var.f());
+            if (ta5Var.b() != null) {
+                contentValues.put("location_hide", Integer.valueOf(ta5Var.b().b()));
+                contentValues.put("location_distance", ta5Var.b().a());
+                contentValues.put("location_time", Long.valueOf(ta5Var.b().c()));
+            }
+            return contentValues;
         }
+        return (ContentValues) invokeL.objValue;
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    public synchronized boolean b(r36 r36Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
-            b(sQLiteDatabase);
-            a(sQLiteDatabase);
-            try {
-                MessageManager.getInstance().sendMessageFromBackground(new RequestGetAddressListMessage(304001));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r36Var)) == null) {
+            synchronized (this) {
+                SQLiteDatabase b = y36.b();
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (b != null && r36Var != null && !TextUtils.isEmpty(currentAccount)) {
+                    b.execSQL("DROP TABLE IF EXISTS table_" + currentAccount);
+                    b.execSQL("CREATE TABLE IF NOT EXISTS table_" + currentAccount + "(name TEXT NOT NULL UNIQUE, id LONG, name_show TEXT, portrait TEXT, quanpin TEXT, first_letter TEXT, location_hide INT, location_distance TEXT ,location_time LONG, user_type INT);");
+                    b.beginTransaction();
+                    try {
+                        for (v36 v36Var : r36Var.a()) {
+                            for (ta5 ta5Var : v36Var.a()) {
+                                ContentValues c = c(ta5Var);
+                                b.insert("table_" + currentAccount, null, c);
+                            }
+                        }
+                        b.setTransactionSuccessful();
+                        b.endTransaction();
+                        return true;
+                    } catch (Exception e) {
+                        BdLog.e(e.toString());
+                        TiebaStatic.printDBExceptionLog(e, "RelationshipDao.addContactItems", new Object[0]);
+                        b.endTransaction();
+                        return false;
+                    }
+                }
+                return false;
             }
         }
+        return invokeL.booleanValue;
+    }
+
+    public boolean d(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+            SQLiteDatabase b = y36.b();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (b != null && j >= 0 && !TextUtils.isEmpty(currentAccount)) {
+                try {
+                    b.delete("table_" + currentAccount, "id = ?", new String[]{String.valueOf(j)});
+                    return true;
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "RelationshipDao.deleteContactItem", new Object[0]);
+                }
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public synchronized List<ta5> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                SQLiteDatabase b = y36.b();
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                Cursor cursor = null;
+                ArrayList arrayList = new ArrayList();
+                if (b != null && !TextUtils.isEmpty(currentAccount)) {
+                    b.beginTransaction();
+                    char c = 0;
+                    try {
+                        String[] strArr = va5.a;
+                        int length = strArr.length;
+                        int i = 0;
+                        while (i < length) {
+                            String str = strArr[i];
+                            ArrayList arrayList2 = new ArrayList();
+                            ta5 ta5Var = new ta5();
+                            ta5Var.j(str);
+                            arrayList2.add(ta5Var);
+                            String[] strArr2 = new String[1];
+                            strArr2[c] = str;
+                            cursor = b.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter" + RFC1522Codec.PREFIX, strArr2);
+                            if (cursor != null) {
+                                while (cursor.moveToNext()) {
+                                    ta5 ta5Var2 = new ta5();
+                                    ta5Var2.j(str);
+                                    ta5Var2.n(cursor.getString(cursor.getColumnIndex("name")));
+                                    ta5Var2.o(cursor.getString(cursor.getColumnIndex("name_show")));
+                                    ta5Var2.m(cursor.getLong(cursor.getColumnIndex("id")));
+                                    ta5Var2.q(cursor.getInt(cursor.getColumnIndex("user_type")));
+                                    ta5Var2.p(cursor.getString(cursor.getColumnIndex("portrait")));
+                                    ta5Var2.l(cursor.getString(cursor.getColumnIndex("quanpin")));
+                                    ta5Var2.k(new ua5(cursor.getString(cursor.getColumnIndex("location_distance")), cursor.getLong(cursor.getColumnIndex("location_time")), cursor.getInt(cursor.getColumnIndex("location_hide"))));
+                                    arrayList2.add(ta5Var2);
+                                }
+                            }
+                            if (arrayList2.size() > 1) {
+                                arrayList.addAll(arrayList2);
+                            }
+                            rd.a(cursor);
+                            i++;
+                            c = 0;
+                        }
+                        b.setTransactionSuccessful();
+                        rd.a(cursor);
+                    } catch (Exception e) {
+                        BdLog.e(e.toString());
+                        TiebaStatic.printDBExceptionLog(e, "RelationshipDao.getContactList", new Object[0]);
+                        rd.a(cursor);
+                    }
+                    b.endTransaction();
+                    return arrayList;
+                }
+                return arrayList;
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public synchronized ArrayList<ta5> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                SQLiteDatabase b = y36.b();
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                Cursor cursor = null;
+                ArrayList<ta5> arrayList = new ArrayList<>();
+                if (b != null && !TextUtils.isEmpty(currentAccount)) {
+                    b.beginTransaction();
+                    char c = 0;
+                    try {
+                        String[] strArr = va5.a;
+                        int length = strArr.length;
+                        int i = 0;
+                        while (i < length) {
+                            String str = strArr[i];
+                            ArrayList arrayList2 = new ArrayList();
+                            ta5 ta5Var = new ta5();
+                            ta5Var.j(str);
+                            arrayList2.add(ta5Var);
+                            String[] strArr2 = new String[2];
+                            strArr2[c] = str;
+                            strArr2[1] = "1";
+                            cursor = b.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter = ? AND user_type = ? ", strArr2);
+                            if (cursor != null) {
+                                while (cursor.moveToNext()) {
+                                    ta5 ta5Var2 = new ta5();
+                                    ta5Var2.j(str);
+                                    ta5Var2.n(cursor.getString(cursor.getColumnIndex("name")));
+                                    ta5Var2.o(cursor.getString(cursor.getColumnIndex("name_show")));
+                                    ta5Var2.m(cursor.getLong(cursor.getColumnIndex("id")));
+                                    ta5Var2.q(cursor.getInt(cursor.getColumnIndex("user_type")));
+                                    ta5Var2.p(cursor.getString(cursor.getColumnIndex("portrait")));
+                                    ta5Var2.l(cursor.getString(cursor.getColumnIndex("quanpin")));
+                                    ta5Var2.k(new ua5(cursor.getString(cursor.getColumnIndex("location_distance")), cursor.getLong(cursor.getColumnIndex("location_time")), cursor.getInt(cursor.getColumnIndex("location_hide"))));
+                                    arrayList2.add(ta5Var2);
+                                }
+                            }
+                            if (arrayList2.size() > 1) {
+                                arrayList.addAll(arrayList2);
+                            }
+                            rd.a(cursor);
+                            i++;
+                            c = 0;
+                        }
+                        b.setTransactionSuccessful();
+                        rd.a(cursor);
+                    } catch (Exception e) {
+                        BdLog.e(e.toString());
+                        TiebaStatic.printDBExceptionLog(e, "RelationshipDao.getOfficialAccountList", new Object[0]);
+                        rd.a(cursor);
+                    }
+                    b.endTransaction();
+                    return arrayList;
+                }
+                return arrayList;
+            }
+        }
+        return (ArrayList) invokeV.objValue;
     }
 }

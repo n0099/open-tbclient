@@ -5,7 +5,7 @@ import android.net.Uri;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import com.baidu.tieba.aob;
-import com.baidu.tieba.znb;
+import com.baidu.tieba.bob;
 import com.baidu.ugc.editvideo.player.AudioPlayData;
 import com.baidu.ugc.editvideo.player.IPlayer;
 import com.baidu.ugc.editvideo.player.VideoPlayData;
@@ -24,7 +24,7 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
     public long mSeekToEndPosition;
 
     public QMExoWrapperMediaPlayer() {
-        aob e = znb.d().e();
+        bob e = aob.d().e();
         if (e != null) {
             this.mInnerMediaPlayer = e.a();
         }

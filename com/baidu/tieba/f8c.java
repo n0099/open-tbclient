@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,32 +8,30 @@ public class f8c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void b(String str, String str2) {
+    public static String a(String str, e8c e8cVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, e8cVar)) == null) {
+            return x7c.g(str, e8cVar.c());
         }
+        return (String) invokeLL.objValue;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static String b(String str, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return "SecurityComp10105310: " + str;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bArr)) == null) {
+            return x7c.g(str, bArr);
         }
-        return (String) invokeL.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public static void c(String str, String str2) {
+    public static String c(String str, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            Log.e(a(str), str2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, bArr)) == null) {
+            return x7c.k(str, bArr);
         }
-    }
-
-    public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            Log.i(a(str), str2);
-        }
+        return (String) invokeLL.objValue;
     }
 }

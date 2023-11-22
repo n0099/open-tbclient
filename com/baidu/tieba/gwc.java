@@ -1,39 +1,40 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.tencent.open.SocialConstants;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FeedLayout;
-import tbclient.FrsPage.PageData;
-import tbclient.LayoutFactory;
+import tbclient.FrsPage.NtSpreadInfo;
 /* loaded from: classes6.dex */
-public class gwc extends poc {
+public class gwc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PageData pageData) {
+    public static JSONObject b(@NonNull NtSpreadInfo ntSpreadInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pageData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ntSpreadInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (pageData.test_drop != null) {
+            qoc.a(jSONObject, "user_name", ntSpreadInfo.user_name);
+            qoc.a(jSONObject, "user_avatar", ntSpreadInfo.user_avatar);
+            qoc.a(jSONObject, "tips", ntSpreadInfo.tips);
+            qoc.a(jSONObject, "type", ntSpreadInfo.type);
+            qoc.a(jSONObject, "title", ntSpreadInfo.title);
+            if (ntSpreadInfo.pics != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (FeedLayout feedLayout : pageData.test_drop) {
-                    jSONArray.put(usc.b(feedLayout));
+                for (String str : ntSpreadInfo.pics) {
+                    jSONArray.put(str);
                 }
-                poc.a(jSONObject, "test_drop", jSONArray);
+                qoc.a(jSONObject, SocialConstants.PARAM_IMAGE, jSONArray);
             }
-            if (pageData.feed_list != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (LayoutFactory layoutFactory : pageData.feed_list) {
-                    jSONArray2.put(jzc.b(layoutFactory));
-                }
-                poc.a(jSONObject, "feed_list", jSONArray2);
-            }
+            qoc.a(jSONObject, "link_url", ntSpreadInfo.link_url);
+            qoc.a(jSONObject, CriusAttrConstants.POSITION, ntSpreadInfo.position);
+            qoc.a(jSONObject, "publish_date", ntSpreadInfo.publish_date);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

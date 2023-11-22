@@ -5,24 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.PrivatePopInfo;
+import tbclient.PrivateForumInfo;
 /* loaded from: classes8.dex */
-public class t1d extends poc {
+public class t1d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PrivatePopInfo privatePopInfo) {
+    public static JSONObject b(@NonNull PrivateForumInfo privateForumInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, privatePopInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, privateForumInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "pop_type", privatePopInfo.pop_type);
-            poc.a(jSONObject, "pop_content", privatePopInfo.pop_content);
-            poc.a(jSONObject, "pop_url", privatePopInfo.pop_url);
-            poc.a(jSONObject, "pop_forum_id", privatePopInfo.pop_forum_id);
-            poc.a(jSONObject, "title", privatePopInfo.title);
-            poc.a(jSONObject, "day", privatePopInfo.day);
+            qoc.a(jSONObject, "private_forum_status", privateForumInfo.private_forum_status);
+            qoc.a(jSONObject, "private_forum_audit_status", privateForumInfo.private_forum_audit_status);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

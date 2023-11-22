@@ -120,7 +120,7 @@ public class p0 extends j0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, de7.DslTabLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ee7.DslTabLayout);
             this.t = obtainStyledAttributes.getDrawable(63);
             this.u = obtainStyledAttributes.getLayoutDimension(66, this.u);
             this.v = obtainStyledAttributes.getLayoutDimension(64, this.v);

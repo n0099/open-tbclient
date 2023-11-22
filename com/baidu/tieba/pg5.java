@@ -1,17 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.coreExtra.data.FriendBotPostConfigData;
+import com.baidu.tbadk.util.DataExt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes7.dex */
-public class pg5 {
+public final class pg5 implements oa5 {
     public static /* synthetic */ Interceptable $ic;
-    public static pg5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public final String a;
 
     public pg5() {
         Interceptable interceptable = $ic;
@@ -26,38 +32,30 @@ public class pg5 {
                 return;
             }
         }
-        this.a = 0;
+        this.a = "wl_config";
     }
 
-    public static pg5 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.oa5
+    public void parseJson(JSONObject json) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (pg5.class) {
-                    if (b == null) {
-                        b = new pg5();
+        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
+            Intrinsics.checkNotNullParameter(json, "json");
+            try {
+                JSONObject optJSONObject = json.optJSONObject(this.a);
+                if (optJSONObject != null) {
+                    String botConfigStr = optJSONObject.optString("friend_bot_post_config");
+                    if (!TextUtils.isEmpty(botConfigStr)) {
+                        Intrinsics.checkNotNullExpressionValue(botConfigStr, "botConfigStr");
+                        TbSingleton.getInstance().setFriendBotPostConfigData((FriendBotPostConfigData) DataExt.toEntity(botConfigStr, FriendBotPostConfigData.class));
                     }
                 }
+            } catch (Exception e) {
+                if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                    e.printStackTrace();
+                    return;
+                }
+                throw e;
             }
-            return b;
-        }
-        return (pg5) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = i;
         }
     }
 }

@@ -1,27 +1,25 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
+import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.TabPicDesc;
+import tbclient.TabMenu;
 /* loaded from: classes5.dex */
-public class b4d extends poc {
+public class b4d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TabPicDesc tabPicDesc) {
+    public static JSONObject b(@NonNull TabMenu tabMenu) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tabPicDesc)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tabMenu)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "selected_pic_url", tabPicDesc.selected_pic_url);
-            poc.a(jSONObject, "unselected_pic_url", tabPicDesc.unselected_pic_url);
-            poc.a(jSONObject, VrPlayerActivityConfig.PIC_HEIGHT, tabPicDesc.pic_height);
-            poc.a(jSONObject, VrPlayerActivityConfig.PIC_WIDTH, tabPicDesc.pic_width);
+            qoc.a(jSONObject, "class_id", tabMenu.class_id);
+            qoc.a(jSONObject, ForumSquareActivityConfig.FORUM_CLASS_NAME, tabMenu.class_name);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

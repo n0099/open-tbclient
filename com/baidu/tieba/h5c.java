@@ -1,24 +1,26 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
+import java.util.Arrays;
 /* loaded from: classes6.dex */
-public final class h5c<TResult> implements a6c<TResult> {
+public class h5c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d6c<TResult> a;
-    public Executor b;
-    public final Object c;
+    public final String a;
+    public final int b;
 
-    public h5c(Executor executor, d6c<TResult> d6cVar) {
+    public h5c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, d6cVar};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,17 +30,49 @@ public final class h5c<TResult> implements a6c<TResult> {
                 return;
             }
         }
-        this.c = new Object();
-        this.a = d6cVar;
-        this.b = executor;
+        this.a = str;
+        this.b = a(str);
     }
 
-    @Override // com.baidu.tieba.a6c
-    public final void a(m5c<TResult> m5cVar) {
+    public static int a(Object... objArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, m5cVar) == null) && m5cVar.f()) {
-            m5cVar.e();
-            this.b.execute(new f5c(this, m5cVar));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, objArr)) == null) {
+            return Arrays.hashCode(objArr);
         }
+        return invokeL.intValue;
+    }
+
+    public static h5c b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return new h5c(str);
+        }
+        return (h5c) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj != null && h5c.class == obj.getClass()) {
+                return TextUtils.equals(this.a, ((h5c) obj).a);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
     }
 }

@@ -71,12 +71,12 @@ public class wq extends tq {
 
             /* renamed from: com.baidu.tieba.wq$e$a$a  reason: collision with other inner class name */
             /* loaded from: classes8.dex */
-            public class RunnableC0520a implements Runnable {
+            public class RunnableC0519a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0520a(a aVar) {
+                public RunnableC0519a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -160,7 +160,7 @@ public class wq extends tq {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                     if (this.a.a.getParent() instanceof ViewGroup) {
-                        this.a.a.post(new RunnableC0520a(this));
+                        this.a.a.post(new RunnableC0519a(this));
                     }
                     View view2 = this.a.b;
                     if (view2 != null) {

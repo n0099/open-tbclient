@@ -1,236 +1,165 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.Signature;
-import android.os.Bundle;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import com.yy.hiidostatis.inner.BaseStatisContent;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.security.MessageDigest;
-import java.util.Locale;
 /* loaded from: classes8.dex */
-public class uac {
+public final class uac {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[][] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String g(boolean z) {
-        InterceptResult invokeZ;
+    public static int a(String str, String str2) {
+        InterceptResult invokeLL;
+        int length;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(65543, null, z)) == null) ? z ? "https://raqweb.yy.com/" : "https://raq.yy.com/" : (String) invokeZ.objValue;
-    }
-
-    public static String h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
-            if (i != 444111001) {
-                switch (i) {
-                    case 444222000:
-                        return "参数为空，请检查";
-                    case 444222001:
-                        return "请求操作类型错误";
-                    case 444222002:
-                        return "请求操作附带参数为空";
-                    case 444222003:
-                        return "请求操作附带参数错误";
-                    default:
-                        switch (i) {
-                            case 444222104:
-                                return "授权APP返回的请求码出错";
-                            case 444222105:
-                                return "Json格式错误";
-                            default:
-                                return "未知错误";
-                        }
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            if (str == null && str2 == null) {
+                return 0;
             }
-            return "成功";
-        }
-        return (String) invokeI.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948205714, "Lcom/baidu/tieba/uac;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948205714, "Lcom/baidu/tieba/uac;");
-                return;
-            }
-        }
-        a = new String[][]{new String[]{"com.duowan.mobile", "7.10.0"}};
-    }
-
-    public static int a(Context context) {
-        InterceptResult invokeL;
-        String[][] strArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                boolean z = false;
-                for (String[] strArr2 : a) {
-                    if (strArr2.length > 1) {
-                        String str = strArr2[0];
-                        try {
-                            if (tac.a(context.getPackageManager().getPackageInfo(str, 1).versionName, strArr2[1]) >= 0) {
-                                Intent intent = new Intent();
-                                intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");
-                                if (tac.e(context, intent)) {
-                                    return 0;
-                                }
-                            }
-                            z = true;
-                        } catch (Exception unused) {
-                            z = false;
-                        }
-                    }
-                }
-                if (!z) {
-                    return 1;
-                }
-                return 2;
-            } catch (Exception unused2) {
+            if (str != null && str2 == null) {
                 return 1;
             }
-        }
-        return invokeL.intValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Signature[] signatureArr;
-        ByteArrayOutputStream byteArrayOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream2 = null;
-            try {
+            if (str == null) {
+                return -1;
+            }
+            if (str.equals(str2)) {
+                return 0;
+            }
+            if (str.startsWith(str2)) {
+                return 1;
+            }
+            if (str2.startsWith(str)) {
+                return -1;
+            }
+            String[] split = str.split("\\.|-");
+            String[] split2 = str2.split("\\.|-");
+            if (split.length <= split2.length) {
+                length = split.length;
+            } else {
+                length = split2.length;
+            }
+            for (int i = 0; i < length; i++) {
                 try {
-                    signatureArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures;
-                    byteArrayOutputStream = new ByteArrayOutputStream();
-                } catch (Throwable th) {
-                    th = th;
+                    int parseInt = Integer.parseInt(split[i]);
+                    int parseInt2 = Integer.parseInt(split2[i]);
+                    Integer.parseInt(split[i]);
+                    Integer.parseInt(split2[i]);
+                    if (parseInt > parseInt2) {
+                        return 1;
+                    }
+                    if (parseInt < parseInt2) {
+                        return -1;
+                    }
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e) {
-                e = e;
             }
-            try {
-                for (Signature signature : signatureArr) {
-                    if (signature != null) {
-                        byteArrayOutputStream.write(signature.toByteArray());
-                    }
-                }
-                byteArrayOutputStream.flush();
-                String f = f(byteArrayOutputStream.toByteArray());
-                try {
-                    byteArrayOutputStream.close();
-                } catch (IOException unused) {
-                }
-                return f;
-            } catch (Exception e2) {
-                e = e2;
-                byteArrayOutputStream2 = byteArrayOutputStream;
-                e.printStackTrace();
-                if (byteArrayOutputStream2 != null) {
-                    try {
-                        byteArrayOutputStream2.close();
-                        return "";
-                    } catch (IOException unused2) {
-                        return "";
-                    }
-                }
-                return "";
-            } catch (Throwable th2) {
-                th = th2;
-                byteArrayOutputStream2 = byteArrayOutputStream;
-                if (byteArrayOutputStream2 != null) {
-                    try {
-                        byteArrayOutputStream2.close();
-                    } catch (IOException unused3) {
-                    }
-                }
-                throw th;
+            if (split.length > length) {
+                return 1;
             }
+            if (split2.length > length) {
+                return -1;
+            }
+            return str.compareTo(str2);
         }
-        return (String) invokeL.objValue;
+        return invokeLL.intValue;
     }
 
-    public static String f(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
-            char[] cArr = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(bArr);
-                byte[] digest = messageDigest.digest();
-                char[] cArr2 = new char[digest.length * 2];
-                int i = 0;
-                for (byte b : digest) {
-                    int i2 = i + 1;
-                    cArr2[i] = cArr[(b >>> 4) & 15];
-                    i = i2 + 1;
-                    cArr2[i2] = cArr[b & 15];
-                }
-                return new String(cArr2);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(Context context, String str, String str2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, Boolean.valueOf(z)})) == null) {
-            return String.format(Locale.getDefault(), "%s?appId=%s&appType=android&appSign=%s&appDeviceid=%s&grantType=code&callbackType=uri&redirectUri=%s&state=%s", "https://thirdlogin.yy.com/open/oauth/authorize.do", str, b(context), sac.a(context), g(z), str2);
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static Bundle d(Context context, String str) {
+    public static String b(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("appid", str);
-            bundle.putString("appname", tac.b(context, context.getPackageName()));
-            bundle.putString("appver", tac.c(context));
-            bundle.putString("appdeviceid", sac.a(context));
-            bundle.putString(BaseStatisContent.SDKVER, "1.0.0");
-            return bundle;
-        }
-        return (Bundle) invokeLL.objValue;
-    }
-
-    public static Intent e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            for (String[] strArr : a) {
-                String str = strArr[0];
-                Intent intent = new Intent();
-                intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");
-                if (tac.e(context, intent)) {
-                    return intent;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (context != null && str != null) {
+                try {
+                    PackageManager packageManager = context.getPackageManager();
+                    return packageManager.getApplicationLabel(packageManager.getApplicationInfo(str, 128)).toString();
+                } catch (Exception unused) {
                 }
             }
-            return null;
+            return "";
         }
-        return (Intent) invokeL.objValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean d(Context context, Class<? extends Activity> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, cls)) == null) {
+            if (context != null && cls != null) {
+                try {
+                    context.getPackageManager().getActivityInfo(new ComponentName(context.getPackageName(), cls.getName()), 0);
+                    return true;
+                } catch (Exception unused) {
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /*  JADX ERROR: NullPointerException in pass: RegionMakerVisitor
+        java.lang.NullPointerException: Cannot read field "wordsInUse" because "set" is null
+        	at java.base/java.util.BitSet.or(BitSet.java:943)
+        	at jadx.core.utils.BlockUtils.getPathCross(BlockUtils.java:732)
+        	at jadx.core.utils.BlockUtils.getPathCross(BlockUtils.java:811)
+        	at jadx.core.dex.visitors.regions.IfMakerHelper.restructureIf(IfMakerHelper.java:88)
+        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:706)
+        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
+        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
+        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:730)
+        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
+        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
+        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:735)
+        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
+        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
+        	at jadx.core.dex.visitors.regions.RegionMakerVisitor.visit(RegionMakerVisitor.java:52)
+        */
+    public static boolean e(android.content.Context r4, android.content.Intent r5) {
+        /*
+            com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.uac.$ic
+            if (r0 != 0) goto L1a
+        L4:
+            r0 = 0
+            if (r4 == 0) goto L19
+            if (r5 != 0) goto La
+            goto L19
+        La:
+            android.content.pm.PackageManager r4 = r4.getPackageManager()     // Catch: java.lang.Exception -> L19
+            java.util.List r4 = r4.queryIntentActivities(r5, r0)     // Catch: java.lang.Exception -> L19
+            int r4 = r4.size()     // Catch: java.lang.Exception -> L19
+            if (r4 <= 0) goto L19
+            r0 = 1
+        L19:
+            return r0
+        L1a:
+            r1 = r0
+            r2 = 65540(0x10004, float:9.1841E-41)
+            r3 = 0
+            com.baidu.titan.sdk.runtime.InterceptResult r0 = r1.invokeLL(r2, r3, r4, r5)
+            if (r0 == 0) goto L4
+            boolean r1 = r0.booleanValue
+            return r1
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.uac.e(android.content.Context, android.content.Intent):boolean");
+    }
+
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+                return packageInfo.packageName + "(" + packageInfo.versionName + SmallTailInfo.EMOTION_SUFFIX;
+            } catch (Throwable unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -27,7 +27,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.cs4;
 import com.baidu.tieba.qd;
-import com.baidu.tieba.vj5;
+import com.baidu.tieba.wj5;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -47,7 +47,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     public View d;
     public TbPageContext<EditNickNameActivity> e;
     public LoadingView f;
-    public vj5 g;
+    public wj5 g;
     public boolean h;
     public zz4 i;
     public int j;
@@ -341,9 +341,9 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     public void k1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            vj5 vj5Var = this.g;
-            if (vj5Var != null) {
-                vj5Var.dettachView(this.d);
+            wj5 wj5Var = this.g;
+            if (wj5Var != null) {
+                wj5Var.dettachView(this.d);
                 this.g = null;
             }
             this.b.setVisibility(0);
@@ -555,9 +555,9 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e61);
             if (this.g == null) {
-                vj5 vj5Var = new vj5(this.e.getPageActivity(), new b(this));
-                this.g = vj5Var;
-                vj5Var.onChangeSkinType();
+                wj5 wj5Var = new wj5(this.e.getPageActivity(), new b(this));
+                this.g = wj5Var;
+                wj5Var.onChangeSkinType();
             }
             this.b.setVisibility(8);
             this.g.l(string);

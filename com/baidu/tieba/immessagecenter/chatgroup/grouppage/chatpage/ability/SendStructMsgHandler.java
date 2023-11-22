@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.dn8;
+import com.baidu.tieba.en8;
 import com.baidu.tieba.im.base.core.inputtool.InputDelegate;
 import com.baidu.tieba.im.base.core.inputtool.InputToolFragment;
 import com.baidu.tieba.im.base.core.inputtool.data.AtData;
@@ -15,10 +15,10 @@ import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.tieba.im.lib.socket.msg.TbReMsgInfo;
 import com.baidu.tieba.im.lib.socket.msg.TbTextMsg;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
-import com.baidu.tieba.im8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo;
-import com.baidu.tieba.p09;
+import com.baidu.tieba.jm8;
+import com.baidu.tieba.q09;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,12 +36,12 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000V\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010$\n\u0002\u0010\u000e\n\u0002\b\u0005\u0018\u0000 \u001c2\u00020\u0001:\u0002\u001c\u001dB\u001d\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\u001c\u0010\t\u001a\b\u0012\u0004\u0012\u00020\u000b0\n2\f\u0010\f\u001a\b\u0012\u0004\u0012\u00020\r0\nH\u0002J,\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u00112\u0010\u0010\u0012\u001a\f\u0012\u0006\b\u0001\u0012\u00020\u0014\u0018\u00010\u00132\b\u0010\u0015\u001a\u0004\u0018\u00010\u0016H\u0016J$\u0010\u0017\u001a\u0010\u0012\u0004\u0012\u00020\u0019\u0012\u0004\u0012\u00020\u0016\u0018\u00010\u00182\f\u0010\f\u001a\b\u0012\u0004\u0012\u00020\r0\nH\u0002J\b\u0010\u001a\u001a\u00020\u0019H\u0016J\u0016\u0010\u001b\u001a\u00020\u00192\f\u0010\f\u001a\b\u0012\u0004\u0012\u00020\r0\nH\u0002R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001e"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendStructMsgHandler;", "Lcom/baidu/tieba/im/base/core/uilist/BaseAbilityHandler;", "repo", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/repo/GroupChatRepo;", "chatPage", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;", "sendTextMsgCallBack", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendMsgAbiCallBack;", "(Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/repo/GroupChatRepo;Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendMsgAbiCallBack;)V", "buildAtData", "", "Lcom/baidu/tieba/im/lib/socket/msg/TbAtUserInfo;", "subContent", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/SendStructMsgHandler$Conf$SubContent;", "doHandle", "", "abilityItem", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem;", "oriMsg", "Lcom/baidu/tieba/im/base/core/uilist/BaseItem;", "Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", "payload", "", "getRobotParams", "", "", "provideType", "spliceHelpAtTextData", "Companion", "Conf", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class SendStructMsgHandler extends dn8 {
+public final class SendStructMsgHandler extends en8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final GroupChatRepo b;
     public final ChatPage c;
-    public final p09 d;
+    public final q09 d;
 
     static {
         InterceptResult invokeClinit;
@@ -58,7 +58,7 @@ public final class SendStructMsgHandler extends dn8 {
         }
     }
 
-    @Override // com.baidu.tieba.dn8
+    @Override // com.baidu.tieba.en8
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -405,7 +405,7 @@ public final class SendStructMsgHandler extends dn8 {
         }
     }
 
-    public SendStructMsgHandler(GroupChatRepo repo, ChatPage chatPage, p09 sendTextMsgCallBack) {
+    public SendStructMsgHandler(GroupChatRepo repo, ChatPage chatPage, q09 sendTextMsgCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -428,7 +428,7 @@ public final class SendStructMsgHandler extends dn8 {
         this.d = sendTextMsgCallBack;
     }
 
-    @Override // com.baidu.tieba.dn8
+    @Override // com.baidu.tieba.en8
     public void b(AbilityItem abilityItem, BaseItem<? extends TbBaseMsg> baseItem, Object obj) {
         Boolean bool;
         boolean z;
@@ -464,7 +464,7 @@ public final class SendStructMsgHandler extends dn8 {
                     a.setRobotParams(g);
                 }
                 this.d.a(a);
-                im8.B(this.b, a, null, 2, null);
+                jm8.B(this.b, a, null, 2, null);
                 if (z && (e3 = this.c.K0().e3()) != null && (P2 = e3.P2()) != null) {
                     P2.d();
                 }

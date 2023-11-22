@@ -4,29 +4,22 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.SubPost;
-import tbclient.SubPostList;
+import tbclient.SubBottomMenu;
 /* loaded from: classes9.dex */
-public class x3d extends poc {
+public class x3d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SubPost subPost) {
+    public static JSONObject b(@NonNull SubBottomMenu subBottomMenu) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, subPost)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, subBottomMenu)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "pid", subPost.pid);
-            if (subPost.sub_post_list != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (SubPostList subPostList : subPost.sub_post_list) {
-                    jSONArray.put(y3d.b(subPostList));
-                }
-                poc.a(jSONObject, "sub_post_list", jSONArray);
-            }
+            qoc.a(jSONObject, "name", subBottomMenu.name);
+            qoc.a(jSONObject, "url", subBottomMenu.url);
+            qoc.a(jSONObject, "type", subBottomMenu.type);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

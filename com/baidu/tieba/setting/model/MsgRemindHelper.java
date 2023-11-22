@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.dj6;
+import com.baidu.tieba.ej6;
 import com.baidu.tieba.setting.model.MsgRemindHelper;
 import com.baidu.tieba.setting.model.MsgRemindModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -154,7 +154,7 @@ public final class MsgRemindHelper {
             Intrinsics.checkNotNullParameter(params, "$params");
             WeakReference<WebView> weakReference = d;
             if (weakReference != null && (webView = weakReference.get()) != null) {
-                dj6.a().d(webView, "pushNotificationPermission", new HashMap<>(params));
+                ej6.a().d(webView, "pushNotificationPermission", new HashMap<>(params));
             }
         }
     }
@@ -162,7 +162,7 @@ public final class MsgRemindHelper {
     public final void d(final Map<String, ? extends Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
-            UiUtils.post(new Runnable() { // from class: com.baidu.tieba.lia
+            UiUtils.post(new Runnable() { // from class: com.baidu.tieba.mia
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

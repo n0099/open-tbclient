@@ -24,7 +24,7 @@ import com.baidu.android.pushservice.util.Utility;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.n6c;
+import com.baidu.tieba.o6c;
 import com.huawei.hms.aaid.HmsInstanceId;
 import com.huawei.hms.push.HmsMessaging;
 import com.kuaishou.weapon.p0.u;
@@ -62,7 +62,7 @@ public class e {
             String str;
             e.h(this.c);
             try {
-                str = HmsInstanceId.getInstance(this.c).getToken(n6c.c(this.c).a("client/app_id"), HmsMessaging.DEFAULT_TOKEN_SCOPE);
+                str = HmsInstanceId.getInstance(this.c).getToken(o6c.c(this.c).a("client/app_id"), HmsMessaging.DEFAULT_TOKEN_SCOPE);
             } catch (Throwable unused) {
                 PushSettings.h = 1;
                 com.baidu.android.pushservice.a0.i.b(this.c, "com.baidu.android.pushservice.PushSettings.hw_hms_down_mode", 1);

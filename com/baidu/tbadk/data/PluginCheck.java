@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.pf;
-import com.baidu.tieba.qa5;
+import com.baidu.tieba.ra5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -225,7 +225,7 @@ public final class PluginCheck {
     @Singleton
     @Service
     /* loaded from: classes5.dex */
-    public static final class a implements qa5 {
+    public static final class a implements ra5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -243,7 +243,7 @@ public final class PluginCheck {
             }
         }
 
-        @Override // com.baidu.tieba.qa5
+        @Override // com.baidu.tieba.ra5
         public void parseJson(JSONObject json) {
             String version;
             boolean z;

@@ -22,8 +22,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.bw4;
 import com.baidu.tieba.ht;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.xl6;
 import com.baidu.tieba.yh;
+import com.baidu.tieba.yl6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ public class MutiImgTextLayout extends LinearLayout implements ht<bw4> {
     public TextView a;
     public TextView b;
     public PlayVoiceBntNew c;
-    public xl6<bw4> d;
+    public yl6<bw4> d;
     public bw4 e;
     public boolean f;
 
@@ -88,7 +88,7 @@ public class MutiImgTextLayout extends LinearLayout implements ht<bw4> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            xl6<bw4> subClickListener;
+            yl6<bw4> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -165,10 +165,10 @@ public class MutiImgTextLayout extends LinearLayout implements ht<bw4> {
         }
     }
 
-    public void setSubClickListener(xl6<bw4> xl6Var) {
+    public void setSubClickListener(yl6<bw4> yl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, xl6Var) == null) {
-            this.d = xl6Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, yl6Var) == null) {
+            this.d = yl6Var;
         }
     }
 
@@ -275,13 +275,13 @@ public class MutiImgTextLayout extends LinearLayout implements ht<bw4> {
         }
     }
 
-    public xl6<bw4> getSubClickListener() {
+    public yl6<bw4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.d;
         }
-        return (xl6) invokeV.objValue;
+        return (yl6) invokeV.objValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View

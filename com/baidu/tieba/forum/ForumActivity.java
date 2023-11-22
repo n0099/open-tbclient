@@ -20,16 +20,16 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.b25;
 import com.baidu.tieba.c25;
-import com.baidu.tieba.c75;
-import com.baidu.tieba.ce7;
+import com.baidu.tieba.d75;
+import com.baidu.tieba.de7;
 import com.baidu.tieba.forum.controller.ForumActivityControllerMapKt;
 import com.baidu.tieba.forum.databinding.ActivityForumBinding;
-import com.baidu.tieba.ng7;
 import com.baidu.tieba.og7;
-import com.baidu.tieba.qza;
-import com.baidu.tieba.so5;
-import com.baidu.tieba.tg7;
-import com.baidu.tieba.wg7;
+import com.baidu.tieba.pg7;
+import com.baidu.tieba.rza;
+import com.baidu.tieba.to5;
+import com.baidu.tieba.ug7;
+import com.baidu.tieba.xg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,18 +43,18 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.KClass;
 @Metadata(d1 = {"\u0000\u008a\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u00032\u00020\u00042\u00020\u00052\u00020\u00062\u00020\u0007B\u0005¢\u0006\u0002\u0010\bJ\b\u0010\r\u001a\u00020\u000eH\u0016J'\u0010\u000f\u001a\u0004\u0018\u0001H\u0010\"\b\b\u0000\u0010\u0010*\u00020\u00112\f\u0010\u0012\u001a\b\u0012\u0004\u0012\u0002H\u00100\u0013H\u0016¢\u0006\u0002\u0010\u0014J\b\u0010\u0015\u001a\u00020\u0016H\u0016J\b\u0010\u0017\u001a\u00020\u0018H\u0016J\b\u0010\u0019\u001a\u00020\u001aH\u0016J\b\u0010\u001b\u001a\u00020\u0016H\u0016J\b\u0010\u001c\u001a\u00020\u0016H\u0016J\b\u0010\u001d\u001a\u00020\u0016H\u0016J\b\u0010\u001e\u001a\u00020\u001aH\u0016J\"\u0010\u001f\u001a\u00020\u000e2\u0006\u0010 \u001a\u00020!2\u0006\u0010\"\u001a\u00020!2\b\u0010#\u001a\u0004\u0018\u00010$H\u0014J\b\u0010%\u001a\u00020\u000eH\u0016J\u0010\u0010&\u001a\u00020\u000e2\u0006\u0010'\u001a\u00020!H\u0014J\u0010\u0010(\u001a\u00020\u000e2\u0006\u0010)\u001a\u00020*H\u0016J\u0012\u0010+\u001a\u00020\u000e2\b\u0010,\u001a\u0004\u0018\u00010-H\u0014J\b\u0010.\u001a\u00020\u000eH\u0014J\u001a\u0010/\u001a\u0002002\u0006\u00101\u001a\u00020!2\b\u00102\u001a\u0004\u0018\u000103H\u0016J\b\u00104\u001a\u00020\u000eH\u0014J\b\u00105\u001a\u00020\u000eH\u0014J\b\u00106\u001a\u000200H\u0016R\u000e\u0010\t\u001a\u00020\nX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000¨\u00067"}, d2 = {"Lcom/baidu/tieba/forum/ForumActivity;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "Lcom/baidu/tieba/forum/controller/IGetActivityController;", "Lcom/baidu/tbadk/core/util/videoPreload/IVideoNeedPreload;", "Lcom/baidu/tbadk/core/dialog/yun/strategy/IForumDialogExtSupoort;", "Lcom/baidu/tbadk/core/voice/VoiceManager$IVoiceActivityDefault;", "Lcom/baidu/tbadk/core/voice/VoiceManager$IMediaPlayerVoiceActivity;", "Lcom/baidu/tieba/tracker/interfaces/ITraceable;", "()V", "binding", "Lcom/baidu/tieba/forum/databinding/ActivityForumBinding;", "controllerManager", "Lcom/baidu/tieba/forum/controller/ActivityControllerManager;", "finish", "", "getActivityController", ExifInterface.GPS_DIRECTION_TRUE, "Lcom/baidu/tieba/forum/controller/BaseActivityController;", Bundle.EXTRA_KEY_CLAZZ, "Lkotlin/reflect/KClass;", "(Lkotlin/reflect/KClass;)Lcom/baidu/tieba/forum/controller/BaseActivityController;", "getCurrentPageKey", "", "getDialogExtSupoort", "Lcom/baidu/tbadk/core/dialog/yun/strategy/IForumDialogExt;", "getMediaPlayerVoiceManager", "Lcom/baidu/tbadk/core/voice/VoiceManager;", "getTraceId", "getTraceScene", "getTraceSource", "getVoiceManager", "onActivityResult", "requestCode", "", "resultCode", "data", "Landroid/content/Intent;", "onBackPressed", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onConfigurationChanged", "newConfig", "Landroid/content/res/Configuration;", "onCreate", "savedInstanceState", "Landroid/os/Bundle;", MissionEvent.MESSAGE_DESTROY, "onKeyDown", "", "keyCode", "event", "Landroid/view/KeyEvent;", MissionEvent.MESSAGE_PAUSE, "onResume", "videoNeedPreload", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class ForumActivity extends BaseFragmentActivity implements wg7, IVideoNeedPreload, c25, VoiceManager.k, VoiceManager.i, qza {
+public final class ForumActivity extends BaseFragmentActivity implements xg7, IVideoNeedPreload, c25, VoiceManager.k, VoiceManager.i, rza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ActivityForumBinding a;
-    public final ng7 b;
+    public final og7 b;
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
     public /* synthetic */ VoiceManager.IPlayView J1(VoiceData.VoiceModel voiceModel) {
-        return c75.a(this, voiceModel);
+        return d75.a(this, voiceModel);
     }
 
-    @Override // com.baidu.tieba.qza
+    @Override // com.baidu.tieba.rza
     public String Z1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public final class ForumActivity extends BaseFragmentActivity implements wg7, IV
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "a006" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qza
+    @Override // com.baidu.tieba.rza
     public String n2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -89,8 +89,8 @@ public final class ForumActivity extends BaseFragmentActivity implements wg7, IV
             }
         }
         new LinkedHashMap();
-        this.b = new ng7(ForumActivityControllerMapKt.a().invoke(this));
-        new ce7();
+        this.b = new og7(ForumActivityControllerMapKt.a().invoke(this));
+        new de7();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -99,7 +99,7 @@ public final class ForumActivity extends BaseFragmentActivity implements wg7, IV
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onDestroy();
             this.b.h();
-            so5.a.a(getUniqueId(), new Pair<>(PushMessageHelper.ERROR_TYPE, "new_frs_page"), new Pair<>("error_info", "new frs page unfinished destroy"));
+            to5.a.a(getUniqueId(), new Pair<>(PushMessageHelper.ERROR_TYPE, "new_frs_page"), new Pair<>("error_info", "new frs page unfinished destroy"));
         }
     }
 
@@ -108,7 +108,7 @@ public final class ForumActivity extends BaseFragmentActivity implements wg7, IV
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return tg7.l(this).o();
+            return ug7.l(this).o();
         }
         return (VoiceManager) invokeV.objValue;
     }
@@ -118,7 +118,7 @@ public final class ForumActivity extends BaseFragmentActivity implements wg7, IV
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return tg7.l(this).o();
+            return ug7.l(this).o();
         }
         return (VoiceManager) invokeV.objValue;
     }
@@ -132,13 +132,13 @@ public final class ForumActivity extends BaseFragmentActivity implements wg7, IV
         }
     }
 
-    @Override // com.baidu.tieba.qza
+    @Override // com.baidu.tieba.rza
     public String getTraceId() {
         InterceptResult invokeV;
         String obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            BdUniqueId a = tg7.a(this);
+            BdUniqueId a = ug7.a(this);
             if (a == null || (obj = a.toString()) == null) {
                 return BdUniqueId.gen().toString();
             }
@@ -152,7 +152,7 @@ public final class ForumActivity extends BaseFragmentActivity implements wg7, IV
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return tg7.d(this);
+            return ug7.d(this);
         }
         return (b25) invokeV.objValue;
     }
@@ -189,7 +189,7 @@ public final class ForumActivity extends BaseFragmentActivity implements wg7, IV
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            Fragment z = tg7.k(this).z();
+            Fragment z = ug7.k(this).z();
             if (z instanceof IVideoNeedPreload) {
                 return ((IVideoNeedPreload) z).videoNeedPreload();
             }
@@ -198,8 +198,8 @@ public final class ForumActivity extends BaseFragmentActivity implements wg7, IV
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.wg7
-    public <T extends og7> T X1(KClass<T> clazz) {
+    @Override // com.baidu.tieba.xg7
+    public <T extends pg7> T X1(KClass<T> clazz) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, clazz)) == null) {
@@ -252,13 +252,13 @@ public final class ForumActivity extends BaseFragmentActivity implements wg7, IV
                 c = null;
             }
             setContentView(c.getRoot());
-            ng7 ng7Var = this.b;
+            og7 og7Var = this.b;
             ActivityForumBinding activityForumBinding = this.a;
             if (activityForumBinding == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 activityForumBinding = null;
             }
-            ng7Var.g(bundle, activityForumBinding);
+            og7Var.g(bundle, activityForumBinding);
             Intent intent = getIntent();
             if (intent != null) {
                 bool = Boolean.valueOf(intent.getBooleanExtra("key_no_animation", false));
@@ -266,11 +266,11 @@ public final class ForumActivity extends BaseFragmentActivity implements wg7, IV
             if (Intrinsics.areEqual(bool, Boolean.TRUE)) {
                 ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
             }
-            so5.a aVar = so5.a;
+            to5.a aVar = to5.a;
             BdUniqueId uniqueId = getUniqueId();
             Intrinsics.checkNotNullExpressionValue(uniqueId, "uniqueId");
             aVar.e(uniqueId, this);
-            so5.a.g(getUniqueId());
+            to5.a.g(getUniqueId());
         }
     }
 

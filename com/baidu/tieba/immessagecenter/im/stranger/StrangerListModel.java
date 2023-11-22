@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.model.ImBaseMessageCenterModel;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
-import com.baidu.tieba.op8;
-import com.baidu.tieba.tt8;
+import com.baidu.tieba.pp8;
+import com.baidu.tieba.ut8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,10 +55,10 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         }
     }
 
-    public void deleteSelectedDatas(op8 op8Var) {
+    public void deleteSelectedDatas(pp8 pp8Var) {
         List<ImMessageCenterShowItemData> list;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, op8Var) != null) || (list = this.mList) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pp8Var) != null) || (list = this.mList) == null) {
             return;
         }
         ListIterator<ImMessageCenterShowItemData> listIterator = list.listIterator();
@@ -69,7 +69,7 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
                 arrayList.add(next);
             }
         }
-        asyncDeleteMsgList(arrayList, 2, op8Var);
+        asyncDeleteMsgList(arrayList, 2, pp8Var);
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
@@ -88,9 +88,9 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         return invokeL.booleanValue;
     }
 
-    public void O(op8 op8Var) {
+    public void O(pp8 pp8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, op8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, pp8Var) == null) {
             ListIterator<ImMessageCenterShowItemData> listIterator = this.mList.listIterator();
             ArrayList arrayList = new ArrayList();
             while (listIterator.hasNext()) {
@@ -99,7 +99,7 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
                     arrayList.add(next);
                 }
             }
-            asyncDeleteMsgList(arrayList, 2, op8Var);
+            asyncDeleteMsgList(arrayList, 2, pp8Var);
         }
     }
 
@@ -137,7 +137,7 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         }
         buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
         buildNormalItem.setOwnerName(String.valueOf(7));
-        PersonalSettingItemData setting = tt8.a().getSetting(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+        PersonalSettingItemData setting = ut8.a().getSetting(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
         if (setting != null) {
             buildNormalItem.setGroupSetting(setting);
         }

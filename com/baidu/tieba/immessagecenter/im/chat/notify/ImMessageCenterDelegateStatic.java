@@ -30,16 +30,16 @@ import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.dynamicIcon.MainTabBottomDynamicIconManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ak5;
-import com.baidu.tieba.bkc;
+import com.baidu.tieba.bk5;
 import com.baidu.tieba.ckc;
-import com.baidu.tieba.ijc;
+import com.baidu.tieba.dkc;
 import com.baidu.tieba.immessagecenter.msgtab.obs.ObserverRegistry;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.MsgCenterContainerFragment;
-import com.baidu.tieba.pjc;
-import com.baidu.tieba.rha;
-import com.baidu.tieba.v95;
-import com.baidu.tieba.wjc;
+import com.baidu.tieba.jjc;
+import com.baidu.tieba.qjc;
+import com.baidu.tieba.sha;
+import com.baidu.tieba.w95;
+import com.baidu.tieba.xjc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,10 +54,10 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageRedDotView a;
-    public pjc b;
+    public qjc b;
 
     /* loaded from: classes6.dex */
-    public class a implements ak5.b {
+    public class a implements bk5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -80,7 +80,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.ak5.b
+        @Override // com.baidu.tieba.bk5.b
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -151,25 +151,25 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
-                return rha.b(tbPageContext, strArr);
+                return sha.b(tbPageContext, strArr);
             }
             return invokeLL.intValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class d implements wjc<Triple<Boolean, Integer, Boolean>> {
+    public class d implements xjc<Triple<Boolean, Integer, Boolean>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v95 a;
+        public final /* synthetic */ w95 a;
         public final /* synthetic */ ImMessageCenterDelegateStatic b;
 
-        public d(ImMessageCenterDelegateStatic imMessageCenterDelegateStatic, v95 v95Var) {
+        public d(ImMessageCenterDelegateStatic imMessageCenterDelegateStatic, w95 w95Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {imMessageCenterDelegateStatic, v95Var};
+                Object[] objArr = {imMessageCenterDelegateStatic, w95Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -180,11 +180,11 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
                 }
             }
             this.b = imMessageCenterDelegateStatic;
-            this.a = v95Var;
+            this.a = w95Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wjc
+        @Override // com.baidu.tieba.xjc
         /* renamed from: a */
         public void call(Triple<Boolean, Integer, Boolean> triple) {
             Interceptable interceptable = $ic;
@@ -205,7 +205,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements bkc<Pair<NewsRemindMessage, Boolean>, Triple<Boolean, Integer, Boolean>> {
+    public class e implements ckc<Pair<NewsRemindMessage, Boolean>, Triple<Boolean, Integer, Boolean>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -226,7 +226,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bkc
+        @Override // com.baidu.tieba.ckc
         /* renamed from: a */
         public Triple<Boolean, Integer, Boolean> call(Pair<NewsRemindMessage, Boolean> pair) {
             InterceptResult invokeL;
@@ -247,7 +247,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
     }
 
     /* loaded from: classes6.dex */
-    public class f implements ckc<NewsRemindMessage, Boolean, Pair<NewsRemindMessage, Boolean>> {
+    public class f implements dkc<NewsRemindMessage, Boolean, Pair<NewsRemindMessage, Boolean>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -268,7 +268,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ckc
+        @Override // com.baidu.tieba.dkc
         /* renamed from: b */
         public Pair<NewsRemindMessage, Boolean> a(NewsRemindMessage newsRemindMessage, Boolean bool) {
             InterceptResult invokeLL;
@@ -281,7 +281,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
     }
 
     /* loaded from: classes6.dex */
-    public class g implements bkc<NewsRemindMessage, Boolean> {
+    public class g implements ckc<NewsRemindMessage, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -302,7 +302,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bkc
+        @Override // com.baidu.tieba.ckc
         /* renamed from: a */
         public Boolean call(NewsRemindMessage newsRemindMessage) {
             InterceptResult invokeL;
@@ -388,9 +388,9 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onRemove();
-            pjc pjcVar = this.b;
-            if (pjcVar != null) {
-                pjcVar.unsubscribe();
+            qjc qjcVar = this.b;
+            if (qjcVar != null) {
+                qjcVar.unsubscribe();
             }
             this.b = null;
             FragmentTabStructure fragmentTabStructure = this.mFragement;
@@ -464,10 +464,10 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
 
     @Override // com.baidu.tbadk.mainTab.FragmentDelegate
     public void onAdd() {
-        v95 v95Var;
+        w95 w95Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (v95Var = (v95) ServiceManager.getService(v95.a)) != null && this.b == null) {
-            this.b = ijc.c(v95Var.g().k(new g(this)), v95Var.c(), new f(this)).p(new e(this)).H(new d(this, v95Var));
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (w95Var = (w95) ServiceManager.getService(w95.a)) != null && this.b == null) {
+            this.b = jjc.c(w95Var.g().k(new g(this)), w95Var.c(), new f(this)).p(new e(this)).H(new d(this, w95Var));
         }
     }
 
@@ -476,7 +476,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            this.mIndicator = (MaintabBottomIndicator) ak5.e().d(1004, new a(this, context));
+            this.mIndicator = (MaintabBottomIndicator) bk5.e().d(1004, new a(this, context));
             this.a = new MessageRedDotView(context);
             TbFragmentTabIndicator.FragmentTapTip fragmentTapTip = new TbFragmentTabIndicator.FragmentTapTip();
             TbFragmentTabIndicator tbFragmentTabIndicator = this.mIndicator;

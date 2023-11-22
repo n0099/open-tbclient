@@ -45,7 +45,7 @@ public class rv4 {
     }
 
     /* loaded from: classes8.dex */
-    public class b implements ft5<Boolean> {
+    public class b implements gt5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rv4 a;
@@ -75,7 +75,7 @@ public class rv4 {
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    r0b.b(true);
+                    s0b.b(true);
                 }
             }
         }
@@ -99,7 +99,7 @@ public class rv4 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ft5
+        @Override // com.baidu.tieba.gt5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -119,7 +119,7 @@ public class rv4 {
     }
 
     /* loaded from: classes8.dex */
-    public class a extends au5<Boolean> {
+    public class a extends bu5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -141,7 +141,7 @@ public class rv4 {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.au5
+        @Override // com.baidu.tieba.bu5
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -149,9 +149,9 @@ public class rv4 {
                 try {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2008015, currentAccount));
-                    x95.p0().b0(true);
+                    y95.p0().b0(true);
                     NotificationHelper.cancelAllNotification(TbadkCoreApplication.getInst());
-                    xqa.B("");
+                    yqa.B("");
                     ov4.t().g(currentAccount, false);
                     BdCacheService.o().a(currentAccount);
                     SharedPrefHelper.getInstance().clearByAccount(currentAccount);
@@ -198,7 +198,7 @@ public class rv4 {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            eu5.b(new a(this), new b(this));
+            fu5.b(new a(this), new b(this));
         }
     }
 

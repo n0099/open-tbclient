@@ -1,32 +1,28 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.YyExt;
+import tbclient.YulePostActivity;
 /* loaded from: classes7.dex */
-public class o6d extends poc {
+public class o6d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull YyExt yyExt) {
+    public static JSONObject b(@NonNull YulePostActivity yulePostActivity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, yyExt)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, yulePostActivity)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "sid", yyExt.sid);
-            poc.a(jSONObject, YyLiveRoomConfig.KEY_SSID, yyExt.ssid);
-            poc.a(jSONObject, "template_id", yyExt.template_id);
-            poc.a(jSONObject, "yy_uid", yyExt.yy_uid);
-            poc.a(jSONObject, "is_yy_game", yyExt.is_yy_game);
-            poc.a(jSONObject, "stream_info", yyExt.stream_info);
-            poc.a(jSONObject, "rank_show", yyExt.rank_show);
-            poc.a(jSONObject, "icon_url", yyExt.icon_url);
-            poc.a(jSONObject, "feed_id", yyExt.feed_id);
+            qoc.a(jSONObject, "start_time", yulePostActivity.start_time);
+            qoc.a(jSONObject, "end_time", yulePostActivity.end_time);
+            qoc.a(jSONObject, "activity_banner", yulePostActivity.activity_banner);
+            qoc.a(jSONObject, "activity_url", yulePostActivity.activity_url);
+            qoc.a(jSONObject, "activity_desc", yulePostActivity.activity_desc);
+            qoc.a(jSONObject, "activity_button", yulePostActivity.activity_button);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

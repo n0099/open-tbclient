@@ -17,7 +17,7 @@ public final class ft extends us {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public bw4 h;
-    public xl6<bw4> i;
+    public yl6<bw4> i;
     public CustomFitFrameCard j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -84,9 +84,9 @@ public final class ft extends us {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            xl6<bw4> xl6Var = this$0.i;
-            if (xl6Var != null) {
-                xl6Var.a(view2, this$0.h);
+            yl6<bw4> yl6Var = this$0.i;
+            if (yl6Var != null) {
+                yl6Var.a(view2, this$0.h);
             }
         }
     }
@@ -130,10 +130,10 @@ public final class ft extends us {
     }
 
     @Override // com.baidu.tieba.ns
-    public void n(xl6<bw4> xl6Var) {
+    public void n(yl6<bw4> yl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xl6Var) == null) {
-            this.i = xl6Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yl6Var) == null) {
+            this.i = yl6Var;
         }
     }
 }

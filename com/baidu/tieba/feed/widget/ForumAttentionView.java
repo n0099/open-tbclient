@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.feed.widget.ForumAttentionView;
-import com.baidu.tieba.od7;
-import com.baidu.tieba.u55;
-import com.baidu.tieba.wc7;
+import com.baidu.tieba.pd7;
+import com.baidu.tieba.v55;
+import com.baidu.tieba.xc7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -106,20 +106,20 @@ public final class ForumAttentionView extends TBSpecificationBtn {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public static /* synthetic */ void t(ForumAttentionView forumAttentionView, od7 od7Var, boolean z, int i, Object obj) {
+    public static /* synthetic */ void t(ForumAttentionView forumAttentionView, pd7 pd7Var, boolean z, int i, Object obj) {
         if ((i & 2) != 0) {
             z = false;
         }
-        forumAttentionView.s(od7Var, z);
+        forumAttentionView.s(pd7Var, z);
     }
 
-    public static final void u(final ForumAttentionView this$0, final od7 state) {
+    public static final void u(final ForumAttentionView this$0, final pd7 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, this$0, state) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(state, "$state");
-            if (wc7.a(this$0, state, false)) {
-                this$0.post(new Runnable() { // from class: com.baidu.tieba.ed7
+            if (xc7.a(this$0, state, false)) {
+                this$0.post(new Runnable() { // from class: com.baidu.tieba.fd7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -135,7 +135,7 @@ public final class ForumAttentionView extends TBSpecificationBtn {
         }
     }
 
-    public static final void v(ForumAttentionView this$0, od7 state) {
+    public static final void v(ForumAttentionView this$0, pd7 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, this$0, state) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -144,11 +144,11 @@ public final class ForumAttentionView extends TBSpecificationBtn {
         }
     }
 
-    public static final void w(od7 state, TbPageContext pageContext, View view2) {
+    public static final void w(pd7 state, TbPageContext pageContext, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, null, state, pageContext, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
-            Function2<od7, TbPageContext<?>, Unit> h = state.h();
+            Function2<pd7, TbPageContext<?>, Unit> h = state.h();
             Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
             h.invoke(state, pageContext);
         }
@@ -157,17 +157,17 @@ public final class ForumAttentionView extends TBSpecificationBtn {
     public final void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            u55 u55Var = new u55();
+            v55 v55Var = new v55();
             if (z) {
-                u55Var.v(R.color.CAM_X0109);
+                v55Var.v(R.color.CAM_X0109);
             } else {
-                u55Var.u(R.color.CAM_X0302);
-                u55Var.j(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                u55Var.i(R.color.CAM_X0304);
-                u55Var.h(BdUtilHelper.getDimens(getContext(), R.dimen.tbds26));
-                u55Var.g(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X002));
+                v55Var.u(R.color.CAM_X0302);
+                v55Var.j(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                v55Var.i(R.color.CAM_X0304);
+                v55Var.h(BdUtilHelper.getDimens(getContext(), R.dimen.tbds26));
+                v55Var.g(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X002));
             }
-            setConfig(u55Var);
+            setConfig(v55Var);
         }
     }
 
@@ -178,13 +178,13 @@ public final class ForumAttentionView extends TBSpecificationBtn {
         }
     }
 
-    public final void s(final od7 state, boolean z) {
+    public final void s(final pd7 state, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, state, z) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
-            wc7.b(this, state, false, 2, null);
+            xc7.b(this, state, false, 2, null);
             if (!z) {
-                Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ad7
+                Runnable runnable = new Runnable() { // from class: com.baidu.tieba.bd7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -205,7 +205,7 @@ public final class ForumAttentionView extends TBSpecificationBtn {
                 Context context = getContext();
                 if (context != null) {
                     final TbPageContext pageContext = ((TbPageContextSupport) context).getPageContext();
-                    setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.zc7
+                    setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ad7
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -213,7 +213,7 @@ public final class ForumAttentionView extends TBSpecificationBtn {
                         public final void onClick(View view2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                                ForumAttentionView.w(od7.this, pageContext, view2);
+                                ForumAttentionView.w(pd7.this, pageContext, view2);
                             }
                         }
                     });

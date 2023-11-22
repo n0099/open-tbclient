@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.it;
-import com.baidu.tieba.u6b;
+import com.baidu.tieba.v6b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -91,16 +91,16 @@ public class RecommendCollectLayout extends RelativeLayout implements it {
         }
     }
 
-    public void setData(u6b u6bVar) {
+    public void setData(v6b v6bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u6bVar) == null) && u6bVar != null && !ListUtils.isEmpty(u6bVar.getDataList())) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v6bVar) == null) && v6bVar != null && !ListUtils.isEmpty(v6bVar.getDataList())) {
             this.e.removeAllViews();
             this.f.clear();
-            this.b.u(u6bVar.getDataList());
+            this.b.u(v6bVar.getDataList());
             this.b.z(this.c);
-            this.b.x(u6bVar.c());
-            this.b.y(u6bVar.d());
-            for (int i = 0; i < u6bVar.getDataList().size(); i++) {
+            this.b.x(v6bVar.c());
+            this.b.y(v6bVar.d());
+            for (int i = 0; i < v6bVar.getDataList().size(); i++) {
                 ContentCollectListAdapter contentCollectListAdapter = this.b;
                 RecyclerView.ViewHolder onCreateViewHolder = contentCollectListAdapter.onCreateViewHolder(null, contentCollectListAdapter.getItemViewType(i));
                 this.e.addView(onCreateViewHolder.itemView);

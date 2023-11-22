@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.ForumBroadcastHelper;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tbadk.util.NetMessageHelper;
-import com.baidu.tieba.js5;
-import com.baidu.tieba.mea;
-import com.baidu.tieba.os5;
+import com.baidu.tieba.ks5;
+import com.baidu.tieba.nea;
+import com.baidu.tieba.ps5;
 import com.baidu.tieba.recapp.localads.LocationCacheData;
-import com.baidu.tieba.w58;
+import com.baidu.tieba.x58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -81,12 +81,12 @@ public final class FrsThreadListRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.thread_ids = this.threadIds;
             builder.forum_id = Long.valueOf(this.forumId);
-            String d = w58.e().d("frs_feed");
+            String d = x58.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = js5.f(d, js5.e());
-            builder.ad_bear_sid_price = Double.valueOf(js5.h());
+            builder.ad_bear_context = ks5.f(d, ks5.e());
+            builder.ad_bear_sid_price = Double.valueOf(ks5.h());
             int i2 = 1;
-            if (js5.m(builder.ad_bear_sid)) {
+            if (ks5.m(builder.ad_bear_sid)) {
                 i = 1;
             } else {
                 i = 0;
@@ -110,7 +110,7 @@ public final class FrsThreadListRequestMessage extends NetMessage {
             builder.sort_type = Integer.valueOf(this.sortType);
             builder.request_times = Integer.valueOf(this.requestTimes);
             builder.frs_common_info = this.frsCommonInfo;
-            builder.ad_context_list = mea.f().d("FRS");
+            builder.ad_context_list = nea.f().d("FRS");
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.adFloorInfo);
             builder.ad_ext_params = b.a();
@@ -122,7 +122,7 @@ public final class FrsThreadListRequestMessage extends NetMessage {
             builder2.load_count = Integer.valueOf(this.loadCount);
             builder2.refresh_count = Integer.valueOf(this.refreshCount);
             builder.ad_param = builder2.build(false);
-            builder.app_transmit_data = os5.b();
+            builder.app_transmit_data = ps5.b();
             ThreadListReqIdl.Builder builder3 = new ThreadListReqIdl.Builder();
             builder3.data = builder.build(false);
             ThreadListReqIdl build = builder3.build(false);

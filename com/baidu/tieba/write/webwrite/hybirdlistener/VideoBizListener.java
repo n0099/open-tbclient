@@ -6,12 +6,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.dbb;
 import com.baidu.tieba.ebb;
-import com.baidu.tieba.vfb;
+import com.baidu.tieba.fbb;
+import com.baidu.tieba.wfb;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
-import com.baidu.tieba.ybb;
+import com.baidu.tieba.zbb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public final class VideoBizListener extends BizBase {
     public transient /* synthetic */ FieldHolder $fh;
     public final EditorTools g;
 
-    @Override // com.baidu.tieba.gbb
+    @Override // com.baidu.tieba.hbb
     public WrapListener[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public final class VideoBizListener extends BizBase {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoBizListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, ybb writePageState, EditorTools editor) {
+    public VideoBizListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, zbb writePageState, EditorTools editor) {
         super(context, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -49,7 +49,7 @@ public final class VideoBizListener extends BizBase {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (ybb) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (zbb) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,24 +63,24 @@ public final class VideoBizListener extends BizBase {
         this.g = editor;
     }
 
-    @Override // com.baidu.tieba.gbb
-    public ebb[] b() {
+    @Override // com.baidu.tieba.hbb
+    public fbb[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ebb[]{p(25064, new VideoBizListener$requestCodeHandlers$1(this))} : (ebb[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new fbb[]{p(25064, new VideoBizListener$requestCodeHandlers$1(this))} : (fbb[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gbb
-    public dbb[] f() {
+    @Override // com.baidu.tieba.hbb
+    public ebb[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new dbb[]{n(60, new VideoBizListener$editorActionHandlers$1(this))} : (dbb[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new ebb[]{n(60, new VideoBizListener$editorActionHandlers$1(this))} : (ebb[]) invokeV.objValue;
     }
 
     public final void t(int i, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, intent) == null) {
-            vfb.a(i(), k());
+            wfb.a(i(), k());
         }
     }
 
@@ -88,7 +88,7 @@ public final class VideoBizListener extends BizBase {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i, obj) == null) {
             this.g.y();
-            vfb.d(i(), k());
+            wfb.d(i(), k());
         }
     }
 }

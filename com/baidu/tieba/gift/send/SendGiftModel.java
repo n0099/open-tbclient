@@ -7,8 +7,8 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.c78;
-import com.baidu.tieba.cra;
+import com.baidu.tieba.d78;
+import com.baidu.tieba.dra;
 import com.baidu.tieba.gift.giftTab.GiftTabActivity;
 import com.baidu.tieba.ox4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
 
     /* loaded from: classes6.dex */
     public interface c {
-        void a(int i, String str, c78 c78Var);
+        void a(int i, String str, d78 d78Var);
 
         void b();
 
@@ -141,14 +141,14 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
             if (!z && !(responsedMessage instanceof PlaceOrderSocketResponse)) {
                 return;
             }
-            c78 c78Var = null;
+            d78 d78Var = null;
             if (z) {
-                c78Var = ((PlaceOrderHttpResponse) responsedMessage).getOrderInfo();
+                d78Var = ((PlaceOrderHttpResponse) responsedMessage).getOrderInfo();
             } else if (responsedMessage instanceof PlaceOrderSocketResponse) {
-                c78Var = ((PlaceOrderSocketResponse) responsedMessage).getOrderInfo();
+                d78Var = ((PlaceOrderSocketResponse) responsedMessage).getOrderInfo();
             }
             if (this.a.a != null) {
-                this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), c78Var);
+                this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), d78Var);
             }
         }
     }
@@ -173,10 +173,10 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
         }
         this.b = new a(this, CmdConfigHttp.CMD_SEND_FREE_GIFT, 309050);
         this.c = new b(this, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, 309051);
-        cra.h(309050, SendFreeGiftSocketResponse.class, false, false);
-        cra.c(309050, CmdConfigHttp.CMD_SEND_FREE_GIFT, TbConfig.SEND_FREE_GIFT, SendFreeGiftHttpResponse.class, false, false, false, false);
-        cra.h(309051, PlaceOrderSocketResponse.class, false, false);
-        cra.c(309051, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, TbConfig.GIFT_PLACE_ORDER, PlaceOrderHttpResponse.class, false, false, false, false);
+        dra.h(309050, SendFreeGiftSocketResponse.class, false, false);
+        dra.c(309050, CmdConfigHttp.CMD_SEND_FREE_GIFT, TbConfig.SEND_FREE_GIFT, SendFreeGiftHttpResponse.class, false, false, false, false);
+        dra.h(309051, PlaceOrderSocketResponse.class, false, false);
+        dra.c(309051, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, TbConfig.GIFT_PLACE_ORDER, PlaceOrderHttpResponse.class, false, false, false, false);
         registerListener(this.b);
         registerListener(this.c);
     }

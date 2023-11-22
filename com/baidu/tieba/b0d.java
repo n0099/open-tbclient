@@ -1,46 +1,30 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.AvatarFrame;
-import tbclient.Level;
-import tbclient.MparrProps;
-import tbclient.Portrait;
-import tbclient.Props;
+import tbclient.MemeInfo;
 /* loaded from: classes5.dex */
-public class b0d extends poc {
+public class b0d extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull MparrProps mparrProps) {
+    public static JSONObject b(@NonNull MemeInfo memeInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, mparrProps)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, memeInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            AvatarFrame avatarFrame = mparrProps.avatarframe;
-            if (avatarFrame != null) {
-                poc.a(jSONObject, "avatarframe", ypc.b(avatarFrame));
-            }
-            Portrait portrait = mparrProps.portrait;
-            if (portrait != null) {
-                poc.a(jSONObject, "portrait", m1d.b(portrait));
-            }
-            Level level = mparrProps.level;
-            if (level != null) {
-                poc.a(jSONObject, "level", mzc.b(level));
-            }
-            if (mparrProps.props != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (Props props : mparrProps.props) {
-                    jSONArray.put(u1d.b(props));
-                }
-                poc.a(jSONObject, "props", jSONArray);
-            }
+            qoc.a(jSONObject, "pck_id", memeInfo.pck_id);
+            qoc.a(jSONObject, EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, memeInfo.pic_id);
+            qoc.a(jSONObject, "pic_url", memeInfo.pic_url);
+            qoc.a(jSONObject, "thumbnail", memeInfo.thumbnail);
+            qoc.a(jSONObject, "width", memeInfo.width);
+            qoc.a(jSONObject, "height", memeInfo.height);
+            qoc.a(jSONObject, "detail_link", memeInfo.detail_link);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

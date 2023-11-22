@@ -49,14 +49,14 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e27;
 import com.baidu.tieba.f27;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.EmotionPackageDetailModel;
 import com.baidu.tieba.faceshop.packagedetail.PackageDetailListView;
+import com.baidu.tieba.g27;
 import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
 import com.baidu.tieba.newfaceshop.NewFaceGroupShareModel;
-import com.baidu.tieba.p07;
+import com.baidu.tieba.q07;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
@@ -85,7 +85,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
     public String J;
     public View K;
     public LikeModel L;
-    public f27 M;
+    public g27 M;
     public int N;
     public final CustomMessageListener O;
     public final CustomMessageListener P;
@@ -848,7 +848,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                         }
                     }
                 }
-                if (p07.c().e("" + this.a.D)) {
+                if (q07.c().e("" + this.a.D)) {
                     this.a.w.setText(R.string.already_downloaded);
                     SkinManager.setViewTextColor(this.a.w, (int) R.color.CAM_X0109);
                     SkinManager.setImageResource(this.a.v, R.drawable.icon_bar_downloaded);
@@ -1025,9 +1025,9 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof e27)) {
-                e27 e27Var = (e27) customResponsedMessage.getData();
-                int i = e27Var.a;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof f27)) {
+                f27 f27Var = (f27) customResponsedMessage.getData();
+                int i = f27Var.a;
                 if (i == 0) {
                     BdUtilHelper.showToast(this.a.getActivity(), (int) R.string.down_state_success);
                     SkinManager.setImageResource(this.a.v, R.drawable.icon_bar_downloaded);
@@ -1042,7 +1042,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                     BdUtilHelper.showToast(this.a.getActivity(), (int) R.string.download_error);
                     this.a.u.setEnabled(true);
                 } else if (i == 2) {
-                    int i2 = e27Var.b;
+                    int i2 = f27Var.b;
                     if (i2 > 0 && i2 < 100) {
                         BdUtilHelper.showLongToast(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0f66));
                     } else if (i2 >= 100) {
@@ -1179,9 +1179,9 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onPause();
-            f27 f27Var = this.M;
-            if (f27Var != null) {
-                f27Var.s();
+            g27 g27Var = this.M;
+            if (g27Var != null) {
+                g27Var.s();
             }
         }
     }
@@ -1272,7 +1272,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
             findViewById3.setOnClickListener(this);
             this.y = (ImageView) findViewById(R.id.obfuscated_res_0x7f092a3a);
             this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f092a4b);
-            this.M = new f27(this);
+            this.M = new g27(this);
         }
     }
 
@@ -1348,9 +1348,9 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
             if (noDataView != null) {
                 noDataView.f(getPageContext(), i2);
             }
-            f27 f27Var = this.M;
-            if (f27Var != null) {
-                f27Var.y(i2);
+            g27 g27Var = this.M;
+            if (g27Var != null) {
+                g27Var.y(i2);
             }
         }
     }

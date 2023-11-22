@@ -4,49 +4,30 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.tencent.open.SocialConstants;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.Agree;
-import tbclient.FeedContentResource;
-import tbclient.FeedKV;
-import tbclient.FeedPostExpose;
-import tbclient.PostExposeHead;
+import tbclient.FeedPicComponent;
+import tbclient.PicInfo;
 /* loaded from: classes5.dex */
-public class ctc extends poc {
+public class ctc extends qoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedPostExpose feedPostExpose) {
+    public static JSONObject b(@NonNull FeedPicComponent feedPicComponent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedPostExpose)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedPicComponent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            poc.a(jSONObject, "schema", feedPostExpose.schema);
-            poc.a(jSONObject, "stamp_url", feedPostExpose.stamp_url);
-            if (feedPostExpose.floor != null) {
+            if (feedPicComponent.pics != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (FeedContentResource feedContentResource : feedPostExpose.floor) {
-                    jSONArray.put(fsc.b(feedContentResource));
+                for (PicInfo picInfo : feedPicComponent.pics) {
+                    jSONArray.put(g1d.b(picInfo));
                 }
-                poc.a(jSONObject, "floor", jSONArray);
+                qoc.a(jSONObject, SocialConstants.PARAM_IMAGE, jSONArray);
             }
-            PostExposeHead postExposeHead = feedPostExpose.head_img;
-            if (postExposeHead != null) {
-                poc.a(jSONObject, "head_img", o1d.b(postExposeHead));
-            }
-            if (feedPostExpose.business_info != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (FeedKV feedKV : feedPostExpose.business_info) {
-                    jSONArray2.put(tsc.b(feedKV));
-                }
-                poc.a(jSONObject, "business_info", jSONArray2);
-            }
-            poc.a(jSONObject, "head_text", feedPostExpose.head_text);
-            Agree agree = feedPostExpose.head_agree;
-            if (agree != null) {
-                poc.a(jSONObject, "head_agree", gpc.b(agree));
-            }
+            qoc.a(jSONObject, "schema", feedPicComponent.schema);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

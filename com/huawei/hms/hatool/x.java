@@ -1,7 +1,7 @@
 package com.huawei.hms.hatool;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b8c;
+import com.baidu.tieba.c8c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -124,7 +124,7 @@ public class x {
             } else if (System.currentTimeMillis() - b2 <= com.heytap.mcssdk.constant.a.g) {
                 return;
             }
-            String d = b8c.d(16);
+            String d = c8c.d(16);
             String a2 = e.a(b3, d);
             this.a.a(b2);
             this.a.b(d);

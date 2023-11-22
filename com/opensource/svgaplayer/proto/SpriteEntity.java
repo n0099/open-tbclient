@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cac;
 import com.baidu.tieba.dac;
-import com.baidu.tieba.hac;
+import com.baidu.tieba.eac;
+import com.baidu.tieba.iac;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +50,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
                     return;
                 }
             }
-            this.frames = hac.i();
+            this.frames = iac.i();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +69,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-                hac.a(list);
+                iac.a(list);
                 this.frames = list;
                 return this;
             }
@@ -114,27 +114,27 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public SpriteEntity decode(cac cacVar) throws IOException {
+        public SpriteEntity decode(dac dacVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cacVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dacVar)) == null) {
                 Builder builder = new Builder();
-                long c = cacVar.c();
+                long c = dacVar.c();
                 while (true) {
-                    int f = cacVar.f();
+                    int f = dacVar.f();
                     if (f != -1) {
                         if (f != 1) {
                             if (f != 2) {
-                                FieldEncoding g = cacVar.g();
-                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(cacVar));
+                                FieldEncoding g = dacVar.g();
+                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(dacVar));
                             } else {
-                                builder.frames.add(FrameEntity.ADAPTER.decode(cacVar));
+                                builder.frames.add(FrameEntity.ADAPTER.decode(dacVar));
                             }
                         } else {
-                            builder.imageKey(ProtoAdapter.STRING.decode(cacVar));
+                            builder.imageKey(ProtoAdapter.STRING.decode(dacVar));
                         }
                     } else {
-                        cacVar.d(c);
+                        dacVar.d(c);
                         return builder.build();
                     }
                 }
@@ -151,7 +151,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, spriteEntity)) == null) {
                 ?? newBuilder2 = spriteEntity.newBuilder2();
-                hac.k(newBuilder2.frames, FrameEntity.ADAPTER);
+                iac.k(newBuilder2.frames, FrameEntity.ADAPTER);
                 newBuilder2.clearUnknownFields();
                 return newBuilder2.build();
             }
@@ -160,15 +160,15 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(dac dacVar, SpriteEntity spriteEntity) throws IOException {
+        public void encode(eac eacVar, SpriteEntity spriteEntity) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dacVar, spriteEntity) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, eacVar, spriteEntity) == null) {
                 String str = spriteEntity.imageKey;
                 if (str != null) {
-                    ProtoAdapter.STRING.encodeWithTag(dacVar, 1, str);
+                    ProtoAdapter.STRING.encodeWithTag(eacVar, 1, str);
                 }
-                FrameEntity.ADAPTER.asRepeated().encodeWithTag(dacVar, 2, spriteEntity.frames);
-                dacVar.k(spriteEntity.unknownFields());
+                FrameEntity.ADAPTER.asRepeated().encodeWithTag(eacVar, 2, spriteEntity.frames);
+                eacVar.k(spriteEntity.unknownFields());
             }
         }
 
@@ -217,7 +217,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Builder builder = new Builder();
             builder.imageKey = this.imageKey;
-            builder.frames = hac.c("frames", this.frames);
+            builder.frames = iac.c("frames", this.frames);
             builder.addUnknownFields(unknownFields());
             return builder;
         }
@@ -265,7 +265,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
             }
         }
         this.imageKey = str;
-        this.frames = hac.g("frames", list);
+        this.frames = iac.g("frames", list);
     }
 
     public boolean equals(Object obj) {
@@ -279,7 +279,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
                 return false;
             }
             SpriteEntity spriteEntity = (SpriteEntity) obj;
-            if (unknownFields().equals(spriteEntity.unknownFields()) && hac.f(this.imageKey, spriteEntity.imageKey) && this.frames.equals(spriteEntity.frames)) {
+            if (unknownFields().equals(spriteEntity.unknownFields()) && iac.f(this.imageKey, spriteEntity.imageKey) && this.frames.equals(spriteEntity.frames)) {
                 return true;
             }
             return false;

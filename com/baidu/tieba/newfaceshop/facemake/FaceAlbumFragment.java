@@ -24,10 +24,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.FaceData;
 import com.baidu.tieba.uq4;
 import com.baidu.tieba.vq4;
-import com.baidu.tieba.wi5;
-import com.baidu.tieba.xn9;
+import com.baidu.tieba.xi5;
 import com.baidu.tieba.xq4;
 import com.baidu.tieba.yn9;
+import com.baidu.tieba.zn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,9 +44,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     public transient /* synthetic */ FieldHolder $fh;
     public vq4 a;
     public GridView b;
-    public yn9 c;
+    public zn9 c;
     public List<ImageFileInfo> d;
-    public xn9 e;
+    public yn9 e;
     public NoDataView f;
     public BaseFragmentActivity g;
 
@@ -97,7 +97,7 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     }
 
     /* loaded from: classes7.dex */
-    public class b implements wi5 {
+    public class b implements xi5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceAlbumFragment a;
@@ -120,7 +120,7 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
             this.a = faceAlbumFragment;
         }
 
-        @Override // com.baidu.tieba.wi5
+        @Override // com.baidu.tieba.xi5
         public void a(BdImage bdImage, String str, boolean z) {
             TbImageView tbImageView;
             Interceptable interceptable = $ic;
@@ -160,9 +160,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            yn9 yn9Var = this.c;
-            if (yn9Var != null) {
-                return yn9Var.f();
+            zn9 zn9Var = this.c;
+            if (zn9Var != null) {
+                return zn9Var.f();
             }
             return null;
         }
@@ -176,21 +176,21 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         }
     }
 
-    public void B2(xn9 xn9Var) {
+    public void B2(yn9 yn9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xn9Var) == null) {
-            this.e = xn9Var;
-            yn9 yn9Var = this.c;
-            if (yn9Var != null) {
-                yn9Var.j(xn9Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yn9Var) == null) {
+            this.e = yn9Var;
+            zn9 zn9Var = this.c;
+            if (zn9Var != null) {
+                zn9Var.j(yn9Var);
             }
         }
     }
 
     public final void A2() {
-        yn9 yn9Var;
+        zn9 zn9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (yn9Var = this.c) != null && yn9Var.g() != null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (zn9Var = this.c) != null && zn9Var.g() != null) {
             int childCount = this.b.getChildCount();
             int firstVisiblePosition = this.b.getFirstVisiblePosition();
             for (int i = 0; i < childCount; i++) {
@@ -214,9 +214,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.d = new ArrayList();
             this.a = new vq4(getActivity());
-            yn9 yn9Var = new yn9(this.g, this.d);
-            this.c = yn9Var;
-            yn9Var.j(this.e);
+            zn9 zn9Var = new zn9(this.g, this.d);
+            this.c = zn9Var;
+            zn9Var.j(this.e);
             this.b.setAdapter((ListAdapter) this.c);
             this.b.setOnScrollListener(this);
             if (getArguments() != null && (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) != null && (serializable instanceof ArrayList)) {

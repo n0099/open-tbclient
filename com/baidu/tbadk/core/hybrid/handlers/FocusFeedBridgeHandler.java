@@ -5,8 +5,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
 import com.baidu.tieba.v35;
-import com.baidu.tieba.wc5;
 import com.baidu.tieba.x35;
+import com.baidu.tieba.xc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,11 +53,11 @@ public class FocusFeedBridgeHandler extends NamedBridgeHandler {
             int optInt = jSONObject.optInt("activityId");
             int optInt2 = jSONObject.optInt("state");
             String optString = jSONObject.optString("curNum");
-            wc5 wc5Var = new wc5();
-            wc5Var.a(optInt);
-            wc5Var.c(optInt2);
-            wc5Var.b(optString);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016492, wc5Var));
+            xc5 xc5Var = new xc5();
+            xc5Var.a(optInt);
+            xc5Var.c(optInt2);
+            xc5Var.b(optString);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016492, xc5Var));
         }
     }
 }

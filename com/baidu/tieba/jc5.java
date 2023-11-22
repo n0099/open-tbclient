@@ -1,17 +1,14 @@
 package com.baidu.tieba;
 
-import androidx.annotation.CallSuper;
-import com.baidu.adp.lib.safe.UiUtils;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.nps.main.invoke.IInvokeCallback;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+import tbclient.TailInfo;
 /* loaded from: classes6.dex */
-public abstract class jc5 implements IInvokeCallback {
+public class jc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,35 +26,31 @@ public abstract class jc5 implements IInvokeCallback {
         }
     }
 
-    /* renamed from: onResult$lambda-0  reason: not valid java name */
-    public static final void m143onResult$lambda0(String toastText) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, toastText) == null) {
-            Intrinsics.checkNotNullParameter(toastText, "$toastText");
-            BdUtilHelper.showLongToast(TbadkCoreApplication.getInst(), toastText);
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            try {
+                jSONObject.optString("icon_url");
+                jSONObject.optString("icon_link");
+                jSONObject.optString("content");
+                jSONObject.optInt("tail_type");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    @Override // com.baidu.nps.main.invoke.IInvokeCallback
-    @CallSuper
-    public void onResult(int i, final String str, Object obj) {
+    public void b(TailInfo tailInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, obj) == null) && i == -1400) {
-            if (str == null) {
-                str = "插件修复中...";
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tailInfo) == null) {
+            try {
+                String str = tailInfo.icon_url;
+                String str2 = tailInfo.icon_link;
+                String str3 = tailInfo.content;
+                tailInfo.tail_type.intValue();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.gc5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        jc5.m143onResult$lambda0(str);
-                    }
-                }
-            });
         }
     }
 }

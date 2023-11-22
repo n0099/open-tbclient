@@ -981,25 +981,6 @@ public final class zc3 {
         aj3.j(new k(id3Var, mc3Var), "SwanAppUBCEndFlow");
     }
 
-    @NonNull
-    public static String m(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65576, null, str, str2)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("url", str);
-                jSONObject.put(PmsConstant.Statistic.STATISTIC_ERRMSG, str2);
-            } catch (JSONException e2) {
-                if (a) {
-                    e2.printStackTrace();
-                }
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
     public static void w(ForbiddenInfo forbiddenInfo, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65587, null, forbiddenInfo, str) == null) && forbiddenInfo != null && !TextUtils.isEmpty(str)) {
@@ -1389,6 +1370,25 @@ public final class zc3 {
             jd3Var.t = str2;
             onEvent(jd3Var);
         }
+    }
+
+    @NonNull
+    public static String m(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65576, null, str, str2)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("url", str);
+                jSONObject.put(PmsConstant.Statistic.STATISTIC_ERRMSG, str2);
+            } catch (JSONException e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeLL.objValue;
     }
 
     public static void M(int i2, String str, int i3, String str2, @Nullable String str3, @Nullable String str4, String str5, long j2, long j3, @Nullable NetworkStatRecord networkStatRecord, @NonNull String str6) {

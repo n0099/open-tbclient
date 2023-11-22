@@ -47,7 +47,7 @@ public class re0 implements lf1 {
             arrayList.add(new u01());
             arrayList.add(new i41());
             arrayList.add(new k61());
-            arrayList.add(new f26());
+            arrayList.add(new g26());
             return arrayList;
         }
         return invokeV.objValue;

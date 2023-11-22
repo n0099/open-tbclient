@@ -4,15 +4,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.ShortUserInfo;
+import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class xy6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ShortUserInfo> a;
-    public String b;
-    public String c;
+    public sy4 a;
+    public ArrayList<oi> b;
+    public boolean c;
+    public boolean d;
+    public int e;
+    public int f;
+    public yy6 g;
+    public boolean h;
 
     public xy6() {
         Interceptable interceptable = $ic;
@@ -24,7 +28,15 @@ public class xy6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = true;
+        this.d = true;
+        this.e = 0;
+        this.f = 0;
+        this.h = true;
+        this.b = new ArrayList<>();
+        this.a = new sy4();
     }
 }

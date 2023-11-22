@@ -35,12 +35,12 @@ import com.baidu.tbadk.switchs.ShareSwitch;
 import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.az0;
-import com.baidu.tieba.bb5;
-import com.baidu.tieba.h55;
+import com.baidu.tieba.cb5;
+import com.baidu.tieba.i55;
 import com.baidu.tieba.immessagecenter.mention.FeedData;
 import com.baidu.tieba.jd;
-import com.baidu.tieba.sda;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tieba.tda;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,7 +56,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     public static String D0 = "https://afd.baidu.com/afd/updateTiebaAdExt";
     public transient /* synthetic */ FieldHolder $fh;
     public int A0;
-    public sda B0;
+    public tda B0;
     public int x0;
     public int y0;
     public int z0;
@@ -232,11 +232,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         }
     }
 
-    public void setShareData(sda sdaVar) {
+    public void setShareData(tda tdaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, sdaVar) == null) {
-            this.B0 = sdaVar;
-            setData(sdaVar.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048595, this, tdaVar) == null) {
+            this.B0 = tdaVar;
+            setData(tdaVar.getThreadData());
         }
     }
 
@@ -270,11 +270,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void J(View view2) {
-        sda sdaVar;
+        tda tdaVar;
         Uri parse;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && this.C != null && this.D != null && (sdaVar = this.B0) != null) {
-            p0(sdaVar.getThreadData(), "share", 0);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && this.C != null && this.D != null && (tdaVar = this.B0) != null) {
+            p0(tdaVar.getThreadData(), "share", 0);
             q0(this.B0.getThreadData(), "2", "1");
             if (!ShareSwitch.isOn() && !ViewHelper.checkUpIsLogin(this.D)) {
                 return;
@@ -326,7 +326,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
                         ShareItem shareItem2 = this.a;
-                        shareItem2.linkUrl = bb5.t(shareItem2.linkUrl, shareItem2.tid, UtilHelper.isVideoThread(shareItem2.obj_type));
+                        shareItem2.linkUrl = cb5.t(shareItem2.linkUrl, shareItem2.tid, UtilHelper.isVideoThread(shareItem2.obj_type));
                         AndroidUtils.copyToClipboard(this.a.linkUrl);
                         BdUtilHelper.showToast(this.b.D, view3.getResources().getString(R.string.copy_pb_url_success));
                     }
@@ -543,8 +543,8 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
             this.g.setEnabled(false);
             SkinManager.setViewTextColor(this.f, this.z0);
             SkinManager.setViewTextColor(this.j, this.A0);
-            h55.g(this.k, R.drawable.icon_pure_card_share20, false);
-            h55.h(this.j, false);
+            i55.g(this.k, R.drawable.icon_pure_card_share20, false);
+            i55.h(this.j, false);
         }
     }
 

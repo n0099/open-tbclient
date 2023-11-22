@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ku extends ns<bw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jl6 f;
+    public kl6 f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ku(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -34,7 +34,7 @@ public class ku extends ns<bw4> {
                 return;
             }
         }
-        this.f = new jl6(tbPageContext, bdUniqueId);
+        this.f = new kl6(tbPageContext, bdUniqueId);
     }
 
     @Override // com.baidu.tieba.ns
@@ -52,8 +52,8 @@ public class ku extends ns<bw4> {
     /* renamed from: r */
     public void onBindDataToView(bw4 bw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bw4Var) == null) && (bw4Var instanceof pm6)) {
-            this.f.onBindDataToView((pm6) bw4Var);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, bw4Var) == null) && (bw4Var instanceof qm6)) {
+            this.f.onBindDataToView((qm6) bw4Var);
         }
     }
 

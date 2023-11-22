@@ -10,16 +10,16 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g1a;
-import com.baidu.tieba.ura;
-import com.baidu.tieba.vv9;
+import com.baidu.tieba.h1a;
+import com.baidu.tieba.vra;
+import com.baidu.tieba.wv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class PbReplyLoadMoreAdapter extends vv9<ura, ReplyLoadMoreViewHolder> {
+public class PbReplyLoadMoreAdapter extends wv9<vra, ReplyLoadMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener g;
@@ -58,12 +58,12 @@ public class PbReplyLoadMoreAdapter extends vv9<ura, ReplyLoadMoreViewHolder> {
             }
         }
 
-        public void b(ura uraVar) {
+        public void b(vra vraVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uraVar) != null) || uraVar == null) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vraVar) != null) || vraVar == null) {
                 return;
             }
-            if (uraVar.D) {
+            if (vraVar.D) {
                 Drawable drawable = SkinManager.getDrawable(R.drawable.icon_emotion_smallarrow_n);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 this.a.setCompoundDrawables(null, null, drawable, null);
@@ -76,19 +76,19 @@ public class PbReplyLoadMoreAdapter extends vv9<ura, ReplyLoadMoreViewHolder> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbReplyLoadMoreAdapter(g1a g1aVar, BdUniqueId bdUniqueId) {
-        super(g1aVar, bdUniqueId);
+    public PbReplyLoadMoreAdapter(h1a h1aVar, BdUniqueId bdUniqueId) {
+        super(h1aVar, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g1aVar, bdUniqueId};
+            Object[] objArr = {h1aVar, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((g1a) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((h1a) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -120,13 +120,13 @@ public class PbReplyLoadMoreAdapter extends vv9<ura, ReplyLoadMoreViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vv9, com.baidu.tieba.bi
+    @Override // com.baidu.tieba.wv9, com.baidu.tieba.bi
     /* renamed from: y */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ura uraVar, ReplyLoadMoreViewHolder replyLoadMoreViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vra vraVar, ReplyLoadMoreViewHolder replyLoadMoreViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uraVar, replyLoadMoreViewHolder})) == null) {
-            replyLoadMoreViewHolder.b(uraVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vraVar, replyLoadMoreViewHolder})) == null) {
+            replyLoadMoreViewHolder.b(vraVar);
             return replyLoadMoreViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

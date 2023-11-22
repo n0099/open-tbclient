@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.game.interfaces.GameService;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.searchbox.live.interfaces.service.FollowStatusService;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jg9 extends bg1<GameService> {
+public class jg9 implements FollowStatusService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,15 +26,16 @@ public class jg9 extends bg1<GameService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bg1
-    /* renamed from: a */
-    public GameService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.FollowStatusService
+    public void saveFollowStatus(boolean z, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new kg9();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
+            UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
+            updateAttentionData.isSucc = true;
+            updateAttentionData.toUid = str;
+            updateAttentionData.isAttention = z;
+            updateAttentionData.isFromLive = true;
+            MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(updateAttentionData));
         }
-        return (GameService) invokeV.objValue;
     }
 }

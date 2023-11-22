@@ -1,34 +1,34 @@
 package rx.subjects;
 
-import com.baidu.tieba.ijc;
 import com.baidu.tieba.jjc;
-import com.baidu.tieba.ojc;
-import com.baidu.tieba.ooc;
-import com.baidu.tieba.vjc;
+import com.baidu.tieba.kjc;
+import com.baidu.tieba.pjc;
+import com.baidu.tieba.poc;
 import com.baidu.tieba.wjc;
+import com.baidu.tieba.xjc;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.functions.Actions;
 import rx.internal.operators.NotificationLite;
 /* loaded from: classes2.dex */
-public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements ijc.a<T> {
+public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements jjc.a<T> {
     public static final long serialVersionUID = 6035251036011671568L;
     public boolean active;
     public volatile Object latest;
-    public wjc<c<T>> onAdded;
-    public wjc<c<T>> onStart;
-    public wjc<c<T>> onTerminated;
+    public xjc<c<T>> onAdded;
+    public xjc<c<T>> onStart;
+    public xjc<c<T>> onTerminated;
 
     /* loaded from: classes2.dex */
-    public class a implements vjc {
+    public class a implements wjc {
         public final /* synthetic */ c a;
 
         public a(c cVar) {
             this.a = cVar;
         }
 
-        @Override // com.baidu.tieba.vjc
+        @Override // com.baidu.tieba.wjc
         public void call() {
             SubjectSubscriptionManager.this.remove(this.a);
         }
@@ -97,15 +97,15 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
     }
 
     /* loaded from: classes2.dex */
-    public static final class c<T> implements jjc<T> {
-        public final ojc<? super T> a;
+    public static final class c<T> implements kjc<T> {
+        public final pjc<? super T> a;
         public boolean b = true;
         public boolean c;
         public List<Object> d;
         public boolean e;
 
-        public c(ojc<? super T> ojcVar) {
-            this.a = ojcVar;
+        public c(pjc<? super T> pjcVar) {
+            this.a = pjcVar;
         }
 
         public void a(Object obj) {
@@ -147,12 +147,12 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             NotificationLite.a(this.a, obj);
         }
 
-        @Override // com.baidu.tieba.jjc
+        @Override // com.baidu.tieba.kjc
         public void onError(Throwable th) {
             this.a.onError(th);
         }
 
-        @Override // com.baidu.tieba.jjc
+        @Override // com.baidu.tieba.kjc
         public void onNext(T t) {
             this.a.onNext(t);
         }
@@ -213,7 +213,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             }
         }
 
-        @Override // com.baidu.tieba.jjc
+        @Override // com.baidu.tieba.kjc
         public void onCompleted() {
             this.a.onCompleted();
         }
@@ -248,11 +248,11 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         return true;
     }
 
-    public void call(ojc<? super T> ojcVar) {
-        c<T> cVar = new c<>(ojcVar);
-        addUnsubscriber(ojcVar, cVar);
+    public void call(pjc<? super T> pjcVar) {
+        c<T> cVar = new c<>(pjcVar);
+        addUnsubscriber(pjcVar, cVar);
         this.onStart.call(cVar);
-        if (!ojcVar.isUnsubscribed() && add(cVar) && ojcVar.isUnsubscribed()) {
+        if (!pjcVar.isUnsubscribed() && add(cVar) && pjcVar.isUnsubscribed()) {
             remove(cVar);
         }
     }
@@ -286,12 +286,12 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         return getAndSet(b.d).b;
     }
 
-    public void addUnsubscriber(ojc<? super T> ojcVar, c<T> cVar) {
-        ojcVar.b(ooc.a(new a(cVar)));
+    public void addUnsubscriber(pjc<? super T> pjcVar, c<T> cVar) {
+        pjcVar.b(poc.a(new a(cVar)));
     }
 
-    @Override // com.baidu.tieba.wjc
+    @Override // com.baidu.tieba.xjc
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((ojc) ((ojc) obj));
+        call((pjc) ((pjc) obj));
     }
 }

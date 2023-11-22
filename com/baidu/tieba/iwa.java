@@ -11,17 +11,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class iwa extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final lua b;
+    public MainTabActivity a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public iwa(MainTabActivity mainTabActivity, lua luaVar) {
-        super(2007009);
+    public iwa(MainTabActivity mainTabActivity) {
+        super(2921654);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, luaVar};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,21 +32,20 @@ public class iwa extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = luaVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof Integer)) {
-            Integer num = (Integer) customResponsedMessage.getData();
-            if (num.intValue() == 2) {
-                this.b.t(true);
-            } else if (num.intValue() == 1) {
-                this.b.t(false);
-            } else {
-                this.b.t(false);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
+            ff5 ff5Var = null;
+            if (customResponsedMessage.getData() instanceof ff5) {
+                ff5Var = (ff5) customResponsedMessage.getData();
+            }
+            if (ff5Var != null && ff5Var.b() == 0) {
+                MainTabActivity mainTabActivity = this.a;
+                new ef5(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f0923e7), ff5Var).m();
             }
         }
     }

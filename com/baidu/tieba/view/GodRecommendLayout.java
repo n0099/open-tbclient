@@ -37,12 +37,12 @@ import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ki;
 import com.baidu.tieba.mi;
-import com.baidu.tieba.nu5;
+import com.baidu.tieba.ou5;
 import com.baidu.tieba.qd;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import com.baidu.tieba.vu4;
-import com.baidu.tieba.w65;
 import com.baidu.tieba.wy4;
+import com.baidu.tieba.x65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -86,7 +86,7 @@ public class GodRecommendLayout extends LinearLayout {
             public TextView c;
             public HeadPendantClickableView d;
             public DynamicUserLikeButton e;
-            public w65 f;
+            public x65 f;
             public boolean g;
             public final /* synthetic */ GodRecommendListAdapter h;
 
@@ -116,9 +116,9 @@ public class GodRecommendLayout extends LinearLayout {
 
                 @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
                 public void a(View view2) {
-                    w65 w65Var;
+                    x65 x65Var;
                     Interceptable interceptable = $ic;
-                    if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (w65Var = this.a.f) != null && w65Var.h() != null && !this.a.f.h().getIsLike()) {
+                    if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (x65Var = this.a.f) != null && x65Var.h() != null && !this.a.f.h().getIsLike()) {
                         TiebaStatic.log(new StatisticItem("c13903").param(TiebaStatic.Params.FRIEND_UID, this.a.f.h().getUserId()).param("obj_name", this.a.c.getText().toString()));
                     }
                 }
@@ -159,9 +159,9 @@ public class GodRecommendLayout extends LinearLayout {
                 this.e = dynamicUserLikeButton;
                 dynamicUserLikeButton.setGodRecommendStyle(true);
                 this.e.setOnClickEvent(new a(this, godRecommendListAdapter));
-                w65 w65Var = new w65(godRecommendListAdapter.b, this.e);
-                this.f = w65Var;
-                w65Var.i(true);
+                x65 x65Var = new x65(godRecommendListAdapter.b, this.e);
+                this.f = x65Var;
+                x65Var.i(true);
             }
 
             public final void b(boolean z) {
@@ -307,9 +307,9 @@ public class GodRecommendLayout extends LinearLayout {
                     str = metaData.getNewGodData().getFieldName();
                 }
                 if (!qd.isEmpty(str)) {
-                    c = str + nu5.c(metaData.isVideoGod());
+                    c = str + ou5.c(metaData.isVideoGod());
                 } else {
-                    c = nu5.c(metaData.isVideoGod());
+                    c = ou5.c(metaData.isVideoGod());
                 }
                 godViewHolder.c.setText(c);
             }
@@ -339,11 +339,11 @@ public class GodRecommendLayout extends LinearLayout {
         }
 
         public final void B(MetaData metaData, GodViewHolder godViewHolder) {
-            w65 w65Var;
+            x65 x65Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, metaData, godViewHolder) == null) && (w65Var = godViewHolder.f) != null) {
-                w65Var.k(this.c);
-                w65Var.m(metaData);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, metaData, godViewHolder) == null) && (x65Var = godViewHolder.f) != null) {
+                x65Var.k(this.c);
+                x65Var.m(metaData);
             }
         }
 

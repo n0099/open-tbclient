@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 /* loaded from: classes5.dex */
-public interface abd extends xad {
+public interface abd extends yad {
 
     /* loaded from: classes5.dex */
     public interface a {

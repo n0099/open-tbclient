@@ -45,8 +45,8 @@ import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tbadk.util.VideoAudioHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.eq4;
-import com.baidu.tieba.h4b;
-import com.baidu.tieba.r95;
+import com.baidu.tieba.i4b;
+import com.baidu.tieba.s95;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.model.JumpYYLiveHttpResponseMessage;
 import com.baidu.tieba.videoplay.view.VideoChannelHeaderLayout;
@@ -61,7 +61,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.VideoRedIcon.RedIcon;
 /* loaded from: classes8.dex */
-public abstract class AbsVideoChannelFragment extends BaseFragment implements h4b {
+public abstract class AbsVideoChannelFragment extends BaseFragment implements i4b {
     public static /* synthetic */ Interceptable $ic;
     public static String w;
     public transient /* synthetic */ FieldHolder $fh;
@@ -784,30 +784,30 @@ public abstract class AbsVideoChannelFragment extends BaseFragment implements h4
         }
     }
 
-    @Override // com.baidu.tieba.h4b
+    @Override // com.baidu.tieba.i4b
     public void B(int i2, int i3, Intent intent) {
-        h4b C2;
+        i4b C2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, intent) == null) && (C2 = C2()) != null) {
             C2.B(i2, i3, intent);
         }
     }
 
-    public final h4b C2() {
+    public final i4b C2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             FragmentAdapter fragmentAdapter = this.g;
             if (fragmentAdapter != null && fragmentAdapter.b != -1) {
                 Fragment item = this.g.getItem(this.g.b);
-                if (item instanceof h4b) {
-                    return (h4b) item;
+                if (item instanceof i4b) {
+                    return (i4b) item;
                 }
                 return null;
             }
             return null;
         }
-        return (h4b) invokeV.objValue;
+        return (i4b) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -822,12 +822,12 @@ public abstract class AbsVideoChannelFragment extends BaseFragment implements h4
         }
     }
 
-    @Override // com.baidu.tieba.h4b
+    @Override // com.baidu.tieba.i4b
     public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            h4b C2 = C2();
+            i4b C2 = C2();
             if (C2 != null) {
                 return C2.E();
             }
@@ -861,9 +861,9 @@ public abstract class AbsVideoChannelFragment extends BaseFragment implements h4
         return (TbPageTag) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h4b
+    @Override // com.baidu.tieba.i4b
     public void l1() {
-        h4b C2;
+        i4b C2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (C2 = C2()) != null) {
             C2.l1();
@@ -894,12 +894,12 @@ public abstract class AbsVideoChannelFragment extends BaseFragment implements h4
         }
     }
 
-    @Override // com.baidu.tieba.h4b
+    @Override // com.baidu.tieba.i4b
     public long t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            h4b C2 = C2();
+            i4b C2 = C2();
             if (C2 != null) {
                 return C2.t();
             }
@@ -925,7 +925,7 @@ public abstract class AbsVideoChannelFragment extends BaseFragment implements h4
             }
             alaLiveTipView2.setShowFrom(i2);
             this.d.setNormalBottomMarginParams(BdUtilHelper.getDimens(getPageContext().getPageActivity(), R.dimen.tbds10));
-            r95.g(D2());
+            s95.g(D2());
             this.c.setAlaEntranceBtn(this.d);
             if (!ListUtils.isEmpty(this.m)) {
                 VideoItemData videoItemData = this.m.get(0);
